@@ -1,0 +1,14 @@
+[project]
+name = "badminton-coach-skill"
+version = "0.1.0"
+description = "Evidence-grounded badminton coach skill and rule matcher."
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

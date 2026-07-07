@@ -1,0 +1,45 @@
+- rule_id: late-arrival
+  issue: Rear-court arrival is late
+  category: footwork
+  priority: 10
+  applicable_actions: [high_clear, smash, rear_footwork]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [footwork_observations.arrival_timing]
+  observable_evidence:
+    - path: footwork_observations.arrival_timing
+      equals: late
+      label: Player arrives late before the rear-court hit.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for full-body rear-court movement view before diagnosing arrival timing.
+  likely_effect:
+    - Contact drifts behind the head.
+    - Player rushes the arm swing and loses frame.
+  correction_principle: Fix arrival and balance before changing hand speed.
+  drills: [rear-court-arrival-shadow]
+  retest_metrics:
+    - footwork_observations.arrival_timing should become on_time
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS]
+  confidence: inferred
+
+- rule_id: slow-recovery
+  issue: Recovery to base is slow
+  category: footwork
+  priority: 70
+  applicable_actions: [high_clear, smash, rear_footwork]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [footwork_observations.recovery]
+  observable_evidence:
+    - path: footwork_observations.recovery
+      equals: slow
+      label: Recovery after the rear-court hit is slow.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for post-hit frames through center recovery.
+  likely_effect:
+    - Next shot preparation becomes rushed.
+    - Player may over-correct swing mechanics when the real issue is recovery.
+  correction_principle: Keep the first training target on balanced exit and return.
+  drills: [rear-court-arrival-shadow]
+  retest_metrics:
+    - footwork_observations.recovery should become normal
+  source_ids: [LH_BILI_FRAMEWORK]
+  confidence: hypothesis

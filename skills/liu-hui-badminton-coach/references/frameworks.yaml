@@ -1,0 +1,36 @@
+- framework_id: stable-overhead-frame
+  name: Stable overhead frame
+  summary: Build arrival, contact point, racket-side structure, and top-elbow sequence before speed.
+  suitable_for:
+    level: [beginner, intermediate]
+    mobility: [limited, normal]
+    coordination: [arm_dominant, inconsistent]
+    training_goal: [clear_to_baseline, stable_rear_court]
+  avoid_for: []
+  priority:
+    - late-arrival
+    - contact-point-behind
+    - low-elbow
+    - collapsed-racket-structure
+    - short-follow-through
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_TOP_ELBOW_CLEAR]
+  confidence: inferred
+
+- framework_id: kinetic-chain-frame
+  name: Kinetic-chain power frame
+  summary: Add hip/trunk timing, elbow lead, and whip/pronation after stable arrival and contact.
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced, lower_body_available]
+    training_goal: [smash_power, efficient_power]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  priority:
+    - late-hip-rotation
+    - low-elbow
+    - pronation-whip-misread
+    - short-follow-through
+  source_ids: [LH_YT_PRONATION_WHIP, LH_YT_THREE_FRAMEWORKS]
+  confidence: inferred
+

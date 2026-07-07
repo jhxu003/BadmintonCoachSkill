@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlayerProfile",
+  "type": "object",
+  "required": [
+    "level",
+    "age_band",
+    "strength",
+    "mobility",
+    "coordination",
+    "injury_risk",
+    "training_goal",
+    "dominant_hand",
+    "available_training_time"
+  ],
+  "properties": {
+    "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+    "age_band": { "type": "string" },
+    "strength": { "type": "string" },
+    "mobility": { "type": "string" },
+    "coordination": { "type": "string" },
+    "injury_risk": { "type": "array", "items": { "type": "string" } },
+    "training_goal": { "type": "string" },
+    "dominant_hand": { "type": "string", "enum": ["right", "left", "unknown"] },
+    "available_training_time": { "type": "string" }
+  },
+  "additionalProperties": true
+}
+

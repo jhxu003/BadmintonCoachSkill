@@ -1,0 +1,37 @@
+{
+  "player_profile": {
+    "level": "beginner",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "limited",
+    "coordination": "arm_dominant",
+    "injury_risk": [],
+    "training_goal": "clear_to_baseline",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "high_clear",
+    "camera_view": "rear_side",
+    "fps_quality": "good",
+    "phase_observations": {},
+    "contact_point": "behind_head",
+    "elbow_height_before_hit": "below_shoulder",
+    "wrist_elbow_sequence": "wrist_before_elbow",
+    "hip_shoulder_sequence": "late_hip",
+    "racket_side_structure": "collapsed",
+    "follow_through": "short",
+    "footwork_observations": {
+      "arrival_timing": "late",
+      "recovery": "slow"
+    },
+    "missing_observations": [],
+    "keyframes": [
+      {
+        "label": "pre_hit",
+        "time_ms": 1840
+      }
+    ]
+  }
+}
+

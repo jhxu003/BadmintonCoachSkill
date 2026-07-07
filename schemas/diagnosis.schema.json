@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagnosis",
+  "type": "object",
+  "required": [
+    "primary_framework",
+    "issues",
+    "evidence",
+    "confidence",
+    "priority_order",
+    "training_plan",
+    "retest_metrics",
+    "missing_evidence",
+    "safety_notes"
+  ],
+  "properties": {
+    "primary_framework": { "type": "string" },
+    "issues": { "type": "array", "items": { "type": "object" } },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+    "priority_order": { "type": "array", "items": { "type": "string" } },
+    "training_plan": { "type": "array", "items": { "type": "object" } },
+    "retest_metrics": { "type": "array", "items": { "type": "string" } },
+    "missing_evidence": { "type": "array", "items": { "type": "string" } },
+    "safety_notes": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
+

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoObservation",
+  "type": "object",
+  "required": [
+    "action",
+    "camera_view",
+    "fps_quality",
+    "phase_observations",
+    "contact_point",
+    "elbow_height_before_hit",
+    "wrist_elbow_sequence",
+    "hip_shoulder_sequence",
+    "racket_side_structure",
+    "follow_through",
+    "footwork_observations",
+    "missing_observations",
+    "keyframes"
+  ],
+  "properties": {
+    "action": { "type": "string", "enum": ["high_clear", "smash", "rear_footwork", "unknown"] },
+    "camera_view": { "type": "string" },
+    "fps_quality": { "type": "string" },
+    "phase_observations": { "type": "object" },
+    "contact_point": { "type": "string" },
+    "elbow_height_before_hit": { "type": "string" },
+    "wrist_elbow_sequence": { "type": "string" },
+    "hip_shoulder_sequence": { "type": "string" },
+    "racket_side_structure": { "type": "string" },
+    "follow_through": { "type": "string" },
+    "footwork_observations": { "type": "object" },
+    "missing_observations": { "type": "array", "items": { "type": "string" } },
+    "keyframes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "time_ms"],
+        "properties": {
+          "label": { "type": "string" },
+          "time_ms": { "type": "number" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+

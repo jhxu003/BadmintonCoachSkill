@@ -1,0 +1,73 @@
+- drill_id: rear-court-arrival-shadow
+  name: Rear-court arrival shadow
+  target_issues: [late-arrival]
+  steps:
+    - Start from center base.
+    - Move to rear corner without swinging.
+    - Stop balanced before the imaginary contact.
+    - Return to center without crossing recovery steps.
+  dosage: 5 sets of 8 reps per rear corner.
+  retest_metrics:
+    - arrival_timing improves from late to on_time
+    - recovery improves from slow to normal
+
+- drill_id: contact-window-freeze
+  name: Front-high contact window freeze
+  target_issues: [contact-point-behind]
+  steps:
+    - Shadow swing slowly.
+    - Freeze at the intended contact point.
+    - Check the hand is in front of the head and above shoulder level.
+    - Resume only after the position is stable.
+  dosage: 3 sets of 15 slow reps.
+  retest_metrics:
+    - contact_point changes from behind_head to front_high
+
+- drill_id: top-elbow-freeze
+  name: Top-elbow freeze swing
+  target_issues: [low-elbow]
+  steps:
+    - Turn sideways and set the racket-side frame.
+    - Raise the elbow near shoulder line before acceleration.
+    - Hold for one second.
+    - Swing out slowly with elbow leading wrist.
+  dosage: 3 sets of 12 reps.
+  retest_metrics:
+    - elbow_height_before_hit changes from below_shoulder to near_shoulder
+    - wrist_elbow_sequence changes to elbow_before_wrist
+
+- drill_id: racket-frame-wall-check
+  name: Racket-side frame wall check
+  target_issues: [collapsed-racket-structure]
+  steps:
+    - Stand side-on near a wall.
+    - Set the racket arm without letting shoulder and elbow collapse forward.
+    - Repeat the frame set before shadow swing.
+  dosage: 3 sets of 10 frame checks.
+  retest_metrics:
+    - racket_side_structure changes from collapsed to stable
+
+- drill_id: slow-chain-throw
+  name: Slow hip-to-elbow chain throw
+  target_issues: [late-hip-rotation, pronation-whip-misread]
+  steps:
+    - Start with slow side-on preparation.
+    - Rotate hip/trunk first.
+    - Let elbow lead and wrist release last.
+    - Keep speed under 50 percent.
+  dosage: 4 sets of 8 slow reps.
+  retest_metrics:
+    - hip_shoulder_sequence changes from late_hip to hip_before_arm
+    - wrist_elbow_sequence changes to elbow_before_wrist
+
+- drill_id: complete-follow-through-line
+  name: Complete follow-through line
+  target_issues: [short-follow-through]
+  steps:
+    - Swing at low speed.
+    - Let the arm finish naturally across the body.
+    - Hold the finish for one second.
+  dosage: 3 sets of 15 reps.
+  retest_metrics:
+    - follow_through changes from short to complete
+

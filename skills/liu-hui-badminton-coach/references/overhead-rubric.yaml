@@ -1,0 +1,146 @@
+- rule_id: contact-point-behind
+  issue: Contact point is behind the head
+  category: contact
+  priority: 20
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [contact_point]
+  observable_evidence:
+    - path: contact_point
+      equals: behind_head
+      label: Contact is behind the head instead of front-high.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for side or rear-side view where head, shoulder, and contact frame are visible.
+  likely_effect:
+    - Power leaks before contact.
+    - Clear tends to fall short and smash angle becomes flat.
+  correction_principle: Move the training target to a front-high contact window before adding speed.
+  drills: [contact-window-freeze]
+  retest_metrics:
+    - contact_point should become front_high
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP]
+  confidence: source_backed
+
+- rule_id: low-elbow
+  issue: Top elbow is not established before acceleration
+  category: upper_body
+  priority: 30
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [elbow_height_before_hit, wrist_elbow_sequence]
+  observable_evidence:
+    - path: elbow_height_before_hit
+      equals: below_shoulder
+      label: Elbow is below the shoulder line before hit.
+    - path: wrist_elbow_sequence
+      equals: wrist_before_elbow
+      label: Wrist accelerates before the elbow leads.
+  min_evidence_count: 1
+  insufficient_evidence_policy: If elbow height or wrist/elbow order is missing, mark as suspected only.
+  likely_effect:
+    - The racket-side frame collapses.
+    - The swing becomes forearm- or wrist-dominant.
+  correction_principle: Build top-elbow frame and elbow-before-wrist sequence at slow speed.
+  drills: [top-elbow-freeze]
+  retest_metrics:
+    - elbow_height_before_hit should become near_shoulder
+    - wrist_elbow_sequence should become elbow_before_wrist
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_SMASH_ELBOW]
+  confidence: source_backed
+
+- rule_id: collapsed-racket-structure
+  issue: Racket-side frame collapses during preparation
+  category: upper_body
+  priority: 35
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate]
+  required_observations: [racket_side_structure]
+  observable_evidence:
+    - path: racket_side_structure
+      equals: collapsed
+      label: Racket-side preparation frame is collapsed.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for pre-hit keyframe where shoulder, elbow, wrist, and racket-side line are visible.
+  likely_effect:
+    - Elbow cannot lead cleanly.
+    - Player tends to pull with the arm instead of transferring body force.
+  correction_principle: Rebuild the static frame before adding swing speed.
+  drills: [racket-frame-wall-check]
+  retest_metrics:
+    - racket_side_structure should become stable
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS]
+  confidence: inferred
+
+- rule_id: late-hip-rotation
+  issue: Hip/trunk drive arrives late
+  category: kinetic_chain
+  priority: 45
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [intermediate, advanced, balanced]
+  required_observations: [hip_shoulder_sequence]
+  observable_evidence:
+    - path: hip_shoulder_sequence
+      equals: late_hip
+      label: Arm starts before hip/trunk contribution.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Do not diagnose hip drive without visible hip/shoulder sequence.
+  likely_effect:
+    - Power chain is interrupted.
+    - Player may compensate with shoulder or wrist force.
+  correction_principle: Rehearse slow hip-to-elbow sequencing before power swings.
+  drills: [slow-chain-throw]
+  retest_metrics:
+    - hip_shoulder_sequence should become hip_before_arm
+  source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_FRAMEWORK]
+  confidence: inferred
+
+- rule_id: pronation-whip-misread
+  issue: Whip or pronation is being forced too early
+  category: kinetic_chain
+  priority: 50
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [wrist_elbow_sequence, racket_side_structure]
+  observable_evidence:
+    - path: wrist_elbow_sequence
+      equals: wrist_before_elbow
+      label: Wrist action appears before elbow-led sequence.
+    - path: racket_side_structure
+      equals: collapsed
+      label: Frame is not stable enough for whip release.
+  min_evidence_count: 2
+  insufficient_evidence_policy: Mark as suspected unless both sequence and frame evidence are present.
+  likely_effect:
+    - Player twists the wrist instead of releasing through the chain.
+    - Smash power is inconsistent and shoulder load can increase.
+  correction_principle: Delay whip-speed work until contact, frame, and elbow sequence are usable.
+  drills: [slow-chain-throw]
+  retest_metrics:
+    - wrist_elbow_sequence should become elbow_before_wrist
+    - racket_side_structure should become stable
+  source_ids: [LH_YT_PRONATION_WHIP]
+  confidence: inferred
+
+- rule_id: short-follow-through
+  issue: Follow-through stops too early
+  category: finish
+  priority: 60
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [follow_through]
+  observable_evidence:
+    - path: follow_through
+      equals: short
+      label: Follow-through is cut short.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for frames after contact before diagnosing finish.
+  likely_effect:
+    - Swing decelerates before clean release.
+    - Recovery can become tense or segmented.
+  correction_principle: Let the swing finish naturally before judging power.
+  drills: [complete-follow-through-line]
+  retest_metrics:
+    - follow_through should become complete
+  source_ids: [LH_YT_PRONATION_WHIP, LH_BILI_SMASH_ELBOW]
+  confidence: inferred
+
