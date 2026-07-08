@@ -1,106 +1,157 @@
 # BadmintonCoachSkill
 
-BadmintonCoachSkill is a research project for building an evidence-grounded badminton coaching skill. The first internal skill, `liu-hui-badminton-coach`, turns structured video observations into technique diagnosis, training priorities, drills, and retest metrics.
+BadmintonCoachSkill is an evidence-grounded coaching layer for badminton video-analysis agents.
 
-This repository is not official, not authorized, and not affiliated with Liu Hui or any coaching organization. It is intended for research and personal learning. Public files store only source indexes, original summaries, schemas, rules, and code. Raw transcripts, paid-course notes, screenshots, and video files must stay outside git.
+It does not read raw video by itself. Instead, a video agent or human annotator provides structured observations such as contact point, elbow height, racket-side frame, hip timing, footwork arrival, and recovery. BadmintonCoachSkill then ranks the most important technical issue, selects a suitable coaching framework, recommends a drill, and adds a retest metric.
 
-## System Shape
+The first skill in this repository is `liu-hui-badminton-coach`, a non-official Liu Hui-inspired badminton coaching skill built from public-source indexing and original summaries.
 
-```text
-video agent observation JSON
-  -> player profile
-  -> rule matcher
-  -> liu-hui-badminton-coach skill references
-  -> diagnosis JSON + LLM report context
-```
+## What It Does
 
-The project does not perform pose estimation or read raw videos in v1. A separate video agent should extract body, racket-side, contact-point, and footwork observations.
+- Diagnoses high clear, smash, rear-court footwork, front-court footwork, backhand, serve/receive, and doubles cases.
+- Chooses a student-fit path before giving isolated technique cues.
+- Prioritizes observable problems such as late arrival, contact point, low elbow, collapsed frame, late hip drive, short follow-through, slow recovery, and large preparation.
+- Produces bounded coaching context for an LLM report: main priority, evidence, correction principle, drill, and retest metric.
+- Tracks source provenance so the model can distinguish source-backed, inferred, hypothesis, and insufficient-evidence claims.
 
-## Corpus Build
+## Who It Is For
 
-The Liu Hui corpus layer is now separated from the deterministic skill rules:
-
-- `data/source-index.tsv` is the canonical public-source index.
-- `data/corpus/teaching-points.yaml` stores short, original teaching-point summaries tied to source ids.
-- `data/corpus/collection-status.md` records what is collected and what is still incomplete.
-- `scripts/build_corpus_report.py` prints current corpus coverage.
-- `scripts/import_yt_dlp_jsonl.py` converts public `yt-dlp --dump-json` metadata into source-index TSV rows for full-channel completion.
-
-Current seed scope:
-
-```bash
-python3 scripts/build_corpus_report.py
-```
-
-Run the broader deterministic examples:
-
-```bash
-python3 examples/run_full_system_cases.py
-```
-
-Expected coverage:
-
-```text
-high_clear, smash, rear_footwork, front_footwork, backhand, serve_receive, doubles
-```
-
-Full-channel completion should import public metadata only. Do not commit raw videos, long subtitles, paid-course notes, cookies, or account exports.
+- Developers building badminton video-analysis agents.
+- Coaches who want structured draft reports from annotated video.
+- Researchers or builders experimenting with skill/rubric-driven sports feedback.
 
 ## Quick Start
 
 ```bash
-python3 -m pytest -q
-```
-
-Example usage:
-
-```python
-from pathlib import Path
-from badminton_coach_skill.rubric_loader import load_skill_knowledge
-from badminton_coach_skill.issue_matcher import match_diagnosis
-
-knowledge = load_skill_knowledge(Path("skills/liu-hui-badminton-coach/references"))
-diagnosis = match_diagnosis(player_profile, video_observation, knowledge)
-```
-
-## Usage Case
-
-Use case: a beginner uploads a rear-court high-clear clip. The video agent observes late rear-court arrival, a contact point behind the head, a low elbow before hit, and a short follow-through.
-
-Input file:
-
-```text
-examples/observations/high_clear_late_arrival.json
-```
-
-Run the deterministic usage case:
-
-```bash
+git clone https://github.com/jhxu003/BadmintonCoachSkill.git
+cd BadmintonCoachSkill
+python3 -m pip install -e .
 python3 examples/run_usage_case.py
 ```
 
-Expected summary:
+Expected output begins like this:
 
 ```text
 Primary framework: stable-overhead-frame
 Top priority: late-arrival
 ```
 
-Interpretation: the skill prioritizes arrival and contact window before advanced hand-speed or pronation advice. It then attaches observable evidence, a concrete drill, and retest metrics so an LLM can write a bounded coaching report without inventing unsupported issues.
+Run all built-in examples:
+
+```bash
+python3 examples/run_full_system_cases.py
+```
+
+Run tests:
+
+```bash
+python3 -m pytest -q
+```
+
+## How It Fits Into A Video Agent
+
+```text
+badminton video
+  -> video agent extracts structured observations
+  -> BadmintonCoachSkill matches rules and priorities
+  -> LLM writes a coaching report with evidence and retest metrics
+```
+
+Example code:
+
+```python
+from pathlib import Path
+from badminton_coach_skill.rubric_loader import load_skill_knowledge
+from badminton_coach_skill.issue_matcher import match_diagnosis
+from badminton_coach_skill.report_compiler import compile_llm_context
+
+knowledge = load_skill_knowledge(Path("skills/liu-hui-badminton-coach/references"))
+diagnosis = match_diagnosis(player_profile, video_observation, knowledge)
+llm_context = compile_llm_context(diagnosis)
+```
+
+`player_profile` and `video_observation` should follow:
+
+- `schemas/player-profile.schema.json`
+- `schemas/video-observation.schema.json`
+
+See `examples/observations/` for ready-to-run inputs.
+
+## Usage Case
+
+A beginner uploads a rear-court high-clear clip. The video agent observes:
+
+- late rear-court arrival
+- contact point behind the head
+- low elbow before hit
+- short follow-through
+
+BadmintonCoachSkill ranks `late-arrival` first, because arrival and contact window should be fixed before advanced hand-speed or pronation advice. The output then includes observable evidence, a drill, and a retest metric so the report stays actionable.
+
+## Current Coverage
+
+The skill currently includes deterministic examples for:
+
+```text
+high_clear, smash, rear_footwork, front_footwork, backhand, serve_receive, doubles
+```
+
+The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
+
+To inspect current corpus coverage:
+
+```bash
+python3 scripts/build_corpus_report.py
+```
+
+## Important Boundaries
+
+This project is not official, not authorized, and not affiliated with Liu Hui or any coaching organization.
+
+BadmintonCoachSkill does not:
+
+- claim Liu Hui personally reviewed any user video
+- claim official certification or endorsement
+- store raw videos, paid-course transcripts, screenshots, cookies, account exports, or long copied subtitles
+- infer invisible biomechanics from a single 2D frame
+- replace a qualified coach, medical professional, or injury-risk assessment
+
+When evidence is missing, the skill should say `insufficient evidence` and request better observations instead of forcing a confident diagnosis.
 
 ## Repository Layout
 
-- `data/source-index.tsv` indexes public sources and their usability.
-- `data/corpus/` stores public-safe corpus artifacts, access logs, teaching points, and system taxonomy.
-- `skills/liu-hui-badminton-coach/` contains the agent skill and references.
-- `schemas/` defines the profile, observation, and diagnosis contracts.
-- `src/badminton_coach_skill/` contains deterministic support code.
-- `tests/` verifies schemas, rule matching, and safety boundaries.
+- `skills/liu-hui-badminton-coach/`: the skill and coaching references.
+- `src/badminton_coach_skill/`: deterministic rule loading, issue matching, and report-context compilation.
+- `schemas/`: input and output contracts.
+- `examples/`: runnable diagnosis examples.
+- `data/source-index.tsv`: public source index.
+- `data/corpus/`: public-safe corpus artifacts, review logs, taxonomy, and provenance records.
+- `docs/`: collection, annotation, legal, and video-agent guidance.
+- `tests/`: schema, rule, corpus, and safety checks.
 
-## Safety Boundaries
+## Provenance Model
 
-- Do not claim Liu Hui personally judged any video.
-- Do not present this as official, certified, or authorized.
-- Do not store paid-course transcripts, full subtitles, screenshots, or raw videos in git.
-- When evidence is missing, return "insufficient evidence" rather than a confident diagnosis.
-- Do not claim all official-channel metadata has been imported while YouTube direct metadata fetch remains blocked in `data/corpus/public-access-log.tsv`.
+The skill separates evidence levels:
+
+- `source_backed`: supported by source metadata or reviewed notes within the allowed claim.
+- `inferred`: synthesized from multiple public titles or metadata rows; useful but not a direct quote.
+- `hypothesis`: useful as a diagnostic prompt, not a firm Liu Hui-derived rule.
+- `insufficient_evidence`: required observations are missing.
+
+See:
+
+- `skills/liu-hui-badminton-coach/references/corpus-provenance.md`
+- `skills/liu-hui-badminton-coach/references/reviewed-corpus-rules.yaml`
+- `data/corpus/collection-status.md`
+
+## Development
+
+Useful commands:
+
+```bash
+python3 -m pytest -q
+python3 scripts/check_source_integrity.py
+python3 scripts/build_corpus_report.py
+```
+
+Raw platform metadata should stay under ignored `data/raw-private/`. Public files should contain only source indexes, original short summaries, schemas, rules, and code.
