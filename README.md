@@ -33,6 +33,31 @@ knowledge = load_skill_knowledge(Path("skills/liu-hui-badminton-coach/references
 diagnosis = match_diagnosis(player_profile, video_observation, knowledge)
 ```
 
+## Usage Case
+
+Use case: a beginner uploads a rear-court high-clear clip. The video agent observes late rear-court arrival, a contact point behind the head, a low elbow before hit, and a short follow-through.
+
+Input file:
+
+```text
+examples/observations/high_clear_late_arrival.json
+```
+
+Run the deterministic usage case:
+
+```bash
+python3 examples/run_usage_case.py
+```
+
+Expected summary:
+
+```text
+Primary framework: stable-overhead-frame
+Top priority: late-arrival
+```
+
+Interpretation: the skill prioritizes arrival and contact window before advanced hand-speed or pronation advice. It then attaches observable evidence, a concrete drill, and retest metrics so an LLM can write a bounded coaching report without inventing unsupported issues.
+
 ## Repository Layout
 
 - `data/source-index.tsv` indexes public sources and their usability.
@@ -47,4 +72,3 @@ diagnosis = match_diagnosis(player_profile, video_observation, knowledge)
 - Do not present this as official, certified, or authorized.
 - Do not store paid-course transcripts, full subtitles, screenshots, or raw videos in git.
 - When evidence is missing, return "insufficient evidence" rather than a confident diagnosis.
-

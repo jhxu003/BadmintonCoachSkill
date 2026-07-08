@@ -1,6 +1,7 @@
 from pathlib import Path
 import csv
 import json
+import subprocess
 import sys
 
 import jsonschema
@@ -121,3 +122,20 @@ def test_skill_and_report_contract_contain_safety_boundaries():
 
     for phrase in ["非官方", "证据不足", "不模仿", "不声称"]:
         assert phrase in skill + contract
+
+
+def test_usage_case_is_documented_and_executable():
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "## Usage Case" in readme
+    assert "examples/run_usage_case.py" in readme
+
+    result = subprocess.run(
+        [sys.executable, "examples/run_usage_case.py"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+
+    assert "Primary framework: stable-overhead-frame" in result.stdout
+    assert "Top priority: late-arrival" in result.stdout
