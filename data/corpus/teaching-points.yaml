@@ -1,0 +1,119 @@
+- point_id: fit-framework-before-cue
+  summary: Choose the power or movement framework that fits the player before giving isolated hand-speed cues.
+  applies_to: [system, player_profile, training_plan]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_THREE_FRAMEWORKS, LH_YT_FOOTWORK_FIT, LH_BILI_LEARNING_ORDER]
+  rule_implication: The skill should pick a framework from player level, coordination, mobility, and goal before ranking technical issues.
+  review_need: Timestamp the exact framework-selection language before claiming source-backed status.
+
+- point_id: contact-window-before-speed
+  summary: For rear-court overhead strokes, fix the front-high contact window before asking for more whip, pronation, or speed.
+  applies_to: [high_clear, smash, overhead]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR, LH_YT_TOP_ELBOW_CLEAR]
+  rule_implication: Contact-point-behind should outrank advanced kinetic-chain advice when contact is visibly late or behind the head.
+  review_need: Add timestamped examples for beginner, intermediate, and passive rear-court cases.
+
+- point_id: top-elbow-as-frame
+  summary: Treat top elbow as part of an overhead frame and sequence rather than a decorative arm pose.
+  applies_to: [high_clear, smash, overhead]
+  evidence_type: timestamp_note
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP]
+  rule_implication: Low elbow can be diagnosed when elbow height or elbow-before-wrist sequence is visible.
+  review_need: Expand timestamp notes for smash and high-clear variants separately.
+
+- point_id: do-not-force-internal-rotation
+  summary: Internal rotation or pronation should not be forced as an isolated wrist twist when the frame and sequence are not ready.
+  applies_to: [high_clear, smash, overhead]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_INTERNAL_ROTATION_CUE, LH_YT_INTERNAL_ROTATION, LH_YT_PRONATION_WHIP, LH_BILI_WRIST_WHIP_ERROR]
+  rule_implication: If wrist appears before elbow and racket-side structure collapses, classify the issue as premature whip/pronation work.
+  review_need: Timestamp exact public examples before using stronger wording.
+
+- point_id: hip-drive-belongs-to-chain
+  summary: Hip rotation matters as part of a coordinated chain; if hip drive arrives late, slow sequencing should precede power swings.
+  applies_to: [high_clear, smash, overhead]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_HIP_ROTATION, LH_YT_THREE_FRAMEWORKS, LH_BILI_FRAMEWORK]
+  rule_implication: Late hip/trunk drive should be trained through slow chain sequencing and not through isolated arm acceleration.
+  review_need: Add timestamped notes for camera-angle requirements.
+
+- point_id: passive-rear-court-is-diagnostic
+  summary: Being pressured in the rear court should be diagnosed across arrival, contact, recovery, and stroke quality rather than blamed only on footwork.
+  applies_to: [high_clear, smash, footwork]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_YT_PASSIVE_WHIP, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+  rule_implication: Late arrival can trigger both footwork and contact-window checks; do not give a single-cause answer too early.
+  review_need: Timestamp public examples that separate footwork causes from stroke-structure causes.
+
+- point_id: practical-footwork-fit
+  summary: Footwork advice should fit the player's situation and not assume one universal step pattern.
+  applies_to: [footwork, player_profile, training_plan]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
+  rule_implication: The footwork rubric should consider late arrival, recovery, mobility, and training goal before recommending drills.
+  review_need: Timestamp examples for beginner, intermediate, and low-mobility players.
+
+- point_id: learning-order-matters
+  summary: The training plan should stage one priority at a time and preserve learning order.
+  applies_to: [training_plan, report_contract]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_CLEAR_CHANGE_ACTION, LH_YT_CONSISTENCY]
+  rule_implication: Reports should output one main priority, one drill, and one retest metric before adding secondary issues.
+  review_need: Add timestamps for explicit ordering language.
+
+- point_id: match-transfer-is-separate
+  summary: Learning a technique and using it in a match are separate training targets.
+  applies_to: [training_plan, match_transfer]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY]
+  rule_implication: Do not judge a technique as learned just because shadow drills look correct; retest under rally pressure.
+  review_need: Timestamp match-transfer examples and define pressure-level retest cases.
+
+- point_id: smash-sequence-before-angle
+  summary: For smash, establish a simple sequence and stable overhead frame before asking for steeper angle or heavier power.
+  applies_to: [smash, overhead]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
+  rule_implication: Low elbow, collapsed frame, and late hip sequence should outrank pure power advice in smash diagnosis.
+  review_need: Add timestamped differences between beginner smash and advanced heavy smash.
+
+- point_id: overhead-variation-after-base
+  summary: Slice, drop, and smash variations should come after a usable base overhead structure.
+  applies_to: [high_clear, smash, drop, overhead]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK, LH_YT_PLAYLIST_FOREHAND]
+  rule_implication: If base contact and frame fail, the skill should avoid advanced variation advice.
+  review_need: Timestamp examples for each overhead variation.
+
+- point_id: third-party-feedback-is-auxiliary
+  summary: Public discussion and learner feedback can suggest user pain points but cannot independently define Liu Hui-style rules.
+  applies_to: [corpus_policy, product_positioning]
+  evidence_type: third_party
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [PUBLIC_DISCUSSION_THREADS, LH_SOCIALBLADE_CHANNEL_STATS, PUBLIC_SEARCH_WEB]
+  rule_implication: Third-party sources may guide product priorities but deterministic diagnosis needs official, authorized, or timestamped public evidence.
+  review_need: Keep third-party material out of source-backed technique rules.

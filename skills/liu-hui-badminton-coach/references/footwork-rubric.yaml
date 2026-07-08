@@ -18,7 +18,7 @@
   drills: [rear-court-arrival-shadow]
   retest_metrics:
     - footwork_observations.arrival_timing should become on_time
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS]
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_PASSIVE_REAR_COURT, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
   confidence: inferred
 
 - rule_id: slow-recovery
@@ -41,5 +41,5 @@
   drills: [rear-court-arrival-shadow]
   retest_metrics:
     - footwork_observations.recovery should become normal
-  source_ids: [LH_BILI_FRAMEWORK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
   confidence: hypothesis

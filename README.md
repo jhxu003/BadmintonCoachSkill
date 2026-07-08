@@ -16,6 +16,24 @@ video agent observation JSON
 
 The project does not perform pose estimation or read raw videos in v1. A separate video agent should extract body, racket-side, contact-point, and footwork observations.
 
+## Corpus Build
+
+The Liu Hui corpus layer is now separated from the deterministic skill rules:
+
+- `data/source-index.tsv` is the canonical public-source index.
+- `data/corpus/teaching-points.yaml` stores short, original teaching-point summaries tied to source ids.
+- `data/corpus/collection-status.md` records what is collected and what is still incomplete.
+- `scripts/build_corpus_report.py` prints current corpus coverage.
+- `scripts/import_yt_dlp_jsonl.py` converts public `yt-dlp --dump-json` metadata into source-index TSV rows for full-channel completion.
+
+Current seed scope:
+
+```bash
+python3 scripts/build_corpus_report.py
+```
+
+Full-channel completion should import public metadata only. Do not commit raw videos, long subtitles, paid-course notes, cookies, or account exports.
+
 ## Quick Start
 
 ```bash

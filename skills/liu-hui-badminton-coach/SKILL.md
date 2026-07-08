@@ -21,6 +21,7 @@ If raw video is the only input, ask for structured observations or state that vi
 Read the references needed for the action:
 
 - Always read `references/report-contract.md`.
+- Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
 - Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
 - Read `references/overhead-rubric.yaml` for high clear and smash.
 - Read `references/footwork-rubric.yaml` for rear-court movement, late arrival, or recovery issues.
@@ -30,10 +31,11 @@ Read the references needed for the action:
 
 1. Confirm the project is non-official and do not imitate Liu Hui's personal voice.
 2. Select the most suitable framework from the player profile before ranking technical issues.
-3. Match observable evidence against rubric rules.
-4. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
-5. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
-6. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
+3. Check corpus provenance before presenting a concept as source-backed.
+4. Match observable evidence against rubric rules.
+5. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
+6. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
+7. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
 
 ## Output Rules
 

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TeachingPoint",
+  "type": "object",
+  "required": [
+    "point_id",
+    "summary",
+    "applies_to",
+    "evidence_type",
+    "status",
+    "usable_in_rules",
+    "source_ids",
+    "rule_implication",
+    "review_need"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "point_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10
+    },
+    "applies_to": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "source_title",
+        "timestamp_note",
+        "inferred_from_titles",
+        "third_party"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready_for_skill",
+        "needs_timestamp_review"
+      ]
+    },
+    "usable_in_rules": {
+      "type": "boolean"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9_]+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "rule_implication": {
+      "type": "string",
+      "minLength": 10
+    },
+    "review_need": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

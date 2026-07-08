@@ -13,7 +13,7 @@
     - low-elbow
     - collapsed-racket-structure
     - short-follow-through
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_TOP_ELBOW_CLEAR]
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_TOP_ELBOW_CLEAR, LH_BILI_LEARNING_ORDER]
   confidence: inferred
 
 - framework_id: kinetic-chain-frame
@@ -31,6 +31,5 @@
     - low-elbow
     - pronation-whip-misread
     - short-follow-through
-  source_ids: [LH_YT_PRONATION_WHIP, LH_YT_THREE_FRAMEWORKS]
+  source_ids: [LH_YT_PRONATION_WHIP, LH_YT_THREE_FRAMEWORKS, LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION]
   confidence: inferred
-
