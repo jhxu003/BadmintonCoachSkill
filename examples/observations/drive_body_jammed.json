@@ -1,0 +1,36 @@
+{
+  "player_profile": {
+    "level": "intermediate",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "normal",
+    "coordination": "balanced",
+    "injury_risk": [],
+    "training_goal": "body_jammed_drive",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "drive",
+    "camera_view": "front",
+    "fps_quality": "good",
+    "phase_observations": {
+      "pressure_state": "body_jammed",
+      "preparation_size": "large",
+      "spacing": "too_close",
+      "second_shot_ready": false
+    },
+    "contact_point": "too_close_body",
+    "elbow_height_before_hit": "near_shoulder",
+    "wrist_elbow_sequence": "elbow_before_wrist",
+    "hip_shoulder_sequence": "missing",
+    "racket_side_structure": "stable",
+    "follow_through": "short",
+    "footwork_observations": {
+      "arrival_timing": "on_time",
+      "recovery": "slow"
+    },
+    "missing_observations": ["hip_shoulder_sequence"],
+    "keyframes": [{"label": "jammed_contact", "time_ms": 640}]
+  }
+}

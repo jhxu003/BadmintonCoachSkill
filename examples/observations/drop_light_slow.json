@@ -1,0 +1,35 @@
+{
+  "player_profile": {
+    "level": "intermediate",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "normal",
+    "coordination": "balanced",
+    "injury_risk": [],
+    "training_goal": "light_drop",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "drop",
+    "camera_view": "rear_side",
+    "fps_quality": "good",
+    "phase_observations": {
+      "shot_intent": "light_drop",
+      "drop_speed": "slow_high",
+      "disguise": "early_reveal"
+    },
+    "contact_point": "front_high",
+    "elbow_height_before_hit": "near_shoulder",
+    "wrist_elbow_sequence": "elbow_before_wrist",
+    "hip_shoulder_sequence": "hip_before_arm",
+    "racket_side_structure": "stable",
+    "follow_through": "complete",
+    "footwork_observations": {
+      "arrival_timing": "on_time",
+      "recovery": "normal"
+    },
+    "missing_observations": [],
+    "keyframes": [{"label": "drop_contact", "time_ms": 1220}]
+  }
+}

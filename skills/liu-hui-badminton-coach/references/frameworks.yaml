@@ -1,35 +1,1093 @@
+- framework_id: learner-fit-sequence-frame
+  name: Learner-fit learning sequence frame
+  summary: Pick the learning order and current priority from the player's level, coordination, and match-transfer goal before isolated cues.
+  applicable_actions: [high_clear, smash, rear_footwork, front_footwork, backhand, serve_receive, doubles]
+  training_goals: [learn_order, stable_rear_court, match_transfer]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.drill_form_ok_rally_breaks
+      equals: true
+      weight: 6
+  priority: [late-arrival, contact-point-behind, low-elbow, slow-recovery]
+  source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV19G4Y1S75F, LH_YT_FIT_SYSTEM]
+  confidence: inferred
+
 - framework_id: stable-overhead-frame
   name: Stable overhead frame
   summary: Build arrival, contact point, racket-side structure, and top-elbow sequence before speed.
+  applicable_actions: [high_clear, smash]
+  training_goals: [clear_to_baseline, stable_rear_court]
   suitable_for:
     level: [beginner, intermediate]
     mobility: [limited, normal]
     coordination: [arm_dominant, inconsistent]
-    training_goal: [clear_to_baseline, stable_rear_court]
-  avoid_for: []
-  priority:
-    - late-arrival
-    - contact-point-behind
-    - low-elbow
-    - collapsed-racket-structure
-    - short-follow-through
+  avoid_for: {}
+  observation_triggers:
+    - path: footwork_observations.arrival_timing
+      equals: late
+      weight: 5
+    - path: contact_point
+      equals: behind_head
+      weight: 5
+    - path: racket_side_structure
+      equals: collapsed
+      weight: 4
+  priority: [late-arrival, contact-point-behind, low-elbow, collapsed-racket-structure, short-follow-through]
   source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_TOP_ELBOW_CLEAR, LH_BILI_LEARNING_ORDER, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
+  confidence: inferred
+
+- framework_id: high-clear-base-power-frame
+  name: High-clear base power frame
+  summary: Rebuild high-clear distance through contact window, frame, and simple release rather than more arm force.
+  applicable_actions: [high_clear]
+  training_goals: [clear_to_baseline, high_clear_power]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: contact_point
+      equals: behind_head
+      weight: 5
+    - path: phase_observations.clear_length
+      in: [short, midcourt]
+      weight: 5
+  priority: [contact-point-behind, low-elbow, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_HEIGHT, LH_BILI_FAV_BV11KRJBREVH, LH_BILI_SEASON_BV19G4Y1S75F]
+  confidence: inferred
+
+- framework_id: static-lock-racket-frame
+  name: Static lock-racket frame
+  summary: Use a stable locked frame and top-elbow structure as the base for later speed and explosive release.
+  applicable_actions: [high_clear, smash]
+  training_goals: [racket_frame, swing_speed, stable_rear_court]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: racket_side_structure
+      equals: collapsed
+      weight: 6
+    - path: elbow_height_before_hit
+      equals: below_shoulder
+      weight: 4
+  priority: [collapsed-racket-structure, low-elbow, contact-point-behind]
+  source_ids: [LH_BILI_SEASON_BV1GJ411K7OQ, LH_BILI_SEASON_BV15E411Q713, LH_BILI_SEASON_BV11C411S7GQ, LH_BILI_FAV_BV15PBRB6EDK]
   confidence: inferred
 
 - framework_id: kinetic-chain-frame
   name: Kinetic-chain power frame
   summary: Add hip/trunk timing, elbow lead, and whip/pronation after stable arrival and contact.
+  applicable_actions: [high_clear, smash]
+  training_goals: [smash_power, efficient_power, hip_rotation]
   suitable_for:
     level: [intermediate, advanced]
     mobility: [normal, good]
     coordination: [balanced, lower_body_available]
-    training_goal: [smash_power, efficient_power]
   avoid_for:
     injury_risk: [shoulder_discomfort, elbow_pain]
-  priority:
-    - late-hip-rotation
-    - low-elbow
-    - pronation-whip-misread
-    - short-follow-through
+  observation_triggers:
+    - path: hip_shoulder_sequence
+      equals: late_hip
+      weight: 6
+  priority: [late-hip-rotation, low-elbow, pronation-whip-misread, short-follow-through]
   source_ids: [LH_YT_PRONATION_WHIP, LH_YT_THREE_FRAMEWORKS, LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV11C411S7GQ]
   confidence: inferred
+
+- framework_id: whip-release-frame
+  name: Whip release frame
+  summary: Train the preconditions and release path for a whip-like forearm/racket release instead of an early wrist flick.
+  applicable_actions: [high_clear, smash, backhand]
+  training_goals: [whip_release, swing_speed, efficient_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  observation_triggers:
+    - path: wrist_elbow_sequence
+      equals: wrist_before_elbow
+      weight: 5
+  priority: [low-elbow, pronation-whip-misread, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1XE41167TB, LH_BILI_SEASON_BV1EU4Y117LB, LH_YT_PRONATION_WHIP, LH_YT_WHIP_MECHANICS]
+  confidence: inferred
+
+- framework_id: internal-rotation-frame
+  name: Internal-rotation power frame
+  summary: Treat internal rotation as a timed release paired with correct contact, arm path, and frame rather than a forced twist.
+  applicable_actions: [high_clear, smash]
+  training_goals: [internal_rotation, efficient_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    injury_risk: [shoulder_discomfort]
+  observation_triggers:
+    - path: phase_observations.power_cue
+      equals: internal_rotation
+      weight: 6
+    - path: contact_point
+      equals: behind_head
+      weight: -2
+  priority: [contact-point-behind, low-elbow, pronation-whip-misread]
+  source_ids: [LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_BIG_ARM_INTERNAL_ROTATION, LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1KC2UY8ELQ]
+  confidence: inferred
+
+- framework_id: concentrated-power-frame
+  name: Concentrated power frame
+  summary: Make force arrive at one usable point by controlling contact, frame, and release instead of spreading effort through a large swing.
+  applicable_actions: [high_clear, smash, backhand]
+  training_goals: [concentrated_power, efficient_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.power_quality
+      equals: scattered
+      weight: 7
+  priority: [contact-point-behind, collapsed-racket-structure, pronation-whip-misread]
+  source_ids: [LH_BILI_SEASON_BV1RA4Y1Q75Z, LH_BILI_SEASON_BV1MM411D7JI, LH_BILI_SEASON_BV1VJY7ZUEQN, LH_BILI_SEASON_BV1AOHHZWEU7]
+  confidence: inferred
+
+- framework_id: flash-power-frame
+  name: Flash power frame
+  summary: Use compact retraction and fast release only after the player can preserve frame, timing, and recovery.
+  applicable_actions: [smash, high_clear]
+  training_goals: [flash_power, quick_attack, advanced_power]
+  suitable_for:
+    level: [advanced, intermediate]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    level: [beginner]
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.power_cue
+      equals: flash
+      weight: 8
+  priority: [late-hip-rotation, collapsed-racket-structure, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1JT421K7GY, LH_BILI_SEASON_BV1DG7WZYEYM, LH_BILI_SEASON_BV1Z22WBQEWD, LH_BILI_SEASON_BV1KQKEB5E5P]
+  confidence: inferred
+
+- framework_id: relaxed-follow-through-frame
+  name: Relaxed follow-through frame
+  summary: Reduce tension and let the swing complete before adding force when effort makes quality worse.
+  applicable_actions: [high_clear, smash]
+  training_goals: [relaxed_power, clear_to_baseline, efficient_power]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: follow_through
+      equals: short
+      weight: 5
+    - path: phase_observations.tension
+      equals: high
+      weight: 7
+  priority: [short-follow-through, pronation-whip-misread, collapsed-racket-structure]
+  source_ids: [LH_BILI_SEASON_BV1WI421Q7AX, LH_BILI_SEASON_BV158QHY5ELA, LH_BILI_SEASON_BV1SWQOY5ENV, LH_BILI_SEASON_BV1884Y1H7MI]
+  confidence: inferred
+
+- framework_id: heavy-smash-frame
+  name: Heavy smash frame
+  summary: Build a heavier smash through frame, body contribution, and complete release before chasing steep angle.
+  applicable_actions: [smash]
+  training_goals: [smash_power, heavy_smash]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: heavy_smash
+      weight: 8
+  priority: [late-hip-rotation, low-elbow, short-follow-through]
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV14M4Y1376B, LH_BILI_SEASON_BV1S642137XA, LH_BILI_SEASON_BV1KZ421I7CJ]
+  confidence: inferred
+
+- framework_id: fast-smash-frame
+  name: Fast smash frame
+  summary: Prefer speed, compactness, and recovery when the player needs a faster attack rather than a heavier one.
+  applicable_actions: [smash]
+  training_goals: [fast_smash, quick_attack]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: fast_smash
+      weight: 8
+  priority: [low-elbow, pronation-whip-misread, slow-recovery]
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV14M4Y1376B, LH_BILI_SEASON_BV1ZZ421Y7YT, LH_BILI_SEASON_BV1EADQYPEJO]
+  confidence: inferred
+
+- framework_id: bawang-smash-frame
+  name: Bawang smash frame
+  summary: Treat Bawang smash as a distinct power mode with its own setup, frame advantages, and tradeoffs.
+  applicable_actions: [smash]
+  training_goals: [bawang_smash]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: bawang_smash
+      weight: 10
+  priority: [collapsed-racket-structure, low-elbow, late-hip-rotation]
+  source_ids: [LH_BILI_SEASON_BV1JBZBYFE9T, LH_BILI_SEASON_BV1S6P9ZNEZJ, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV1TT411R7UU]
+  confidence: inferred
+
+- framework_id: low-loaded-smash-frame
+  name: Low-loaded smash frame
+  summary: Use a lower-cost smash path for learners who need a simpler heavy attack before advanced jump or Bawang patterns.
+  applicable_actions: [smash]
+  training_goals: [low_loaded_smash, beginner_smash]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: low_loaded_smash
+      weight: 8
+  priority: [contact-point-behind, low-elbow, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1VM4Y1Y7AS, LH_BILI_SEASON_BV1P34Y1V7QA, LH_BILI_SEASON_BV1SS4Y1V7TB, LH_BILI_SEASON_BV15K411Y7CX]
+  confidence: inferred
+
+- framework_id: point-smash-frame
+  name: Point-smash frame
+  summary: Use a shorter point-smash action when the goal is timing, placement, and fast release rather than maximum power.
+  applicable_actions: [smash]
+  training_goals: [point_smash, quick_attack]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: point_smash
+      weight: 8
+  priority: [contact-point-behind, low-elbow, pronation-whip-misread]
+  source_ids: [LH_BILI_FAV_BV1PMARZSEPC, LH_BILI_SEASON_BV13U411S7AM, LH_BILI_SEASON_BV17L411K79K, LH_BILI_SEASON_BV19D4Y1L7UC]
+  confidence: inferred
+
+- framework_id: jump-smash-airtime-frame
+  name: Jump-smash airtime frame
+  summary: Diagnose jump smash through takeoff timing, contact point, airtime feel, and landing recovery.
+  applicable_actions: [smash]
+  training_goals: [jump_smash]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [knee_pain, ankle_pain, back_discomfort]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: jump_smash
+      weight: 8
+  priority: [late-arrival, contact-point-behind, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1RX4Y197AQ, LH_BILI_SEASON_BV1784Y1S7PF, LH_BILI_SEASON_BV1DW4Y1A7FX, LH_BILI_SEASON_BV11Y411H74P]
+  confidence: inferred
+
+- framework_id: passive-rear-transition-frame
+  name: Passive rear-court transition frame
+  summary: In passive rear-court situations, compare arrival, transition path, contact drift, compressed stroke, and recovery.
+  applicable_actions: [high_clear, smash, rear_footwork, backhand]
+  training_goals: [passive_rear_court, rear_transition, backhand_defense]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: footwork_observations.arrival_timing
+      equals: late
+      weight: 5
+    - path: phase_observations.pressure_state
+      equals: passive
+      weight: 8
+  priority: [late-arrival, contact-point-behind, collapsed-racket-structure, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1FB4Y1Z7CD, LH_BILI_SEASON_BV1764Y1A79D, LH_BILI_SEASON_BV15J421U7XQ, LH_BILI_SEASON_BV1MZ421T7LR]
+  confidence: inferred
+
+- framework_id: slice-drop-slide-frame
+  name: Slice-drop and slide-shot frame
+  summary: Add slice, drop, slide, and cut-shot variation only when base overhead contact and disguise are usable.
+  applicable_actions: [smash, high_clear]
+  training_goals: [slice_drop, slide_drop, overhead_variation]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      in: [slice_drop, slide_drop, cut_shot]
+      weight: 10
+  priority: [contact-point-behind, collapsed-racket-structure, low-elbow]
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_SEASON_BV1IF411K7R2, LH_BILI_SEASON_BV1UULEZ4E9M, LH_BILI_SEASON_BV13F5EZDEN4]
+  confidence: inferred
+
+- framework_id: start-position-recovery-frame
+  name: Start-position and recovery frame
+  summary: Diagnose footwork through start, positioning, arrival, exit, and recovery rather than named steps alone.
+  applicable_actions: [rear_footwork, front_footwork, high_clear, smash]
+  training_goals: [footwork_start, front_court_control, stable_rear_court]
+  suitable_for:
+    level: [beginner, intermediate]
+    mobility: [limited, normal]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: footwork_observations.arrival_timing
+      equals: late
+      weight: 6
+    - path: footwork_observations.front_arrival_timing
+      equals: late
+      weight: 6
+    - path: footwork_observations.recovery
+      equals: slow
+      weight: 4
+  priority: [late-arrival, late-front-arrival, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_LAZY_LEGS]
+  confidence: inferred
+
+- framework_id: backhand-passive-frame
+  name: Backhand passive frame
+  summary: Diagnose backhand through arrival, contact height, defensive choice, racket face, and recovery rather than wrist strength alone.
+  applicable_actions: [backhand]
+  training_goals: [backhand_defense, passive_rear_court]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: contact_point
+      in: [low, behind_head]
+      weight: 7
+    - path: phase_observations.pressure_state
+      equals: passive
+      weight: 6
+  priority: [backhand-low-contact, late-arrival, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1RX421M7RQ, LH_BILI_SEASON_BV1AM4Y1B7ZV]
+  confidence: hypothesis
+
+- framework_id: doubles-rear-continuity-frame
+  name: Doubles rear-court continuity frame
+  summary: Couple rear-court shot quality to partner-aware recovery, next-shot readiness, and fast exchange pressure.
+  applicable_actions: [doubles, smash]
+  training_goals: [doubles_positioning, doubles_rear_attack]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.after_shot_recovery
+      equals: watching
+      weight: 8
+    - path: phase_observations.rally_context
+      equals: doubles
+      weight: 8
+  priority: [doubles-watch-after-hit, slow-recovery, low-elbow]
+  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_CORE_COMPETITION]
+  confidence: hypothesis
+
+- framework_id: compact-frontcourt-receive-frame
+  name: Compact front-court and receive frame
+  summary: Use early racket readiness, compact preparation, stable contact, and fast recovery for front-court and receive pressure.
+  applicable_actions: [front_footwork, serve_receive, doubles]
+  training_goals: [front_court_control, serve_receive_stability, compact_receive]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.preparation_size
+      equals: large
+      weight: 10
+    - path: footwork_observations.front_arrival_timing
+      equals: late
+      weight: 5
+  priority: [receive-large-preparation, late-front-arrival, slow-recovery]
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+  confidence: hypothesis
+
+- framework_id: match-transfer-frame
+  name: Match-transfer frame
+  summary: Separate "can do the movement" from "can use it in a rally" and diagnose pressure, decision, recovery, and repeatability.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer]
+  training_goals: [match_transfer, rally_stability, consistency, pressure_retest]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.drill_form_ok_rally_breaks
+      equals: true
+      weight: 10
+    - path: phase_observations.rally_context
+      in: [singles, doubles, pressure]
+      weight: 5
+  priority: [slow-recovery, late-arrival, doubles-watch-after-hit]
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1YV4Y1N7GX]
+  confidence: inferred
+
+- framework_id: mobility-safe-frame
+  name: Mobility and safety frame
+  summary: Choose a lower-risk swing or movement range when pain, age, strength, or mobility makes idealized technique unrealistic.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles]
+  training_goals: [safe_power, injury_safe_swing, mobility_limited_plan, pain_free_play]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    mobility: [limited, normal]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.pain_reported
+      equals: true
+      weight: 12
+    - path: phase_observations.range_constraint
+      equals: true
+      weight: 8
+  priority: [slow-recovery, short-follow-through, collapsed-racket-structure]
+  source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1ML411Q7QA, LH_BILI_SEASON_BV1UHQLYBEW5]
+  confidence: hypothesis
+
+- framework_id: high-clear-action-change-frame
+  name: High-clear action-change frame
+  summary: Rebuild a high-clear action one layer at a time instead of changing grip, frame, contact, and release simultaneously.
+  applicable_actions: [high_clear]
+  training_goals: [high_clear_action_change, action_correction, clear_to_baseline]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.action_change_failed
+      equals: true
+      weight: 9
+  priority: [late-arrival, contact-point-behind, low-elbow, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_CLEAR_CHANGE_ACTION, LH_BILI_LEARNING_ORDER, LH_BILI_SEASON_BV1OC4Y1I7BK, LH_BILI_SEASON_BV1EZU3YDEYS]
+  confidence: inferred
+
+- framework_id: contact-window-frame
+  name: Contact-window frame
+  summary: Treat the hitting point as the gatekeeper for later power, angle, and variation work.
+  applicable_actions: [high_clear, smash, drop, backhand, drive]
+  training_goals: [contact_window, contact_point, high_clear_accuracy, smash_angle]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: contact_point
+      in: [behind_head, low, too_close_body]
+      weight: 9
+    - path: phase_observations.contact_searching
+      equals: true
+      weight: 8
+  priority: [contact-point-behind, backhand-low-contact, low-elbow, collapsed-racket-structure]
+  source_ids: [LH_YT_CONTACT_POINT, LH_YT_FIND_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1DW4Y1A7FX]
+  confidence: inferred
+
+- framework_id: top-elbow-frame
+  name: Top-elbow frame
+  summary: Use elbow height and elbow-before-wrist timing as a structural checkpoint before judging hand speed.
+  applicable_actions: [high_clear, smash, drop]
+  training_goals: [top_elbow, elbow_lead, overhead_frame]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: elbow_height_before_hit
+      equals: below_shoulder
+      weight: 8
+    - path: wrist_elbow_sequence
+      equals: wrist_before_elbow
+      weight: 7
+  priority: [low-elbow, collapsed-racket-structure, contact-point-behind]
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP, LH_BILI_SEASON_BV16H4Y1E7YC, LH_BILI_SEASON_BV1YZ421Y7AA]
+  confidence: source_backed
+
+- framework_id: standard-ready-racket-frame
+  name: Standard ready-racket frame
+  summary: Pick a usable preparation and racket set for the player before adding specialized Bawang, jump, or variation frames.
+  applicable_actions: [high_clear, smash, drop, backhand]
+  training_goals: [standard_racket_preparation, racket_frame, beginner_frame]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.racket_preparation
+      equals: unstable
+      weight: 8
+    - path: racket_side_structure
+      equals: collapsed
+      weight: 6
+  priority: [collapsed-racket-structure, low-elbow, contact-point-behind]
+  source_ids: [LH_BILI_SEASON_BV13A4Y1Q7CB, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1GZFTZOEFU, LH_BILI_SEASON_BV19N411A7PY]
+  confidence: inferred
+
+- framework_id: racket-face-control-frame
+  name: Racket-face control frame
+  summary: Diagnose racket-face direction as the result of grip, frame, contact, and release timing rather than an isolated pose.
+  applicable_actions: [high_clear, smash, drop, drive, backhand, serve_receive]
+  training_goals: [racket_face_control, slice_control, contact_accuracy]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.racket_face
+      in: [unstable, over_open, slicing_unintended]
+      weight: 9
+    - path: phase_observations.shot_intent
+      in: [slice_drop, slide_drop, cut_shot]
+      weight: 4
+  priority: [contact-point-behind, collapsed-racket-structure, pronation-whip-misread]
+  source_ids: [LH_BILI_SEASON_BV1JG4Y157NR, LH_BILI_SEASON_BV1K7421F7WD, LH_BILI_SEASON_BV1AZ421U7KK, LH_BILI_SEASON_BV1XCD8YNENF]
+  confidence: hypothesis
+
+- framework_id: wrist-position-frame
+  name: Wrist-position frame
+  summary: Decide when wrist position helps the intended power mode and when it becomes a premature hand cue.
+  applicable_actions: [high_clear, smash, drive, backhand, serve_receive]
+  training_goals: [wrist_position, wrist_use, wrist_release]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for:
+    injury_risk: [wrist_pain, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.wrist_position
+      in: [over_fixed, loose_unstable, premature_flick]
+      weight: 8
+    - path: wrist_elbow_sequence
+      equals: wrist_before_elbow
+      weight: 5
+  priority: [pronation-whip-misread, low-elbow, collapsed-racket-structure]
+  source_ids: [LH_BILI_SEASON_BV12Z4Y1N7B4, LH_BILI_SEASON_BV1BS411K7T6, LH_BILI_SEASON_BV1OW4M1R7X8, LH_BILI_SEASON_BV1DH5UZFEUS]
+  confidence: inferred
+
+- framework_id: grip-finger-power-frame
+  name: Grip and finger-power frame
+  summary: Use grip shape and finger contribution as part of the release chain, not as a shortcut that replaces contact and frame.
+  applicable_actions: [high_clear, smash, drive, backhand, serve_receive]
+  training_goals: [grip_power, finger_power, grip_change, release_control]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for:
+    injury_risk: [wrist_pain, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.grip_issue
+      in: [fist_grip, unstable_grip, finger_obsession]
+      weight: 9
+  priority: [pronation-whip-misread, low-elbow, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1K34Y1G7FV, LH_BILI_SEASON_BV1KC2UY8ELQ, LH_BILI_SEASON_BV1BBCBYZEDR, LH_BILI_SEASON_BV19WQPYYEY9]
+  confidence: inferred
+
+- framework_id: hip-trunk-power-frame
+  name: Hip and trunk power frame
+  summary: Diagnose lower-body and trunk contribution separately from hand release when the player needs body-led power.
+  applicable_actions: [high_clear, smash, drop]
+  training_goals: [hip_rotation, trunk_power, body_led_power, smash_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [back_discomfort, knee_pain]
+  observation_triggers:
+    - path: hip_shoulder_sequence
+      equals: late_hip
+      weight: 8
+    - path: phase_observations.lower_body_power
+      equals: absent
+      weight: 6
+  priority: [late-hip-rotation, low-elbow, short-follow-through]
+  source_ids: [LH_YT_HIP_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1K6421G7YB, LH_BILI_SEASON_BV1PX4Y147UG]
+  confidence: inferred
+
+- framework_id: tension-observation-frame
+  name: Tension observation frame
+  summary: When effort rises but quality falls, inspect tension, rhythm, and release before prescribing more force.
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  training_goals: [reduce_tension, relaxed_power, action_quality]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.tension
+      equals: high
+      weight: 10
+    - path: phase_observations.effort_quality
+      equals: forceful_but_weak
+      weight: 9
+  priority: [short-follow-through, pronation-whip-misread, collapsed-racket-structure]
+  source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_RELAXED_POWER, LH_BILI_SEASON_BV1ZI4Y1H7HE, LH_BILI_SEASON_BV1SWQOY5ENV]
+  confidence: inferred
+
+- framework_id: left-side-balance-frame
+  name: Non-racket-side balance frame
+  summary: Use the non-racket arm and opposite-side balance as part of overhead coordination and not as decorative form.
+  applicable_actions: [high_clear, smash, drop]
+  training_goals: [left_side_balance, coordination, overhead_balance]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.non_racket_side
+      in: [collapsed, absent, pulling_off]
+      weight: 8
+  priority: [late-hip-rotation, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV16G411B7FC, LH_BILI_SEASON_BV1MM411D7VQ, LH_BILI_SEASON_BV1DKC2EEEQL]
+  confidence: hypothesis
+
+- framework_id: shoulder-extension-frame
+  name: Shoulder-extension frame
+  summary: Treat shoulder opening and extension as a bounded range that supports power only when it remains safe and timed.
+  applicable_actions: [high_clear, smash]
+  training_goals: [shoulder_extension, open_shoulder, safe_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+  avoid_for:
+    injury_risk: [shoulder_discomfort]
+  observation_triggers:
+    - path: phase_observations.shoulder_extension
+      in: [missing, overforced]
+      weight: 8
+    - path: phase_observations.pain_reported
+      equals: true
+      weight: 10
+  priority: [collapsed-racket-structure, short-follow-through, pronation-whip-misread]
+  source_ids: [LH_BILI_SEASON_BV1TC4Y1C77U, LH_BILI_SEASON_BV1E76UY9EEB, LH_BILI_SEASON_BV1FJDZY6EMY, LH_BILI_SEASON_BV1UHQLYBEW5]
+  confidence: hypothesis
+
+- framework_id: simple-smash-sequence-frame
+  name: Simple smash sequence frame
+  summary: Start smash learning from a simple stable sequence before heavy, fast, jump, or Bawang variants.
+  applicable_actions: [smash]
+  training_goals: [simple_smash, beginner_smash, smash_sequence]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.smash_learning_stage
+      equals: from_zero
+      weight: 10
+  priority: [contact-point-behind, low-elbow, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_BILI_FAV_BV1YS1AYKE54, LH_BILI_SEASON_BV1DH4Y1H7VW, LH_BILI_SEASON_BV1XMAAZFE6E]
+  confidence: inferred
+
+- framework_id: smash-angle-frame
+  name: Smash angle frame
+  summary: Diagnose flat or netted smashes through contact height, arm path, frame, and pressure state before giving a simple down-angle cue.
+  applicable_actions: [smash]
+  training_goals: [smash_angle, smash_downward, flat_smash_fix]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.smash_angle
+      in: [flat, into_net, too_steep]
+      weight: 10
+    - path: contact_point
+      equals: behind_head
+      weight: 5
+  priority: [contact-point-behind, low-elbow, late-hip-rotation]
+  source_ids: [LH_BILI_FAV_BV1WM4Y1H7GY, LH_BILI_SEASON_BV1VX4Y1A71T, LH_BILI_SEASON_BV1AG411X7FR, LH_BILI_SEASON_BV1KVDZY1EWG]
+  confidence: inferred
+
+- framework_id: slice-smash-frame
+  name: Slice-smash and cross attack frame
+  summary: Treat slice-smash, cut-smash, and cross attack as advanced variation layered on base overhead contact and racket-face control.
+  applicable_actions: [smash, drop]
+  training_goals: [slice_smash, cross_attack, overhead_variation]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      in: [slice_smash, cut_smash, cross_attack]
+      weight: 10
+  priority: [contact-point-behind, collapsed-racket-structure, low-elbow]
+  source_ids: [LH_BILI_SEASON_BV1SJ4M1X7X9, LH_BILI_SEASON_BV1BCKOZ6EOB, LH_BILI_SEASON_BV1C14Y1R73R, LH_BILI_SEASON_BV1GI421Y7RP]
+  confidence: hypothesis
+
+- framework_id: half-side-attack-frame
+  name: Half-side attack frame
+  summary: Use half-side body position and compact attack when full side-on preparation cannot survive real rally timing.
+  applicable_actions: [smash, drop, rear_footwork]
+  training_goals: [half_side_attack, practical_side_on, head_attack]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.side_on_state
+      in: [too_late_to_full_side, half_side_needed]
+      weight: 9
+  priority: [late-arrival, late-hip-rotation, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1FC4Y1I7KZ, LH_BILI_SEASON_BV1MZ421T7LR, LH_BILI_SEASON_BV1A5ZGYQESP, LH_BILI_SEASON_BV1XH4Y1C7WB]
+  confidence: hypothesis
+
+- framework_id: rear-court-overhead-frame
+  name: Rear-court overhead choice frame
+  summary: In the rear corner, choose between overhead, half-side, backhand, and transition solutions before correcting the stroke itself.
+  applicable_actions: [high_clear, smash, drop, rear_footwork, backhand]
+  training_goals: [rear_court_choice, overhead_corner, passive_rear_court]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.corner_choice
+      in: [wrong_solution, overhead_available, backhand_forced]
+      weight: 10
+    - path: phase_observations.pressure_state
+      equals: passive
+      weight: 5
+  priority: [late-arrival, contact-point-behind, backhand-low-contact, slow-recovery]
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PASSIVE_REAR_COURT, LH_BILI_SEASON_BV1X24Y1372D, LH_BILI_SEASON_BV1DFQXBBESP]
+  confidence: hypothesis
+
+- framework_id: light-drop-frame
+  name: Light drop frame
+  summary: Diagnose light-drop quality through base overhead disguise, compact contact, and usable recovery rather than touch alone.
+  applicable_actions: [drop]
+  training_goals: [light_drop, drop_control, front_space_creation]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      equals: light_drop
+      weight: 10
+    - path: phase_observations.drop_speed
+      equals: slow_high
+      weight: 7
+  priority: [contact-point-behind, collapsed-racket-structure, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1QC4Y1R7JP, LH_BILI_SEASON_BV1HZ4Y1A7XQ, LH_BILI_SEASON_BV1UCPREVEJE, LH_BILI_SEASON_BV16WZEYQETA]
+  confidence: inferred
+
+- framework_id: heavy-slice-drop-frame
+  name: Heavy slice-drop frame
+  summary: For heavy slice or forceful drop, preserve base overhead frame and contact before adding cutting speed.
+  applicable_actions: [drop, smash]
+  training_goals: [heavy_slice_drop, power_drop, slice_drop]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      in: [heavy_slice_drop, power_drop, cut_drop]
+      weight: 10
+  priority: [contact-point-behind, collapsed-racket-structure, pronation-whip-misread]
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_SEASON_BV1RX4Y1B7U1, LH_BILI_SEASON_BV1BFMNYNEN5, LH_BILI_SEASON_BV1SC42ZPEXC]
+  confidence: inferred
+
+- framework_id: deceptive-drop-frame
+  name: Deceptive drop frame
+  summary: Build disguise and late decision from a credible overhead base before asking for deceptive drop details.
+  applicable_actions: [drop, smash]
+  training_goals: [deceptive_drop, overhead_disguise, tactical_drop]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.disguise
+      in: [early_reveal, no_base_action]
+      weight: 9
+    - path: phase_observations.shot_intent
+      in: [deceptive_drop, slide_drop]
+      weight: 8
+  priority: [contact-point-behind, collapsed-racket-structure, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1QC4Y1R7JP, LH_BILI_SEASON_BV13F5EZDEN4, LH_BILI_SEASON_BV1PCQPYJERM, LH_BILI_SEASON_BV1Q2D8YEECG]
+  confidence: hypothesis
+
+- framework_id: cut-shot-frame
+  name: Cut-shot frame
+  summary: Use cut or slice as a tactical contact choice only after the player can control face angle and recovery.
+  applicable_actions: [drop, smash, backhand]
+  training_goals: [cut_shot, slice_control, transition_variation]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for:
+    level: [beginner]
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      in: [cut_shot, slice_cut, transition_cut]
+      weight: 10
+  priority: [contact-point-behind, collapsed-racket-structure, backhand-low-contact]
+  source_ids: [LH_BILI_SEASON_BV1XCD8YNENF, LH_BILI_SEASON_BV1DBYRBCEQF, LH_BILI_SEASON_BV1C14Y1R73R, LH_BILI_SEASON_BV1VFESZRECD]
+  confidence: hypothesis
+
+- framework_id: lazy-legs-recovery-frame
+  name: Lazy-legs recovery frame
+  summary: Treat slow feet and recovery as a source of the next stroke error, not as a separate fitness complaint.
+  applicable_actions: [rear_footwork, front_footwork, high_clear, smash, drop, doubles]
+  training_goals: [lazy_legs, recovery_to_base, footwork_recovery]
+  suitable_for:
+    level: [beginner, intermediate]
+    mobility: [limited, normal]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: footwork_observations.recovery
+      equals: slow
+      weight: 10
+    - path: phase_observations.next_shot_rushed
+      equals: true
+      weight: 8
+  priority: [slow-recovery, late-arrival, late-front-arrival]
+  source_ids: [LH_BILI_LAZY_LEGS, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY, LH_BILI_SEASON_BV1HQ4Y1X7LK]
+  confidence: inferred
+
+- framework_id: front-court-arrival-frame
+  name: Front-court arrival frame
+  summary: Diagnose front-court touch from split, lunge timing, contact height, racket face, and exit.
+  applicable_actions: [front_footwork, serve_receive, doubles]
+  training_goals: [front_court_arrival, net_control, receive_drop]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    mobility: [limited, normal, good]
+  avoid_for: {}
+  observation_triggers:
+    - path: footwork_observations.front_arrival_timing
+      equals: late
+      weight: 10
+    - path: phase_observations.contact_height
+      equals: too_low
+      weight: 6
+  priority: [late-front-arrival, receive-large-preparation, slow-recovery]
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_SEASON_BV1UG4Y1M7B9]
+  confidence: inferred
+
+- framework_id: elastic-footwork-frame
+  name: Elastic footwork frame
+  summary: Use bounce, start, and rhythm only after the player's positioning and recovery target are clear.
+  applicable_actions: [rear_footwork, front_footwork, doubles]
+  training_goals: [elastic_footwork, faster_start, footwork_rhythm]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced]
+  avoid_for:
+    injury_risk: [knee_pain, ankle_pain]
+  observation_triggers:
+    - path: footwork_observations.start_rhythm
+      in: [flat, late, stuck]
+      weight: 9
+    - path: footwork_observations.arrival_timing
+      equals: late
+      weight: 4
+  priority: [late-arrival, late-front-arrival, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_SEASON_BV1SS4Y1W7PG, LH_BILI_SEASON_BV1UH4Y1H7KJ]
+  confidence: hypothesis
+
+- framework_id: backhand-corner-choice-frame
+  name: Backhand-corner choice frame
+  summary: Decide whether the problem is wrong rear-corner solution choice, late arrival, low contact, or backhand execution.
+  applicable_actions: [backhand, rear_footwork, high_clear]
+  training_goals: [backhand_corner_choice, rear_court_choice, passive_rear_court]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.corner_choice
+      in: [wrong_solution, backhand_forced, overhead_missed]
+      weight: 10
+    - path: contact_point
+      equals: low
+      weight: 4
+  priority: [backhand-low-contact, late-arrival, contact-point-behind]
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_BILI_SEASON_BV1RX421M7RQ, LH_BILI_SEASON_BV1X24Y1372D]
+  confidence: hypothesis
+
+- framework_id: backhand-whip-frame
+  name: Backhand whip frame
+  summary: Treat backhand depth as arrival, contact height, face stability, and whip/release timing rather than pure wrist strength.
+  applicable_actions: [backhand]
+  training_goals: [backhand_whip, backhand_clear, backhand_power]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for:
+    injury_risk: [wrist_pain, elbow_pain, shoulder_discomfort]
+  observation_triggers:
+    - path: phase_observations.backhand_release
+      in: [forced_wrist, no_whip, late_release]
+      weight: 9
+    - path: contact_point
+      equals: low
+      weight: 5
+  priority: [backhand-low-contact, pronation-whip-misread, slow-recovery]
+  source_ids: [LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1AM4Y1B7ZV, LH_BILI_SEASON_BV13CTMZGE3U, LH_BILI_SEASON_BV1DH5UZFEUS]
+  confidence: hypothesis
+
+- framework_id: body-jammed-drive-frame
+  name: Body-jammed drive frame
+  summary: Diagnose jammed flat exchanges through spacing, ready racket, preparation size, and compact response.
+  applicable_actions: [drive, serve_receive, doubles]
+  training_goals: [body_jammed_drive, compact_exchange, fast_exchange]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.pressure_state
+      equals: body_jammed
+      weight: 12
+    - path: phase_observations.preparation_size
+      equals: large
+      weight: 7
+  priority: [receive-large-preparation, late-front-arrival, slow-recovery]
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_LIVE_QA_20240202]
+  confidence: hypothesis
+
+- framework_id: push-drive-power-frame
+  name: Push and drive power frame
+  summary: For push, draw, and drive actions, prioritize compact preparation, face stability, and short release.
+  applicable_actions: [drive, serve_receive, doubles]
+  training_goals: [push_drive_power, drive_power, short_power]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.shot_intent
+      in: [push, drive, draw, flat_exchange]
+      weight: 10
+    - path: phase_observations.preparation_size
+      equals: large
+      weight: 5
+  priority: [receive-large-preparation, slow-recovery, pronation-whip-misread]
+  source_ids: [LH_BILI_SEASON_BV1UD421E7UK, LH_BILI_SEASON_BV1TVHVZPEUU, LH_BILI_SEASON_BV1N8ZCBFEIB, LH_BILI_SEASON_BV15CM2Y1EUI]
+  confidence: hypothesis
+
+- framework_id: receive-smash-defense-frame
+  name: Receive-smash defense frame
+  summary: For defending heavy smashes, combine ready posture, compact action, contact choice, and second-shot recovery.
+  applicable_actions: [serve_receive, drive, doubles]
+  training_goals: [receive_smash, smash_defense, compact_defense]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.incoming_shot
+      equals: heavy_smash
+      weight: 10
+    - path: phase_observations.preparation_size
+      equals: large
+      weight: 6
+  priority: [receive-large-preparation, slow-recovery, late-front-arrival]
+  source_ids: [LH_BILI_SEASON_BV1QB4Y1Z73X, LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_LIVE_QA_20240202]
+  confidence: hypothesis
+
+- framework_id: serve-high-clear-frame
+  name: High-serve and first-shot frame
+  summary: Treat high serve quality as a first-shot control problem that still depends on grip, contact, trajectory, and next-shot readiness.
+  applicable_actions: [serve_receive, high_clear]
+  training_goals: [high_serve, serve_receive_stability, first_two_shots]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.serve_type
+      equals: high_clear_serve
+      weight: 10
+    - path: phase_observations.second_shot_ready
+      equals: false
+      weight: 5
+  priority: [receive-large-preparation, contact-point-behind, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1UQ4Y1H7GG, LH_BILI_SEASON_BV1XOE9ZKEVT, LH_BILI_SEASON_BV14M7SZLEMB, LH_BILI_MATCH_TRANSFER]
+  confidence: hypothesis
+
+- framework_id: doubles-fast-exchange-frame
+  name: Doubles fast-exchange frame
+  summary: In doubles fast exchange, pair compact racket action with role-aware recovery and partner coverage.
+  applicable_actions: [doubles, drive, serve_receive]
+  training_goals: [doubles_fast_exchange, compact_exchange, partner_coverage]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.rally_context
+      equals: doubles
+      weight: 6
+    - path: phase_observations.exchange_speed
+      equals: fast
+      weight: 8
+  priority: [doubles-watch-after-hit, receive-large-preparation, slow-recovery]
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL, LH_BILI_SEASON_BV1A7PVECEO8]
+  confidence: hypothesis
+
+- framework_id: singles-tactical-core-frame
+  name: Singles tactical core frame
+  summary: Connect shot choice, pressure, and recovery in singles before overfitting a technical cue to one stroke.
+  applicable_actions: [high_clear, smash, drop, rear_footwork, front_footwork, match_transfer]
+  training_goals: [singles_tactics, rally_control, match_transfer]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.rally_context
+      equals: singles
+      weight: 8
+    - path: phase_observations.tactical_problem
+      equals: true
+      weight: 8
+  priority: [late-arrival, slow-recovery, contact-point-behind]
+  source_ids: [LH_BILI_SEASON_BV1TM4Y1B7Z8, LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1I8411Z7KU]
+  confidence: hypothesis
+
+- framework_id: tactical-observation-frame
+  name: Tactical observation frame
+  summary: Require rally context before giving tactical advice; otherwise keep the report at technical evidence and retest.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer]
+  training_goals: [tactical_observation, match_analysis, pressure_retest]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.tactical_context_visible
+      equals: false
+      weight: 10
+    - path: phase_observations.rally_context
+      in: [singles, doubles, pressure]
+      weight: 4
+  priority: [slow-recovery, doubles-watch-after-hit, late-arrival]
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  confidence: hypothesis

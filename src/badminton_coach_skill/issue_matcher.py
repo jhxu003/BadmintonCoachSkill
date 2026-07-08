@@ -34,7 +34,11 @@ def _condition_matches(observation: dict[str, Any], condition: dict[str, Any]) -
     raise ValueError(f"Unsupported condition: {condition}")
 
 
-def _framework_score(profile: dict[str, Any], framework: dict[str, Any]) -> int:
+def _framework_score(
+    profile: dict[str, Any],
+    observation: dict[str, Any],
+    framework: dict[str, Any],
+) -> int:
     suitable = framework.get("suitable_for", {})
     avoid = framework.get("avoid_for", {})
     if not isinstance(avoid, dict):
@@ -55,20 +59,38 @@ def _framework_score(profile: dict[str, Any], framework: dict[str, Any]) -> int:
         elif value in rejected:
             score -= 3
 
+    action = observation.get("action")
+    applicable_actions = set(framework.get("applicable_actions", []))
+    if applicable_actions:
+        if action in applicable_actions:
+            score += 4
+            score += max(0, 4 - len(applicable_actions))
+        else:
+            score -= 2
+
+    training_goal = profile.get("training_goal")
+    training_goals = set(framework.get("training_goals", []))
+    if training_goals and training_goal in training_goals:
+        score += 8
+        score += max(0, 4 - len(training_goals))
+
+    for trigger in framework.get("observation_triggers", []):
+        if _condition_matches(observation, trigger):
+            score += int(trigger.get("weight", 4))
+
     return score
 
 
 def _select_framework(
     profile: dict[str, Any], observation: dict[str, Any], frameworks: list[dict[str, Any]]
 ) -> dict[str, Any]:
-    if observation.get("footwork_observations", {}).get("arrival_timing") == "late":
-        return next(
-            framework
-            for framework in frameworks
-            if framework["framework_id"] == "stable-overhead-frame"
-        )
-
-    return max(frameworks, key=lambda item: _framework_score(profile, item))
+    return max(
+        frameworks,
+        key=lambda item: (
+            _framework_score(profile, observation, item),
+            -frameworks.index(item),
+        ),
+    )
 
 
 def _rule_applies_to_action(rule: dict[str, Any], action: str) -> bool:

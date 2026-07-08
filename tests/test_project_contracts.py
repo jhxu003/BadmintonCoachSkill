@@ -92,6 +92,29 @@ def test_json_schemas_accept_minimal_valid_payloads():
     jsonschema.validate(diagnosis, schemas["diagnosis.schema.json"])
 
 
+def test_video_observation_schema_accepts_expanded_action_surface():
+    schema = json.loads(
+        (ROOT / "schemas" / "video-observation.schema.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    action_enum = set(schema["properties"]["action"]["enum"])
+
+    assert {
+        "high_clear",
+        "smash",
+        "drop",
+        "drive",
+        "net",
+        "rear_footwork",
+        "front_footwork",
+        "backhand",
+        "serve_receive",
+        "doubles",
+        "match_transfer",
+    }.issubset(action_enum)
+
+
 def test_rubric_rules_are_source_backed_or_marked_hypothesis():
     reference_dir = ROOT / "skills" / "liu-hui-badminton-coach" / "references"
     for filename in ["overhead-rubric.yaml", "footwork-rubric.yaml"]:
@@ -155,3 +178,17 @@ def test_usage_case_is_documented_and_executable():
 
     assert "Primary framework: stable-overhead-frame" in result.stdout
     assert "Top priority: late-arrival" in result.stdout
+
+
+def test_full_system_examples_cover_expanded_actions():
+    observation_dir = ROOT / "examples" / "observations"
+    examples = {
+        path.stem: json.loads(path.read_text(encoding="utf-8"))
+        for path in observation_dir.glob("*.json")
+    }
+    actions = {
+        payload["video_observation"]["action"]
+        for payload in examples.values()
+    }
+
+    assert {"drop", "drive", "match_transfer"}.issubset(actions)

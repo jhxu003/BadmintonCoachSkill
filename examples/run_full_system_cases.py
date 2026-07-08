@@ -15,11 +15,14 @@ from badminton_coach_skill.rubric_loader import load_skill_knowledge
 CASES = [
     ("high_clear", "high_clear_late_arrival.json"),
     ("smash", "smash_low_elbow.json"),
+    ("drop", "drop_light_slow.json"),
+    ("drive", "drive_body_jammed.json"),
     ("rear_footwork", "rear_footwork_late_arrival.json"),
     ("front_footwork", "front_footwork_late_arrival.json"),
     ("backhand", "backhand_low_contact.json"),
     ("serve_receive", "serve_receive_large_preparation.json"),
     ("doubles", "doubles_watch_after_hit.json"),
+    ("match_transfer", "match_transfer_breakdown.json"),
 ]
 
 

@@ -1,6 +1,6 @@
 ---
 name: liu-hui-badminton-coach
-description: Use when turning structured badminton player profiles and video observations into evidence-grounded high-clear, smash, or rear-court footwork diagnosis using Liu Hui-inspired coaching concepts, especially top elbow, contact point, whip/pronation, hip drive, racket-side structure, and staged training priorities.
+description: Use when turning structured badminton player profiles and video observations into evidence-grounded Liu Hui-inspired badminton diagnosis across high clear, smash, drop, drive, footwork, backhand, serve/receive, doubles, match transfer, and student-fit power frameworks.
 ---
 
 # Liu Hui Badminton Coach Skill
@@ -27,15 +27,27 @@ Read the references needed for the action:
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
 - Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.
 - Read `references/overhead-rubric.yaml` for high clear and smash.
+- Read `references/drop-rubric.yaml` for drop, slice drop, slide shot, cut shot, or overhead variation.
+- Read `references/drive-rubric.yaml` for drive, body-jammed, push, receive defense, or fast-exchange pressure.
 - Read `references/footwork-rubric.yaml` for rear-court movement, late arrival, or recovery issues.
+- Read `references/frontcourt-rubric.yaml` for front-court arrival, net, or receive-drop movement.
+- Read `references/backhand-rubric.yaml` for backhand or backhand-corner pressure.
+- Read `references/serve-receive-rubric.yaml` for serve/receive and first-two-shot pressure.
+- Read `references/doubles-rubric.yaml` for doubles positioning and partner-aware recovery.
+- Read `references/match-transfer-rubric.yaml` when drill form breaks down in rallies or tactical context is requested.
+- Read `references/safety-rubric.yaml` whenever pain, injury risk, jump load, or high-intensity power advice appears.
 - Read `references/drills.yaml` before recommending practice.
 - Read `references/training-plans.yaml` before writing the final practice plan.
+
+## Runtime Framework Surface
+
+The runtime framework library covers student-fit paths, high-clear rebuilds, racket preparation, contact window, top elbow, grip/finger power, wrist position, hip/trunk power, whip/internal rotation, relaxation, smash variants, drop/slice/slide variants, footwork/recovery, backhand, drive/receive defense, singles/doubles tactics, match transfer, and safety-load selection.
 
 ## Diagnosis Flow
 
 1. Confirm the project is non-official and do not imitate Liu Hui's personal voice.
 2. Select the student profile path before choosing a framework or drill.
-3. Select the most suitable framework from the player profile before ranking technical issues.
+3. Select the most suitable framework from the player profile, action, training goal, and observable triggers before ranking technical issues.
 4. Select the stroke or footwork family and its diagnostic order.
 5. Check corpus provenance before presenting a concept as source-backed.
 6. Match observable evidence against rubric rules.

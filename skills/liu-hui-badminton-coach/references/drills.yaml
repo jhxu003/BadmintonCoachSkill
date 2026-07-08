@@ -117,3 +117,91 @@
   dosage: 5 sets of 8 two-shot patterns.
   retest_metrics:
     - after_shot_recovery changes from watching to role_ready
+
+- drill_id: drop-disguise-speed-ladder
+  name: Drop disguise speed ladder
+  target_issues: [drop-too-slow, drop-early-reveal]
+  steps:
+    - Shadow a clear or smash preparation and freeze at the same contact window.
+    - Hit five base overhead feeds, then five drops without changing preparation timing.
+    - Keep the contact compact and recover immediately after the drop.
+    - Retest whether the drop is fast enough without revealing early.
+  dosage: 4 rounds of 5 base overheads plus 5 drops.
+  retest_metrics:
+    - drop_speed changes from slow_high to fast_controlled
+    - disguise changes from early_reveal to late
+
+- drill_id: drop-face-window-check
+  name: Drop face-window check
+  target_issues: [drop-overcut-face]
+  steps:
+    - Start with a slow overhead preparation.
+    - Freeze at contact and check the racket face is not over-cutting.
+    - Hit controlled drops to two target zones.
+    - Increase slice only if the shuttle keeps forward speed and line control.
+  dosage: 5 sets of 8 controlled drops.
+  retest_metrics:
+    - racket_face changes from over_cut to controlled_slice
+
+- drill_id: jammed-spacing-reset
+  name: Jammed spacing reset
+  target_issues: [body-jammed-spacing]
+  steps:
+    - Feed body-line shuttles at controlled speed.
+    - Create a small spacing adjustment before contact.
+    - Keep racket preparation in front of the body.
+    - Recover for the next feed instead of admiring the first contact.
+  dosage: 6 sets of 8 body-line feeds.
+  retest_metrics:
+    - spacing changes from too_close to playable
+    - pressure_state no longer records body_jammed
+
+- drill_id: compact-drive-exchange
+  name: Compact drive exchange
+  target_issues: [drive-large-preparation, exchange-second-shot-not-ready]
+  steps:
+    - Start with racket ready in front of the body.
+    - Exchange two flat feeds without backswing.
+    - Reset the racket immediately after each contact.
+    - Count only rallies where the second shot is ready.
+  dosage: 5 sets of 12 two-shot exchanges.
+  retest_metrics:
+    - preparation_size changes from large to compact
+    - second_shot_ready becomes true
+
+- drill_id: pressure-transfer-ladder
+  name: Pressure transfer ladder
+  target_issues: [drill-form-rally-breakdown]
+  steps:
+    - Perform the corrected movement slowly for clean structure.
+    - Repeat with controlled feed and one recovery step.
+    - Add an uncertain second shot.
+    - Finish with a short rally retest that matches the original failure.
+  dosage: 3 rounds of slow, feed, two-shot, and rally-pressure phases.
+  retest_metrics:
+    - drill_form_ok_rally_breaks becomes false
+    - pressure_success_rate improves from the previous retest
+
+- drill_id: rally-context-retake
+  name: Rally-context retake
+  target_issues: [tactical-context-missing]
+  steps:
+    - Record from a view that includes both players or relevant partner coverage.
+    - Include the opponent contact before the target stroke.
+    - Keep filming through recovery and the next opponent contact.
+    - Re-run technical diagnosis only after the rally context is visible.
+  dosage: Capture 3 comparable rally clips.
+  retest_metrics:
+    - tactical_context_visible becomes true
+
+- drill_id: reduced-load-safety-reset
+  name: Reduced-load safety reset
+  target_issues: [pain-reported-load-reduction]
+  steps:
+    - Stop high-intensity swings or jumps for the session.
+    - Rehearse the same movement at lower speed and smaller range.
+    - Keep only pain-free repetitions.
+    - Escalate to a qualified professional if pain persists.
+  dosage: 2 to 3 low-speed sets only if pain-free.
+  retest_metrics:
+    - pain_reported becomes false before intensity increases

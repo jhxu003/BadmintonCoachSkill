@@ -1,0 +1,69 @@
+- rule_id: drop-too-slow
+  issue: Drop shot is too slow or too high
+  category: overhead_variation
+  priority: 25
+  applicable_actions: [drop]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.drop_speed]
+  observable_evidence:
+    - path: phase_observations.drop_speed
+      equals: slow_high
+      label: Drop trajectory is slow or high enough for the opponent to recover.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a rear-side view showing base overhead action, contact, trajectory, and recovery.
+  likely_effect:
+    - Player gets the shuttle over but cannot create pressure.
+    - The drop becomes readable because the base overhead action is not credible.
+  correction_principle: Rebuild base overhead disguise and compact contact before adding slice detail.
+  drills: [drop-disguise-speed-ladder]
+  retest_metrics:
+    - phase_observations.drop_speed should become fast_controlled
+    - phase_observations.disguise should not reveal early
+  source_ids: [LH_BILI_SEASON_BV1HZ4Y1A7XQ, LH_BILI_SEASON_BV1UCPREVEJE, LH_BILI_SEASON_BV16WZEYQETA, LH_BILI_SLICE_DROP_SMASH]
+  confidence: inferred
+
+- rule_id: drop-early-reveal
+  issue: Drop intention is revealed too early
+  category: overhead_variation
+  priority: 30
+  applicable_actions: [drop, smash]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.disguise]
+  observable_evidence:
+    - path: phase_observations.disguise
+      equals: early_reveal
+      label: Preparation reveals the drop before the contact window.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for frames from preparation through contact so base overhead similarity can be judged.
+  likely_effect:
+    - Opponent starts forward before the shuttle is hit.
+    - Advanced slice or drop cues fail because the base action is not hidden.
+  correction_principle: Keep the preparation close to the base overhead action, then vary contact late.
+  drills: [drop-disguise-speed-ladder]
+  retest_metrics:
+    - phase_observations.disguise should become late
+  source_ids: [LH_BILI_SEASON_BV1QC4Y1R7JP, LH_BILI_SEASON_BV13F5EZDEN4, LH_BILI_SEASON_BV1PCQPYJERM]
+  confidence: hypothesis
+
+- rule_id: drop-overcut-face
+  issue: Racket face over-cuts the shuttle
+  category: overhead_variation
+  priority: 35
+  applicable_actions: [drop]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.racket_face]
+  observable_evidence:
+    - path: phase_observations.racket_face
+      equals: over_cut
+      label: Racket face cuts too much and loses forward speed or control.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a contact close-up or high-fps side view before diagnosing face-angle detail.
+  likely_effect:
+    - Shuttle floats, sprays, or loses the intended line.
+    - Player keeps adding wrist detail instead of stabilizing contact.
+  correction_principle: Stabilize the face and contact window before increasing slice amount.
+  drills: [drop-face-window-check]
+  retest_metrics:
+    - phase_observations.racket_face should become controlled_slice
+  source_ids: [LH_BILI_SEASON_BV1XCD8YNENF, LH_BILI_SEASON_BV1DBYRBCEQF, LH_BILI_SEASON_BV14EBTBOEXK]
+  confidence: hypothesis

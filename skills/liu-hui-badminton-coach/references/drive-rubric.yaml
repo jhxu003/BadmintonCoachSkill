@@ -1,0 +1,73 @@
+- rule_id: body-jammed-spacing
+  issue: Player is jammed by spacing before the drive or receive
+  category: fast_exchange
+  priority: 18
+  applicable_actions: [drive, serve_receive, doubles]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [phase_observations.pressure_state]
+  observable_evidence:
+    - path: phase_observations.pressure_state
+      equals: body_jammed
+      label: Incoming shuttle jams the body line before the player can create a compact response.
+    - path: phase_observations.spacing
+      equals: too_close
+      label: Player is too close or square to create a clean contact window.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for rally view showing opponent contact, player spacing, racket preparation, and second-shot recovery.
+  likely_effect:
+    - Player blames hand speed when the spacing and preparation caused the jam.
+    - Next exchange becomes rushed.
+  correction_principle: Reset spacing and racket readiness before training faster hands.
+  drills: [jammed-spacing-reset]
+  retest_metrics:
+    - phase_observations.spacing should become playable
+    - phase_observations.pressure_state should no longer be body_jammed
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_LIVE_QA_20240202]
+  confidence: hypothesis
+
+- rule_id: drive-large-preparation
+  issue: Drive or receive preparation is too large for the exchange
+  category: fast_exchange
+  priority: 32
+  applicable_actions: [drive, serve_receive, doubles]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.preparation_size]
+  observable_evidence:
+    - path: phase_observations.preparation_size
+      equals: large
+      label: Preparation is too large for a flat, body-line, or fast exchange.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for the two frames before contact and one frame after contact to judge preparation size.
+  likely_effect:
+    - Contact is late even when the player sees the shuttle.
+    - Second-shot readiness drops.
+  correction_principle: Shorten preparation and retest two-shot continuity.
+  drills: [compact-drive-exchange]
+  retest_metrics:
+    - phase_observations.preparation_size should become compact
+    - phase_observations.second_shot_ready should become true
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_SEASON_BV15CM2Y1EUI]
+  confidence: hypothesis
+
+- rule_id: exchange-second-shot-not-ready
+  issue: Player is not ready for the second exchange shot
+  category: fast_exchange
+  priority: 40
+  applicable_actions: [drive, serve_receive, doubles]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [phase_observations.second_shot_ready]
+  observable_evidence:
+    - path: phase_observations.second_shot_ready
+      equals: false
+      label: Player does not recover the racket or body for the second exchange contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for at least a two-shot sequence, not a single contact frame.
+  likely_effect:
+    - First contact may be acceptable but the rally is lost on the next ball.
+    - The report should train continuity rather than only contact technique.
+  correction_principle: Couple each compact contact with immediate next-shot readiness.
+  drills: [compact-drive-exchange]
+  retest_metrics:
+    - phase_observations.second_shot_ready should become true
+  source_ids: [LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL, LH_BILI_MATCH_TRANSFER]
+  confidence: hypothesis

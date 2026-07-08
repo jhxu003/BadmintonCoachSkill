@@ -23,11 +23,15 @@
       "enum": [
         "high_clear",
         "smash",
+        "drop",
+        "drive",
+        "net",
         "rear_footwork",
         "front_footwork",
         "backhand",
         "serve_receive",
         "doubles",
+        "match_transfer",
         "unknown"
       ]
     },

@@ -1,0 +1,22 @@
+- rule_id: pain-reported-load-reduction
+  issue: Pain or injury risk should reduce training load
+  category: safety
+  priority: 5
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer]
+  student_profile_fit: [beginner, intermediate, advanced, mobility_limited]
+  required_observations: [phase_observations.pain_reported]
+  observable_evidence:
+    - path: phase_observations.pain_reported
+      equals: true
+      label: Player reports pain or visible discomfort during the movement.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask whether there is pain before prescribing higher intensity.
+  likely_effect:
+    - Advanced power cues can increase load before the movement is safe.
+    - Training should move to reduced range, lower speed, or professional evaluation when symptoms persist.
+  correction_principle: Reduce intensity and range before adding speed, power, or jump load.
+  drills: [reduced-load-safety-reset]
+  retest_metrics:
+    - phase_observations.pain_reported should become false before intensity increases
+  source_ids: [LH_BILI_SEASON_BV1ML411Q7QA, LH_BILI_SEASON_BV1UHQLYBEW5, LH_BILI_SEASON_BV1TM411H7LP, LH_BILI_SEASON_BV1CV4Y1O7H3]
+  confidence: hypothesis

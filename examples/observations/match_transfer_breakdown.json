@@ -1,0 +1,35 @@
+{
+  "player_profile": {
+    "level": "intermediate",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "normal",
+    "coordination": "balanced",
+    "injury_risk": [],
+    "training_goal": "match_transfer",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "match_transfer",
+    "camera_view": "rally_view",
+    "fps_quality": "good",
+    "phase_observations": {
+      "drill_form_ok_rally_breaks": true,
+      "rally_context": "pressure",
+      "pressure_success_rate": "low"
+    },
+    "contact_point": "front_high",
+    "elbow_height_before_hit": "near_shoulder",
+    "wrist_elbow_sequence": "elbow_before_wrist",
+    "hip_shoulder_sequence": "hip_before_arm",
+    "racket_side_structure": "stable",
+    "follow_through": "complete",
+    "footwork_observations": {
+      "arrival_timing": "on_time",
+      "recovery": "normal"
+    },
+    "missing_observations": [],
+    "keyframes": [{"label": "rally_breakdown", "time_ms": 2600}]
+  }
+}
