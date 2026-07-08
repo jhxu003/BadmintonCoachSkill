@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceTopicMap",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "source_id",
+      "taxonomy_section",
+      "taxonomy_ids",
+      "evidence_role"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "source_id": {
+        "type": "string",
+        "pattern": "^[A-Z0-9_]+$"
+      },
+      "taxonomy_section": {
+        "type": "string",
+        "enum": [
+          "student_profiles",
+          "power_frameworks",
+          "stroke_families",
+          "footwork_families",
+          "correction_order",
+          "drill_families",
+          "training_plans",
+          "match_transfer"
+        ]
+      },
+      "taxonomy_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_]*$"
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "evidence_role": {
+        "type": "string",
+        "enum": [
+          "direct",
+          "supporting",
+          "discovery",
+          "auxiliary"
+        ]
+      }
+    }
+  }
+}
