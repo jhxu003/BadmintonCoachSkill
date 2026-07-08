@@ -39,12 +39,21 @@ Convert public YouTube channel metadata exported by `yt-dlp`:
 
 ```bash
 yt-dlp --flat-playlist --dump-json "https://www.youtube.com/@liuhuiyumaoqiu/videos" > data/raw-private/yt-official.jsonl
+yt-dlp --flat-playlist --dump-json "https://www.youtube.com/channel/UCYFt9IXV8XwacWxhZFpPsTQ/videos" > data/raw-private/yt-official-canonical-id.jsonl
 python3 scripts/import_yt_dlp_jsonl.py data/raw-private/yt-official.jsonl --source-prefix LH_YT_AUTO --authorization-status official > data/raw-private/yt-official.tsv
 ```
 
 Review the TSV manually before merging rows into `data/source-index.tsv`.
 
 If direct channel metadata fetch fails, add a row to `data/corpus/public-access-log.tsv` with the exact command or URL, date, error result, and next action.
+
+Convert public Bilibili UGC season metadata exported from `x/web-interface/view`:
+
+```bash
+python3 scripts/import_bilibili_view_season.py data/raw-private/bili-discovered-seasons/*.json --source-prefix LH_BILI_SEASON > data/raw-private/bili-seasons-all.tsv
+```
+
+Merge only new BV ids into `data/source-index.tsv`; record exact duplicate BV ids in `data/corpus/deduplication-map.yaml`.
 
 ## Source Status
 

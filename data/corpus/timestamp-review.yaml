@@ -1,0 +1,180 @@
+review_run:
+  run_id: timestamp_review_20260708
+  reviewed_at: 2026-07-08
+  scope:
+    - Review all teaching points previously marked needs_timestamp_review.
+    - Add whole-clip timestamp notes for core public Bilibili videos when subtitles are unavailable.
+    - Do not promote title-only or whole-clip notes to timestamp-backed claims.
+  public_access_constraints:
+    youtube: Direct channel/video metadata and RSS fetches are blocked by connection resets in this environment.
+    douyin: Public profile request returns a 404/dynamic page and no stable per-video metadata export.
+    bilibili_subtitles: Public player API probes for core videos returned zero subtitle tracks.
+
+core_video_timestamp_notes:
+  - source_id: LH_BILI_FAV_BV15PBRB6EDK
+    title: 业余最优架拍方式！羽毛球重杀框架和快杀框架！三种后场框架优缺点和发力方式
+    bvid: BV15pBRB6EDk
+    duration_seconds: 844
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "14:04"
+        note: Whole public clip is indexed as a framework-selection source; no public subtitle track was available for internal timestamp extraction.
+  - source_id: LH_BILI_MATCH_TRANSFER
+    title: From learned technique to match use
+    bvid: BV1QP411x7Vd
+    duration_seconds: 345
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "05:45"
+        note: Whole public clip title supports drill-to-match transfer review; no public subtitle track was available.
+  - source_id: LH_BILI_LAZY_LEGS
+    title: Leg-lazy correction set
+    bvid: BV1sa4y137bZ
+    duration_seconds: 450
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "07:30"
+        note: Whole public clip is indexed for footwork/start/recovery review; no public subtitle track was available.
+  - source_id: LH_BILI_LIVE_QA_20240202
+    title: Dagi Badminton Liu Hui live teaching clip collection 20240202
+    bvid: BV1yM411L72x
+    duration_seconds: 137
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "02:17"
+        note: Public live segment is indexed as a Q&A/topic pointer only; no public subtitle track was available.
+  - source_id: LH_BILI_SEASON_BV1GO4Y1V7NS
+    title: 刘辉教练教你看正确的击球点
+    bvid: BV1Go4y1v7NS
+    duration_seconds: 338
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "05:38"
+        note: Whole public clip title supports contact-point review; no public subtitle track was available.
+  - source_id: LH_BILI_SEASON_BV1WI421Q7AX
+    title: 高远球放松发力的秘诀！轻松打到底线的方法！
+    bvid: BV1wi421Q7Ax
+    duration_seconds: 411
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "06:51"
+        note: Whole public clip title supports relaxed-power review; no public subtitle track was available.
+  - source_id: LH_BILI_SEASON_BV1TT411R7FT
+    title: 羽毛球反手保姆级教学！刘辉教练教你羽毛球反手被动球如何处理！
+    bvid: BV1TT411r7Ft
+    duration_seconds: 584
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "09:44"
+        note: Whole public clip title supports backhand/passive-corner review; no public subtitle track was available.
+  - source_id: LH_BILI_SEASON_BV1A7PVECEO8
+    title: 杀球快和重指什么？单双打那区别可就大了！业余看懂你就知道你该快还是该重了
+    bvid: BV1A7PVeCEo8
+    duration_seconds: 165
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "02:45"
+        note: Whole public clip title supports singles/doubles smash-speed distinction; no public subtitle track was available.
+  - source_id: LH_BILI_SEASON_BV1HZ421E7XR
+    title: 关于前后步伐的取位，启动问题，你想知道的一切都在这里
+    bvid: BV1hZ421e7xr
+    duration_seconds: 253
+    timestamp_scope: whole_clip_title_backed
+    segments:
+      - start: "00:00"
+        end: "04:13"
+        note: Whole public clip title supports starting/positioning footwork review; no public subtitle track was available.
+
+teaching_point_reviews:
+  - point_id: fit-framework-before-cue
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_LEARNING_ORDER]
+    result_for_skill: May guide framework selection as an inferred rule; do not claim timestamp-backed wording.
+  - point_id: passive-rear-court-is-diagnostic
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SEASON_BV1FB4Y1Z7CD, LH_BILI_SEASON_BV1764Y1A79D, LH_BILI_SEASON_BV15J421U7XQ, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+    result_for_skill: May guide layered rear-court diagnosis; keep confidence inferred until internal timestamps are reviewed.
+  - point_id: practical-footwork-fit
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_LAZY_LEGS]
+    result_for_skill: May guide footwork/start/recovery diagnosis; do not use for age or injury-specific claims.
+  - point_id: match-transfer-is-separate
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX, LH_BILI_SEASON_BV1XH4Y1C7WB]
+    result_for_skill: May support drill-versus-rally separation and pressure retests as inferred rules.
+  - point_id: overhead-variation-after-base
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SEASON_BV1IF411K7R2, LH_BILI_SEASON_BV1UULEZ4E9M]
+    result_for_skill: May delay advanced variations when base overhead structure fails; do not claim exact variation sequence.
+  - point_id: profile-mobility-limited
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_LAZY_LEGS]
+    result_for_skill: Public titles support footwork adaptation, but not age, injury, or mobility-load prescription.
+  - point_id: contact-point-is-global-diagnosis
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SEASON_BV1ZX2WYDESV, LH_BILI_SEASON_BV1GO4Y1V7NS, LH_BILI_LIVE_QA_20240202]
+    result_for_skill: May ask what contact point the player is trying to take; keep global-contact claims inferred.
+  - point_id: relaxed-power-before-force
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SEASON_BV1WI421Q7AX, LH_BILI_SEASON_BV158QHY5ELA, LH_BILI_SEASON_BV1SWQOY5ENV]
+    result_for_skill: May warn against adding tension before rhythm/timing checks; do not claim exact cue wording.
+  - point_id: drop-comes-after-disguise-base
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_SEASON_BV1UULEZ4E9M, LH_BILI_SEASON_BV1S1VKBSEAB]
+    result_for_skill: May keep drop/slice-drop advice behind base overhead stability checks.
+  - point_id: drive-needs-compact-preparation
+    decision: reviewed_title_level_keep_hypothesis
+    supporting_source_ids: [LH_BILI_SEASON_BV15CM2Y1EUI, LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY]
+    result_for_skill: Compact-preparation idea remains a hypothesis for drive/flat exchange until direct timestamps are reviewed.
+  - point_id: body-jammed-shot-is-positioning
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY]
+    result_for_skill: YouTube-only title evidence remains blocked by YouTube metadata/timestamp access.
+  - point_id: net-action-must-stay-small
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+    result_for_skill: No direct reviewed net-action timestamp was available; keep as future annotation target.
+  - point_id: front-court-exit-is-part-of-shot
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+    result_for_skill: YouTube-only support remains insufficient for a firm Liu Hui-style rule.
+  - point_id: rear-court-transition-footwork
+    decision: reviewed_title_level_keep_inferred
+    supporting_source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1BM4Y1274P, LH_BILI_SEASON_BV1UG4Y1M7B9]
+    result_for_skill: May ask for movement-to-contact evidence in rear-court transition cases.
+  - point_id: backhand-is-not-wrist-only
+    decision: reviewed_title_level_keep_hypothesis
+    supporting_source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1DH5UZFEUS]
+    result_for_skill: Backhand diagnosis may request arrival/contact evidence; do not reduce to or reject wrist-only without observation.
+  - point_id: backhand-corner-choice
+    decision: reviewed_title_level_keep_hypothesis
+    supporting_source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1RX421M7RQ, LH_YT_HEAD_BACKHAND_CORNER]
+    result_for_skill: May classify solution choice versus execution quality only when video observation shows both path and contact.
+  - point_id: serve-receive-first-two-shots
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+    result_for_skill: No direct reviewed serve/receive source is present; keep as product observation schema need.
+  - point_id: receive-compact-racket
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_CONSISTENCY]
+    result_for_skill: No direct reviewed receive timestamp is present; keep hypothesis only.
+  - point_id: doubles-shot-quality-position-coupling
+    decision: reviewed_title_level_keep_hypothesis
+    supporting_source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_CORE_COMPETITION]
+    result_for_skill: Doubles reports may ask for partner/recovery view; do not infer partner-coverage tactics from isolated stroke clips.
+  - point_id: doubles-fast-exchange-pressure
+    decision: reviewed_title_level_keep_hypothesis
+    supporting_source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_YT_BODY_JAMMED_SHOT]
+    result_for_skill: Fast-exchange diagnosis must require rally video evidence, not a static keyframe.
+  - point_id: match-analysis-before-tactical-advice
+    decision: reviewed_not_promoted
+    supporting_source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+    result_for_skill: Keep tactical advice guarded; no direct timestamp-backed tactical review is available.

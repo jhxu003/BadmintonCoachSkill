@@ -22,6 +22,7 @@ Read the references needed for the action:
 
 - Always read `references/report-contract.md`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
+- Read `references/reviewed-corpus-rules.yaml` before promoting a title-level or timestamp-review item into advice.
 - Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
 - Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.

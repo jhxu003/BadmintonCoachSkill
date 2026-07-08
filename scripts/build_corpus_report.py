@@ -42,6 +42,18 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    timestamp_review_path = ROOT / "data" / "corpus" / "timestamp-review.yaml"
+    timestamp_review = (
+        yaml.safe_load(timestamp_review_path.read_text(encoding="utf-8"))
+        if timestamp_review_path.exists()
+        else {"teaching_point_reviews": [], "core_video_timestamp_notes": []}
+    )
+    dedup_path = ROOT / "data" / "corpus" / "deduplication-map.yaml"
+    dedup = (
+        yaml.safe_load(dedup_path.read_text(encoding="utf-8"))
+        if dedup_path.exists()
+        else {"deduplication_run": {"summary": {}}}
+    )
     summary = summarize_source_index(source_rows)
     ready_points = [
         point for point in teaching_points if point["status"] == "ready_for_skill"
@@ -74,6 +86,23 @@ def main() -> None:
     print(f"Source-topic mappings: {len(source_topic_map)}")
     print(f"Access attempts: {len(access_rows)}")
     print(f"Archive manifests: {len(archive_manifest['archives'])}")
+    print()
+    print("Timestamp review:")
+    print(
+        _format_counts(
+            {
+                "core_video_notes": len(
+                    timestamp_review.get("core_video_timestamp_notes") or []
+                ),
+                "teaching_point_reviews": len(
+                    timestamp_review.get("teaching_point_reviews") or []
+                ),
+            }
+        )
+    )
+    print()
+    print("Deduplication:")
+    print(_format_counts(dedup.get("deduplication_run", {}).get("summary", {})))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,146 @@
+- rule_id: review-fit-framework-before-cue
+  teaching_point_id: fit-framework-before-cue
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Choose a player-fit framework before isolated cues when observations support that path.
+  blocked_use: Do not phrase this as a timestamp-backed Liu Hui statement.
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_LEARNING_ORDER]
+
+- rule_id: review-passive-rear-court-is-diagnostic
+  teaching_point_id: passive-rear-court-is-diagnostic
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Compare arrival, contact drift, frame, and recovery before assigning one rear-court cause.
+  blocked_use: Do not claim exact layer order without internal timestamps.
+  source_ids: [LH_BILI_SEASON_BV1FB4Y1Z7CD, LH_BILI_SEASON_BV1764Y1A79D, LH_BILI_SEASON_BV15J421U7XQ, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+
+- rule_id: review-practical-footwork-fit
+  teaching_point_id: practical-footwork-fit
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Fit footwork advice to start, positioning, arrival, and recovery observations.
+  blocked_use: Do not make age, injury, or load prescriptions from title-only evidence.
+  source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_LAZY_LEGS]
+
+- rule_id: review-match-transfer-is-separate
+  teaching_point_id: match-transfer-is-separate
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Separate slow-drill success from rally-pressure execution and require pressure retests.
+  blocked_use: Do not claim technique is match-ready from shadow-drill video alone.
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX, LH_BILI_SEASON_BV1XH4Y1C7WB]
+
+- rule_id: review-overhead-variation-after-base
+  teaching_point_id: overhead-variation-after-base
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Delay slice, drop, and advanced smash variation when base overhead contact or frame fails.
+  blocked_use: Do not claim an exact Liu Hui variation sequence without timestamps.
+  source_ids: [LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SEASON_BV1IF411K7R2, LH_BILI_SEASON_BV1UULEZ4E9M]
+
+- rule_id: review-profile-mobility-limited
+  teaching_point_id: profile-mobility-limited
+  decision: reviewed_not_promoted
+  allowed_use: Ask for mobility, pain, and range limits before recommending footwork volume.
+  blocked_use: Do not cite Liu Hui-style mobility-limited programming as source-backed.
+  source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK, LH_BILI_LAZY_LEGS]
+
+- rule_id: review-contact-point-is-global-diagnosis
+  teaching_point_id: contact-point-is-global-diagnosis
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Ask what point the player is trying to take before stroke-specific advice.
+  blocked_use: Do not claim this as a universal timestamp-backed principle.
+  source_ids: [LH_BILI_SEASON_BV1ZX2WYDESV, LH_BILI_SEASON_BV1GO4Y1V7NS, LH_BILI_LIVE_QA_20240202]
+
+- rule_id: review-relaxed-power-before-force
+  teaching_point_id: relaxed-power-before-force
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: If more effort worsens quality, check relaxation, timing, and rhythm before prescribing force.
+  blocked_use: Do not quote or reconstruct specific relaxed-power cues.
+  source_ids: [LH_BILI_SEASON_BV1WI421Q7AX, LH_BILI_SEASON_BV158QHY5ELA, LH_BILI_SEASON_BV1SWQOY5ENV]
+
+- rule_id: review-drop-comes-after-disguise-base
+  teaching_point_id: drop-comes-after-disguise-base
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Keep drop and slice-drop advice behind base overhead action and contact control.
+  blocked_use: Do not present advanced drop detail as timestamp-backed.
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_SEASON_BV1UULEZ4E9M, LH_BILI_SEASON_BV1S1VKBSEAB]
+
+- rule_id: review-drive-needs-compact-preparation
+  teaching_point_id: drive-needs-compact-preparation
+  decision: title_level_reviewed_keep_hypothesis
+  allowed_use: Request preparation-size evidence for drive or flat-exchange diagnosis.
+  blocked_use: Do not make a firm drive rule without direct timestamp-backed drive evidence.
+  source_ids: [LH_BILI_SEASON_BV15CM2Y1EUI, LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY]
+
+- rule_id: review-body-jammed-shot-is-positioning
+  teaching_point_id: body-jammed-shot-is-positioning
+  decision: reviewed_not_promoted
+  allowed_use: Ask for positioning and preparation evidence when body-jammed issues are observed.
+  blocked_use: Do not source-back this point until YouTube/Douyin or Bilibili timestamps are reviewed.
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY]
+
+- rule_id: review-net-action-must-stay-small
+  teaching_point_id: net-action-must-stay-small
+  decision: reviewed_not_promoted
+  allowed_use: Keep compact net-action checks as a general observation target.
+  blocked_use: Do not claim Liu Hui-specific net-action rules from the current corpus.
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+
+- rule_id: review-front-court-exit-is-part-of-shot
+  teaching_point_id: front-court-exit-is-part-of-shot
+  decision: reviewed_not_promoted
+  allowed_use: Ask for post-contact exit frames in front-court review.
+  blocked_use: Do not source-back front-court exit sequencing until timestamps are reviewed.
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+
+- rule_id: review-rear-court-transition-footwork
+  teaching_point_id: rear-court-transition-footwork
+  decision: title_level_reviewed_keep_inferred
+  allowed_use: Treat rear-court transition as movement-to-contact evidence, not isolated step naming.
+  blocked_use: Do not claim exact transition mechanics without timestamp review.
+  source_ids: [LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1BM4Y1274P, LH_BILI_SEASON_BV1UG4Y1M7B9]
+
+- rule_id: review-backhand-is-not-wrist-only
+  teaching_point_id: backhand-is-not-wrist-only
+  decision: title_level_reviewed_keep_hypothesis
+  allowed_use: Request arrival and contact-height evidence before diagnosing backhand hand action.
+  blocked_use: Do not reject or prescribe wrist-only fixes as a Liu Hui-specific rule.
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1DH5UZFEUS]
+
+- rule_id: review-backhand-corner-choice
+  teaching_point_id: backhand-corner-choice
+  decision: title_level_reviewed_keep_hypothesis
+  allowed_use: Separate wrong solution choice from poor execution when video shows path and contact.
+  blocked_use: Do not infer tactical choice from a single contact frame.
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1RX421M7RQ, LH_YT_HEAD_BACKHAND_CORNER]
+
+- rule_id: review-serve-receive-first-two-shots
+  teaching_point_id: serve-receive-first-two-shots
+  decision: reviewed_not_promoted
+  allowed_use: Ask for serve, receive, and second-shot evidence in serve/receive reports.
+  blocked_use: Do not cite this as a Liu Hui-derived serve/receive rule yet.
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+
+- rule_id: review-receive-compact-racket
+  teaching_point_id: receive-compact-racket
+  decision: reviewed_not_promoted
+  allowed_use: Keep racket-readiness as an observation field.
+  blocked_use: Do not source-back compact receive claims from the current corpus.
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_CONSISTENCY]
+
+- rule_id: review-doubles-shot-quality-position-coupling
+  teaching_point_id: doubles-shot-quality-position-coupling
+  decision: title_level_reviewed_keep_hypothesis
+  allowed_use: Ask for partner/recovery view before doubles-position feedback.
+  blocked_use: Do not infer partner-coverage tactics from isolated stroke clips.
+  source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_CORE_COMPETITION]
+
+- rule_id: review-doubles-fast-exchange-pressure
+  teaching_point_id: doubles-fast-exchange-pressure
+  decision: title_level_reviewed_keep_hypothesis
+  allowed_use: Require rally evidence for fast-exchange pressure diagnosis.
+  blocked_use: Do not diagnose doubles fast exchange from a single static keyframe.
+  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_YT_BODY_JAMMED_SHOT]
+
+- rule_id: review-match-analysis-before-tactical-advice
+  teaching_point_id: match-analysis-before-tactical-advice
+  decision: reviewed_not_promoted
+  allowed_use: Guard tactical advice behind rally evidence and observable shot quality.
+  blocked_use: Do not invent tactics from one isolated stroke clip.
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]

@@ -111,3 +111,7 @@ def test_corpus_report_script_outputs_reproducible_summary():
     assert "Source-topic mappings:" in result.stdout
     assert "Access attempts:" in result.stdout
     assert "Archive manifests:" in result.stdout
+    assert "Timestamp review:" in result.stdout
+    assert "teaching_point_reviews=21" in result.stdout
+    assert "Deduplication:" in result.stdout
+    assert "new_bilibili_video_rows_merged=383" in result.stdout

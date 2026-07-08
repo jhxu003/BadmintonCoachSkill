@@ -25,3 +25,115 @@ archives:
       - LH_BILI_FAV_BV11KRJBREVH
       - LH_BILI_FAV_BV1SRQDYZEA3
     notes: Public Bilibili favorite/list metadata includes many unrelated videos; strict filtering keeps only Liu Hui title matches or Dagi Badminton upper entries. Four list items were unavailable or hidden in API pagination at fetch time.
+  - archive_id: bili_ugc_season_1310095_forehand_power
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1TK4y1B7XQ
+    public_page: https://www.bilibili.com/video/BV1TK4y1B7XQ/
+    attempted_at: 2026-07-08
+    season_id: 1310095
+    season_title: 正手发力
+    expected_public_count: 293
+    fetched_public_count: 293
+    duplicate_or_existing_count: 17
+    merged_new_source_count: 276
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1TK4y1B7XQ.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1310095
+    notes: Public UGC season discovered from existing Liu Hui/Dagi Bilibili seed videos; rows are metadata only and require timestamp review before deterministic rule promotion.
+  - archive_id: bili_ugc_season_1536854_high_clear_swing
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1iN4111712
+    public_page: https://www.bilibili.com/video/BV1iN4111712/
+    attempted_at: 2026-07-08
+    season_id: 1536854
+    season_title: 高远球及挥拍教学
+    expected_public_count: 20
+    fetched_public_count: 20
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 19
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1iN4111712.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1536854
+    notes: Parent public page states authorization; rows are metadata only and require timestamp review before deterministic rule promotion.
+  - archive_id: bili_ugc_season_1536695_high_clear_power_other
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1Rs4y1a7EG
+    public_page: https://www.bilibili.com/video/BV1Rs4y1a7EG/
+    attempted_at: 2026-07-08
+    season_id: 1536695
+    season_title: 5、高远球发力及其他发力教程
+    expected_public_count: 37
+    fetched_public_count: 37
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 36
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1Rs4y1a7EG.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1536695
+    notes: Public UGC season from a known Liu Hui teaching seed; authorization was not inferred unless source metadata explicitly supported it.
+  - archive_id: bili_ugc_season_1536706_smash
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1WM4y1h7GY
+    public_page: https://www.bilibili.com/video/BV1WM4y1h7GY/
+    attempted_at: 2026-07-08
+    season_id: 1536706
+    season_title: 8、杀球教程
+    expected_public_count: 23
+    fetched_public_count: 23
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 22
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1WM4y1h7GY.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1536706
+    notes: Parent public page states authorization; rows are metadata only and require timestamp review before deterministic rule promotion.
+  - archive_id: bili_ugc_season_1578045_starting_footwork
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1sa4y137bZ
+    public_page: https://www.bilibili.com/video/BV1sa4y137bZ/
+    attempted_at: 2026-07-08
+    season_id: 1578045
+    season_title: 如何启动
+    expected_public_count: 3
+    fetched_public_count: 3
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 2
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1sa4y137bZ.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1578045
+    notes: Parent public page states authorization; rows are metadata only and require timestamp review before deterministic rule promotion.
+  - archive_id: bili_ugc_season_4029240_equipment
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV16PtzzcEW6
+    public_page: https://www.bilibili.com/video/BV16PtzzcEW6/
+    attempted_at: 2026-07-08
+    season_id: 4029240
+    season_title: 羽毛球装备科普
+    expected_public_count: 13
+    fetched_public_count: 13
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 12
+    status: metadata_indexed_auxiliary
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV16PtzzcEW6.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=4029240
+    notes: Equipment corpus is useful for student-fit context but not direct stroke diagnosis.
+  - archive_id: bili_ugc_season_1300706_live_20221104
+    platform: Bilibili
+    url: https://api.bilibili.com/x/web-interface/view?bvid=BV1yM411L72x
+    public_page: https://www.bilibili.com/video/BV1yM411L72x/
+    attempted_at: 2026-07-08
+    season_id: 1300706
+    season_title: 刘辉羽毛球直播2022-11-04
+    expected_public_count: 17
+    fetched_public_count: 17
+    duplicate_or_existing_count: 1
+    merged_new_source_count: 16
+    status: metadata_indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-discovered-seasons/bili-view-BV1yM411L72x.json
+    converted_private_tsv: data/raw-private/bili-seasons-all.tsv
+    merged_source_selector: source-index rows whose notes contain season_id=1300706
+    notes: Public live-replay metadata is indexed as public, not authorized; use as topic index until timestamps are reviewed.

@@ -18,7 +18,7 @@
   drills: [contact-window-freeze]
   retest_metrics:
     - contact_point should become front_high
-  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_YT_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR]
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_YT_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV1GO4Y1V7NS]
   confidence: source_backed
 
 - rule_id: low-elbow
@@ -68,7 +68,7 @@
   drills: [racket-frame-wall-check]
   retest_metrics:
     - racket_side_structure should become stable
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_BILI_CLEAR_FRAMEWORK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
   confidence: inferred
 
 - rule_id: late-hip-rotation
@@ -91,7 +91,7 @@
   drills: [slow-chain-throw]
   retest_metrics:
     - hip_shoulder_sequence should become hip_before_arm
-  source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_FRAMEWORK, LH_YT_HIP_ROTATION]
+  source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_FRAMEWORK, LH_YT_HIP_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG]
   confidence: inferred
 
 - rule_id: pronation-whip-misread
@@ -118,7 +118,7 @@
   retest_metrics:
     - wrist_elbow_sequence should become elbow_before_wrist
     - racket_side_structure should become stable
-  source_ids: [LH_YT_PRONATION_WHIP, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_WRIST_WHIP_ERROR]
+  source_ids: [LH_YT_PRONATION_WHIP, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_WRIST_WHIP_ERROR, LH_BILI_BIG_ARM_INTERNAL_ROTATION, LH_BILI_SEASON_BV19C4Y1S7Z2]
   confidence: inferred
 
 - rule_id: short-follow-through

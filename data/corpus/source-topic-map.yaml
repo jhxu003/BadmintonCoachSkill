@@ -122,3 +122,67 @@
   taxonomy_section: student_profiles
   taxonomy_ids: [match_pressure_breakdown]
   evidence_role: auxiliary
+- source_id: LH_BILI_FAV_BV15PBRB6EDK
+  taxonomy_section: power_frameworks
+  taxonomy_ids: [stable_overhead_frame, kinetic_chain_power]
+  evidence_role: supporting
+- source_id: LH_BILI_FAV_BV1HRC5ZYESG
+  taxonomy_section: power_frameworks
+  taxonomy_ids: [kinetic_chain_power]
+  evidence_role: supporting
+- source_id: LH_BILI_FAV_BV1SRQDYZEA3
+  taxonomy_section: student_profiles
+  taxonomy_ids: [beginner_arm_dominant]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1XH4Y1R7GC
+  taxonomy_section: power_frameworks
+  taxonomy_ids: [stable_overhead_frame]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV11C411S7GQ
+  taxonomy_section: power_frameworks
+  taxonomy_ids: [kinetic_chain_power]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV19G4Y1S75F
+  taxonomy_section: correction_order
+  taxonomy_ids: [arrival_contact_frame_sequence]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1GO4Y1V7NS
+  taxonomy_section: correction_order
+  taxonomy_ids: [observation_before_advice]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1WI421Q7AX
+  taxonomy_section: power_frameworks
+  taxonomy_ids: [kinetic_chain_power]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1HZ421E7XR
+  taxonomy_section: footwork_families
+  taxonomy_ids: [rear_court_arrival, front_court_arrival]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1HQ4Y1X7LK
+  taxonomy_section: footwork_families
+  taxonomy_ids: [rear_court_arrival, recovery_to_base]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1YV4Y1N7GX
+  taxonomy_section: match_transfer
+  taxonomy_ids: [drill_to_rally]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1IF411K7R2
+  taxonomy_section: stroke_families
+  taxonomy_ids: [drop]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1UULEZ4E9M
+  taxonomy_section: stroke_families
+  taxonomy_ids: [drop]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1TT411R7FT
+  taxonomy_section: stroke_families
+  taxonomy_ids: [backhand]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1CPWTZOEVT
+  taxonomy_section: stroke_families
+  taxonomy_ids: [doubles, smash]
+  evidence_role: supporting
+- source_id: LH_BILI_SEASON_BV1A7PVECEO8
+  taxonomy_section: stroke_families
+  taxonomy_ids: [doubles, smash]
+  evidence_role: supporting

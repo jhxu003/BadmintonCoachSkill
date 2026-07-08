@@ -15,11 +15,14 @@ It must not contain raw videos, full subtitles, paid-course transcripts, screens
 
 1. `data/source-index.tsv`: canonical list of discovered public sources.
 2. `teaching-points.yaml`: distilled coaching points tied to source ids.
-3. Skill references: only use points marked `ready_for_skill`; keep `needs_timestamp_review` points out of deterministic rules until reviewed.
+3. `timestamp-review.yaml`: review ledger for timestamp-blocked or title-level reviewed points.
+4. `deduplication-map.yaml`: exact duplicate and deferred duplicate decisions.
+5. Skill references: use `ready_for_skill` points directly; use reviewed title-level points only through skill guardrails; keep `reviewed_not_promoted` points out of deterministic Liu Hui-derived rules.
 
 ## Evidence Labels
 
 - `source_title`: supported by public title and page metadata.
 - `timestamp_note`: supported by timestamped human notes.
+- `whole_clip_title_backed`: whole public clip span is recorded, but no internal timestamp/subtitle evidence is available.
 - `inferred_from_titles`: plausible synthesis from multiple titles, not enough for direct quotation.
 - `third_party`: discussion or learner feedback; auxiliary only.

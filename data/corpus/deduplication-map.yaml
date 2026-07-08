@@ -1,0 +1,99 @@
+deduplication_run:
+  run_id: dedupe_20260708_public_metadata
+  run_date: 2026-07-08
+  method:
+    - Normalize Bilibili URLs by BV id.
+    - Treat exact BV-id matches as the same public video.
+    - Treat same-topic or same-title YouTube/Bilibili/Douyin rows as not duplicates unless a stable platform id or reviewed cross-post evidence proves identity.
+    - Keep platform search/profile/channel rows separate from per-video rows.
+  source_inputs:
+    - data/source-index.tsv before Bilibili UGC season merge
+    - data/raw-private/bili-seasons-all.tsv
+  summary:
+    bilibili_season_episode_rows: 406
+    exact_existing_bilibili_duplicates: 23
+    new_bilibili_video_rows_merged: 383
+    cross_platform_exact_duplicates_confirmed: 0
+    cross_platform_duplicates_blocked_by_metadata_access: [YouTube, Douyin]
+
+exact_existing_duplicates:
+  - duplicate_source_id: LH_BILI_SEASON_BV1ES4Y1K7PV
+    kept_source_id: LH_BILI_CLEAR_CHANGE_ACTION
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV14M4Y1X7DH
+    kept_source_id: LH_BILI_SLICE_DROP_SMASH
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1YU411G7MR
+    kept_source_id: LH_BILI_LEARNING_ORDER
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1NN411M7SH
+    kept_source_id: LH_BILI_CONTACT_POINT_CLEAR
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV11F411D7S4
+    kept_source_id: LH_BILI_INTERNAL_ROTATION_CUE
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1G14Y1R7LS
+    kept_source_id: LH_BILI_CLEAR_FRAMEWORK
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1QP411X7VD
+    kept_source_id: LH_BILI_MATCH_TRANSFER
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1YU4Y1J7NE
+    kept_source_id: LH_BILI_SIMPLE_SMASH_SEQUENCE
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1TK4Y1B7XQ
+    kept_source_id: LH_BILI_CLEAR_HEIGHT
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1A64Y1P76H
+    kept_source_id: LH_BILI_BIG_ARM_INTERNAL_ROTATION
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1EH4Y1Y7SI
+    kept_source_id: LH_BILI_WRIST_WHIP_ERROR
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1YS1AYKE54
+    kept_source_id: LH_BILI_FAV_BV1YS1AYKE54
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1SRQDYZEA3
+    kept_source_id: LH_BILI_FAV_BV1SRQDYZEA3
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV15PBRB6EDK
+    kept_source_id: LH_BILI_FAV_BV15PBRB6EDK
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1HRC5ZYESG
+    kept_source_id: LH_BILI_FAV_BV1HRC5ZYESG
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1PMARZSEPC
+    kept_source_id: LH_BILI_FAV_BV1PMARZSEPC
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV11KRJBREVH
+    kept_source_id: LH_BILI_FAV_BV11KRJBREVH
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1IN4111712
+    kept_source_id: LH_BILI_AUTH_CLIP
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1RS4Y1A7EG
+    kept_source_id: LH_BILI_FRAMEWORK
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1WM4Y1H7GY
+    kept_source_id: LH_BILI_FAV_BV1WM4Y1H7GY
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1SA4Y137BZ
+    kept_source_id: LH_BILI_LAZY_LEGS
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV16PTZZCEW6
+    kept_source_id: LH_BILI_FAV_BV16PTZZCEW6
+    reason: same_bvid
+  - duplicate_source_id: LH_BILI_SEASON_BV1YM411L72X
+    kept_source_id: LH_BILI_LIVE_QA_20240202
+    reason: same_bvid
+
+blocked_or_deferred_duplicate_checks:
+  - platform_pair: [YouTube, Bilibili]
+    status: deferred
+    reason: YouTube full-channel metadata export is blocked by connection resets in the current environment; topic overlap is not enough to deduplicate.
+  - platform_pair: [Douyin, Bilibili]
+    status: deferred
+    reason: Douyin public profile request returned a 404/dynamic page and no stable per-video metadata export was obtained.
+  - platform_pair: [YouTube, Douyin]
+    status: deferred
+    reason: Neither side has complete stable per-video metadata in the local corpus.
