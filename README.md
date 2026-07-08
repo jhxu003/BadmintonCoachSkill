@@ -42,12 +42,6 @@ Run all built-in examples:
 python3 examples/run_full_system_cases.py
 ```
 
-Run tests:
-
-```bash
-python3 -m pytest -q
-```
-
 ## How It Fits Into A Video Agent
 
 ```text
@@ -98,12 +92,6 @@ high_clear, smash, rear_footwork, front_footwork, backhand, serve_receive, doubl
 
 The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
 
-To inspect current corpus coverage:
-
-```bash
-python3 scripts/build_corpus_report.py
-```
-
 ## Important Boundaries
 
 This project is not official, not authorized, and not affiliated with Liu Hui or any coaching organization.
@@ -127,7 +115,6 @@ When evidence is missing, the skill should say `insufficient evidence` and reque
 - `data/source-index.tsv`: public source index.
 - `data/corpus/`: public-safe corpus artifacts, review logs, taxonomy, and provenance records.
 - `docs/`: collection, annotation, legal, and video-agent guidance.
-- `tests/`: schema, rule, corpus, and safety checks.
 
 ## Provenance Model
 
@@ -143,15 +130,3 @@ See:
 - `skills/liu-hui-badminton-coach/references/corpus-provenance.md`
 - `skills/liu-hui-badminton-coach/references/reviewed-corpus-rules.yaml`
 - `data/corpus/collection-status.md`
-
-## Development
-
-Useful commands:
-
-```bash
-python3 -m pytest -q
-python3 scripts/check_source_integrity.py
-python3 scripts/build_corpus_report.py
-```
-
-Raw platform metadata should stay under ignored `data/raw-private/`. Public files should contain only source indexes, original short summaries, schemas, rules, and code.
