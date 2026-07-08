@@ -37,6 +37,11 @@ def main() -> None:
         newline="", encoding="utf-8"
     ) as handle:
         access_rows = list(csv.DictReader(handle, delimiter="\t"))
+    archive_manifest = yaml.safe_load(
+        (ROOT / "data" / "corpus" / "archive-manifest.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
     summary = summarize_source_index(source_rows)
     ready_points = [
         point for point in teaching_points if point["status"] == "ready_for_skill"
@@ -68,6 +73,7 @@ def main() -> None:
     print()
     print(f"Source-topic mappings: {len(source_topic_map)}")
     print(f"Access attempts: {len(access_rows)}")
+    print(f"Archive manifests: {len(archive_manifest['archives'])}")
 
 
 if __name__ == "__main__":

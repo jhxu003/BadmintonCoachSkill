@@ -15,6 +15,7 @@ def test_public_access_log_records_blocked_channel_fetches():
         row["platform"] == "YouTube" and row["status"] == "blocked"
         for row in rows
     )
+    assert any("feeds/videos.xml" in row["command_or_url"] for row in rows)
     assert all(row["attempted_at"] for row in rows)
     assert all(row["command_or_url"] for row in rows)
     assert all(row["result"] for row in rows)

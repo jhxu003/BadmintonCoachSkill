@@ -1,0 +1,27 @@
+archives:
+  - archive_id: bili_fav_73830778
+    platform: Bilibili
+    url: https://api.bilibili.com/x/v3/fav/resource/list?media_id=73830778
+    public_page: https://www.bilibili.com/list/ml73830778
+    attempted_at: 2026-07-08
+    expected_public_count: 326
+    fetched_public_count: 322
+    unavailable_public_count: 4
+    fetched_pages: 17
+    filtered_relevant_count: 10
+    status: indexed_needs_timestamp_review
+    raw_private_path: data/raw-private/bili-fav-73830778/
+    filtered_private_tsv: data/raw-private/bili-fav-73830778.filtered.tsv
+    duplicate_or_existing_source_ids:
+      - LH_BILI_LEARNING_ORDER
+      - LH_BILI_MATCH_TRANSFER
+    merged_source_ids:
+      - LH_BILI_FAV_BV16PTZZCEW6
+      - LH_BILI_FAV_BV1HRC5ZYESG
+      - LH_BILI_FAV_BV1PMARZSEPC
+      - LH_BILI_FAV_BV1YS1AYKE54
+      - LH_BILI_FAV_BV1WM4Y1H7GY
+      - LH_BILI_FAV_BV15PBRB6EDK
+      - LH_BILI_FAV_BV11KRJBREVH
+      - LH_BILI_FAV_BV1SRQDYZEA3
+    notes: Public Bilibili favorite/list metadata includes many unrelated videos; strict filtering keeps only Liu Hui title matches or Dagi Badminton upper entries. Four list items were unavailable or hidden in API pagination at fetch time.

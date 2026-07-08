@@ -110,3 +110,4 @@ def test_corpus_report_script_outputs_reproducible_summary():
     assert "Taxonomy sections:" in result.stdout
     assert "Source-topic mappings:" in result.stdout
     assert "Access attempts:" in result.stdout
+    assert "Archive manifests:" in result.stdout
