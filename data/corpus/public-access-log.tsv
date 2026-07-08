@@ -1,0 +1,3 @@
+attempt_id	attempted_at	platform	command_or_url	status	result	next_action
+YT_OFFICIAL_20260708	2026-07-08	YouTube	python3 -m yt_dlp --flat-playlist --dump-json "https://www.youtube.com/@liuhuiyumaoqiu/videos"	blocked	Connection reset by peer after retries; produced zero JSONL rows	Use search-indexed public pages and retry metadata import from a network that can reach YouTube.
+YT_INITIAL_G_20260708	2026-07-08	YouTube	python3 -m yt_dlp --flat-playlist --dump-json "https://www.youtube.com/@initial-G_badminton/videos"	blocked	Connection reset by peer after retries; produced zero JSONL rows	Verify canonical handle and retry metadata import from a network that can reach YouTube.
