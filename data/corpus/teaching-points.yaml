@@ -117,3 +117,353 @@
   source_ids: [PUBLIC_DISCUSSION_THREADS, LH_SOCIALBLADE_CHANNEL_STATS, PUBLIC_SEARCH_WEB]
   rule_implication: Third-party sources may guide product priorities but deterministic diagnosis needs official, authorized, or timestamped public evidence.
   review_need: Keep third-party material out of source-backed technique rules.
+
+- point_id: student-fit-is-primary
+  summary: Player profile should determine the framework and training load before isolated technical labels are selected.
+  applies_to: [student_profile, power_framework, training_plan]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_FIT_SYSTEM, LH_YT_THREE_FRAMEWORKS, LH_INSTAGRAM_INTERVIEW]
+  rule_implication: The skill must ask whether the player is beginner, arm-dominant, chain-ready, mobility-limited, or match-pressure limited.
+  review_need: Timestamp direct statements about selecting a suitable system for each player.
+
+- point_id: profile-arm-dominant-beginner
+  summary: An arm-dominant beginner should first receive arrival, contact, and frame corrections, not advanced chain or speed cues.
+  applies_to: [student_profile, high_clear, smash]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_CLEAR_HEIGHT, LH_BILI_WRIST_WHIP_ERROR]
+  rule_implication: If profile coordination is arm_dominant, downgrade pronation and heavy-power advice until the frame is usable.
+  review_need: Add timestamped beginner cases from authorized clips.
+
+- point_id: profile-chain-ready-intermediate
+  summary: An intermediate player with stable contact can be moved toward hip timing, elbow lead, and release sequencing.
+  applies_to: [student_profile, power_framework, smash]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_YT_HEAVY_SMASH_FRAMEWORK]
+  rule_implication: Only choose kinetic-chain power when earlier contact and structure checks pass.
+  review_need: Timestamp examples where kinetic-chain work is appropriate.
+
+- point_id: profile-mobility-limited
+  summary: A mobility-limited adult needs smaller movement ranges, safer power choices, and recovery-based progressions.
+  applies_to: [student_profile, front_court_footwork, rear_court_footwork, training_plan]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
+  rule_implication: The skill should not force large idealized footwork when mobility or injury risk is constrained.
+  review_need: Collect timestamped examples for age, strength, mobility, and injury-risk adaptation.
+
+- point_id: profile-match-pressure
+  summary: If a player performs correctly in drills but breaks down in rallies, training should shift toward match-transfer constraints.
+  applies_to: [student_profile, match_transfer, training_plan]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  rule_implication: The report should separate technical acquisition from match-ready execution.
+  review_need: Timestamp match-transfer examples from public clips.
+
+- point_id: contact-point-is-global-diagnosis
+  summary: Finding the hitting point is a general diagnostic concept, not only a high-clear cue.
+  applies_to: [power_framework, high_clear, smash, net, drive]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_FIND_CONTACT_POINT, LH_YT_CONTACT_POINT, LH_BILI_LIVE_QA_20240202]
+  rule_implication: The skill should ask what point the player is trying to take before giving stroke-specific advice.
+  review_need: Timestamp the hitting-point concept before promoting this beyond hypothesis.
+
+- point_id: relaxed-power-before-force
+  summary: Power advice should avoid adding tension; relaxation and timing may be the bottleneck when effort increases but quality drops.
+  applies_to: [power_framework, high_clear, smash, drive]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_RELAXED_POWER, LH_YT_TENSION_OBSERVATION, LH_YT_PRONATION_WHIP]
+  rule_implication: If the player tightens under power, recommend slower rhythm and frame retention before stronger swings.
+  review_need: Timestamp public relaxed-power explanation.
+
+- point_id: overhead-base-before-variation
+  summary: Clear, smash, drop, and slice should share a base overhead structure before variation is added.
+  applies_to: [power_framework, high_clear, smash, drop]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SLICE_DROP_SMASH, LH_YT_PLAYLIST_FOREHAND]
+  rule_implication: Variation advice should be delayed when base overhead contact or frame is failing.
+  review_need: Timestamp the relation between base overhead and variations.
+
+- point_id: high-clear-length-is-output-not-cue
+  summary: High-clear distance should be treated as an output of arrival, contact, frame, and release rather than a command to swing harder.
+  applies_to: [high_clear, training_plan]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_CLEAR_HEIGHT, LH_YT_CONTACT_POINT, LH_YT_TOP_ELBOW_CLEAR]
+  rule_implication: If a clear is short, the skill should inspect contact and sequence before prescribing more force.
+  review_need: Timestamp clear-distance correction examples.
+
+- point_id: high-clear-action-change-order
+  summary: High-clear action changes should be staged so the player does not rebuild every layer at once.
+  applies_to: [high_clear, training_plan]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_CLEAR_CHANGE_ACTION, LH_BILI_LEARNING_ORDER, LH_YT_CONSISTENCY]
+  rule_implication: Reports should pick one high-clear priority and one retest metric.
+  review_need: Timestamp the public action-correction sequence.
+
+- point_id: smash-simple-sequence
+  summary: Smash learning should start from a simple sequence before heavier power, angle, or variation is emphasized.
+  applies_to: [smash, training_plan]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
+  rule_implication: Beginner smash diagnosis should prioritize sequence and frame over maximum force.
+  review_need: Timestamp the simple-smash progression.
+
+- point_id: smash-angle-after-contact
+  summary: Smash angle should not be the first target if the contact point is late or the overhead frame collapses.
+  applies_to: [smash, high_clear]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW, LH_YT_CONTACT_POINT]
+  rule_implication: A flat smash with late contact should trigger contact-window work before angle cues.
+  review_need: Add timestamped flat-smash examples.
+
+- point_id: drop-comes-after-disguise-base
+  summary: Drop and slice-drop quality depends on a credible base overhead action and controlled contact.
+  applies_to: [drop, high_clear, smash]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK, LH_YT_PLAYLIST_FOREHAND]
+  rule_implication: If the base overhead action is unstable, avoid advanced drop/slice advice.
+  review_need: Timestamp slice-drop examples and relation to base stroke.
+
+- point_id: drive-needs-compact-preparation
+  summary: Drive and flat exchange situations need compact preparation rather than a full overhead-style swing.
+  applies_to: [drive, doubles]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_LIVE_QA_20240202]
+  rule_implication: The observation schema should record preparation size and racket readiness for drive cases.
+  review_need: Timestamp flat-exchange or body-jammed examples.
+
+- point_id: body-jammed-shot-is-positioning
+  summary: A body-jammed ball should be diagnosed through positioning, racket preparation, and compact response rather than only hand speed.
+  applies_to: [drive, doubles, serve_receive]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY]
+  rule_implication: For body-jammed observations, the skill should ask whether the player was too close, late, or overprepared.
+  review_need: Timestamp public body-jammed teaching.
+
+- point_id: net-arrival-before-touch
+  summary: Net-shot advice should first check whether the player arrives early enough to control the contact height and racket face.
+  applies_to: [net, front_court_footwork]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+  rule_implication: Late front-court arrival should outrank delicate touch advice.
+  review_need: Timestamp receive-drop and front-court arrival examples.
+
+- point_id: net-action-must-stay-small
+  summary: In front-court touch situations, large racket actions should be treated as a timing and control risk.
+  applies_to: [net, front_court_footwork]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+  rule_implication: Add compact preparation as a front-court observation target.
+  review_need: Timestamp front-court racket-action examples.
+
+- point_id: front-court-exit-is-part-of-shot
+  summary: Front-court feedback should include the exit and recovery after contact, not only the touch itself.
+  applies_to: [front_court_footwork, net, match_transfer]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+  rule_implication: Reports should include front-court exit retest metrics.
+  review_need: Timestamp front-court recovery examples.
+
+- point_id: rear-court-passive-not-single-cause
+  summary: Passive rear-court trouble can come from footwork, contact drift, frame collapse, or tactical pressure, so diagnosis must compare layers.
+  applies_to: [rear_court_footwork, high_clear, smash, match_transfer]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_YT_PASSIVE_WHIP, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+  rule_implication: The skill should not answer late rear-court pressure with only one stock footwork drill.
+  review_need: Timestamp layer-separation examples.
+
+- point_id: rear-court-transition-footwork
+  summary: Rear-court transition should be treated as an arrival-to-contact problem, not isolated stepping choreography.
+  applies_to: [rear_court_footwork, high_clear, backhand]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_REAR_TRANSITION, LH_YT_HEAD_BACKHAND_CORNER, LH_YT_PASSIVE_REAR_COURT]
+  rule_implication: Add transition path and contact stability to rear-court footwork diagnosis.
+  review_need: Timestamp rear-court transition demonstrations.
+
+- point_id: recovery-is-a-diagnostic-layer
+  summary: Slow recovery should be diagnosed as its own layer because it creates the next rushed contact.
+  applies_to: [rear_court_footwork, front_court_footwork, match_transfer]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_LAZY_LEGS, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+  rule_implication: Reports should include recovery retest metrics when next-shot timing breaks down.
+  review_need: Timestamp recovery and lazy-leg correction examples.
+
+- point_id: backhand-is-not-wrist-only
+  summary: Backhand problems should be separated into arrival, contact height, racket face, and recovery rather than treated as wrist weakness.
+  applies_to: [backhand, rear_court_footwork]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PRACTICAL_FOOTWORK]
+  rule_implication: Backhand diagnosis should request view of footwork and contact, not just hand action.
+  review_need: Timestamp backhand-side corner examples.
+
+- point_id: backhand-corner-choice
+  summary: Head-area or backhand-side sideline balls should trigger a choice between overhead reach, footwork transition, and defensive backhand.
+  applies_to: [backhand, rear_court_footwork, match_transfer]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PASSIVE_REAR_COURT]
+  rule_implication: The skill should classify whether the player chose the wrong solution or executed the right solution poorly.
+  review_need: Timestamp examples of head-area/backhand-side choices.
+
+- point_id: serve-receive-first-two-shots
+  summary: Serve and receive advice should include preparation and the first two shots, because the first contact sets the rally state.
+  applies_to: [serve_receive, doubles, match_transfer]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  rule_implication: Serve/receive examples should retest first-two-shot quality, not only serve contact.
+  review_need: Find direct serve/receive Liu Hui public clips.
+
+- point_id: receive-compact-racket
+  summary: Receive actions should keep the racket ready and compact because time pressure punishes large preparation.
+  applies_to: [serve_receive, drive, net]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_CONSISTENCY]
+  rule_implication: Add racket-readiness and preparation-size observations for receive cases.
+  review_need: Timestamp receive and fast-exchange examples.
+
+- point_id: doubles-shot-quality-position-coupling
+  summary: In doubles, technique feedback should be coupled to after-shot position and partner coverage.
+  applies_to: [doubles, drive, match_transfer]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  rule_implication: Doubles reports should avoid singles-base recovery language when partner coverage is relevant.
+  review_need: Find direct doubles-positioning public clips or keep as hypothesis.
+
+- point_id: doubles-fast-exchange-pressure
+  summary: Doubles fast exchange diagnosis should combine racket readiness, compact swing, and recovery under pressure.
+  applies_to: [doubles, drive, serve_receive]
+  evidence_type: inferred_from_titles
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+  rule_implication: Fast exchange issues should not be diagnosed from a single static keyframe.
+  review_need: Timestamp doubles or midcourt exchange examples.
+
+- point_id: training-one-priority-rule
+  summary: A useful training report should choose one current priority rather than listing every visible flaw equally.
+  applies_to: [training_plan, report_contract]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_LEARNING_ORDER, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  rule_implication: Report compiler should rank issues and keep the first prescription tight.
+  review_need: Timestamp learning-order and consistency clips.
+
+- point_id: training-retest-metric-rule
+  summary: Every correction should have a retest metric so the next recommendation depends on observable improvement.
+  applies_to: [training_plan, match_transfer, report_contract]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_CONSISTENCY, LH_YT_TENSION_OBSERVATION, LH_BILI_MATCH_TRANSFER]
+  rule_implication: Every drill in deterministic output must include a retest metric.
+  review_need: Timestamp examples of measurable correction.
+
+- point_id: training-slow-to-fast-progression
+  summary: Corrections should progress from slow structure to controlled feed to rally pressure rather than jumping straight to full speed.
+  applies_to: [training_plan, match_transfer, power_framework]
+  evidence_type: inferred_from_titles
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER, LH_YT_PRONATION_WHIP]
+  rule_implication: Training plans should include slow, feed, and pressure phases when the goal is match transfer.
+  review_need: Timestamp slow-to-fast progression examples.
+
+- point_id: match-transfer-pressure-retest
+  summary: A technique is not complete until it survives a pressure retest matching the player's actual game problem.
+  applies_to: [match_transfer, training_plan]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+  rule_implication: Reports should distinguish drill success from rally success.
+  review_need: Timestamp public match-transfer examples.
+
+- point_id: match-analysis-before-tactical-advice
+  summary: Tactical advice should come after observing how the player's shot quality and recovery affect the rally.
+  applies_to: [match_transfer, doubles, serve_receive]
+  evidence_type: source_title
+  status: needs_timestamp_review
+  usable_in_rules: false
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+  rule_implication: The skill should not invent tactics from one isolated stroke clip.
+  review_need: Timestamp tactical-intelligence clip and decide which claims are technique-safe.
+
+- point_id: live-qa-segments-as-index-not-rules
+  summary: Multi-topic live Q&A pages are useful as topic indexes but each segment needs timestamp review before becoming a rule.
+  applies_to: [corpus_policy, training_plan, match_transfer]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_LIVE_QA_20240202, LH_BILI_DAGI_AUTH_INDEX, LH_DOUYIN_OFFICIAL_PROFILE]
+  rule_implication: Live Q&A titles can guide corpus coverage, but the skill should not overclaim exact teaching content from titles alone.
+  review_need: Create timestamp notes for each public segment.
+
+- point_id: official-channel-scale-requires-metadata-import
+  summary: The official-channel corpus is large enough that manual cherry-picking is insufficient; full metadata import is part of completion.
+  applies_to: [corpus_policy, source_collection]
+  evidence_type: third_party
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_SOCIALBLADE_CHANNEL_STATS, LH_OFFICIAL_YT, LH_OFFICIAL_YT_ALT]
+  rule_implication: The project cannot claim all-video completion until channel metadata fetch succeeds or an equivalent public export is reviewed.
+  review_need: Retry channel metadata import from a network path that can reach YouTube.
+
+- point_id: authorized-bilibili-is-primary-chinese-corpus
+  summary: Authorized Bilibili clipping pages are a primary public Chinese corpus source when official YouTube metadata is blocked.
+  applies_to: [corpus_policy, source_collection]
+  evidence_type: source_title
+  status: ready_for_skill
+  usable_in_rules: true
+  source_ids: [LH_BILI_DAGI_AUTH_INDEX, LH_BILI_LIVE_QA_20240202, LH_BILI_AUTH_CLIP]
+  rule_implication: The corpus builder should prioritize Bilibili authorized pages for timestamp notes while YouTube direct fetch is blocked.
+  review_need: Verify authorization wording and list child videos systematically.

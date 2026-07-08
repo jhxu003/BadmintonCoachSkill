@@ -58,7 +58,25 @@ def test_teaching_points_are_traceable_to_source_index():
         )
     )
 
-    assert len(teaching_points) >= 10
+    assert len(teaching_points) >= 40
+    required_areas = {
+        "student_profile",
+        "power_framework",
+        "high_clear",
+        "smash",
+        "drop",
+        "drive",
+        "net",
+        "backhand",
+        "serve_receive",
+        "front_court_footwork",
+        "rear_court_footwork",
+        "doubles",
+        "training_plan",
+        "match_transfer",
+    }
+    covered = {area for point in teaching_points for area in point["applies_to"]}
+    assert required_areas.issubset(covered)
     for point in teaching_points:
         jsonschema.validate(point, schema)
         assert point["point_id"]
