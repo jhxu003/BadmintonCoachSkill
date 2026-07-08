@@ -71,3 +71,49 @@
   retest_metrics:
     - follow_through changes from short to complete
 
+- drill_id: front-court-arrival-shadow
+  name: Front-court arrival shadow
+  target_issues: [late-front-arrival]
+  steps:
+    - Start from center base.
+    - Split and move to the front corner.
+    - Freeze with racket face ready before the imaginary contact.
+    - Exit back toward base after the touch.
+  dosage: 5 sets of 6 reps per front corner.
+  retest_metrics:
+    - front_arrival_timing improves from late to on_time
+
+- drill_id: backhand-contact-height-check
+  name: Backhand contact-height check
+  target_issues: [backhand-low-contact]
+  steps:
+    - Feed to the backhand side at controlled speed.
+    - Pause at the contact frame.
+    - Mark whether contact is still at playable height.
+    - Recover before the next feed.
+  dosage: 4 sets of 8 controlled feeds.
+  retest_metrics:
+    - contact_point changes from low to playable_height
+
+- drill_id: compact-receive-ready
+  name: Compact receive ready
+  target_issues: [receive-large-preparation]
+  steps:
+    - Start in receive posture with racket ready.
+    - Receive a short or body-line feed without backswing.
+    - Recover immediately for the second shot.
+  dosage: 6 sets of 10 receives.
+  retest_metrics:
+    - preparation_size changes from large to compact
+    - second_shot_ready becomes true
+
+- drill_id: doubles-after-shot-recovery
+  name: Doubles after-shot recovery
+  target_issues: [doubles-watch-after-hit]
+  steps:
+    - Hit a drive, block, or lift in a two-player shape.
+    - Move to the role-specific coverage position.
+    - Play the next feed with racket ready.
+  dosage: 5 sets of 8 two-shot patterns.
+  retest_metrics:
+    - after_shot_recovery changes from watching to role_ready

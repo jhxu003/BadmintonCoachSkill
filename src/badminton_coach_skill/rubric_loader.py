@@ -20,9 +20,9 @@ def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
     root = Path(reference_dir)
     drills = _load_yaml(root / "drills.yaml")
     drill_map = {drill["drill_id"]: drill for drill in drills}
-    rules = _load_yaml(root / "footwork-rubric.yaml") + _load_yaml(
-        root / "overhead-rubric.yaml"
-    )
+    rules: list[dict[str, Any]] = []
+    for path in sorted(root.glob("*-rubric.yaml")):
+        rules.extend(_load_yaml(path))
 
     return {
         "frameworks": _load_yaml(root / "frameworks.yaml"),
@@ -30,4 +30,3 @@ def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
         "drills": drills,
         "drill_map": drill_map,
     }
-

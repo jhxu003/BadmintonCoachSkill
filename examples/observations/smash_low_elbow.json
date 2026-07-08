@@ -1,0 +1,31 @@
+{
+  "player_profile": {
+    "level": "intermediate",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "normal",
+    "coordination": "arm_dominant",
+    "injury_risk": [],
+    "training_goal": "smash_power",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "smash",
+    "camera_view": "rear_side",
+    "fps_quality": "good",
+    "phase_observations": {},
+    "contact_point": "front_high",
+    "elbow_height_before_hit": "below_shoulder",
+    "wrist_elbow_sequence": "wrist_before_elbow",
+    "hip_shoulder_sequence": "late_hip",
+    "racket_side_structure": "stable",
+    "follow_through": "complete",
+    "footwork_observations": {
+      "arrival_timing": "on_time",
+      "recovery": "normal"
+    },
+    "missing_observations": [],
+    "keyframes": [{"label": "pre_hit", "time_ms": 1280}]
+  }
+}

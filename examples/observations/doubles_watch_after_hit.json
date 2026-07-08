@@ -1,0 +1,32 @@
+{
+  "player_profile": {
+    "level": "intermediate",
+    "age_band": "adult",
+    "strength": "average",
+    "mobility": "normal",
+    "coordination": "balanced",
+    "injury_risk": [],
+    "training_goal": "doubles_positioning",
+    "dominant_hand": "right",
+    "available_training_time": "20min_per_day"
+  },
+  "video_observation": {
+    "action": "doubles",
+    "camera_view": "full_court_rear",
+    "fps_quality": "good",
+    "phase_observations": {
+      "after_shot_recovery": "watching"
+    },
+    "contact_point": "front_high",
+    "elbow_height_before_hit": "missing",
+    "wrist_elbow_sequence": "missing",
+    "hip_shoulder_sequence": "missing",
+    "racket_side_structure": "stable",
+    "follow_through": "complete",
+    "footwork_observations": {
+      "recovery": "slow"
+    },
+    "missing_observations": [],
+    "keyframes": [{"label": "after_hit", "time_ms": 1560}]
+  }
+}

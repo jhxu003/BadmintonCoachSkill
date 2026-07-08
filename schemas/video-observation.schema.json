@@ -18,7 +18,19 @@
     "keyframes"
   ],
   "properties": {
-    "action": { "type": "string", "enum": ["high_clear", "smash", "rear_footwork", "unknown"] },
+    "action": {
+      "type": "string",
+      "enum": [
+        "high_clear",
+        "smash",
+        "rear_footwork",
+        "front_footwork",
+        "backhand",
+        "serve_receive",
+        "doubles",
+        "unknown"
+      ]
+    },
     "camera_view": { "type": "string" },
     "fps_quality": { "type": "string" },
     "phase_observations": { "type": "object" },
@@ -45,4 +57,3 @@
   },
   "additionalProperties": true
 }
-

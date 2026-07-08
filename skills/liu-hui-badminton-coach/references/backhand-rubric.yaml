@@ -1,0 +1,22 @@
+- rule_id: backhand-low-contact
+  issue: Backhand contact is too low or late
+  category: backhand
+  priority: 25
+  applicable_actions: [backhand]
+  student_profile_fit: [beginner, intermediate, mobility_limited]
+  required_observations: [contact_point]
+  observable_evidence:
+    - path: contact_point
+      equals: low
+      label: Backhand contact is low enough that the player has to reach and lift.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for side or rear-side view showing arrival, contact height, and recovery.
+  likely_effect:
+    - Player treats the problem as wrist strength.
+    - Defensive contact has poor depth and slow recovery.
+  correction_principle: Fix arrival and contact height before adding wrist-force cues.
+  drills: [backhand-contact-height-check]
+  retest_metrics:
+    - contact_point should become playable_height
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PRACTICAL_FOOTWORK]
+  confidence: hypothesis

@@ -1,0 +1,22 @@
+- rule_id: doubles-watch-after-hit
+  issue: Player watches after the hit instead of recovering to doubles position
+  category: doubles_positioning
+  priority: 30
+  applicable_actions: [doubles]
+  student_profile_fit: [intermediate, match_pressure_breakdown]
+  required_observations: [phase_observations.after_shot_recovery]
+  observable_evidence:
+    - path: phase_observations.after_shot_recovery
+      equals: watching
+      label: Player remains watching after contact instead of moving to the next coverage position.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for rally view showing both players, shot, recovery, and next opponent contact.
+  likely_effect:
+    - Partner coverage gap opens.
+    - Next fast exchange is rushed.
+  correction_principle: Link each shot to partner-aware recovery and next-shot readiness.
+  drills: [doubles-after-shot-recovery]
+  retest_metrics:
+    - phase_observations.after_shot_recovery should become role_ready
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  confidence: hypothesis

@@ -1,0 +1,23 @@
+- rule_id: receive-large-preparation
+  issue: Serve/receive preparation is too large
+  category: serve_receive
+  priority: 25
+  applicable_actions: [serve_receive]
+  student_profile_fit: [beginner, intermediate, match_pressure_breakdown]
+  required_observations: [phase_observations.preparation_size]
+  observable_evidence:
+    - path: phase_observations.preparation_size
+      equals: large
+      label: Receive preparation is large for the available reaction time.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for serve/receive angle showing ready posture, racket preparation, contact, and second-shot recovery.
+  likely_effect:
+    - Player is late to fast or body-jammed serves.
+    - Second-shot readiness is poor.
+  correction_principle: Keep receive preparation compact and retest the first two shots.
+  drills: [compact-receive-ready]
+  retest_metrics:
+    - phase_observations.preparation_size should become compact
+    - phase_observations.second_shot_ready should become true
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  confidence: hypothesis

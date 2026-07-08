@@ -1,0 +1,22 @@
+- rule_id: late-front-arrival
+  issue: Front-court arrival is late
+  category: footwork
+  priority: 15
+  applicable_actions: [front_footwork]
+  student_profile_fit: [beginner, intermediate, mobility_limited]
+  required_observations: [footwork_observations.front_arrival_timing]
+  observable_evidence:
+    - path: footwork_observations.front_arrival_timing
+      equals: late
+      label: Player reaches after the shuttle has already dropped in front court.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for full-body front-court view including split, lunge, contact, and exit.
+  likely_effect:
+    - Contact becomes low and rushed.
+    - Racket touch becomes large or unstable.
+  correction_principle: Arrive and set racket face before asking for delicate net touch.
+  drills: [front-court-arrival-shadow]
+  retest_metrics:
+    - footwork_observations.front_arrival_timing should become on_time
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+  confidence: inferred
