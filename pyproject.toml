@@ -7,8 +7,3 @@ dependencies = [
   "PyYAML>=6.0",
   "jsonschema>=4.0",
 ]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
-
