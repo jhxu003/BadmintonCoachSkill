@@ -1,0 +1,23 @@
+- rule_id: racket-too-heavy-for-stage
+  issue: Racket or swing weight is too heavy for the current learning stage
+  category: equipment_fit
+  priority: 75
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles]
+  student_profile_fit: [beginner, intermediate, mobility_limited]
+  required_observations: [phase_observations.racket_weight_fit]
+  observable_evidence:
+    - path: phase_observations.racket_weight_fit
+      equals: too_heavy_for_stage
+      label: Racket or swing weight appears too heavy for the player's current frame and release quality.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for racket model or weight class plus slow-motion swing and recovery before prescribing equipment changes.
+  likely_effect:
+    - Player may lose frame, arrive late, or tighten before contact.
+    - Equipment advice should support technique learning, not replace technical diagnosis.
+  correction_principle: Treat equipment as student-fit context; retest the same movement with manageable swing weight before changing the technique target.
+  drills: [equipment-fit-retest]
+  retest_metrics:
+    - phase_observations.racket_weight_fit should become manageable
+    - racket_side_structure should remain stable at slow speed
+  source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY]
+  confidence: hypothesis

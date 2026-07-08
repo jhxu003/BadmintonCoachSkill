@@ -1,0 +1,46 @@
+- rule_id: big-arm-dominant-swing
+  issue: Swing is dominated by big-arm pulling
+  category: swing_path
+  priority: 38
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [phase_observations.arm_path]
+  observable_evidence:
+    - path: phase_observations.arm_path
+      equals: big_arm_pull
+      label: Arm path is dominated by big-arm pulling instead of a usable frame-to-release sequence.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for preparation, acceleration, contact, and follow-through frames before diagnosing arm path.
+  likely_effect:
+    - Player loses speed despite trying harder.
+    - Wrist or internal-rotation cues may be misapplied because the arm path is wrong first.
+  correction_principle: Rebuild arm path through frame, elbow lead, and natural follow-through before adding hand-speed detail.
+  drills: [arm-path-reset]
+  retest_metrics:
+    - phase_observations.arm_path should become frame_to_release
+    - wrist_elbow_sequence should remain elbow_before_wrist
+  source_ids: [LH_BILI_SEASON_BV1VPDNYJEPU, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1CJDQYUEGC, LH_BILI_SEASON_BV1CADQYGEIS]
+  confidence: inferred
+
+- rule_id: swing-path-offline
+  issue: Swing path is offline for the intended shot
+  category: swing_path
+  priority: 42
+  applicable_actions: [high_clear, smash, drop]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.swing_path]
+  observable_evidence:
+    - path: phase_observations.swing_path
+      equals: offline
+      label: Swing path does not travel through the intended contact and finish line.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for rear-side view showing the racket path from preparation to finish.
+  likely_effect:
+    - Shot quality changes even when contact height looks acceptable.
+    - Player may compensate with wrist or shoulder force.
+  correction_principle: Fix the movement line before increasing speed.
+  drills: [arm-path-reset]
+  retest_metrics:
+    - phase_observations.swing_path should become through_contact
+  source_ids: [LH_BILI_SEASON_BV1NIX9YYEYG, LH_BILI_SEASON_BV1TDRUYTE46, LH_BILI_SEASON_BV1HZPSZFEGW]
+  confidence: hypothesis

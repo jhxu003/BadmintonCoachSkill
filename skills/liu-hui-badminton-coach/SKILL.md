@@ -27,8 +27,11 @@ Read the references needed for the action:
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
 - Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.
 - Read `references/overhead-rubric.yaml` for high clear and smash.
+- Read `references/smash-variant-rubric.yaml` for point smash, jump smash, unloading/deceleration, landing recovery, or specialized smash variants.
 - Read `references/drop-rubric.yaml` for drop, slice drop, slide shot, cut shot, or overhead variation.
 - Read `references/drive-rubric.yaml` for drive, body-jammed, push, receive defense, or fast-exchange pressure.
+- Read `references/swing-rubric.yaml` for big-arm pulling, swing-path, shoulder/arm coordination, or path-line problems.
+- Read `references/equipment-rubric.yaml` when racket weight or swing weight is part of the player-fit question.
 - Read `references/footwork-rubric.yaml` for rear-court movement, late arrival, or recovery issues.
 - Read `references/frontcourt-rubric.yaml` for front-court arrival, net, or receive-drop movement.
 - Read `references/backhand-rubric.yaml` for backhand or backhand-corner pressure.
@@ -41,7 +44,7 @@ Read the references needed for the action:
 
 ## Runtime Framework Surface
 
-The runtime framework library covers student-fit paths, high-clear rebuilds, racket preparation, contact window, top elbow, grip/finger power, wrist position, hip/trunk power, whip/internal rotation, relaxation, smash variants, drop/slice/slide variants, footwork/recovery, backhand, drive/receive defense, singles/doubles tactics, match transfer, and safety-load selection.
+The runtime framework library covers student-fit paths, equipment fit, high-clear rebuilds, racket preparation, contact window, top elbow, grip/finger power, wrist position, arm path, hip/trunk power, whip/internal rotation, unloading/deceleration, relaxation, smash variants, drop/slice/slide variants, footwork/recovery, backhand, drive/receive defense, singles/doubles tactics, match transfer, and safety-load selection.
 
 ## Diagnosis Flow
 

@@ -1091,3 +1091,66 @@
   priority: [slow-recovery, doubles-watch-after-hit, late-arrival]
   source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
   confidence: hypothesis
+
+- framework_id: equipment-fit-frame
+  name: Equipment-fit frame
+  summary: Treat racket weight and swing weight as student-fit context when equipment is likely blocking power learning or recovery.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles]
+  training_goals: [racket_weight_fit, equipment_fit, lighter_racket_transition]
+  suitable_for:
+    level: [beginner, intermediate]
+    strength: [low, average]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.racket_weight_fit
+      equals: too_heavy_for_stage
+      weight: 12
+    - path: phase_observations.swing_weight_effect
+      equals: slows_frame
+      weight: 8
+  priority: [racket-too-heavy-for-stage, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY, LH_BILI_SEASON_BV1WX4Y197QK]
+  confidence: hypothesis
+
+- framework_id: arm-path-correction-frame
+  name: Arm-path correction frame
+  summary: Separate useful arm swing, big-arm pulling, shoulder locking, and follow-through path before blaming wrist or strength.
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  training_goals: [big_arm_correction, arm_path, swing_path, shoulder_arm_coordination]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.arm_path
+      in: [big_arm_pull, shoulder_locked, path_offline]
+      weight: 12
+    - path: phase_observations.swing_path
+      in: [offline, across_too_early]
+      weight: 8
+  priority: [big-arm-dominant-swing, low-elbow, short-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1VPDNYJEPU, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1CJDQYUEGC, LH_BILI_SEASON_BV1CADQYGEIS, LH_BILI_SEASON_BV1UM4Y1C7T7]
+  confidence: inferred
+
+- framework_id: deceleration-release-frame
+  name: Deceleration and release frame
+  summary: Diagnose point smash, heavy smash, and fast release through unloading, deceleration, and natural follow-through.
+  applicable_actions: [smash, high_clear, drop]
+  training_goals: [deceleration_release, point_smash, release_finish, follow_through_control]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain, wrist_pain]
+  observation_triggers:
+    - path: phase_observations.deceleration
+      in: [missing, forced_stop, cannot_unload]
+      weight: 12
+    - path: follow_through
+      equals: short
+      weight: 5
+  priority: [deceleration-missing, short-follow-through, pronation-whip-misread]
+  source_ids: [LH_BILI_SEASON_BV1RMMDBYERR, LH_BILI_SEASON_BV1A8411R7VG, LH_BILI_SEASON_BV13U411S7AM, LH_BILI_SEASON_BV158QHY5ELA]
+  confidence: hypothesis

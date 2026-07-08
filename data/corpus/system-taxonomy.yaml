@@ -131,6 +131,118 @@ power_frameworks:
     source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_YT_PASSIVE_WHIP, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
     evidence_status: inferred
 
+  - id: student_fit_power_selection
+    name: Student-fit power selection
+    summary: Select the power mode, frame size, and learning sequence from the player's level, strength, coordination, mobility, and match-transfer need.
+    diagnostic_questions:
+      - Is the learner copying an advanced power mode before the base frame is ready?
+      - Does the selected framework fit the player's current physical and coordination constraints?
+    common_errors:
+      - Giving one universal swing model to every learner.
+      - Prescribing advanced speed cues before a usable frame exists.
+    training_focus:
+      - Choose the current framework.
+      - Retest one priority before changing systems.
+      - Keep equipment and injury context visible.
+    source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_LEARNING_ORDER, LH_YT_FIT_SYSTEM]
+    evidence_status: inferred
+
+  - id: equipment_fit
+    name: Equipment fit
+    summary: Racket weight and swing weight can be part of student-fit diagnosis when equipment blocks frame, release, or recovery.
+    diagnostic_questions:
+      - Is the racket or swing weight too heavy for the current learning stage?
+      - Does equipment make the player tighten, lose frame, or recover late?
+    common_errors:
+      - Treating equipment as a magic fix.
+      - Ignoring equipment when it clearly blocks learning.
+    training_focus:
+      - Same-movement equipment retest.
+      - Manageable swing weight.
+      - Technique target unchanged during equipment comparison.
+    source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY]
+    evidence_status: hypothesis
+
+  - id: arm_path_correction
+    name: Arm-path correction
+    summary: Diagnose big-arm pulling, shoulder locking, and offline swing path before blaming wrist strength or internal rotation.
+    diagnostic_questions:
+      - Is the player pulling the whole arm before the frame and elbow sequence are ready?
+      - Does the racket travel through the intended contact and finish line?
+    common_errors:
+      - Over-correcting wrist when the arm path is wrong first.
+      - Adding speed to an offline movement line.
+    training_focus:
+      - Frame-to-release path.
+      - Elbow lead without early big-arm pull.
+      - Natural finish line.
+    source_ids: [LH_BILI_SEASON_BV1VPDNYJEPU, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1CJDQYUEGC]
+    evidence_status: inferred
+
+  - id: deceleration_release
+    name: Deceleration and release
+    summary: Unloading, deceleration, and natural follow-through are part of point smash, heavy smash, and fast release diagnosis.
+    diagnostic_questions:
+      - Does the swing release and slow down naturally after contact?
+      - Is the player stopping with shoulder, elbow, or wrist tension?
+    common_errors:
+      - Forcing a stop after contact.
+      - Confusing short finish with compact power.
+    training_focus:
+      - Half-speed release.
+      - Natural deceleration.
+      - Follow-through retest.
+    source_ids: [LH_BILI_SEASON_BV1RMMDBYERR, LH_BILI_SEASON_BV1A8411R7VG, LH_BILI_SEASON_BV13U411S7AM]
+    evidence_status: hypothesis
+
+  - id: jump_smash_specialization
+    name: Jump-smash specialization
+    summary: Jump smash needs separate checks for takeoff timing, contact window, airtime feeling, landing, and recovery.
+    diagnostic_questions:
+      - Does the jump improve or worsen the contact window?
+      - Can the player land and recover before the next shot?
+    common_errors:
+      - Chasing jump height while missing contact.
+      - Ignoring landing and next-shot recovery.
+    training_focus:
+      - Grounded contact first.
+      - Controlled takeoff.
+      - Landing and recovery retest.
+    source_ids: [LH_BILI_SEASON_BV1DW4Y1A7FX, LH_BILI_SEASON_BV1784Y1S7PF, LH_BILI_SEASON_BV11Y411H74P]
+    evidence_status: inferred
+
+  - id: smash_variants
+    name: Smash variants
+    summary: Heavy smash, fast smash, Bawang smash, low-loaded smash, point smash, and slice smash are separate power modes with different tradeoffs.
+    diagnostic_questions:
+      - Is the player asking for heaviness, speed, angle, continuity, or deception?
+      - Does the selected smash mode fit the player's current frame and recovery?
+    common_errors:
+      - Treating all smash problems as more force.
+      - Mixing heavy-smash and fast-smash cues without a goal.
+    training_focus:
+      - Name the intended smash mode.
+      - Preserve base overhead structure.
+      - Retest the mode-specific outcome.
+    source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV14M4Y1376B, LH_BILI_SEASON_BV1JBZBYFE9T]
+    evidence_status: inferred
+
+  - id: overhead_variation
+    name: Overhead variation
+    summary: Drop, slice drop, slide shot, cut shot, and slice-smash variations should be layered on top of a credible base overhead action.
+    diagnostic_questions:
+      - Does the player have a base overhead action that can hide the variation?
+      - Is the racket face controlled through contact?
+    common_errors:
+      - Learning variation before base contact and frame.
+      - Over-cutting the shuttle and losing speed.
+    training_focus:
+      - Base overhead disguise.
+      - Racket-face control.
+      - Variation retest after frame stability.
+    source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_SEASON_BV13F5EZDEN4, LH_BILI_SEASON_BV1UULEZ4E9M]
+    evidence_status: inferred
+
 stroke_families:
   - id: high_clear
     name: High clear

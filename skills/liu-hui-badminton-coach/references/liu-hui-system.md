@@ -24,11 +24,11 @@ The distinctive coaching value to model is not a single "standard swing." It is 
 
 `frameworks.yaml` contains the selectable diagnosis surface. It is intentionally broader than a few named strokes:
 
-- Student-fit paths: learning order, match transfer, mobility/safety.
+- Student-fit paths: learning order, match transfer, mobility/safety, equipment fit.
 - Rear-court base: stable overhead, high-clear base power, action-change sequence, contact window, top elbow.
-- Racket and release: static frame, standard preparation, racket-face control, wrist position, grip/finger power.
+- Racket and release: static frame, standard preparation, racket-face control, wrist position, grip/finger power, arm path, unloading/deceleration.
 - Power systems: hip/trunk chain, whip release, internal rotation, concentrated power, flash power, relaxation, tension observation, non-racket-side balance, shoulder range.
-- Smash systems: simple smash, angle/downward pressure, heavy smash, fast smash, Bawang smash, low-loaded smash, point smash, jump smash, slice/cut smash.
+- Smash systems: simple smash, angle/downward pressure, heavy smash, fast smash, Bawang smash, low-loaded smash, point smash, jump smash contact/landing, slice/cut smash.
 - Variation systems: light drop, heavy slice drop, deceptive drop, slide/drop, cut shot.
 - Movement systems: passive rear transition, half-side attack, rear-corner choice, start/recovery, lazy-legs recovery, front-court arrival, elastic footwork.
 - Backhand systems: passive backhand, backhand-corner choice, backhand whip.

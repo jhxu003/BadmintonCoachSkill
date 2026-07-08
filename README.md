@@ -10,7 +10,7 @@ The first skill in this repository is `liu-hui-badminton-coach`, a non-official 
 
 - Diagnoses high clear, smash, drop/slice/slide, drive/flat exchange, rear-court footwork, front-court footwork, backhand, serve/receive, doubles, and match-transfer cases.
 - Chooses a student-fit path before giving isolated technique cues.
-- Prioritizes observable problems such as late arrival, contact point, low elbow, collapsed frame, late hip drive, forced wrist/pronation, slow or exposed drop, jammed drive spacing, short follow-through, slow recovery, and large preparation.
+- Prioritizes observable problems such as late arrival, contact point, low elbow, collapsed frame, late hip drive, forced wrist/pronation, big-arm pulling, poor unloading/deceleration, jump-smash contact or landing failure, slow or exposed drop, jammed drive spacing, short follow-through, slow recovery, large preparation, and equipment mismatch.
 - Produces bounded coaching context for an LLM report: main priority, evidence, correction principle, drill, and retest metric.
 - Tracks source provenance so the model can distinguish source-backed, inferred, hypothesis, and insufficient-evidence claims.
 
@@ -90,7 +90,7 @@ The skill currently includes deterministic examples for:
 high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer
 ```
 
-The Liu Hui-inspired runtime contains 56 selectable frameworks across student-fit paths, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
+The Liu Hui-inspired runtime contains 59 selectable frameworks across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
 
 The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
 

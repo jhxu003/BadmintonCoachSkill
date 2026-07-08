@@ -54,6 +54,13 @@ def test_system_taxonomy_covers_complete_coaching_surface():
         "kinetic_chain_power",
         "compact_frontcourt",
         "late_arrival_recovery",
+        "equipment_fit",
+        "arm_path_correction",
+        "deceleration_release",
+        "jump_smash_specialization",
+        "smash_variants",
+        "overhead_variation",
+        "student_fit_power_selection",
     ]:
         assert required in framework_ids
 

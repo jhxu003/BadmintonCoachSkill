@@ -1,0 +1,70 @@
+- rule_id: deceleration-missing
+  issue: Release and deceleration are missing or forced
+  category: smash_variant
+  priority: 55
+  applicable_actions: [smash, high_clear, drop]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.deceleration]
+  observable_evidence:
+    - path: phase_observations.deceleration
+      in: [forced_stop, cannot_unload]
+      label: Swing does not unload or decelerate cleanly after contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for post-contact frames before diagnosing unloading or deceleration.
+  likely_effect:
+    - Point smash or heavy smash loses control.
+    - Player may stop the swing with the shoulder, elbow, or wrist.
+  correction_principle: Train release and natural follow-through before adding more force.
+  drills: [deceleration-release-line]
+  retest_metrics:
+    - phase_observations.deceleration should become natural
+    - follow_through should become complete
+  source_ids: [LH_BILI_SEASON_BV1RMMDBYERR, LH_BILI_SEASON_BV1A8411R7VG, LH_BILI_SEASON_BV13U411S7AM]
+  confidence: hypothesis
+
+- rule_id: jump-contact-window-missed
+  issue: Jump smash misses the contact window
+  category: smash_variant
+  priority: 24
+  applicable_actions: [smash]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.jump_contact]
+  observable_evidence:
+    - path: phase_observations.jump_contact
+      equals: missed_window
+      label: Jump timing does not meet the shuttle in a usable front-high contact window.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for takeoff, highest point, contact, and landing frames before diagnosing jump-smash timing.
+  likely_effect:
+    - Player jumps but loses the hitting point.
+    - Power and angle become worse than a grounded smash.
+  correction_principle: Retest takeoff timing and contact before adding more jump height or body force.
+  drills: [jump-contact-ladder]
+  retest_metrics:
+    - phase_observations.jump_contact should become front_high_window
+  source_ids: [LH_BILI_SEASON_BV1DW4Y1A7FX, LH_BILI_SEASON_BV1WEZOYVEBN, LH_BILI_SEASON_BV11Y411H74P]
+  confidence: inferred
+
+- rule_id: jump-landing-recovery-unstable
+  issue: Jump smash landing and recovery are unstable
+  category: smash_variant
+  priority: 58
+  applicable_actions: [smash]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.landing_recovery]
+  observable_evidence:
+    - path: phase_observations.landing_recovery
+      equals: unstable
+      label: Player lands or exits unstably after the jump smash.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for frames through landing and next-shot recovery before prescribing jump load.
+  likely_effect:
+    - Next shot is late even if the jump contact looks strong.
+    - Knee, ankle, or back load can increase.
+  correction_principle: Keep jump-smash work below the player's recoverable intensity.
+  drills: [jump-landing-recovery]
+  retest_metrics:
+    - phase_observations.landing_recovery should become stable
+    - footwork_observations.recovery should become normal
+  source_ids: [LH_BILI_SEASON_BV1784Y1S7PF, LH_BILI_SEASON_BV136C5ZJEUE, LH_BILI_SEASON_BV1UH4Y1H7KJ]
+  confidence: hypothesis

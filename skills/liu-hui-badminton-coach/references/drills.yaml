@@ -205,3 +205,67 @@
   dosage: 2 to 3 low-speed sets only if pain-free.
   retest_metrics:
     - pain_reported becomes false before intensity increases
+
+- drill_id: equipment-fit-retest
+  name: Equipment-fit retest
+  target_issues: [racket-too-heavy-for-stage]
+  steps:
+    - Record the same slow swing with current racket weight.
+    - Repeat with a manageable swing weight if available.
+    - Compare frame stability, contact quality, and recovery.
+    - Keep the technical target unchanged while testing equipment effect.
+  dosage: 3 sets of 8 slow swings per racket condition.
+  retest_metrics:
+    - racket_weight_fit changes from too_heavy_for_stage to manageable
+    - racket_side_structure stays stable
+
+- drill_id: arm-path-reset
+  name: Arm-path reset
+  target_issues: [big-arm-dominant-swing, swing-path-offline]
+  steps:
+    - Set the racket-side frame slowly.
+    - Move from frame to elbow lead without pulling the whole arm early.
+    - Swing through the intended contact line at low speed.
+    - Finish naturally and check the path before adding speed.
+  dosage: 4 sets of 10 slow path reps.
+  retest_metrics:
+    - arm_path changes from big_arm_pull to frame_to_release
+    - swing_path changes from offline to through_contact
+
+- drill_id: deceleration-release-line
+  name: Deceleration release line
+  target_issues: [deceleration-missing]
+  steps:
+    - Hit at half speed with a clear contact target.
+    - Let the racket release and slow down naturally after contact.
+    - Avoid stopping the swing with shoulder, elbow, or wrist tension.
+    - Increase speed only if the finish stays relaxed.
+  dosage: 4 sets of 8 half-speed releases.
+  retest_metrics:
+    - deceleration changes from forced_stop or cannot_unload to natural
+    - follow_through becomes complete
+
+- drill_id: jump-contact-ladder
+  name: Jump contact ladder
+  target_issues: [jump-contact-window-missed]
+  steps:
+    - Start with a grounded contact-window check.
+    - Add a small hop without changing the contact target.
+    - Add a controlled two-foot takeoff only after timing stays stable.
+    - Stop if jump height makes contact worse.
+  dosage: 3 rounds of grounded, hop, and controlled-jump contacts.
+  retest_metrics:
+    - jump_contact changes from missed_window to front_high_window
+
+- drill_id: jump-landing-recovery
+  name: Jump landing recovery
+  target_issues: [jump-landing-recovery-unstable]
+  steps:
+    - Jump at submaximal height.
+    - Land balanced before the next movement.
+    - Recover to base or partner-aware position.
+    - Count only reps where landing and recovery are stable.
+  dosage: 4 sets of 6 controlled jump-smash exits.
+  retest_metrics:
+    - landing_recovery changes from unstable to stable
+    - recovery changes from slow to normal
