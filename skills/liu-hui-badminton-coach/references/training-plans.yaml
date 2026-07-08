@@ -1,0 +1,76 @@
+- plan_id: one-priority-daily
+  name: One-priority daily plan
+  suitable_for:
+    - beginner-arm-dominant
+    - mobility-limited-adult
+  structure:
+    - 5 minutes slow structure check
+    - 10 minutes one drill family
+    - 5 minutes same-angle retest
+  output_requirements:
+    - one main priority
+    - one concrete drill
+    - one retest metric
+  stop_conditions:
+    - pain or discomfort appears
+    - required observation is not visible
+    - quality collapses when speed increases
+  source_ids: [LH_BILI_LEARNING_ORDER, LH_YT_CONSISTENCY, LH_YT_TENSION_OBSERVATION]
+  evidence_status: inferred
+
+- plan_id: overhead-rebuild
+  name: Overhead rebuild plan
+  suitable_for:
+    - beginner-arm-dominant
+    - intermediate-chain-ready
+  structure:
+    - arrival and contact window
+    - top-elbow and racket-side frame
+    - elbow-before-wrist sequence
+    - hip timing and release only after frame holds
+  output_requirements:
+    - do not prescribe pronation before contact and frame pass
+    - retest contact point and elbow sequence
+  stop_conditions:
+    - shoulder or elbow discomfort
+    - contact remains behind head under slow practice
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_YT_HIP_ROTATION, LH_YT_PRONATION_WHIP]
+  evidence_status: inferred
+
+- plan_id: footwork-recovery-rebuild
+  name: Footwork and recovery rebuild plan
+  suitable_for:
+    - mobility-limited-adult
+    - match-pressure-breakdown
+  structure:
+    - first-step and arrival timing
+    - contact or touch after stable arrival
+    - balanced exit
+    - two-shot pressure retest
+  output_requirements:
+    - classify front-court or rear-court problem first
+    - include recovery metric
+  stop_conditions:
+    - player cannot recover before next feed
+    - knee, ankle, or back discomfort appears
+  source_ids: [LH_YT_PRACTICAL_FOOTWORK, LH_YT_DROP_FOOTWORK, LH_BILI_LAZY_LEGS]
+  evidence_status: inferred
+
+- plan_id: match-transfer-progression
+  name: Match-transfer progression
+  suitable_for:
+    - match-pressure-breakdown
+    - intermediate-chain-ready
+  structure:
+    - slow correction
+    - controlled feed pattern
+    - two-shot or three-shot rally pattern
+    - match-clip retest
+  output_requirements:
+    - separate drill success from rally success
+    - name pressure condition for retest
+  stop_conditions:
+    - correction disappears under controlled feed
+    - recovery fails before pressure is added
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  evidence_status: inferred

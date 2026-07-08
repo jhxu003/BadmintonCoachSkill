@@ -124,6 +124,22 @@ def test_skill_and_report_contract_contain_safety_boundaries():
         assert phrase in skill + contract
 
 
+def test_skill_loads_complete_system_references():
+    reference_dir = ROOT / "skills" / "liu-hui-badminton-coach" / "references"
+    required_refs = [
+        "student-profiles.yaml",
+        "stroke-taxonomy.yaml",
+        "training-plans.yaml",
+    ]
+    skill = (ROOT / "skills" / "liu-hui-badminton-coach" / "SKILL.md").read_text(
+        encoding="utf-8"
+    )
+
+    for filename in required_refs:
+        assert (reference_dir / filename).exists()
+        assert filename in skill
+
+
 def test_usage_case_is_documented_and_executable():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "## Usage Case" in readme

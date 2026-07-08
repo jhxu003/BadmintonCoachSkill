@@ -23,19 +23,24 @@ Read the references needed for the action:
 - Always read `references/report-contract.md`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
 - Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
+- Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
+- Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.
 - Read `references/overhead-rubric.yaml` for high clear and smash.
 - Read `references/footwork-rubric.yaml` for rear-court movement, late arrival, or recovery issues.
 - Read `references/drills.yaml` before recommending practice.
+- Read `references/training-plans.yaml` before writing the final practice plan.
 
 ## Diagnosis Flow
 
 1. Confirm the project is non-official and do not imitate Liu Hui's personal voice.
-2. Select the most suitable framework from the player profile before ranking technical issues.
-3. Check corpus provenance before presenting a concept as source-backed.
-4. Match observable evidence against rubric rules.
-5. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
-6. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
-7. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
+2. Select the student profile path before choosing a framework or drill.
+3. Select the most suitable framework from the player profile before ranking technical issues.
+4. Select the stroke or footwork family and its diagnostic order.
+5. Check corpus provenance before presenting a concept as source-backed.
+6. Match observable evidence against rubric rules.
+7. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
+8. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
+9. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
 
 ## Output Rules
 

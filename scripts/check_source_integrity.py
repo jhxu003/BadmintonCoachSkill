@@ -24,12 +24,23 @@ def _taxonomy_ids(taxonomy: dict[str, list[dict[str, object]]]) -> dict[str, set
 
 def _collect_rule_source_ids(reference_dir: Path) -> list[tuple[str, str]]:
     collected: list[tuple[str, str]] = []
-    for filename in ["frameworks.yaml", "overhead-rubric.yaml", "footwork-rubric.yaml"]:
-        path = reference_dir / filename
+    id_fields = [
+        "framework_id",
+        "rule_id",
+        "profile_id",
+        "stroke_id",
+        "plan_id",
+        "drill_id",
+    ]
+    for path in sorted(reference_dir.glob("*.yaml")):
         for item in _load_yaml(path):
-            item_id = str(item.get("framework_id") or item.get("rule_id") or "unknown")
+            item_id = "unknown"
+            for field in id_fields:
+                if field in item:
+                    item_id = str(item[field])
+                    break
             for source_id in item.get("source_ids", []):
-                collected.append((f"{filename}:{item_id}", source_id))
+                collected.append((f"{path.name}:{item_id}", source_id))
     return collected
 
 

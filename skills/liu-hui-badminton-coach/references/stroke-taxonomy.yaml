@@ -1,0 +1,142 @@
+- stroke_id: high_clear
+  family: overhead
+  primary_question: Can the player send the shuttle deep without losing arrival, front-high contact, frame, or release?
+  diagnostic_order:
+    - arrival timing
+    - contact window
+    - top-elbow and racket-side frame
+    - elbow-before-wrist sequence
+    - complete follow-through and recovery
+  common_faults:
+    - late rear-court arrival
+    - contact behind the head
+    - low elbow before acceleration
+    - wrist-first swing
+    - short follow-through
+  do_not_start_with:
+    - swing harder
+    - force internal rotation
+  source_ids: [LH_BILI_CLEAR_HEIGHT, LH_YT_CONTACT_POINT, LH_YT_TOP_ELBOW_CLEAR]
+  evidence_status: source_backed
+
+- stroke_id: smash
+  family: overhead
+  primary_question: Is the base overhead frame stable enough for angle and power work?
+  diagnostic_order:
+    - arrival and contact point
+    - top elbow and frame
+    - hip/trunk timing
+    - release and follow-through
+    - recovery after attack
+  common_faults:
+    - flat smash from late contact
+    - heavy arm swing before hip timing
+    - forced wrist or internal rotation
+    - low elbow
+  do_not_start_with:
+    - steeper angle cue when contact is late
+    - more shoulder effort
+  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
+  evidence_status: source_backed
+
+- stroke_id: drop
+  family: overhead_variation
+  primary_question: Does the player have a base overhead action that can support controlled variation?
+  diagnostic_order:
+    - base overhead contact
+    - disguise and preparation similarity
+    - compact contact control
+    - recovery after variation
+  common_faults:
+    - learning slice/drop before base overhead is stable
+    - over-cutting the shuttle
+    - contact too low or too late
+  do_not_start_with:
+    - advanced slice detail if base contact fails
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK, LH_YT_PLAYLIST_FOREHAND]
+  evidence_status: inferred
+
+- stroke_id: drive
+  family: midcourt_fast_exchange
+  primary_question: Is the player's preparation compact enough for a flat or body-jammed exchange?
+  diagnostic_order:
+    - ready racket position
+    - preparation size
+    - contact in front of body
+    - recovery to next exchange
+  common_faults:
+    - big backswing
+    - late racket face
+    - getting jammed by poor spacing
+  do_not_start_with:
+    - full swing mechanics
+  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_LIVE_QA_20240202]
+  evidence_status: hypothesis
+
+- stroke_id: net
+  family: frontcourt
+  primary_question: Does the player arrive early enough to control the racket face and exit?
+  diagnostic_order:
+    - arrival before shuttle drops
+    - racket face stability
+    - compact touch
+    - exit to base or partner coverage
+  common_faults:
+    - late lunge
+    - large racket action
+    - no exit after contact
+  do_not_start_with:
+    - delicate touch cue when arrival is late
+  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+  evidence_status: inferred
+
+- stroke_id: backhand
+  family: defensive_or_rear_side
+  primary_question: Is the issue wrong solution choice, late arrival, low contact, racket-face control, or recovery?
+  diagnostic_order:
+    - solution choice
+    - arrival and contact height
+    - compact racket face
+    - recovery after defensive contact
+  common_faults:
+    - treating backhand as wrist strength only
+    - reaching after arriving late
+    - choosing defensive backhand when overhead transition was available
+  do_not_start_with:
+    - wrist strength cue without footwork/contact evidence
+  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PRACTICAL_FOOTWORK]
+  evidence_status: hypothesis
+
+- stroke_id: serve_receive
+  family: first_two_shots
+  primary_question: Does the preparation and first-two-shot quality create or lose rally control?
+  diagnostic_order:
+    - ready posture
+    - racket preparation
+    - compact receive contact
+    - second-shot readiness
+  common_faults:
+    - late racket preparation
+    - over-swinging receive
+    - no second-shot plan
+  do_not_start_with:
+    - isolated serve contact if receive/recovery is the failure
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  evidence_status: hypothesis
+
+- stroke_id: doubles
+  family: doubles_context
+  primary_question: Does the stroke choice and recovery support partner coverage and fast exchange?
+  diagnostic_order:
+    - shot quality
+    - after-shot position
+    - partner coverage implication
+    - next-shot readiness
+  common_faults:
+    - singles-style recovery
+    - watching after hit
+    - big action in fast exchange
+  do_not_start_with:
+    - isolated technique advice when positioning caused the pressure
+  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  evidence_status: hypothesis

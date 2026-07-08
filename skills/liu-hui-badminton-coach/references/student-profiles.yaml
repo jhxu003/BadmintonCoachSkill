@@ -1,0 +1,69 @@
+- profile_id: beginner-arm-dominant
+  name: Beginner arm-dominant learner
+  when_to_choose:
+    - level is beginner or low intermediate
+    - coordination is arm_dominant or inconsistent
+    - power drops when contact moves behind the head
+  first_priorities:
+    - late-arrival
+    - contact-point-behind
+    - low-elbow
+    - collapsed-racket-structure
+  avoid_first:
+    - heavy smash power
+    - forced internal rotation
+    - complex tactical advice
+  coaching_principle: Build arrival, contact, and frame before chain speed.
+  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_CLEAR_HEIGHT, LH_BILI_WRIST_WHIP_ERROR]
+  evidence_status: inferred
+
+- profile_id: intermediate-chain-ready
+  name: Intermediate chain-ready learner
+  when_to_choose:
+    - contact point is mostly front_high
+    - racket-side frame can stay stable in slow swings
+    - player wants efficient power or smash power
+  first_priorities:
+    - late-hip-rotation
+    - low-elbow
+    - pronation-whip-misread
+  avoid_first:
+    - random wrist speed
+    - maximum power before sequence can be retested
+  coaching_principle: Add hip/trunk timing and release only after the base frame survives.
+  source_ids: [LH_YT_HIP_ROTATION, LH_YT_THREE_FRAMEWORKS, LH_YT_PRONATION_WHIP]
+  evidence_status: inferred
+
+- profile_id: mobility-limited-adult
+  name: Mobility-limited adult learner
+  when_to_choose:
+    - mobility is limited
+    - injury_risk includes shoulder, elbow, knee, back, or ankle discomfort
+    - recovery gets worse when movement range increases
+  first_priorities:
+    - late-arrival
+    - slow-recovery
+    - compact-contact
+  avoid_first:
+    - copying advanced large-range footwork
+    - high-volume explosive drills
+  coaching_principle: Choose a smaller usable framework and retest recovery before adding intensity.
+  source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
+  evidence_status: inferred
+
+- profile_id: match-pressure-breakdown
+  name: Match-pressure breakdown learner
+  when_to_choose:
+    - drill form is acceptable but rally execution collapses
+    - recovery or decision quality fails after the first shot
+    - player wants match transfer
+  first_priorities:
+    - recovery-under-pressure
+    - drill-to-rally-transfer
+    - first-two-shot-quality
+  avoid_first:
+    - treating shadow success as match success
+    - adding new technique before pressure retest
+  coaching_principle: Progress from slow correction to feed pattern to rally pressure.
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  evidence_status: inferred
