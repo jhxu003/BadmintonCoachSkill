@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiuHuiSystemTaxonomy",
+  "type": "object",
+  "required": [
+    "student_profiles",
+    "power_frameworks",
+    "stroke_families",
+    "footwork_families",
+    "correction_order",
+    "drill_families",
+    "training_plans",
+    "match_transfer"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "student_profiles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "power_frameworks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "stroke_families": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "footwork_families": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "correction_order": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "drill_families": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "training_plans": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    },
+    "match_transfer": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/taxonomy_node" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "taxonomy_node": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "summary",
+        "source_ids",
+        "evidence_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 10
+        },
+        "diagnostic_questions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "default": []
+        },
+        "common_errors": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "default": []
+        },
+        "training_focus": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "default": []
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z0-9_]+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "evidence_status": {
+          "type": "string",
+          "enum": [
+            "source_backed",
+            "inferred",
+            "hypothesis"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,459 @@
+student_profiles:
+  - id: beginner_arm_dominant
+    name: Beginner arm-dominant player
+    summary: Player tries to solve distance and power with arm or wrist effort before arrival, contact, and frame are stable.
+    diagnostic_questions:
+      - Does the arm accelerate before the body and elbow frame are ready?
+      - Does power drop when the contact point moves behind the head?
+    common_errors:
+      - Wrist-first acceleration.
+      - Collapsed racket-side frame.
+      - Late arrival blamed as weak arm strength.
+    training_focus:
+      - Arrival and balance.
+      - Front-high contact window.
+      - Top-elbow frame before speed.
+    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_HEIGHT]
+    evidence_status: inferred
+
+  - id: intermediate_chain_ready
+    name: Intermediate chain-ready player
+    summary: Player has usable contact and frame, so training can add hip timing, elbow lead, and later whip release.
+    diagnostic_questions:
+      - Is contact reliably front-high?
+      - Can the player keep structure while adding hip and trunk drive?
+    common_errors:
+      - Hip rotation arrives after the arm has already started.
+      - Pronation cue becomes a wrist twist.
+    training_focus:
+      - Slow hip-to-elbow sequencing.
+      - Elbow lead before release.
+      - Progressive speed only after structure holds.
+    source_ids: [LH_YT_THREE_FRAMEWORKS, LH_YT_HIP_ROTATION, LH_YT_PRONATION_WHIP]
+    evidence_status: inferred
+
+  - id: mobility_limited_adult
+    name: Mobility-limited adult learner
+    summary: Player needs a smaller, more stable movement and power framework because range, recovery, or injury risk constrains ideal form.
+    diagnostic_questions:
+      - Does a large swing or large step pattern make recovery worse?
+      - Does the player report shoulder, elbow, knee, or back discomfort?
+    common_errors:
+      - Copying advanced full-body actions too early.
+      - Chasing speed before stable exits.
+    training_focus:
+      - Compact arrival.
+      - Lower-risk swing range.
+      - Recovery-first drills.
+    source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
+    evidence_status: inferred
+
+  - id: match_pressure_breakdown
+    name: Match-pressure breakdown player
+    summary: Player can show a movement in drills but loses timing, selection, or recovery under rally pressure.
+    diagnostic_questions:
+      - Does the technique hold in multi-shot patterns?
+      - Does quality collapse after the first recovery?
+    common_errors:
+      - Treating shadow form as match-ready.
+      - Ignoring tactical or pressure constraints.
+    training_focus:
+      - Drill-to-rally progression.
+      - Pressure retest.
+      - Decision and recovery coupling.
+    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    evidence_status: inferred
+
+power_frameworks:
+  - id: stable_overhead_frame
+    name: Stable overhead frame
+    summary: Build rear-court arrival, front-high contact, racket-side structure, and top-elbow sequence before speed.
+    diagnostic_questions:
+      - Is arrival on time?
+      - Is contact front-high?
+      - Does the elbow lead before the wrist?
+    common_errors:
+      - Late arrival.
+      - Contact behind head.
+      - Low elbow and wrist-first swing.
+    training_focus:
+      - Arrival shadow.
+      - Contact-window freeze.
+      - Top-elbow freeze.
+    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_CLEAR_FRAMEWORK, LH_BILI_AUTH_CLIP]
+    evidence_status: source_backed
+
+  - id: kinetic_chain_power
+    name: Kinetic-chain power
+    summary: Add hip and trunk timing only after contact and frame are stable enough to transfer force.
+    diagnostic_questions:
+      - Does hip/trunk drive start before arm acceleration?
+      - Can frame survive added speed?
+    common_errors:
+      - Arm starts before hip.
+      - Internal rotation is forced too early.
+    training_focus:
+      - Slow hip-to-elbow sequence.
+      - Progressive release.
+      - Retest contact and frame after adding power.
+    source_ids: [LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_YT_THREE_FRAMEWORKS]
+    evidence_status: inferred
+
+  - id: compact_frontcourt
+    name: Compact front-court control
+    summary: Use smaller preparation and stable racket face for net, receive, and fast exchange actions.
+    diagnostic_questions:
+      - Is the preparation too large for the available time?
+      - Is the racket face stable through contact?
+    common_errors:
+      - Big backswing near the net.
+      - Late racket preparation.
+    training_focus:
+      - Early racket preparation.
+      - Compact contact.
+      - Recovery after touch.
+    source_ids: [LH_YT_RECEIVE_DROP_ALT, LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK]
+    evidence_status: hypothesis
+
+  - id: late_arrival_recovery
+    name: Late-arrival recovery framework
+    summary: When the player is pressured, diagnose arrival, contact drift, stroke compression, and recovery together.
+    diagnostic_questions:
+      - Is the contact issue caused by late arrival?
+      - Does the player recover before the next shot?
+    common_errors:
+      - Fixing only arm mechanics when footwork timing caused the contact loss.
+      - Fixing only footwork when stroke structure collapses under pressure.
+    training_focus:
+      - Rear-court arrival.
+      - Balanced exit.
+      - Stroke quality under passive rear-court pressure.
+    source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_YT_PASSIVE_WHIP, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+    evidence_status: inferred
+
+stroke_families:
+  - id: high_clear
+    name: High clear
+    summary: Rear-court baseline-length stroke built from arrival, front-high contact, top-elbow frame, and complete release.
+    diagnostic_questions:
+      - Does the clear reach the back court without forced wrist effort?
+      - Is contact in front and high?
+    common_errors:
+      - Contact behind head.
+      - Low elbow.
+      - Short follow-through.
+    training_focus:
+      - Contact-window freeze.
+      - Top-elbow sequence.
+      - Clear-to-baseline retest.
+    source_ids: [LH_YT_CONTACT_POINT, LH_BILI_CLEAR_HEIGHT, LH_BILI_CLEAR_CHANGE_ACTION]
+    evidence_status: source_backed
+
+  - id: smash
+    name: Smash
+    summary: Overhead attacking stroke that needs the same base frame as clear before steeper angle or heavier power.
+    diagnostic_questions:
+      - Is the player adding power before the sequence is stable?
+      - Does the smash flatten because contact is late?
+    common_errors:
+      - Low top elbow.
+      - Forced internal rotation.
+      - Hip drive arrives late.
+    training_focus:
+      - Stable overhead frame.
+      - Simple smash sequence.
+      - Progressive power retest.
+    source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
+    evidence_status: source_backed
+
+  - id: drop
+    name: Drop and slice drop
+    summary: Overhead variation that should be layered after usable base overhead structure and racket control.
+    diagnostic_questions:
+      - Does the player have enough overhead base to hide the drop?
+      - Does the racket path change too early?
+    common_errors:
+      - Learning variation before base contact.
+      - Over-cutting the shuttle.
+    training_focus:
+      - Base overhead disguise.
+      - Compact contact control.
+      - Variation after frame stability.
+    source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_YT_PLAYLIST_FOREHAND, LH_BILI_CLEAR_FRAMEWORK]
+    evidence_status: inferred
+
+  - id: drive
+    name: Drive and flat exchange
+    summary: Fast midcourt exchanges prioritize early racket position, compact swing, and recovery to the next contact.
+    diagnostic_questions:
+      - Is preparation short enough for fast exchange?
+      - Is the player late because the racket starts too low?
+    common_errors:
+      - Big swing in fast exchange.
+      - Racket face changes late.
+    training_focus:
+      - Early racket set.
+      - Compact forward contact.
+      - Multi-shot rhythm.
+    source_ids: [LH_YT_CONSISTENCY, LH_YT_TENSION_OBSERVATION, LH_BILI_MATCH_TRANSFER]
+    evidence_status: hypothesis
+
+  - id: net
+    name: Net and front-court touch
+    summary: Front-court actions need early arrival, small movement, stable racket face, and quick exit.
+    diagnostic_questions:
+      - Does the player arrive before the shuttle drops below net height?
+      - Is the racket face controlled at contact?
+    common_errors:
+      - Late lunge.
+      - Over-large racket action.
+    training_focus:
+      - Receive-drop footwork.
+      - Compact touch.
+      - Exit to base.
+    source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+    evidence_status: inferred
+
+  - id: backhand
+    name: Backhand
+    summary: Backhand diagnosis should separate footwork reach, contact height, grip/racket face, and recovery instead of treating it as wrist strength.
+    diagnostic_questions:
+      - Is the player late to the shuttle?
+      - Is contact too low or too far behind?
+    common_errors:
+      - Reaching with arm only.
+      - Treating backhand as pure wrist force.
+    training_focus:
+      - Position before contact.
+      - Compact racket face.
+      - Recovery after defensive contact.
+    source_ids: [LH_YT_PRACTICAL_FOOTWORK, LH_YT_REAR_TRANSITION, LH_YT_TENSION_OBSERVATION]
+    evidence_status: hypothesis
+
+  - id: serve_receive
+    name: Serve and receive
+    summary: Serve and receive training should emphasize preparation, first-step readiness, and controlled racket face under time pressure.
+    diagnostic_questions:
+      - Does the player prepare the racket and feet before the serve/receive moment?
+      - Is the first contact stable?
+    common_errors:
+      - Late racket preparation.
+      - Over-swinging the receive.
+    training_focus:
+      - Ready posture.
+      - Compact contact.
+      - First two shots.
+    source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+    evidence_status: hypothesis
+
+  - id: doubles
+    name: Doubles positioning and exchange
+    summary: Doubles feedback should connect shot quality with positioning, rotation, and partner coverage rather than only isolated technique.
+    diagnostic_questions:
+      - Does the player recover to a position that supports partner coverage?
+      - Does shot choice create or reduce pressure?
+    common_errors:
+      - Watching after hit.
+      - Returning to singles-style base.
+    training_focus:
+      - After-shot recovery.
+      - Role-aware positioning.
+      - Multi-shot pressure patterns.
+    source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, PUBLIC_DISCUSSION_THREADS]
+    evidence_status: hypothesis
+
+footwork_families:
+  - id: rear_court_arrival
+    name: Rear-court arrival
+    summary: Diagnose whether the player reaches the rear court early enough to keep contact in a front-high window.
+    diagnostic_questions:
+      - Is the final step complete before swing acceleration?
+      - Does late arrival push contact behind the head?
+    common_errors:
+      - Rushing the arm while still moving.
+      - Losing balance before contact.
+    training_focus:
+      - Rear-court arrival shadow.
+      - Split-to-first-step timing.
+      - Contact after stable arrival.
+    source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_BILI_BACKCOURT_STEAL_FOOTWORK, LH_YT_REAR_TRANSITION]
+    evidence_status: inferred
+
+  - id: front_court_arrival
+    name: Front-court arrival
+    summary: Front-court movement needs early racket preparation, controlled lunge, and exit after contact.
+    diagnostic_questions:
+      - Does the player arrive before reaching with only the arm?
+      - Is the exit path available?
+    common_errors:
+      - Over-lunging.
+      - Late racket face.
+    training_focus:
+      - Receive-drop footwork.
+      - Lunge-control retest.
+      - Exit to base.
+    source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+    evidence_status: inferred
+
+  - id: recovery_to_base
+    name: Recovery to base
+    summary: Recovery should be evaluated as part of the shot, because slow exit makes the next stroke rushed.
+    diagnostic_questions:
+      - Does the player recover before the opponent's next contact?
+      - Is recovery balanced or tense?
+    common_errors:
+      - Admiring the shot.
+      - Crossing or stopping after contact.
+    training_focus:
+      - Hit-and-exit rhythm.
+      - Balanced recovery.
+      - Two-shot retest.
+    source_ids: [LH_BILI_LAZY_LEGS, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+    evidence_status: inferred
+
+correction_order:
+  - id: observation_before_advice
+    name: Observation before advice
+    summary: Do not give a confident technical diagnosis unless the required observation is visible.
+    diagnostic_questions:
+      - Which features are missing from the video?
+      - Is the camera angle enough for the claim?
+    common_errors:
+      - Inferring internal rotation from weak 2D evidence.
+      - Treating a hidden feature as visible.
+    training_focus:
+      - Request retake or missing keyframes.
+      - Mark insufficient evidence.
+    source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_TACTICAL_INTEL, PUBLIC_DISCUSSION_THREADS]
+    evidence_status: inferred
+
+  - id: arrival_contact_frame_sequence
+    name: Arrival, contact, frame, sequence
+    summary: Prioritize arrival and contact, then racket-side frame, then elbow/hip sequence, then speed and variation.
+    diagnostic_questions:
+      - Which earlier layer fails first?
+      - Would later advice hide the real problem?
+    common_errors:
+      - Coaching internal rotation before contact is usable.
+      - Coaching power before arrival is stable.
+    training_focus:
+      - One primary issue.
+      - One drill.
+      - One retest metric.
+    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_LEARNING_ORDER, LH_BILI_CLEAR_CHANGE_ACTION]
+    evidence_status: inferred
+
+drill_families:
+  - id: freeze_frame_drills
+    name: Freeze-frame drills
+    summary: Pause or slow the action at the key frame so the learner can feel the target contact, elbow, or racket-side structure.
+    diagnostic_questions:
+      - Can the learner hold the target position without speed?
+      - Does the structure collapse when speed is added?
+    common_errors:
+      - Repeating fast wrong swings.
+      - Skipping static structure checks.
+    training_focus:
+      - Contact-window freeze.
+      - Top-elbow freeze.
+      - Racket-frame wall check.
+    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_FRAMEWORK]
+    evidence_status: inferred
+
+  - id: chain_timing_drills
+    name: Chain timing drills
+    summary: Slow sequencing drills connect hip, trunk, elbow, and release before full-speed power practice.
+    diagnostic_questions:
+      - Can the player reproduce sequence slowly?
+      - Does speed make the arm lead too early?
+    common_errors:
+      - Practicing only maximum speed.
+      - Twisting the wrist to fake release.
+    training_focus:
+      - Slow hip-to-elbow chain.
+      - Progressive acceleration.
+      - Retest sequence.
+    source_ids: [LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_YT_PRONATION_WHIP]
+    evidence_status: inferred
+
+  - id: movement_pattern_drills
+    name: Movement pattern drills
+    summary: Footwork drills should reproduce the arrival, contact, and recovery demand rather than isolated steps only.
+    diagnostic_questions:
+      - Does the drill include the contact moment?
+      - Does the drill include recovery?
+    common_errors:
+      - Practicing empty steps without shot timing.
+      - Ignoring the exit after hit.
+    training_focus:
+      - Rear-court arrival shadow.
+      - Receive-drop footwork.
+      - Two-shot recovery.
+    source_ids: [LH_YT_PRACTICAL_FOOTWORK, LH_YT_DROP_FOOTWORK, LH_BILI_LAZY_LEGS]
+    evidence_status: inferred
+
+training_plans:
+  - id: daily_20_min_rebuild
+    name: Daily 20-minute rebuild
+    summary: Short daily plan for adult learners should focus on one priority, one drill family, and one retest metric.
+    diagnostic_questions:
+      - What is the earliest failing layer?
+      - Which drill can be repeated safely today?
+    common_errors:
+      - Trying to fix every visible issue at once.
+      - Changing drills before retest.
+    training_focus:
+      - 5 minutes structure.
+      - 10 minutes drill.
+      - 5 minutes retest.
+    source_ids: [LH_BILI_LEARNING_ORDER, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+    evidence_status: inferred
+
+  - id: weekly_match_transfer
+    name: Weekly match-transfer plan
+    summary: A weekly plan should move from slow correction to feeder pattern to rally pressure only after the retest passes.
+    diagnostic_questions:
+      - Does the corrected action survive multi-shot pressure?
+      - Is the next plan based on retest evidence?
+    common_errors:
+      - Shadow training never enters rally context.
+      - Rally training starts before the correction is stable.
+    training_focus:
+      - Slow correction.
+      - Feeded pattern.
+      - Pressure retest.
+    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    evidence_status: inferred
+
+match_transfer:
+  - id: drill_to_rally
+    name: Drill to rally
+    summary: A movement is not match-ready until it survives timing, pressure, and recovery in a rally-like pattern.
+    diagnostic_questions:
+      - Does the player keep the correction when rushed?
+      - Does recovery support the next shot?
+    common_errors:
+      - Calling a shadow-drill success a match success.
+      - Missing the second-shot breakdown.
+    training_focus:
+      - Feeder pressure.
+      - Two-shot and three-shot retest.
+      - Match clip review.
+    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    evidence_status: inferred
+
+  - id: evidence_based_progression
+    name: Evidence-based progression
+    summary: Progress the player only when the current retest metric improves under the intended context.
+    diagnostic_questions:
+      - What metric proved improvement?
+      - Did improvement happen in the target context?
+    common_errors:
+      - Advancing because the drill felt better.
+      - Ignoring video evidence.
+    training_focus:
+      - Retest metric.
+      - Same-angle comparison.
+      - Context-specific progression.
+    source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_CONSISTENCY, LH_BILI_LEARNING_ORDER]
+    evidence_status: inferred
