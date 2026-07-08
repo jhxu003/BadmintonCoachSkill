@@ -107,3 +107,6 @@ def test_corpus_report_script_outputs_reproducible_summary():
     assert "Total sources:" in result.stdout
     assert "Teaching points:" in result.stdout
     assert "Official/authorized/public separation:" in result.stdout
+    assert "Taxonomy sections:" in result.stdout
+    assert "Source-topic mappings:" in result.stdout
+    assert "Access attempts:" in result.stdout

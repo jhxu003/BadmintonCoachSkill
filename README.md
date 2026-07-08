@@ -32,6 +32,18 @@ Current seed scope:
 python3 scripts/build_corpus_report.py
 ```
 
+Run the broader deterministic examples:
+
+```bash
+python3 examples/run_full_system_cases.py
+```
+
+Expected coverage:
+
+```text
+high_clear, smash, rear_footwork, front_footwork, backhand, serve_receive, doubles
+```
+
 Full-channel completion should import public metadata only. Do not commit raw videos, long subtitles, paid-course notes, cookies, or account exports.
 
 ## Quick Start
@@ -79,6 +91,7 @@ Interpretation: the skill prioritizes arrival and contact window before advanced
 ## Repository Layout
 
 - `data/source-index.tsv` indexes public sources and their usability.
+- `data/corpus/` stores public-safe corpus artifacts, access logs, teaching points, and system taxonomy.
 - `skills/liu-hui-badminton-coach/` contains the agent skill and references.
 - `schemas/` defines the profile, observation, and diagnosis contracts.
 - `src/badminton_coach_skill/` contains deterministic support code.
@@ -90,3 +103,4 @@ Interpretation: the skill prioritizes arrival and contact window before advanced
 - Do not present this as official, certified, or authorized.
 - Do not store paid-course transcripts, full subtitles, screenshots, or raw videos in git.
 - When evidence is missing, return "insufficient evidence" rather than a confident diagnosis.
+- Do not claim all official-channel metadata has been imported while YouTube direct metadata fetch remains blocked in `data/corpus/public-access-log.tsv`.

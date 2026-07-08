@@ -44,6 +44,8 @@ python3 scripts/import_yt_dlp_jsonl.py data/raw-private/yt-official.jsonl --sour
 
 Review the TSV manually before merging rows into `data/source-index.tsv`.
 
+If direct channel metadata fetch fails, add a row to `data/corpus/public-access-log.tsv` with the exact command or URL, date, error result, and next action.
+
 ## Source Status
 
 - `usable`: public metadata is sufficient for source indexing or title-level teaching-point support.

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import csv
 import sys
 
 import yaml
@@ -22,6 +23,20 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    taxonomy = yaml.safe_load(
+        (ROOT / "data" / "corpus" / "system-taxonomy.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    source_topic_map = yaml.safe_load(
+        (ROOT / "data" / "corpus" / "source-topic-map.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    with (ROOT / "data" / "corpus" / "public-access-log.tsv").open(
+        newline="", encoding="utf-8"
+    ) as handle:
+        access_rows = list(csv.DictReader(handle, delimiter="\t"))
     summary = summarize_source_index(source_rows)
     ready_points = [
         point for point in teaching_points if point["status"] == "ready_for_skill"
@@ -47,6 +62,12 @@ def main() -> None:
     print()
     print("Usability:")
     print(_format_counts(summary["by_usability"]))
+    print()
+    print("Taxonomy sections:")
+    print(_format_counts({key: len(value) for key, value in taxonomy.items()}))
+    print()
+    print(f"Source-topic mappings: {len(source_topic_map)}")
+    print(f"Access attempts: {len(access_rows)}")
 
 
 if __name__ == "__main__":
