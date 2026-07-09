@@ -1,0 +1,62 @@
+source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+job_id: pilot-017-lh_bili_season_bv1nwrrbtedy
+title: 中国跳突击教学！羽毛球业余选手爆改26分钟！超多细节！架拍手法步法！
+url: https://www.bilibili.com/video/BV1NwrrBtEdY/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-017-lh_bili_season_bv1nwrrbtedy
+  stages:
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 114
+    audio_scope: preview
+    audio_scope_seconds: 180
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-017-lh_bili_season_bv1nwrrbtedy-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 114 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.1-1.3s, 1.3-2.2s, 2.2-4.1s, 4.1-4.9s,
+    4.9-6.1s, 6.1-6.6s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

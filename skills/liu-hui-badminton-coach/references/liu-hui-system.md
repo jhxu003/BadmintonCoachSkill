@@ -6,6 +6,8 @@ This file stores original, research-oriented summaries derived from public sourc
 
 The current runtime system is complete against the public-source index in this repository, not an official Liu Hui archive. Use `data/source-index.tsv` and `data/corpus/teaching-points.yaml` for provenance. Do not promote `needs_timestamp_review` points into firm rules without timestamped review.
 
+The video-content pilot has processed 30 indexed public Bilibili teaching videos. ASR succeeded for 25 videos, producing 90 timestamp candidate teaching windows; 5 sources still need acquisition fallback. These windows have been distilled into `timestamp_candidate_requires_human_review` rules, timestamp-candidate frameworks, drills, and training plans, but they remain model-derived until human timestamp review.
+
 ## Working Hypothesis
 
 The distinctive coaching value to model is not a single "standard swing." It is the ability to choose a power framework, correction order, and training path that fit the student's current body, coordination, and goal.
@@ -34,7 +36,18 @@ The distinctive coaching value to model is not a single "standard swing." It is 
 - Backhand systems: passive backhand, backhand-corner choice, backhand whip.
 - Fast-exchange systems: body-jammed drive, push/drive power, receive-smash defense, high serve and first-shot, compact front-court receive.
 - Match systems: doubles rear continuity, doubles fast exchange, singles tactical core, tactical observation.
+- Timestamp-candidate systems: time-budget preparation, compact standard frame, frame tradeoff selector, foot-ground hip drive, arm-segment transfer, drop/slide variant selection, China-jump recovery, and wrist contact-transfer.
 
+## Video Pilot Distillation
+
+`data/corpus/video-asr-teaching-windows.yaml` stores public-safe original summaries only. Raw ASR text, audio, video, OCR, VLM outputs, cookies, tokens, and paid-course material must stay private.
+
+Use timestamp-candidate material as follows:
+
+- It may guide a hypothesis, observation request, drill choice, or human-review queue.
+- It may be cited by `evidence_ids` for internal traceability.
+- It must not be described as Liu Hui's exact words or as human-reviewed timestamp evidence.
+- It must not override earlier observable layers such as arrival, contact point, frame, elbow sequence, and safety.
 ## Priority Heuristic
 
 1. Can the player arrive in time and stay balanced?

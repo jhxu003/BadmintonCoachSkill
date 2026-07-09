@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TimestampEvidence",
+  "type": "object",
+  "required": [
+    "source_id",
+    "job_id",
+    "title",
+    "url",
+    "platform",
+    "public_safety",
+    "segments"
+  ],
+  "properties": {
+    "source_id": { "type": "string" },
+    "job_id": { "type": "string" },
+    "title": { "type": "string" },
+    "url": { "type": "string" },
+    "platform": { "type": "string" },
+    "authorization_status": { "type": "string" },
+    "public_safety": {
+      "type": "object",
+      "required": [
+        "raw_video_committed",
+        "raw_transcript_committed",
+        "paid_material_committed",
+        "long_subtitle_excerpt_committed"
+      ],
+      "properties": {
+        "raw_video_committed": { "type": "boolean" },
+        "raw_transcript_committed": { "type": "boolean" },
+        "paid_material_committed": { "type": "boolean" },
+        "long_subtitle_excerpt_committed": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "start_seconds",
+          "topic_tags",
+          "evidence_level",
+          "review_status",
+          "promotion_target",
+          "teaching_point_candidate"
+        ],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "start_seconds": { "type": "number" },
+          "end_seconds": { "type": ["number", "null"] },
+          "topic_tags": { "type": "array", "items": { "type": "string" } },
+          "evidence_level": {
+            "type": "string",
+            "enum": [
+              "content_model_candidate",
+              "timestamp_human_reviewed",
+              "source_backed",
+              "inferred",
+              "hypothesis",
+              "needs_content_model_review",
+              "insufficient_evidence"
+            ]
+          },
+          "review_status": { "type": "string" },
+          "promotion_target": { "type": "string" },
+          "asr_summary": { "type": "string" },
+          "ocr_summary": { "type": "string" },
+          "visual_summary": { "type": "string" },
+          "teaching_point_candidate": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

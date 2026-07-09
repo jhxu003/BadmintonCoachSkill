@@ -1,0 +1,53 @@
+source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+url: https://www.bilibili.com/video/BV1nQ4y157jT/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  stages:
+    audio:
+      status: failed
+      returncode: 124
+    asr:
+      status: skipped
+      reason: audio file missing; run audio stage first
+stage_status:
+  asr:
+    status: skipped
+    reason: audio file missing; run audio stage first
+    stage: asr
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: needs_content_model_review
+  review_status: model_not_run
+  promotion_target: none_until_reviewed
+  asr_summary: ASR did not produce usable timestamped content.
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

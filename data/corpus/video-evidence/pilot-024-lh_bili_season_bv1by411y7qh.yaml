@@ -1,0 +1,53 @@
+source_id: LH_BILI_SEASON_BV1BY411Y7QH
+job_id: pilot-024-lh_bili_season_bv1by411y7qh
+title: 后场高远球杀球发力详解！核心动作和底层逻辑
+url: https://www.bilibili.com/video/BV1by411Y7QH/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  stages:
+    audio:
+      status: failed
+      returncode: 1
+    asr:
+      status: skipped
+      reason: audio file missing; run audio stage first
+stage_status:
+  asr:
+    status: skipped
+    reason: audio file missing; run audio stage first
+    stage: asr
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: needs_content_model_review
+  review_status: model_not_run
+  promotion_target: none_until_reviewed
+  asr_summary: ASR did not produce usable timestamped content.
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

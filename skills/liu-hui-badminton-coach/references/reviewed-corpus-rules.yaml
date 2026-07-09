@@ -144,3 +144,99 @@
   allowed_use: Guard tactical advice behind rally evidence and observable shot quality.
   blocked_use: Do not invent tactics from one isolated stroke clip.
   source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+
+- rule_id: timestamp-diagnose-goal-observe-retest
+  teaching_point_id: diagnose-goal-observe-retest
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Use goal clarification, light or task-specific observation, and immediate retest as the default diagnosis loop before prescribing power, wrist, grip, or footwork cues.
+  blocked_use: Do not state that Liu Hui personally endorses this rule or that the ASR windows have been human timestamp-reviewed.
+  source_ids: [LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1A5ZGYQESP, LH_BILI_SEASON_BV1XMAAZFE6E, LH_BILI_SEASON_BV13A4Y1Q7CB, LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-001-w001-learning-goal, pilot-002-w001-goal-observe-first, pilot-002-w005-fast-prep-retest, pilot-005-w001-context-before-judgment, pilot-006-w001-match-task-definition, pilot-010-w001-over-sideways-and-tight-grip, pilot-010-w005-grip-retest-and-recovery, pilot-016-w001-high-clear-good-smash-weak, pilot-020-w001-light-hitting-reveals-errors, pilot-030-w001-diagnose-wrist-before-teaching]
+
+- rule_id: timestamp-heavy-smash-frame-fit
+  teaching_point_id: heavy-smash-frame-fit
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: For a heavy-smash goal, distinguish speed-oriented, compact, high/full-power, and body-pull frames before telling the player to swing harder.
+  blocked_use: Do not prescribe an elite high-frame or Bawang-style preparation unless player prerequisites and incoming-ball conditions are visible.
+  source_ids: [LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_SEASON_BV1XMAAZFE6E, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV1NF421X7JG, LH_BILI_SEASON_BV1AYKWBJEUV]
+  evidence_ids: [pilot-001-w002-frame-fit, pilot-001-w004-full-power-frame, pilot-013-w002-heavy-smash-high-frame, pilot-016-w002-frame-low-for-smash, pilot-018-w001-bawang-high-frame-body-pull, pilot-026-w002-bawang-frame-advantages, pilot-003-w002-low-frame-and-shoulder-lift]
+
+- rule_id: timestamp-frame-tradeoff-and-student-fit
+  teaching_point_id: frame-tradeoff-and-student-fit
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Choose frames by ball condition, learner body, preparation speed, recovery cost, and desired ball effect instead of teaching one universal best technique.
+  blocked_use: Do not convert professional or mature-player examples into default amateur prescriptions without visible prerequisites.
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV13A4Y1Q7CB, LH_BILI_SEASON_BV1NF421X7JG, LH_BILI_SEASON_BV18TMUB4E8D]
+  evidence_ids: [pilot-001-w005-do-not-copy-pro-frame, pilot-002-w003-frame-by-ball-condition, pilot-002-w004-borrow-elite-prep-not-elite-power, pilot-012-w001-advanced-frame-prerequisites, pilot-012-w002-small-fast-frame-pros, pilot-012-w003-small-fast-frame-limits, pilot-013-w001-frame-variants-change-ball-effect, pilot-013-w003-bawang-style-fast-release, pilot-013-w004-open-shoulders-connect-arm-to-trunk, pilot-018-w002-do-not-learn-elite-frame-first, pilot-020-w002-do-not-copy-mature-player-delay, pilot-020-w004-social-comfort-and-professional-frame, pilot-026-w001-no-perfect-technique, pilot-026-w003-high-frame-locks-low-frame-flexes, pilot-026-w004-body-condition-and-tech-choice]
+
+- rule_id: timestamp-time-budget-before-power
+  teaching_point_id: time-budget-before-power
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: When overhead attack or jump smash feels weak under pressure, compare available ball or air time with racket-lift and preparation time before blaming strength or jump height.
+  blocked_use: Do not infer exact hangtime or preparation duration from ASR alone; require video timing or frame review for firm diagnosis.
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1ZBWEZEELW, LH_BILI_SEASON_BV1LB5QZXEDZ, LH_BILI_SEASON_BV1AYKWBJEUV, LH_BILI_SEASON_BV1CRFTZBEK7]
+  evidence_ids: [pilot-002-w002-time-space-budget, pilot-006-w004-high-fast-frame, pilot-014-w001-jump-smash-front-swing-dispersed, pilot-014-w002-early-racket-drop-weakens-top-elbow, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime, pilot-019-w003-fast-preparation-creates-waiting-time, pilot-003-w001-jump-smash-prerequisite, pilot-004-w003-foundation-before-jump-smash]
+
+- rule_id: timestamp-standard-frame-foundation
+  teaching_point_id: standard-frame-foundation
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Gate jump smash and specialized power modes behind a compact standard overhead frame, stable top-elbow structure, and usable racket-head direction.
+  blocked_use: Do not treat a wide casual frame as acceptable merely because the shuttle can still be hit long.
+  source_ids: [LH_BILI_SEASON_BV1CRFTZBEK7, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV13A4Y1Q7CB, LH_BILI_SEASON_BV1XMAAZFE6E]
+  evidence_ids: [pilot-004-w001-standard-frame-small-angle, pilot-004-w002-textbook-frame-under-90, pilot-018-w004-standard-frame-for-amateurs, pilot-020-w003-open-shoulder-for-waist-abdomen-drive, pilot-016-w003-grip-and-body-turn-support-smash-frame]
+
+- rule_id: timestamp-foot-ground-hip-chain
+  teaching_point_id: foot-ground-hip-chain
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: "Diagnose hip rotation from foot-ground setup first: rear-foot direction, heel release, forefoot push, leg sink, and pelvis drive before waist or arm cues."
+  blocked_use: Do not call hip rotation "missing" from upper-body video alone when the rear foot and ground contact are not visible.
+  source_ids: [LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1KM41147M1, LH_BILI_SEASON_BV1A5ZGYQESP, LH_BILI_SEASON_BV13A4Y1Q7CB, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1AYKWBJEUV]
+  evidence_ids: [pilot-005-w002-force-from-foot, pilot-005-w003-deng-before-turn, pilot-007-w001-dengzhuan-definition, pilot-007-w002-rear-foot-orientation, pilot-007-w003-heel-lift-and-upward-push, pilot-007-w004-leg-drives-hip-and-waist, pilot-007-w005-two-dengzhuan-failure-types, pilot-010-w006-hip-turned-avoid-extra-waist-turn, pilot-020-w003-open-shoulder-for-waist-abdomen-drive, pilot-025-w001-hip-drive-foot-checkpoints, pilot-025-w002-horizontal-foot-enables-hip-turn, pilot-025-w003-lower-body-drives-relaxed-upper-body, pilot-003-w003-roll-abdomen-and-short-force-window]
+
+- rule_id: timestamp-arm-segment-transfer
+  teaching_point_id: arm-segment-transfer
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: For internal rotation, wrist, and concentrated power issues, inspect contact depth, elbow position, upper-arm stabilization, forearm release, grip shape, and follow-through segmentation.
+  blocked_use: Do not diagnose true shoulder internal rotation from ASR or a single 2D keyframe; ask for video-frame evidence and phrase it as a proxy.
+  source_ids: [LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1BF6SYTEGZ, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV1A5ZGYQESP]
+  evidence_ids: [pilot-008-w001-front-contact-novice-comfort, pilot-008-w002-deep-front-point-kills-explosiveness, pilot-008-w003-deep-front-point-blocks-internal-rotation, pilot-008-w004-force-chain-break, pilot-008-w005-front-only-limitation, pilot-018-w003-body-brings-arm-not-arm-swing, pilot-028-w001-elbow-position-diagnoses-upper-arm, pilot-028-w002-upper-arm-stops-to-transfer-force, pilot-028-w003-internal-rotation-unloads-wrist-force, pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w003-segment-force-release-and-follow-through, pilot-030-w004-higher-back-contact-and-earlier-rotation, pilot-010-w002-racket-arm-angle-problem]
+
+- rule_id: timestamp-grip-racket-face-reset
+  teaching_point_id: grip-racket-face-reset
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: When racket face, wrist pressure, or grip compensation blocks force transfer, reset racket placement in the hand and retest both impact and post-hit recovery.
+  blocked_use: Do not make grip advice from a blurred or occluded hand view; require hand/racket-face evidence or mark evidence insufficient.
+  source_ids: [LH_BILI_SEASON_BV1A5ZGYQESP, LH_BILI_SEASON_BV1XMAAZFE6E, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1P4DGYRE8B]
+  evidence_ids: [pilot-010-w002-racket-arm-angle-problem, pilot-010-w003-index-finger-angle-and-fist-grip, pilot-010-w004-live-grip-correction-sequence, pilot-010-w005-grip-retest-and-recovery, pilot-016-w003-grip-and-body-turn-support-smash-frame, pilot-027-w003-fast-drop-grip-and-racket-face, pilot-028-w003-internal-rotation-unloads-wrist-force]
+
+- rule_id: timestamp-drop-variant-geometry
+  teaching_point_id: drop-variant-geometry
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Diagnose drop, slice-drop, fast drop, light drop, and slide-drop by target direction, contact height, body direction, grip, racket face, and whether front-point mechanics transfer to rear passive points.
+  blocked_use: Do not tell the player to "just slice more" unless the intended drop variant and target-line geometry are visible.
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB, LH_BILI_SEASON_BV1XDLEZQERY, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-011-w001-split-line-problem-by-direction, pilot-011-w002-crosscourt-contact-explains-straight-gap, pilot-011-w003-teach-straight-through-known-crosscourt-feel, pilot-015-w001-slide-drop-body-direction, pilot-015-w002-current-slide-uses-early-internal-rotation, pilot-027-w001-fast-drop-needs-force, pilot-027-w002-light-drop-high-point-and-slice, pilot-027-w003-fast-drop-grip-and-racket-face, pilot-029-w001-passive-overhead-slide-not-only-footwork, pilot-029-w002-front-point-slide-versus-rear-point-slide]
+
+- rule_id: timestamp-china-jump-recovery
+  teaching_point_id: china-jump-recovery
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Treat China jump as a compact no-foot-switch recovery solution with half-side orientation and short elastic ground contact, not as a decorative jump form.
+  blocked_use: Do not recommend China jump when knee/ankle risk, landing control, or next-ball recovery is not visible.
+  source_ids: [LH_BILI_SEASON_BV1NWRRBTEDY]
+  evidence_ids: [pilot-017-w001-china-jump-no-foot-switch-purpose, pilot-017-w002-foot-switch-hurts-recovery, pilot-017-w003-half-side-fast-power, pilot-017-w004-rhythm-and-short-ground-contact]
+
+- rule_id: timestamp-match-transfer-and-stage-progression
+  teaching_point_id: match-transfer-and-stage-progression
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: Convert broad match complaints into a concrete incoming-ball task, train one representative condition first, then retest under multi-shuttle or rally pressure.
+  blocked_use: Do not claim a stroke is match-ready from isolated shadow or feed success.
+  source_ids: [LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1NWRRBTEDY, LH_BILI_SEASON_BV18TMUB4E8D]
+  evidence_ids: [pilot-006-w001-match-task-definition, pilot-006-w003-staged-task-before-high-ball, pilot-008-w005-front-only-limitation, pilot-017-w002-foot-switch-hurts-recovery, pilot-001-w003-feed-variability]
+
+- rule_id: timestamp-rear-attack-footwork-shape
+  teaching_point_id: rear-attack-footwork-shape
+  decision: timestamp_candidate_requires_human_review
+  allowed_use: For sudden rear-court attack, check first-step size, over-rotation, half-side organization, body line, and recovery before adding stroke power.
+  blocked_use: Do not diagnose the footwork pattern from the racket action alone.
+  source_ids: [LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1NWRRBTEDY, LH_BILI_SEASON_BV1AYKWBJEUV]
+  evidence_ids: [pilot-006-w002-malay-step-overrotation, pilot-017-w003-half-side-fast-power, pilot-003-w003-roll-abdomen-and-short-force-window]

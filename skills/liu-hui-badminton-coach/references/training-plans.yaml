@@ -74,3 +74,90 @@
     - recovery fails before pressure is added
   source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1YV4Y1N7GX]
   evidence_status: inferred
+
+- plan_id: jump-smash-readiness
+  name: Jump-smash readiness plan
+  suitable_for:
+    - intermediate-chain-ready
+    - match-pressure-breakdown
+  structure:
+    - compact standard-frame freeze
+    - standing smash time-budget retest
+    - racket-lift speed before takeoff
+    - small-hop contact-window ladder
+    - submaximal jump landing and recovery retest
+  output_requirements:
+    - block jump progression when standing frame or racket lift consumes the swing window
+    - include contact-window and recovery metrics, not only shuttle speed
+  stop_conditions:
+    - knee, ankle, back, shoulder, or elbow discomfort appears
+    - jump height makes contact point worse
+    - landing recovery is not available before the next feed
+  source_ids: [LH_BILI_SEASON_BV1AYKWBJEUV, LH_BILI_SEASON_BV1CRFTZBEK7, LH_BILI_SEASON_BV1ZBWEZEELW]
+  evidence_ids: [pilot-003-w001-jump-smash-prerequisite, pilot-004-w003-foundation-before-jump-smash, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime, pilot-019-w003-fast-preparation-creates-waiting-time]
+  evidence_status: timestamp_candidate
+
+- plan_id: overhead-framework-selector
+  name: Overhead framework selector plan
+  suitable_for:
+    - beginner-arm-dominant
+    - intermediate-chain-ready
+    - match-pressure-breakdown
+  structure:
+    - state the target ball effect and incoming-ball condition
+    - test standard compact frame under light hit
+    - compare fast, heavy, high, low, and flexible frame tradeoffs only after standard frame passes
+    - pick one frame for the current task and one retest condition
+  output_requirements:
+    - explain why this frame fits the player's body and goal
+    - name the tradeoff the player accepts, such as power ceiling, recovery cost, or flexibility
+  stop_conditions:
+    - player copies an elite frame without the prerequisites
+    - social discomfort or lack of confidence prevents visible athletic framing
+    - shoulder or elbow discomfort appears
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV1NF421X7JG]
+  evidence_ids: [pilot-002-w003-frame-by-ball-condition, pilot-012-w001-advanced-frame-prerequisites, pilot-012-w002-small-fast-frame-pros, pilot-012-w003-small-fast-frame-limits, pilot-013-w001-frame-variants-change-ball-effect, pilot-018-w004-standard-frame-for-amateurs, pilot-026-w001-no-perfect-technique, pilot-026-w003-high-frame-locks-low-frame-flexes, pilot-026-w004-body-condition-and-tech-choice]
+  evidence_status: timestamp_candidate
+
+- plan_id: drop-slide-variant-rebuild
+  name: Drop and slide variant rebuild plan
+  suitable_for:
+    - intermediate-chain-ready
+    - match-pressure-breakdown
+  structure:
+    - identify straight, cross, light, fast, front-point slide, or passive rear-point slide as separate tasks
+    - retest contact height and racket-face state for the chosen variant
+    - transfer one known direction to the missing target line
+    - add body-direction and recovery constraints after the variant is stable
+  output_requirements:
+    - do not merge all drops into one diagnosis
+    - include target-line, contact-height, racket-face, and speed metrics
+  stop_conditions:
+    - grip or racket face is not visible
+    - the player cannot reproduce the base overhead preparation
+    - passive rear-point slide is being judged from a front-point clip
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB, LH_BILI_SEASON_BV1XDLEZQERY, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-011-w001-split-line-problem-by-direction, pilot-011-w002-crosscourt-contact-explains-straight-gap, pilot-011-w003-teach-straight-through-known-crosscourt-feel, pilot-015-w001-slide-drop-body-direction, pilot-015-w002-current-slide-uses-early-internal-rotation, pilot-027-w001-fast-drop-needs-force, pilot-027-w002-light-drop-high-point-and-slice, pilot-027-w003-fast-drop-grip-and-racket-face, pilot-029-w001-passive-overhead-slide-not-only-footwork, pilot-029-w002-front-point-slide-versus-rear-point-slide]
+  evidence_status: timestamp_candidate
+
+- plan_id: hip-drive-rebuild
+  name: Foot-ground hip-drive rebuild plan
+  suitable_for:
+    - beginner-arm-dominant
+    - intermediate-chain-ready
+  structure:
+    - check incoming-ball time before requiring full kicking-turning mechanics
+    - set rear-foot direction and heel/forefoot pressure
+    - rehearse foot push before hip turn
+    - connect pelvis turn to relaxed upper body and arm release
+    - retest whether the shuttle length or downward pressure improves without extra arm force
+  output_requirements:
+    - separate rear-foot orientation, push direction, hip turn, and upper-body relaxation
+    - include lower-body visibility as an evidence requirement
+  stop_conditions:
+    - rear foot or ground contact is not visible in the video
+    - knee, ankle, or back discomfort appears
+    - ball condition does not allow enough time for the full chain
+  source_ids: [LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1KM41147M1, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1AYKWBJEUV]
+  evidence_ids: [pilot-005-w002-force-from-foot, pilot-005-w003-deng-before-turn, pilot-007-w001-dengzhuan-definition, pilot-007-w002-rear-foot-orientation, pilot-007-w003-heel-lift-and-upward-push, pilot-007-w004-leg-drives-hip-and-waist, pilot-007-w005-two-dengzhuan-failure-types, pilot-025-w001-hip-drive-foot-checkpoints, pilot-025-w002-horizontal-foot-enables-hip-turn, pilot-025-w003-lower-body-drives-relaxed-upper-body, pilot-003-w003-roll-abdomen-and-short-force-window]
+  evidence_status: timestamp_candidate

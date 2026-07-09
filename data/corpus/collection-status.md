@@ -12,6 +12,7 @@ This is now a complete public-system skill build plus an expanded public Bilibil
 - Third-party discussion and channel-stat pages for auxiliary discovery.
 - A full coaching taxonomy covering student profiles, power frameworks, stroke families, footwork families, correction order, drill families, training plans, and match transfer.
 - A timestamp-review ledger covering all 21 previously blocked teaching points. The ledger records whole-clip title-backed notes and promotion decisions, but it does not claim internal timestamp completion where public subtitles or direct YouTube/Douyin access are unavailable.
+- A content-level ASR pilot over 30 indexed public Bilibili videos, with 25 successful ASR jobs, 90 public-safe timestamp candidate teaching windows, and candidate-window distillation into skill rules, drills, and training plans.
 - Deterministic examples for high clear, smash, rear-court footwork, front-court footwork, backhand, serve/receive, and doubles.
 
 ## Known Gap
@@ -33,3 +34,17 @@ A source can enter deterministic coaching rules only after one of these is true:
 - Multiple independent public source titles support the same coarse teaching category, and the rule is marked `inferred`.
 
 Raw transcripts and paid-course material stay out of git.
+
+## Content-Level Parsing Pilot
+
+On 2026-07-08 and 2026-07-09, a content-level ASR pilot was run for 30 indexed public Bilibili jobs.
+
+- `faster-whisper tiny` completed in the first pilot but was rejected for skill distillation because badminton-specific terms were unstable.
+- `mobiuslabsgmbh/faster-whisper-large-v3-turbo` on the first 180 seconds is the accepted ASR model for candidate-window extraction.
+- 25 of 30 jobs produced `content_model_candidate` evidence.
+- 5 of 30 jobs remain `needs_content_model_review` because Bilibili public video acquisition failed or timed out on the compute node.
+- 90 timestamp candidate teaching windows are stored in `video-asr-teaching-windows.yaml`.
+- All 90 windows remain `pending_human_review`.
+- The current skill distills these windows into candidate-level rules, drills, and training plans with `timestamp_candidate_requires_human_review` or `timestamp_candidate` status.
+- Raw ASR segments remain private under `data/raw-private/video-corpus/`.
+- Compute-node runs from shared `/dataStor` Python environments hit NFS wait states; full batch parsing should use a conda-packed runtime, model cache, and audio/video intermediates on node-local storage before scaling.

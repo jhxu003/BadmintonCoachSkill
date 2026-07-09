@@ -1,0 +1,1375 @@
+review_run:
+  run_id: video_asr_teaching_windows_pilot_20260708
+  created_at: 2026-07-08
+  scope:
+    - Content-level ASR pilot for 30 indexed Liu Hui public Bilibili teaching videos.
+    - ASR succeeded for 25 videos and produced 90 timestamp candidate teaching windows.
+    - Five videos still need acquisition fallback before content model review.
+    - Public file contains original summaries only; raw ASR segments stay private.
+    - All candidate teaching windows require human review before skill promotion.
+  model_notes:
+    rejected_model:
+      model: faster-whisper tiny
+      reason: Core badminton terms were unstable in the pilot and should not be used for skill distillation.
+    candidate_model:
+      model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+      audio_scope: first_180_seconds
+      result: Usable for candidate-window extraction on successful downloads; model quality is acceptable for timestamp candidate review, while Bilibili source download reliability still needs retries/fallbacks.
+    fallback_model:
+      model: faster-whisper small
+      audio_scope: first_180_seconds
+      result: Usable but less preferred than large-v3-turbo for badminton terminology and dense teaching segments.
+  infrastructure_notes:
+    compute_node_issue: node10 and node14 runs using shared /dataStor Python environments entered NFS wait states.
+    adjusted_method: Use local preview on login only for lightweight validation; full batch should run from node-local runtime/cache/audio under /tmp or another node-local disk.
+
+windows:
+  - window_id: pilot-001-w001-learning-goal
+    source_id: LH_BILI_SEASON_BV18TMUB4E8D
+    evidence_id: pilot-001-lh_bili_season_bv18tmub4e8d-seg-001
+    start_seconds: 0
+    end_seconds: 24
+    topic_tags: [smash, student_goal, heavy_smash]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The opening establishes that the learner wants a heavier rear-court smash and feels that adding effort does not make the smash heavier or steeper.
+    teaching_point_candidate:
+      problem: Player frames the problem as needing more force, but the coach first observes the stroke instead of prescribing more effort.
+      diagnosis_rule: For heavy-smash goals, collect the player's stated goal and observe actual swings before giving power cues.
+      correction: Start from goal clarification and observation, then decide whether the limiting factor is frame, timing, contact, or tension.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-001-w002-frame-fit
+    source_id: LH_BILI_SEASON_BV18TMUB4E8D
+    evidence_id: pilot-001-lh_bili_season_bv18tmub4e8d-seg-001
+    start_seconds: 53
+    end_seconds: 68
+    topic_tags: [smash, racket_preparation, power_framework, student_fit]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach treats the learner's general action as acceptable, then shifts the diagnosis to whether the racket-preparation frame fits the desired heavy-smash outcome.
+    teaching_point_candidate:
+      problem: A technically acceptable-looking swing can still use a preparation frame that does not match the target power style.
+      diagnosis_rule: When the learner wants heavy smash but the basic action is not obviously broken, evaluate whether the chosen frame is speed-oriented or heavy-power-oriented.
+      correction: Match the racket-preparation frame to the student's goal before adding more force.
+      promotion_target: frameworks
+
+  - window_id: pilot-001-w003-feed-variability
+    source_id: LH_BILI_SEASON_BV18TMUB4E8D
+    evidence_id: pilot-001-lh_bili_season_bv18tmub4e8d-seg-001
+    start_seconds: 85
+    end_seconds: 112
+    topic_tags: [smash, consistency, multi_shuttle, technical_stability]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach separates feed variability from the core technical problem, implying that a robust heavy-smash mechanism should not collapse simply because multi-shuttle feeds vary.
+    teaching_point_candidate:
+      problem: Learners may blame inconsistent feeds for inconsistent smash quality when the deeper issue is technical stability.
+      diagnosis_rule: If smash quality changes dramatically across similar feeds, check whether the power mechanism is robust before blaming the feeder or shuttle variability.
+      correction: Build a stable power frame and contact pattern that tolerates normal feed variation.
+      promotion_target: rubric
+
+  - window_id: pilot-001-w004-full-power-frame
+    source_id: LH_BILI_SEASON_BV18TMUB4E8D
+    evidence_id: pilot-001-lh_bili_season_bv18tmub4e8d-seg-001
+    start_seconds: 119
+    end_seconds: 143
+    topic_tags: [smash, full_power_frame, racket_preparation, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach identifies the lack of a full-power frame as an important reason the learner cannot convert effort into heavy smash power.
+    teaching_point_candidate:
+      problem: The player uses a preparation state that behaves more like a speed frame than a full-power heavy-smash frame.
+      diagnosis_rule: For rear-court heavy smash, distinguish speed-oriented preparation from full-power preparation before prescribing stronger arm or wrist effort.
+      correction: Rebuild the heavy-smash frame first, then test whether effort transfers into shuttle speed and angle.
+      promotion_target: frameworks
+
+  - window_id: pilot-001-w005-do-not-copy-pro-frame
+    source_id: LH_BILI_SEASON_BV18TMUB4E8D
+    evidence_id: pilot-001-lh_bili_season_bv18tmub4e8d-seg-001
+    start_seconds: 155
+    end_seconds: 180
+    topic_tags: [student_fit, pro_model_copying, power_framework, safety]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach warns against copying elite-player preparation styles without checking whether the learner's body conditions and prerequisites match that style.
+    teaching_point_candidate:
+      problem: A learner may imitate professional smash frames that depend on physical attributes or prerequisites they do not have.
+      diagnosis_rule: Before recommending an advanced professional-style frame, check the learner's height, shoulder condition, jump ability, and current technical prerequisites.
+      correction: Choose a student-fit frame rather than copying an elite player's visible form.
+      promotion_target: student_profiles
+
+  - window_id: pilot-002-w001-goal-observe-first
+    source_id: LH_BILI_SEASON_BV1X9QBBBETX
+    evidence_id: pilot-002-lh_bili_season_bv1x9qbbbetx-seg-001
+    start_seconds: 1
+    end_seconds: 30
+    topic_tags: [smash, overhead_attack, student_goal, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The learner frames the goal as head-side attacking and the coach asks for a trial swing before naming the limiting factor.
+    teaching_point_candidate:
+      problem: The learner wants a stronger head-side attack, but the visible action must be observed before prescribing a cue.
+      diagnosis_rule: For head-side attack goals, ask what result the learner wants, observe one or more live attempts, then identify whether the first bottleneck is preparation speed, power frame, contact, or footwork.
+      correction: Start with a task-specific observation rather than generic power advice.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-002-w002-time-space-budget
+    source_id: LH_BILI_SEASON_BV1X9QBBBETX
+    evidence_id: pilot-002-lh_bili_season_bv1x9qbbbetx-seg-001
+    start_seconds: 51
+    end_seconds: 93
+    topic_tags: [smash, overhead_attack, time_pressure, racket_preparation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach treats a pressured overhead ball as a time-budget problem: slow racket preparation consumes most of the available interception time."
+    teaching_point_candidate:
+      problem: The player appears to lack power, but the deeper issue is that preparation is too slow under head-side pressure.
+      diagnosis_rule: If the incoming overhead ball compresses time and space, estimate whether racket preparation is consuming the swing window before blaming strength.
+      correction: Shorten and speed up preparation so the player can catch the point with usable swing time.
+      promotion_target: rubric
+
+  - window_id: pilot-002-w003-frame-by-ball-condition
+    source_id: LH_BILI_SEASON_BV1X9QBBBETX
+    evidence_id: pilot-002-lh_bili_season_bv1x9qbbbetx-seg-001
+    start_seconds: 109
+    end_seconds: 138
+    topic_tags: [smash, power_framework, ball_condition, explosive_preparation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach distinguishes active high balls from pressured half-arc or flat high balls and maps them to different preparation frameworks.
+    teaching_point_candidate:
+      problem: A player may use the same relaxed power frame for both active and pressured overhead situations.
+      diagnosis_rule: If the opponent's ball is high and comfortable, a more power-friendly relaxed frame may fit; if the ball pushes or presses the head side, require an explosive frame entry.
+      correction: Choose the frame according to the ball condition, not by a fixed visual template.
+      promotion_target: frameworks
+
+  - window_id: pilot-002-w004-borrow-elite-prep-not-elite-power
+    source_id: LH_BILI_SEASON_BV1X9QBBBETX
+    evidence_id: pilot-002-lh_bili_season_bv1x9qbbbetx-seg-001
+    start_seconds: 140
+    end_seconds: 163
+    topic_tags: [student_fit, pro_model_copying, racket_preparation, safety]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach borrows the fast preparation advantage from an elite style while rejecting the full elite power method as unsuitable for many amateur bodies.
+    teaching_point_candidate:
+      problem: Copying an elite player's whole power method can exceed the amateur learner's physical and technical prerequisites.
+      diagnosis_rule: When referencing an elite model, separate the transferable feature from the non-transferable power mechanism.
+      correction: Retain fast preparation if it fits the learner, but do not require the learner to reproduce the elite power driver.
+      promotion_target: student_profiles
+
+  - window_id: pilot-002-w005-fast-prep-retest
+    source_id: LH_BILI_SEASON_BV1X9QBBBETX
+    evidence_id: pilot-002-lh_bili_season_bv1x9qbbbetx-seg-001
+    start_seconds: 163
+    end_seconds: 173
+    topic_tags: [smash, feedback_loop, contact_point, racket_preparation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: After adding the fast-preparation idea, the coach immediately retests whether the learner catches the hitting point better.
+    teaching_point_candidate:
+      problem: A cue is not validated until it changes the actual interception or contact result.
+      diagnosis_rule: After a preparation-speed cue, retest whether the player catches the point earlier or more comfortably.
+      correction: Use immediate before-after feedback to decide whether to keep, intensify, or change the cue.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-005-w001-context-before-judgment
+    source_id: LH_BILI_SEASON_BV1HBYRBCECE
+    evidence_id: pilot-005-lh_bili_season_bv1hbyrbcece-seg-001
+    start_seconds: 13
+    end_seconds: 30
+    topic_tags: [high_clear, hip_rotation, coaching_context, student_fit]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: Before rejecting a coaching phrase, the coach explicitly allows that another coach may have used it for a specific student or teaching context.
+    teaching_point_candidate:
+      problem: Learners often treat isolated phrases such as hip-leading or leg-leading as universal rules.
+      diagnosis_rule: Check whether a cue was intended for one student's correction or as a general biomechanical rule.
+      correction: Preserve context-sensitive cues, but do not turn a clipped phrase into a universal principle.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-005-w002-force-from-foot
+    source_id: LH_BILI_SEASON_BV1HBYRBCECE
+    evidence_id: pilot-005-lh_bili_season_bv1hbyrbcece-seg-001
+    start_seconds: 30
+    end_seconds: 45
+    topic_tags: [high_clear, hip_rotation, kinetic_chain, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach states the general principle that sport power starts from the root/feet and questions whether the hip can move independently without ground push.
+    teaching_point_candidate:
+      problem: The learner may understand hip rotation as an isolated hip movement.
+      diagnosis_rule: If a power cue asks the hip to move first, check whether it ignores the foot-ground interaction that creates the rotation.
+      correction: Re-anchor hip rotation in foot pressure and ground reaction before cueing the trunk or arm.
+      promotion_target: frameworks
+
+  - window_id: pilot-005-w003-deng-before-turn
+    source_id: LH_BILI_SEASON_BV1HBYRBCECE
+    evidence_id: pilot-005-lh_bili_season_bv1hbyrbcece-seg-001
+    start_seconds: 49
+    end_seconds: 63
+    topic_tags: [high_clear, hip_rotation, footwork, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach defines the sequence of kicking and turning: the push precedes the rotation, with the foot driving the hip."
+    teaching_point_candidate:
+      problem: A player may rotate the hip without first loading and pushing through the foot.
+      diagnosis_rule: For deng-zhuan mechanics, confirm that the push action creates the rotation rather than the hip spinning by itself.
+      correction: Teach the sequence as foot push first, hip turn second, then test whether the upper-body swing is easier.
+      promotion_target: frameworks
+
+  - window_id: pilot-006-w001-match-task-definition
+    source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+    evidence_id: pilot-006-lh_bili_season_bv1v6zabtekt-seg-001
+    start_seconds: 18
+    end_seconds: 30
+    topic_tags: [smash, match_transfer, overhead_attack, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach narrows the learner's match problem into a far-net push / sudden attacking smash task instead of treating it as generic jump-smash power.
+    teaching_point_candidate:
+      problem: A broad complaint that the smash cannot finish the rally is too broad to diagnose directly.
+      diagnosis_rule: Translate match complaints into a concrete incoming-ball scenario before choosing technique.
+      correction: Define whether the task is far-net push, pressured head-side attack, active high ball, or another match pattern.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-006-w002-malay-step-overrotation
+    source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+    evidence_id: pilot-006-lh_bili_season_bv1v6zabtekt-seg-001
+    start_seconds: 62
+    end_seconds: 82
+    topic_tags: [rear_footwork, smash, hip_rotation, match_transfer]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says the Malay-step pattern can support sudden attack, but the learner's first step and body turn are too exaggerated.
+    teaching_point_candidate:
+      problem: A useful footwork pattern becomes counterproductive when the turn is too large for the match task.
+      diagnosis_rule: In sudden-attack footwork, check whether the first step over-rotates the body and makes the player lie away from the shuttle path.
+      correction: Reduce the turn and keep the body organized for the attack line before adding more power.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-006-w003-staged-task-before-high-ball
+    source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+    evidence_id: pilot-006-lh_bili_season_bv1v6zabtekt-seg-001
+    start_seconds: 86
+    end_seconds: 146
+    topic_tags: [rear_footwork, smash, training_plan, progression]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach deliberately splits the learning path: first make the sudden-attack route work, then add the higher-ball variation later."
+    teaching_point_candidate:
+      problem: Teaching every ball height at once can hide whether the core attack route is usable.
+      diagnosis_rule: If the learner is unstable, isolate one representative ball condition before layering in higher or more complex balls.
+      correction: "Use a staged progression: solve the lower sudden-attack pattern first, then add the high-ball extension."
+      promotion_target: training_plans
+
+  - window_id: pilot-006-w004-high-fast-frame
+    source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+    evidence_id: pilot-006-lh_bili_season_bv1v6zabtekt-seg-001
+    start_seconds: 151
+    end_seconds: 168
+    topic_tags: [smash, top_elbow, racket_preparation, explosive_preparation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: For fast match pushes, the coach requires a high racket frame and explosive frame entry.
+    teaching_point_candidate:
+      problem: Slow or low preparation leaves the player late against quick pushed balls.
+      diagnosis_rule: In far-net push attack training, inspect whether the frame appears high and fast enough before judging the final hit.
+      correction: Raise the racket frame and create it explosively so the swing is available when the shuttle arrives.
+      promotion_target: frameworks
+
+  - window_id: pilot-007-w001-dengzhuan-definition
+    source_id: LH_BILI_SEASON_BV1KM41147M1
+    evidence_id: pilot-007-lh_bili_season_bv1km41147m1-seg-001
+    start_seconds: 0
+    end_seconds: 24
+    topic_tags: [high_clear, hip_rotation, kinetic_chain, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach defines kicking-turning power as force starting from the feet and notes that large power actions require suitable time and conditions.
+    teaching_point_candidate:
+      problem: Learners may try to use full kicking-turning mechanics when the ball condition does not allow the time.
+      diagnosis_rule: Before prescribing full lower-body power, check whether the ball gives enough time for foot recovery, push, and hip turn.
+      correction: Use full kicking-turning mechanics for heavy-power situations with sufficient conditions; use faster compact frames under pressure.
+      promotion_target: frameworks
+
+  - window_id: pilot-007-w002-rear-foot-orientation
+    source_id: LH_BILI_SEASON_BV1KM41147M1
+    evidence_id: pilot-007-lh_bili_season_bv1km41147m1-seg-001
+    start_seconds: 31
+    end_seconds: 58
+    topic_tags: [footwork, hip_rotation, high_clear, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach diagnoses that if the rear foot is already pointed diagonally forward, the hip cannot rotate properly into the stroke.
+    teaching_point_candidate:
+      problem: The player expects hip rotation while the rear-foot orientation has already blocked the turn.
+      diagnosis_rule: Check the rear foot before judging waist or hip power; if the rear foot is not set to allow rotation, the hip cannot turn correctly.
+      correction: Reposition the rear foot so the lower body can push and turn the pelvis into the stroke.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-007-w003-heel-lift-and-upward-push
+    source_id: LH_BILI_SEASON_BV1KM41147M1
+    evidence_id: pilot-007-lh_bili_season_bv1km41147m1-seg-001
+    start_seconds: 61
+    end_seconds: 112
+    topic_tags: [footwork, hip_rotation, kinetic_chain, body_power]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach uses jumping as an analogy to show that kicking-turning power should include heel lift, forefoot action, and an upward component rather than dead full-foot pressure.
+    teaching_point_candidate:
+      problem: A player stands too dead on the foot and cannot create an upward-turning push.
+      diagnosis_rule: If kicking-turning feels absent, check whether the heel can release and the forefoot can finish the push as in jumping.
+      correction: Load the rear foot, lift the heel appropriately, and use the leg to push the body into the turn.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-007-w004-leg-drives-hip-and-waist
+    source_id: LH_BILI_SEASON_BV1KM41147M1
+    evidence_id: pilot-007-lh_bili_season_bv1km41147m1-seg-001
+    start_seconds: 114
+    end_seconds: 143
+    topic_tags: [hip_rotation, kinetic_chain, high_clear, body_power]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach connects the right-leg push to hip correction and then to waist/abdomen involvement.
+    teaching_point_candidate:
+      problem: Learners may treat waist/abdomen power as isolated trunk twisting.
+      diagnosis_rule: Check whether the leg first drives the pelvis into position; only then assess whether the waist and abdomen are being carried into the swing.
+      correction: Build the chain from rear-leg push to pelvis turn to trunk contribution.
+      promotion_target: frameworks
+
+  - window_id: pilot-007-w005-two-dengzhuan-failure-types
+    source_id: LH_BILI_SEASON_BV1KM41147M1
+    evidence_id: pilot-007-lh_bili_season_bv1km41147m1-seg-001
+    start_seconds: 145
+    end_seconds: 163
+    topic_tags: [hip_rotation, footwork, diagnosis_rule, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach names two common failures: pushing only upward without turning, or pushing only forward without enough upward force."
+    teaching_point_candidate:
+      problem: The learner may feel they are pushing but still fail to create the intended hip/body turn.
+      diagnosis_rule: Separate upward-only and forward-only push errors when diagnosing missing kicking-turning power.
+      correction: Blend the upward and turning components so the push corrects the body rather than merely moving it.
+      promotion_target: rubric
+
+  - window_id: pilot-008-w001-front-contact-novice-comfort
+    source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+    evidence_id: pilot-008-lh_bili_season_bv19c4y1s7z2-seg-001
+    start_seconds: 0
+    end_seconds: 45
+    topic_tags: [internal_rotation, contact_point, novice_pattern, swing]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach explains why novices prefer a very front contact point: it is easier to see and reach, but it encourages a fly-swatter style stroke."
+    teaching_point_candidate:
+      problem: A comfortable contact point can reinforce an incorrect swing pattern.
+      diagnosis_rule: If internal rotation feels awkward, check whether the learner has placed the shuttle too far forward because it feels easier to reference.
+      correction: Move the contact concept away from the default deep-front novice position before teaching internal rotation.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-008-w002-deep-front-point-kills-explosiveness
+    source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+    evidence_id: pilot-008-lh_bili_season_bv19c4y1s7z2-seg-001
+    start_seconds: 56
+    end_seconds: 72
+    topic_tags: [internal_rotation, contact_point, explosive_power, swing]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach argues that an excessively forward contact point forces the upper arm to travel too far, reducing explosive power.
+    teaching_point_candidate:
+      problem: The player cannot create explosion because the contact point demands a long arm path before impact.
+      diagnosis_rule: When power feels weak despite effort, check whether the arm is chasing a contact point that is too far forward.
+      correction: Reposition the hitting point so the arm can accelerate compactly into impact.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-008-w003-deep-front-point-blocks-internal-rotation
+    source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+    evidence_id: pilot-008-lh_bili_season_bv19c4y1s7z2-seg-001
+    start_seconds: 125
+    end_seconds: 144
+    topic_tags: [internal_rotation, contact_point, forearm, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach links deep-front contact to failed internal rotation: the forearm cannot overtake the upper-arm line in that position."
+    teaching_point_candidate:
+      problem: The learner tries to add internal rotation while the contact point has already made the rotation mechanically unavailable.
+      diagnosis_rule: If internal rotation is absent, inspect contact-point depth before cueing the forearm.
+      correction: First adjust the hitting point, then cue the upper-arm to forearm sequencing.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-008-w004-force-chain-break
+    source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+    evidence_id: pilot-008-lh_bili_season_bv19c4y1s7z2-seg-001
+    start_seconds: 145
+    end_seconds: 166
+    topic_tags: [internal_rotation, kinetic_chain, finger_power, swing]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach diagnoses a force-chain break: the player is using arm-to-finger tension instead of upper arm to forearm to hand to fingers."
+    teaching_point_candidate:
+      problem: A player may still hit the shuttle out through finger tightening while missing the larger arm sequencing.
+      diagnosis_rule: If the player reports strong finger tension but lacks internal rotation, check whether the chain jumps directly from arm to fingers.
+      correction: Rebuild the sequence from upper arm to forearm to hand to fingers, instead of relying on finger tightening alone.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-008-w005-front-only-limitation
+    source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+    evidence_id: pilot-008-lh_bili_season_bv19c4y1s7z2-seg-001
+    start_seconds: 169
+    end_seconds: 180
+    topic_tags: [internal_rotation, contact_point, rear_court, match_transfer]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach notes that the front-only pattern fails when the shuttle falls farther back, especially when the player needs to press the ball down.
+    teaching_point_candidate:
+      problem: A stroke that only works in front of the body does not transfer to rear-court pressure.
+      diagnosis_rule: Test whether the same swing can handle balls that are not ideally in front; if not, the contact and rotation model is too narrow.
+      correction: Train contact and internal rotation so the player can still control rear-court downward shots.
+      promotion_target: match_transfer_rubric
+
+  - window_id: pilot-010-w001-over-sideways-and-tight-grip
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 12
+    end_seconds: 24
+    topic_tags: [overhead_attack, grip, hip_rotation, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: For a head-side sudden attack, the coach first identifies excessive side-on body position and a grip that is too tight.
+    teaching_point_candidate:
+      problem: The player may chase attack power while body orientation and grip already block the swing.
+      diagnosis_rule: For head-side sudden attack, inspect side-on degree and grip tension before adding power cues.
+      correction: Reduce excessive side-on posture and loosen/rebuild the grip before retesting the attack.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-010-w002-racket-arm-angle-problem
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 29
+    end_seconds: 73
+    topic_tags: [grip, forehand, backhand, racket_face]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains that an excessive racket-to-arm angle causes forehand and backhand compensation problems.
+    teaching_point_candidate:
+      problem: The racket collapses relative to the arm, making both forehand and backhand force production awkward.
+      diagnosis_rule: If the wrist or racket face falls into compensation, inspect the racket-to-arm angle before judging stroke intent.
+      correction: Adjust the racket position in the hand so the grip can support both face control and force transfer.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-010-w003-index-finger-angle-and-fist-grip
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 73
+    end_seconds: 112
+    topic_tags: [grip, finger_power, racket_face, correction]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach uses the index-finger relationship to the racket as a grip diagnostic and contrasts it with a fist-like grip.
+    teaching_point_candidate:
+      problem: A fist-like grip leaves the index finger unable to hook or guide the racket naturally.
+      diagnosis_rule: Check whether the racket angle gives the index finger a usable place to sit and guide.
+      correction: Rotate and place the racket so the index finger can hook naturally under a relaxed but controlled grip.
+      promotion_target: grip_rubric
+
+  - window_id: pilot-010-w004-live-grip-correction-sequence
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 114
+    end_seconds: 126
+    topic_tags: [grip, correction, coaching_sequence, student_fit]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: "The coach gives a concrete grip correction sequence: orient the racket, open the hand, lift the racket into place, then close and hook with the index finger."
+    teaching_point_candidate:
+      problem: Verbal grip cues may be too abstract for the learner to reproduce.
+      diagnosis_rule: If the learner cannot self-correct grip, break the correction into hand opening, racket placement, closing, and index-finger hook.
+      correction: Use a step-by-step grip reset instead of a single generic hold-it-correctly cue.
+      promotion_target: drills
+
+  - window_id: pilot-010-w005-grip-retest-and-recovery
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 126
+    end_seconds: 155
+    topic_tags: [grip, feedback_loop, recovery, internal_rotation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: After the grip correction, the coach retests the attack and comments on racket recovery after internal rotation.
+    teaching_point_candidate:
+      problem: Even if impact improves, the racket may return to a poor grip state after the stroke.
+      diagnosis_rule: After correcting grip, observe both the hit and the post-hit racket recovery.
+      correction: Retest, then teach the player to return from the internal-rotation finish to the corrected preparation grip.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-010-w006-hip-turned-avoid-extra-waist-turn
+    source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+    evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
+    start_seconds: 164
+    end_seconds: 180
+    topic_tags: [hip_rotation, shoulder, waist, overrotation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach questions whether the player needs another waist turn after the hip has already turned, and distinguishes shoulder pull from waist rotation.
+    teaching_point_candidate:
+      problem: Learners often add excessive waist rotation after the pelvis has already positioned the body.
+      diagnosis_rule: If body rotation looks excessive, determine whether the player is pulling the shoulder or unnecessarily rotating the waist again.
+      correction: Clarify the role of hip turn, waist turn, and shoulder pull so the stroke does not over-rotate.
+      promotion_target: frameworks
+
+  - window_id: pilot-011-w001-split-line-problem-by-direction
+    source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+    evidence_id: pilot-011-lh_bili_season_bv1s1vkbseab-seg-001
+    start_seconds: 13
+    end_seconds: 39
+    topic_tags: [drop, slice_drop, direction_control, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach separates the learner's slice-drop ability by direction, noting that cross-court slicing exists while straight slicing is not yet functional.
+    teaching_point_candidate:
+      problem: A player may say they can slice-drop, but the skill may only work for one direction.
+      diagnosis_rule: Diagnose slice-drop by target line instead of judging the stroke as a single ability.
+      correction: Test cross-court and straight-line versions separately, then teach the missing direction from the player's existing usable pattern.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-011-w002-crosscourt-contact-explains-straight-gap
+    source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+    evidence_id: pilot-011-lh_bili_season_bv1s1vkbseab-seg-001
+    start_seconds: 61
+    end_seconds: 96
+    topic_tags: [drop, contact_point, swing_path, direction_control]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach traces the learner's successful cross-court slice to a contact point and outward swing path that naturally send the shuttle diagonally.
+    teaching_point_candidate:
+      problem: The player may not know why one slice direction works and another fails.
+      diagnosis_rule: For slice-drop direction errors, inspect contact point and racket path relative to the target line.
+      correction: Keep the useful contact and swing feel, then reposition the target geometry for the missing direction.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-011-w003-teach-straight-through-known-crosscourt-feel
+    source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+    evidence_id: pilot-011-lh_bili_season_bv1s1vkbseab-seg-001
+    start_seconds: 96
+    end_seconds: 180
+    topic_tags: [drop, transfer_learning, drill_design, direction_control]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach tries to teach straight slicing by keeping the learner's familiar cross-court slicing feel and changing the reference line.
+    teaching_point_candidate:
+      problem: Teaching a new direction from scratch may discard an existing usable motor pattern.
+      diagnosis_rule: If one direction is already stable, ask whether the same feel can be transferred by changing the court reference.
+      correction: Use a physical or visual line reference so the learner can map a known slice feel onto the straight target.
+      promotion_target: drills
+
+  - window_id: pilot-012-w001-advanced-frame-prerequisites
+    source_id: LH_BILI_FAV_BV15PBRB6EDK
+    evidence_id: pilot-012-lh_bili_fav_bv15pbrb6edk-seg-001
+    start_seconds: 3
+    end_seconds: 52
+    topic_tags: [racket_preparation, power_framework, student_fit, progression]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: Before teaching advanced frame styles, the coach asks whether the learner can already use a normal frame with accuracy, consistency, and target variety.
+    teaching_point_candidate:
+      problem: Learners often want advanced frame styles before owning the ordinary frame.
+      diagnosis_rule: Gate advanced preparation styles behind ordinary-frame accuracy, consistency, and target control.
+      correction: Teach advanced frame variants only after the learner can reproduce ordinary-frame outcomes.
+      promotion_target: student_profiles
+
+  - window_id: pilot-012-w002-small-fast-frame-pros
+    source_id: LH_BILI_FAV_BV15PBRB6EDK
+    evidence_id: pilot-012-lh_bili_fav_bv15pbrb6edk-seg-001
+    start_seconds: 83
+    end_seconds: 137
+    topic_tags: [racket_preparation, top_elbow, fast_smash, framework_tradeoff]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach describes a compact frame with a smaller elbow path as stable and fast, especially because it reduces the visible preparation phase.
+    teaching_point_candidate:
+      problem: Players may confuse compact preparation with incomplete preparation.
+      diagnosis_rule: Evaluate compact frames by whether they preserve stability and fast release, not by whether they look large.
+      correction: Use compact preparation when the goal is small and quick release, provided the player accepts the power tradeoff.
+      promotion_target: frameworks
+
+  - window_id: pilot-012-w003-small-fast-frame-limits
+    source_id: LH_BILI_FAV_BV15PBRB6EDK
+    evidence_id: pilot-012-lh_bili_fav_bv15pbrb6edk-seg-001
+    start_seconds: 137
+    end_seconds: 179
+    topic_tags: [racket_preparation, power_framework, framework_tradeoff, smash]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach asks students to name the compact frame's weakness and surfaces the tradeoff of smaller power and limited full-force output.
+    teaching_point_candidate:
+      problem: A frame that is fast and stable may still fail for heavy-power goals.
+      diagnosis_rule: Every frame choice should be evaluated by speed, stability, and power ceiling.
+      correction: Match compact frames to quick-release goals and use fuller frames when the learner needs heavy smash power.
+      promotion_target: frameworks
+
+  - window_id: pilot-013-w001-frame-variants-change-ball-effect
+    source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+    evidence_id: pilot-013-lh_bili_season_bv1bi4y1q7eh-seg-001
+    start_seconds: 34
+    end_seconds: 50
+    topic_tags: [racket_preparation, framework_tradeoff, smash, high_clear]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach introduces frame preparation as a family of variants that create different outgoing ball effects.
+    teaching_point_candidate:
+      problem: Treating frame preparation as one fixed shape hides the tradeoffs between ball effects.
+      diagnosis_rule: Identify which frame variant the player is using before judging the resulting shot.
+      correction: Build a framework map where each preparation style has a target effect and known cost.
+      promotion_target: frameworks
+
+  - window_id: pilot-013-w002-heavy-smash-high-frame
+    source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+    evidence_id: pilot-013-lh_bili_season_bv1bi4y1q7eh-seg-001
+    start_seconds: 50
+    end_seconds: 73
+    topic_tags: [smash, racket_preparation, heavy_smash, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: One frame variant is linked to heavy smash, higher preparation, forward-leaning structure, fuller swing, and stability.
+    teaching_point_candidate:
+      problem: Heavy-smash goals need a frame that allows enough swing and stable force transfer.
+      diagnosis_rule: For heavy smash, check whether the frame is high and stable enough to support full acceleration.
+      correction: Raise and stabilize the frame before asking for more arm or wrist force.
+      promotion_target: frameworks
+
+  - window_id: pilot-013-w003-bawang-style-fast-release
+    source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+    evidence_id: pilot-013-lh_bili_season_bv1bi4y1q7eh-seg-001
+    start_seconds: 72
+    end_seconds: 91
+    topic_tags: [smash, racket_preparation, fast_release, framework_tradeoff]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: Another elite-style frame reduces the backward racket-drop amplitude and speeds up release.
+    teaching_point_candidate:
+      problem: Faster release often comes from reducing preparation amplitude, but this changes the power mechanism.
+      diagnosis_rule: When a player wants faster attack, check whether a smaller racket-drop frame fits their body and goal.
+      correction: Use fast-release frames selectively, and separate release speed from heavy-power capacity.
+      promotion_target: frameworks
+
+  - window_id: pilot-013-w004-open-shoulders-connect-arm-to-trunk
+    source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+    evidence_id: pilot-013-lh_bili_season_bv1bi4y1q7eh-seg-001
+    start_seconds: 113
+    end_seconds: 170
+    topic_tags: [racket_preparation, shoulder, body_power, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains that both hands opening, shoulder opening, and chest expansion connect the upper arm to trunk movement.
+    teaching_point_candidate:
+      problem: A closed or pinched frame prevents the trunk from carrying the upper arm.
+      diagnosis_rule: If body rotation does not move the hitting arm, inspect whether the shoulders and arms are opened enough.
+      correction: Open the non-racket and racket side so the trunk turn can carry the upper arm.
+      promotion_target: frameworks
+
+  - window_id: pilot-014-w001-jump-smash-front-swing-dispersed
+    source_id: LH_BILI_SEASON_BV1LB5QZXEDZ
+    evidence_id: pilot-014-lh_bili_season_bv1lb5qzxedz-seg-001
+    start_seconds: 90
+    end_seconds: 125
+    topic_tags: [jump_smash, swing, front_swing, power_leak]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says the learner can jump-smash but the swing looks dispersed, especially in the pre-impact phase.
+    teaching_point_candidate:
+      problem: A jump smash may look powerful while leaking force before impact.
+      diagnosis_rule: Do not judge only the clean finish; inspect the pre-impact preparation and swing organization.
+      correction: Tighten the front swing and preparation before chasing more jump height or finish speed.
+      promotion_target: smash_variant_rubric
+
+  - window_id: pilot-014-w002-early-racket-drop-weakens-top-elbow
+    source_id: LH_BILI_SEASON_BV1LB5QZXEDZ
+    evidence_id: pilot-014-lh_bili_season_bv1lb5qzxedz-seg-001
+    start_seconds: 125
+    end_seconds: 178
+    topic_tags: [jump_smash, top_elbow, racket_drop, power_leak]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach identifies an early racket-drop state during the jump and links it to a weakened top-elbow action.
+    teaching_point_candidate:
+      problem: Dropping the racket too early can make the top-elbow phase weak even if the final hit is strong.
+      diagnosis_rule: In jump smash, inspect the racket state during takeoff and ascent, not only at contact.
+      correction: Delay or reorganize the racket-drop so the top elbow stays functional for power transfer.
+      promotion_target: smash_variant_rubric
+
+  - window_id: pilot-015-w001-slide-drop-body-direction
+    source_id: LH_BILI_SEASON_BV1XDLEZQERY
+    evidence_id: pilot-015-lh_bili_season_bv1xdlezqery-seg-001
+    start_seconds: 38
+    end_seconds: 105
+    topic_tags: [drop, slice_drop, deception, body_orientation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach starts slide-drop correction from the whole-body direction, asking what shot the body appears to be preparing.
+    teaching_point_candidate:
+      problem: The deception effect fails when the body orientation tells the opponent the real shot too early.
+      diagnosis_rule: For slide drop, inspect the whole-body attacking direction before adjusting the hand.
+      correction: Reduce excessive side-on posture and align the body so the intended deception remains believable.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-015-w002-current-slide-uses-early-internal-rotation
+    source_id: LH_BILI_SEASON_BV1XDLEZQERY
+    evidence_id: pilot-015-lh_bili_season_bv1xdlezqery-seg-001
+    start_seconds: 132
+    end_seconds: 180
+    topic_tags: [drop, internal_rotation, racket_face, swing_path]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach describes the learner's current slide-drop as an early internal-rotation action that contacts the shuttle with an angled racket face.
+    teaching_point_candidate:
+      problem: A player may produce a slide effect, but by using a mechanism that limits deception or repeatability.
+      diagnosis_rule: Identify whether the slide effect comes from early internal rotation, racket-face angle, or body disguise.
+      correction: Preserve the useful slice contact while rebuilding the body and racket path for the coach's target version.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-016-w001-high-clear-good-smash-weak
+    source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+    evidence_id: pilot-016-lh_bili_season_bv1xmaazfe6e-seg-001
+    start_seconds: 45
+    end_seconds: 84
+    topic_tags: [smash, high_clear, diagnosis_flow, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach frames the learner as someone whose high clear is strong but whose smash is much weaker, then evaluates the frame rather than assuming global power deficiency.
+    teaching_point_candidate:
+      problem: A player can have enough overhead power for clears but still fail to convert it into smash.
+      diagnosis_rule: If high clear is strong but smash is weak, compare frame distance and contact requirements between the two shots.
+      correction: Do not rebuild all power from zero; adapt the frame from clear-friendly to smash-friendly.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-016-w002-frame-low-for-smash
+    source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+    evidence_id: pilot-016-lh_bili_season_bv1xmaazfe6e-seg-001
+    start_seconds: 84
+    end_seconds: 120
+    topic_tags: [smash, high_clear, racket_preparation, power_leak]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says the learner's frame may be acceptable for clears, but it is too low or too far for smash and causes scattered power.
+    teaching_point_candidate:
+      problem: The same frame can be adequate for high clear but poor for smash.
+      diagnosis_rule: Judge frame suitability by stroke goal, not by whether it can send the shuttle long.
+      correction: Raise and tighten the smash frame so contact can be covered and power does not disperse.
+      promotion_target: overhead_rubric
+
+  - window_id: pilot-016-w003-grip-and-body-turn-support-smash-frame
+    source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+    evidence_id: pilot-016-lh_bili_season_bv1xmaazfe6e-seg-001
+    start_seconds: 154
+    end_seconds: 180
+    topic_tags: [smash, grip, body_rotation, racket_preparation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: After the frame correction, the coach adds grip and body-turn constraints so the arm path can reach the intended smash position.
+    teaching_point_candidate:
+      problem: Fixing the arm frame alone is insufficient if grip and body turn do not support the path.
+      diagnosis_rule: After raising the frame, check grip quality and whether the body turns enough to let the arm swing into the target path.
+      correction: Combine grip reset, higher frame, and body rotation rather than isolating the arm.
+      promotion_target: frameworks
+
+  - window_id: pilot-017-w001-china-jump-no-foot-switch-purpose
+    source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+    evidence_id: pilot-017-lh_bili_season_bv1nwrrbtedy-seg-001
+    start_seconds: 8
+    end_seconds: 23
+    topic_tags: [footwork, china_jump, match_transfer, recovery]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach defines the China jump around not switching feet and asks the learner to understand the difference from a foot-switching pattern.
+    teaching_point_candidate:
+      problem: Learners may imitate a jump shape without understanding why the foot pattern matters.
+      diagnosis_rule: For China jump, first check whether the learner switches feet; if yes, they are solving a different footwork problem.
+      correction: Teach the no-foot-switch purpose before teaching the visible jump.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-017-w002-foot-switch-hurts-recovery
+    source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+    evidence_id: pilot-017-lh_bili_season_bv1nwrrbtedy-seg-001
+    start_seconds: 38
+    end_seconds: 72
+    topic_tags: [footwork, recovery, china_jump, match_transfer]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains that switching feet can leave the player late for recovery, especially if the opponent presses the forehand side with a flat ball.
+    teaching_point_candidate:
+      problem: A powerful-looking foot switch may create a recovery cost in real rallies.
+      diagnosis_rule: Evaluate jump footwork by the next-ball recovery route, not only by the hit.
+      correction: Use China jump when the match task requires faster recovery and connection after the attack.
+      promotion_target: match_transfer_rubric
+
+  - window_id: pilot-017-w003-half-side-fast-power
+    source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+    evidence_id: pilot-017-lh_bili_season_bv1nwrrbtedy-seg-001
+    start_seconds: 72
+    end_seconds: 99
+    topic_tags: [footwork, china_jump, fast_power, recovery]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach positions China jump as a half-sideways, fast-power footwork that keeps the steps cleaner after the hit.
+    teaching_point_candidate:
+      problem: The player may over-side or over-jump, losing the quick connection the footwork is meant to create.
+      diagnosis_rule: Check whether the movement preserves half-side orientation and a clean recovery step.
+      correction: Keep the attack compact and connected instead of making it a large jump-smash pattern.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-017-w004-rhythm-and-short-ground-contact
+    source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+    evidence_id: pilot-017-lh_bili_season_bv1nwrrbtedy-seg-001
+    start_seconds: 120
+    end_seconds: 180
+    topic_tags: [footwork, rhythm, ground_contact, china_jump]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach uses rhythm and landing sound to cue shorter, sharper ground contact rather than a long heavy step.
+    teaching_point_candidate:
+      problem: The footwork becomes slow if the landing contact is long and heavy.
+      diagnosis_rule: Listen for whether the foot contact is short and elastic or long and dragging.
+      correction: Train the movement rhythm so contact is brief and the next step is available.
+      promotion_target: drills
+
+  - window_id: pilot-018-w001-bawang-high-frame-body-pull
+    source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+    evidence_id: pilot-018-lh_bili_season_bv1v6zabteue-seg-001
+    start_seconds: 0
+    end_seconds: 43
+    topic_tags: [smash, racket_preparation, shoulder, body_power]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains the high elite-style frame as shoulder opening and body movement pulling the arm into preparation, with only a small backward racket drop.
+    teaching_point_candidate:
+      problem: Learners may think the visible high frame is just lifting the arm.
+      diagnosis_rule: Check whether the body and shoulder open first and pull the arm, rather than the arm independently lifting and dropping.
+      correction: Teach the body-pull sensation before copying the final elite shape.
+      promotion_target: frameworks
+
+  - window_id: pilot-018-w002-do-not-learn-elite-frame-first
+    source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+    evidence_id: pilot-018-lh_bili_season_bv1v6zabteue-seg-001
+    start_seconds: 52
+    end_seconds: 62
+    topic_tags: [student_fit, pro_model_copying, racket_preparation, smash]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explicitly says most amateur players should not start by learning the elite-style smash frame.
+    teaching_point_candidate:
+      problem: Advanced visible frames attract learners before they have the prerequisites.
+      diagnosis_rule: If the frame depends on elite timing and body drive, classify it as advanced rather than first-line amateur instruction.
+      correction: Start amateurs from a standard frame unless their prerequisites justify the advanced style.
+      promotion_target: student_profiles
+
+  - window_id: pilot-018-w003-body-brings-arm-not-arm-swing
+    source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+    evidence_id: pilot-018-lh_bili_season_bv1v6zabteue-seg-001
+    start_seconds: 63
+    end_seconds: 111
+    topic_tags: [smash, shoulder, kinetic_chain, swing]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach distinguishes body-driven arm movement from swinging the upper arm independently.
+    teaching_point_candidate:
+      problem: A player may be accused of swinging the upper arm when the actual mechanism should be body-driven arm carriage.
+      diagnosis_rule: Check whether the upper arm leaves the body independently or is carried by body movement.
+      correction: Keep the upper arm connected to the body drive instead of throwing it forward by itself.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-018-w004-standard-frame-for-amateurs
+    source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+    evidence_id: pilot-018-lh_bili_season_bv1v6zabteue-seg-001
+    start_seconds: 127
+    end_seconds: 178
+    topic_tags: [racket_preparation, standard_frame, student_fit, overhead]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach names the standard frame as the most suitable learning target for many amateurs and gives structural checkpoints for arm angle, elbow direction, and racket-head direction.
+    teaching_point_candidate:
+      problem: Learners need a concrete default frame rather than a collection of advanced examples.
+      diagnosis_rule: For first-line amateur overhead preparation, check upper-arm to forearm angle, diagonal-back elbow direction, and racket head forward.
+      correction: Use the standard frame as the default before experimenting with elite or dynamic variants.
+      promotion_target: frameworks
+
+  - window_id: pilot-019-w001-hangtime-time-budget
+    source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+    evidence_id: pilot-019-lh_bili_season_bv1zbwezeelw-seg-001
+    start_seconds: 20
+    end_seconds: 75
+    topic_tags: [jump_smash, time_budget, racket_preparation, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach makes jump-smash hangtime concrete by timing the available hitting window and comparing it to racket-preparation time.
+    teaching_point_candidate:
+      problem: Learners may treat hangtime as a vague feeling instead of a measurable time budget.
+      diagnosis_rule: Compare available in-air hitting time with the time consumed by racket preparation.
+      correction: Reduce preparation time before blaming jump height or strength.
+      promotion_target: smash_variant_rubric
+
+  - window_id: pilot-019-w002-slow-racket-lift-consumes-hangtime
+    source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+    evidence_id: pilot-019-lh_bili_season_bv1zbwezeelw-seg-001
+    start_seconds: 73
+    end_seconds: 125
+    topic_tags: [jump_smash, racket_preparation, time_pressure, power_leak]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach shows that if racket lifting takes longer than the available hangtime, the player has no real swing window in the air.
+    teaching_point_candidate:
+      problem: The player feels they lack hangtime, but slow preparation consumes the time they already have.
+      diagnosis_rule: If jump smash feels rushed, time the racket-lift phase before prescribing more jump training.
+      correction: Train explosive racket lift so the swing window exists during the jump.
+      promotion_target: smash_variant_rubric
+
+  - window_id: pilot-019-w003-fast-preparation-creates-waiting-time
+    source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+    evidence_id: pilot-019-lh_bili_season_bv1zbwezeelw-seg-001
+    start_seconds: 127
+    end_seconds: 180
+    topic_tags: [jump_smash, racket_preparation, hangtime, feedback_loop]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: With fast preparation, the coach frames hangtime as partly created by getting the racket ready early enough to wait for the shuttle.
+    teaching_point_candidate:
+      problem: The player may think hangtime only comes from jumping higher.
+      diagnosis_rule: Ask whether the player can prepare early enough to wait in the air; if not, preparation speed is the bottleneck.
+      correction: Build racket-preparation speed so even short hangtime can be used effectively.
+      promotion_target: frameworks
+
+  - window_id: pilot-020-w001-light-hitting-reveals-errors
+    source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+    evidence_id: pilot-020-lh_bili_season_bv13a4y1q7cb-seg-001
+    start_seconds: 33
+    end_seconds: 90
+    topic_tags: [overhead, diagnosis_flow, relaxation, technique_visibility]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach argues that relaxed hitting makes technical errors easier to see, while rushing harder can hide how far the action is from the correct model.
+    teaching_point_candidate:
+      problem: Learners often swing harder when trying to fix technique, making the diagnostic signal worse.
+      diagnosis_rule: When diagnosing overhead mechanics, ask the learner to hit lightly enough that frame, timing, and coordination become visible.
+      correction: Use relaxed repetitions to expose the movement gap before adding speed or power.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-020-w002-do-not-copy-mature-player-delay
+    source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+    evidence_id: pilot-020-lh_bili_season_bv13a4y1q7cb-seg-001
+    start_seconds: 99
+    end_seconds: 117
+    topic_tags: [student_fit, pro_model_copying, racket_preparation, overhead]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach warns learners not to copy mature players who can delay preparation, because amateurs may lose the frame before force can transfer.
+    teaching_point_candidate:
+      problem: A visible relaxed or delayed preparation from a high-level player can be copied without the underlying prerequisites.
+      diagnosis_rule: If a learner copies a mature player's delayed frame, check whether they can still build the frame before force arrives.
+      correction: Use earlier and clearer preparation for amateurs until the frame becomes reliable.
+      promotion_target: student_profiles
+
+  - window_id: pilot-020-w003-open-shoulder-for-waist-abdomen-drive
+    source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+    evidence_id: pilot-020-lh_bili_season_bv13a4y1q7cb-seg-001
+    start_seconds: 117
+    end_seconds: 159
+    topic_tags: [racket_preparation, shoulder, waist, kinetic_chain]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains that shoulder opening lets waist and abdomen movement carry the upper arm, while a closed frame leaves the arm behind.
+    teaching_point_candidate:
+      problem: The trunk may rotate without transmitting power to the arm if the shoulder frame is closed.
+      diagnosis_rule: Check whether waist and abdomen movement actually moves the upper arm through an open shoulder frame.
+      correction: Open the shoulder frame so body rotation carries the upper arm into the swing.
+      promotion_target: frameworks
+
+  - window_id: pilot-020-w004-social-comfort-and-professional-frame
+    source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+    evidence_id: pilot-020-lh_bili_season_bv13a4y1q7cb-seg-001
+    start_seconds: 159
+    end_seconds: 180
+    topic_tags: [student_fit, confidence, racket_preparation, coaching_style]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach addresses embarrassment around open athletic posture and reframes a stretched frame as professional rather than awkward.
+    teaching_point_candidate:
+      problem: Some learners under-frame because they feel embarrassed or constrained by social comfort, not because they lack technical understanding.
+      diagnosis_rule: If a learner keeps the frame small despite instruction, check whether comfort or self-consciousness is suppressing the posture.
+      correction: Normalize the athletic frame and explain why it looks more professional than a restrained posture.
+      promotion_target: student_profiles
+
+  - window_id: pilot-026-w001-no-perfect-technique
+    source_id: LH_BILI_SEASON_BV1NF421X7JG
+    evidence_id: pilot-026-lh_bili_season_bv1nf421x7jg-seg-001
+    start_seconds: 0
+    end_seconds: 46
+    topic_tags: [framework_tradeoff, student_fit, smash, coaching_principle]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach rejects the idea of one perfect technique and frames badminton skills as tradeoffs that must be selected by situation.
+    teaching_point_candidate:
+      problem: Learners may treat one frame or power method as universally superior.
+      diagnosis_rule: For any requested technique, ask what it gains, what it loses, and when the learner actually needs it.
+      correction: Build a choice model instead of a single best-technique model.
+      promotion_target: frameworks
+
+  - window_id: pilot-026-w002-bawang-frame-advantages
+    source_id: LH_BILI_SEASON_BV1NF421X7JG
+    evidence_id: pilot-026-lh_bili_season_bv1nf421x7jg-seg-001
+    start_seconds: 49
+    end_seconds: 82
+    topic_tags: [smash, racket_preparation, top_elbow, framework_tradeoff]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach describes the high elite-style frame as reducing upper-arm amplitude and making downward pressure feel crisp.
+    teaching_point_candidate:
+      problem: Learners may know that a high frame feels powerful but not why.
+      diagnosis_rule: When evaluating high-frame smash, check whether it reduces unnecessary upper-arm lift and creates crisp downward pressure.
+      correction: Use high-frame advantages only when the incoming ball and learner body allow that locked structure.
+      promotion_target: frameworks
+
+  - window_id: pilot-026-w003-high-frame-locks-low-frame-flexes
+    source_id: LH_BILI_SEASON_BV1NF421X7JG
+    evidence_id: pilot-026-lh_bili_season_bv1nf421x7jg-seg-001
+    start_seconds: 83
+    end_seconds: 146
+    topic_tags: [racket_preparation, flexibility, high_clear, smash]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach contrasts a high frame that can lock the player against flatter balls with a lower frame that is slower but more flexible and easier for high clears.
+    teaching_point_candidate:
+      problem: A frame optimized for one ball condition can reduce options on another ball condition.
+      diagnosis_rule: Test frame choice against flat fast balls, high clears, and power goals rather than only one ideal feed.
+      correction: Use lower or more flexible preparation when the task requires choice and transition, and high locked preparation when pressure and angle demand it.
+      promotion_target: frameworks
+
+  - window_id: pilot-026-w004-body-condition-and-tech-choice
+    source_id: LH_BILI_SEASON_BV1NF421X7JG
+    evidence_id: pilot-026-lh_bili_season_bv1nf421x7jg-seg-001
+    start_seconds: 147
+    end_seconds: 180
+    topic_tags: [student_fit, body_condition, framework_tradeoff, pro_model_copying]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach compares elite player height and jump conditions with amateur constraints and concludes that the right technique depends on timing and body conditions.
+    teaching_point_candidate:
+      problem: Learners may copy a technique whose physical assumptions do not match them.
+      diagnosis_rule: Before recommending an elite frame, compare body height, jump condition, incoming ball, and tactical need.
+      correction: Teach the learner to know a technique's weakness and choose the suitable one for the moment.
+      promotion_target: student_profiles
+
+  - window_id: pilot-027-w001-fast-drop-needs-force
+    source_id: LH_BILI_SEASON_BV1QZ421U7C6
+    evidence_id: pilot-027-lh_bili_season_bv1qz421u7c6-seg-001
+    start_seconds: 11
+    end_seconds: 31
+    topic_tags: [drop, fast_drop, internal_rotation, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach separates fast drop from light drop and says fast drop requires added force with upper arm to forearm internal-rotation mechanics.
+    teaching_point_candidate:
+      problem: Learners may try to make every drop with the same light touch.
+      diagnosis_rule: Decide whether the target is a fast attacking drop or a light close drop before choosing the power mechanism.
+      correction: Use upper-arm to forearm internal-rotation mechanics when the goal is fast drop speed.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-027-w002-light-drop-high-point-and-slice
+    source_id: LH_BILI_SEASON_BV1QZ421U7C6
+    evidence_id: pilot-027-lh_bili_season_bv1qz421u7c6-seg-001
+    start_seconds: 30
+    end_seconds: 126
+    topic_tags: [drop, slow_drop, contact_point, racket_face]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: For light close drops, the coach emphasizes taking the shuttle high, adding slight slice, and guiding the wrist downward so the shuttle travels downward rather than flat.
+    teaching_point_candidate:
+      problem: A drop may land near the net but still travel too flat, making it easy to push or block.
+      diagnosis_rule: For close drops, inspect contact height, racket-face slice, and whether the shuttle head travels downward.
+      correction: Reach for the high point, keep the action relaxed, and use a small downward guide rather than a forceful hit.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-027-w003-fast-drop-grip-and-racket-face
+    source_id: LH_BILI_SEASON_BV1QZ421U7C6
+    evidence_id: pilot-027-lh_bili_season_bv1qz421u7c6-seg-001
+    start_seconds: 126
+    end_seconds: 170
+    topic_tags: [drop, fast_drop, grip, racket_face]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: For fast drop, the coach says not to rely on wrist pressing, but to adjust the grip and racket-face state so the arm chain can hit through the slice-drop action.
+    teaching_point_candidate:
+      problem: Pressing the wrist can create a slow close drop but does not create the fast attacking drop mechanism.
+      diagnosis_rule: If the player wants fast drop, check whether grip and racket face allow upper-arm to forearm power through the sliced face.
+      correction: Rotate the racket/grip into a slice-drop state and hit through with the arm chain for speed.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-003-w001-jump-smash-prerequisite
+    source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+    evidence_id: pilot-003-lh_bili_season_bv1aykwbjeuv-seg-001
+    start_seconds: 3
+    end_seconds: 46
+    topic_tags: [jump_smash, smash, progression, diagnosis_flow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach refuses to start from jump smash until the learner's standing smash is functional, because the current swing is too slow and too large for the air-time window.
+    teaching_point_candidate:
+      problem: Learners may want jump-smash training before the base smash swing can fit the available time.
+      diagnosis_rule: Before teaching jump smash, check whether the standing smash swing is compact and fast enough.
+      correction: Fix the base smash frame and swing timing before adding jump complexity.
+      promotion_target: smash_variant_rubric
+
+  - window_id: pilot-003-w002-low-frame-and-shoulder-lift
+    source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+    evidence_id: pilot-003-lh_bili_season_bv1aykwbjeuv-seg-001
+    start_seconds: 56
+    end_seconds: 91
+    topic_tags: [smash, racket_preparation, shoulder, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach diagnoses a low frame and explains that some low-looking preparations work only when shoulder and body tilt lift the hitting point into a loaded frame.
+    teaching_point_candidate:
+      problem: The learner copies a low-looking frame but lacks the body mechanics that make it load correctly.
+      diagnosis_rule: If the frame is low, inspect whether shoulder tilt and body shape actually lift and load the hitting side.
+      correction: Raise the frame or teach the body-lift mechanism rather than letting the learner reach upward from a low frame.
+      promotion_target: frameworks
+
+  - window_id: pilot-003-w003-roll-abdomen-and-short-force-window
+    source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+    evidence_id: pilot-003-lh_bili_season_bv1aykwbjeuv-seg-001
+    start_seconds: 95
+    end_seconds: 178
+    topic_tags: [smash, waist_abdomen, kinetic_chain, explosive_power]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says the learner turns but does not roll the waist-abdomen connection enough, and the force window is too long rather than short and explosive at impact.
+    teaching_point_candidate:
+      problem: Power can feel large but scatter if body force enters too early and too long.
+      diagnosis_rule: Check whether the body line rolls into the shuttle and whether force is concentrated near contact.
+      correction: Move the body toward the left-front line, stay relaxed in the early phase, and make the contact burst short.
+      promotion_target: frameworks
+
+  - window_id: pilot-004-w001-standard-frame-small-angle
+    source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+    evidence_id: pilot-004-lh_bili_season_bv1crftzbek7-seg-001
+    start_seconds: 0
+    end_seconds: 38
+    topic_tags: [racket_preparation, standard_frame, smash, top_elbow]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach repeatedly cues the learner to clamp the upper-arm to forearm structure and keep the arm radius small for a standard frame.
+    teaching_point_candidate:
+      problem: Opening the arm too wide creates a large swing radius that makes force production harder.
+      diagnosis_rule: Inspect the upper-arm to forearm angle and whether the frame is clamped enough before judging smash power.
+      correction: Keep the arm structure compact and close before swinging.
+      promotion_target: frameworks
+
+  - window_id: pilot-004-w002-textbook-frame-under-90
+    source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+    evidence_id: pilot-004-lh_bili_season_bv1crftzbek7-seg-001
+    start_seconds: 38
+    end_seconds: 116
+    topic_tags: [racket_preparation, standard_frame, top_elbow, pro_reference]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach contrasts lightweight casual frames with the textbook frame, emphasizing an upper-arm to forearm angle under 90 degrees and compact elite examples.
+    teaching_point_candidate:
+      problem: Learners may normalize a wide casual frame because modern rackets make it possible to hit some balls.
+      diagnosis_rule: For foundational overhead preparation, check whether the arm angle is under 90 degrees and compact enough to avoid upper-arm swinging.
+      correction: Use the compact textbook frame as the base before learning jump smash or heavier smash variants.
+      promotion_target: frameworks
+
+  - window_id: pilot-004-w003-foundation-before-jump-smash
+    source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+    evidence_id: pilot-004-lh_bili_season_bv1crftzbek7-seg-001
+    start_seconds: 116
+    end_seconds: 180
+    topic_tags: [jump_smash, standard_frame, progression, correction]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says if the learner is not used to the compact frame, they should fix standing smash and even high-clear foundations before learning jump smash.
+    teaching_point_candidate:
+      problem: Jump-smash training compounds a broken base frame.
+      diagnosis_rule: If the standard frame is not stable, block jump-smash progression until the fixed-position foundation improves.
+      correction: Rebuild compact frame and standing smash first, then progress upward.
+      promotion_target: training_plans
+
+  - window_id: pilot-025-w001-hip-drive-foot-checkpoints
+    source_id: LH_BILI_SEASON_BV1CM42157US
+    evidence_id: pilot-025-lh_bili_season_bv1cm42157us-seg-001
+    start_seconds: 4
+    end_seconds: 37
+    topic_tags: [hip_rotation, footwork, kinetic_chain, body_power]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach treats hip drive as part of every power action and gives lower-body checkpoints including heel lift, forefoot pressure, leg sinking, and a turned foot.
+    teaching_point_candidate:
+      problem: Learners may ask for hip drive as if it were a separate trick rather than a whole-chain setup.
+      diagnosis_rule: Check heel, forefoot, leg sink, and foot orientation before cueing the hip.
+      correction: Build the lower-body setup that lets the hip be driven across.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-025-w002-horizontal-foot-enables-hip-turn
+    source_id: LH_BILI_SEASON_BV1CM42157US
+    evidence_id: pilot-025-lh_bili_season_bv1cm42157us-seg-001
+    start_seconds: 43
+    end_seconds: 75
+    topic_tags: [hip_rotation, rear_footwork, kinetic_chain, diagnosis_rule]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says a rear foot that points forward or diagonally blocks hip release, while a horizontal foot creates stronger twisting and pushing force.
+    teaching_point_candidate:
+      problem: The player's hip cannot pass through because the rear foot position blocks it.
+      diagnosis_rule: If hip power is missing, inspect rear-foot orientation before blaming waist or arm strength.
+      correction: Turn the rear foot more horizontally so ground push can turn the hip.
+      promotion_target: footwork_rubric
+
+  - window_id: pilot-025-w003-lower-body-drives-relaxed-upper-body
+    source_id: LH_BILI_SEASON_BV1CM42157US
+    evidence_id: pilot-025-lh_bili_season_bv1cm42157us-seg-001
+    start_seconds: 80
+    end_seconds: 143
+    topic_tags: [hip_rotation, relaxation, upper_body, press_down]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach demonstrates that foot and waist-abdomen drive can send the upper body out naturally, while shuttle pressing still needs coordinated forearm, wrist, and fingers.
+    teaching_point_candidate:
+      problem: Lower-body power alone can create length but may not press the shuttle down.
+      diagnosis_rule: Separate lower-body force generation from the final forearm, wrist, and finger action needed for downward control.
+      correction: Keep the upper body relaxed for force transfer, then add the arm-hand action for pressing the shuttle.
+      promotion_target: frameworks
+
+  - window_id: pilot-028-w001-elbow-position-diagnoses-upper-arm
+    source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+    evidence_id: pilot-028-lh_bili_season_bv1p4dgyre8b-seg-001
+    start_seconds: 11
+    end_seconds: 48
+    topic_tags: [swing, top_elbow, upper_arm, diagnosis_rule]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach uses elbow position as a proxy for upper-arm behavior and says a constantly moving elbow means the player is swinging the upper arm.
+    teaching_point_candidate:
+      problem: Players cannot distinguish upper-arm driving from forearm release by feel alone.
+      diagnosis_rule: Track the elbow to diagnose whether the upper arm keeps moving through the whole swing.
+      correction: Use elbow-position feedback to stop upper-arm swinging and prepare for forearm release.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-028-w002-upper-arm-stops-to-transfer-force
+    source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+    evidence_id: pilot-028-lh_bili_season_bv1p4dgyre8b-seg-001
+    start_seconds: 48
+    end_seconds: 89
+    topic_tags: [swing, kinetic_chain, forearm, internal_rotation]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach explains that the upper arm must stop or stabilize so force can transfer to the forearm and racket.
+    teaching_point_candidate:
+      problem: If the upper arm never stops, force cannot pass cleanly to the next segment.
+      diagnosis_rule: Look for a moment where the upper arm stabilizes while the forearm and racket continue.
+      correction: Train forearm rotation and wrist-arm coordination so the racket can release after upper-arm stabilization.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-028-w003-internal-rotation-unloads-wrist-force
+    source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+    evidence_id: pilot-028-lh_bili_season_bv1p4dgyre8b-seg-001
+    start_seconds: 122
+    end_seconds: 180
+    topic_tags: [internal_rotation, wrist, swing, fly_swatter_grip]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach says internal rotation helps unload wrist-direction force without collapsing into a wrist press, and links fly-swatter grip to upper-arm swinging.
+    teaching_point_candidate:
+      problem: Players may press the wrist down or use fly-swatter grip, preventing true internal rotation.
+      diagnosis_rule: If the elbow points down and the racket face stays fly-swatter-like, suspect upper-arm swinging rather than arm-chain release.
+      correction: Correct grip and internal-rotation path so wrist force is released through rotation instead of wrist pressing.
+      promotion_target: swing_rubric
+
+  - window_id: pilot-029-w001-passive-overhead-slide-not-only-footwork
+    source_id: LH_BILI_SEASON_BV1PCQPYJERM
+    evidence_id: pilot-029-lh_bili_season_bv1pcqpyjerm-seg-001
+    start_seconds: 17
+    end_seconds: 107
+    topic_tags: [drop, slide_drop, passive_overhead, footwork]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach shows that failing to reach the passive overhead slide-drop point is not only a footwork issue, because the right action can still slide from a very passive body position.
+    teaching_point_candidate:
+      problem: Learners may blame footwork when the real blocker is grip and stroke model.
+      diagnosis_rule: If slide drop fails at the rear head-side point, test whether the player can produce the action from a passive high point before blaming footwork.
+      correction: Rebuild the high-point slide-drop action and grip model alongside footwork.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-029-w002-front-point-slide-versus-rear-point-slide
+    source_id: LH_BILI_SEASON_BV1PCQPYJERM
+    evidence_id: pilot-029-lh_bili_season_bv1pcqpyjerm-seg-001
+    start_seconds: 117
+    end_seconds: 170
+    topic_tags: [drop, slide_drop, contact_point, racket_face]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach contrasts comfortable front-point sliding with the rear-point slide, where relying on a front-point and fly-swatter model fails.
+    teaching_point_candidate:
+      problem: A player can slide in front of the body but cannot transfer that action to a passive rear overhead point.
+      diagnosis_rule: Distinguish front-point slide-drop mechanics from rear-point passive slide mechanics.
+      correction: Teach the rear-point version separately instead of assuming front-point success transfers automatically.
+      promotion_target: drop_rubric
+
+  - window_id: pilot-030-w001-diagnose-wrist-before-teaching
+    source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+    evidence_id: pilot-030-lh_bili_season_bv1bf6sytegz-seg-001
+    start_seconds: 8
+    end_seconds: 31
+    topic_tags: [wrist, high_clear, diagnosis_flow, student_fit]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach first checks whether the learner already has visible wrist action before deciding whether to teach wrist force from scratch.
+    teaching_point_candidate:
+      problem: A coach may prescribe a wrist cue without knowing whether the learner already uses wrist action.
+      diagnosis_rule: Observe the learner's overhead shot first and decide whether wrist action is absent, excessive, or already usable.
+      correction: Tailor wrist instruction to the learner's existing movement rather than teaching one generic wrist method.
+      promotion_target: diagnosis_flow
+
+  - window_id: pilot-030-w002-concentrated-force-and-contact-point
+    source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+    evidence_id: pilot-030-lh_bili_season_bv1bf6sytegz-seg-001
+    start_seconds: 47
+    end_seconds: 88
+    topic_tags: [wrist, contact_point, high_clear, power_framework]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach cues force concentration and identifies that the learner's hitting point is too far forward for the desired overhead force transfer.
+    teaching_point_candidate:
+      problem: Wrist or whole-arm force becomes scattered if the contact point is too far forward.
+      diagnosis_rule: When overhead force is not transferring, inspect whether the contact point should move higher and slightly farther back.
+      correction: Concentrate force near the correct contact point before linking the wrist into the chain.
+      promotion_target: overhead_rubric
+
+  - window_id: pilot-030-w003-segment-force-release-and-follow-through
+    source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+    evidence_id: pilot-030-lh_bili_season_bv1bf6sytegz-seg-001
+    start_seconds: 115
+    end_seconds: 145
+    topic_tags: [wrist, force_release, follow_through, training_plan]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach breaks the action into stopping, releasing force, and then slowly lowering the racket so the wrist contribution can be isolated and reconnected.
+    teaching_point_candidate:
+      problem: Continuous full-speed swings can hide where wrist force enters and exits the action.
+      diagnosis_rule: If the wrist cue is unclear, segment the action around contact and follow-through.
+      correction: Pause or slow the release phase, then reconnect it into a smoother full swing.
+      promotion_target: drills
+
+  - window_id: pilot-030-w004-higher-back-contact-and-earlier-rotation
+    source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+    evidence_id: pilot-030-lh_bili_season_bv1bf6sytegz-seg-001
+    start_seconds: 145
+    end_seconds: 180
+    topic_tags: [contact_point, internal_rotation, high_clear, wrist]
+    evidence_level: content_model_candidate
+    review_status: pending_human_review
+    summary: The coach moves the contact point higher and farther back, then cues earlier internal rotation so the shuttle can fly upward instead of being driven down too early.
+    teaching_point_candidate:
+      problem: A player may swing directly downward because the contact point is too far forward.
+      diagnosis_rule: If the overhead clear or power shot does not lift properly, check whether contact is high and back enough before changing wrist strength.
+      correction: Move the hitting point higher and farther back, then coordinate earlier internal rotation.
+      promotion_target: overhead_rubric

@@ -1,0 +1,63 @@
+source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+job_id: pilot-004-lh_bili_season_bv1crftzbek7
+title: 业余杀球爆改！羽毛球后场高吊杀框架细节！
+url: https://www.bilibili.com/video/BV1crFTzBEK7/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-004-lh_bili_season_bv1crftzbek7
+  stages:
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 128
+    audio_scope: preview
+    audio_scope_seconds: 180
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-004-lh_bili_season_bv1crftzbek7-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 128 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.1-1.2s, 1.2-7.2s, 7.2-8.9s, 8.9-9.8s,
+    9.8-11.2s, 11.2-12.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

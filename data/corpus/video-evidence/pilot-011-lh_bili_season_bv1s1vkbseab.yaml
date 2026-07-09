@@ -1,0 +1,61 @@
+source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+job_id: pilot-011-lh_bili_season_bv1s1vkbseab
+title: 羽毛球劈吊直线爆改业余教学！实战巨好用，超多细节！很难！很长！但看完能学会！实战能用上
+url: https://www.bilibili.com/video/BV1S1vkBsEab/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-011-lh_bili_season_bv1s1vkbseab
+  stages:
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 104
+    audio_scope: preview
+    audio_scope_seconds: 180
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-011-lh_bili_season_bv1s1vkbseab-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  - student_fit
+  - match_transfer
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 104 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 1.0-2.3s, 2.3-5.6s, 5.6-6.8s, 6.8-8.0s,
+    8.0-9.3s, 9.3-13.1s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

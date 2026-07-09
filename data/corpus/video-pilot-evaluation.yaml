@@ -1,0 +1,54 @@
+manifest_id: liu_hui_video_pilot_20260708
+jobs_total: 30
+evidence_files_found: 30
+topic_counts:
+  smash: 25
+  high_clear: 30
+  rear_footwork: 11
+  top_elbow: 16
+  power_framework: 30
+  student_fit: 17
+  hip_rotation: 4
+  match_transfer: 3
+  internal_rotation: 4
+evidence_level_counts:
+  content_model_candidate: 25
+  needs_content_model_review: 5
+review_status_counts:
+  pending_human_review: 25
+  model_not_run: 5
+promotion_ready_segments: 25
+title_or_metadata_only_segments: 5
+teaching_window_candidates: 90
+teaching_window_review_status_counts:
+  pending_human_review: 90
+model_notes:
+  rejected_model:
+    model: faster-whisper tiny
+    reason: Core badminton terms were unstable in the pilot and should not be used
+      for skill distillation.
+  candidate_model:
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    audio_scope: first_180_seconds
+    result: Usable for candidate-window extraction on successful downloads; model
+      quality is acceptable for timestamp candidate review, while Bilibili source
+      download reliability still needs retries/fallbacks.
+  fallback_model:
+    model: faster-whisper small
+    audio_scope: first_180_seconds
+    result: Usable but less preferred than large-v3-turbo for badminton terminology
+      and dense teaching segments.
+recommendation: proceed_to_human_review
+acceptance_policy:
+  minimum_content_model_candidate_segments_for_pilot: 10
+  minimum_topics_expected:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - power_framework
+  - student_fit
+  rule: Do not promote needs_content_model_review evidence into skill rules. Run ASR/OCR/VLM/Pose
+    or do human timestamp review first.

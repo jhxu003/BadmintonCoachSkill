@@ -269,3 +269,117 @@
   retest_metrics:
     - landing_recovery changes from unstable to stable
     - recovery changes from slow to normal
+
+- drill_id: time-budget-racket-lift
+  name: Time-budget racket lift
+  target_issues: [slow-racket-preparation, jump-contact-window-missed]
+  steps:
+    - Start from the exact incoming-ball scenario that created pressure.
+    - Shadow the racket lift only and stop at the prepared hitting frame.
+    - Count whether the frame is ready before the imaginary shuttle reaches contact.
+    - Add the hit only when the racket lift leaves a visible waiting moment.
+  dosage: 5 rounds of 6 preparation-only reps plus 6 controlled hits.
+  retest_metrics:
+    - preparation_time changes from consumes_swing_window to early_ready
+    - jump_contact changes from missed_window to usable_window
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1ZBWEZEELW]
+  evidence_ids: [pilot-002-w002-time-space-budget, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime, pilot-019-w003-fast-preparation-creates-waiting-time]
+
+- drill_id: compact-standard-frame-freeze
+  name: Compact standard-frame freeze
+  target_issues: [collapsed-racket-structure, low-elbow, big-arm-dominant-swing]
+  steps:
+    - Set the overhead frame without swinging.
+    - Check that the upper arm and forearm stay compact instead of wide open.
+    - Keep the elbow directed diagonally back and the racket head usable.
+    - Swing only after the frame can be repeated without shoulder collapse.
+  dosage: 4 sets of 10 freeze-check-swing reps.
+  retest_metrics:
+    - racket_side_structure changes from wide_open or collapsed to compact_stable
+    - elbow_height_before_hit changes from below_shoulder to usable_frame_height
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1CRFTZBEK7, LH_BILI_SEASON_BV1V6ZABTEUE]
+  evidence_ids: [pilot-004-w001-standard-frame-small-angle, pilot-004-w002-textbook-frame-under-90, pilot-018-w004-standard-frame-for-amateurs]
+
+- drill_id: rear-foot-horizontal-hip-drive
+  name: Rear-foot horizontal hip-drive
+  target_issues: [late-hip-rotation, rear-foot-orientation-blocks-hip]
+  steps:
+    - Place the rear foot so it can support hip turn instead of pointing straight forward.
+    - Sink slightly into the leg and feel pressure through the forefoot.
+    - Push from the foot to turn the pelvis without pulling the shoulder first.
+    - Add a slow overhead swing only after the hip turns from the foot push.
+  dosage: 4 sets of 8 lower-body-only reps plus 8 slow swings.
+  retest_metrics:
+    - rear_foot_orientation changes from forward or diagonal_blocks_turn to rotation_enabled
+    - hip_shoulder_sequence changes from no_hip_drive to foot_drives_hip
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1KM41147M1, LH_BILI_SEASON_BV1CM42157US]
+  evidence_ids: [pilot-007-w002-rear-foot-orientation, pilot-007-w003-heel-lift-and-upward-push, pilot-025-w001-hip-drive-foot-checkpoints, pilot-025-w002-horizontal-foot-enables-hip-turn]
+
+- drill_id: elbow-track-arm-segment-transfer
+  name: Elbow-track arm-segment transfer
+  target_issues: [big-arm-dominant-swing, pronation-whip-misread]
+  steps:
+    - Swing slowly while tracking whether the elbow keeps traveling through the whole hit.
+    - Stop the upper arm near the transfer point and let the forearm and racket continue.
+    - Keep the grip from turning into a fly-swatter face.
+    - Add speed only when the forearm release happens after upper-arm stabilization.
+  dosage: 5 sets of 6 slow transfer reps plus 6 moderate-speed reps.
+  retest_metrics:
+    - arm_path changes from big_arm_pull to upper_arm_stabilizes
+    - wrist_elbow_sequence changes from no_forearm_overtake to forearm_releases_after_elbow
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV19C4Y1S7Z2]
+  evidence_ids: [pilot-028-w001-elbow-position-diagnoses-upper-arm, pilot-028-w002-upper-arm-stops-to-transfer-force, pilot-028-w003-internal-rotation-unloads-wrist-force, pilot-008-w003-deep-front-point-blocks-internal-rotation, pilot-008-w004-force-chain-break]
+
+- drill_id: drop-variant-target-line
+  name: Drop variant target-line transfer
+  target_issues: [drop-direction-mismatch, grip-face-mismatch]
+  steps:
+    - Pick one known usable drop direction and one missing direction.
+    - Mark the target line visually on court or with a feeder cue.
+    - Keep the known slice feel while changing only the court reference.
+    - Retest straight, cross, fast, and light variants as separate skills.
+  dosage: 4 rounds of 6 known-direction drops plus 6 target-transfer drops.
+  retest_metrics:
+    - drop_direction_control changes from one_direction_only to two_direction_control
+    - racket_face changes from grip_face_mismatch to variant_matched
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-011-w001-split-line-problem-by-direction, pilot-011-w002-crosscourt-contact-explains-straight-gap, pilot-011-w003-teach-straight-through-known-crosscourt-feel, pilot-027-w001-fast-drop-needs-force, pilot-027-w002-light-drop-high-point-and-slice, pilot-029-w002-front-point-slide-versus-rear-point-slide]
+
+- drill_id: china-jump-short-contact
+  name: China-jump short ground contact
+  target_issues: [foot-switch-cost, long-ground-contact, slow-recovery]
+  steps:
+    - Start from half-side rear-court posture without switching feet.
+    - Make a small hit-and-land rhythm where ground contact stays short.
+    - Exit immediately into the next recovery step.
+    - Count only reps where the no-foot-switch purpose and recovery route are preserved.
+  dosage: 5 sets of 6 controlled China-jump rhythm reps.
+  retest_metrics:
+    - foot_switch changes from true to false
+    - ground_contact changes from long_dragging to short_elastic
+    - recovery changes from slow to connected_next_step
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1NWRRBTEDY]
+  evidence_ids: [pilot-017-w001-china-jump-no-foot-switch-purpose, pilot-017-w002-foot-switch-hurts-recovery, pilot-017-w003-half-side-fast-power, pilot-017-w004-rhythm-and-short-ground-contact]
+
+- drill_id: wrist-contact-segmentation
+  name: Wrist contact segmentation
+  target_issues: [wrist-force-scattered, contact-point-too-forward, forced-follow-through]
+  steps:
+    - Hit at slow speed and pause just before contact.
+    - Check whether contact is high enough and not too far forward.
+    - Release through contact and pause again after the force exits.
+    - Reconnect the segmented movement into a smooth swing only after force feels concentrated.
+  dosage: 4 sets of 8 segmented reps plus 8 smooth retest reps.
+  retest_metrics:
+    - contact_point changes from too_forward to high_slightly_back
+    - force_release changes from scattered to concentrated_near_contact
+    - follow_through changes from forced_stop to natural_release
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-030-w001-diagnose-wrist-before-teaching, pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w003-segment-force-release-and-follow-through, pilot-030-w004-higher-back-contact-and-earlier-rotation]

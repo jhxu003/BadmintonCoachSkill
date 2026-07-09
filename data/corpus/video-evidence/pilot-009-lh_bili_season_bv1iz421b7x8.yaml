@@ -1,0 +1,53 @@
+source_id: LH_BILI_SEASON_BV1IZ421B7X8
+job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+url: https://www.bilibili.com/video/BV1iz421B7X8/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  stages:
+    audio:
+      status: failed
+      returncode: 1
+    asr:
+      status: skipped
+      reason: audio file missing; run audio stage first
+stage_status:
+  asr:
+    status: skipped
+    reason: audio file missing; run audio stage first
+    stage: asr
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  evidence_level: needs_content_model_review
+  review_status: model_not_run
+  promotion_target: none_until_reviewed
+  asr_summary: ASR did not produce usable timestamped content.
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

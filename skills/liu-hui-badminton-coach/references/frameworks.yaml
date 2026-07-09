@@ -1154,3 +1154,176 @@
   priority: [deceleration-missing, short-follow-through, pronation-whip-misread]
   source_ids: [LH_BILI_SEASON_BV1RMMDBYERR, LH_BILI_SEASON_BV1A8411R7VG, LH_BILI_SEASON_BV13U411S7AM, LH_BILI_SEASON_BV158QHY5ELA]
   confidence: hypothesis
+
+- framework_id: timestamp-time-budget-frame
+  name: Time-budget preparation frame
+  summary: Diagnose rushed overhead and jump-smash failures by comparing available shuttle or air time with racket-preparation time before blaming strength or jump height.
+  applicable_actions: [smash, jump_smash, overhead_attack, rear_footwork]
+  training_goals: [quick_attack, jump_smash_readiness, match_transfer]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.preparation_time
+      in: [slow, consumes_swing_window]
+      weight: 12
+    - path: phase_observations.time_pressure
+      equals: high
+      weight: 10
+  priority: [slow-racket-preparation, jump-contact-window-missed, late-arrival]
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1ZBWEZEELW]
+  evidence_ids: [pilot-002-w002-time-space-budget, pilot-006-w004-high-fast-frame, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-standard-compact-frame
+  name: Standard compact overhead frame
+  summary: Use compact textbook preparation with controlled upper-arm to forearm angle, high enough frame, and racket-head direction as the default before advanced smash variants.
+  applicable_actions: [high_clear, smash, jump_smash]
+  training_goals: [racket_frame, stable_rear_court, smash_power]
+  suitable_for:
+    level: [beginner, intermediate]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for: {}
+  observation_triggers:
+    - path: racket_side_structure
+      in: [wide_open, collapsed, low]
+      weight: 12
+    - path: phase_observations.upper_arm_forearm_angle
+      equals: over_90
+      weight: 10
+  priority: [collapsed-racket-structure, low-elbow, big-arm-dominant-swing]
+  source_ids: [LH_BILI_SEASON_BV1CRFTZBEK7, LH_BILI_SEASON_BV1V6ZABTEUE, LH_BILI_SEASON_BV13A4Y1Q7CB]
+  evidence_ids: [pilot-004-w001-standard-frame-small-angle, pilot-004-w002-textbook-frame-under-90, pilot-018-w004-standard-frame-for-amateurs, pilot-020-w003-open-shoulder-for-waist-abdomen-drive]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-framework-tradeoff-selector
+  name: Frame tradeoff selector
+  summary: Select high, low, compact, heavy, fast, or elite-style frames by ball condition, learner prerequisites, power goal, and recovery cost rather than one universal best form.
+  applicable_actions: [high_clear, smash, drop, match_transfer]
+  training_goals: [student_fit, framework_selection, match_transfer]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, lower_body_available, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.frame_choice_unclear
+      equals: true
+      weight: 12
+    - path: phase_observations.shot_intent
+      in: [heavy_smash, fast_smash, high_clear, quick_attack]
+      weight: 8
+  priority: [frame-goal-mismatch, pro-model-copying, slow-recovery]
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1NF421X7JG]
+  evidence_ids: [pilot-012-w001-advanced-frame-prerequisites, pilot-012-w002-small-fast-frame-pros, pilot-012-w003-small-fast-frame-limits, pilot-013-w001-frame-variants-change-ball-effect, pilot-026-w001-no-perfect-technique, pilot-026-w003-high-frame-locks-low-frame-flexes]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-foot-ground-hip-drive
+  name: Foot-ground hip-drive frame
+  summary: Treat hip drive as foot-ground setup plus rear-foot orientation, heel/forefoot pressure, leg sinking, and relaxed upper-body transfer.
+  applicable_actions: [high_clear, smash, rear_footwork]
+  training_goals: [hip_rotation, efficient_power, high_clear_power]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, lower_body_available, inconsistent]
+  avoid_for:
+    injury_risk: [knee_pain, ankle_pain, back_discomfort]
+  observation_triggers:
+    - path: hip_shoulder_sequence
+      in: [late_hip, no_hip_drive]
+      weight: 12
+    - path: footwork_observations.rear_foot_orientation
+      in: [forward, diagonal_blocks_turn]
+      weight: 10
+  priority: [late-hip-rotation, rear-foot-orientation-blocks-hip, upper-body-tension]
+  source_ids: [LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1KM41147M1, LH_BILI_SEASON_BV1CM42157US]
+  evidence_ids: [pilot-005-w002-force-from-foot, pilot-005-w003-deng-before-turn, pilot-007-w002-rear-foot-orientation, pilot-007-w003-heel-lift-and-upward-push, pilot-025-w001-hip-drive-foot-checkpoints, pilot-025-w002-horizontal-foot-enables-hip-turn]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-arm-segment-transfer
+  name: Arm-segment transfer frame
+  summary: Diagnose big-arm swinging by tracking elbow position, upper-arm stabilization, forearm release, grip shape, and internal-rotation path.
+  applicable_actions: [high_clear, smash, drop, overhead_attack]
+  training_goals: [internal_rotation, concentrated_power, big_arm_correction]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for:
+    injury_risk: [shoulder_discomfort, elbow_pain, wrist_pain]
+  observation_triggers:
+    - path: phase_observations.arm_path
+      in: [big_arm_pull, elbow_down_release, fly_swatter]
+      weight: 12
+    - path: wrist_elbow_sequence
+      in: [wrist_before_elbow, no_forearm_overtake]
+      weight: 9
+  priority: [big-arm-dominant-swing, pronation-whip-misread, fly-swatter-grip]
+  source_ids: [LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-008-w003-deep-front-point-blocks-internal-rotation, pilot-008-w004-force-chain-break, pilot-028-w001-elbow-position-diagnoses-upper-arm, pilot-028-w002-upper-arm-stops-to-transfer-force, pilot-028-w003-internal-rotation-unloads-wrist-force, pilot-030-w002-concentrated-force-and-contact-point]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-drop-variant-selector
+  name: Drop and slide variant selector
+  summary: Separate straight/cross slice, light slow drop, fast drop, front-point slide, and passive rear-point slide by contact height, body direction, grip, and racket-face state.
+  applicable_actions: [drop, slice_drop, slide_drop, overhead_attack]
+  training_goals: [drop_control, deception, fast_drop, passive_overhead]
+  suitable_for:
+    level: [intermediate, advanced]
+    coordination: [balanced, inconsistent]
+  avoid_for: {}
+  observation_triggers:
+    - path: phase_observations.drop_variant
+      in: [straight_slice, cross_slice, slow_drop, fast_drop, slide_drop, passive_slide]
+      weight: 12
+    - path: phase_observations.drop_direction_control
+      equals: inconsistent
+      weight: 8
+  priority: [drop-direction-mismatch, contact-point-too-low, grip-face-mismatch]
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB, LH_BILI_SEASON_BV1XDLEZQERY, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-011-w001-split-line-problem-by-direction, pilot-011-w002-crosscourt-contact-explains-straight-gap, pilot-015-w001-slide-drop-body-direction, pilot-027-w001-fast-drop-needs-force, pilot-027-w002-light-drop-high-point-and-slice, pilot-029-w001-passive-overhead-slide-not-only-footwork]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-china-jump-recovery
+  name: China-jump recovery frame
+  summary: Teach China jump as a no-foot-switch, half-side, quick-power and recovery solution rather than as a decorative jump shape.
+  applicable_actions: [rear_footwork, smash, overhead_attack, match_transfer]
+  training_goals: [china_jump, quick_attack, recovery]
+  suitable_for:
+    level: [intermediate, advanced]
+    mobility: [normal, good]
+    coordination: [balanced, lower_body_available]
+  avoid_for:
+    injury_risk: [knee_pain, ankle_pain]
+  observation_triggers:
+    - path: footwork_observations.pattern
+      equals: china_jump
+      weight: 12
+    - path: footwork_observations.foot_switch
+      equals: true
+      weight: 10
+  priority: [slow-recovery, foot-switch-cost, long-ground-contact]
+  source_ids: [LH_BILI_SEASON_BV1NWRRBTEDY]
+  evidence_ids: [pilot-017-w001-china-jump-no-foot-switch-purpose, pilot-017-w002-foot-switch-hurts-recovery, pilot-017-w003-half-side-fast-power, pilot-017-w004-rhythm-and-short-ground-contact]
+  confidence: timestamp_candidate
+
+- framework_id: timestamp-wrist-contact-transfer
+  name: Wrist contact-transfer frame
+  summary: Add wrist contribution only after diagnosing existing wrist action, contact-point placement, force concentration, and release/follow-through segmentation.
+  applicable_actions: [high_clear, smash, overhead_attack]
+  training_goals: [wrist_power, high_clear_power, efficient_power]
+  suitable_for:
+    level: [beginner, intermediate, advanced]
+    coordination: [arm_dominant, inconsistent, balanced]
+  avoid_for:
+    injury_risk: [wrist_pain, elbow_pain]
+  observation_triggers:
+    - path: phase_observations.power_cue
+      equals: wrist
+      weight: 10
+    - path: contact_point
+      in: [too_forward, too_low]
+      weight: 8
+  priority: [contact-point-too-forward, wrist-force-scattered, forced-follow-through]
+  source_ids: [LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-030-w001-diagnose-wrist-before-teaching, pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w003-segment-force-release-and-follow-through, pilot-030-w004-higher-back-contact-and-earlier-rotation]
+  confidence: timestamp_candidate
