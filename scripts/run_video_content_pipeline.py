@@ -86,6 +86,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--keyframe-start-seconds", type=int, default=8)
     parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
     parser.add_argument(
+        "--keyframe-source",
+        choices=["fixed", "teaching-windows"],
+        default="fixed",
+        help="Choose fixed-interval frames or ASR-derived teaching-window frames.",
+    )
+    parser.add_argument(
+        "--teaching-windows",
+        default="data/corpus/video-asr-teaching-windows.yaml",
+        help="ASR-derived teaching window YAML used when --keyframe-source=teaching-windows.",
+    )
+    parser.add_argument(
         "--vlm-model",
         default="Qwen/Qwen2.5-VL-3B-Instruct",
         help="Transformers-compatible VLM checkpoint for private keyframe review.",
@@ -169,6 +180,7 @@ def apply_private_root_override(job: dict[str, Any], private_root: str) -> dict[
     if not private_root:
         return job
     updated = copy.deepcopy(job)
+    updated["source_private_paths"] = copy.deepcopy(job.get("private_paths", {}))
     root = Path(private_root).expanduser()
     if not root.is_absolute():
         root = ROOT / root
@@ -215,12 +227,22 @@ def run_download(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any
     base_command = yt_dlp_command()
     if not base_command:
         return {"status": "skipped", "reason": "yt-dlp not found"}
+    ffmpeg_options: list[str] = []
+    try:
+        from imageio_ffmpeg import get_ffmpeg_exe
+
+        ffmpeg_options = ["--ffmpeg-location", get_ffmpeg_exe()]
+    except Exception:
+        ffmpeg_options = []
     command = [
         *base_command,
         *yt_dlp_network_options(args),
         "--no-playlist",
+        *ffmpeg_options,
         "-f",
-        "best[ext=mp4]/best",
+        "bv*[height<=720]+ba/b[height<=720]/best[height<=720]/best",
+        "--merge-output-format",
+        "mp4",
         "-o",
         output_template,
         job["url"],
@@ -274,6 +296,72 @@ def keyframes_manifest_path(job: dict[str, Any]) -> Path:
     return ROOT / job["private_paths"]["keyframes_dir"] / "manifest.json"
 
 
+def planned_keyframes(job: dict[str, Any], args: argparse.Namespace) -> list[dict[str, Any]]:
+    count = max(args.keyframe_count, 0)
+    if count <= 0:
+        return []
+    if args.keyframe_source == "teaching-windows":
+        path = ROOT / args.teaching_windows
+        if path.exists():
+            data = load_yaml(path)
+            windows = [
+                window
+                for window in data.get("windows", [])
+                if window.get("source_id") == job.get("source_id")
+            ]
+            window_specs: list[list[dict[str, Any]]] = []
+            seen_timestamps: set[int] = set()
+            for window in windows:
+                start = float(window.get("start_seconds") or 0)
+                end_value = window.get("end_seconds")
+                end = float(end_value) if end_value is not None else start
+                duration = max(end - start, 0)
+                if end > start:
+                    offsets = [0.5]
+                    if duration >= 8:
+                        offsets.extend([0.2, 0.8])
+                    elif duration >= 4:
+                        offsets.append(0.75)
+                    timestamps = [int(round(start + duration * offset)) for offset in offsets]
+                else:
+                    timestamps = [int(round(start))]
+                per_window = []
+                for timestamp in timestamps:
+                    timestamp = max(timestamp, 0)
+                    if timestamp in seen_timestamps:
+                        continue
+                    seen_timestamps.add(timestamp)
+                    per_window.append(
+                        {
+                            "timestamp_seconds": timestamp,
+                            "source": "teaching_windows",
+                            "source_window_id": window.get("window_id"),
+                            "source_window_topic_tags": window.get("topic_tags", []),
+                        }
+                    )
+                if per_window:
+                    window_specs.append(per_window)
+            specs = []
+            max_points = max((len(items) for items in window_specs), default=0)
+            for point_index in range(max_points):
+                for per_window in window_specs:
+                    if point_index >= len(per_window):
+                        continue
+                    specs.append(per_window[point_index])
+                    if len(specs) >= count:
+                        return specs
+            if specs:
+                return specs
+    return [
+        {
+            "timestamp_seconds": args.keyframe_start_seconds
+            + index * args.keyframe_interval_seconds,
+            "source": "fixed_interval",
+        }
+        for index in range(count)
+    ]
+
+
 def load_keyframes(job: dict[str, Any]) -> list[dict[str, Any]]:
     path = keyframes_manifest_path(job)
     if not path.exists():
@@ -309,6 +397,7 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
     output_dir.mkdir(parents=True, exist_ok=True)
     frames: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
+    frame_specs = planned_keyframes(job, args)
     try:
         from imageio_ffmpeg import get_ffmpeg_exe
     except Exception as ffmpeg_exc:
@@ -335,25 +424,37 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
             }
             write_private_json(manifest_path, result)
             return result
-        for index in range(max(args.keyframe_count, 0)):
-            timestamp = args.keyframe_start_seconds + index * args.keyframe_interval_seconds
+        for index, frame_spec in enumerate(frame_specs):
+            timestamp = frame_spec["timestamp_seconds"]
             frame_path = output_dir / f"frame-{index + 1:03d}-{timestamp}s.jpg"
             capture.set(cv2.CAP_PROP_POS_MSEC, float(timestamp) * 1000.0)
             ok, frame = capture.read()
             wrote = bool(ok and cv2.imwrite(str(frame_path), frame))
-            records.append({"timestamp_seconds": timestamp, "opencv_written": wrote})
+            records.append(
+                {
+                    "timestamp_seconds": timestamp,
+                    "opencv_written": wrote,
+                    "source": frame_spec.get("source"),
+                    "source_window_id": frame_spec.get("source_window_id"),
+                }
+            )
             if wrote and frame_path.exists() and frame_path.stat().st_size > 0:
                 frames.append(
                     {
                         "frame_id": f"{job['job_id']}-frame-{index + 1:03d}",
                         "timestamp_seconds": timestamp,
                         "path": str(frame_path),
+                        "source": frame_spec.get("source"),
+                        "source_window_id": frame_spec.get("source_window_id"),
+                        "source_window_topic_tags": frame_spec.get(
+                            "source_window_topic_tags", []
+                        ),
                     }
                 )
         capture.release()
     else:
-        for index in range(max(args.keyframe_count, 0)):
-            timestamp = args.keyframe_start_seconds + index * args.keyframe_interval_seconds
+        for index, frame_spec in enumerate(frame_specs):
+            timestamp = frame_spec["timestamp_seconds"]
             frame_path = output_dir / f"frame-{index + 1:03d}-{timestamp}s.jpg"
             command = [
                 get_ffmpeg_exe(),
@@ -374,6 +475,8 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
                     "timestamp_seconds": timestamp,
                     "returncode": record["returncode"],
                     "stderr_tail": record.get("stderr_tail", "")[-800:],
+                    "source": frame_spec.get("source"),
+                    "source_window_id": frame_spec.get("source_window_id"),
                 }
             )
             if record["returncode"] == 0 and frame_path.exists() and frame_path.stat().st_size > 0:
@@ -382,12 +485,18 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
                         "frame_id": f"{job['job_id']}-frame-{index + 1:03d}",
                         "timestamp_seconds": timestamp,
                         "path": str(frame_path),
+                        "source": frame_spec.get("source"),
+                        "source_window_id": frame_spec.get("source_window_id"),
+                        "source_window_topic_tags": frame_spec.get(
+                            "source_window_topic_tags", []
+                        ),
                     }
                 )
     result = {
         "status": "ok" if frames else "failed",
         "stage": "keyframes",
         "video_path": str(video_path),
+        "keyframe_source": args.keyframe_source,
         "frame_count": len(frames),
         "frames": frames,
         "records": records,
@@ -502,6 +611,7 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
     try:
         import torch
         from PIL import Image
+        from transformers import AutoConfig
         from transformers import AutoProcessor
         try:
             from transformers import Qwen2_5_VLForConditionalGeneration
@@ -516,22 +626,46 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         write_private_json(private_path, result)
         return result
 
+    selected_frames = frames[: min(len(frames), 18)]
+    frame_map = ", ".join(
+        f"image {index + 1} = {frame['timestamp_seconds']}s"
+        for index, frame in enumerate(selected_frames)
+    )
     prompt = (
         "You are reviewing badminton coaching keyframes. For each image, describe only visible "
         "evidence: player position, racket preparation, contact or pre-contact frame, lower-body "
         "orientation, recovery state, and any on-screen teaching text. Do not infer invisible "
-        "biomechanics. Return concise JSON-like bullets in English with timestamps."
+        "biomechanics, coaching intent, or technical labels that are not directly visible. "
+        "If no stroke action is visible, say that no stroke action is visible. "
+        f"Images are ordered as: {frame_map}. Return concise JSON-like bullets in English "
+        "with timestamps."
     )
     try:
-        selected_frames = frames[: min(len(frames), 6)]
         images = [Image.open(frame["path"]).convert("RGB") for frame in selected_frames]
         content = [{"type": "image"} for _ in images]
         content.append({"type": "text", "text": prompt})
         messages = [{"role": "user", "content": content}]
+        config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
+        # This is single-GPU inference. Qwen2.5-VL's text config declares a
+        # tensor-parallel plan, but Transformers 4.52 only initializes its TP
+        # registry on torch>=2.5; torch 2.4 then fails during model construction.
+        config.base_model_tp_plan = None
+        for nested_name in ["text_config", "vision_config"]:
+            nested_config = getattr(config, nested_name, None)
+            if nested_config is not None and hasattr(nested_config, "base_model_tp_plan"):
+                nested_config.base_model_tp_plan = None
         processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
+        torch_dtype = torch.float32
+        if torch.cuda.is_available():
+            torch_dtype = (
+                torch.bfloat16
+                if getattr(torch.cuda, "is_bf16_supported", lambda: False)()
+                else torch.float16
+            )
         model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
             model_name,
-            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+            config=config,
+            torch_dtype=torch_dtype,
             device_map="auto",
             trust_remote_code=True,
         )
@@ -547,7 +681,11 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
             return_tensors="pt",
         )
         inputs = inputs.to(model.device)
-        generated = model.generate(**inputs, max_new_tokens=max_new_tokens)
+        generated = model.generate(
+            **inputs,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+        )
         trimmed = [
             output_ids[len(input_ids) :]
             for input_ids, output_ids in zip(inputs.input_ids, generated)
@@ -761,13 +899,22 @@ def run_asr(
 
 
 def summarize_private_stage(job: dict[str, Any], stage: str) -> dict[str, Any]:
-    path = ROOT / job["private_paths"].get(f"{stage}_json", "")
-    if not path.exists():
-        return {"status": "missing"}
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception as exc:
-        return {"status": "unreadable", "reason": str(exc)}
+    key = f"{stage}_json"
+    candidates: list[Path] = []
+    for paths_key in ["private_paths", "source_private_paths"]:
+        raw_path = job.get(paths_key, {}).get(key)
+        if raw_path:
+            candidate = ROOT / raw_path
+            if candidate not in candidates:
+                candidates.append(candidate)
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            return {"status": "unreadable", "reason": str(exc)}
+    return {"status": "missing"}
 
 
 def summarize_keyframes_stage(job: dict[str, Any]) -> dict[str, Any]:

@@ -44,3 +44,84 @@
     - phase_observations.swing_path should become through_contact
   source_ids: [LH_BILI_SEASON_BV1NIX9YYEYG, LH_BILI_SEASON_BV1TDRUYTE46, LH_BILI_SEASON_BV1HZPSZFEGW]
   confidence: hypothesis
+
+- rule_id: upper-arm-never-stabilizes
+  issue: Upper arm never stabilizes for segment transfer
+  category: swing_path
+  priority: 34
+  applicable_actions: [high_clear, smash, drop, backhand]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [phase_observations.elbow_track]
+  observable_evidence:
+    - path: phase_observations.elbow_track
+      equals: keeps_traveling
+      label: Elbow keeps traveling through the hit, suggesting upper-arm pulling instead of segment transfer.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for preparation, elbow track, contact, and post-contact frames before diagnosing segment transfer.
+  likely_effect:
+    - Forearm and racket cannot overtake cleanly.
+    - Internal-rotation or wrist cues become forced because the previous segment never stabilizes.
+  correction_principle: Create an upper-arm stabilization moment before training forearm release or wrist detail.
+  drills: [elbow-track-arm-segment-transfer]
+  retest_metrics:
+    - phase_observations.elbow_track should become stabilizes_before_release
+    - wrist_elbow_sequence should become forearm_releases_after_elbow
+  source_ids: [LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV19C4Y1S7Z2]
+  evidence_ids: [pilot-028-w001-elbow-position-diagnoses-upper-arm, pilot-028-w002-upper-arm-stops-to-transfer-force, pilot-008-w004-force-chain-break]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: fly-swatter-grip-blocks-rotation
+  issue: Fly-swatter grip blocks arm-chain release
+  category: swing_path
+  priority: 36
+  applicable_actions: [high_clear, smash, drop]
+  student_profile_fit: [beginner, intermediate, arm_dominant]
+  required_observations: [phase_observations.grip_shape, phase_observations.racket_face]
+  observable_evidence:
+    - path: phase_observations.grip_shape
+      equals: fly_swatter
+      label: Grip resembles a fly-swatter shape instead of supporting rotation and release.
+    - path: phase_observations.racket_face
+      equals: fly_swatter
+      label: Racket face stays fly-swatter-like through preparation or contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a clear hand and racket-face view before diagnosing grip-driven release problems.
+  likely_effect:
+    - Player presses the wrist or pulls the upper arm instead of releasing through rotation.
+    - Contact may feel strong but force cannot transfer cleanly.
+  correction_principle: Reset grip and face orientation before asking for more internal rotation or wrist speed.
+  drills: [elbow-track-arm-segment-transfer]
+  retest_metrics:
+    - phase_observations.grip_shape should become rotation_ready
+    - phase_observations.racket_face should become release_ready
+  source_ids: [LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1A5ZGYQESP]
+  evidence_ids: [pilot-028-w003-internal-rotation-unloads-wrist-force, pilot-010-w003-index-finger-angle-and-fist-grip, pilot-010-w004-live-grip-correction-sequence]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: wrist-force-scattered
+  issue: Wrist force is scattered instead of concentrated near contact
+  category: swing_path
+  priority: 44
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.force_release]
+  observable_evidence:
+    - path: phase_observations.force_release
+      equals: scattered
+      label: Force release is spread through the swing instead of concentrated near the intended contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for slow-motion contact and follow-through frames before diagnosing wrist force concentration.
+  likely_effect:
+    - The player swings hard but the shuttle does not receive a clean lift or press.
+    - Follow-through may become forced because the release point is unclear.
+  correction_principle: Segment the contact and follow-through first, then reconnect the wrist contribution into the chain.
+  drills: [wrist-contact-segmentation]
+  retest_metrics:
+    - phase_observations.force_release should become concentrated_near_contact
+    - follow_through should become natural_release
+  source_ids: [LH_BILI_SEASON_BV1BF6SYTEGZ, LH_BILI_SEASON_BV1RA4Y1Q75Z]
+  evidence_ids: [pilot-030-w001-diagnose-wrist-before-teaching, pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w003-segment-force-release-and-follow-through]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis

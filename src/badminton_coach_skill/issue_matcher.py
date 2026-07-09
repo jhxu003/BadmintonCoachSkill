@@ -100,19 +100,20 @@ def _rule_applies_to_action(rule: dict[str, Any], action: str) -> bool:
 def _collect_rule_match(
     rule: dict[str, Any], observation: dict[str, Any], drill_map: dict[str, dict[str, Any]]
 ) -> tuple[dict[str, Any] | None, list[str]]:
+    evidence = [
+        condition["label"]
+        for condition in rule.get("observable_evidence", [])
+        if not _is_missing(observation, condition["path"])
+        and _condition_matches(observation, condition)
+    ]
     missing = [
         required
         for required in rule.get("required_observations", [])
         if _is_missing(observation, required)
     ]
     if missing:
-        return None, missing
+        return None, missing if evidence else []
 
-    evidence = [
-        condition["label"]
-        for condition in rule.get("observable_evidence", [])
-        if _condition_matches(observation, condition)
-    ]
     if len(evidence) < int(rule.get("min_evidence_count", 1)):
         return None, []
 

@@ -8,7 +8,7 @@ This repository is non-official, non-authorized, and not affiliated with Liu Hui
 - Original summaries.
 - Short technical labels.
 - Timestamp pointers.
-- Schemas, tests, and code.
+- Schemas, runnable examples, and code.
 - Structure and rubric written in original wording.
 
 ## Private-Only Content
@@ -31,4 +31,3 @@ Generated reports must not say:
 - "刘辉认证"
 - "官方授权"
 - Any equivalent claim implying endorsement or affiliation.
-

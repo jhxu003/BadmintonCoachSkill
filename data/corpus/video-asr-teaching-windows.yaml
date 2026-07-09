@@ -4,7 +4,7 @@ review_run:
   scope:
     - Content-level ASR pilot for 30 indexed Liu Hui public Bilibili teaching videos.
     - ASR succeeded for 25 videos and produced 90 timestamp candidate teaching windows.
-    - Five videos still need acquisition fallback before content model review.
+    - Five videos are VLM-only in this pilot and require audio/ASR before speech-derived teaching-window claims.
     - Public file contains original summaries only; raw ASR segments stay private.
     - All candidate teaching windows require human review before skill promotion.
   model_notes:
@@ -14,7 +14,7 @@ review_run:
     candidate_model:
       model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
       audio_scope: first_180_seconds
-      result: Usable for candidate-window extraction on successful downloads; model quality is acceptable for timestamp candidate review, while Bilibili source download reliability still needs retries/fallbacks.
+      result: Usable for candidate-window extraction when audio is available; model quality is acceptable for timestamp candidate review, while VLM-only pilot jobs still need audio-stage completion before speech-derived teaching windows.
     fallback_model:
       model: faster-whisper small
       audio_scope: first_180_seconds

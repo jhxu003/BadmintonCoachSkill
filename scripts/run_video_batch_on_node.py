@@ -35,6 +35,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--keyframe-count", type=int, default=6)
     parser.add_argument("--keyframe-start-seconds", type=int, default=8)
     parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
+    parser.add_argument(
+        "--keyframe-source",
+        choices=["fixed", "teaching-windows"],
+        default="fixed",
+    )
+    parser.add_argument(
+        "--teaching-windows",
+        default="data/corpus/video-asr-teaching-windows.yaml",
+    )
     parser.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct")
     parser.add_argument("--vlm-max-new-tokens", type=int, default=384)
     parser.add_argument("--pose-model", default="yolo11n-pose.pt")
@@ -210,6 +219,10 @@ def run_one_job(
         str(args.keyframe_start_seconds),
         "--keyframe-interval-seconds",
         str(args.keyframe_interval_seconds),
+        "--keyframe-source",
+        args.keyframe_source,
+        "--teaching-windows",
+        args.teaching_windows,
         "--vlm-model",
         args.vlm_model,
         "--vlm-max-new-tokens",
@@ -299,6 +312,9 @@ def main() -> None:
         "download_timeout": args.download_timeout,
         "yt_dlp_socket_timeout": args.yt_dlp_socket_timeout,
         "yt_dlp_retries": args.yt_dlp_retries,
+        "keyframe_count": args.keyframe_count,
+        "keyframe_source": args.keyframe_source,
+        "teaching_windows": args.teaching_windows,
         "node_local_private_root": args.node_local_private_root,
         "hf_home": env.get("HF_HOME", ""),
         "hf_hub_offline": env.get("HF_HUB_OFFLINE", ""),

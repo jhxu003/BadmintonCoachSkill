@@ -68,3 +68,113 @@
     - footwork_observations.recovery should become normal
   source_ids: [LH_BILI_SEASON_BV1784Y1S7PF, LH_BILI_SEASON_BV136C5ZJEUE, LH_BILI_SEASON_BV1UH4Y1H7KJ]
   confidence: hypothesis
+
+- rule_id: standing-frame-not-ready-for-jump
+  issue: Standing smash frame is not ready for jump progression
+  category: smash_variant
+  priority: 18
+  applicable_actions: [smash]
+  student_profile_fit: [beginner, intermediate]
+  required_observations: [racket_side_structure, phase_observations.jump_request]
+  observable_evidence:
+    - path: racket_side_structure
+      in: [wide_open, collapsed, unstable]
+      label: Standing overhead frame is not compact and stable enough for jump-smash progression.
+    - path: phase_observations.jump_request
+      equals: true
+      label: Player is trying to add jump-smash complexity.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for grounded preparation, contact, and follow-through before deciding whether jump-smash work is appropriate.
+  likely_effect:
+    - Jumping compounds a broken base frame.
+    - Contact and recovery may become worse than a grounded smash.
+  correction_principle: Block jump-smash progression until compact standing frame and contact timing are repeatable.
+  drills: [compact-standard-frame-freeze, jump-contact-ladder]
+  retest_metrics:
+    - racket_side_structure should become compact_stable
+    - phase_observations.jump_contact should remain usable after small-hop progression
+  source_ids: [LH_BILI_SEASON_BV1AYKWBJEUV, LH_BILI_SEASON_BV1CRFTZBEK7]
+  evidence_ids: [pilot-003-w001-jump-smash-prerequisite, pilot-004-w001-standard-frame-small-angle, pilot-004-w002-textbook-frame-under-90, pilot-004-w003-foundation-before-jump-smash]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: slow-racket-preparation-consumes-window
+  issue: Racket preparation consumes the available hit window
+  category: smash_variant
+  priority: 20
+  applicable_actions: [smash, high_clear]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [phase_observations.preparation_time]
+  observable_evidence:
+    - path: phase_observations.preparation_time
+      equals: consumes_swing_window
+      label: Racket lift and preparation consume the available interception or airtime window.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for incoming-ball, preparation start, ready frame, contact, and landing timing before diagnosing time budget.
+  likely_effect:
+    - The player appears weak because there is no time left to swing.
+    - Jump height or extra power work fails because preparation is late.
+  correction_principle: Build earlier, faster, task-sized preparation before adding force or jump height.
+  drills: [time-budget-racket-lift]
+  retest_metrics:
+    - phase_observations.preparation_time should become early_ready
+    - phase_observations.contact_window should become usable
+  source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1ZBWEZEELW, LH_BILI_SEASON_BV1LB5QZXEDZ]
+  evidence_ids: [pilot-002-w002-time-space-budget, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime, pilot-019-w003-fast-preparation-creates-waiting-time, pilot-014-w001-jump-smash-front-swing-dispersed]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: heavy-smash-frame-mismatch
+  issue: Smash frame does not match the desired ball effect
+  category: smash_variant
+  priority: 32
+  applicable_actions: [smash]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.shot_intent, phase_observations.frame_style]
+  observable_evidence:
+    - path: phase_observations.shot_intent
+      equals: heavy_smash
+      label: Player wants a heavier smash effect.
+    - path: phase_observations.frame_style
+      in: [speed_oriented, low_without_body_lift, copied_elite_without_prerequisites]
+      label: Preparation frame does not fit the desired heavy-smash task or the player's prerequisites.
+  min_evidence_count: 2
+  insufficient_evidence_policy: Ask for goal, incoming-ball condition, preparation frame, body setup, and recovery cost before selecting a smash frame.
+  likely_effect:
+    - More effort does not convert into heavier shuttle quality.
+    - The player may copy a professional frame whose prerequisites are not present.
+  correction_principle: Choose the smash frame by ball condition, body prerequisites, and desired ball effect before adding power cues.
+  drills: [compact-standard-frame-freeze, pressure-transfer-ladder]
+  retest_metrics:
+    - phase_observations.frame_style should become goal_matched
+    - phase_observations.ball_effect should match heavy_smash_goal
+  source_ids: [LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1NF421X7JG, LH_BILI_SEASON_BV1V6ZABTEUE]
+  evidence_ids: [pilot-001-w002-frame-fit, pilot-001-w004-full-power-frame, pilot-001-w005-do-not-copy-pro-frame, pilot-013-w001-frame-variants-change-ball-effect, pilot-018-w001-bawang-high-frame-body-pull, pilot-026-w001-no-perfect-technique, pilot-026-w004-body-condition-and-tech-choice]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: body-force-window-too-long
+  issue: Body force enters too long and scatters smash power
+  category: smash_variant
+  priority: 40
+  applicable_actions: [smash]
+  student_profile_fit: [intermediate, advanced, lower_body_available]
+  required_observations: [phase_observations.body_force_window]
+  observable_evidence:
+    - path: phase_observations.body_force_window
+      equals: too_long
+      label: Body force starts too early or lasts too long instead of concentrating near contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for body line, contact, and post-contact frames before diagnosing body-force timing.
+  likely_effect:
+    - The action looks powerful but the shuttle receives scattered force.
+    - Waist or abdomen cues may make the swing slower instead of sharper.
+  correction_principle: Keep early movement relaxed, direct the body line through the shuttle, and make the burst short near contact.
+  drills: [slow-chain-throw, wrist-contact-segmentation]
+  retest_metrics:
+    - phase_observations.body_force_window should become short_near_contact
+    - phase_observations.power_quality should become concentrated
+  source_ids: [LH_BILI_SEASON_BV1AYKWBJEUV, LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-003-w003-roll-abdomen-and-short-force-window, pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w003-segment-force-release-and-follow-through]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis

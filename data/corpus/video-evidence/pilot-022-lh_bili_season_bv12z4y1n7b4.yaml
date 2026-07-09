@@ -14,13 +14,18 @@ public_safety:
 run_status:
   job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
   stages:
-    audio:
-      status: failed
-      returncode: 1
-    asr:
-      status: skipped
-      reason: audio file missing; run audio stage first
+    download:
+      status: ok
+      returncode: 0
+    keyframes:
+      status: ok
+    vlm:
+      status: ok
 stage_status:
+  keyframes:
+    status: ok
+    stage: keyframes
+    frame_count: 9
   asr:
     status: skipped
     reason: audio file missing; run audio stage first
@@ -28,7 +33,10 @@ stage_status:
   ocr:
     status: missing
   vlm:
-    status: missing
+    status: ok
+    stage: vlm
+    model: /tmp/jhxu-qwen25vl3b
+    frame_count: 9
   pose:
     status: missing
 segments:
@@ -40,12 +48,12 @@ segments:
   - high_clear
   - top_elbow
   - power_framework
-  evidence_level: needs_content_model_review
-  review_status: model_not_run
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
   promotion_target: none_until_reviewed
   asr_summary: ASR did not produce usable timestamped content.
   ocr_summary: No OCR content was promoted into the public repository.
-  visual_summary: No VLM content was promoted into the public repository.
+  visual_summary: See private VLM artifact; public summary requires human review.
   teaching_point_candidate:
     problem: pending content-level model review
     diagnosis_rule: not promoted

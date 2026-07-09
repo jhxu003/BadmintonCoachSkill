@@ -1,6 +1,0 @@
-{
-  "case_id": "high_clear_late_arrival",
-  "expected_primary_issue": "late-arrival",
-  "expected_framework": "stable-overhead-frame"
-}
-

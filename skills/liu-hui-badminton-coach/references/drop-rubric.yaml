@@ -67,3 +67,86 @@
     - phase_observations.racket_face should become controlled_slice
   source_ids: [LH_BILI_SEASON_BV1XCD8YNENF, LH_BILI_SEASON_BV1DBYRBCEQF, LH_BILI_SEASON_BV14EBTBOEXK]
   confidence: hypothesis
+
+- rule_id: drop-direction-mismatch
+  issue: Drop direction skill does not transfer across target lines
+  category: overhead_variation
+  priority: 28
+  applicable_actions: [drop]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.drop_direction_control]
+  observable_evidence:
+    - path: phase_observations.drop_direction_control
+      equals: one_direction_only
+      label: Player can perform one drop direction but cannot transfer the action to another target line.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for both successful and failed drop directions before diagnosing target-line transfer.
+  likely_effect:
+    - The player treats straight and cross drop as the same action when the contact line differs.
+    - Adding more slice detail may not fix the missing direction.
+  correction_principle: Use the known direction as a reference, then rebuild the missing target line as a separate task.
+  drills: [drop-variant-target-line]
+  retest_metrics:
+    - phase_observations.drop_direction_control should become two_direction_control
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB]
+  evidence_ids: [pilot-011-w001-split-line-problem-by-direction, pilot-011-w002-crosscourt-contact-explains-straight-gap, pilot-011-w003-teach-straight-through-known-crosscourt-feel]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: slide-drop-transfer-fails
+  issue: Front-point slide action does not transfer to passive rear point
+  category: overhead_variation
+  priority: 33
+  applicable_actions: [drop]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [phase_observations.slide_context, contact_point]
+  observable_evidence:
+    - path: phase_observations.slide_context
+      equals: passive_rear_point
+      label: Slide drop is being attempted from a passive rear overhead point.
+    - path: contact_point
+      in: [behind_head, rear_passive, too_far_back]
+      label: Contact point is not the comfortable front point where the player's slide action already works.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a clip showing both the comfortable front-point slide and the failed passive rear-point slide.
+  likely_effect:
+    - The player blames footwork while the grip and stroke model are not adapted to the passive point.
+    - A front-point fly-swatter model fails under rear overhead pressure.
+  correction_principle: Rebuild the passive rear-point slide as its own grip, face, and contact model instead of copying the front-point version.
+  drills: [drop-variant-target-line]
+  retest_metrics:
+    - phase_observations.slide_context should become rear_point_variant_stable
+    - phase_observations.racket_face should become rear_slide_ready
+  source_ids: [LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-029-w001-passive-overhead-slide-not-only-footwork, pilot-029-w002-front-point-slide-versus-rear-point-slide]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: grip-face-mismatch
+  issue: Grip and racket face do not match the chosen drop variant
+  category: overhead_variation
+  priority: 34
+  applicable_actions: [drop]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.drop_variant, phase_observations.racket_face]
+  observable_evidence:
+    - path: phase_observations.racket_face
+      equals: variant_mismatch
+      label: Racket face does not match the intended fast, light, slice, or slide-drop variant.
+    - path: phase_observations.grip_shape
+      equals: variant_mismatch
+      label: Grip shape does not support the intended drop variant.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for hand/racket-face visibility and the intended drop variant before prescribing grip or face detail.
+  likely_effect:
+    - Fast drop lacks force or light drop floats too high.
+    - The player adds wrist or slice without first matching the variant geometry.
+  correction_principle: Name the drop variant first, then align grip, face, contact height, and target line to that variant.
+  drills: [drop-variant-target-line, drop-face-window-check]
+  retest_metrics:
+    - phase_observations.racket_face should become variant_matched
+    - phase_observations.drop_speed should match selected_variant
+  source_ids: [LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1XDLEZQERY]
+  evidence_ids: [pilot-015-w001-slide-drop-body-direction, pilot-015-w002-current-slide-uses-early-internal-rotation, pilot-027-w001-fast-drop-needs-force, pilot-027-w002-light-drop-high-point-and-slice, pilot-027-w003-fast-drop-grip-and-racket-face]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis

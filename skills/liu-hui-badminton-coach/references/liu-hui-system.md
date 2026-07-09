@@ -6,7 +6,7 @@ This file stores original, research-oriented summaries derived from public sourc
 
 The current runtime system is complete against the public-source index in this repository, not an official Liu Hui archive. Use `data/source-index.tsv` and `data/corpus/teaching-points.yaml` for provenance. Do not promote `needs_timestamp_review` points into firm rules without timestamped review.
 
-The video-content pilot has processed 30 indexed public Bilibili teaching videos. ASR succeeded for 25 videos, producing 90 timestamp candidate teaching windows; 5 sources still need acquisition fallback. These windows have been distilled into `timestamp_candidate_requires_human_review` rules, timestamp-candidate frameworks, drills, and training plans, but they remain model-derived until human timestamp review.
+The video-content pilot has processed 30 indexed public Bilibili teaching videos. Private VLM parsing succeeded for all 30 videos. ASR succeeded for 25 videos, producing 90 timestamp candidate teaching windows; 5 sources are currently VLM-only and require audio/ASR before speech-derived teaching-window claims. These windows have been distilled into `timestamp_candidate_requires_human_review` rules, timestamp-candidate frameworks, rubrics, drills, and training plans, but they remain model-derived until human timestamp review.
 
 ## Working Hypothesis
 

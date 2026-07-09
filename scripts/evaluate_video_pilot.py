@@ -38,6 +38,7 @@ def main() -> None:
     topic_counts: Counter[str] = Counter()
     level_counts: Counter[str] = Counter()
     review_counts: Counter[str] = Counter()
+    stage_status_counts: dict[str, Counter[str]] = {}
 
     for job in jobs:
         evidence_path = ROOT / job["public_outputs"]["timestamp_evidence"]
@@ -45,6 +46,10 @@ def main() -> None:
             continue
         evidence = load_yaml(evidence_path)
         evidence_items.append(evidence)
+        for stage, status_record in evidence.get("stage_status", {}).items():
+            if stage not in stage_status_counts:
+                stage_status_counts[stage] = Counter()
+            stage_status_counts[stage].update([status_record.get("status", "missing")])
         for segment in evidence.get("segments", []):
             topic_counts.update(segment.get("topic_tags", []))
             level_counts.update([segment.get("evidence_level", "missing")])
@@ -71,6 +76,9 @@ def main() -> None:
         "topic_counts": dict(topic_counts),
         "evidence_level_counts": dict(level_counts),
         "review_status_counts": dict(review_counts),
+        "stage_status_counts": {
+            stage: dict(counter) for stage, counter in sorted(stage_status_counts.items())
+        },
         "promotion_ready_segments": promoted_ready,
         "title_or_metadata_only_segments": title_only,
         "teaching_window_candidates": len(teaching_windows),

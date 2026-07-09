@@ -12,13 +12,23 @@ topic_counts:
   match_transfer: 3
   internal_rotation: 4
 evidence_level_counts:
-  content_model_candidate: 25
-  needs_content_model_review: 5
+  content_model_candidate: 30
 review_status_counts:
-  pending_human_review: 25
-  model_not_run: 5
-promotion_ready_segments: 25
-title_or_metadata_only_segments: 5
+  pending_human_review: 30
+stage_status_counts:
+  asr:
+    ok: 25
+    skipped: 5
+  keyframes:
+    ok: 30
+  ocr:
+    missing: 30
+  pose:
+    missing: 30
+  vlm:
+    ok: 30
+promotion_ready_segments: 30
+title_or_metadata_only_segments: 0
 teaching_window_candidates: 90
 teaching_window_review_status_counts:
   pending_human_review: 90
@@ -30,9 +40,9 @@ model_notes:
   candidate_model:
     model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
     audio_scope: first_180_seconds
-    result: Usable for candidate-window extraction on successful downloads; model
-      quality is acceptable for timestamp candidate review, while Bilibili source
-      download reliability still needs retries/fallbacks.
+    result: Usable for candidate-window extraction when audio is available; model
+      quality is acceptable for timestamp candidate review, while VLM-only pilot jobs
+      still need audio-stage completion before speech-derived teaching windows.
   fallback_model:
     model: faster-whisper small
     audio_scope: first_180_seconds

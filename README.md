@@ -87,9 +87,9 @@ For actual content parsing, run model stages in a private environment:
 python3 scripts/run_video_content_pipeline.py --limit 1 --stages metadata,audio,asr,evidence --asr-model small
 ```
 
-The current public pilot covers 30 indexed Bilibili teaching videos. ASR succeeded for 25 videos with `mobiuslabsgmbh/faster-whisper-large-v3-turbo` on the first 180 seconds, producing 90 timestamp candidate teaching windows. Five videos still need acquisition fallback because public Bilibili download/DNS access failed during the batch run.
+The current public pilot covers 30 indexed Bilibili teaching videos. All 30 now have public-safe content-model evidence records from private VLM parsing. ASR succeeded for 25 videos with `mobiuslabsgmbh/faster-whisper-large-v3-turbo` on the first 180 seconds, producing 90 timestamp candidate teaching windows. Five videos are currently VLM-only and should not be used for speech-derived teaching-window claims until audio/ASR is added.
 
-The 90 candidate windows have been distilled into `timestamp_candidate_requires_human_review` rules, drills, and training plans. They are usable as reviewable coaching hypotheses, not as final human-reviewed Liu Hui statements.
+The 90 candidate windows have been distilled into `timestamp_candidate_requires_human_review` rules, rubrics, drills, and training plans. They are usable as reviewable coaching hypotheses, not as final human-reviewed Liu Hui statements.
 
 Only original summaries and evidence metadata belong in git. Raw videos, subtitles, ASR transcripts, OCR dumps, VLM outputs, cookies, tokens, and paid material stay private.
 
@@ -114,7 +114,7 @@ The skill currently includes deterministic examples for:
 high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer
 ```
 
-The Liu Hui-inspired runtime contains 67 selectable frameworks, 33 reviewed or candidate rule guardrails, 29 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
+The Liu Hui-inspired runtime contains 67 selectable frameworks, 33 reviewed or candidate rule guardrails, 41 deterministic rubric rules, 29 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
 
 The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
 

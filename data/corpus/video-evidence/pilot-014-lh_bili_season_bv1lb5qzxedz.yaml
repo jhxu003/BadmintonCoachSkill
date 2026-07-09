@@ -14,12 +14,18 @@ public_safety:
 run_status:
   job_id: pilot-014-lh_bili_season_bv1lb5qzxedz
   stages:
-    audio:
+    download:
       status: ok
       returncode: 0
-    asr:
+    keyframes:
+      status: ok
+    vlm:
       status: ok
 stage_status:
+  keyframes:
+    status: ok
+    stage: keyframes
+    frame_count: 6
   asr:
     status: ok
     stage: asr
@@ -34,7 +40,10 @@ stage_status:
   ocr:
     status: missing
   vlm:
-    status: missing
+    status: ok
+    stage: vlm
+    model: /tmp/jhxu-qwen25vl3b
+    frame_count: 6
   pose:
     status: missing
 segments:
@@ -54,7 +63,7 @@ segments:
     reviewed windows for human summarization: 2.5-3.8s, 3.8-5.6s, 5.6-6.7s, 6.7-8.5s,
     8.5-12.9s, 12.9-15.0s.'
   ocr_summary: No OCR content was promoted into the public repository.
-  visual_summary: No VLM content was promoted into the public repository.
+  visual_summary: See private VLM artifact; public summary requires human review.
   teaching_point_candidate:
     problem: pending content-level model review
     diagnosis_rule: not promoted

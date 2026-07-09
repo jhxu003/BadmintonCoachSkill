@@ -43,3 +43,113 @@
     - footwork_observations.recovery should become normal
   source_ids: [LH_BILI_FRAMEWORK, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK]
   confidence: hypothesis
+
+- rule_id: rear-foot-orientation-blocks-hip
+  issue: Rear-foot orientation blocks hip drive
+  category: footwork
+  priority: 28
+  applicable_actions: [high_clear, smash, rear_footwork]
+  student_profile_fit: [beginner, intermediate, arm_dominant, lower_body_available]
+  required_observations: [footwork_observations.rear_foot_orientation]
+  observable_evidence:
+    - path: footwork_observations.rear_foot_orientation
+      in: [forward, diagonal_blocks_turn]
+      label: Rear foot points in a direction that blocks hip release and ground-driven turn.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a full-body rear-side view that shows rear foot, heel, forefoot pressure, and hip turn.
+  likely_effect:
+    - Hip drive becomes an isolated waist twist instead of foot-ground transfer.
+    - Player may compensate by pulling the shoulder or arm early.
+  correction_principle: Set the rear foot and ground pressure before cueing hip rotation or waist force.
+  drills: [rear-foot-horizontal-hip-drive]
+  retest_metrics:
+    - rear_foot_orientation should become rotation_enabled
+    - hip_shoulder_sequence should become foot_drives_hip
+  source_ids: [LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1KM41147M1, LH_BILI_SEASON_BV1CM42157US]
+  evidence_ids: [pilot-005-w002-force-from-foot, pilot-005-w003-deng-before-turn, pilot-007-w002-rear-foot-orientation, pilot-007-w003-heel-lift-and-upward-push, pilot-025-w001-hip-drive-foot-checkpoints, pilot-025-w002-horizontal-foot-enables-hip-turn]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: over-rotated-rear-attack-entry
+  issue: Rear-court attack entry over-rotates
+  category: footwork
+  priority: 30
+  applicable_actions: [smash, rear_footwork]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [footwork_observations.first_step, footwork_observations.body_turn]
+  observable_evidence:
+    - path: footwork_observations.first_step
+      equals: too_large
+      label: First step is too large for the sudden rear-court attack task.
+    - path: footwork_observations.body_turn
+      equals: over_rotated
+      label: Body turn over-rotates and pulls the player away from the attack line.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for the opponent feed, first step, body line, contact, and recovery path before diagnosing rear-attack entry.
+  likely_effect:
+    - Preparation time is spent turning rather than catching the shuttle.
+    - Contact and recovery become worse even if the named footwork pattern is useful.
+  correction_principle: Reduce the turn and preserve half-side organization before adding stroke power.
+  drills: [rear-court-arrival-shadow, pressure-transfer-ladder]
+  retest_metrics:
+    - footwork_observations.first_step should become task_sized
+    - footwork_observations.body_turn should become half_side_organized
+  source_ids: [LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1NWRRBTEDY, LH_BILI_SEASON_BV1AYKWBJEUV]
+  evidence_ids: [pilot-006-w002-malay-step-overrotation, pilot-017-w003-half-side-fast-power, pilot-003-w003-roll-abdomen-and-short-force-window]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: foot-switch-cost
+  issue: Foot switch hurts rear-court recovery
+  category: footwork
+  priority: 54
+  applicable_actions: [smash, rear_footwork]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [footwork_observations.foot_switch, footwork_observations.recovery]
+  observable_evidence:
+    - path: footwork_observations.foot_switch
+      equals: unnecessary
+      label: Player switches feet when a compact no-switch rhythm would preserve recovery.
+    - path: footwork_observations.recovery
+      equals: slow
+      label: Recovery is slow after the rear-court hit.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for frames through the hit, landing, and first recovery step before diagnosing foot-switch cost.
+  likely_effect:
+    - The player may win the current hit shape but lose the next-ball recovery.
+    - China-jump style work becomes decorative if the recovery purpose is missing.
+  correction_principle: Treat the jump or step as a recovery solution, not as a shape to copy.
+  drills: [china-jump-short-contact]
+  retest_metrics:
+    - footwork_observations.foot_switch should become no_unnecessary_switch
+    - footwork_observations.recovery should become connected_next_step
+  source_ids: [LH_BILI_SEASON_BV1NWRRBTEDY]
+  evidence_ids: [pilot-017-w001-china-jump-no-foot-switch-purpose, pilot-017-w002-foot-switch-hurts-recovery, pilot-017-w004-rhythm-and-short-ground-contact]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: long-ground-contact
+  issue: Rear-court ground contact is too long
+  category: footwork
+  priority: 60
+  applicable_actions: [smash, rear_footwork]
+  student_profile_fit: [intermediate, advanced, match_pressure_breakdown]
+  required_observations: [footwork_observations.ground_contact]
+  observable_evidence:
+    - path: footwork_observations.ground_contact
+      equals: long_dragging
+      label: Ground contact drags instead of creating a short elastic hit-and-exit rhythm.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for lower-body frames from pre-contact through exit before judging ground-contact elasticity.
+  likely_effect:
+    - The hit cannot connect cleanly to recovery.
+    - Fast rear-court attack becomes a slow loaded movement.
+  correction_principle: Shorten the hit-and-exit rhythm before increasing jump height or swing force.
+  drills: [china-jump-short-contact]
+  retest_metrics:
+    - footwork_observations.ground_contact should become short_elastic
+    - footwork_observations.recovery should become connected_next_step
+  source_ids: [LH_BILI_SEASON_BV1NWRRBTEDY]
+  evidence_ids: [pilot-017-w003-half-side-fast-power, pilot-017-w004-rhythm-and-short-ground-contact]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
