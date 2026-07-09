@@ -7,7 +7,7 @@ This repository separates private video processing from public skill evidence.
 ```text
 source-index public URL
   -> video pilot manifest
-  -> private metadata/video/model artifacts
+  -> private metadata/audio/video/keyframe/model artifacts
   -> public timestamp evidence summaries
   -> human review
   -> skill framework, rubric, drill, or training-plan promotion
@@ -67,6 +67,21 @@ Heavy model stages should run on a compute node, for example:
 ```bash
 ssh <gpu-node> "cd <repo> && HF_HOME=<node-local-hf-cache> CUDA_VISIBLE_DEVICES=<gpu-id> <node-local-conda-env>/bin/python scripts/run_video_batch_on_node.py --limit 30 --batch-id <batch-id> --node-local-private-root <node-local-private-root> --asr-model mobiuslabsgmbh/faster-whisper-large-v3-turbo --asr-device cuda --asr-compute-type float16 --asr-audio-seconds 180"
 ```
+
+Run a visual-understanding pilot after the compute node has a local Python environment with `torch`, `transformers`, `Pillow`, `opencv-python` or `imageio-ffmpeg`, `yt-dlp`, `PyYAML`, and enough GPU memory:
+
+```bash
+ssh <gpu-node> "cd <repo> && HF_HOME=<node-local-hf-cache> CUDA_VISIBLE_DEVICES=<gpu-id> <node-local-vision-env>/bin/python scripts/run_video_batch_on_node.py --job-id <job-id> --stages download,keyframes,vlm,evidence --batch-id <batch-id> --python <node-local-vision-env>/bin/python --hf-home <node-local-hf-cache> --hf-online --node-local-private-root <node-local-private-root> --keyframe-count 4 --vlm-model Qwen/Qwen2.5-VL-3B-Instruct"
+```
+
+The visual stages are dependency-optional:
+
+- `keyframes` extracts private sampled frames with `imageio-ffmpeg` or OpenCV.
+- `vlm` uses a Transformers-compatible vision-language model on private keyframes.
+- `ocr` runs only when PaddleOCR is installed.
+- `pose` runs only when Ultralytics pose is installed.
+
+If a dependency is unavailable, the stage records `skipped`; it must not fabricate OCR, pose, or visual summaries. Public evidence still contains only status and original summaries, while private model outputs stay under `data/raw-private/` or node-local storage.
 
 After a batch run, rebuild the public-safe index:
 

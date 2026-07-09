@@ -40,7 +40,7 @@ def parse_args() -> argparse.Namespace:
         "--stages",
         default="metadata,evidence",
         help=(
-            "Comma-separated stages: metadata,audio,download,asr,ocr,vlm,pose,evidence. "
+            "Comma-separated stages: metadata,audio,download,keyframes,asr,ocr,vlm,pose,evidence. "
             "Unavailable model stages are recorded as skipped rather than faked."
         ),
     )
@@ -81,6 +81,20 @@ def parse_args() -> argparse.Namespace:
             "Override private artifact root for this run. Use an absolute node-local "
             "path on compute nodes to avoid writing large audio/video artifacts to NFS."
         ),
+    )
+    parser.add_argument("--keyframe-count", type=int, default=6)
+    parser.add_argument("--keyframe-start-seconds", type=int, default=8)
+    parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
+    parser.add_argument(
+        "--vlm-model",
+        default="Qwen/Qwen2.5-VL-3B-Instruct",
+        help="Transformers-compatible VLM checkpoint for private keyframe review.",
+    )
+    parser.add_argument("--vlm-max-new-tokens", type=int, default=384)
+    parser.add_argument(
+        "--pose-model",
+        default="yolo11n-pose.pt",
+        help="Ultralytics pose checkpoint if ultralytics is installed.",
     )
     return parser.parse_args()
 
@@ -245,6 +259,143 @@ def run_audio(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
+def find_private_video(job: dict[str, Any]) -> Path | None:
+    base = ROOT / job["private_paths"]["video_file"]
+    if base.exists() and base.is_file():
+        return base
+    candidates = sorted(base.parent.glob(base.name + ".*"))
+    for candidate in candidates:
+        if candidate.is_file() and candidate.stat().st_size > 0:
+            return candidate
+    return None
+
+
+def keyframes_manifest_path(job: dict[str, Any]) -> Path:
+    return ROOT / job["private_paths"]["keyframes_dir"] / "manifest.json"
+
+
+def load_keyframes(job: dict[str, Any]) -> list[dict[str, Any]]:
+    path = keyframes_manifest_path(job)
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    return list(data.get("frames", []))
+
+
+def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
+    output_dir = ROOT / job["private_paths"]["keyframes_dir"]
+    manifest_path = keyframes_manifest_path(job)
+    existing = load_keyframes(job)
+    if existing:
+        return {
+            "status": "ok",
+            "stage": "keyframes",
+            "reason": "keyframes already exist",
+            "frame_count": len(existing),
+            "manifest_path": str(manifest_path),
+        }
+    video_path = find_private_video(job)
+    if not video_path:
+        result = {
+            "status": "skipped",
+            "stage": "keyframes",
+            "reason": "video file missing; run download stage first",
+        }
+        write_private_json(manifest_path, result)
+        return result
+    output_dir.mkdir(parents=True, exist_ok=True)
+    frames: list[dict[str, Any]] = []
+    records: list[dict[str, Any]] = []
+    try:
+        from imageio_ffmpeg import get_ffmpeg_exe
+    except Exception as ffmpeg_exc:
+        try:
+            import cv2
+        except Exception as cv2_exc:
+            result = {
+                "status": "skipped",
+                "stage": "keyframes",
+                "reason": (
+                    "no keyframe extractor available: "
+                    f"imageio_ffmpeg {type(ffmpeg_exc).__name__}; "
+                    f"cv2 {type(cv2_exc).__name__}"
+                ),
+            }
+            write_private_json(manifest_path, result)
+            return result
+        capture = cv2.VideoCapture(str(video_path))
+        if not capture.isOpened():
+            result = {
+                "status": "failed",
+                "stage": "keyframes",
+                "reason": "OpenCV could not open the downloaded video",
+            }
+            write_private_json(manifest_path, result)
+            return result
+        for index in range(max(args.keyframe_count, 0)):
+            timestamp = args.keyframe_start_seconds + index * args.keyframe_interval_seconds
+            frame_path = output_dir / f"frame-{index + 1:03d}-{timestamp}s.jpg"
+            capture.set(cv2.CAP_PROP_POS_MSEC, float(timestamp) * 1000.0)
+            ok, frame = capture.read()
+            wrote = bool(ok and cv2.imwrite(str(frame_path), frame))
+            records.append({"timestamp_seconds": timestamp, "opencv_written": wrote})
+            if wrote and frame_path.exists() and frame_path.stat().st_size > 0:
+                frames.append(
+                    {
+                        "frame_id": f"{job['job_id']}-frame-{index + 1:03d}",
+                        "timestamp_seconds": timestamp,
+                        "path": str(frame_path),
+                    }
+                )
+        capture.release()
+    else:
+        for index in range(max(args.keyframe_count, 0)):
+            timestamp = args.keyframe_start_seconds + index * args.keyframe_interval_seconds
+            frame_path = output_dir / f"frame-{index + 1:03d}-{timestamp}s.jpg"
+            command = [
+                get_ffmpeg_exe(),
+                "-y",
+                "-ss",
+                str(timestamp),
+                "-i",
+                str(video_path),
+                "-frames:v",
+                "1",
+                "-q:v",
+                "3",
+                str(frame_path),
+            ]
+            record = run_command(command, timeout_seconds=60)
+            records.append(
+                {
+                    "timestamp_seconds": timestamp,
+                    "returncode": record["returncode"],
+                    "stderr_tail": record.get("stderr_tail", "")[-800:],
+                }
+            )
+            if record["returncode"] == 0 and frame_path.exists() and frame_path.stat().st_size > 0:
+                frames.append(
+                    {
+                        "frame_id": f"{job['job_id']}-frame-{index + 1:03d}",
+                        "timestamp_seconds": timestamp,
+                        "path": str(frame_path),
+                    }
+                )
+    result = {
+        "status": "ok" if frames else "failed",
+        "stage": "keyframes",
+        "video_path": str(video_path),
+        "frame_count": len(frames),
+        "frames": frames,
+        "records": records,
+    }
+    write_private_json(manifest_path, result)
+    return result
+
+
 def import_available(module_name: str) -> bool:
     try:
         __import__(module_name)
@@ -271,6 +422,228 @@ def run_model_stage(job: dict[str, Any], stage: str, module_name: str) -> dict[s
         ),
         "stage": stage,
     }
+    write_private_json(private_path, result)
+    return result
+
+
+def run_ocr(job: dict[str, Any]) -> dict[str, Any]:
+    private_path = ROOT / job["private_paths"]["ocr_json"]
+    frames = load_keyframes(job)
+    if not frames:
+        result = {
+            "status": "skipped",
+            "reason": "keyframes missing; run keyframes stage first",
+            "stage": "ocr",
+        }
+        write_private_json(private_path, result)
+        return result
+    try:
+        from paddleocr import PaddleOCR
+    except Exception as exc:
+        result = {
+            "status": "skipped",
+            "reason": f"PaddleOCR import failed: {type(exc).__name__}: {exc}",
+            "stage": "ocr",
+        }
+        write_private_json(private_path, result)
+        return result
+    try:
+        ocr = PaddleOCR(use_angle_cls=True, lang="ch", show_log=False)
+        frame_results = []
+        for frame in frames:
+            result = ocr.ocr(frame["path"], cls=True)
+            texts = []
+            for block in result or []:
+                for line in block or []:
+                    if len(line) >= 2 and isinstance(line[1], (list, tuple)):
+                        texts.append(
+                            {
+                                "text": str(line[1][0]),
+                                "confidence": float(line[1][1]),
+                            }
+                        )
+            frame_results.append(
+                {
+                    "frame_id": frame["frame_id"],
+                    "timestamp_seconds": frame["timestamp_seconds"],
+                    "text_count": len(texts),
+                    "texts": texts[:20],
+                }
+            )
+        result = {
+            "status": "ok",
+            "stage": "ocr",
+            "model": "PaddleOCR",
+            "frame_count": len(frame_results),
+            "frames": frame_results,
+        }
+    except Exception as exc:
+        result = {
+            "status": "failed",
+            "stage": "ocr",
+            "model": "PaddleOCR",
+            "reason": f"{type(exc).__name__}: {exc}",
+        }
+    write_private_json(private_path, result)
+    return result
+
+
+def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[str, Any]:
+    private_path = ROOT / job["private_paths"]["vlm_json"]
+    frames = load_keyframes(job)
+    if not frames:
+        result = {
+            "status": "skipped",
+            "reason": "keyframes missing; run keyframes stage first",
+            "stage": "vlm",
+        }
+        write_private_json(private_path, result)
+        return result
+    try:
+        import torch
+        from PIL import Image
+        from transformers import AutoProcessor
+        try:
+            from transformers import Qwen2_5_VLForConditionalGeneration
+        except Exception:
+            from transformers import AutoModelForVision2Seq as Qwen2_5_VLForConditionalGeneration
+    except Exception as exc:
+        result = {
+            "status": "skipped",
+            "reason": f"VLM imports failed: {type(exc).__name__}: {exc}",
+            "stage": "vlm",
+        }
+        write_private_json(private_path, result)
+        return result
+
+    prompt = (
+        "You are reviewing badminton coaching keyframes. For each image, describe only visible "
+        "evidence: player position, racket preparation, contact or pre-contact frame, lower-body "
+        "orientation, recovery state, and any on-screen teaching text. Do not infer invisible "
+        "biomechanics. Return concise JSON-like bullets in English with timestamps."
+    )
+    try:
+        selected_frames = frames[: min(len(frames), 6)]
+        images = [Image.open(frame["path"]).convert("RGB") for frame in selected_frames]
+        content = [{"type": "image"} for _ in images]
+        content.append({"type": "text", "text": prompt})
+        messages = [{"role": "user", "content": content}]
+        processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
+        model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+            model_name,
+            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+            device_map="auto",
+            trust_remote_code=True,
+        )
+        text = processor.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        inputs = processor(
+            text=[text],
+            images=images,
+            padding=True,
+            return_tensors="pt",
+        )
+        inputs = inputs.to(model.device)
+        generated = model.generate(**inputs, max_new_tokens=max_new_tokens)
+        trimmed = [
+            output_ids[len(input_ids) :]
+            for input_ids, output_ids in zip(inputs.input_ids, generated)
+        ]
+        output_text = processor.batch_decode(
+            trimmed,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False,
+        )[0]
+        result = {
+            "status": "ok",
+            "stage": "vlm",
+            "model": model_name,
+            "frame_count": len(selected_frames),
+            "frame_ids": [frame["frame_id"] for frame in selected_frames],
+            "timestamps_seconds": [frame["timestamp_seconds"] for frame in selected_frames],
+            "summary": output_text.strip(),
+        }
+    except Exception as exc:
+        result = {
+            "status": "failed",
+            "stage": "vlm",
+            "model": model_name,
+            "reason": f"{type(exc).__name__}: {exc}",
+        }
+    write_private_json(private_path, result)
+    return result
+
+
+def run_pose(job: dict[str, Any], pose_model: str) -> dict[str, Any]:
+    private_path = ROOT / job["private_paths"]["pose_json"]
+    frames = load_keyframes(job)
+    if not frames:
+        result = {
+            "status": "skipped",
+            "reason": "keyframes missing; run keyframes stage first",
+            "stage": "pose",
+        }
+        write_private_json(private_path, result)
+        return result
+    try:
+        from ultralytics import YOLO
+    except Exception as exc:
+        result = {
+            "status": "skipped",
+            "reason": f"ultralytics import failed: {type(exc).__name__}: {exc}",
+            "stage": "pose",
+        }
+        write_private_json(private_path, result)
+        return result
+    try:
+        model = YOLO(pose_model)
+        frame_results = []
+        for frame in frames:
+            predictions = model(frame["path"], verbose=False)
+            people = []
+            for pred in predictions:
+                keypoints = getattr(pred, "keypoints", None)
+                if keypoints is None or keypoints.xy is None:
+                    continue
+                xy = keypoints.xy.cpu().tolist()
+                conf = keypoints.conf.cpu().tolist() if keypoints.conf is not None else []
+                for person_index, points in enumerate(xy):
+                    people.append(
+                        {
+                            "person_index": person_index,
+                            "keypoint_count": len(points),
+                            "mean_confidence": (
+                                round(sum(conf[person_index]) / len(conf[person_index]), 4)
+                                if conf and conf[person_index]
+                                else None
+                            ),
+                        }
+                    )
+            frame_results.append(
+                {
+                    "frame_id": frame["frame_id"],
+                    "timestamp_seconds": frame["timestamp_seconds"],
+                    "person_count": len(people),
+                    "people": people[:4],
+                }
+            )
+        result = {
+            "status": "ok",
+            "stage": "pose",
+            "model": pose_model,
+            "frame_count": len(frame_results),
+            "frames": frame_results,
+        }
+    except Exception as exc:
+        result = {
+            "status": "failed",
+            "stage": "pose",
+            "model": pose_model,
+            "reason": f"{type(exc).__name__}: {exc}",
+        }
     write_private_json(private_path, result)
     return result
 
@@ -397,6 +770,17 @@ def summarize_private_stage(job: dict[str, Any], stage: str) -> dict[str, Any]:
         return {"status": "unreadable", "reason": str(exc)}
 
 
+def summarize_keyframes_stage(job: dict[str, Any]) -> dict[str, Any]:
+    path = keyframes_manifest_path(job)
+    if not path.exists():
+        return {"status": "missing"}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {"status": "unreadable", "reason": str(exc)}
+    return data
+
+
 def summarize_asr_for_public(asr_data: dict[str, Any]) -> str:
     if asr_data.get("status") != "ok":
         return "ASR did not produce usable timestamped content."
@@ -441,6 +825,10 @@ def sanitize_stage_status(stage: str, data: dict[str, Any]) -> dict[str, Any]:
             status["audio_scope"] = data["audio_scope"]
         if "audio_scope_seconds" in data:
             status["audio_scope_seconds"] = data["audio_scope_seconds"]
+    if stage in {"keyframes", "ocr", "vlm", "pose"}:
+        for field in ["stage", "model", "frame_count"]:
+            if field in data:
+                status[field] = data[field]
     return status
 
 
@@ -463,11 +851,14 @@ def sanitize_run_status(run_status: dict[str, Any]) -> dict[str, Any]:
 def build_public_evidence(job: dict[str, Any], run_status: dict[str, Any]) -> Path:
     evidence_path = ROOT / job["public_outputs"]["timestamp_evidence"]
     stage_status = {
-        stage: summarize_private_stage(job, stage)
-        for stage in ["asr", "ocr", "vlm", "pose"]
+        "keyframes": summarize_keyframes_stage(job),
+        **{
+            stage: summarize_private_stage(job, stage)
+            for stage in ["asr", "ocr", "vlm", "pose"]
+        },
     }
     has_model_content = any(
-        value.get("status") == "ok" for value in stage_status.values()
+        value.get("status") == "ok" for stage, value in stage_status.items() if stage != "keyframes"
     )
     evidence_level = (
         "content_model_candidate" if has_model_content else "needs_content_model_review"
@@ -527,6 +918,8 @@ def process_job(job: dict[str, Any], stages: set[str], args: argparse.Namespace)
         run_status["stages"]["audio"] = run_audio(job, args)
     if "download" in stages:
         run_status["stages"]["download"] = run_download(job, args)
+    if {"keyframes", "ocr", "vlm", "pose"} & stages:
+        run_status["stages"]["keyframes"] = run_keyframes(job, args)
     if "asr" in stages:
         run_status["stages"]["asr"] = run_asr(
             job,
@@ -536,11 +929,15 @@ def process_job(job: dict[str, Any], stages: set[str], args: argparse.Namespace)
             audio_seconds=args.asr_audio_seconds,
         )
     if "ocr" in stages:
-        run_status["stages"]["ocr"] = run_model_stage(job, "ocr", "paddleocr")
+        run_status["stages"]["ocr"] = run_ocr(job)
     if "vlm" in stages:
-        run_status["stages"]["vlm"] = run_model_stage(job, "vlm", "transformers")
+        run_status["stages"]["vlm"] = run_vlm(
+            job,
+            model_name=args.vlm_model,
+            max_new_tokens=args.vlm_max_new_tokens,
+        )
     if "pose" in stages:
-        run_status["stages"]["pose"] = run_model_stage(job, "pose", "cv2")
+        run_status["stages"]["pose"] = run_pose(job, args.pose_model)
     if "evidence" not in stages:
         stages.add("evidence")
     evidence_path = build_public_evidence(job, run_status)

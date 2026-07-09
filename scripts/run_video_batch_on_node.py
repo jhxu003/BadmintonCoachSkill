@@ -32,6 +32,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--asr-device", default="cuda")
     parser.add_argument("--asr-compute-type", default="float16")
     parser.add_argument("--asr-audio-seconds", type=int, default=180)
+    parser.add_argument("--keyframe-count", type=int, default=6)
+    parser.add_argument("--keyframe-start-seconds", type=int, default=8)
+    parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
+    parser.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct")
+    parser.add_argument("--vlm-max-new-tokens", type=int, default=384)
+    parser.add_argument("--pose-model", default="yolo11n-pose.pt")
     parser.add_argument("--per-job-timeout", type=int, default=900)
     parser.add_argument("--metadata-timeout", type=int, default=120)
     parser.add_argument("--audio-timeout", type=int, default=240)
@@ -198,6 +204,18 @@ def run_one_job(
         str(args.yt_dlp_socket_timeout),
         "--yt-dlp-retries",
         str(args.yt_dlp_retries),
+        "--keyframe-count",
+        str(args.keyframe_count),
+        "--keyframe-start-seconds",
+        str(args.keyframe_start_seconds),
+        "--keyframe-interval-seconds",
+        str(args.keyframe_interval_seconds),
+        "--vlm-model",
+        args.vlm_model,
+        "--vlm-max-new-tokens",
+        str(args.vlm_max_new_tokens),
+        "--pose-model",
+        args.pose_model,
     ]
     if args.node_local_private_root:
         command.extend(["--private-root-override", args.node_local_private_root])
