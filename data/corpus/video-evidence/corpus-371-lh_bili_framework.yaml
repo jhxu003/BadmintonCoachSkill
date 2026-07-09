@@ -1,0 +1,60 @@
+source_id: LH_BILI_FRAMEWORK
+job_id: corpus-371-lh_bili_framework
+title: Overhead power framework public clip
+url: https://www.bilibili.com/video/BV1Rs4y1a7EG/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-371-lh_bili_framework
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 298
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-371-lh_bili_framework-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 298 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.6-2.3s, 2.3-7.0s, 7.6-11.3s, 11.3-14.0s,
+    14.0-17.3s, 17.3-23.1s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV15J421U7XQ
+job_id: corpus-152-lh_bili_season_bv15j421u7xq
+title: 羽毛球被动发力到底是什么原理？不可错过的直播课！被动高远球怎么打？被偷后场怎么发力
+url: https://www.bilibili.com/video/BV15j421U7Xq/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-152-lh_bili_season_bv15j421u7xq
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 342
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-152-lh_bili_season_bv15j421u7xq-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 342 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.8-5.0s, 5.0-5.4s, 5.4-7.3s, 7.3-8.3s,
+    8.3-10.8s, 10.8-12.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -22,8 +22,7 @@ def _taxonomy_ids(taxonomy: dict[str, list[dict[str, object]]]) -> dict[str, set
     }
 
 
-def _collect_rule_source_ids(reference_dir: Path) -> list[tuple[str, str]]:
-    collected: list[tuple[str, str]] = []
+def _item_id(item: dict[str, object]) -> str:
     id_fields = [
         "framework_id",
         "rule_id",
@@ -31,16 +30,40 @@ def _collect_rule_source_ids(reference_dir: Path) -> list[tuple[str, str]]:
         "stroke_id",
         "plan_id",
         "drill_id",
+        "system_id",
     ]
+    for field in id_fields:
+        if field in item:
+            return str(item[field])
+    return "unknown"
+
+
+def _collect_source_ids_from_node(
+    node: object,
+    *,
+    owner: str,
+) -> list[tuple[str, str]]:
+    collected: list[tuple[str, str]] = []
+    if isinstance(node, dict):
+        item_id = _item_id(node)
+        source_ids = node.get("source_ids")
+        if isinstance(source_ids, list):
+            for source_id in source_ids:
+                collected.append((f"{owner}:{item_id}", str(source_id)))
+        for child in node.values():
+            collected.extend(_collect_source_ids_from_node(child, owner=owner))
+    elif isinstance(node, list):
+        for child in node:
+            collected.extend(_collect_source_ids_from_node(child, owner=owner))
+    return collected
+
+
+def _collect_rule_source_ids(reference_dir: Path) -> list[tuple[str, str]]:
+    collected: list[tuple[str, str]] = []
     for path in sorted(reference_dir.glob("*.yaml")):
-        for item in _load_yaml(path):
-            item_id = "unknown"
-            for field in id_fields:
-                if field in item:
-                    item_id = str(item[field])
-                    break
-            for source_id in item.get("source_ids", []):
-                collected.append((f"{path.name}:{item_id}", source_id))
+        collected.extend(
+            _collect_source_ids_from_node(_load_yaml(path), owner=path.name)
+        )
     return collected
 
 

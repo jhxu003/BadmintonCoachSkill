@@ -1,0 +1,63 @@
+source_id: LH_BILI_SEASON_BV1CY411D7GL
+job_id: corpus-007-lh_bili_season_bv1cy411d7gl
+title: 刘辉教练教你不学后悔一辈子的刘氏霸王杀
+url: https://www.bilibili.com/video/BV1cY411D7GL/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-007-lh_bili_season_bv1cy411d7gl
+  stages:
+    metadata:
+      status: ok
+      returncode: 0
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 368
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-007-lh_bili_season_bv1cy411d7gl-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 368 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.1-1.7s, 1.7-3.4s, 3.4-7.1s, 7.1-9.1s,
+    9.1-12.4s, 12.4-14.8s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

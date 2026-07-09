@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV14EBTBOEXK
+job_id: corpus-340-lh_bili_season_bv14ebtboexk
+title: 三种滑羽毛球拍吊球示范！找一个适合你的滑板吧！99%都选了最后一种
+url: https://www.bilibili.com/video/BV14eBTBoExK/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-340-lh_bili_season_bv14ebtboexk
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 69
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-340-lh_bili_season_bv14ebtboexk-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 69 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.1-1.1s, 1.1-3.0s, 3.0-4.4s, 4.4-5.6s,
+    5.6-8.7s, 8.7-14.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

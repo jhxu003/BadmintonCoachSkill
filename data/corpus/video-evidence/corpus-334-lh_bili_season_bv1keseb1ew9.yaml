@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1KESEB1EW9
+job_id: corpus-334-lh_bili_season_bv1keseb1ew9
+title: 爆改业余重杀教学！羽毛球发力中有效倒拍vs无效倒拍！击球点怎么改？
+url: https://www.bilibili.com/video/BV1keSEB1Ew9/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-334-lh_bili_season_bv1keseb1ew9
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 373
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-334-lh_bili_season_bv1keseb1ew9-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 373 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.4-1.9s, 1.9-3.1s, 3.1-3.6s, 3.6-4.9s,
+    4.9-6.1s, 6.1-7.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

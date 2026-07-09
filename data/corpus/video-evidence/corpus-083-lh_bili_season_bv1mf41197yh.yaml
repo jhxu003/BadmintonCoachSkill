@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1MF41197YH
+job_id: corpus-083-lh_bili_season_bv1mf41197yh
+title: 长达十五分钟，不看错过一个亿的超级详细的手指发力教学
+url: https://www.bilibili.com/video/BV1mF41197yh/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-083-lh_bili_season_bv1mf41197yh
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 653
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-083-lh_bili_season_bv1mf41197yh-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 653 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-3.2s, 3.2-5.7s, 5.7-10.9s, 10.9-12.4s,
+    12.4-15.0s, 15.0-18.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

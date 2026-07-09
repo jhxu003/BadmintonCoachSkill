@@ -1,0 +1,1130 @@
+manifest_id: asr_status_retry_manifest_20260709
+created_at: '2026-07-09'
+base_manifest: data/corpus/video-extra-platform-manifest.yaml
+include_statuses:
+- failed
+- missing
+- skipped
+- unreadable
+summary:
+  retry_jobs: 25
+  asr_status_counts:
+    skipped: 25
+jobs:
+- job_id: extra-001-lh_instagram_interview
+  source_id: LH_INSTAGRAM_INTERVIEW
+  title: Instagram Liu Hui interview reel discovery
+  platform: Instagram
+  url: https://www.instagram.com/badminton_whisperer/reel/C4nylWhLp34/
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - interview
+  - coaching_style
+  - student_fit
+  topic_tags:
+  - interview
+  - coaching_style
+  - student_fit
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-001-lh_instagram_interview
+    metadata_json: data/raw-private/video-corpus/extra-001-lh_instagram_interview/metadata.json
+    video_file: data/raw-private/video-corpus/extra-001-lh_instagram_interview/source_video
+    audio_file: data/raw-private/video-corpus/extra-001-lh_instagram_interview/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-001-lh_instagram_interview/keyframes
+    asr_json: data/raw-private/video-corpus/extra-001-lh_instagram_interview/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-001-lh_instagram_interview/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-001-lh_instagram_interview/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-001-lh_instagram_interview/pose.json
+    run_log: data/raw-private/video-corpus/extra-001-lh_instagram_interview/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-001-lh_instagram_interview.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-002-lh_yt_body_jammed_shot
+  source_id: LH_YT_BODY_JAMMED_SHOT
+  title: Body-jammed shot handling public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=_dSZ0OKTDKw
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - body_jammed
+  - defense
+  - positioning
+  topic_tags:
+  - body_jammed
+  - defense
+  - positioning
+  stroke_tags:
+  - drive
+  - doubles
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot
+    metadata_json: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/metadata.json
+    video_file: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/source_video
+    audio_file: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/keyframes
+    asr_json: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/pose.json
+    run_log: data/raw-private/video-corpus/extra-002-lh_yt_body_jammed_shot/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-002-lh_yt_body_jammed_shot.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-003-lh_yt_consistency
+  source_id: LH_YT_CONSISTENCY
+  title: Consistency training public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=EQWjM4kY86M
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - match_transfer
+  topic_tags:
+  - consistency
+  - training_plan
+  - match_transfer
+  stroke_tags:
+  - all
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-003-lh_yt_consistency
+    metadata_json: data/raw-private/video-corpus/extra-003-lh_yt_consistency/metadata.json
+    video_file: data/raw-private/video-corpus/extra-003-lh_yt_consistency/source_video
+    audio_file: data/raw-private/video-corpus/extra-003-lh_yt_consistency/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-003-lh_yt_consistency/keyframes
+    asr_json: data/raw-private/video-corpus/extra-003-lh_yt_consistency/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-003-lh_yt_consistency/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-003-lh_yt_consistency/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-003-lh_yt_consistency/pose.json
+    run_log: data/raw-private/video-corpus/extra-003-lh_yt_consistency/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-003-lh_yt_consistency.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-004-lh_yt_contact_point
+  source_id: LH_YT_CONTACT_POINT
+  title: High-clear contact point answer
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=NCPydBSIAOI
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  topic_tags:
+  - contact_point
+  - high_clear
+  - overhead
+  stroke_tags:
+  - high_clear
+  selection_score: 17
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-004-lh_yt_contact_point
+    metadata_json: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/metadata.json
+    video_file: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/source_video
+    audio_file: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/keyframes
+    asr_json: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/pose.json
+    run_log: data/raw-private/video-corpus/extra-004-lh_yt_contact_point/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-004-lh_yt_contact_point.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-005-lh_yt_drop_footwork
+  source_id: LH_YT_DROP_FOOTWORK
+  title: Receive-drop footwork teaching
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=AKg2HgkEBAA
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - rear_footwork
+  topic_tags:
+  - receive_drop
+  - footwork
+  - front_court
+  stroke_tags:
+  - footwork
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork
+    metadata_json: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/metadata.json
+    video_file: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/source_video
+    audio_file: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/keyframes
+    asr_json: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/pose.json
+    run_log: data/raw-private/video-corpus/extra-005-lh_yt_drop_footwork/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-005-lh_yt_drop_footwork.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-006-lh_yt_explosive_power
+  source_id: LH_YT_EXPLOSIVE_POWER
+  title: Explosive power public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=HyPKlRKTgNQ
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  topic_tags:
+  - explosive_power
+  - kinetic_chain
+  - overhead
+  stroke_tags:
+  - smash
+  - high_clear
+  selection_score: 23
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power
+    metadata_json: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/metadata.json
+    video_file: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/source_video
+    audio_file: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/keyframes
+    asr_json: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/pose.json
+    run_log: data/raw-private/video-corpus/extra-006-lh_yt_explosive_power/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-006-lh_yt_explosive_power.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-007-lh_yt_find_contact_point
+  source_id: LH_YT_FIND_CONTACT_POINT
+  title: Find the hitting point public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=YuRCvCFFgOM
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - contact_point
+  - diagnosis
+  - system
+  topic_tags:
+  - contact_point
+  - diagnosis
+  - system
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point
+    metadata_json: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/metadata.json
+    video_file: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/source_video
+    audio_file: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/keyframes
+    asr_json: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/pose.json
+    run_log: data/raw-private/video-corpus/extra-007-lh_yt_find_contact_point/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-007-lh_yt_find_contact_point.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-008-lh_yt_fit_system
+  source_id: LH_YT_FIT_SYSTEM
+  title: Choose a suitable personal system public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=H_0aSulQB8E
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - student_fit
+  - system
+  - framework
+  topic_tags:
+  - student_fit
+  - system
+  - framework
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-008-lh_yt_fit_system
+    metadata_json: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/metadata.json
+    video_file: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/source_video
+    audio_file: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/keyframes
+    asr_json: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/pose.json
+    run_log: data/raw-private/video-corpus/extra-008-lh_yt_fit_system/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-008-lh_yt_fit_system.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-009-lh_yt_footwork_fit
+  source_id: LH_YT_FOOTWORK_FIT
+  title: Choose suitable footwork
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=0dQIjvi3VeQ
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - rear_footwork
+  topic_tags:
+  - student_fit
+  - footwork
+  - selection
+  stroke_tags:
+  - footwork
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit
+    metadata_json: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/metadata.json
+    video_file: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/source_video
+    audio_file: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/keyframes
+    asr_json: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/pose.json
+    run_log: data/raw-private/video-corpus/extra-009-lh_yt_footwork_fit/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-009-lh_yt_footwork_fit.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-010-lh_yt_head_backhand_corner
+  source_id: LH_YT_HEAD_BACKHAND_CORNER
+  title: Head-area backhand sideline public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=dKiH07WYHuA
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - rear_footwork
+  topic_tags:
+  - head_area
+  - backhand_corner
+  - overhead
+  stroke_tags:
+  - backhand
+  - footwork
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner
+    metadata_json: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/metadata.json
+    video_file: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/source_video
+    audio_file: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/keyframes
+    asr_json: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/pose.json
+    run_log: data/raw-private/video-corpus/extra-010-lh_yt_head_backhand_corner/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-010-lh_yt_head_backhand_corner.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-011-lh_yt_heavy_smash_framework
+  source_id: LH_YT_HEAVY_SMASH_FRAMEWORK
+  title: Heavy smash framework
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=EXz5UKf4Bm0
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - power_framework
+  topic_tags:
+  - smash
+  - power_framework
+  - overhead
+  stroke_tags:
+  - smash
+  selection_score: 23
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework
+    metadata_json: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/metadata.json
+    video_file: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/source_video
+    audio_file: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/keyframes
+    asr_json: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/pose.json
+    run_log: data/raw-private/video-corpus/extra-011-lh_yt_heavy_smash_framework/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-011-lh_yt_heavy_smash_framework.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-012-lh_yt_hip_rotation
+  source_id: LH_YT_HIP_ROTATION
+  title: What hip rotation is and how to rotate hips
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=m7orGSn9LHA
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  topic_tags:
+  - hip_rotation
+  - kinetic_chain
+  - overhead
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation
+    metadata_json: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/metadata.json
+    video_file: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/source_video
+    audio_file: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/keyframes
+    asr_json: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/pose.json
+    run_log: data/raw-private/video-corpus/extra-012-lh_yt_hip_rotation/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-012-lh_yt_hip_rotation.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-013-lh_yt_internal_rotation
+  source_id: LH_YT_INTERNAL_ROTATION
+  title: Internal rotation power training
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=PoDigRi3cec
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - internal_rotation
+  topic_tags:
+  - internal_rotation
+  - pronation
+  - power
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation
+    metadata_json: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/metadata.json
+    video_file: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/source_video
+    audio_file: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/keyframes
+    asr_json: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/pose.json
+    run_log: data/raw-private/video-corpus/extra-013-lh_yt_internal_rotation/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-013-lh_yt_internal_rotation.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-014-lh_yt_passive_rear_court
+  source_id: LH_YT_PASSIVE_REAR_COURT
+  title: Passive rear-court pressure is not only footwork
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=xg9g0Y83SZc
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  topic_tags:
+  - late_arrival
+  - passive_rear_court
+  - diagnosis
+  stroke_tags:
+  - footwork
+  - high_clear
+  selection_score: 23
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court
+    metadata_json: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/metadata.json
+    video_file: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/source_video
+    audio_file: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/keyframes
+    asr_json: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/pose.json
+    run_log: data/raw-private/video-corpus/extra-014-lh_yt_passive_rear_court/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-014-lh_yt_passive_rear_court.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-015-lh_yt_passive_whip
+  source_id: LH_YT_PASSIVE_WHIP
+  title: Passive rear-court whip explanation
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=4cPaX_vQXR4
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  topic_tags:
+  - passive_rear_court
+  - whip
+  - overhead
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip
+    metadata_json: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/metadata.json
+    video_file: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/source_video
+    audio_file: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/keyframes
+    asr_json: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/pose.json
+    run_log: data/raw-private/video-corpus/extra-015-lh_yt_passive_whip/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-015-lh_yt_passive_whip.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-016-lh_yt_practical_footwork
+  source_id: LH_YT_PRACTICAL_FOOTWORK
+  title: Practical footwork teaching
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=BdTJQGxu_RE
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - rear_footwork
+  topic_tags:
+  - footwork
+  - practical_training
+  - training_plan
+  stroke_tags:
+  - footwork
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork
+    metadata_json: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/metadata.json
+    video_file: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/source_video
+    audio_file: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/keyframes
+    asr_json: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/pose.json
+    run_log: data/raw-private/video-corpus/extra-016-lh_yt_practical_footwork/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-016-lh_yt_practical_footwork.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-017-lh_yt_pronation_whip
+  source_id: LH_YT_PRONATION_WHIP
+  title: Internal rotation and whip teaching clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=ryhcSDdF6gE
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  topic_tags:
+  - pronation
+  - whip
+  - overhead_power
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 37
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip
+    metadata_json: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/metadata.json
+    video_file: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/source_video
+    audio_file: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/keyframes
+    asr_json: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/pose.json
+    run_log: data/raw-private/video-corpus/extra-017-lh_yt_pronation_whip/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-017-lh_yt_pronation_whip.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-018-lh_yt_rear_transition
+  source_id: LH_YT_REAR_TRANSITION
+  title: Forehand rear-court transition public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=vM131HBDBEY
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  topic_tags:
+  - rear_court_transition
+  - footwork
+  - overhead
+  stroke_tags:
+  - footwork
+  - high_clear
+  selection_score: 23
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition
+    metadata_json: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/metadata.json
+    video_file: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/source_video
+    audio_file: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/keyframes
+    asr_json: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/pose.json
+    run_log: data/raw-private/video-corpus/extra-018-lh_yt_rear_transition/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-018-lh_yt_rear_transition.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-019-lh_yt_receive_drop_alt
+  source_id: LH_YT_RECEIVE_DROP_ALT
+  title: Receive-drop footwork alternative
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=ipwM0JUbLdc
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - rear_footwork
+  topic_tags:
+  - receive_drop
+  - footwork
+  - front_court
+  stroke_tags:
+  - footwork
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt
+    metadata_json: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/metadata.json
+    video_file: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/source_video
+    audio_file: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/keyframes
+    asr_json: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/pose.json
+    run_log: data/raw-private/video-corpus/extra-019-lh_yt_receive_drop_alt/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-019-lh_yt_receive_drop_alt.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-020-lh_yt_relaxed_power
+  source_id: LH_YT_RELAXED_POWER
+  title: Relaxation and power public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=3mE81vMHYC8
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - relaxation
+  - power
+  - tension
+  topic_tags:
+  - relaxation
+  - power
+  - tension
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power
+    metadata_json: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/metadata.json
+    video_file: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/source_video
+    audio_file: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/keyframes
+    asr_json: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/pose.json
+    run_log: data/raw-private/video-corpus/extra-020-lh_yt_relaxed_power/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-020-lh_yt_relaxed_power.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-021-lh_yt_tactical_intel
+  source_id: LH_YT_TACTICAL_INTEL
+  title: Gather tactical intel public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=PsYnamMP8R4
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - match_analysis
+  - tactics
+  - observation
+  topic_tags:
+  - match_analysis
+  - tactics
+  - observation
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel
+    metadata_json: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/metadata.json
+    video_file: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/source_video
+    audio_file: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/keyframes
+    asr_json: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/pose.json
+    run_log: data/raw-private/video-corpus/extra-021-lh_yt_tactical_intel/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-021-lh_yt_tactical_intel.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-022-lh_yt_tension_observation
+  source_id: LH_YT_TENSION_OBSERVATION
+  title: Observe tension and action quality
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=2YqbTeUAMh4
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - tension
+  - diagnosis
+  - observation
+  topic_tags:
+  - tension
+  - diagnosis
+  - observation
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation
+    metadata_json: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/metadata.json
+    video_file: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/source_video
+    audio_file: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/keyframes
+    asr_json: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/pose.json
+    run_log: data/raw-private/video-corpus/extra-022-lh_yt_tension_observation/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-022-lh_yt_tension_observation.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-023-lh_yt_three_frameworks
+  source_id: LH_YT_THREE_FRAMEWORKS
+  title: Three rear-court frameworks and power methods
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=cvXC_0jbZOY
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - power_framework
+  - student_fit
+  - overhead
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 37
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks
+    metadata_json: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/metadata.json
+    video_file: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/source_video
+    audio_file: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/keyframes
+    asr_json: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/pose.json
+    run_log: data/raw-private/video-corpus/extra-023-lh_yt_three_frameworks/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-023-lh_yt_three_frameworks.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-024-lh_yt_top_elbow_clear
+  source_id: LH_YT_TOP_ELBOW_CLEAR
+  title: Top-elbow high clear teaching clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=fvmKvrvbn4o
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - top_elbow
+  topic_tags:
+  - top_elbow
+  - high_clear
+  - contact_point
+  stroke_tags:
+  - high_clear
+  selection_score: 27
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear
+    metadata_json: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/metadata.json
+    video_file: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/source_video
+    audio_file: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/keyframes
+    asr_json: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/pose.json
+    run_log: data/raw-private/video-corpus/extra-024-lh_yt_top_elbow_clear/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-024-lh_yt_top_elbow_clear.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first
+- job_id: extra-025-lh_yt_whip_mechanics
+  source_id: LH_YT_WHIP_MECHANICS
+  title: Whip mechanics public clip
+  platform: YouTube
+  url: https://www.youtube.com/watch?v=HVcfxRrCK7k
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  topic_tags:
+  - whip
+  - mechanics
+  - overhead
+  stroke_tags:
+  - high_clear
+  - smash
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics
+    metadata_json: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/metadata.json
+    video_file: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/source_video
+    audio_file: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/keyframes
+    asr_json: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/asr.json
+    ocr_json: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/ocr.json
+    vlm_json: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/vlm.json
+    pose_json: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/pose.json
+    run_log: data/raw-private/video-corpus/extra-025-lh_yt_whip_mechanics/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/extra-025-lh_yt_whip_mechanics.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first

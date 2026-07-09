@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1UN411T72O
+job_id: corpus-036-lh_bili_season_bv1un411t72o
+title: 刘辉教练告诉你正手不好发力的原因是什么
+url: https://www.bilibili.com/video/BV1uN411T72o/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-036-lh_bili_season_bv1un411t72o
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 205
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-036-lh_bili_season_bv1un411t72o-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 205 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.4-2.2s, 2.2-3.5s, 3.5-4.0s, 4.0-5.8s,
+    5.8-6.8s, 6.8-8.6s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

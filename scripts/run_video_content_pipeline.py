@@ -158,6 +158,7 @@ def yt_dlp_command() -> list[str] | None:
 
 def yt_dlp_network_options(args: argparse.Namespace) -> list[str]:
     return [
+        "--force-ipv4",
         "--socket-timeout",
         str(args.yt_dlp_socket_timeout),
         "--retries",

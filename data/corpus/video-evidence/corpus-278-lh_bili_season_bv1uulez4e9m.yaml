@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1UULEZ4E9M
+job_id: corpus-278-lh_bili_season_bv1uulez4e9m
+title: 羽毛球劈吊斜线从0到1全过程！业余成人班学员劈吊框架细节调整！框架可太重要啦！价值一亿
+url: https://www.bilibili.com/video/BV1uULEz4E9M/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-278-lh_bili_season_bv1uulez4e9m
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 405
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-278-lh_bili_season_bv1uulez4e9m-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 405 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 3.1-5.1s, 5.1-7.4s, 7.4-10.2s, 10.2-12.0s,
+    12.0-14.9s, 14.9-15.4s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,57 @@
+source_id: LH_BILI_SEASON_BV1ER421W7WE
+job_id: corpus-150-lh_bili_season_bv1er421w7we
+title: 300和315平衡点有什么区别？羽毛球拍平衡点的秘密！
+url: https://www.bilibili.com/video/BV1er421W7WE/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-150-lh_bili_season_bv1er421w7we
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 33
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-150-lh_bili_season_bv1er421w7we-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 33 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-4.3s, 4.3-6.3s, 6.3-7.6s, 7.6-9.1s,
+    9.1-10.2s, 10.2-11.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

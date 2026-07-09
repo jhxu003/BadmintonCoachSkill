@@ -240,3 +240,30 @@
   blocked_use: Do not diagnose the footwork pattern from the racket action alone.
   source_ids: [LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1NWRRBTEDY, LH_BILI_SEASON_BV1AYKWBJEUV]
   evidence_ids: [pilot-006-w002-malay-step-overrotation, pilot-017-w003-half-side-fast-power, pilot-003-w003-roll-abdomen-and-short-force-window]
+
+- rule_id: full-corpus-student-fit-diagnosis-first
+  teaching_point_id: full-corpus-student-fit-diagnosis-first
+  decision: full_corpus_timestamp_candidate_requires_human_review
+  allowed_use: When observations are incomplete, first classify learner level, goal, body constraints, and current transfer problem before selecting a power framework or isolated cue.
+  blocked_use: Do not claim the exact diagnostic sequence is human timestamp-reviewed or Liu Hui's wording.
+  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  support_topics: [diagnosis_flow, training_plan, student_fit]
+  candidate_window_count: 3649
+
+- rule_id: full-corpus-overhead-power-chain-selection
+  teaching_point_id: full-corpus-overhead-power-chain-selection
+  decision: full_corpus_timestamp_candidate_requires_human_review
+  allowed_use: For high-clear and smash diagnosis, rank visible arrival/contact/frame issues before advanced wrist, whip, or internal-rotation proxy advice.
+  blocked_use: Do not diagnose true shoulder internal rotation without visible frame evidence.
+  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  support_topics: [smash, top_elbow, internal_rotation, racket_preparation, high_clear, wrist, hip_rotation, contact_point, safety]
+  candidate_window_count: 6311
+
+- rule_id: full-corpus-transfer-before-complexity
+  teaching_point_id: full-corpus-transfer-before-complexity
+  decision: full_corpus_timestamp_candidate_requires_human_review
+  allowed_use: If drill form is acceptable but rallies fail, request incoming-ball, timing, recovery, partner, and first-two-shot evidence before adding more technique.
+  blocked_use: Do not infer rally tactics from a single isolated stroke clip.
+  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  support_topics: [match_transfer, footwork, drop, serve_receive, drive, doubles]
+  candidate_window_count: 1117

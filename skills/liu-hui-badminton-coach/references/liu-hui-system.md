@@ -6,7 +6,9 @@ This file stores original, research-oriented summaries derived from public sourc
 
 The current runtime system is complete against the public-source index in this repository, not an official Liu Hui archive. Use `data/source-index.tsv` and `data/corpus/teaching-points.yaml` for provenance. Do not promote `needs_timestamp_review` points into firm rules without timestamped review.
 
-The video-content pilot has processed 30 indexed public Bilibili teaching videos. Private VLM parsing succeeded for all 30 videos. ASR succeeded for 25 videos, producing 90 timestamp candidate teaching windows; 5 sources are currently VLM-only and require audio/ASR before speech-derived teaching-window claims. These windows have been distilled into `timestamp_candidate_requires_human_review` rules, timestamp-candidate frameworks, rubrics, drills, and training plans, but they remain model-derived until human timestamp review.
+The video-content pilot processed 30 indexed public Bilibili teaching videos. The expanded Bilibili ASR pass then processed 378 of 379 remaining public Bilibili corpus jobs with full-audio `mobiuslabsgmbh/faster-whisper-large-v3-turbo`; one public page now resolves to a missing-video placeholder. The combined pilot + corpus pass produced 2567 public-safe timestamp candidate teaching windows across 401 sources in `data/corpus/video-asr-teaching-windows-full.yaml`. These windows are model-derived and remain pending human timestamp review.
+
+`references/full-corpus-synthesis.yaml` is the current complete system map for the indexed public corpus. It organizes the expanded evidence into student-fit diagnosis, safety/equipment/load, footwork arrival/recovery, rear-court base, overhead power chain, smash variants, drop/slide variation, backhand/rear-corner choice, drive/receive exchange, and singles/doubles match transfer. Treat it as the runtime routing layer before reading the narrower rubrics.
 
 ## Working Hypothesis
 
@@ -40,7 +42,7 @@ The distinctive coaching value to model is not a single "standard swing." It is 
 
 ## Video Pilot Distillation
 
-`data/corpus/video-asr-teaching-windows.yaml` stores public-safe original summaries only. Raw ASR text, audio, video, OCR, VLM outputs, cookies, tokens, and paid-course material must stay private.
+`data/corpus/video-asr-teaching-windows.yaml` stores curated pilot candidate windows. `data/corpus/video-asr-teaching-windows-full.yaml` stores expanded full-corpus public-safe candidate windows. Raw ASR text, audio, video, OCR, VLM outputs, cookies, tokens, temporary media URLs, and paid-course material must stay private.
 
 Use timestamp-candidate material as follows:
 

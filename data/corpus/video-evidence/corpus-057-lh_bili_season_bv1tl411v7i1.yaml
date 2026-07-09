@@ -1,0 +1,57 @@
+source_id: LH_BILI_SEASON_BV1TL411V7I1
+job_id: corpus-057-lh_bili_season_bv1tl411v7i1
+title: 刘辉羽毛球直播2022-11-04：如何杀垂直下落的球
+url: https://www.bilibili.com/video/BV1tL411v7i1/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-057-lh_bili_season_bv1tl411v7i1
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 56
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-057-lh_bili_season_bv1tl411v7i1-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - bilibili_season_metadata
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 56 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-1.4s, 1.4-2.8s, 2.8-5.9s, 5.9-6.4s,
+    6.4-8.6s, 8.6-9.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

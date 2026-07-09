@@ -22,6 +22,7 @@ Read the references needed for the action:
 
 - Always read `references/report-contract.md`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
+- Read `references/full-corpus-synthesis.yaml` when the user asks about Liu Hui system coverage, framework choice, or whether the skill reflects the expanded video corpus.
 - Read `references/reviewed-corpus-rules.yaml` before promoting a title-level or timestamp-review item into advice.
 - Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
@@ -44,7 +45,18 @@ Read the references needed for the action:
 
 ## Runtime Framework Surface
 
-The runtime framework library covers student-fit paths, equipment fit, high-clear rebuilds, racket preparation, contact window, top elbow, grip/finger power, wrist position, arm path, hip/trunk power, whip/internal rotation, unloading/deceleration, relaxation, smash variants, drop/slice/slide variants, footwork/recovery, backhand, drive/receive defense, singles/doubles tactics, match transfer, and safety-load selection.
+The runtime framework library covers 67 selectable frameworks. Route diagnosis through these layers, using `references/full-corpus-synthesis.yaml` for the expanded corpus map:
+
+- Student-fit and diagnosis: learner path, training goal, body constraints, injury risk, and retest condition.
+- Safety, equipment, and load: pain, shoulder/elbow range, jump load, racket weight, and mobility limits.
+- Footwork arrival and recovery: start, first step, rear/front arrival, exit, and next-shot recovery.
+- Rear-court base and high clear: contact window, racket-side frame, top elbow, racket preparation, and simple release.
+- Overhead power chain: hip/trunk drive, arm path, grip/finger transfer, wrist release, whip, and internal-rotation proxy checks.
+- Smash variants: simple, heavy, fast, Bawang-style, low-loaded, point smash, jump smash, angle, slice smash, and deceleration/release.
+- Drop and variation: light drop, heavy slice, deceptive drop, slide/drop, cut shot, and passive rear-point variation.
+- Backhand and rear-corner choice: overhead/half-side/backhand solution choice, contact height, face stability, and backhand release.
+- Drive, receive, and fast exchange: body-jammed spacing, compact preparation, push/drive power, receive-smash defense, and second-shot recovery.
+- Singles/doubles tactics and match transfer: rally pressure, partner coverage, shot quality, and pressure retests.
 
 ## Diagnosis Flow
 

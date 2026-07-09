@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1XM4Y1B73W
+job_id: corpus-040-lh_bili_season_bv1xm4y1b73w
+title: 刘辉教练教你双脚起跳后怎么卷腹发力
+url: https://www.bilibili.com/video/BV1Xm4y1B73w/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-040-lh_bili_season_bv1xm4y1b73w
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 96
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-040-lh_bili_season_bv1xm4y1b73w-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 96 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-4.0s, 4.0-6.7s, 6.7-8.8s, 8.8-10.9s,
+    10.9-13.1s, 13.1-17.8s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

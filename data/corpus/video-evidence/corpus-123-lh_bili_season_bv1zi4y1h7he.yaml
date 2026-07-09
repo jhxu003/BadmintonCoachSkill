@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1ZI4Y1H7HE
+job_id: corpus-123-lh_bili_season_bv1zi4y1h7he
+title: 为什么越使劲越打不出去？刘辉教练教你正手发力关键技巧！并不是绝对力量大就能打的远
+url: https://www.bilibili.com/video/BV1Zi4y1h7he/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-123-lh_bili_season_bv1zi4y1h7he
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 241
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-123-lh_bili_season_bv1zi4y1h7he-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 241 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.8-12.7s, 12.7-13.9s, 13.9-16.1s, 16.1-18.3s,
+    18.3-19.8s, 19.8-22.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

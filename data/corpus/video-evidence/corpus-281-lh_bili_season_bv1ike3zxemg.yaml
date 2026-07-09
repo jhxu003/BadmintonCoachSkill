@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1IKE3ZXEMG
+job_id: corpus-281-lh_bili_season_bv1ike3zxemg
+title: 正手后场被动发力教学！羽毛球正手过渡抽球两点发力技巧！专治发不上力抡大臂
+url: https://www.bilibili.com/video/BV1iKE3zXEMG/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-281-lh_bili_season_bv1ike3zxemg
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 168
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-281-lh_bili_season_bv1ike3zxemg-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 168 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 3.0-4.2s, 4.2-5.1s, 5.1-5.6s, 5.6-7.0s,
+    7.0-7.7s, 7.7-9.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,59 @@
+source_id: LH_BILI_BIG_ARM_INTERNAL_ROTATION
+job_id: corpus-365-lh_bili_big_arm_internal_rotation
+title: Big-arm stop and internal-rotation training
+url: https://www.bilibili.com/video/BV1a64y1P76h/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-365-lh_bili_big_arm_internal_rotation
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 94
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-365-lh_bili_big_arm_internal_rotation-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - internal_rotation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 94 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 4.2-15.8s, 15.8-18.2s, 18.2-20.1s, 20.1-23.1s,
+    23.1-25.9s, 25.9-29.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

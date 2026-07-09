@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1XR421T7Z3
+job_id: corpus-188-lh_bili_season_bv1xr421t7z3
+title: 如何提高打球稳定性？掌握这个方法即可
+url: https://www.bilibili.com/video/BV1Xr421T7z3/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-188-lh_bili_season_bv1xr421t7z3
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 62
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-188-lh_bili_season_bv1xr421t7z3-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 62 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.0-3.4s, 3.4-5.6s, 5.6-7.8s, 7.8-8.8s,
+    8.8-9.5s, 9.5-22.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

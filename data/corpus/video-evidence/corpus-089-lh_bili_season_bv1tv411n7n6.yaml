@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1TV411N7N6
+job_id: corpus-089-lh_bili_season_bv1tv411n7n6
+title: 越想发力却越发不上力？羽毛球初学者和进阶必看 不看错过十个亿的鞭打发力教程
+url: https://www.bilibili.com/video/BV1tV411N7N6/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-089-lh_bili_season_bv1tv411n7n6
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 319
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-089-lh_bili_season_bv1tv411n7n6-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 319 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-3.0s, 3.0-7.3s, 7.3-9.1s, 9.1-10.9s,
+    10.9-13.4s, 13.4-18.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

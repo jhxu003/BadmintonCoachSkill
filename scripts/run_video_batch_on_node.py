@@ -101,6 +101,11 @@ def parse_args() -> argparse.Namespace:
         default="data/corpus/video-evidence-index.tsv",
     )
     parser.add_argument(
+        "--no-rebuild-index",
+        action="store_true",
+        help="Do not rebuild the public evidence index after each job. Use this for parallel batch runs and rebuild once after all batches finish.",
+    )
+    parser.add_argument(
         "--skip-ok-asr",
         action="store_true",
         help="Skip jobs whose private ASR JSON already has status ok.",
@@ -341,7 +346,8 @@ def main() -> None:
         else:
             result = run_one_job(job, args, run_dir, env)
         summary["results"].append(result)
-        summary["evidence_files_indexed"] = rebuild_index(args.evidence_index)
+        if not args.no_rebuild_index:
+            summary["evidence_files_indexed"] = rebuild_index(args.evidence_index)
         summary_path.write_text(
             json.dumps(summary, ensure_ascii=False, indent=2),
             encoding="utf-8",

@@ -1,0 +1,57 @@
+manifest_id: asr_status_retry_manifest_20260709
+created_at: '2026-07-09'
+base_manifest: data/corpus/video-corpus-manifest.yaml
+include_statuses:
+- failed
+- missing
+- skipped
+- unreadable
+summary:
+  retry_jobs: 1
+  asr_status_counts:
+    ok: 378
+    skipped: 1
+jobs:
+- job_id: corpus-370-lh_bili_core_competition
+  source_id: LH_BILI_CORE_COMPETITION
+  title: Liu Hui core competition public clip
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1qh4y1f7sZ/
+  published_at: unknown
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - match_transfer
+  topic_tags:
+  - core_competition
+  - match_transfer
+  - system
+  stroke_tags:
+  - all
+  selection_score: 13
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition
+    metadata_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/source_video
+    audio_file: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/pose.json
+    run_log: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-370-lh_bili_core_competition.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    asr_status: skipped
+    reason: audio file missing; run audio stage first

@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV13F5EZDEN4
+job_id: corpus-277-lh_bili_season_bv13f5ezden4
+title: 羽毛球滑拍吊球完整教学！教你打出稳定的带有隐蔽性的快速滑板吊斜线球！23分钟极限版 价值十亿！
+url: https://www.bilibili.com/video/BV13f5EzdEN4/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-277-lh_bili_season_bv13f5ezden4
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 844
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-277-lh_bili_season_bv13f5ezden4-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 844 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 3.6-4.7s, 4.7-5.6s, 5.6-6.7s, 6.7-7.1s,
+    7.1-8.9s, 8.9-9.5s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1WX4Y197QK
+job_id: corpus-097-lh_bili_season_bv1wx4y197qk
+title: 闪动发力感觉握不紧球拍怎么办，明白手指发力的底层原理问题自然迎刃而解，主要是明白哪些手指是起固定作用，哪些是起发力作用
+url: https://www.bilibili.com/video/BV1wx4y197qk/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-097-lh_bili_season_bv1wx4y197qk
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 191
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-097-lh_bili_season_bv1wx4y197qk-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 191 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-0.9s, 0.9-3.2s, 3.2-5.7s, 5.7-6.8s,
+    6.8-8.0s, 8.0-10.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

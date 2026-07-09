@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1XACMYBEO7
+job_id: corpus-219-lh_bili_season_bv1xacmybeo7
+title: 致命的滑板吊球教学！羽毛球高阶吊球必学项！太好用了有没有
+url: https://www.bilibili.com/video/BV1XaCmYBEo7/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-219-lh_bili_season_bv1xacmybeo7
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 431
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-219-lh_bili_season_bv1xacmybeo7-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 431 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-1.4s, 1.4-6.7s, 6.7-7.9s, 7.9-10.3s,
+    10.3-13.8s, 13.8-15.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

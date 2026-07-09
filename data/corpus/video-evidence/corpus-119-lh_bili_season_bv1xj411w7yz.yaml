@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1XJ411W7YZ
+job_id: corpus-119-lh_bili_season_bv1xj411w7yz
+title: 高远球为什么打不远？刘辉教练教你高远球又高又远的秘诀！发力最基础的关键点 今日一亿自取
+url: https://www.bilibili.com/video/BV1xj411W7Yz/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-119-lh_bili_season_bv1xj411w7yz
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 224
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-119-lh_bili_season_bv1xj411w7yz-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 224 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 7.6-10.0s, 10.0-13.9s, 13.9-15.6s, 15.6-18.3s,
+    18.3-20.0s, 20.0-22.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

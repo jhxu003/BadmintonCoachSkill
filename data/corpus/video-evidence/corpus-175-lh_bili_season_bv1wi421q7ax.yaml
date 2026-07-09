@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1WI421Q7AX
+job_id: corpus-175-lh_bili_season_bv1wi421q7ax
+title: 高远球放松发力的秘诀！轻松打到底线的方法！
+url: https://www.bilibili.com/video/BV1wi421Q7Ax/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-175-lh_bili_season_bv1wi421q7ax
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 253
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-175-lh_bili_season_bv1wi421q7ax-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 253 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.3-2.3s, 2.3-6.5s, 6.5-10.5s, 10.5-12.1s,
+    12.1-13.8s, 13.8-15.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

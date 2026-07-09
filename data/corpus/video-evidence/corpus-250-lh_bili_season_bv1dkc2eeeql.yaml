@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1DKC2EEEQL
+job_id: corpus-250-lh_bili_season_bv1dkc2eeeql
+title: 羽毛球杀球协调性教学！杀球动作僵硬发不上力等问题纠正！业余示范使蛮力纠错！
+url: https://www.bilibili.com/video/BV1dKc2eEEqL/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-250-lh_bili_season_bv1dkc2eeeql
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 177
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-250-lh_bili_season_bv1dkc2eeeql-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 177 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.4-2.9s, 2.9-6.0s, 6.0-7.2s, 7.2-9.0s,
+    9.0-11.2s, 11.2-13.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

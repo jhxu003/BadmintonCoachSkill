@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1N54Y1U7M6
+job_id: corpus-018-lh_bili_season_bv1n54y1u7m6
+title: 刘辉教练教你避免抡大臂的秘诀：锁肩
+url: https://www.bilibili.com/video/BV1N54y1u7M6/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-018-lh_bili_season_bv1n54y1u7m6
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 65
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-018-lh_bili_season_bv1n54y1u7m6-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 65 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.6-1.8s, 1.8-3.4s, 3.4-3.8s, 3.8-6.5s,
+    6.5-7.5s, 7.5-8.1s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

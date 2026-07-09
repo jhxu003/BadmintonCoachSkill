@@ -13,6 +13,8 @@ This is now a complete public-system skill build plus an expanded public Bilibil
 - A full coaching taxonomy covering student profiles, power frameworks, stroke families, footwork families, correction order, drill families, training plans, and match transfer.
 - A timestamp-review ledger covering all 21 previously blocked teaching points. The ledger records whole-clip title-backed notes and promotion decisions, but it does not claim internal timestamp completion where public subtitles or direct YouTube/Douyin access are unavailable.
 - A content-level model pilot over 30 indexed public Bilibili videos, with 30 successful VLM jobs, 25 successful ASR jobs, 90 public-safe timestamp candidate teaching windows, and candidate-window distillation into skill rules, rubrics, drills, and training plans.
+- A full-audio ASR pass over the remaining indexed public Bilibili corpus: 378 of 379 jobs succeeded; 1 public page is currently unavailable. Combined pilot + corpus scanning produced 2567 public-safe timestamp candidate teaching windows across 401 sources in `video-asr-teaching-windows-full.yaml`.
+- Extra platform manifest for 24 YouTube links and 1 Instagram auxiliary link; direct media access from this environment failed, so these remain discovery/title-level context until platform access is available.
 - Deterministic examples for high clear, smash, rear-court footwork, front-court footwork, backhand, serve/receive, and doubles.
 
 ## Known Gap
@@ -50,3 +52,18 @@ On 2026-07-08 and 2026-07-09, a content-level ASR/VLM pilot was run for 30 index
 - The current skill distills these windows into candidate-level rules, rubrics, drills, and training plans with `timestamp_candidate_requires_human_review` or `timestamp_candidate` status.
 - Raw ASR segments remain private under `data/raw-private/video-corpus/`.
 - Compute-node runs from shared `/dataStor` Python environments hit NFS wait states; full batch parsing should use a conda-packed runtime, model cache, and audio/video intermediates on node-local storage before scaling.
+
+## Full Bilibili ASR Pass
+
+On 2026-07-09, the expanded Bilibili corpus was processed with full-audio ASR.
+
+- Manifest: `video-corpus-manifest.yaml`
+- Jobs: 379
+- ASR ok: 378
+- Unavailable: `LH_BILI_CORE_COMPETITION`
+- Public evidence files indexed: 409
+- Full candidate-window file: `video-asr-teaching-windows-full.yaml`
+- Candidate windows: 2567
+- Sources with candidate windows: 401
+
+All full-corpus windows remain `pending_human_review`. They support framework selection and review queues, not exact quotation or final timestamp-reviewed claims.

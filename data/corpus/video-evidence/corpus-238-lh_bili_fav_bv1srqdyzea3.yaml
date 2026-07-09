@@ -1,0 +1,57 @@
+source_id: LH_BILI_FAV_BV1SRQDYZEA3
+job_id: corpus-238-lh_bili_fav_bv1srqdyzea3
+title: 史上最全挥拍教学！专治各种羽毛球错误发力！初学发不上力必看！价值百亿！
+url: https://www.bilibili.com/video/BV1SRqDYZEa3/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-238-lh_bili_fav_bv1srqdyzea3
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 757
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-238-lh_bili_fav_bv1srqdyzea3-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 757 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-1.1s, 1.1-2.8s, 2.8-6.7s, 6.7-10.5s,
+    10.5-11.3s, 11.3-12.6s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

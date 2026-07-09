@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
+job_id: corpus-290-lh_bili_season_bv1q4jrz3eps
+title: 羽毛球后场发力教学！专治发力不集中 问题的根本在这！18分钟纠错小姐姐！看懂跟练
+url: https://www.bilibili.com/video/BV1q4jRz3EpS/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-290-lh_bili_season_bv1q4jrz3eps
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 628
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-290-lh_bili_season_bv1q4jrz3eps-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 628 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 3.1-5.1s, 5.1-7.4s, 7.4-9.3s, 9.3-10.7s,
+    10.7-13.5s, 13.5-14.6s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

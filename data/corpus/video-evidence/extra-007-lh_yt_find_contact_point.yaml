@@ -1,0 +1,51 @@
+source_id: LH_YT_FIND_CONTACT_POINT
+job_id: extra-007-lh_yt_find_contact_point
+title: Find the hitting point public clip
+url: https://www.youtube.com/watch?v=YuRCvCFFgOM
+platform: YouTube
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: extra-007-lh_yt_find_contact_point
+  stages:
+    asr:
+      status: skipped
+      reason: audio file missing; run audio stage first
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: skipped
+    reason: audio file missing; run audio stage first
+    stage: asr
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: extra-007-lh_yt_find_contact_point-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - contact_point
+  - diagnosis
+  - system
+  evidence_level: needs_content_model_review
+  review_status: model_not_run
+  promotion_target: none_until_reviewed
+  asr_summary: ASR did not produce usable timestamped content.
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

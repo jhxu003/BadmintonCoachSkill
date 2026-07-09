@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1WM411M7UF
+job_id: corpus-164-lh_bili_season_bv1wm411m7uf
+title: 如何让杀球残暴？就这两点！
+url: https://www.bilibili.com/video/BV1wm411m7Uf/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-164-lh_bili_season_bv1wm411m7uf
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 96
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-164-lh_bili_season_bv1wm411m7uf-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 96 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.8-4.3s, 4.3-6.1s, 6.1-8.0s, 8.0-25.3s,
+    25.3-26.1s, 26.1-31.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

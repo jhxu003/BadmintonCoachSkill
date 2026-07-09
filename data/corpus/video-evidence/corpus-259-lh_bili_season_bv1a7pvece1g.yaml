@@ -1,0 +1,65 @@
+source_id: LH_BILI_SEASON_BV1A7PVECE1G
+job_id: corpus-259-lh_bili_season_bv1a7pvece1g
+title: 羽毛球暴力杀球教学！如何提升挥速，让球速快如闪电的秘诀！最后有练习方法
+url: https://www.bilibili.com/video/BV1A7PVeCE1G/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-259-lh_bili_season_bv1a7pvece1g
+  stages:
+    metadata:
+      status: ok
+      returncode: 0
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 114
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-259-lh_bili_season_bv1a7pvece1g-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 114 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 3.7-5.5s, 5.5-7.9s, 7.9-9.6s, 9.6-12.0s,
+    12.0-13.6s, 13.6-14.4s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

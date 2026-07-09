@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1P34Y1V7QA
+job_id: corpus-107-lh_bili_season_bv1p34y1v7qa
+title: 遁地炮杀球有多重？刘辉教练教你国际女双常用的重杀这样打 一亿来了
+url: https://www.bilibili.com/video/BV1p34y1V7qa/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-107-lh_bili_season_bv1p34y1v7qa
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 211
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-107-lh_bili_season_bv1p34y1v7qa-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 211 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-1.4s, 1.4-7.1s, 7.1-9.1s, 9.1-11.3s,
+    11.3-12.0s, 12.0-12.8s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

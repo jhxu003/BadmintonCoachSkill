@@ -6,7 +6,7 @@ This repository separates private video processing from public skill evidence.
 
 ```text
 source-index public URL
-  -> video pilot manifest
+  -> video manifest
   -> private metadata/audio/video/keyframe/model artifacts
   -> public timestamp evidence summaries
   -> human review
@@ -21,21 +21,22 @@ source-index public URL
 - `needs_content_model_review` means only metadata/title-level evidence exists; it must not be promoted into a deterministic skill rule.
 - `source_backed` is reserved for reviewed timestamp evidence or explicitly reviewed short public clips.
 
-## Pilot Result
+## Current Result
 
-The current content-model pilot covers 30 public Bilibili jobs from `data/corpus/video-pilot-manifest.yaml`.
+The first content-model pilot covered 30 public Bilibili jobs from `data/corpus/video-pilot-manifest.yaml`. The current main corpus run then expanded to the indexed public Bilibili corpus in `data/corpus/video-corpus-manifest.yaml`.
 
-- 30 jobs produced `content_model_candidate` evidence.
-- All 30 jobs have private VLM parsing output and public-safe evidence records.
-- 25 jobs also produced ASR windows from the first 180 seconds of audio.
-- 5 jobs are currently VLM-only; they must not be used for speech-derived teaching-window claims until audio/ASR is added.
-- 90 timestamp teaching windows were extracted into `data/corpus/video-asr-teaching-windows.yaml`.
-- All 90 windows are `pending_human_review`.
+- Pilot jobs: 30.
+- Expanded Bilibili corpus jobs: 379.
+- Full-audio ASR completed: 378 of 379 expanded corpus jobs.
+- Unavailable public page: `LH_BILI_CORE_COMPETITION`.
+- Combined pilot + corpus jobs scanned for teaching windows: 409.
+- Sources with candidate windows: 401.
+- Public-safe timestamp candidate windows: 2567 in `data/corpus/video-asr-teaching-windows-full.yaml`.
 - `faster-whisper tiny` was rejected because badminton terms were unstable.
-- `mobiuslabsgmbh/faster-whisper-large-v3-turbo` is the preferred ASR model for candidate-window extraction after the pilot.
-- `Qwen2.5-VL-3B-Instruct` with teaching-window-guided keyframe sampling was accepted for visual candidate review on the 30-video pilot.
+- `mobiuslabsgmbh/faster-whisper-large-v3-turbo` is the accepted ASR model for candidate-window extraction.
+- `Qwen2.5-VL-3B-Instruct` with teaching-window-guided keyframe sampling remains the accepted visual candidate-review model from the pilot.
 
-The ASR pilot only parsed the first 180 seconds of each successful audio job, and the VLM pilot used sampled keyframes rather than dense full-video understanding. Full-video parsing should keep the same public/private boundary and should not promote model-only windows to firm rules until human review.
+The expanded Bilibili ASR pass parsed full audio. The visual pilot used sampled keyframes rather than dense full-video understanding. Future visual scaling should keep the same public/private boundary and should not promote model-only windows to firm rules until human review.
 
 Compute-node runs should use a conda-built runtime, node-local model cache, and node-local audio/video intermediates to avoid shared-filesystem stalls. In the pilot, shared `/dataStor` Python environments could enter NFS wait states; the stable pattern was to unpack the conda environment and cache models under `/tmp` on the GPU node, then copy back only small public-safe JSON/YAML/log summaries.
 
@@ -59,10 +60,10 @@ Run audio ASR pilot after installing `faster-whisper`:
 python3 scripts/run_video_content_pipeline.py --limit 1 --stages metadata,audio,asr,evidence --asr-model small
 ```
 
-Evaluate whether the pilot can be promoted:
+Build the expanded public Bilibili corpus manifest:
 
 ```bash
-python3 scripts/evaluate_video_pilot.py
+python3 scripts/build_video_corpus_manifest.py
 ```
 
 Heavy model stages should run on a compute node, for example:
@@ -90,5 +91,4 @@ After a batch run, rebuild the public-safe index:
 
 ```bash
 python3 scripts/rebuild_video_evidence_index.py
-python3 scripts/evaluate_video_pilot.py
 ```

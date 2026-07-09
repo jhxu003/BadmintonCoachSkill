@@ -134,13 +134,66 @@ def select_pilot_sources(source_index_path: Path, limit: int = 30) -> list[Selec
     return selected
 
 
+def select_public_video_sources(
+    source_index_path: Path,
+    *,
+    platforms: set[str] | None = None,
+    authorization_statuses: set[str] | None = None,
+    include_auxiliary: bool = False,
+) -> list[SelectedSource]:
+    rows = read_source_index(source_index_path)
+    selected: list[SelectedSource] = []
+    seen_urls: set[str] = set()
+    allowed_platforms = platforms or {"Bilibili"}
+    allowed_auth = authorization_statuses or {"official", "authorized", "public"}
+
+    for row in rows:
+        if row.get("source_type") != "video":
+            continue
+        if row.get("access_type") != "public":
+            continue
+        if row.get("platform") not in allowed_platforms:
+            continue
+        if row.get("authorization_status") not in allowed_auth:
+            continue
+        if not include_auxiliary and row.get("usability") == "auxiliary":
+            continue
+        url = row.get("url", "")
+        if not url or url in seen_urls:
+            continue
+        topics = matched_priority_topics(row)
+        if not topics:
+            topics = split_tags(row.get("topic_tags", "")) or ["public_video"]
+        score = len(topics) * 10
+        if row.get("authorization_status") == "authorized":
+            score += 8
+        elif row.get("authorization_status") == "official":
+            score += 10
+        elif row.get("authorization_status") == "public":
+            score += 3
+        if row.get("usability") == "usable":
+            score += 4
+        selected.append(SelectedSource(source=row, priority_topics=topics, score=score))
+        seen_urls.add(url)
+
+    selected.sort(
+        key=lambda item: (
+            item.source.get("platform", ""),
+            item.source.get("published_at", "9999-99-99") or "9999-99-99",
+            item.source.get("source_id", ""),
+        )
+    )
+    return selected
+
+
 def build_processing_job(
     selected: SelectedSource,
     index: int,
     private_root: str = "data/raw-private/video-corpus",
+    job_prefix: str = "pilot",
 ) -> dict[str, Any]:
     row = selected.source
-    job_id = f"pilot-{index:03d}-{row['source_id'].lower()}"
+    job_id = f"{job_prefix}-{index:03d}-{row['source_id'].lower()}"
     private_dir = f"{private_root}/{job_id}"
     public_evidence_path = f"data/corpus/video-evidence/{job_id}.yaml"
     return {

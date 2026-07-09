@@ -1,0 +1,259 @@
+scope:
+  status: full_indexed_bilibili_asr_pass_with_one_unavailable_source
+  generated_at: '2026-07-09'
+  non_official_notice: This is a non-official research synthesis, not a Liu Hui-authored or authorized document.
+  completion_boundary: Complete against the current public Bilibili source index and discovery manifests in this repository; not a claim of owning every video ever published by Liu Hui across all platforms.
+  parsed_sources:
+    pilot_manifest_jobs: 30
+    corpus_manifest_jobs: 379
+    total_jobs_scanned_for_windows: 409
+    corpus_asr_ok: 378
+    corpus_asr_unavailable:
+      - source_id: LH_BILI_CORE_COMPETITION
+        job_id: corpus-370-lh_bili_core_competition
+        reason: Public Bilibili page currently resolves to a missing-video placeholder.
+    sources_with_full_window_candidates: 401
+    full_window_candidates: 2567
+    extra_platform_jobs_indexed: 25
+    extra_platform_asr_ok: 0
+    extra_platform_access_status: Direct YouTube/Instagram media access failed in this environment; keep as discovery/title-level context.
+  files:
+    full_windows: data/corpus/video-asr-teaching-windows-full.yaml
+    evidence_index: data/corpus/video-evidence-index.tsv
+    parse_status: data/corpus/video-parse-status.md
+
+topic_coverage:
+  diagnosis_flow: 1411
+  training_plan: 1212
+  smash: 1158
+  student_fit: 1026
+  top_elbow: 1024
+  internal_rotation: 814
+  racket_preparation: 689
+  high_clear: 651
+  wrist: 589
+  safety: 563
+  hip_rotation: 413
+  contact_point: 410
+  match_transfer: 271
+  footwork: 263
+  drop: 257
+  serve_receive: 132
+  drive: 128
+  doubles: 66
+
+system_layers:
+  - layer_id: student_fit_and_diagnosis
+    role: Choose the learner path, learning order, current goal, and retest condition before isolated technical cues.
+    support_topics: [diagnosis_flow, training_plan, student_fit]
+    topic_window_count: 3649
+    framework_ids:
+      - learner-fit-sequence-frame
+      - match-transfer-frame
+      - mobility-safe-frame
+      - tactical-observation-frame
+      - equipment-fit-frame
+    training_plan_ids: [one-priority-daily, match-transfer-progression]
+    routing_rule: If observations are incomplete, classify level, goal, body constraints, injury risk, and match-transfer need before selecting a stroke framework.
+    boundary: Counts are ASR-derived coverage signals, not exact teaching frequency.
+
+  - layer_id: rear_court_base_and_high_clear
+    role: Build arrival, front-high contact, racket-side frame, top-elbow structure, and simple release as the base for high clear and later attack.
+    support_topics: [high_clear, top_elbow, racket_preparation, contact_point, safety]
+    topic_window_count: 3337
+    framework_ids:
+      - stable-overhead-frame
+      - high-clear-base-power-frame
+      - high-clear-action-change-frame
+      - contact-window-frame
+      - top-elbow-frame
+      - standard-ready-racket-frame
+      - racket-face-control-frame
+      - left-side-balance-frame
+      - shoulder-extension-frame
+      - timestamp-standard-compact-frame
+    training_plan_ids: [overhead-rebuild, overhead-framework-selector]
+    routing_rule: For high-clear distance or stability problems, rank arrival and contact before elbow, wrist, hip, or internal-rotation advice.
+    boundary: True contact and elbow diagnosis still require visible frame/keypoint evidence from the user's video.
+
+  - layer_id: overhead_power_chain
+    role: Add lower-body drive, trunk timing, arm-path organization, grip/finger contribution, wrist release, whip, and internal-rotation proxy checks only after base frame holds.
+    support_topics: [smash, internal_rotation, wrist, hip_rotation, top_elbow, contact_point, safety]
+    topic_window_count: 4971
+    framework_ids:
+      - kinetic-chain-frame
+      - whip-release-frame
+      - internal-rotation-frame
+      - concentrated-power-frame
+      - flash-power-frame
+      - relaxed-follow-through-frame
+      - wrist-position-frame
+      - grip-finger-power-frame
+      - hip-trunk-power-frame
+      - tension-observation-frame
+      - arm-path-correction-frame
+      - timestamp-foot-ground-hip-drive
+      - timestamp-arm-segment-transfer
+      - timestamp-wrist-contact-transfer
+    training_plan_ids: [hip-drive-rebuild, overhead-rebuild]
+    routing_rule: Treat internal rotation, wrist, and whip as release-chain outcomes; do not prescribe them when contact, frame, or safety evidence fails.
+    boundary: ASR can identify candidate teaching windows, but internal rotation needs visual proxy evidence and should be worded as a proxy diagnosis.
+
+  - layer_id: smash_variant_system
+    role: Separate simple smash, heavy smash, fast smash, Bawang-style power, low-loaded smash, point smash, jump smash, angle correction, slice smash, and deceleration/release.
+    support_topics: [smash, top_elbow, internal_rotation, hip_rotation, wrist, safety]
+    topic_window_count: 4561
+    framework_ids:
+      - simple-smash-sequence-frame
+      - heavy-smash-frame
+      - fast-smash-frame
+      - bawang-smash-frame
+      - low-loaded-smash-frame
+      - point-smash-frame
+      - jump-smash-airtime-frame
+      - smash-angle-frame
+      - slice-smash-frame
+      - deceleration-release-frame
+      - timestamp-time-budget-frame
+      - timestamp-framework-tradeoff-selector
+      - timestamp-china-jump-recovery
+    training_plan_ids: [jump-smash-readiness, overhead-framework-selector]
+    routing_rule: Choose the smash variant by player prerequisites, incoming-ball time, desired ball effect, and recovery cost instead of saying only "more power" or "more angle".
+    boundary: Elite or specialized frames must not be recommended to beginners unless prerequisites and safety are visible.
+
+  - layer_id: drop_slice_slide_variation
+    role: Treat drop, slice drop, heavy slice, deceptive drop, slide/drop, cut shot, and passive rear-point variation as separate tasks layered on base overhead disguise and contact control.
+    support_topics: [drop, racket_preparation, contact_point, match_transfer]
+    topic_window_count: 1627
+    framework_ids:
+      - slice-drop-slide-frame
+      - light-drop-frame
+      - heavy-slice-drop-frame
+      - deceptive-drop-frame
+      - cut-shot-frame
+      - timestamp-drop-variant-selector
+    training_plan_ids: [drop-slide-variant-rebuild]
+    routing_rule: Ask which drop variant and target line the player is attempting before judging touch, slice amount, or body direction.
+    boundary: Low-count categories require direct observation and should not override visible overhead base failures.
+
+  - layer_id: footwork_arrival_recovery
+    role: Diagnose rear-court and front-court movement through start, first step, arrival, body organization, contact condition, exit, and recovery to the next shot.
+    support_topics: [footwork, match_transfer, safety]
+    topic_window_count: 1097
+    framework_ids:
+      - passive-rear-transition-frame
+      - start-position-recovery-frame
+      - half-side-attack-frame
+      - rear-court-overhead-frame
+      - lazy-legs-recovery-frame
+      - front-court-arrival-frame
+      - elastic-footwork-frame
+      - timestamp-china-jump-recovery
+    training_plan_ids: [footwork-recovery-rebuild, match-transfer-progression]
+    routing_rule: When the stroke breaks in rallies, check whether late arrival or poor recovery caused the technical fault before changing hand mechanics.
+    boundary: Footwork load advice must respect pain, knee/ankle/back risk, and missing lower-body visibility.
+
+  - layer_id: backhand_and_rear_corner_choice
+    role: Decide whether rear-corner failure is an overhead choice, half-side transition, passive backhand, contact-height issue, face-control issue, or backhand whip/release problem.
+    support_topics: [footwork, contact_point, wrist, match_transfer]
+    topic_window_count: 1533
+    framework_ids:
+      - backhand-passive-frame
+      - backhand-corner-choice-frame
+      - backhand-whip-frame
+      - rear-court-overhead-frame
+      - whip-release-frame
+      - concentrated-power-frame
+    training_plan_ids: [footwork-recovery-rebuild, match-transfer-progression]
+    routing_rule: Do not reduce backhand diagnosis to wrist strength until arrival, solution choice, contact height, racket face, and recovery have been checked.
+    boundary: Current backhand rules are partly title-level or candidate-backed; require direct video evidence for firm advice.
+
+  - layer_id: drive_receive_and_front_exchange
+    role: Diagnose body-jammed shots, push/drive power, receive-smash defense, compact receive, high serve control, and front-court fast exchange through spacing, preparation size, face stability, and second-shot recovery.
+    support_topics: [drive, serve_receive, doubles, match_transfer, safety]
+    topic_window_count: 1160
+    framework_ids:
+      - body-jammed-drive-frame
+      - push-drive-power-frame
+      - receive-smash-defense-frame
+      - compact-frontcourt-receive-frame
+      - serve-high-clear-frame
+      - front-court-arrival-frame
+    training_plan_ids: [one-priority-daily, match-transfer-progression]
+    routing_rule: For flat-exchange and receive failures, request ready-racket, spacing, preparation-size, and second-shot evidence before giving full-swing advice.
+    boundary: Serve/receive and drive categories have fewer windows than overhead topics; keep confidence bounded.
+
+  - layer_id: doubles_singles_tactics_and_match_transfer
+    role: Connect shot quality, recovery, partner coverage, singles pressure, doubles fast exchange, and rally retests.
+    support_topics: [match_transfer, doubles, drive, serve_receive, footwork]
+    topic_window_count: 860
+    framework_ids:
+      - doubles-rear-continuity-frame
+      - doubles-fast-exchange-frame
+      - singles-tactical-core-frame
+      - tactical-observation-frame
+      - match-transfer-frame
+    training_plan_ids: [match-transfer-progression]
+    routing_rule: Do not infer tactics from one isolated stroke clip; require rally, partner, incoming-ball, and recovery context.
+    boundary: Third-party discussion and blocked-platform sources can guide product questions only, not technical authority.
+
+  - layer_id: safety_equipment_and_load_selection
+    role: Keep pain, mobility limits, shoulder/elbow range, jump load, racket weight, and training dose inside every technical prescription.
+    support_topics: [safety, training_plan, student_fit]
+    topic_window_count: 2801
+    framework_ids:
+      - mobility-safe-frame
+      - equipment-fit-frame
+      - shoulder-extension-frame
+      - relaxed-follow-through-frame
+      - tension-observation-frame
+    training_plan_ids: [one-priority-daily, footwork-recovery-rebuild, jump-smash-readiness]
+    routing_rule: If pain or load risk is present, select a lower-risk frame and reduce intensity before chasing idealized form.
+    boundary: This skill is not medical advice; pain requires intensity reduction and qualified professional assessment.
+
+diagnostic_routing_order:
+  - student_fit_and_diagnosis
+  - safety_equipment_and_load_selection
+  - footwork_arrival_recovery
+  - rear_court_base_and_high_clear
+  - overhead_power_chain
+  - smash_variant_system
+  - drop_slice_slide_variation
+  - backhand_and_rear_corner_choice
+  - drive_receive_and_front_exchange
+  - doubles_singles_tactics_and_match_transfer
+
+full_corpus_system_read:
+  - system_id: full-corpus-student-fit-first
+    summary: The expanded ASR corpus strongly supports treating diagnosis, training-plan selection, and student-fit framework choice as the first layer before isolated stroke cues.
+    support_topics: [diagnosis_flow, training_plan, student_fit]
+    candidate_window_count: 3649
+    usage: Use to choose a learner-fit path, correction order, and retest metric before prescribing hand, elbow, hip, or footwork details.
+    boundary: Candidate-window synthesis only; do not describe as human timestamp-reviewed.
+
+  - system_id: full-corpus-overhead-power-chain
+    summary: Overhead and smash advice should be organized around racket preparation, top-elbow frame, contact window, hip/trunk contribution, internal-rotation proxy cues, wrist/grip transfer, and safe follow-through.
+    support_topics: [smash, top_elbow, internal_rotation, racket_preparation, high_clear, wrist, hip_rotation, contact_point, safety]
+    candidate_window_count: 6311
+    usage: Use as the main selection surface for high clear and smash reports.
+    boundary: True shoulder internal rotation still requires visible frame evidence; ASR alone can only create review targets.
+
+  - system_id: full-corpus-transfer-before-complexity
+    summary: Match-transfer, footwork, serve/receive, drive, doubles, and drop topics appear as separate transfer problems, not just stroke-shape problems.
+    support_topics: [match_transfer, footwork, drop, serve_receive, drive, doubles]
+    candidate_window_count: 1117
+    usage: When drill form is acceptable but rallies fail, ask for incoming-ball, recovery, partner, and first-two-shot evidence before adding more technique.
+    boundary: Low-count categories need direct observation and should not be over-weighted against visible overhead errors.
+
+promotion_rules:
+  - Candidate-window counts may influence framework ranking and review queues.
+  - A narrow technical claim becomes source-backed only after human timestamp review or independent public evidence supports that exact claim.
+  - Do not quote, paraphrase closely, or reconstruct raw ASR transcripts.
+  - If a user asks "why did you judge this", cite visible user-video observations plus the relevant framework/rubric, not raw Liu Hui transcript text.
+
+runtime_usage_rules:
+  - Load this file after corpus-provenance and before choosing a framework when the user asks for Liu Hui system coverage.
+  - Treat counts as coverage signals, not truth scores or exact quote frequency.
+  - Use full-corpus candidates to ask better diagnostic questions, rank likely frameworks, and choose review targets.
+  - Do not quote, paraphrase closely, or reconstruct private ASR transcripts.
+  - Promote a candidate to a firm rule only after human timestamp review or independent public evidence supports the same narrow claim.

@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1VX4Y1A71T
+job_id: corpus-032-lh_bili_season_bv1vx4y1a71t
+title: 杀球压不下去？刘辉教练教你杀球如何下压技巧
+url: https://www.bilibili.com/video/BV1vx4y1A71t/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-032-lh_bili_season_bv1vx4y1a71t
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 124
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-032-lh_bili_season_bv1vx4y1a71t-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 124 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.5-8.8s, 8.8-11.0s, 11.0-12.9s, 12.9-14.2s,
+    14.2-16.2s, 16.2-17.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

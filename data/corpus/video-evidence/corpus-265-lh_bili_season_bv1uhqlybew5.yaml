@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1UHQLYBEW5
+job_id: corpus-265-lh_bili_season_bv1uhqlybew5
+title: 做内旋发力为何会肩膀疼？业余学羽毛球发力大臂和肩膀位置问题纠错！特别是学过球的人反而更容易中招
+url: https://www.bilibili.com/video/BV1uhQLYbEw5/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-265-lh_bili_season_bv1uhqlybew5
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 68
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-265-lh_bili_season_bv1uhqlybew5-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 68 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 1.6-4.3s, 4.3-9.1s, 9.1-10.6s, 10.6-11.5s,
+    11.5-14.1s, 14.1-15.4s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

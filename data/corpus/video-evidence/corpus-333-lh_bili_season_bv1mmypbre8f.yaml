@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1MMYPBRE8F
+job_id: corpus-333-lh_bili_season_bv1mmypbre8f
+title: 爆改业余遁地炮杀球教学！刘辉教练团高政泽教练的杀球教学哦！价值几亿你说吧！多处细节
+url: https://www.bilibili.com/video/BV1MmypBRE8F/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-333-lh_bili_season_bv1mmypbre8f
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 560
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-333-lh_bili_season_bv1mmypbre8f-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 560 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.0-2.6s, 2.6-4.7s, 4.7-7.8s, 7.8-10.8s,
+    10.8-11.5s, 11.5-18.6s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

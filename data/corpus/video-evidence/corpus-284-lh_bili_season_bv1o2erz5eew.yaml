@@ -1,0 +1,60 @@
+source_id: LH_BILI_SEASON_BV1O2ERZ5EEW
+job_id: corpus-284-lh_bili_season_bv1o2erz5eew
+title: 羽毛球后场发力教学(一)业余挥拍发力通病多细节纠正！完整版第一部分 价值十亿
+url: https://www.bilibili.com/video/BV1o2ERz5EEw/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-284-lh_bili_season_bv1o2erz5eew
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 684
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-284-lh_bili_season_bv1o2erz5eew-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  - student_fit
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 684 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 4.0-4.9s, 4.9-7.3s, 7.3-8.5s, 8.5-10.9s,
+    10.9-13.2s, 13.2-14.4s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

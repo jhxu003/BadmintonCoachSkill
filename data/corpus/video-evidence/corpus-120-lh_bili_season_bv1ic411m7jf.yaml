@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1IC411M7JF
+job_id: corpus-120-lh_bili_season_bv1ic411m7jf
+title: 正手高远球怎么发？刘辉教练教你发一个又高又远垂直下落的高远球动作技巧 中高级进阶同样适用
+url: https://www.bilibili.com/video/BV1ic411m7jF/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-120-lh_bili_season_bv1ic411m7jf
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 119
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-120-lh_bili_season_bv1ic411m7jf-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 119 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 4.6-5.6s, 5.6-8.2s, 8.2-10.3s, 10.3-11.6s,
+    11.6-13.8s, 13.8-15.4s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

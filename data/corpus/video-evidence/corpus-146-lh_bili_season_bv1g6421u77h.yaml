@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1G6421U77H
+job_id: corpus-146-lh_bili_season_bv1g6421u77h
+title: 高远球如何打到底线？两个方法提升发力感！后场大发力教学速成版！14分钟极限输出
+url: https://www.bilibili.com/video/BV1g6421u77h/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-146-lh_bili_season_bv1g6421u77h
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 498
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-146-lh_bili_season_bv1g6421u77h-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 498 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-0.8s, 0.8-2.1s, 2.1-7.2s, 7.2-11.9s,
+    11.9-14.1s, 14.1-16.8s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

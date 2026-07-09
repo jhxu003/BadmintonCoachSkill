@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1ZD421G7X9
+job_id: corpus-174-lh_bili_season_bv1zd421g7x9
+title: 如何提升挥速？挥速的底层逻辑！球速慢的根本原因！
+url: https://www.bilibili.com/video/BV1ZD421g7x9/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-174-lh_bili_season_bv1zd421g7x9
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 338
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-174-lh_bili_season_bv1zd421g7x9-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 338 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.3-4.4s, 4.4-5.5s, 5.5-8.1s, 8.1-9.9s,
+    9.9-11.8s, 11.8-12.9s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

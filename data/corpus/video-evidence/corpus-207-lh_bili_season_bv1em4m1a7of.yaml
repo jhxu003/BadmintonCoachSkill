@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1EM4M1A7OF
+job_id: corpus-207-lh_bili_season_bv1em4m1a7of
+title: 为什么滑拍吊球没有球速？这速度快赶上杀球了
+url: https://www.bilibili.com/video/BV1EM4m1a7of/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-207-lh_bili_season_bv1em4m1a7of
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 301
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-207-lh_bili_season_bv1em4m1a7of-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 301 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 8.2-9.5s, 9.5-10.7s, 10.7-11.4s, 11.4-13.1s,
+    13.1-14.6s, 14.6-15.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

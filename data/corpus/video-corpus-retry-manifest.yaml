@@ -1,0 +1,1454 @@
+manifest_id: video_retry_manifest_20260709
+created_at: '2026-07-09'
+base_manifest: data/corpus/video-corpus-manifest.yaml
+source_summaries:
+- data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/summary.json
+- data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/summary.json
+- data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/summary.json
+summary:
+  retry_jobs: 31
+  missing_from_base_manifest: 0
+  retry_status_counts:
+    skipped: 31
+jobs:
+- job_id: corpus-012-lh_bili_season_bv1z54y1a74y
+  source_id: LH_BILI_SEASON_BV1Z54Y1A74Y
+  title: 刘辉教练告诉你杀球的击球点在哪里
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Z54y1A74y/
+  published_at: '2023-02-16'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  topic_tags:
+  - smash
+  - contact_point
+  stroke_tags:
+  - smash
+  selection_score: 18
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y
+    metadata_json: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/source_video
+    audio_file: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/pose.json
+    run_log: data/raw-private/video-corpus/corpus-012-lh_bili_season_bv1z54y1a74y/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-012-lh_bili_season_bv1z54y1a74y.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-012-lh_bili_season_bv1z54y1a74y.log
+- job_id: corpus-013-lh_bili_season_bv1te4y1c7qn
+  source_id: LH_BILI_SEASON_BV1TE4Y1C7QN
+  title: 刘辉教练教你打不到甜区怎么办
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1te4y1c7QN/
+  published_at: '2023-02-20'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - bilibili_season_metadata
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn
+    metadata_json: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/source_video
+    audio_file: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/pose.json
+    run_log: data/raw-private/video-corpus/corpus-013-lh_bili_season_bv1te4y1c7qn/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-013-lh_bili_season_bv1te4y1c7qn.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-013-lh_bili_season_bv1te4y1c7qn.log
+- job_id: corpus-014-lh_bili_season_bv1884y1h7mi
+  source_id: LH_BILI_SEASON_BV1884Y1H7MI
+  title: 刘辉教练教你怎么能放松协调发力
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1884y1H7mi/
+  published_at: '2023-02-21'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi
+    metadata_json: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/source_video
+    audio_file: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/pose.json
+    run_log: data/raw-private/video-corpus/corpus-014-lh_bili_season_bv1884y1h7mi/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-014-lh_bili_season_bv1884y1h7mi.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-014-lh_bili_season_bv1884y1h7mi.log
+- job_id: corpus-015-lh_bili_season_bv1f54y1w7nr
+  source_id: LH_BILI_SEASON_BV1F54Y1W7NR
+  title: 刘辉教练教你在被动无法发力时如何强行发力
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1f54y1w7nr/
+  published_at: '2023-02-21'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 23
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr
+    metadata_json: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/source_video
+    audio_file: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/pose.json
+    run_log: data/raw-private/video-corpus/corpus-015-lh_bili_season_bv1f54y1w7nr/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-015-lh_bili_season_bv1f54y1w7nr.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-015-lh_bili_season_bv1f54y1w7nr.log
+- job_id: corpus-016-lh_bili_season_bv1go4y1v7ns
+  source_id: LH_BILI_SEASON_BV1GO4Y1V7NS
+  title: 刘辉教练教你看正确的击球点
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Go4y1v7NS/
+  published_at: '2023-02-22'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - contact_point
+  stroke_tags:
+  - smash
+  selection_score: 43
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns
+    metadata_json: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/source_video
+    audio_file: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/pose.json
+    run_log: data/raw-private/video-corpus/corpus-016-lh_bili_season_bv1go4y1v7ns/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-016-lh_bili_season_bv1go4y1v7ns.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-016-lh_bili_season_bv1go4y1v7ns.log
+- job_id: corpus-017-lh_bili_season_bv1ms4y157m3
+  source_id: LH_BILI_SEASON_BV1MS4Y157M3
+  title: 不看错过一个亿的最细鞭打发力教学
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1ms4y157m3/
+  published_at: '2023-03-02'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3
+    metadata_json: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/source_video
+    audio_file: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/pose.json
+    run_log: data/raw-private/video-corpus/corpus-017-lh_bili_season_bv1ms4y157m3/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-017-lh_bili_season_bv1ms4y157m3.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-017-lh_bili_season_bv1ms4y157m3.log
+- job_id: corpus-018-lh_bili_season_bv1n54y1u7m6
+  source_id: LH_BILI_SEASON_BV1N54Y1U7M6
+  title: 刘辉教练教你避免抡大臂的秘诀：锁肩
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1N54y1u7M6/
+  published_at: '2023-03-02'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - arm_path
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6
+    metadata_json: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/source_video
+    audio_file: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/pose.json
+    run_log: data/raw-private/video-corpus/corpus-018-lh_bili_season_bv1n54y1u7m6/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-018-lh_bili_season_bv1n54y1u7m6.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-018-lh_bili_season_bv1n54y1u7m6.log
+- job_id: corpus-019-lh_bili_season_bv1h8411c7p2
+  source_id: LH_BILI_SEASON_BV1H8411C7P2
+  title: 刘辉教练教你如何“暴力架拍”爆发力架拍
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1H8411c7P2/
+  published_at: '2023-03-06'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 43
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2
+    metadata_json: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/source_video
+    audio_file: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/pose.json
+    run_log: data/raw-private/video-corpus/corpus-019-lh_bili_season_bv1h8411c7p2/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-019-lh_bili_season_bv1h8411c7p2.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-019-lh_bili_season_bv1h8411c7p2.log
+- job_id: corpus-020-lh_bili_season_bv1x24y1372d
+  source_id: LH_BILI_SEASON_BV1X24Y1372D
+  title: 刘辉教练教你如何处理后场头顶被动球（兼评亚狮龙七号球）
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1X24y1372d/
+  published_at: '2023-03-10'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - bilibili_season_metadata
+  stroke_tags:
+  - all
+  selection_score: 33
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d
+    metadata_json: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/source_video
+    audio_file: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/pose.json
+    run_log: data/raw-private/video-corpus/corpus-020-lh_bili_season_bv1x24y1372d/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-020-lh_bili_season_bv1x24y1372d.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-020-lh_bili_season_bv1x24y1372d.log
+- job_id: corpus-021-lh_bili_season_bv1ss4y1v7tb
+  source_id: LH_BILI_SEASON_BV1SS4Y1V7TB
+  title: 刘辉教练教你乱拳打死老师傅的“遁地炮”杀球
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Ss4y1V7TB/
+  published_at: '2023-03-11'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 18
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb
+    metadata_json: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/source_video
+    audio_file: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/pose.json
+    run_log: data/raw-private/video-corpus/corpus-021-lh_bili_season_bv1ss4y1v7tb/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-021-lh_bili_season_bv1ss4y1v7tb.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-021-lh_bili_season_bv1ss4y1v7tb.log
+- job_id: corpus-022-lh_bili_season_bv1et411r76m
+  source_id: LH_BILI_SEASON_BV1ET411R76M
+  title: 刘辉教练教你杀球找不到击球点怎么办？
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1eT411r76M/
+  published_at: '2023-03-13'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  topic_tags:
+  - smash
+  - contact_point
+  stroke_tags:
+  - smash
+  selection_score: 18
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m
+    metadata_json: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/source_video
+    audio_file: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/pose.json
+    run_log: data/raw-private/video-corpus/corpus-022-lh_bili_season_bv1et411r76m/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-022-lh_bili_season_bv1et411r76m.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-a
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-a/corpus-022-lh_bili_season_bv1et411r76m.log
+- job_id: corpus-137-lh_bili_season_bv1764y1a79d
+  source_id: LH_BILI_SEASON_BV1764Y1A79D
+  title: 被动了动作变形怎么办？刘辉教练教你一招解决动作变形如何发力！醍醐灌顶！太有用了 有没有！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1764y1A79d/
+  published_at: '2024-01-20'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 28
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d
+    metadata_json: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/source_video
+    audio_file: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/pose.json
+    run_log: data/raw-private/video-corpus/corpus-137-lh_bili_season_bv1764y1a79d/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-137-lh_bili_season_bv1764y1a79d.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-137-lh_bili_season_bv1764y1a79d.log
+- job_id: corpus-138-lh_bili_season_bv1dg4y1y74q
+  source_id: LH_BILI_SEASON_BV1DG4Y1Y74Q
+  title: 震惊，刘辉教练早在12年就在研究内旋发力，整整领先中羽探讨这个问题好几年
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1dg4y1Y74q/
+  published_at: '2024-01-26'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - power
+  - internal_rotation
+  stroke_tags:
+  - all
+  - high_clear
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q
+    metadata_json: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/source_video
+    audio_file: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/pose.json
+    run_log: data/raw-private/video-corpus/corpus-138-lh_bili_season_bv1dg4y1y74q/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-138-lh_bili_season_bv1dg4y1y74q.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-138-lh_bili_season_bv1dg4y1y74q.log
+- job_id: corpus-139-lh_bili_season_bv1k6421g7yb
+  source_id: LH_BILI_SEASON_BV1K6421G7YB
+  title: 杀球怎么用腰腹力量？刘辉教练教你有了这种感觉就是用上了！实际上和我感觉系列！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1k6421G7Yb/
+  published_at: '2024-01-31'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb
+    metadata_json: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/source_video
+    audio_file: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/pose.json
+    run_log: data/raw-private/video-corpus/corpus-139-lh_bili_season_bv1k6421g7yb/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-139-lh_bili_season_bv1k6421g7yb.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-139-lh_bili_season_bv1k6421g7yb.log
+- job_id: corpus-140-lh_bili_season_bv1r2421w7dx
+  source_id: LH_BILI_SEASON_BV1R2421W7DX
+  title: 为什么正手过渡学不会？刘辉教练教你有了这种感觉才能学会！不看又错过一个亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1R2421w7DX/
+  published_at: '2024-01-31'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  topic_tags:
+  - bilibili_season_metadata
+  stroke_tags:
+  - all
+  selection_score: 28
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx
+    metadata_json: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/source_video
+    audio_file: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/pose.json
+    run_log: data/raw-private/video-corpus/corpus-140-lh_bili_season_bv1r2421w7dx/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-140-lh_bili_season_bv1r2421w7dx.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-140-lh_bili_season_bv1r2421w7dx.log
+- job_id: corpus-141-lh_bili_live_qa_20240202
+  source_id: LH_BILI_LIVE_QA_20240202
+  title: Dagi Badminton Liu Hui live teaching clip collection 20240202
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1yM411L72x/
+  published_at: '2024-02-02'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - live_teaching
+  - qa
+  - authorized_clip
+  - system
+  topic_tags:
+  - live_teaching
+  - qa
+  - authorized_clip
+  - system
+  stroke_tags:
+  - all
+  selection_score: 52
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202
+    metadata_json: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/source_video
+    audio_file: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/pose.json
+    run_log: data/raw-private/video-corpus/corpus-141-lh_bili_live_qa_20240202/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-141-lh_bili_live_qa_20240202.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-141-lh_bili_live_qa_20240202.log
+- job_id: corpus-142-lh_bili_season_bv1rp421d7om
+  source_id: LH_BILI_SEASON_BV1RP421D7OM
+  title: 杀球太平不够尖怎么办？杀球压下去的动作技巧！不看又错过一个亿~
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1rp421d7om/
+  published_at: '2024-02-03'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om
+    metadata_json: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/source_video
+    audio_file: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/pose.json
+    run_log: data/raw-private/video-corpus/corpus-142-lh_bili_season_bv1rp421d7om/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-142-lh_bili_season_bv1rp421d7om.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-142-lh_bili_season_bv1rp421d7om.log
+- job_id: corpus-143-lh_bili_season_bv1jj4m1b7wm
+  source_id: LH_BILI_SEASON_BV1JJ4M1B7WM
+  title: 头顶被动怎么顶回后场？羽毛球被动高点位击球发力技巧！不看又错过一个亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1jJ4m1b7Wm/
+  published_at: '2024-02-04'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm
+    metadata_json: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/source_video
+    audio_file: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/pose.json
+    run_log: data/raw-private/video-corpus/corpus-143-lh_bili_season_bv1jj4m1b7wm/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-143-lh_bili_season_bv1jj4m1b7wm.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-143-lh_bili_season_bv1jj4m1b7wm.log
+- job_id: corpus-144-lh_bili_season_bv1mm411d7vq
+  source_id: LH_BILI_SEASON_BV1MM411D7VQ
+  title: 为什么打球姿势不协调？动作好看的发力技巧
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Mm411D7VQ/
+  published_at: '2024-02-13'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 28
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq
+    metadata_json: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/source_video
+    audio_file: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/pose.json
+    run_log: data/raw-private/video-corpus/corpus-144-lh_bili_season_bv1mm411d7vq/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-144-lh_bili_season_bv1mm411d7vq.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-144-lh_bili_season_bv1mm411d7vq.log
+- job_id: corpus-145-lh_bili_season_bv1sj4m1x7x9
+  source_id: LH_BILI_SEASON_BV1SJ4M1X7X9
+  title: 不转身劈杀怎么做？羽毛球单打劈杀关键核心技巧 不看又错过一个亿啊
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1sJ4m1x7x9/
+  published_at: '2024-02-21'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9
+    metadata_json: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/source_video
+    audio_file: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/pose.json
+    run_log: data/raw-private/video-corpus/corpus-145-lh_bili_season_bv1sj4m1x7x9/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-145-lh_bili_season_bv1sj4m1x7x9.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-145-lh_bili_season_bv1sj4m1x7x9.log
+- job_id: corpus-146-lh_bili_season_bv1g6421u77h
+  source_id: LH_BILI_SEASON_BV1G6421U77H
+  title: 高远球如何打到底线？两个方法提升发力感！后场大发力教学速成版！14分钟极限输出
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1g6421u77h/
+  published_at: '2024-02-24'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - high_clear
+  - power
+  stroke_tags:
+  - high_clear
+  - all
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h
+    metadata_json: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/source_video
+    audio_file: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/pose.json
+    run_log: data/raw-private/video-corpus/corpus-146-lh_bili_season_bv1g6421u77h/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-146-lh_bili_season_bv1g6421u77h.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-146-lh_bili_season_bv1g6421u77h.log
+- job_id: corpus-147-lh_bili_season_bv1y4421f7kv
+  source_id: LH_BILI_SEASON_BV1Y4421F7KV
+  title: 跳杀怎样有滞空感？最高点击球对吗？滞空详细教学完整版！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1y4421F7KV/
+  published_at: '2024-03-01'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv
+    metadata_json: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/source_video
+    audio_file: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/pose.json
+    run_log: data/raw-private/video-corpus/corpus-147-lh_bili_season_bv1y4421f7kv/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-147-lh_bili_season_bv1y4421f7kv.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-147-lh_bili_season_bv1y4421f7kv.log
+- job_id: corpus-148-lh_bili_season_bv16h4y1e7yc
+  source_id: LH_BILI_SEASON_BV16H4Y1E7YC
+  title: 为什么打球会掉肘？发力时掉肘的两种情况！改正就能克服！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV16H4y1E7YC/
+  published_at: '2024-03-02'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 28
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc
+    metadata_json: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/source_video
+    audio_file: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/pose.json
+    run_log: data/raw-private/video-corpus/corpus-148-lh_bili_season_bv16h4y1e7yc/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-148-lh_bili_season_bv16h4y1e7yc.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-148-lh_bili_season_bv16h4y1e7yc.log
+- job_id: corpus-149-lh_bili_season_bv1zz421y7yt
+  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
+  title: 如何提升杀球速度和挥重？重杀和快杀怎么杀？2个技巧 迅速提升！不可错过的发力教学！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1zZ421y7yt/
+  published_at: '2024-03-02'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  topic_tags:
+  - smash
+  - power
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt
+    metadata_json: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/source_video
+    audio_file: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/pose.json
+    run_log: data/raw-private/video-corpus/corpus-149-lh_bili_season_bv1zz421y7yt/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-149-lh_bili_season_bv1zz421y7yt.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-149-lh_bili_season_bv1zz421y7yt.log
+- job_id: corpus-150-lh_bili_season_bv1er421w7we
+  source_id: LH_BILI_SEASON_BV1ER421W7WE
+  title: 300和315平衡点有什么区别？羽毛球拍平衡点的秘密！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1er421W7WE/
+  published_at: '2024-03-06'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - equipment
+  topic_tags:
+  - equipment
+  stroke_tags:
+  - all
+  selection_score: 18
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we
+    metadata_json: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/source_video
+    audio_file: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/pose.json
+    run_log: data/raw-private/video-corpus/corpus-150-lh_bili_season_bv1er421w7we/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-150-lh_bili_season_bv1er421w7we.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-b
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-b/corpus-150-lh_bili_season_bv1er421w7we.log
+- job_id: corpus-260-lh_bili_season_bv1a7pveceo8
+  source_id: LH_BILI_SEASON_BV1A7PVECEO8
+  title: 杀球快和重指什么？单双打那区别可就大了！业余看懂你就知道你该快还是该重了
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1A7PVeCEo8/
+  published_at: '2025-02-27'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - doubles
+  stroke_tags:
+  - smash
+  - doubles
+  selection_score: 48
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8
+    metadata_json: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/source_video
+    audio_file: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/pose.json
+    run_log: data/raw-private/video-corpus/corpus-260-lh_bili_season_bv1a7pveceo8/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-260-lh_bili_season_bv1a7pveceo8.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-260-lh_bili_season_bv1a7pveceo8.log
+- job_id: corpus-261-lh_bili_season_bv1b99tytexv
+  source_id: LH_BILI_SEASON_BV1B99TYTEXV
+  title: 专治业余羽毛球发不上力！解决一切发力问题的根本！业余搞定这个问题就够了
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1B99TYtEXv/
+  published_at: '2025-03-01'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv
+    metadata_json: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/source_video
+    audio_file: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/pose.json
+    run_log: data/raw-private/video-corpus/corpus-261-lh_bili_season_bv1b99tytexv/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-261-lh_bili_season_bv1b99tytexv.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-261-lh_bili_season_bv1b99tytexv.log
+- job_id: corpus-262-lh_bili_season_bv1nix9yyeyg
+  source_id: LH_BILI_SEASON_BV1NIX9YYEYG
+  title: 业余高远球挥拍轨迹问题纠错教学！发力轨迹是如何从后向前的！初阶基本功必看
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1NiX9YYEYg/
+  published_at: '2025-03-03'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - high_clear
+  - power
+  - swing
+  stroke_tags:
+  - high_clear
+  - all
+  selection_score: 38
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg
+    metadata_json: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/source_video
+    audio_file: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/pose.json
+    run_log: data/raw-private/video-corpus/corpus-262-lh_bili_season_bv1nix9yyeyg/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-262-lh_bili_season_bv1nix9yyeyg.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-262-lh_bili_season_bv1nix9yyeyg.log
+- job_id: corpus-263-lh_bili_season_bv1t394yfeiy
+  source_id: LH_BILI_SEASON_BV1T394YFEIY
+  title: 业余杀球纠错教学！让挥速飙升的秘诀！这个关键点又是业余没法自悟的啊 速看！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1T394YfEiy/
+  published_at: '2025-03-07'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 48
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy
+    metadata_json: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/source_video
+    audio_file: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/pose.json
+    run_log: data/raw-private/video-corpus/corpus-263-lh_bili_season_bv1t394yfeiy/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-263-lh_bili_season_bv1t394yfeiy.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-263-lh_bili_season_bv1t394yfeiy.log
+- job_id: corpus-264-lh_bili_season_bv1bprjy5eni
+  source_id: LH_BILI_SEASON_BV1BPRJY5ENI
+  title: 暴力杀球教学！业余从0到1！发力型握拍讲解完整版！业余通病看看你中了几个
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1bPRJY5Eni/
+  published_at: '2025-03-11'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 48
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni
+    metadata_json: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/source_video
+    audio_file: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/pose.json
+    run_log: data/raw-private/video-corpus/corpus-264-lh_bili_season_bv1bprjy5eni/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-264-lh_bili_season_bv1bprjy5eni.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-264-lh_bili_season_bv1bprjy5eni.log
+- job_id: corpus-265-lh_bili_season_bv1uhqlybew5
+  source_id: LH_BILI_SEASON_BV1UHQLYBEW5
+  title: 做内旋发力为何会肩膀疼？业余学羽毛球发力大臂和肩膀位置问题纠错！特别是学过球的人反而更容易中招
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1uhQLYbEw5/
+  published_at: '2025-03-12'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  - student_fit
+  topic_tags:
+  - power
+  - internal_rotation
+  - arm_path
+  stroke_tags:
+  - all
+  - high_clear
+  selection_score: 48
+  processing_status: retry_pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5
+    metadata_json: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/metadata.json
+    video_file: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/source_video
+    audio_file: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/keyframes
+    asr_json: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/asr.json
+    ocr_json: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/ocr.json
+    vlm_json: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/vlm.json
+    pose_json: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/pose.json
+    run_log: data/raw-private/video-corpus/corpus-265-lh_bili_season_bv1uhqlybew5/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/corpus-265-lh_bili_season_bv1uhqlybew5.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo-or-large-v3
+    ocr: PaddleOCR
+    vlm: Qwen2.5-VL-or-Qwen3-VL
+    pose: MMPose/RTMPose
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+  retry_reason:
+    batch_id: corpus-full-asr-bili-20260709-c
+    asr_status: skipped
+    returncode: 0
+    timed_out: false
+    log_path: data/raw-private/video-corpus/batch-runs/corpus-full-asr-bili-20260709-c/corpus-265-lh_bili_season_bv1uhqlybew5.log

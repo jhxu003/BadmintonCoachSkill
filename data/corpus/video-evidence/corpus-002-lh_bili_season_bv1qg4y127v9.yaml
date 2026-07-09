@@ -1,0 +1,65 @@
+source_id: LH_BILI_SEASON_BV1QG4Y127V9
+job_id: corpus-002-lh_bili_season_bv1qg4y127v9
+title: 刘辉教练教你打闪动发力
+url: https://www.bilibili.com/video/BV1QG4y127v9/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-002-lh_bili_season_bv1qg4y127v9
+  stages:
+    metadata:
+      status: ok
+      returncode: 0
+    audio:
+      status: ok
+      returncode: 0
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 484
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-002-lh_bili_season_bv1qg4y127v9-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 484 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.3-1.4s, 1.4-3.2s, 3.2-4.5s, 4.5-6.0s,
+    6.0-9.2s, 9.2-10.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1MM411D7JI
+job_id: corpus-158-lh_bili_season_bv1mm411d7ji
+title: 正手发力怎么打的集中？从这两点提升爆发力！价值十亿的干货教学！
+url: https://www.bilibili.com/video/BV1Mm411d7Ji/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-158-lh_bili_season_bv1mm411d7ji
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 256
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-158-lh_bili_season_bv1mm411d7ji-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 256 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 1.2-2.2s, 2.2-3.5s, 3.5-5.3s, 5.3-6.4s,
+    6.4-7.8s, 7.8-11.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

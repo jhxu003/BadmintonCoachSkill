@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1I8411Z7KU
+job_id: corpus-075-lh_bili_season_bv1i8411z7ku
+title: 刘辉教练从李宗伟为什么12年输给林丹讲到单打发力，林李球路分析
+url: https://www.bilibili.com/video/BV1i8411Z7KU/
+platform: Bilibili
+authorization_status: public
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-075-lh_bili_season_bv1i8411z7ku
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 455
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-075-lh_bili_season_bv1i8411z7ku-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - internal_rotation
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 455 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.0-2.3s, 5.0-6.0s, 8.7-10.7s, 11.3-13.8s,
+    14.3-16.9s, 17.4-18.7s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

@@ -1,0 +1,59 @@
+source_id: LH_BILI_SEASON_BV1CXSNY2EKP
+job_id: corpus-231-lh_bili_season_bv1cxsny2ekp
+title: 杀球压不下去怎么改？全新角度帮你解决！初阶进阶适用！过渡、杀球压不下去必看！
+url: https://www.bilibili.com/video/BV1cXSNY2EKP/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-231-lh_bili_season_bv1cxsny2ekp
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 218
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-231-lh_bili_season_bv1cxsny2ekp-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 218 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 1.4-5.5s, 5.5-8.1s, 8.1-10.4s, 10.4-12.9s,
+    12.9-16.1s, 16.1-18.0s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

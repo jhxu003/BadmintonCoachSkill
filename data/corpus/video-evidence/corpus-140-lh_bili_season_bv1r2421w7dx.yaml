@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1R2421W7DX
+job_id: corpus-140-lh_bili_season_bv1r2421w7dx
+title: 为什么正手过渡学不会？刘辉教练教你有了这种感觉才能学会！不看又错过一个亿
+url: https://www.bilibili.com/video/BV1R2421w7DX/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-140-lh_bili_season_bv1r2421w7dx
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 235
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-140-lh_bili_season_bv1r2421w7dx-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 235 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 0.9-4.8s, 4.8-5.1s, 5.1-6.4s, 6.4-7.2s,
+    7.2-8.9s, 8.9-10.2s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted

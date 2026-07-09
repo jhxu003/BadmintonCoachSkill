@@ -1,0 +1,58 @@
+source_id: LH_BILI_SEASON_BV1ML411Q7QA
+job_id: corpus-035-lh_bili_season_bv1ml411q7qa
+title: '为什么打完羽毛球后膝盖疼？打球如何避免膝盖伤痛 刘辉教练教你保护膝盖的方法！#羽毛球教学 #羽毛球'
+url: https://www.bilibili.com/video/BV1mL411Q7QA/
+platform: Bilibili
+authorization_status: authorized
+public_safety:
+  raw_video_committed: false
+  raw_transcript_committed: false
+  paid_material_committed: false
+  long_subtitle_excerpt_committed: false
+  raw_metadata_committed: false
+  temporary_media_urls_committed: false
+run_status:
+  job_id: corpus-035-lh_bili_season_bv1ml411q7qa
+  stages:
+    asr:
+      status: ok
+stage_status:
+  keyframes:
+    status: missing
+  asr:
+    status: ok
+    stage: asr
+    model: mobiuslabsgmbh/faster-whisper-large-v3-turbo
+    device: cuda
+    compute_type: float16
+    language: zh
+    language_probability: 1.0
+    segment_count: 95
+    audio_scope: full
+    audio_scope_seconds: null
+  ocr:
+    status: missing
+  vlm:
+    status: missing
+  pose:
+    status: missing
+segments:
+- evidence_id: corpus-035-lh_bili_season_bv1ml411q7qa-seg-001
+  start_seconds: 0
+  end_seconds: null
+  topic_tags:
+  - high_clear
+  - power_framework
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  promotion_target: none_until_reviewed
+  asr_summary: 'Private ASR produced 95 timestamped Chinese speech segments. Initial
+    reviewed windows for human summarization: 2.2-3.5s, 3.5-4.9s, 4.9-5.8s, 5.8-10.4s,
+    10.4-11.6s, 11.6-12.3s.'
+  ocr_summary: No OCR content was promoted into the public repository.
+  visual_summary: No VLM content was promoted into the public repository.
+  teaching_point_candidate:
+    problem: pending content-level model review
+    diagnosis_rule: not promoted
+    correction: not promoted
+    drill: not promoted
