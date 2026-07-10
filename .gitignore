@@ -8,6 +8,7 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+.worktrees/
 
 # Private or potentially copyrighted research material.
 data/raw-private/*
