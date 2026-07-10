@@ -14,11 +14,16 @@ public_safety:
 run_status:
   job_id: corpus-356-lh_bili_season_bv1x4sfbkeap
   stages:
-    asr:
+    keyframes:
+      status: ok
+      reason: keyframes already exist
+    vlm:
       status: ok
 stage_status:
   keyframes:
-    status: missing
+    status: ok
+    stage: keyframes
+    frame_count: 16
   asr:
     status: ok
     stage: asr
@@ -33,9 +38,20 @@ stage_status:
   ocr:
     status: missing
   vlm:
-    status: missing
+    status: ok
+    stage: vlm
+    model: jhxu-qwen3vl8b-modelscope
+    artifact_version: 4
+    schema: visible_still_frame_v2
+    frame_count: 16
+    batch_count: 16
+    batch_size: 1
   pose:
-    status: missing
+    status: ok
+    stage: pose
+    model: yolo11n-pose.pt
+    artifact_version: 2
+    frame_count: 16
 segments:
 - evidence_id: corpus-356-lh_bili_season_bv1x4sfbkeap-seg-001
   start_seconds: 0
@@ -52,7 +68,7 @@ segments:
     reviewed windows for human summarization: 2.9-5.9s, 5.9-8.6s, 8.6-11.2s, 11.2-13.4s,
     13.4-14.8s, 14.8-17.6s.'
   ocr_summary: No OCR content was promoted into the public repository.
-  visual_summary: No VLM content was promoted into the public repository.
+  visual_summary: See private VLM artifact; public summary requires human review.
   teaching_point_candidate:
     problem: pending content-level model review
     diagnosis_rule: not promoted

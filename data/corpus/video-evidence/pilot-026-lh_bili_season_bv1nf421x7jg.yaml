@@ -16,10 +16,10 @@ run_status:
   stages:
     download:
       status: ok
-      returncode: 0
+      reason: video already exists
     keyframes:
       status: ok
-    vlm:
+    pose:
       status: ok
 stage_status:
   keyframes:
@@ -42,10 +42,14 @@ stage_status:
   vlm:
     status: ok
     stage: vlm
-    model: Qwen2.5-VL-3B-compatible
+    model: jhxu-qwen25vl3b
     frame_count: 12
   pose:
-    status: missing
+    status: ok
+    stage: pose
+    model: yolo11n-pose.pt
+    artifact_version: 2
+    frame_count: 12
 segments:
 - evidence_id: pilot-026-lh_bili_season_bv1nf421x7jg-seg-001
   start_seconds: 0

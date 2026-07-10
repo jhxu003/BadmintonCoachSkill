@@ -1094,7 +1094,7 @@
 
 - framework_id: equipment-fit-frame
   name: Equipment-fit frame
-  summary: Treat racket weight and swing weight as student-fit context when equipment is likely blocking power learning or recovery.
+  summary: Treat static weight, swing weight, balance point, torsional stability, and shaft stiffness as student-fit context when equipment is likely blocking learning or recovery.
   applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles]
   training_goals: [racket_weight_fit, equipment_fit, lighter_racket_transition]
   suitable_for:
@@ -1109,8 +1109,17 @@
     - path: phase_observations.swing_weight_effect
       equals: slows_frame
       weight: 8
-  priority: [racket-too-heavy-for-stage, collapsed-racket-structure, short-follow-through]
-  source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY, LH_BILI_SEASON_BV1WX4Y197QK]
+    - path: phase_observations.balance_point_fit
+      equals: too_head_heavy_for_task
+      weight: 10
+    - path: phase_observations.torsional_stability_fit
+      equals: unstable_on_off_center
+      weight: 9
+    - path: phase_observations.shaft_stiffness_fit
+      equals: too_stiff_for_release
+      weight: 9
+  priority: [racket-too-heavy-for-stage, racket-balance-mismatch, racket-torsion-mismatch, shaft-stiffness-mismatch, collapsed-racket-structure, short-follow-through]
+  source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY, LH_BILI_SEASON_BV1WX4Y197QK, LH_BILI_SEASON_BV1ER421W7WE, LH_BILI_SEASON_BV1KS421W7CJ, LH_BILI_SEASON_BV1GW411N772]
   confidence: hypothesis
 
 - framework_id: arm-path-correction-frame
@@ -1171,7 +1180,7 @@
     - path: phase_observations.time_pressure
       equals: high
       weight: 10
-  priority: [slow-racket-preparation, jump-contact-window-missed, late-arrival]
+  priority: [slow-racket-preparation-consumes-window, jump-contact-window-missed, late-arrival]
   source_ids: [LH_BILI_SEASON_BV1X9QBBBETX, LH_BILI_SEASON_BV1V6ZABTEKT, LH_BILI_SEASON_BV1ZBWEZEELW]
   evidence_ids: [pilot-002-w002-time-space-budget, pilot-006-w004-high-fast-frame, pilot-019-w001-hangtime-time-budget, pilot-019-w002-slow-racket-lift-consumes-hangtime]
   confidence: timestamp_candidate
@@ -1257,7 +1266,7 @@
     - path: wrist_elbow_sequence
       in: [wrist_before_elbow, no_forearm_overtake]
       weight: 9
-  priority: [big-arm-dominant-swing, pronation-whip-misread, fly-swatter-grip]
+  priority: [big-arm-dominant-swing, pronation-whip-misread, fly-swatter-grip-blocks-rotation]
   source_ids: [LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1P4DGYRE8B, LH_BILI_SEASON_BV1BF6SYTEGZ]
   evidence_ids: [pilot-008-w003-deep-front-point-blocks-internal-rotation, pilot-008-w004-force-chain-break, pilot-028-w001-elbow-position-diagnoses-upper-arm, pilot-028-w002-upper-arm-stops-to-transfer-force, pilot-028-w003-internal-rotation-unloads-wrist-force, pilot-030-w002-concentrated-force-and-contact-point]
   confidence: timestamp_candidate

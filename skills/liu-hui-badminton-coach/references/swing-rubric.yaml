@@ -71,6 +71,32 @@
   evidence_status: timestamp_candidate
   confidence: hypothesis
 
+- rule_id: upper-body-tension
+  issue: Upper body tightens before lower-body and trunk transfer can organize the swing
+  category: kinetic_chain
+  priority: 70
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.upper_body_tension]
+  observable_evidence:
+    - path: phase_observations.upper_body_tension
+      equals: high_before_transfer
+      label: Shoulder, arm, or grip tension rises before the foot-ground and trunk sequence transfers force.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a side or rear three-quarter sequence from setup through natural finish; a still frame cannot establish tension timing.
+  likely_effect:
+    - Early tension may interrupt sequencing and make the player pull with the arm.
+    - More effort may produce less racket speed and a forced finish.
+  correction_principle: Rehearse foot-ground and trunk initiation at lower speed while keeping the shoulder, arm, and grip responsive until the release window.
+  drills: [deceleration-release-line, rear-foot-horizontal-hip-drive]
+  retest_metrics:
+    - phase_observations.upper_body_tension should become responsive_until_release
+    - equal output should require less visible effort and allow a natural finish
+  source_ids: [LH_BILI_SEASON_BV1HBYRBCECE, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1SWQOY5ENV]
+  evidence_ids: [pilot-005-w002-force-from-foot, pilot-025-w001-hip-drive-foot-checkpoints]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
 - rule_id: fly-swatter-grip-blocks-rotation
   issue: Fly-swatter grip blocks arm-chain release
   category: swing_path

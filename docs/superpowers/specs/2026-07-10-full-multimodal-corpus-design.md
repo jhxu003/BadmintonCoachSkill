@@ -8,8 +8,8 @@ Complete the accessible non-YouTube Liu Hui public corpus at teaching-window lev
 
 The project is complete only when all of the following are true:
 
-1. All 396 action-bearing sources in `video-visual-review-manifest.yaml` have a terminal visual status.
-2. All 5977 planned teaching-window frames have extraction and model-processing status.
+1. All 402 action-bearing or visible-demonstration sources in `video-visual-review-manifest.yaml` have a terminal visual status.
+2. All 6064 planned teaching-window frames have extraction and model-processing status.
 3. Every successfully accessible action source has VLM visibility evidence and Pose coverage.
 4. The 203 critical sources have denser temporal evidence around representative teaching windows.
 5. Public evidence links source id, timestamp, visible observation class, confidence boundary, and applicable Skill framework without exposing raw model text or coordinates.
@@ -21,11 +21,11 @@ The project is complete only when all of the following are true:
 
 ### Exact Visual Manifest Execution
 
-Create a pipeline manifest by joining the 396 visual-review jobs to their original pilot/corpus job definitions. Add a `visual-review` keyframe source that consumes each job's exact `planned_frames` instead of resampling ASR windows. The extraction manifest records every requested timestamp and every extraction failure.
+Create a pipeline manifest by joining the 402 visual-review jobs to their original pilot/corpus job definitions. Add a `visual-review` keyframe source that consumes each job's exact `planned_frames` instead of resampling ASR windows. The extraction manifest records every requested timestamp and every extraction failure.
 
 ### Structured VLM Evidence
 
-Run Qwen2.5-VL-3B over the ordered teaching-window frames. Private output retains the model response. Public distillation exposes only timestamped visibility categories, coverage counts, and evidence limitations. The model may identify visible racket preparation, body organization, contact/pre-contact candidates, lower-body orientation, recovery, and on-screen text presence; it may not assert invisible biomechanics or coaching intent.
+Run Qwen3-VL-8B-Instruct v4 over the ordered teaching-window frames with batch size 1 and the `visible_still_frame_v2` schema. Private output retains the model response. Public distillation exposes only timestamped visibility categories, coverage counts, and evidence limitations. The model may identify visible racket preparation, body organization, contact/pre-contact candidates, lower-body orientation, recovery, and on-screen text presence; it may not assert invisible biomechanics or coaching intent.
 
 ### Pose And Temporal Proxies
 
@@ -37,7 +37,7 @@ Aggregate visual and temporal evidence by source, topic, and framework. Promote 
 
 ## Compute Strategy
 
-Use node-local `/tmp` for environments, model checkpoints, videos, frames, and raw model outputs. Use a healthy compute node with sufficient free GPU memory. Split the 396-job manifest into resumable shards. Copy back only JSON logs and artifacts after each shard, then rebuild public summaries on the shared repository.
+Use node-local `/tmp` for environments, model checkpoints, videos, frames, and raw model outputs. Use a healthy compute node with sufficient free GPU memory. Split the 402-job manifest into resumable shards. Copy back only JSON logs and artifacts after each shard, then rebuild public summaries on the shared repository.
 
 ## Failure Policy
 

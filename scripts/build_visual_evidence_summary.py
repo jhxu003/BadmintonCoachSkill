@@ -84,12 +84,18 @@ def load_vlm(job: dict[str, Any]) -> dict[str, Any] | None:
         data = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return None
-    return data if data.get("status") == "ok" else None
+    return (
+        data
+        if data.get("status") == "ok" and data.get("artifact_version") == 4
+        else None
+    )
 
 
 def public_model_name(raw_name: Any) -> str:
     name = str(raw_name or "unknown")
     lowered = name.lower()
+    if "qwen3-vl-8b" in lowered or "qwen3vl8b" in lowered:
+        return "Qwen3-VL-8B-Instruct"
     if "qwen25vl3b" in lowered or "qwen2.5-vl-3b" in lowered:
         return "Qwen2.5-VL-3B-compatible"
     if "/" in name:
@@ -97,14 +103,67 @@ def public_model_name(raw_name: Any) -> str:
     return name
 
 
+def public_visible_observation(frame: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "frame_id": str(frame.get("frame_id") or ""),
+        "timestamp_seconds": int(round(float(frame.get("timestamp_seconds") or 0))),
+        "person_visible": frame.get("person_visible") is True,
+        "racket_visibility": str(frame.get("racket_visibility") or "unknown"),
+        "racket_position": str(frame.get("racket_position") or "unknown"),
+        "primary_subject_view": str(frame.get("primary_subject_view") or "unknown"),
+        "body_configuration": [
+            str(item) for item in frame.get("body_configuration", [])
+        ],
+        "on_screen_text_present": frame.get("on_screen_text_present") is True,
+        "visibility_limits": [str(item) for item in frame.get("visibility_limits", [])],
+        "confidence": str(frame.get("confidence") or "unknown"),
+    }
+
+
 def summarize(job: dict[str, Any], vlm: dict[str, Any]) -> dict[str, Any]:
     raw_summary = str(vlm.get("summary", ""))
     timestamps = [int(round(float(value))) for value in vlm.get("timestamps_seconds", [])]
+    artifact_frames = vlm.get("frames", [])
     structured = parse_structured_summary(raw_summary)
-    structured_frames = structured.get("frames", []) if structured else []
+    structured_frames = artifact_frames if isinstance(artifact_frames, list) else []
+    if not structured_frames:
+        structured_frames = structured.get("frames", []) if structured else []
     if not isinstance(structured_frames, list):
         structured_frames = []
-    if structured_frames:
+    if structured_frames and int(vlm.get("artifact_version") or 0) >= 3:
+        body_counts: Counter[str] = Counter()
+        for frame in structured_frames:
+            body = frame.get("body_configuration", [])
+            if isinstance(body, list):
+                body_counts.update(str(item) for item in body)
+        visible_signals = {
+            "person_visible_frames": sum(
+                frame.get("person_visible") is True for frame in structured_frames
+            ),
+            "racket_visible_frames": sum(
+                frame.get("racket_visibility") == "visible" for frame in structured_frames
+            ),
+            "racket_above_shoulder_frames": sum(
+                frame.get("racket_position") == "above_shoulder"
+                for frame in structured_frames
+            ),
+            "lunge_frames": body_counts["lunge"],
+            "single_leg_support_frames": body_counts["single_leg_support"],
+            "airborne_frames": body_counts["airborne"],
+            "torso_turned_frames": body_counts["torso_turned"],
+            "arm_raised_frames": body_counts["arm_raised"],
+            "arm_extended_frames": body_counts["arm_extended"],
+            "frames_with_on_screen_text_detected": sum(
+                frame.get("on_screen_text_present") is True for frame in structured_frames
+            ),
+            "frames_with_visibility_limits": sum(
+                bool(frame.get("visibility_limits")) for frame in structured_frames
+            ),
+            "low_confidence_frames": sum(
+                frame.get("confidence") == "low" for frame in structured_frames
+            ),
+        }
+    elif structured_frames:
         visible_signals = {
             "player_position_descriptions": sum(
                 visible_value(frame.get("player_position")) for frame in structured_frames
@@ -158,26 +217,25 @@ def summarize(job: dict[str, Any], vlm: dict[str, Any]) -> dict[str, Any]:
         "timestamps_seconds": timestamps,
         "structured_output_parsed": bool(structured_frames),
         "structured_frame_count": len(structured_frames),
-        "sequence_observation_count": (
-            len(structured.get("sequence_observations", []))
-            if structured and isinstance(structured.get("sequence_observations"), list)
-            else 0
-        ),
+        "sequence_observation_count": 0,
         "visible_signal_counts": visible_signals,
-        "evidence_level": "visual_model_candidate_reviewed_public_safe",
-        "review_status": "agent_visual_summary_reviewed",
+        "visible_observation_refs": [
+            public_visible_observation(frame) for frame in structured_frames
+        ],
+        "evidence_level": "visual_model_structured_candidate_public_safe",
+        "review_status": "schema_validated_model_output",
         "human_review_status": "not_human_reviewed",
         "summary": (
-            "Private VLM keyframe output was reduced to public-safe visibility counts and "
-            "timestamp pointers. Raw model text, on-screen text, frames, and media remain private."
+            "Private VLM keyframe output was reduced to public-safe timestamped visibility fields "
+            "and aggregate counts. Raw model text, on-screen text, frames, and media remain private."
         ),
         "allowed_use": (
-            "Use to identify timestamps where racket preparation, contact phase, lower-body orientation, "
-            "or recovery may be visible and should receive human frame review."
+            "Use to identify timestamps where visible stance, arm, torso, racket-position, or visibility "
+            "conditions should receive human frame review."
         ),
         "blocked_use": (
-            "Do not treat these counts as proof of top elbow, hip timing, internal rotation, racket face, "
-            "or coaching intent without direct frame review."
+            "Do not treat sparse still-frame counts as proof of stroke phase, contact, motion direction, "
+            "top elbow, hip timing, internal rotation, racket face, force, or coaching intent."
         ),
     }
 
@@ -204,7 +262,7 @@ def main() -> None:
             "run_id": f"visual_evidence_summary_{date.today().strftime('%Y%m%d')}",
             "created_at": date.today().isoformat(),
             "scope": [
-                "Existing private VLM outputs for indexed non-YouTube Bilibili pilot sources.",
+                "Validated private VLM v4 still-frame outputs for indexed non-YouTube sources.",
                 "Only public-safe counts, timestamps, and original evidence limits are emitted.",
                 "Raw frames, model text, and detected on-screen text remain private.",
             ],
@@ -216,8 +274,8 @@ def main() -> None:
                 "visible_signal_totals": dict(visible_signal_totals),
             },
             "evidence_contract": {
-                "evidence_level": "visual_model_candidate_reviewed_public_safe",
-                "review_status": "agent_visual_summary_reviewed",
+                "evidence_level": "visual_model_structured_candidate_public_safe",
+                "review_status": "schema_validated_model_output",
                 "human_review_required_for_rule_promotion": True,
             },
         },

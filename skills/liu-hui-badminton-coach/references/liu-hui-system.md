@@ -6,9 +6,9 @@ This file stores original, research-oriented summaries derived from public sourc
 
 The current runtime system is complete against the accessible non-YouTube public Bilibili index in this repository, not an official Liu Hui archive. YouTube is excluded by project decision. Douyin and Instagram remain explicit access gaps because stable public per-video metadata or media access is unavailable.
 
-The video-content pilot processed 30 indexed public Bilibili teaching videos. The expanded Bilibili ASR pass processed 378 of 379 corpus jobs with full-audio `mobiuslabsgmbh/faster-whisper-large-v3-turbo`; one public page now resolves to a missing-video placeholder. The combined pass produced 2567 public-safe timestamp candidates across 401 sources. Every candidate was then checked against its private ASR interval and emitted as an original public-safe timestamp review in `data/corpus/video-asr-timestamp-review.yaml`: 2567 reviewed windows, 401 reviewed sources, zero missing manifest jobs, and zero missing ASR artifacts behind those windows.
+The Bilibili corpus contains 409 independent video jobs after removing 2 discovery-only rows. Of these, 408 are accessible and have reviewed full-audio `mobiuslabsgmbh/faster-whisper-large-v3-turbo` coverage; one public page resolves to a missing-video placeholder. The reviewed layer contains 2610 public-safe timestamp windows across all 408 accessible sources.
 
-The visual completion layer maps 396 action-bearing sources to 5977 planned teaching-window keyframes and marks 5 conceptual sources as ASR-only. Existing private VLM output covers 30 pilot sources and 336 keyframes; `data/corpus/video-visual-evidence-summary.yaml` exposes only timestamps and visibility counts. Pose and VLM evidence remain model candidates until a human reviews the referenced frames.
+The visual layer contains 402 action or visible-demonstration sources and 6064 teaching-window keyframes, with 6 conceptual or equipment sources explicitly marked ASR-only. Qwen3-VL-8B-Instruct v4 provides schema-validated still-frame visibility candidates, and sparse Pose provides body-keypoint visibility. A critical temporal layer adds 408 dense sequences and 5304 frames across 204 sources. Public summaries expose only timestamps, visibility aggregates, coarse 2D proxies, evidence levels, and confidence boundaries; private images, model text, and coordinates remain outside git.
 
 `references/full-corpus-synthesis.yaml` is the current complete system map for the indexed public corpus. It organizes the expanded evidence into student-fit diagnosis, safety/equipment/load, footwork arrival/recovery, rear-court base, overhead power chain, smash variants, drop/slide variation, backhand/rear-corner choice, drive/receive exchange, and singles/doubles match transfer. Treat it as the runtime routing layer before reading the narrower rubrics.
 
@@ -44,9 +44,9 @@ The distinctive coaching value to model is not a single "standard swing." It is 
 - Match systems: doubles rear continuity, doubles fast exchange, singles tactical core, tactical observation.
 - Timestamp-candidate systems: time-budget preparation, compact standard frame, frame tradeoff selector, foot-ground hip drive, arm-segment transfer, drop/slide variant selection, China-jump recovery, and wrist contact-transfer.
 
-## Video Pilot Distillation
+## Video Corpus Distillation
 
-`data/corpus/video-asr-teaching-windows.yaml` stores curated pilot candidate windows. `data/corpus/video-asr-teaching-windows-full.yaml` stores expanded candidate windows. `data/corpus/video-asr-timestamp-review.yaml` stores the complete public-safe agent review of those windows. `data/corpus/video-visual-review-manifest.yaml` defines visual review coverage, while VLM and pose summary files expose only safe aggregate evidence. Raw ASR text, audio, video, OCR, VLM outputs, keypoint coordinates, cookies, tokens, temporary media URLs, and paid-course material must stay private.
+`data/corpus/video-asr-teaching-windows-full.yaml` stores the full candidate-window layer. `data/corpus/video-asr-timestamp-review.yaml` stores the complete public-safe agent review. `data/corpus/video-visual-pipeline-manifest.yaml` defines sparse visual coverage, `data/corpus/video-temporal-review-manifest.yaml` defines the critical dense sequences, and `references/multimodal-evidence-map.yaml` bundles the source-to-framework explainability chain for standalone skill use. Raw ASR text, audio, video, OCR, VLM outputs, keypoint coordinates, cookies, tokens, temporary media URLs, and paid-course material must stay private.
 
 Use reviewed timestamp material as follows:
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Liu Hui Badminton Coach"
+  short_description: "Evidence-grounded badminton diagnosis and training plans"
+  default_prompt: "Use $liu-hui-badminton-coach to diagnose this structured badminton video observation and return one prioritized correction plan."

@@ -1,6 +1,6 @@
 review_run:
-  run_id: video_asr_teaching_windows_full_20260709
-  created_at: '2026-07-09'
+  run_id: video_asr_teaching_windows_full_20260710
+  created_at: '2026-07-10'
   scope:
   - Machine-generated public-safe ASR teaching-window candidates for indexed public
     Liu Hui videos.
@@ -16,8 +16,8 @@ review_run:
     - data/corpus/video-pilot-manifest.yaml
     - data/corpus/video-corpus-manifest.yaml
     jobs_scanned: 409
-    sources_with_windows: 401
-    windows: 2567
+    sources_with_windows: 408
+    windows: 2610
 windows:
 - window_id: pilot-001-lh_bili_season_bv18tmub4e8d-w001
   source_id: LH_BILI_SEASON_BV18TMUB4E8D
@@ -822,6 +822,221 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w002
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 4
+  end_seconds: 50
+  topic_tags:
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 4s and 50s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w003
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 50
+  end_seconds: 95
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 50s and 95s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w001
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 95
+  end_seconds: 141
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - internal_rotation
+  - training_plan
+  - safety
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 95s and 141s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w004
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 141
+  end_seconds: 188
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 141s and 188s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w008
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 188
+  end_seconds: 234
+  topic_tags:
+  - diagnosis_flow
+  - racket_preparation
+  - contact_point
+  - smash
+  - top_elbow
+  - hip_rotation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 188s and 234s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w005
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 234
+  end_seconds: 284
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 234s and 284s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w006
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 284
+  end_seconds: 330
+  topic_tags:
+  - diagnosis_flow
+  - hip_rotation
+  - contact_point
+  - training_plan
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 284s and 330s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w007
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  evidence_id: pilot-009-lh_bili_season_bv1iz421b7x8-seg-001
+  start_seconds: 330
+  end_seconds: 375
+  topic_tags:
+  - diagnosis_flow
+  - smash
+  - training_plan
+  - safety
+  - top_elbow
+  - hip_rotation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 330s and 375s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球跳杀发力教学小臂发力和腰腹发力哪个重要价值十亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
 - window_id: pilot-010-lh_bili_season_bv1a5zgyqesp-w003
   source_id: LH_BILI_SEASON_BV1A5ZGYQESP
   evidence_id: pilot-010-lh_bili_season_bv1a5zgyqesp-seg-001
@@ -1932,6 +2147,743 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w001
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 0
+  end_seconds: 47
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - doubles
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 0s and 47s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w006
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 47
+  end_seconds: 99
+  topic_tags:
+  - diagnosis_flow
+  - smash
+  - serve_receive
+  - training_plan
+  - high_clear
+  - top_elbow
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 47s and 99s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w003
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 99
+  end_seconds: 144
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - racket_preparation
+  - internal_rotation
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 99s and 144s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w002
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 144
+  end_seconds: 196
+  topic_tags:
+  - top_elbow
+  - smash
+  - racket_preparation
+  - internal_rotation
+  - high_clear
+  - training_plan
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 144s and 196s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w004
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 242
+  end_seconds: 288
+  topic_tags:
+  - top_elbow
+  - racket_preparation
+  - internal_rotation
+  - footwork
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 242s and 288s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w007
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 288
+  end_seconds: 333
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - training_plan
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 288s and 333s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w008
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 333
+  end_seconds: 378
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - training_plan
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 333s and 378s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w005
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  evidence_id: pilot-021-lh_bili_season_bv1nq4y157jt-seg-001
+  start_seconds: 471
+  end_seconds: 509
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - footwork
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 471s and 509s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场压不住球怎么办刘辉教练教你VIP课合肘时机概念让你杀球下压简单又轻松的秘诀
+    不看又错过一亿'. The candidate is based on ASR topic signals and must be reviewed against
+    timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w001
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  evidence_id: pilot-022-lh_bili_season_bv12z4y1n7b4-seg-001
+  start_seconds: 1
+  end_seconds: 47
+  topic_tags:
+  - smash
+  - top_elbow
+  - student_fit
+  - racket_preparation
+  - internal_rotation
+  - safety
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 1s and 47s, this public source segment is a candidate for smash
+    power or angle development within the video topic '杀球架拍要立腕吗刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing smash power or angle development,
+      but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for smash power or angle development;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: smash_variant_rubric
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w003
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  evidence_id: pilot-022-lh_bili_season_bv12z4y1n7b4-seg-001
+  start_seconds: 47
+  end_seconds: 92
+  topic_tags:
+  - racket_preparation
+  - smash
+  - training_plan
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 47s and 92s, this public source segment is a candidate for racket-preparation
+    frame control within the video topic '杀球架拍要立腕吗刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket-preparation frame
+      control, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for racket-preparation frame
+      control; do not turn it into a firm coaching rule until the timestamped content
+      is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: swing_rubric
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w002
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  evidence_id: pilot-022-lh_bili_season_bv12z4y1n7b4-seg-001
+  start_seconds: 92
+  end_seconds: 141
+  topic_tags:
+  - high_clear
+  - smash
+  - racket_preparation
+  - training_plan
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 92s and 141s, this public source segment is a candidate for overhead
+    high-clear structure within the video topic '杀球架拍要立腕吗刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing overhead high-clear structure,
+      but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for overhead high-clear structure;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w004
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  evidence_id: pilot-022-lh_bili_season_bv12z4y1n7b4-seg-001
+  start_seconds: 141
+  end_seconds: 171
+  topic_tags:
+  - racket_preparation
+  - smash
+  - training_plan
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 141s and 171s, this public source segment is a candidate for racket-preparation
+    frame control within the video topic '杀球架拍要立腕吗刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket-preparation frame
+      control, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for racket-preparation frame
+      control; do not turn it into a firm coaching rule until the timestamped content
+      is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: swing_rubric
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w003
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 0
+  end_seconds: 46
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - hip_rotation
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 0s and 46s, this public source segment is a candidate for student-fit
+    framework selection within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing student-fit framework
+      selection, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for student-fit framework selection;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: student_profiles
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w004
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 46
+  end_seconds: 92
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - safety
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 46s and 92s, this public source segment is a candidate for student-fit
+    framework selection within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing student-fit framework
+      selection, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for student-fit framework selection;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: student_profiles
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w005
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 92
+  end_seconds: 138
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - smash
+  - contact_point
+  - racket_preparation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 92s and 138s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w007
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 138
+  end_seconds: 185
+  topic_tags:
+  - top_elbow
+  - hip_rotation
+  - training_plan
+  - student_fit
+  - smash
+  - racket_preparation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 138s and 185s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w008
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 185
+  end_seconds: 231
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - student_fit
+  - smash
+  - racket_preparation
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 185s and 231s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w006
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 369
+  end_seconds: 415
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - training_plan
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 369s and 415s, this public source segment is a candidate for student-fit
+    framework selection within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing student-fit framework
+      selection, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for student-fit framework selection;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: student_profiles
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w001
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 415
+  end_seconds: 461
+  topic_tags:
+  - racket_preparation
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - hip_rotation
+  - safety
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 415s and 461s, this public source segment is a candidate for racket-preparation
+    frame control within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket-preparation frame
+      control, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for racket-preparation frame
+      control; do not turn it into a firm coaching rule until the timestamped content
+      is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: swing_rubric
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w002
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  evidence_id: pilot-023-lh_bili_season_bv1s642137xa-seg-001
+  start_seconds: 461
+  end_seconds: 509
+  topic_tags:
+  - student_fit
+  - diagnosis_flow
+  - racket_preparation
+  - hip_rotation
+  - training_plan
+  - safety
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 461s and 509s, this public source segment is a candidate for student-fit
+    framework selection within the video topic '怎样打出大发力重杀重杀动作框架&发力技巧11分钟极限输出讲透大发力不看又错过一个亿'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing student-fit framework
+      selection, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for student-fit framework selection;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: student_profiles
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w003
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 238
+  end_seconds: 283
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - wrist
+  - high_clear
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 238s and 283s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w001
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 283
+  end_seconds: 329
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - training_plan
+  - safety
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 283s and 329s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w007
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 329
+  end_seconds: 375
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 329s and 375s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w008
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 375
+  end_seconds: 421
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 375s and 421s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w002
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 558
+  end_seconds: 604
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - internal_rotation
+  - wrist
+  - training_plan
+  - high_clear
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 558s and 604s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w004
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 604
+  end_seconds: 651
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - safety
+  - wrist
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 604s and 651s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w005
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 743
+  end_seconds: 789
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - contact_point
+  - training_plan
+  - high_clear
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 743s and 789s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w006
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  evidence_id: pilot-024-lh_bili_season_bv1by411y7qh-seg-001
+  start_seconds: 789
+  end_seconds: 835
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - training_plan
+  - safety
+  - high_clear
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 789s and 835s, this public source segment is a candidate for top-elbow
+    and upper-arm frame behavior within the video topic '后场高远球杀球发力详解核心动作和底层逻辑'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing top-elbow and upper-arm
+      frame behavior, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
+      frame behavior; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: overhead_rubric
 - window_id: pilot-025-lh_bili_season_bv1cm42157us-w002
   source_id: LH_BILI_SEASON_BV1CM42157US
   evidence_id: pilot-025-lh_bili_season_bv1cm42157us-seg-001
@@ -3819,7 +4771,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w003
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w004
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   evidence_id: corpus-007-lh_bili_season_bv1cy411d7gl-seg-001
   start_seconds: 0
@@ -3845,7 +4797,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w004
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w005
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   evidence_id: corpus-007-lh_bili_season_bv1cy411d7gl-seg-001
   start_seconds: 138
@@ -3999,7 +4951,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w005
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w003
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   evidence_id: corpus-007-lh_bili_season_bv1cy411d7gl-seg-001
   start_seconds: 461
@@ -4009,6 +4961,7 @@ windows:
   - top_elbow
   - racket_preparation
   - internal_rotation
+  - equipment
   - training_plan
   evidence_level: content_model_candidate
   review_status: pending_human_review
@@ -4362,6 +5315,7 @@ windows:
   end_seconds: 139
   topic_tags:
   - safety
+  - equipment
   - smash
   - training_plan
   evidence_level: content_model_candidate
@@ -4436,6 +5390,7 @@ windows:
   topic_tags:
   - smash
   - racket_preparation
+  - equipment
   - training_plan
   evidence_level: content_model_candidate
   review_status: pending_human_review
@@ -7394,7 +8349,7 @@ windows:
   - diagnosis_flow
   - smash
   - top_elbow
-  - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 0s and 46s, this public source segment is a candidate for racket-preparation
@@ -7486,7 +8441,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w002
+- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w001
   source_id: LH_BILI_SEASON_BV1TT411R7UU
   evidence_id: corpus-028-lh_bili_season_bv1tt411r7uu-seg-001
   start_seconds: 186
@@ -7537,7 +8492,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: swing_rubric
-- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w001
+- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w002
   source_id: LH_BILI_SEASON_BV1TT411R7UU
   evidence_id: corpus-028-lh_bili_season_bv1tt411r7uu-seg-001
   start_seconds: 368
@@ -14769,7 +15724,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: footwork_rubric
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w006
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w007
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 48
@@ -14792,7 +15747,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w001
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w002
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 95
@@ -14817,7 +15772,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w002
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w003
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 140
@@ -14842,7 +15797,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w007
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w004
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 186
@@ -14851,6 +15806,7 @@ windows:
   - smash
   - racket_preparation
   - training_plan
+  - equipment
   - internal_rotation
   evidence_level: content_model_candidate
   review_status: pending_human_review
@@ -14891,7 +15847,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w004
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w005
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 373
@@ -14915,7 +15871,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w003
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w001
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 511
@@ -14925,6 +15881,7 @@ windows:
   - diagnosis_flow
   - internal_rotation
   - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 511s and 558s, this public source segment is a candidate for top-elbow
@@ -14940,7 +15897,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w005
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w006
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   evidence_id: corpus-081-lh_bili_season_bv1lf411o7jh-seg-001
   start_seconds: 558
@@ -19859,7 +20816,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: swing_rubric
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w002
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w003
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   evidence_id: corpus-110-lh_bili_season_bv1k34y1g7fv-seg-001
   start_seconds: 93
@@ -19882,7 +20839,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w003
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w001
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   evidence_id: corpus-110-lh_bili_season_bv1k34y1g7fv-seg-001
   start_seconds: 139
@@ -19890,6 +20847,7 @@ windows:
   topic_tags:
   - internal_rotation
   - wrist
+  - equipment
   - training_plan
   evidence_level: content_model_candidate
   review_status: pending_human_review
@@ -19930,7 +20888,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: swing_rubric
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w001
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w002
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   evidence_id: corpus-110-lh_bili_season_bv1k34y1g7fv-seg-001
   start_seconds: 231
@@ -21391,6 +22349,7 @@ windows:
   - high_clear
   - wrist
   - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 0s and 46s, this public source segment is a candidate for overhead
@@ -21413,6 +22372,7 @@ windows:
   topic_tags:
   - smash
   - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 46s and 72s, this public source segment is a candidate for smash
@@ -21801,6 +22761,7 @@ windows:
   start_seconds: 46
   end_seconds: 93
   topic_tags:
+  - equipment
   - diagnosis_flow
   - smash
   - racket_preparation
@@ -21808,19 +22769,20 @@ windows:
   - training_plan
   evidence_level: content_model_candidate
   review_status: pending_human_review
-  summary: Between 46s and 93s, this public source segment is a candidate for goal-first
-    diagnosis and immediate retest within the video topic '为什么推荐业余球友用5u拍大破拍是糖水拍吗刘辉教练教你5u拍的优势有哪些看来是时候换我的4u拍了'.
+  summary: Between 46s and 93s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '为什么推荐业余球友用5u拍大破拍是糖水拍吗刘辉教练教你5u拍的优势有哪些看来是时候换我的4u拍了'.
     The candidate is based on ASR topic signals and must be reviewed against timestamped
     video before promotion.
   teaching_point_candidate:
-    problem: The learner or demonstration may be addressing goal-first diagnosis and
-      immediate retest, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
-      immediate retest; do not turn it into a firm coaching rule until the timestamped
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
       content is checked.
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
-    promotion_target: diagnosis_flow
+    promotion_target: equipment_rubric
 - window_id: corpus-121-lh_bili_season_bv1qe411b73p-w005
   source_id: LH_BILI_SEASON_BV1QE411B73P
   evidence_id: corpus-121-lh_bili_season_bv1qe411b73p-seg-001
@@ -21828,6 +22790,7 @@ windows:
   end_seconds: 139
   topic_tags:
   - racket_preparation
+  - equipment
   - student_fit
   - diagnosis_flow
   - training_plan
@@ -26300,7 +27263,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w004
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w005
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
   start_seconds: 7
@@ -26327,7 +27290,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w005
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w002
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
   start_seconds: 54
@@ -26337,6 +27300,7 @@ windows:
   - racket_preparation
   - top_elbow
   - diagnosis_flow
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 54s and 101s, this public source segment is a candidate for smash
@@ -26351,6 +27315,31 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w007
+  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
+  evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
+  start_seconds: 101
+  end_seconds: 146
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - equipment
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 101s and 146s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '如何提升杀球速度和挥重重杀和快杀怎么杀2个技巧
+    迅速提升不可错过的发力教学'. The candidate is based on ASR topic signals and must be reviewed
+    against timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
 - window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w001
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
@@ -26378,7 +27367,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w002
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w003
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
   start_seconds: 192
@@ -26389,6 +27378,7 @@ windows:
   - hip_rotation
   - internal_rotation
   - smash
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 192s and 237s, this public source segment is a candidate for top-elbow
@@ -26404,7 +27394,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w007
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w008
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
   start_seconds: 237
@@ -26413,6 +27403,7 @@ windows:
   - top_elbow
   - diagnosis_flow
   - smash
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 237s and 284s, this public source segment is a candidate for top-elbow
@@ -26439,6 +27430,7 @@ windows:
   - diagnosis_flow
   - racket_preparation
   - smash
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 284s and 332s, this public source segment is a candidate for top-elbow
@@ -26454,7 +27446,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w003
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w004
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
   start_seconds: 379
@@ -26465,6 +27457,7 @@ windows:
   - racket_preparation
   - internal_rotation
   - smash
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 379s and 425s, this public source segment is a candidate for top-elbow
@@ -26480,30 +27473,53 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w008
-  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
-  evidence_id: corpus-149-lh_bili_season_bv1zz421y7yt-seg-001
-  start_seconds: 477
-  end_seconds: 489
+- window_id: corpus-150-lh_bili_season_bv1er421w7we-w001
+  source_id: LH_BILI_SEASON_BV1ER421W7WE
+  evidence_id: corpus-150-lh_bili_season_bv1er421w7we-seg-001
+  start_seconds: 0
+  end_seconds: 45
   topic_tags:
-  - top_elbow
-  - internal_rotation
-  - smash
+  - equipment
+  - diagnosis_flow
   evidence_level: content_model_candidate
   review_status: pending_human_review
-  summary: Between 477s and 489s, this public source segment is a candidate for top-elbow
-    and upper-arm frame behavior within the video topic '如何提升杀球速度和挥重重杀和快杀怎么杀2个技巧 迅速提升不可错过的发力教学'.
+  summary: Between 0s and 45s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '300和315平衡点有什么区别羽毛球拍平衡点的秘密'.
     The candidate is based on ASR topic signals and must be reviewed against timestamped
     video before promotion.
   teaching_point_candidate:
-    problem: The learner or demonstration may be addressing top-elbow and upper-arm
-      frame behavior, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for top-elbow and upper-arm
-      frame behavior; do not turn it into a firm coaching rule until the timestamped
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
       content is checked.
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
-    promotion_target: overhead_rubric
+    promotion_target: equipment_rubric
+- window_id: corpus-150-lh_bili_season_bv1er421w7we-w002
+  source_id: LH_BILI_SEASON_BV1ER421W7WE
+  evidence_id: corpus-150-lh_bili_season_bv1er421w7we-seg-001
+  start_seconds: 45
+  end_seconds: 59
+  topic_tags:
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 45s and 59s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '300和315平衡点有什么区别羽毛球拍平衡点的秘密'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: equipment_rubric
 - window_id: corpus-151-lh_bili_season_bv1ai421d7ns-w004
   source_id: LH_BILI_SEASON_BV1AI421D7NS
   evidence_id: corpus-151-lh_bili_season_bv1ai421d7ns-seg-001
@@ -27699,7 +28715,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w003
+- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w002
   source_id: LH_BILI_SEASON_BV1AZ421F7XP
   evidence_id: corpus-157-lh_bili_season_bv1az421f7xp-seg-001
   start_seconds: 46
@@ -27751,7 +28767,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w002
+- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w003
   source_id: LH_BILI_SEASON_BV1AZ421F7XP
   evidence_id: corpus-157-lh_bili_season_bv1az421f7xp-seg-001
   start_seconds: 138
@@ -29735,6 +30751,119 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w001
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  evidence_id: corpus-173-lh_bili_season_bv1ks421w7cj-seg-001
+  start_seconds: 1
+  end_seconds: 50
+  topic_tags:
+  - racket_preparation
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 1s and 50s, this public source segment is a candidate for racket-preparation
+    frame control within the video topic '羽毛球拍的抗扭是什么选拍子的重要参考'. The candidate is based
+    on ASR topic signals and must be reviewed against timestamped video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket-preparation frame
+      control, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for racket-preparation frame
+      control; do not turn it into a firm coaching rule until the timestamped content
+      is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: swing_rubric
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w003
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  evidence_id: corpus-173-lh_bili_season_bv1ks421w7cj-seg-001
+  start_seconds: 50
+  end_seconds: 96
+  topic_tags:
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 50s and 96s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '羽毛球拍的抗扭是什么选拍子的重要参考'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: equipment_rubric
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w002
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  evidence_id: corpus-173-lh_bili_season_bv1ks421w7cj-seg-001
+  start_seconds: 96
+  end_seconds: 143
+  topic_tags:
+  - student_fit
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 96s and 143s, this public source segment is a candidate for student-fit
+    framework selection within the video topic '羽毛球拍的抗扭是什么选拍子的重要参考'. The candidate
+    is based on ASR topic signals and must be reviewed against timestamped video before
+    promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing student-fit framework
+      selection, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for student-fit framework selection;
+      do not turn it into a firm coaching rule until the timestamped content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: student_profiles
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w004
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  evidence_id: corpus-173-lh_bili_season_bv1ks421w7cj-seg-001
+  start_seconds: 143
+  end_seconds: 189
+  topic_tags:
+  - diagnosis_flow
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 143s and 189s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球拍的抗扭是什么选拍子的重要参考'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w005
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  evidence_id: corpus-173-lh_bili_season_bv1ks421w7cj-seg-001
+  start_seconds: 237
+  end_seconds: 285
+  topic_tags:
+  - diagnosis_flow
+  - equipment
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 237s and 285s, this public source segment is a candidate for goal-first
+    diagnosis and immediate retest within the video topic '羽毛球拍的抗扭是什么选拍子的重要参考'. The
+    candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing goal-first diagnosis and
+      immediate retest, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
+      immediate retest; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: diagnosis_flow
 - window_id: corpus-174-lh_bili_season_bv1zd421g7x9-w007
   source_id: LH_BILI_SEASON_BV1ZD421G7X9
   evidence_id: corpus-174-lh_bili_season_bv1zd421g7x9-seg-001
@@ -32621,6 +33750,7 @@ windows:
   - diagnosis_flow
   - smash
   - safety
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 52s and 98s, this public source segment is a candidate for top-elbow
@@ -33408,30 +34538,6 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w008
-  source_id: LH_BILI_SEASON_BV1KZ421I7CJ
-  evidence_id: corpus-197-lh_bili_season_bv1kz421i7cj-seg-001
-  start_seconds: 98
-  end_seconds: 146
-  topic_tags:
-  - diagnosis_flow
-  - footwork
-  - smash
-  evidence_level: content_model_candidate
-  review_status: pending_human_review
-  summary: Between 98s and 146s, this public source segment is a candidate for goal-first
-    diagnosis and immediate retest within the video topic '史上最重杀球教学遁地炮'. The candidate
-    is based on ASR topic signals and must be reviewed against timestamped video before
-    promotion.
-  teaching_point_candidate:
-    problem: The learner or demonstration may be addressing goal-first diagnosis and
-      immediate retest, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
-      immediate retest; do not turn it into a firm coaching rule until the timestamped
-      content is checked.
-    correction: Promote only an original, evidence-grounded correction after reviewing
-      the matching ASR segment, keyframes, and visible action.
-    promotion_target: diagnosis_flow
 - window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w005
   source_id: LH_BILI_SEASON_BV1KZ421I7CJ
   evidence_id: corpus-197-lh_bili_season_bv1kz421i7cj-seg-001
@@ -33503,6 +34609,31 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
+- window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w008
+  source_id: LH_BILI_SEASON_BV1KZ421I7CJ
+  evidence_id: corpus-197-lh_bili_season_bv1kz421i7cj-seg-001
+  start_seconds: 468
+  end_seconds: 513
+  topic_tags:
+  - hip_rotation
+  - safety
+  - equipment
+  - smash
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 468s and 513s, this public source segment is a candidate for foot-ground
+    and hip-drive sequencing within the video topic '史上最重杀球教学遁地炮'. The candidate is
+    based on ASR topic signals and must be reviewed against timestamped video before
+    promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing foot-ground and hip-drive
+      sequencing, but the exact visible mechanism still needs timestamp review.
+    diagnosis_rule: Use this window as a review target for foot-ground and hip-drive
+      sequencing; do not turn it into a firm coaching rule until the timestamped content
+      is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: footwork_rubric
 - window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w004
   source_id: LH_BILI_SEASON_BV1KZ421I7CJ
   evidence_id: corpus-197-lh_bili_season_bv1kz421i7cj-seg-001
@@ -34545,7 +35676,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w006
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w007
   source_id: LH_BILI_SEASON_BV11W4M167UI
   evidence_id: corpus-205-lh_bili_season_bv11w4m167ui-seg-001
   start_seconds: 0
@@ -34641,7 +35772,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w007
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w008
   source_id: LH_BILI_SEASON_BV11W4M167UI
   evidence_id: corpus-205-lh_bili_season_bv11w4m167ui-seg-001
   start_seconds: 229
@@ -34662,7 +35793,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: match_transfer_rubric
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w008
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w006
   source_id: LH_BILI_SEASON_BV11W4M167UI
   evidence_id: corpus-205-lh_bili_season_bv11w4m167ui-seg-001
   start_seconds: 275
@@ -34670,6 +35801,7 @@ windows:
   topic_tags:
   - hip_rotation
   - match_transfer
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 275s and 320s, this public source segment is a candidate for foot-ground
@@ -35680,6 +36812,7 @@ windows:
   - hip_rotation
   - safety
   - smash
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 48s and 95s, this public source segment is a candidate for student-fit
@@ -35784,6 +36917,7 @@ windows:
   - smash
   - hip_rotation
   - safety
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 326s and 372s, this public source segment is a candidate for student-fit
@@ -40319,7 +41453,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w004
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w007
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
   start_seconds: 0
@@ -40344,7 +41478,33 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w005
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w003
+  source_id: LH_BILI_SEASON_BV1G8CFYVEKE
+  evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
+  start_seconds: 47
+  end_seconds: 103
+  topic_tags:
+  - equipment
+  - high_clear
+  - smash
+  - doubles
+  evidence_level: content_model_candidate
+  review_status: pending_human_review
+  summary: Between 47s and 103s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '5u版李宁90New评测完整版羽毛球双打抽档利器打感细评和5u大破拍pro对比测试高远球杀球'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
+  teaching_point_candidate:
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
+    correction: Promote only an original, evidence-grounded correction after reviewing
+      the matching ASR segment, keyframes, and visible action.
+    promotion_target: equipment_rubric
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w008
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
   start_seconds: 153
@@ -40367,7 +41527,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w003
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w004
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
   start_seconds: 304
@@ -40416,31 +41576,6 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w006
-  source_id: LH_BILI_SEASON_BV1G8CFYVEKE
-  evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
-  start_seconds: 396
-  end_seconds: 445
-  topic_tags:
-  - diagnosis_flow
-  - high_clear
-  - smash
-  - doubles
-  evidence_level: content_model_candidate
-  review_status: pending_human_review
-  summary: Between 396s and 445s, this public source segment is a candidate for goal-first
-    diagnosis and immediate retest within the video topic '5u版李宁90New评测完整版羽毛球双打抽档利器打感细评和5u大破拍pro对比测试高远球杀球'.
-    The candidate is based on ASR topic signals and must be reviewed against timestamped
-    video before promotion.
-  teaching_point_candidate:
-    problem: The learner or demonstration may be addressing goal-first diagnosis and
-      immediate retest, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
-      immediate retest; do not turn it into a firm coaching rule until the timestamped
-      content is checked.
-    correction: Promote only an original, evidence-grounded correction after reviewing
-      the matching ASR segment, keyframes, and visible action.
-    promotion_target: diagnosis_flow
 - window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w001
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
@@ -40465,13 +41600,14 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: smash_variant_rubric
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w007
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w005
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
   start_seconds: 628
   end_seconds: 674
   topic_tags:
   - student_fit
+  - equipment
   - high_clear
   - smash
   - doubles
@@ -40489,13 +41625,14 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w008
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w006
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   evidence_id: corpus-241-lh_bili_season_bv1g8cfyveke-seg-001
   start_seconds: 674
   end_seconds: 716
   topic_tags:
   - training_plan
+  - equipment
   - high_clear
   - smash
   - doubles
@@ -41191,6 +42328,7 @@ windows:
   - smash
   - drive
   - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 0s and 47s, this public source segment is a candidate for smash
@@ -41212,6 +42350,7 @@ windows:
   end_seconds: 95
   topic_tags:
   - training_plan
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 47s and 95s, this public source segment is a candidate for staged
@@ -41645,7 +42784,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w002
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w003
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   evidence_id: corpus-249-lh_bili_season_bv1rachesepm-seg-001
   start_seconds: 1
@@ -41742,7 +42881,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: overhead_rubric
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w003
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w004
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   evidence_id: corpus-249-lh_bili_season_bv1rachesepm-seg-001
   start_seconds: 234
@@ -41767,7 +42906,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: review_queue
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w004
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w005
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   evidence_id: corpus-249-lh_bili_season_bv1rachesepm-seg-001
   start_seconds: 280
@@ -41819,7 +42958,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: review_queue
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w005
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w002
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   evidence_id: corpus-249-lh_bili_season_bv1rachesepm-seg-001
   start_seconds: 512
@@ -41829,8 +42968,8 @@ windows:
   - smash
   - wrist
   - training_plan
+  - equipment
   - student_fit
-  - contact_point
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 512s and 559s, this public source segment is a candidate for goal-first
@@ -49073,7 +50212,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w001
+- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w002
   source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
   evidence_id: corpus-290-lh_bili_season_bv1q4jrz3eps-seg-001
   start_seconds: 50
@@ -49228,7 +50367,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w002
+- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w001
   source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
   evidence_id: corpus-290-lh_bili_season_bv1q4jrz3eps-seg-001
   start_seconds: 650
@@ -50374,6 +51513,7 @@ windows:
   - smash
   - racket_preparation
   - internal_rotation
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 1s and 48s, this public source segment is a candidate for smash
@@ -50397,6 +51537,7 @@ windows:
   - internal_rotation
   - smash
   - racket_preparation
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 48s and 94s, this public source segment is a candidate for arm-chain
@@ -50422,6 +51563,7 @@ windows:
   - internal_rotation
   - smash
   - racket_preparation
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 94s and 117s, this public source segment is a candidate for arm-chain
@@ -51090,7 +52232,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w003
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w005
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
   start_seconds: 50
@@ -51112,7 +52254,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w002
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w003
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
   start_seconds: 96
@@ -51135,7 +52277,7 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: student_profiles
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w007
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w008
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
   start_seconds: 142
@@ -51180,27 +52322,30 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: review_queue
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w008
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w007
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
   start_seconds: 235
   end_seconds: 282
   topic_tags:
+  - equipment
   - student_fit
   evidence_level: content_model_candidate
   review_status: pending_human_review
-  summary: Between 235s and 282s, this public source segment is a candidate for student-fit
-    framework selection within the video topic '业余选重拍还是轻拍羽毛球新手进阶的选拍秘籍'. The candidate
-    is based on ASR topic signals and must be reviewed against timestamped video before
-    promotion.
+  summary: Between 235s and 282s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '业余选重拍还是轻拍羽毛球新手进阶的选拍秘籍'.
+    The candidate is based on ASR topic signals and must be reviewed against timestamped
+    video before promotion.
   teaching_point_candidate:
-    problem: The learner or demonstration may be addressing student-fit framework
-      selection, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for student-fit framework selection;
-      do not turn it into a firm coaching rule until the timestamped content is checked.
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
+      content is checked.
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
-    promotion_target: student_profiles
+    promotion_target: equipment_rubric
 - window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w004
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
@@ -51209,6 +52354,7 @@ windows:
   topic_tags:
   - diagnosis_flow
   - racket_preparation
+  - equipment
   - student_fit
   evidence_level: content_model_candidate
   review_status: pending_human_review
@@ -51225,30 +52371,32 @@ windows:
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
     promotion_target: diagnosis_flow
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w005
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w002
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   evidence_id: corpus-303-lh_bili_fav_bv16ptzzcew6-seg-001
   start_seconds: 328
   end_seconds: 373
   topic_tags:
+  - equipment
   - diagnosis_flow
   - racket_preparation
   - student_fit
   evidence_level: content_model_candidate
   review_status: pending_human_review
-  summary: Between 328s and 373s, this public source segment is a candidate for goal-first
-    diagnosis and immediate retest within the video topic '业余选重拍还是轻拍羽毛球新手进阶的选拍秘籍'.
+  summary: Between 328s and 373s, this public source segment is a candidate for racket
+    specification and player-fit selection within the video topic '业余选重拍还是轻拍羽毛球新手进阶的选拍秘籍'.
     The candidate is based on ASR topic signals and must be reviewed against timestamped
     video before promotion.
   teaching_point_candidate:
-    problem: The learner or demonstration may be addressing goal-first diagnosis and
-      immediate retest, but the exact visible mechanism still needs timestamp review.
-    diagnosis_rule: Use this window as a review target for goal-first diagnosis and
-      immediate retest; do not turn it into a firm coaching rule until the timestamped
+    problem: The learner or demonstration may be addressing racket specification and
+      player-fit selection, but the exact visible mechanism still needs timestamp
+      review.
+    diagnosis_rule: Use this window as a review target for racket specification and
+      player-fit selection; do not turn it into a firm coaching rule until the timestamped
       content is checked.
     correction: Promote only an original, evidence-grounded correction after reviewing
       the matching ASR segment, keyframes, and visible action.
-    promotion_target: diagnosis_flow
+    promotion_target: equipment_rubric
 - window_id: corpus-304-lh_bili_season_bv1fcbazlejj-w003
   source_id: LH_BILI_SEASON_BV1FCBAZLEJJ
   evidence_id: corpus-304-lh_bili_season_bv1fcbazlejj-seg-001
@@ -53375,6 +54523,7 @@ windows:
   topic_tags:
   - smash
   - hip_rotation
+  - equipment
   evidence_level: content_model_candidate
   review_status: pending_human_review
   summary: Between 93s and 140s, this public source segment is a candidate for smash

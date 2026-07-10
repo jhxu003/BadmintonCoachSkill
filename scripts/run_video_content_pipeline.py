@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from badminton_coach_skill.video_corpus import load_yaml, write_evidence_index, write_yaml  # noqa: E402
 
 
-VLM_ARTIFACT_VERSION = 2
+VLM_ARTIFACT_VERSION = 4
 POSE_ARTIFACT_VERSION = 2
 _VLM_RUNTIME_CACHE: dict[str, tuple[Any, Any, Any]] = {}
 _POSE_MODEL_CACHE: dict[str, Any] = {}
@@ -61,6 +61,14 @@ def parse_args() -> argparse.Namespace:
         default="data/corpus/video-evidence-index.tsv",
     )
     parser.add_argument(
+        "--skip-public-evidence",
+        action="store_true",
+        help=(
+            "Write only private stage artifacts. Use this on distributed compute nodes, "
+            "then rebuild public evidence after all private artifacts are gathered."
+        ),
+    )
+    parser.add_argument(
         "--asr-model",
         default="large-v3-turbo",
         help="faster-whisper model size or local model path.",
@@ -94,6 +102,14 @@ def parse_args() -> argparse.Namespace:
             "path on compute nodes to avoid writing large audio/video artifacts to NFS."
         ),
     )
+    parser.add_argument(
+        "--video-reuse-root",
+        default="",
+        help=(
+            "Optional node-local root containing <job_id>/source_video.* from an earlier run. "
+            "Temporal passes can reuse the visual-pass download without copying it."
+        ),
+    )
     parser.add_argument("--keyframe-count", type=int, default=6)
     parser.add_argument("--keyframe-start-seconds", type=int, default=8)
     parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
@@ -117,6 +133,12 @@ def parse_args() -> argparse.Namespace:
         help="Transformers-compatible VLM checkpoint for private keyframe review.",
     )
     parser.add_argument("--vlm-max-new-tokens", type=int, default=1536)
+    parser.add_argument(
+        "--vlm-batch-size",
+        type=int,
+        default=1,
+        help="Number of still images per VLM request. One is the quality-first default.",
+    )
     parser.add_argument(
         "--pose-model",
         default="yolo11n-pose.pt",
@@ -249,7 +271,7 @@ def run_metadata(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any
 
 def run_download(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     path = ROOT / job["private_paths"]["video_file"]
-    existing = find_private_video(job)
+    existing = find_private_video(job, args.video_reuse_root)
     if existing:
         return {
             "status": "ok",
@@ -314,14 +336,20 @@ def run_audio(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
-def find_private_video(job: dict[str, Any]) -> Path | None:
-    base = ROOT / job["private_paths"]["video_file"]
-    if base.exists() and base.is_file():
-        return base
-    candidates = sorted(base.parent.glob(base.name + ".*"))
-    for candidate in candidates:
-        if candidate.is_file() and candidate.stat().st_size > 0:
-            return candidate
+def find_private_video(job: dict[str, Any], reuse_root: str = "") -> Path | None:
+    bases = [ROOT / job["private_paths"]["video_file"]]
+    if reuse_root:
+        bases.append(Path(reuse_root).expanduser() / job["job_id"] / "source_video")
+    source_path = job.get("source_private_paths", {}).get("video_file")
+    if source_path:
+        bases.append(ROOT / source_path)
+    for base in bases:
+        if base.exists() and base.is_file() and base.stat().st_size > 0:
+            return base
+        candidates = sorted(base.parent.glob(base.name + ".*"))
+        for candidate in candidates:
+            if candidate.is_file() and candidate.stat().st_size > 0:
+                return candidate
     return None
 
 
@@ -333,7 +361,14 @@ def planned_keyframes(job: dict[str, Any], args: argparse.Namespace) -> list[dic
     if args.keyframe_source == "visual-review":
         specs = []
         for frame in job.get("planned_frames", []):
-            timestamp = max(int(round(float(frame.get("timestamp_seconds") or 0))), 0)
+            timestamp_value = round(
+                max(float(frame.get("timestamp_seconds") or 0), 0.0), 3
+            )
+            timestamp = (
+                int(timestamp_value)
+                if timestamp_value.is_integer()
+                else timestamp_value
+            )
             source_window_id = frame.get("source_window_id")
             specs.append(
                 {
@@ -421,6 +456,29 @@ def load_keyframes(job: dict[str, Any]) -> list[dict[str, Any]]:
     return list(data.get("frames", []))
 
 
+def video_duration_seconds(video_path: Path) -> float | None:
+    try:
+        import cv2
+        capture = cv2.VideoCapture(str(video_path))
+        if not capture.isOpened():
+            return None
+        fps = float(capture.get(cv2.CAP_PROP_FPS) or 0)
+        frame_count = float(capture.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+        capture.release()
+        if fps <= 0 or frame_count <= 0:
+            return None
+        return frame_count / fps
+    except Exception:
+        return None
+
+
+def safe_extraction_timestamp(requested: float, duration: float | None) -> float:
+    requested = max(float(requested), 0.0)
+    if duration is None or requested < duration:
+        return round(requested, 3)
+    return round(max(float(duration) - 0.1, 0.0), 3)
+
+
 def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     output_dir = ROOT / job["private_paths"]["keyframes_dir"]
     manifest_path = keyframes_manifest_path(job)
@@ -449,7 +507,7 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
             "failed_frame_count": 0,
             "manifest_path": str(manifest_path),
         }
-    video_path = find_private_video(job)
+    video_path = find_private_video(job, args.video_reuse_root)
     if not video_path:
         result = {
             "status": "skipped",
@@ -516,9 +574,11 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
                 )
         capture.release()
     else:
+        duration_seconds: float | None = None
         for index, frame_spec in enumerate(frame_specs):
             timestamp = frame_spec["timestamp_seconds"]
             frame_path = output_dir / f"frame-{index + 1:03d}-{timestamp}s.jpg"
+            extracted_timestamp = timestamp
             command = [
                 get_ffmpeg_exe(),
                 "-y",
@@ -533,20 +593,52 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
                 str(frame_path),
             ]
             record = run_command(command, timeout_seconds=60)
+            extracted = (
+                record["returncode"] == 0
+                and frame_path.exists()
+                and frame_path.stat().st_size > 0
+            )
+            fallback_used = False
+            if not extracted:
+                if duration_seconds is None:
+                    duration_seconds = video_duration_seconds(video_path)
+                fallback_timestamp = safe_extraction_timestamp(timestamp, duration_seconds)
+                if fallback_timestamp != timestamp:
+                    frame_path.unlink(missing_ok=True)
+                    extracted_timestamp = fallback_timestamp
+                    fallback_command = command.copy()
+                    fallback_command[fallback_command.index("-ss") + 1] = str(
+                        fallback_timestamp
+                    )
+                    fallback_record = run_command(fallback_command, timeout_seconds=60)
+                    record = {
+                        **fallback_record,
+                        "requested_timestamp_seconds": timestamp,
+                        "fallback_timestamp_seconds": fallback_timestamp,
+                    }
+                    fallback_used = True
+                    extracted = (
+                        fallback_record["returncode"] == 0
+                        and frame_path.exists()
+                        and frame_path.stat().st_size > 0
+                    )
             records.append(
                 {
                     "timestamp_seconds": timestamp,
+                    "extracted_timestamp_seconds": extracted_timestamp,
+                    "end_of_video_fallback": fallback_used,
                     "returncode": record["returncode"],
                     "stderr_tail": record.get("stderr_tail", "")[-800:],
                     "source": frame_spec.get("source"),
                     "source_window_id": frame_spec.get("source_window_id"),
                 }
             )
-            if record["returncode"] == 0 and frame_path.exists() and frame_path.stat().st_size > 0:
+            if extracted:
                 frames.append(
                     {
                         "frame_id": f"{job['job_id']}-frame-{index + 1:03d}",
                         "timestamp_seconds": timestamp,
+                        "extracted_timestamp_seconds": extracted_timestamp,
                         "path": str(frame_path),
                         "source": frame_spec.get("source"),
                         "source_window_id": frame_spec.get("source_window_id"),
@@ -675,11 +767,6 @@ def load_vlm_runtime(model_name: str) -> tuple[Any, Any, Any]:
     import torch
     from transformers import AutoConfig
     from transformers import AutoProcessor
-    try:
-        from transformers import Qwen2_5_VLForConditionalGeneration
-    except Exception:
-        from transformers import AutoModelForVision2Seq as Qwen2_5_VLForConditionalGeneration
-
     config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
     config.base_model_tp_plan = None
     for nested_name in ["text_config", "vision_config"]:
@@ -694,7 +781,15 @@ def load_vlm_runtime(model_name: str) -> tuple[Any, Any, Any]:
             if getattr(torch.cuda, "is_bf16_supported", lambda: False)()
             else torch.float16
         )
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    model_type = str(getattr(config, "model_type", ""))
+    if "qwen3_vl" in model_type:
+        from transformers import Qwen3VLForConditionalGeneration as ModelClass
+    else:
+        try:
+            from transformers import Qwen2_5_VLForConditionalGeneration as ModelClass
+        except Exception:
+            from transformers import AutoModelForVision2Seq as ModelClass
+    model = ModelClass.from_pretrained(
         model_name,
         config=config,
         torch_dtype=torch_dtype,
@@ -706,7 +801,234 @@ def load_vlm_runtime(model_name: str) -> tuple[Any, Any, Any]:
     return runtime
 
 
-def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[str, Any]:
+def extract_first_json_value(text: str) -> dict[str, Any] | list[Any]:
+    decoder = json.JSONDecoder()
+    for index, char in enumerate(text):
+        if char not in "{[":
+            continue
+        try:
+            value, _ = decoder.raw_decode(text[index:])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, (dict, list)):
+            return value
+    raise ValueError("VLM response does not contain a complete JSON object or array")
+
+
+def primary_subject_score(frame: dict[str, Any]) -> tuple[int, int, int, int]:
+    body = frame.get("body_configuration", [])
+    if isinstance(body, str):
+        body = [body]
+    action_body_count = sum(
+        item not in {"neutral_standing", "unclear"} for item in body
+    ) if isinstance(body, list) else 0
+    racket_score = {"visible": 2, "unclear": 1}.get(
+        frame.get("racket_visibility"), 0
+    )
+    confidence_score = {"high": 3, "medium": 2, "low": 1}.get(
+        frame.get("confidence"), 0
+    )
+    view_score = int(
+        frame.get("primary_subject_view") not in {"unclear", "not_visible", None}
+    )
+    return (
+        int(frame.get("person_visible") is True),
+        action_body_count,
+        racket_score,
+        confidence_score + view_score,
+    )
+
+
+def coerce_vlm_frame_records(
+    data: dict[str, Any] | list[Any], expected_count: int
+) -> list[Any] | None:
+    if isinstance(data, dict) and isinstance(data.get("frames"), list):
+        frames = data["frames"]
+    elif isinstance(data, dict) and expected_count == 1:
+        frames = [data]
+    elif isinstance(data, list):
+        frames = data
+    else:
+        return None
+    if expected_count == 1 and len(frames) > 1 and all(
+        isinstance(frame, dict) for frame in frames
+    ):
+        selected = dict(max(frames, key=primary_subject_score))
+        limits = selected.get("visibility_limits", [])
+        if isinstance(limits, list):
+            selected["visibility_limits"] = list(
+                dict.fromkeys([*limits, "multiple_people"])
+            )
+        frames = [selected]
+    return frames
+
+
+def parse_vlm_frame_batch(text: str, expected_timestamps: list[int]) -> list[dict[str, Any]]:
+    data = extract_first_json_value(text)
+    frames = coerce_vlm_frame_records(data, len(expected_timestamps))
+    if not isinstance(frames, list) or len(frames) != len(expected_timestamps):
+        raise ValueError(
+            f"expected {len(expected_timestamps)} frame records, got "
+            f"{len(frames) if isinstance(frames, list) else 'non-list'}"
+        )
+    required = {
+        "person_visible",
+        "primary_subject_view",
+        "body_configuration",
+        "racket_visibility",
+        "racket_position",
+        "on_screen_text_present",
+        "visibility_limits",
+        "confidence",
+    }
+    allowed_views = {"front", "back", "side", "oblique", "unclear", "not_visible"}
+    allowed_body = {
+        "neutral_standing",
+        "staggered_stance",
+        "wide_base",
+        "lunge",
+        "single_leg_support",
+        "airborne",
+        "torso_turned",
+        "arm_raised",
+        "arm_extended",
+        "unclear",
+    }
+    allowed_racket_visibility = {"visible", "not_visible", "unclear"}
+    allowed_racket_positions = {
+        "below_waist",
+        "waist_to_shoulder",
+        "above_shoulder",
+        "behind_torso",
+        "not_visible",
+        "unclear",
+    }
+    allowed_confidence = {"low", "medium", "high"}
+    allowed_limits = {
+        "subject_too_small",
+        "racket_blurred",
+        "racket_occluded",
+        "lower_body_occluded",
+        "camera_crop",
+        "multiple_people",
+        "unclear",
+    }
+    validated: list[dict[str, Any]] = []
+    for expected_index, (frame, timestamp) in enumerate(
+        zip(frames, expected_timestamps), start=1
+    ):
+        if not isinstance(frame, dict):
+            raise ValueError(f"frame {expected_index} is not an object")
+        missing = sorted(required - set(frame))
+        if missing:
+            raise ValueError(f"frame {expected_index} missing fields: {', '.join(missing)}")
+        if not isinstance(frame["person_visible"], bool):
+            raise ValueError(f"frame {expected_index} person_visible is not boolean")
+        if frame["primary_subject_view"] not in allowed_views:
+            raise ValueError(f"frame {expected_index} has unsupported subject view")
+        body = frame["body_configuration"]
+        if isinstance(body, str):
+            body = [body]
+        if (
+            not isinstance(body, list)
+            or not body
+            or any(item not in allowed_body for item in body)
+        ):
+            raise ValueError(f"frame {expected_index} has unsupported body configuration")
+        if frame["racket_visibility"] not in allowed_racket_visibility:
+            raise ValueError(f"frame {expected_index} has unsupported racket visibility")
+        if frame["racket_position"] not in allowed_racket_positions:
+            raise ValueError(f"frame {expected_index} has unsupported racket position")
+        if not isinstance(frame["on_screen_text_present"], bool):
+            raise ValueError(f"frame {expected_index} on_screen_text_present is not boolean")
+        limits = frame["visibility_limits"]
+        if (
+            not isinstance(limits, list)
+            or any(not isinstance(item, str) for item in limits)
+            or any(item not in allowed_limits for item in limits)
+        ):
+            raise ValueError(f"frame {expected_index} visibility_limits is not a string list")
+        if frame["confidence"] not in allowed_confidence:
+            raise ValueError(f"frame {expected_index} has unsupported confidence")
+        normalized = {key: frame[key] for key in required}
+        normalized["image_index"] = expected_index
+        normalized["timestamp_seconds"] = timestamp
+        normalized["body_configuration"] = list(dict.fromkeys(body))
+        normalized["visibility_limits"] = list(dict.fromkeys([*limits, "still_frame_no_motion"]))
+        validated.append(normalized)
+    return validated
+
+
+def recover_vlm_progress(
+    existing: dict[str, Any] | None,
+    selected_frames: list[dict[str, Any]],
+    *,
+    model_name: str,
+    batch_size: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], int]:
+    if (
+        not existing
+        or existing.get("status") != "failed"
+        or existing.get("artifact_version") != VLM_ARTIFACT_VERSION
+        or existing.get("schema") != "visible_still_frame_v2"
+        or existing.get("model") != model_name
+    ):
+        return [], [], 0
+    outputs: list[dict[str, Any]] = []
+    observations: list[dict[str, Any]] = []
+    start_index = 0
+    effective_batch_size = max(int(batch_size), 1)
+    for raw_record in existing.get("batch_outputs", []):
+        if start_index >= len(selected_frames) or not isinstance(raw_record, dict):
+            break
+        batch_frames = selected_frames[
+            start_index : start_index + effective_batch_size
+        ]
+        expected_timestamps = [frame["timestamp_seconds"] for frame in batch_frames]
+        if raw_record.get("timestamps_seconds") != expected_timestamps:
+            break
+        raw_response = raw_record.get("raw_response")
+        if not isinstance(raw_response, str):
+            break
+        try:
+            parsed_frames = parse_vlm_frame_batch(raw_response, expected_timestamps)
+        except Exception:
+            break
+        record = dict(raw_record)
+        record["status"] = "validated"
+        outputs.append(record)
+        for local_index, parsed in enumerate(parsed_frames):
+            source_frame = batch_frames[local_index]
+            parsed["image_index"] = start_index + local_index + 1
+            parsed["frame_id"] = source_frame["frame_id"]
+            observations.append(parsed)
+        start_index += len(batch_frames)
+    return outputs, observations, start_index
+
+
+def vlm_batch_prompt(timestamps: list[int]) -> str:
+    return (
+        "Review these ordered badminton coaching still images independently. Report only directly "
+        "visible facts in each still; do not infer motion direction, stroke phase, contact, force, "
+        "joint rotation, weight transfer, coaching intent, or correctness. For each image choose "
+        "one primary coaching subject; if multiple people are visible, still describe only that "
+        "primary subject and never output one object per person. Return only one compact "
+        f"JSON array with exactly {len(timestamps)} objects in image order. Do not repeat image "
+        "indexes or timestamps. Every object must contain exactly: person_visible (boolean), "
+        "primary_subject_view (front|back|side|oblique|unclear|not_visible), "
+        "body_configuration (non-empty array chosen from neutral_standing|staggered_stance|wide_base|"
+        "lunge|single_leg_support|airborne|torso_turned|arm_raised|arm_extended|unclear), "
+        "racket_visibility (visible|not_visible|unclear), racket_position (below_waist|"
+        "waist_to_shoulder|above_shoulder|behind_torso|not_visible|unclear), "
+        "on_screen_text_present (boolean), visibility_limits (array chosen only from subject_too_small|"
+        "racket_blurred|racket_occluded|lower_body_occluded|camera_crop|multiple_people|unclear), and "
+        "confidence (low|medium|high). Do not use Markdown fences or add commentary."
+    )
+
+
+def run_vlm(
+    job: dict[str, Any], model_name: str, max_new_tokens: int, batch_size: int
+) -> dict[str, Any]:
     private_path = ROOT / job["private_paths"]["vlm_json"]
     frames = load_keyframes(job)
     if not frames:
@@ -727,6 +1049,36 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         and existing.get("model") == model_name
     ):
         return existing
+    selected_frames = frames[: min(len(frames), 18)]
+    effective_batch_size = max(int(batch_size), 1)
+    batch_outputs, observations, resume_index = recover_vlm_progress(
+        existing,
+        selected_frames,
+        model_name=model_name,
+        batch_size=effective_batch_size,
+    )
+    if resume_index == len(selected_frames):
+        result = {
+            "status": "ok",
+            "stage": "vlm",
+            "artifact_version": VLM_ARTIFACT_VERSION,
+            "schema": "visible_still_frame_v2",
+            "model": model_name,
+            "frame_count": len(selected_frames),
+            "batch_count": len(batch_outputs),
+            "batch_size": effective_batch_size,
+            "frame_ids": [frame["frame_id"] for frame in selected_frames],
+            "timestamps_seconds": [frame["timestamp_seconds"] for frame in selected_frames],
+            "frames": observations,
+            "batch_outputs": batch_outputs,
+            "summary": json.dumps(
+                {"frames": observations, "sequence_observations": []},
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ),
+        }
+        write_private_json(private_path, result)
+        return result
     try:
         from PIL import Image
         torch, processor, model = load_vlm_runtime(model_name)
@@ -739,69 +1091,93 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         write_private_json(private_path, result)
         return result
 
-    selected_frames = frames[: min(len(frames), 18)]
-    frame_map = ", ".join(
-        f"image {index + 1} = {frame['timestamp_seconds']}s"
-        for index, frame in enumerate(selected_frames)
-    )
-    prompt = (
-        "You are reviewing ordered badminton coaching keyframes. Report only directly visible "
-        "evidence. Never infer coaching intent, true joint rotation, force production, racket-face "
-        "angle, or shuttle contact when they are not visibly established. Images are ordered as: "
-        f"{frame_map}. Return one JSON object with a frames array. Each frame object must contain "
-        "image_index, timestamp_seconds, player_position, racket_preparation, contact_phase, "
-        "lower_body_orientation, recovery_state, on_screen_text_present, visibility_limits, and "
-        "confidence (low, medium, or high). Use null when a field is not visible. Also return a "
-        "sequence_observations array containing only visible changes across ordered frames."
-    )
     try:
-        images = [Image.open(frame["path"]).convert("RGB") for frame in selected_frames]
-        content = [{"type": "image"} for _ in images]
-        content.append({"type": "text", "text": prompt})
-        messages = [{"role": "user", "content": content}]
-        text = processor.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
+        for batch_start in range(
+            resume_index, len(selected_frames), effective_batch_size
+        ):
+            batch_frames = selected_frames[batch_start : batch_start + effective_batch_size]
+            batch_timestamps = [frame["timestamp_seconds"] for frame in batch_frames]
+            images = [Image.open(frame["path"]).convert("RGB") for frame in batch_frames]
+            try:
+                content = [{"type": "image"} for _ in images]
+                content.append({"type": "text", "text": vlm_batch_prompt(batch_timestamps)})
+                messages = [{"role": "user", "content": content}]
+                text = processor.apply_chat_template(
+                    messages,
+                    tokenize=False,
+                    add_generation_prompt=True,
+                )
+                inputs = processor(
+                    text=[text],
+                    images=images,
+                    padding=True,
+                    return_tensors="pt",
+                )
+                inputs = inputs.to(model.device)
+                with torch.inference_mode():
+                    generated = model.generate(
+                        **inputs,
+                        max_new_tokens=max_new_tokens,
+                        do_sample=False,
+                    )
+                trimmed = [
+                    output_ids[len(input_ids) :]
+                    for input_ids, output_ids in zip(inputs.input_ids, generated)
+                ]
+                output_text = processor.batch_decode(
+                    trimmed,
+                    skip_special_tokens=True,
+                    clean_up_tokenization_spaces=False,
+                )[0]
+                batch_record = {
+                    "batch_index": len(batch_outputs) + 1,
+                    "timestamps_seconds": batch_timestamps,
+                    "status": "received",
+                    "raw_response": output_text.strip(),
+                }
+                batch_outputs.append(batch_record)
+                parsed_frames = parse_vlm_frame_batch(output_text, batch_timestamps)
+                for local_index, parsed in enumerate(parsed_frames):
+                    source_frame = batch_frames[local_index]
+                    parsed["image_index"] = batch_start + local_index + 1
+                    parsed["frame_id"] = source_frame["frame_id"]
+                    observations.append(parsed)
+                batch_record["status"] = "validated"
+                del inputs, generated, trimmed
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+            finally:
+                for image in images:
+                    image.close()
+        canonical_summary = json.dumps(
+            {"frames": observations, "sequence_observations": []},
+            ensure_ascii=False,
+            separators=(",", ":"),
         )
-        inputs = processor(
-            text=[text],
-            images=images,
-            padding=True,
-            return_tensors="pt",
-        )
-        inputs = inputs.to(model.device)
-        generated = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=False,
-        )
-        trimmed = [
-            output_ids[len(input_ids) :]
-            for input_ids, output_ids in zip(inputs.input_ids, generated)
-        ]
-        output_text = processor.batch_decode(
-            trimmed,
-            skip_special_tokens=True,
-            clean_up_tokenization_spaces=False,
-        )[0]
         result = {
             "status": "ok",
             "stage": "vlm",
             "artifact_version": VLM_ARTIFACT_VERSION,
+            "schema": "visible_still_frame_v2",
             "model": model_name,
             "frame_count": len(selected_frames),
+            "batch_count": len(batch_outputs),
+            "batch_size": effective_batch_size,
             "frame_ids": [frame["frame_id"] for frame in selected_frames],
             "timestamps_seconds": [frame["timestamp_seconds"] for frame in selected_frames],
-            "summary": output_text.strip(),
+            "frames": observations,
+            "batch_outputs": batch_outputs,
+            "summary": canonical_summary,
         }
-        for image in images:
-            image.close()
     except Exception as exc:
         result = {
             "status": "failed",
             "stage": "vlm",
+            "artifact_version": VLM_ARTIFACT_VERSION,
+            "schema": "visible_still_frame_v2",
             "model": model_name,
+            "completed_batches": len(batch_outputs),
+            "batch_outputs": batch_outputs,
             "reason": f"{type(exc).__name__}: {exc}",
         }
     write_private_json(private_path, result)
@@ -1095,13 +1471,24 @@ def sanitize_stage_status(stage: str, data: dict[str, Any]) -> dict[str, Any]:
             "segment_count",
         ]:
             if field in data:
-                status[field] = data[field]
+                value = data[field]
+                if field == "model" and isinstance(value, str) and Path(value).is_absolute():
+                    value = Path(value).name
+                status[field] = value
         if "audio_scope" in data:
             status["audio_scope"] = data["audio_scope"]
         if "audio_scope_seconds" in data:
             status["audio_scope_seconds"] = data["audio_scope_seconds"]
     if stage in {"keyframes", "ocr", "vlm", "pose"}:
-        for field in ["stage", "model", "frame_count"]:
+        for field in [
+            "stage",
+            "model",
+            "artifact_version",
+            "schema",
+            "frame_count",
+            "batch_count",
+            "batch_size",
+        ]:
             if field in data:
                 value = data[field]
                 if field == "model" and isinstance(value, str) and Path(value).is_absolute():
@@ -1186,7 +1573,9 @@ def build_public_evidence(job: dict[str, Any], run_status: dict[str, Any]) -> Pa
     return evidence_path
 
 
-def process_job(job: dict[str, Any], stages: set[str], args: argparse.Namespace) -> Path:
+def process_job(
+    job: dict[str, Any], stages: set[str], args: argparse.Namespace
+) -> Path | None:
     job_dir = ROOT / job["private_paths"]["job_dir"]
     job_dir.mkdir(parents=True, exist_ok=True)
     run_status: dict[str, Any] = {"job_id": job["job_id"], "stages": {}}
@@ -1213,9 +1602,13 @@ def process_job(job: dict[str, Any], stages: set[str], args: argparse.Namespace)
             job,
             model_name=args.vlm_model,
             max_new_tokens=args.vlm_max_new_tokens,
+            batch_size=args.vlm_batch_size,
         )
     if "pose" in stages:
         run_status["stages"]["pose"] = run_pose(job, args.pose_model)
+    if args.skip_public_evidence:
+        write_private_json(ROOT / job["private_paths"]["run_log"], run_status)
+        return None
     if "evidence" not in stages:
         stages.add("evidence")
     evidence_path = build_public_evidence(job, run_status)
@@ -1236,10 +1629,14 @@ def main() -> None:
         jobs = jobs[: args.limit]
     jobs = [apply_private_root_override(job, args.private_root_override) for job in jobs]
     stages = {item.strip() for item in args.stages.split(",") if item.strip()}
-    evidence_files = [process_job(job, stages, args) for job in jobs]
-    write_evidence_index(ROOT / args.evidence_index, evidence_files)
-    print(f"processed {len(evidence_files)} jobs")
-    print(f"wrote {args.evidence_index}")
+    results = [process_job(job, stages, args) for job in jobs]
+    evidence_files = [path for path in results if path is not None]
+    print(f"processed {len(results)} jobs")
+    if args.skip_public_evidence:
+        print("skipped public evidence generation")
+    else:
+        write_evidence_index(ROOT / args.evidence_index, evidence_files)
+        print(f"wrote {args.evidence_index}")
 
 
 if __name__ == "__main__":

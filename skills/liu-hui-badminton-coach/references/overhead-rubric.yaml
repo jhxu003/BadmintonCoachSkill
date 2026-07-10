@@ -143,3 +143,55 @@
     - follow_through should become complete
   source_ids: [LH_BILI_SMASH_ELBOW]
   confidence: inferred
+
+- rule_id: contact-point-too-forward
+  issue: Contact point is pushed too far forward for concentrated overhead transfer
+  category: contact
+  priority: 88
+  applicable_actions: [high_clear, smash]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [contact_point]
+  observable_evidence:
+    - path: contact_point
+      equals: too_forward
+      label: Contact is visibly farther forward than the player's usable high transfer window, forcing reach or early release.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a side-view sequence through contact; camera perspective must show whether the apparent forward position is real.
+  likely_effect:
+    - Excessively forward contact may scatter force and shorten the arm-segment transfer window.
+    - The player may compensate with wrist effort or a forced follow-through.
+  correction_principle: Move contact to a high, slightly less-forward window that preserves elbow-to-forearm transfer and natural release.
+  drills: [wrist-contact-segmentation]
+  retest_metrics:
+    - contact_point should become high_slightly_back
+    - force release should become concentrated without loss of depth or angle
+  source_ids: [LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-030-w002-concentrated-force-and-contact-point, pilot-030-w004-higher-back-contact-and-earlier-rotation]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: forced-follow-through
+  issue: Follow-through is being forced or stopped instead of emerging from release and deceleration
+  category: finish
+  priority: 67
+  applicable_actions: [high_clear, smash, drop]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [follow_through, phase_observations.deceleration]
+  observable_evidence:
+    - path: follow_through
+      in: [forced_stop, forced_path]
+      label: The player visibly stops or steers the finish with shoulder, elbow, wrist, or grip tension after contact.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a sequence that continues through natural deceleration; a clip ending at contact cannot support this diagnosis.
+  likely_effect:
+    - Forced finishing can add tension and hide an earlier contact or force-transfer error.
+    - Prescribing a fixed finish shape may reduce adaptability and increase joint load.
+  correction_principle: Fix contact and release first, then allow the racket to decelerate along a pain-free natural path rather than imposing an endpoint.
+  drills: [wrist-contact-segmentation, deceleration-release-line]
+  retest_metrics:
+    - follow_through should become natural_release
+    - phase_observations.deceleration should become natural
+  source_ids: [LH_BILI_SEASON_BV1BF6SYTEGZ]
+  evidence_ids: [pilot-030-w003-segment-force-release-and-follow-through]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis

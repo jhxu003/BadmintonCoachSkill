@@ -73,22 +73,16 @@ See `examples/observations/` for ready-to-run inputs.
 
 ## Content-Level Video Corpus
 
-The repository includes a public-safe pipeline for turning indexed public teaching videos into reviewable timestamp evidence:
+The bundled Liu Hui-inspired knowledge base is distilled from the accessible non-YouTube public Bilibili index in this repository:
 
-```bash
-python3 scripts/build_video_pilot_manifest.py --limit 30
-python3 scripts/run_video_content_pipeline.py --limit 3 --stages metadata,evidence
-```
+- 411 indexed Bilibili rows, including 2 discovery-only rows.
+- 409 independent video jobs, of which 408 are accessible and 1 is unavailable.
+- 408 sources with full-audio reviewed ASR coverage and 2610 public-safe teaching windows.
+- 402 action or visible-demonstration sources with 6064 teaching-window keyframes for Qwen3-VL and Pose review.
+- 6 conceptual or equipment sources explicitly kept as ASR-only evidence.
+- 204 critical sources with 408 dense temporal sequences and 5304 frames for coarse 2D Pose change evidence.
 
-For actual content parsing, run model stages in a private environment:
-
-```bash
-python3 scripts/run_video_content_pipeline.py --limit 1 --stages metadata,audio,asr,evidence --asr-model small
-```
-
-The accessible non-YouTube corpus includes a 30-video visual pilot plus a full-audio ASR pass over the expanded indexed Bilibili corpus. The pass processed 378 of 379 corpus jobs with `mobiuslabsgmbh/faster-whisper-large-v3-turbo`; one public page is unavailable. Combined scanning produced 2567 timestamp windows across 401 sources, and all 2567 windows were checked against their private ASR intervals to produce public-safe topic/timestamp reviews.
-
-The visual completion manifest covers 396 action-bearing sources with 5977 planned keyframes and marks 5 conceptual sources as ASR-only. Existing private VLM output covers 30 sources and 336 keyframes. A representative pose pilot covers 6 sources and 107 teaching-window keyframes; all 107 frames contained detectable body keypoints. The distilled system contains ten routing layers spanning student fit, safety/load, footwork, rear-court base, overhead power, smash variants, drop variations, backhand choice, fast exchange, and match transfer.
+The resulting evidence map connects source id, ASR timestamp, visible timestamp, optional temporal sequence, candidate framework, evidence level, and confidence boundary. The runtime uses that chain to explain why a framework was selected without treating model output as a coach-certified biomechanical fact.
 
 YouTube is excluded by project decision. Douyin and Instagram remain discovery-level access gaps and are not counted as parsed content.
 
@@ -115,7 +109,7 @@ The skill currently includes deterministic examples for:
 high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer
 ```
 
-The Liu Hui-inspired runtime contains 67 selectable frameworks, 43 reviewed or candidate rule guardrails, 41 deterministic rubric rules, 10 visual evidence contracts, 29 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
+The Liu Hui-inspired runtime contains 67 selectable frameworks, 44 reviewed corpus guardrails, 50 deterministic rubric rules, 10 visual evidence contracts, 30 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
 
 The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
 
@@ -151,6 +145,10 @@ The skill separates evidence levels:
 - `inferred`: synthesized from multiple public titles or metadata rows; useful but not a direct quote.
 - `hypothesis`: useful as a diagnostic prompt, not a firm Liu Hui-derived rule.
 - `insufficient_evidence`: required observations are missing.
+- `asr_timestamp_reviewed_public_safe`: reviewed speech/topic routing evidence, not visual proof.
+- `asr_only_conceptual_public_safe`: conceptual or equipment evidence with no action-bearing visual scope.
+- `visual_model_structured_candidate_public_safe`: schema-validated still-frame visibility evidence, not motion or force evidence.
+- `temporal_pose_proxy_public_safe`: coarse monocular 2D change evidence, not racket-face, shuttle-contact, force, or true joint-rotation evidence.
 
 See:
 

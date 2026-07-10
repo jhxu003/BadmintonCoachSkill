@@ -93,6 +93,32 @@
   evidence_status: timestamp_candidate
   confidence: hypothesis
 
+- rule_id: contact-point-too-low
+  issue: Drop or slide contact is too low for the intended variant
+  category: overhead_variation
+  priority: 70
+  applicable_actions: [drop]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [contact_point, phase_observations.drop_variant]
+  observable_evidence:
+    - path: contact_point
+      equals: too_low
+      label: Contact occurs below the playable height required by the stated drop or slide variant.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a side view showing arrival and contact height plus the intended drop variant and target line.
+  likely_effect:
+    - Low contact can remove angle, disguise, or speed options and force compensatory wrist action.
+    - The same contact may be acceptable for a passive rear-point solution but wrong for a front-high fast or light drop.
+  correction_principle: Restore arrival and a variant-appropriate contact height before changing slice amount or racket-face cue.
+  drills: [drop-variant-target-line]
+  retest_metrics:
+    - contact_point should become variant_appropriate_height
+    - target line and recovery should remain stable for the selected variant
+  source_ids: [LH_BILI_SEASON_BV1S1VKBSEAB, LH_BILI_SEASON_BV1QZ421U7C6, LH_BILI_SEASON_BV1PCQPYJERM]
+  evidence_ids: [pilot-027-w002-light-drop-high-point-and-slice, pilot-029-w002-front-point-slide-versus-rear-point-slide]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
 - rule_id: slide-drop-transfer-fails
   issue: Front-point slide action does not transfer to passive rear point
   category: overhead_variation

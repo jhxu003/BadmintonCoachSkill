@@ -44,10 +44,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-012-lh_bili_season_bv1z54y1a74y.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -90,10 +90,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-013-lh_bili_season_bv1te4y1c7qn.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -136,10 +136,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-014-lh_bili_season_bv1884y1h7mi.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -181,10 +181,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-015-lh_bili_season_bv1f54y1w7nr.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -228,10 +228,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-016-lh_bili_season_bv1go4y1v7ns.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -274,10 +274,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-017-lh_bili_season_bv1ms4y157m3.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -320,10 +320,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-018-lh_bili_season_bv1n54y1u7m6.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -367,10 +367,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-019-lh_bili_season_bv1h8411c7p2.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -413,10 +413,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-020-lh_bili_season_bv1x24y1372d.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -457,10 +457,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-021-lh_bili_season_bv1ss4y1v7tb.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -502,10 +502,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-022-lh_bili_season_bv1et411r76m.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -547,10 +547,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-137-lh_bili_season_bv1764y1a79d.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -595,10 +595,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-138-lh_bili_season_bv1dg4y1y74q.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -641,10 +641,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-139-lh_bili_season_bv1k6421g7yb.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -686,10 +686,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-140-lh_bili_season_bv1r2421w7dx.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -736,10 +736,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-141-lh_bili_live_qa_20240202.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -782,10 +782,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-142-lh_bili_season_bv1rp421d7om.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -828,10 +828,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-143-lh_bili_season_bv1jj4m1b7wm.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -873,10 +873,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-144-lh_bili_season_bv1mm411d7vq.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -919,10 +919,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-145-lh_bili_season_bv1sj4m1x7x9.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -967,10 +967,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-146-lh_bili_season_bv1g6421u77h.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1013,10 +1013,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-147-lh_bili_season_bv1y4421f7kv.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1058,10 +1058,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-148-lh_bili_season_bv16h4y1e7yc.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1106,10 +1106,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-149-lh_bili_season_bv1zz421y7yt.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1150,10 +1150,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-150-lh_bili_season_bv1er421w7we.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1199,10 +1199,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-260-lh_bili_season_bv1a7pveceo8.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1245,10 +1245,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-261-lh_bili_season_bv1b99tytexv.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1294,10 +1294,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-262-lh_bili_season_bv1nix9yyeyg.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1341,10 +1341,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-263-lh_bili_season_bv1t394yfeiy.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1390,10 +1390,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-264-lh_bili_season_bv1bprjy5eni.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:
@@ -1440,10 +1440,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-265-lh_bili_season_bv1uhqlybew5.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:

@@ -50,6 +50,7 @@ TOPIC_FOCUS = {
     "match_transfer": "transfer from drill form to rally pressure",
     "training_plan": "staged training progression",
     "safety": "load, pain, and injury-risk filtering",
+    "equipment": "racket specification and player-fit selection",
 }
 
 DIAGNOSTIC_USE = {
@@ -71,6 +72,7 @@ DIAGNOSTIC_USE = {
     "match_transfer": "Use to define a pressure retest instead of adding technique from drill-only evidence.",
     "training_plan": "Use to choose one priority, one drill progression, and one measurable retest.",
     "safety": "Use to reduce load or stop progression when pain or movement risk is present.",
+    "equipment": "Use to test whether racket balance, torsional stability, weight, or grip setup is constraining the current learning task.",
 }
 
 

@@ -208,16 +208,18 @@
 
 - drill_id: equipment-fit-retest
   name: Equipment-fit retest
-  target_issues: [racket-too-heavy-for-stage]
+  target_issues: [racket-too-heavy-for-stage, racket-balance-mismatch, racket-torsion-mismatch, shaft-stiffness-mismatch]
   steps:
-    - Record the same slow swing with current racket weight.
-    - Repeat with a manageable swing weight if available.
-    - Compare frame stability, contact quality, and recovery.
+    - Record the same controlled feed and movement target with the current racket.
+    - Repeat with one known equipment variable changed, such as weight class, balance point, torsional stability, or shaft stiffness.
+    - Keep feed, effort, target, and technical cue constant across conditions.
+    - Compare preparation timing, frame stability, contact dispersion, output, tension, and recovery.
     - Keep the technical target unchanged while testing equipment effect.
-  dosage: 3 sets of 8 slow swings per racket condition.
+  dosage: 3 sets of 8 controlled repetitions per racket condition.
   retest_metrics:
     - racket_weight_fit changes from too_heavy_for_stage to manageable
-    - racket_side_structure stays stable
+    - the selected equipment-fit field becomes manageable or matched_for_task
+    - racket_side_structure stays stable and directional dispersion does not worsen
 
 - drill_id: arm-path-reset
   name: Arm-path reset
@@ -234,7 +236,7 @@
 
 - drill_id: deceleration-release-line
   name: Deceleration release line
-  target_issues: [deceleration-missing]
+  target_issues: [deceleration-missing, upper-body-tension, forced-follow-through]
   steps:
     - Hit at half speed with a clear contact target.
     - Let the racket release and slow down naturally after contact.
@@ -272,7 +274,7 @@
 
 - drill_id: time-budget-racket-lift
   name: Time-budget racket lift
-  target_issues: [slow-racket-preparation, jump-contact-window-missed]
+  target_issues: [slow-racket-preparation-consumes-window, jump-contact-window-missed]
   steps:
     - Start from the exact incoming-ball scenario that created pressure.
     - Shadow the racket lift only and stop at the prepared hitting frame.
@@ -301,6 +303,23 @@
   evidence_status: timestamp_candidate
   source_ids: [LH_BILI_SEASON_BV1CRFTZBEK7, LH_BILI_SEASON_BV1V6ZABTEUE]
   evidence_ids: [pilot-004-w001-standard-frame-small-angle, pilot-004-w002-textbook-frame-under-90, pilot-018-w004-standard-frame-for-amateurs]
+
+- drill_id: framework-a-b-selector
+  name: Framework A/B selector
+  target_issues: [frame-goal-mismatch, pro-model-copying]
+  steps:
+    - Define the incoming-ball condition, intended shot effect, and recovery requirement before choosing a frame.
+    - Record a compact or lower-cost frame and one candidate high, heavy, fast, or elite-style frame under the same feed.
+    - Compare contact quality, output, balance, effort, and next-shot recovery instead of copying appearance.
+    - Keep the simplest frame that achieves the intended effect without exceeding the player's prerequisites or load tolerance.
+  dosage: 3 sets of 8 controlled repetitions per candidate frame.
+  retest_metrics:
+    - frame_goal_fit changes from mismatched to task_matched
+    - frame_selection_basis changes from copied_elite_model_without_prerequisites to player_task_evidence
+    - recovery quality does not worsen under the selected frame
+  evidence_status: timestamp_candidate
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1NF421X7JG]
+  evidence_ids: [pilot-012-w001-advanced-frame-prerequisites, pilot-012-w002-small-fast-frame-pros, pilot-012-w003-small-fast-frame-limits, pilot-013-w001-frame-variants-change-ball-effect, pilot-026-w001-no-perfect-technique, pilot-026-w003-high-frame-locks-low-frame-flexes]
 
 - drill_id: rear-foot-horizontal-hip-drive
   name: Rear-foot horizontal hip-drive
@@ -336,7 +355,7 @@
 
 - drill_id: drop-variant-target-line
   name: Drop variant target-line transfer
-  target_issues: [drop-direction-mismatch, grip-face-mismatch]
+  target_issues: [drop-direction-mismatch, contact-point-too-low, grip-face-mismatch]
   steps:
     - Pick one known usable drop direction and one missing direction.
     - Mark the target line visually on court or with a feeder cue.

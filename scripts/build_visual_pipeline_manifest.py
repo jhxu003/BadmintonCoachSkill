@@ -13,6 +13,13 @@ sys.path.insert(0, str(ROOT / "src"))
 from badminton_coach_skill.video_corpus import load_yaml, write_yaml  # noqa: E402
 
 
+VLM_MODEL_NAME = "Qwen3-VL-8B-Instruct"
+VLM_ARTIFACT_VERSION = 4
+VLM_SCHEMA = "visible_still_frame_v2"
+POSE_MODEL_NAME = "yolo11n-pose.pt"
+POSE_ARTIFACT_VERSION = 2
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Build an executable pipeline manifest from the visual review queue."
@@ -68,6 +75,8 @@ def main() -> None:
         job["biomechanical_targets"] = review_job.get("biomechanical_targets", [])
         job["planned_frames"] = copy.deepcopy(review_job.get("planned_frames", []))
         job["visual_processing_status"] = review_job.get("processing_status")
+        job.setdefault("models", {})["vlm"] = VLM_MODEL_NAME
+        job["models"]["pose"] = POSE_MODEL_NAME
         planned_frames += len(job["planned_frames"])
         jobs.append(job)
 
@@ -80,6 +89,13 @@ def main() -> None:
         ),
         "source_manifests": manifests,
         "review_manifest": args.review_manifest,
+        "model_contract": {
+            "vlm_model": VLM_MODEL_NAME,
+            "vlm_artifact_version": VLM_ARTIFACT_VERSION,
+            "vlm_schema": VLM_SCHEMA,
+            "pose_model": POSE_MODEL_NAME,
+            "pose_artifact_version": POSE_ARTIFACT_VERSION,
+        },
         "summary": {
             "review_jobs": len(review.get("jobs", [])),
             "pipeline_jobs": len(jobs),

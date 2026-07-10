@@ -4,6 +4,10 @@ from typing import Any
 
 
 MISSING_VALUES = {None, "", "missing", "unknown", "not_visible"}
+ACTION_TOPIC_ALIASES = {
+    "rear_footwork": "footwork",
+    "front_footwork": "footwork",
+}
 
 
 def _get_path(data: dict[str, Any], path: str) -> Any:
@@ -91,6 +95,77 @@ def _select_framework(
             -frameworks.index(item),
         ),
     )
+
+
+def _select_corpus_evidence(
+    framework_id: str,
+    action: str,
+    sources: list[dict[str, Any]],
+    limit: int = 3,
+) -> list[dict[str, Any]]:
+    action_topics = {action, ACTION_TOPIC_ALIASES.get(action, action)}
+    candidates: list[tuple[int, dict[str, Any]]] = []
+    for source in sources:
+        if framework_id not in source.get("framework_ids", []):
+            continue
+        topics = set(source.get("topic_tags", []))
+        score = 100 + 20 * len(action_topics & topics)
+        score += 5 if source.get("temporal_sequence_refs") else 0
+        score += min(len(source.get("visual_timestamp_refs", [])), 3)
+        candidates.append((score, source))
+    candidates.sort(
+        key=lambda item: (-item[0], str(item[1].get("source_id", "")))
+    )
+    selected: list[dict[str, Any]] = []
+    for _, source in candidates[: max(limit, 0)]:
+        windows = source.get("asr_timestamp_refs", [])
+        relevant_windows = [
+            window
+            for window in windows
+            if action_topics & set(window.get("topic_tags", []))
+        ]
+        window = (relevant_windows or windows or [None])[0]
+        visual_timestamps = list(source.get("visual_timestamp_refs", []))
+        if window:
+            in_window = [
+                timestamp
+                for timestamp in visual_timestamps
+                if float(window["start_seconds"])
+                <= float(timestamp)
+                <= float(window["end_seconds"])
+            ]
+            visual_timestamps = in_window or visual_timestamps
+        visual_observations = list(source.get("visual_observation_refs", []))
+        if window:
+            in_window_observations = [
+                observation
+                for observation in visual_observations
+                if float(window["start_seconds"])
+                <= float(observation.get("timestamp_seconds", -1))
+                <= float(window["end_seconds"])
+            ]
+            visual_observations = in_window_observations or visual_observations
+        sequences = [
+            sequence
+            for sequence in source.get("temporal_sequence_refs", [])
+            if action_topics & set(sequence.get("topic_tags", []))
+        ]
+        if not sequences:
+            sequences = list(source.get("temporal_sequence_refs", []))
+        selected.append(
+            {
+                "source_id": source.get("source_id"),
+                "title": source.get("title"),
+                "framework_id": framework_id,
+                "asr_window": window,
+                "visual_timestamps": visual_timestamps[:3],
+                "visual_observations": visual_observations[:3],
+                "temporal_sequences": sequences[:1],
+                "evidence_levels": source.get("evidence_levels", []),
+                "confidence_boundary": source.get("confidence_boundary", ""),
+            }
+        )
+    return selected
 
 
 def _rule_applies_to_action(rule: dict[str, Any], action: str) -> bool:
@@ -194,6 +269,12 @@ def match_diagnosis(
         )
 
     confidence = "high" if issues and not missing_evidence else "medium" if issues else "low"
+    corpus_sources = knowledge.get("multimodal_evidence", {}).get("sources", [])
+    corpus_evidence = _select_corpus_evidence(
+        framework["framework_id"],
+        str(video_observation.get("action", "unknown")),
+        corpus_sources,
+    )
 
     return {
         "primary_framework": framework["framework_id"],
@@ -205,4 +286,5 @@ def match_diagnosis(
         "retest_metrics": list(dict.fromkeys(retest_metrics)),
         "missing_evidence": list(dict.fromkeys(missing_evidence)),
         "safety_notes": safety_notes,
+        "corpus_evidence": corpus_evidence,
     }

@@ -46,10 +46,10 @@ jobs:
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-370-lh_bili_core_competition.yaml
   model_plan:
-    asr: faster-whisper:large-v3-turbo-or-large-v3
+    asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR
-    vlm: Qwen2.5-VL-or-Qwen3-VL
-    pose: MMPose/RTMPose
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
   retry_reason:

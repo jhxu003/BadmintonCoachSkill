@@ -75,7 +75,7 @@ def main() -> None:
         vlm = load_json(ROOT / paths["vlm_json"])
         pose = load_json(ROOT / paths["pose_json"])
         keyframe_status = artifact_status(keyframes, planned, None)
-        vlm_status = artifact_status(vlm, planned, 2)
+        vlm_status = artifact_status(vlm, planned, 4)
         pose_status = artifact_status(pose, planned, 2)
         extracted_total += keyframe_status["frame_count"]
         complete = all(
@@ -114,7 +114,7 @@ def main() -> None:
                 "status_counts": dict(counts),
             },
             "completion_rule": (
-                "A job is complete only when exact planned keyframes, VLM artifact v2, "
+                "A job is complete only when exact planned keyframes, VLM artifact v4, "
                 "and Pose artifact v2 are all status ok with matching frame counts."
             ),
         },

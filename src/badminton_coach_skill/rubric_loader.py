@@ -15,6 +15,15 @@ def _load_yaml(path: Path) -> list[dict[str, Any]]:
     return data
 
 
+def _load_mapping(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"{path} must contain a YAML mapping")
+    return data
+
+
 def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
     """Load the skill's deterministic knowledge files."""
     root = Path(reference_dir)
@@ -29,4 +38,5 @@ def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
         "rules": rules,
         "drills": drills,
         "drill_map": drill_map,
+        "multimodal_evidence": _load_mapping(root / "multimodal-evidence-map.yaml"),
     }

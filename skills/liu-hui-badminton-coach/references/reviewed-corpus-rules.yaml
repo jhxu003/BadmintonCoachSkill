@@ -331,3 +331,11 @@
   source_file: data/corpus/video-asr-timestamp-review.yaml
   support_topics: [match_transfer, footwork, drop, serve_receive, drive, doubles]
   reviewed_window_signal_count: 1154
+
+- rule_id: multimodal-evidence-chain-required
+  teaching_point_id: multimodal-evidence-chain-required
+  decision: evidence_contract
+  allowed_use: Link a corpus-supported diagnostic question to source id, ASR window, validated visual timestamp, available temporal Pose sequence, selected framework, and explicit confidence boundary.
+  blocked_use: Do not call an ASR topic match, sparse VLM still, or Pose angle range standalone proof of a technical fault or Liu Hui's exact judgment.
+  source_file: skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml
+  evidence_levels: [asr_timestamp_reviewed_public_safe, visual_model_structured_candidate_public_safe, temporal_pose_proxy_public_safe]

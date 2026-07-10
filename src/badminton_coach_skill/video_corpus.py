@@ -228,10 +228,10 @@ def build_processing_job(
             "timestamp_evidence": public_evidence_path,
         },
         "model_plan": {
-            "asr": "faster-whisper:large-v3-turbo-or-large-v3",
+            "asr": "faster-whisper:large-v3-turbo",
             "ocr": "PaddleOCR",
-            "vlm": "Qwen2.5-VL-or-Qwen3-VL",
-            "pose": "MMPose/RTMPose",
+            "vlm": "Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2",
+            "pose": "Ultralytics:yolo11n-pose.pt:v2",
         },
         "promotion_policy": (
             "Only reviewed timestamp evidence may become source_backed skill rules. "

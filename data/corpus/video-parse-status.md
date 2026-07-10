@@ -2,90 +2,90 @@
 
 Updated: 2026-07-10
 
-This file is public-safe. It records coverage counts and failure classes only. Raw video, audio, ASR text, metadata dumps, model logs, cookies, and temporary media URLs stay under ignored `data/raw-private/`.
+This file reports public-safe coverage and evidence boundaries. Raw media, transcripts, VLM output, Pose coordinates, model logs, cookies, and temporary URLs stay under ignored private storage.
 
-## Bilibili Public Corpus
+## Source Accounting
 
-- Full remaining Bilibili corpus manifest: `video-corpus-manifest.yaml`
-- Jobs in manifest: 379
-- Full-audio ASR completed: 378
-- Unavailable public page: 1
-- Public evidence files indexed: 409
-- ASR model: `mobiuslabsgmbh/faster-whisper-large-v3-turbo`
-- Audio scope: full audio
+| Item | Count |
+|---|---:|
+| Indexed Bilibili rows | 411 |
+| Discovery-only rows | 2 |
+| Independent video jobs | 409 |
+| Accessible videos | 408 |
+| Unavailable videos | 1 |
+| Reviewed ASR sources | 408 |
+| Visual action/demonstration sources | 402 |
+| ASR-only conceptual/equipment sources | 6 |
 
-Unavailable source:
-
-- `LH_BILI_CORE_COMPETITION` / `corpus-370-lh_bili_core_competition`: public page currently resolves to a missing-video placeholder (`视频去哪了呢？`) and `yt-dlp` cannot extract audio.
+Unavailable source: `LH_BILI_CORE_COMPETITION` / `corpus-370-lh_bili_core_competition`.
 
 ## ASR Timestamp Review
 
-- Manifests scanned: `video-pilot-manifest.yaml`, `video-corpus-manifest.yaml`
-- Jobs scanned: 409
-- Sources with teaching-window candidates: 401
-- Public-safe candidate windows: 2567
-- Agent-reviewed ASR timestamp windows: 2567
-- ASR topic signal confirmed inside the timestamp: 2491
-- Timestamp has ASR but topic still depends on the public title: 76
-- Missing manifest jobs behind reviewed windows: 0
-- Missing or failed ASR artifacts behind reviewed windows: 0
-- Candidate output: `video-asr-teaching-windows-full.yaml`
-- Reviewed output: `video-asr-timestamp-review.yaml`
+- Model: `mobiuslabsgmbh/faster-whisper-large-v3-turbo`.
+- Audio scope: full audio.
+- Reviewed teaching windows: 2610.
+- ASR-topic-confirmed windows: 2535.
+- Title-supported windows: 75.
+- Missing accessible ASR sources: 0.
 
-Top candidate topic counts:
+Top topic counts:
 
 | Topic | Windows |
 |---|---:|
-| diagnosis_flow | 1429 |
-| training_plan | 1237 |
-| smash | 1163 |
-| student_fit | 1041 |
-| top_elbow | 1035 |
-| internal_rotation | 834 |
-| racket_preparation | 691 |
-| high_clear | 656 |
-| safety | 619 |
-| wrist | 599 |
-| hip_rotation | 424 |
-| contact_point | 422 |
+| diagnosis_flow | 1453 |
+| training_plan | 1253 |
+| smash | 1192 |
+| top_elbow | 1066 |
+| student_fit | 1055 |
+| internal_rotation | 852 |
+| racket_preparation | 708 |
+| high_clear | 672 |
+| safety | 635 |
+| wrist | 602 |
+| hip_rotation | 439 |
+| contact_point | 425 |
 | match_transfer | 284 |
-| footwork | 269 |
+| footwork | 270 |
 | drop | 262 |
-| serve_receive | 135 |
+| serve_receive | 136 |
 | drive | 134 |
-| doubles | 70 |
+| doubles | 71 |
+| equipment | 47 |
 
-## Visual Completion Layer
+## Sparse Visual Layer
 
-- Sources with reviewed ASR windows: 401
-- Action-bearing visual review jobs: 396
-- Conceptual ASR-only sources: 5
-- Planned teaching-window keyframes: 5977
-- Existing private VLM sources: 30
-- Existing VLM keyframes summarized: 336
-- VLM visibility descriptions: 269 player-position, 269 racket-preparation, 25 contact/pre-contact, 255 lower-body, and 21 recovery observations
-- Representative GPU pose sources: 6
-- Pose keyframes summarized: 107
-- Pose keyframes with detected people: 107
-- Pose model: `yolo11n-pose.pt`
-- Visual queue: `video-visual-review-manifest.yaml`
-- Public-safe VLM summary: `video-visual-evidence-summary.yaml`
-- Public-safe pose summary: `video-pose-evidence-summary.yaml`
+- Visual sources: 402.
+- Planned teaching-window keyframes: 6064.
+- VLM: `Qwen3-VL-8B-Instruct`, artifact version 4, schema `visible_still_frame_v2`.
+- Pose: Ultralytics `yolo11n-pose.pt`, private coordinates with public-safe aggregates.
+- Public visual summary: `video-visual-evidence-summary.yaml`.
+- Completion state: `video-visual-completion-status.yaml`.
 
-The visual queue covers overhead mechanics, footwork, drop, drive, serve/receive, doubles, contact point, top elbow, hip/trunk timing, wrist/grip, and internal-rotation proxy review. VLM output is used to locate frames with visible evidence; it is not standalone proof of a biomechanical claim.
+Sparse VLM output describes visible still-frame conditions and routes reviewers to timestamps. It cannot independently establish motion, shuttle contact, force production, causality, racket-face geometry, grip pressure, or true joint rotation.
 
-The pose pilot sampled footwork, drop, receive-smash defense, push/drive, doubles continuity, and top-elbow sources. Pose output is used only to confirm body-keypoint visibility and prioritize later frame review; aggregate detections cannot establish racket-face geometry, contact, true joint rotation, or Liu Hui's intent.
+## Critical Temporal Layer
 
-## Interpretation
+- Critical sources: 204.
+- Dense sequences: 408.
+- Dense frames: 5304.
+- Public summary: `video-temporal-pose-summary.yaml`.
 
-The expanded corpus supports a broad Liu Hui-style runtime system centered on student-fit diagnosis, training-plan selection, overhead/smash power-chain analysis, frame and release mechanics, transfer to match pressure, and staged drills.
+Dense Pose supports coarse monocular 2D body-geometry change and visibility checks. It still cannot establish calibrated 3D kinematics, racket or shuttle state, force, or true shoulder internal rotation.
 
-All 2567 full-corpus windows now have `agent_asr_timestamp_reviewed` public-safe summaries. They can guide framework selection, timestamp lookup, diagnostic questions, and review queues. They must not be described as exact Liu Hui wording, human-reviewed evidence, or visual proof of contact point, top elbow, hip timing, racket face, or internal rotation.
+## Explainability Layer
 
-## Non-YouTube Platform Boundary
+`skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml` connects each accessible source to:
 
-- YouTube: excluded by project decision and not part of completion accounting.
-- Instagram: the indexed public reel timed out through both direct HTTP and `yt-dlp` on 2026-07-10.
-- Douyin: the public profile still returns a dynamic HTTP 404 and no stable per-video metadata export.
+- reviewed ASR timestamps
+- still-frame timestamps where visual scope exists
+- temporal sequences for critical sources
+- candidate framework ids
+- diagnostic contracts
+- evidence levels
+- a confidence boundary
 
-Instagram and Douyin remain discovery-level access gaps. They are not counted as parsed video evidence and cannot support deterministic technical rules until stable public metadata and media access are available.
+`multimodal-completion-status.yaml` is the machine-readable audit. The corpus is complete only when source accounting, visual artifacts, temporal artifacts, explainability, skill integration, publication safety, YAML integrity, and runtime behavior all pass.
+
+## Platform Boundary
+
+YouTube is excluded by project decision. Douyin and Instagram remain discovery-level access gaps and are not counted as parsed evidence.

@@ -12,36 +12,37 @@ review_run:
     - data/corpus/video-pilot-manifest.yaml
     - data/corpus/video-corpus-manifest.yaml
   summary:
-    candidate_windows: 2567
-    reviewed_windows: 2567
-    reviewed_sources: 401
-    visual_review_required_windows: 2493
+    candidate_windows: 2610
+    reviewed_windows: 2610
+    reviewed_sources: 408
+    visual_review_required_windows: 2530
     missing_manifest_jobs: 0
     missing_or_failed_asr_jobs: 0
     platform_window_counts:
-      Bilibili: 2567
+      Bilibili: 2610
     signal_status_counts:
-      asr_topic_signal_confirmed: 2491
-      timestamp_has_asr_but_topic_depends_on_public_title: 76
+      asr_topic_signal_confirmed: 2535
+      timestamp_has_asr_but_topic_depends_on_public_title: 75
     topic_window_counts:
-      diagnosis_flow: 1429
-      training_plan: 1237
-      smash: 1163
-      student_fit: 1041
-      top_elbow: 1035
-      internal_rotation: 834
-      racket_preparation: 691
-      high_clear: 656
-      safety: 619
-      wrist: 599
-      hip_rotation: 424
-      contact_point: 422
+      diagnosis_flow: 1453
+      training_plan: 1253
+      smash: 1192
+      top_elbow: 1066
+      student_fit: 1055
+      internal_rotation: 852
+      racket_preparation: 708
+      high_clear: 672
+      safety: 635
+      wrist: 602
+      hip_rotation: 439
+      contact_point: 425
       match_transfer: 284
-      footwork: 269
+      footwork: 270
       drop: 262
-      serve_receive: 135
+      serve_receive: 136
       drive: 134
-      doubles: 70
+      doubles: 71
+      equipment: 47
   evidence_contract:
     evidence_level: asr_timestamp_reviewed_public_safe
     review_status: agent_asr_timestamp_reviewed
@@ -1117,6 +1118,319 @@ windows:
   diagnostic_use: Use only as an elbow-sequence review target; visible frames are
     required for diagnosis.
   promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w002
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 4
+  end_seconds: 50
+  reviewed_asr_segment_count: 23
+  topic_tags:
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  topic_signal_counts:
+    top_elbow: 2
+    hip_rotation: 1
+    internal_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 4-50s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w003
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 50
+  end_seconds: 95
+  reviewed_asr_segment_count: 24
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  topic_signal_counts:
+    diagnosis_flow: 1
+    top_elbow: 1
+    hip_rotation: 1
+    internal_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 50-95s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for diagnosis order and retest logic,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w001
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 95
+  end_seconds: 141
+  reviewed_asr_segment_count: 25
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - internal_rotation
+  - training_plan
+  - safety
+  asr_matched_topics:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - internal_rotation
+  - training_plan
+  - safety
+  topic_signal_counts:
+    top_elbow: 2
+    diagnosis_flow: 1
+    hip_rotation: 1
+    internal_rotation: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 95-141s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w004
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 141
+  end_seconds: 188
+  reviewed_asr_segment_count: 24
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  topic_signal_counts:
+    diagnosis_flow: 2
+    top_elbow: 1
+    hip_rotation: 1
+    internal_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 141-188s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w008
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 188
+  end_seconds: 234
+  reviewed_asr_segment_count: 21
+  topic_tags:
+  - diagnosis_flow
+  - racket_preparation
+  - contact_point
+  - smash
+  - top_elbow
+  - hip_rotation
+  asr_matched_topics:
+  - diagnosis_flow
+  - racket_preparation
+  - contact_point
+  topic_signal_counts:
+    diagnosis_flow: 1
+    racket_preparation: 1
+    contact_point: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 188-234s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w005
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 234
+  end_seconds: 284
+  reviewed_asr_segment_count: 25
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - internal_rotation
+  - safety
+  topic_signal_counts:
+    diagnosis_flow: 1
+    top_elbow: 1
+    hip_rotation: 1
+    internal_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 234-284s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w006
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 284
+  end_seconds: 330
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - diagnosis_flow
+  - hip_rotation
+  - contact_point
+  - training_plan
+  - safety
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - hip_rotation
+  - contact_point
+  - training_plan
+  - safety
+  topic_signal_counts:
+    diagnosis_flow: 1
+    hip_rotation: 1
+    contact_point: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 284-330s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-009-lh_bili_season_bv1iz421b7x8-w007
+  job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  platform: Bilibili
+  source_title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  start_seconds: 330
+  end_seconds: 375
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - diagnosis_flow
+  - smash
+  - training_plan
+  - safety
+  - top_elbow
+  - hip_rotation
+  asr_matched_topics:
+  - diagnosis_flow
+  - smash
+  - training_plan
+  - safety
+  topic_signal_counts:
+    diagnosis_flow: 2
+    smash: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 330-375s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -2600,6 +2914,1063 @@ windows:
   diagnostic_use: Use to select a learner path before choosing isolated technical
     cues.
   promotion_target: student_profiles
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w001
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 0
+  end_seconds: 47
+  reviewed_asr_segment_count: 19
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - doubles
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - doubles
+  topic_signal_counts:
+    top_elbow: 3
+    diagnosis_flow: 1
+    high_clear: 1
+    internal_rotation: 1
+    doubles: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 0-47s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w006
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 47
+  end_seconds: 99
+  reviewed_asr_segment_count: 31
+  topic_tags:
+  - diagnosis_flow
+  - smash
+  - serve_receive
+  - training_plan
+  - high_clear
+  - top_elbow
+  asr_matched_topics:
+  - diagnosis_flow
+  - smash
+  - serve_receive
+  - training_plan
+  topic_signal_counts:
+    diagnosis_flow: 1
+    smash: 1
+    serve_receive: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 47-99s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for diagnosis order and retest logic,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w003
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 99
+  end_seconds: 144
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - racket_preparation
+  - internal_rotation
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - diagnosis_flow
+  - racket_preparation
+  - internal_rotation
+  topic_signal_counts:
+    top_elbow: 3
+    diagnosis_flow: 1
+    racket_preparation: 1
+    internal_rotation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 99-144s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w002
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 144
+  end_seconds: 196
+  reviewed_asr_segment_count: 32
+  topic_tags:
+  - top_elbow
+  - smash
+  - racket_preparation
+  - internal_rotation
+  - high_clear
+  - training_plan
+  asr_matched_topics:
+  - top_elbow
+  - smash
+  - racket_preparation
+  - internal_rotation
+  topic_signal_counts:
+    top_elbow: 3
+    smash: 2
+    racket_preparation: 1
+    internal_rotation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 144-196s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w004
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 242
+  end_seconds: 288
+  reviewed_asr_segment_count: 29
+  topic_tags:
+  - top_elbow
+  - racket_preparation
+  - internal_rotation
+  - footwork
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - racket_preparation
+  - internal_rotation
+  - footwork
+  topic_signal_counts:
+    top_elbow: 3
+    racket_preparation: 1
+    internal_rotation: 1
+    footwork: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 242-288s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w007
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 288
+  end_seconds: 333
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - training_plan
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - internal_rotation
+  - training_plan
+  topic_signal_counts:
+    top_elbow: 2
+    internal_rotation: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 288-333s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w008
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 333
+  end_seconds: 378
+  reviewed_asr_segment_count: 34
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - training_plan
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - training_plan
+  topic_signal_counts:
+    diagnosis_flow: 2
+    top_elbow: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 333-378s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-021-lh_bili_season_bv1nq4y157jt-w005
+  job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  platform: Bilibili
+  source_title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  start_seconds: 471
+  end_seconds: 509
+  reviewed_asr_segment_count: 35
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - footwork
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - diagnosis_flow
+  - high_clear
+  - internal_rotation
+  - footwork
+  topic_signal_counts:
+    top_elbow: 2
+    diagnosis_flow: 1
+    high_clear: 1
+    internal_rotation: 1
+    footwork: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 471-509s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w001
+  job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  platform: Bilibili
+  source_title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  start_seconds: 1
+  end_seconds: 47
+  reviewed_asr_segment_count: 24
+  topic_tags:
+  - smash
+  - top_elbow
+  - student_fit
+  - racket_preparation
+  - internal_rotation
+  - safety
+  asr_matched_topics:
+  - smash
+  - top_elbow
+  - student_fit
+  - racket_preparation
+  - internal_rotation
+  - safety
+  topic_signal_counts:
+    smash: 2
+    top_elbow: 2
+    student_fit: 1
+    racket_preparation: 1
+    internal_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 1-47s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for smash framework, power, or angle,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to distinguish smash intent, prerequisites, contact, release,
+    and recovery cost.
+  promotion_target: smash_variant_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w003
+  job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  platform: Bilibili
+  source_title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  start_seconds: 47
+  end_seconds: 92
+  reviewed_asr_segment_count: 26
+  topic_tags:
+  - racket_preparation
+  - smash
+  - training_plan
+  asr_matched_topics:
+  - racket_preparation
+  topic_signal_counts:
+    racket_preparation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 47-92s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for racket preparation and frame organization,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to request visible racket preparation and pre-contact frame
+    evidence.
+  promotion_target: swing_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w002
+  job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  platform: Bilibili
+  source_title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  start_seconds: 92
+  end_seconds: 141
+  reviewed_asr_segment_count: 25
+  topic_tags:
+  - high_clear
+  - smash
+  - racket_preparation
+  - training_plan
+  asr_matched_topics:
+  - high_clear
+  - smash
+  - racket_preparation
+  topic_signal_counts:
+    high_clear: 1
+    smash: 1
+    racket_preparation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 92-141s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for high-clear structure
+    and power transfer, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to review arrival, contact, racket-side frame, release, and
+    clear outcome.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-022-lh_bili_season_bv12z4y1n7b4-w004
+  job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  platform: Bilibili
+  source_title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  start_seconds: 141
+  end_seconds: 171
+  reviewed_asr_segment_count: 20
+  topic_tags:
+  - racket_preparation
+  - smash
+  - training_plan
+  asr_matched_topics:
+  - racket_preparation
+  topic_signal_counts:
+    racket_preparation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 141-171s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for racket preparation and
+    frame organization, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to request visible racket preparation and pre-contact frame
+    evidence.
+  promotion_target: swing_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w003
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 0
+  end_seconds: 46
+  reviewed_asr_segment_count: 21
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - hip_rotation
+  - safety
+  - smash
+  asr_matched_topics:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - hip_rotation
+  - safety
+  topic_signal_counts:
+    student_fit: 1
+    racket_preparation: 1
+    top_elbow: 1
+    hip_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 0-46s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for student-fit framework selection,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to select a learner path before choosing isolated technical
+    cues.
+  promotion_target: student_profiles
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w004
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 46
+  end_seconds: 92
+  reviewed_asr_segment_count: 20
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - safety
+  - smash
+  asr_matched_topics:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - safety
+  topic_signal_counts:
+    student_fit: 2
+    racket_preparation: 1
+    top_elbow: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 46-92s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for student-fit framework selection,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to select a learner path before choosing isolated technical
+    cues.
+  promotion_target: student_profiles
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w005
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 92
+  end_seconds: 138
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - smash
+  - contact_point
+  - racket_preparation
+  asr_matched_topics:
+  - top_elbow
+  - student_fit
+  - smash
+  - contact_point
+  topic_signal_counts:
+    top_elbow: 2
+    student_fit: 1
+    smash: 1
+    contact_point: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 92-138s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w007
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 138
+  end_seconds: 185
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - top_elbow
+  - hip_rotation
+  - training_plan
+  - student_fit
+  - smash
+  - racket_preparation
+  asr_matched_topics:
+  - top_elbow
+  - hip_rotation
+  - training_plan
+  topic_signal_counts:
+    top_elbow: 1
+    hip_rotation: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 138-185s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w008
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 185
+  end_seconds: 231
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  - student_fit
+  - smash
+  - racket_preparation
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - hip_rotation
+  topic_signal_counts:
+    diagnosis_flow: 1
+    top_elbow: 1
+    hip_rotation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 185-231s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w006
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 369
+  end_seconds: 415
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - training_plan
+  - smash
+  asr_matched_topics:
+  - student_fit
+  - racket_preparation
+  - top_elbow
+  - training_plan
+  topic_signal_counts:
+    student_fit: 2
+    racket_preparation: 2
+    top_elbow: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 369-415s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for student-fit framework
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to select a learner path before choosing isolated technical
+    cues.
+  promotion_target: student_profiles
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w001
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 415
+  end_seconds: 461
+  reviewed_asr_segment_count: 32
+  topic_tags:
+  - racket_preparation
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - hip_rotation
+  - safety
+  asr_matched_topics:
+  - racket_preparation
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - hip_rotation
+  - safety
+  topic_signal_counts:
+    racket_preparation: 2
+    top_elbow: 2
+    student_fit: 1
+    diagnosis_flow: 1
+    hip_rotation: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 415-461s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for racket preparation and
+    frame organization, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to request visible racket preparation and pre-contact frame
+    evidence.
+  promotion_target: swing_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-023-lh_bili_season_bv1s642137xa-w002
+  job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  platform: Bilibili
+  source_title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  start_seconds: 461
+  end_seconds: 509
+  reviewed_asr_segment_count: 33
+  topic_tags:
+  - student_fit
+  - diagnosis_flow
+  - racket_preparation
+  - hip_rotation
+  - training_plan
+  - safety
+  asr_matched_topics:
+  - student_fit
+  - diagnosis_flow
+  - racket_preparation
+  - hip_rotation
+  - training_plan
+  - safety
+  topic_signal_counts:
+    student_fit: 2
+    diagnosis_flow: 2
+    racket_preparation: 1
+    hip_rotation: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 461-509s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for student-fit framework
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to select a learner path before choosing isolated technical
+    cues.
+  promotion_target: student_profiles
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w003
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 238
+  end_seconds: 283
+  reviewed_asr_segment_count: 24
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - wrist
+  - high_clear
+  asr_matched_topics:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - wrist
+  topic_signal_counts:
+    top_elbow: 4
+    student_fit: 1
+    diagnosis_flow: 1
+    internal_rotation: 1
+    wrist: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 238-283s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w001
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 283
+  end_seconds: 329
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - training_plan
+  - safety
+  asr_matched_topics:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - training_plan
+  - safety
+  topic_signal_counts:
+    top_elbow: 4
+    student_fit: 2
+    diagnosis_flow: 1
+    internal_rotation: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 283-329s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w007
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 329
+  end_seconds: 375
+  reviewed_asr_segment_count: 30
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  topic_signal_counts:
+    top_elbow: 4
+    student_fit: 1
+    diagnosis_flow: 1
+    internal_rotation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 329-375s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w008
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 375
+  end_seconds: 421
+  reviewed_asr_segment_count: 30
+  topic_tags:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - student_fit
+  - diagnosis_flow
+  - internal_rotation
+  topic_signal_counts:
+    top_elbow: 4
+    student_fit: 1
+    diagnosis_flow: 1
+    internal_rotation: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 375-421s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w002
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 558
+  end_seconds: 604
+  reviewed_asr_segment_count: 28
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - internal_rotation
+  - wrist
+  - training_plan
+  - high_clear
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - internal_rotation
+  - wrist
+  - training_plan
+  topic_signal_counts:
+    diagnosis_flow: 2
+    top_elbow: 2
+    internal_rotation: 2
+    wrist: 2
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 558-604s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w004
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 604
+  end_seconds: 651
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - safety
+  - wrist
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - internal_rotation
+  - safety
+  - wrist
+  topic_signal_counts:
+    top_elbow: 3
+    internal_rotation: 2
+    safety: 2
+    wrist: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 604-651s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w005
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 743
+  end_seconds: 789
+  reviewed_asr_segment_count: 30
+  topic_tags:
+  - top_elbow
+  - internal_rotation
+  - contact_point
+  - training_plan
+  - high_clear
+  - smash
+  asr_matched_topics:
+  - top_elbow
+  - internal_rotation
+  - contact_point
+  - training_plan
+  topic_signal_counts:
+    top_elbow: 4
+    internal_rotation: 2
+    contact_point: 1
+    training_plan: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 743-789s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: pilot-024-lh_bili_season_bv1by411y7qh-w006
+  job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  platform: Bilibili
+  source_title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  start_seconds: 789
+  end_seconds: 835
+  reviewed_asr_segment_count: 39
+  topic_tags:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - training_plan
+  - safety
+  - high_clear
+  asr_matched_topics:
+  - top_elbow
+  - diagnosis_flow
+  - hip_rotation
+  - training_plan
+  - safety
+  topic_signal_counts:
+    top_elbow: 3
+    diagnosis_flow: 2
+    hip_rotation: 1
+    training_plan: 1
+    safety: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 789-835s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
+    required for diagnosis.
+  promotion_target: overhead_rubric
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -5329,7 +6700,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w003
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w004
   job_id: corpus-007-lh_bili_season_bv1cy411d7gl
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   platform: Bilibili
@@ -5368,7 +6739,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w004
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w005
   job_id: corpus-007-lh_bili_season_bv1cy411d7gl
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   platform: Bilibili
@@ -5600,7 +6971,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w005
+- window_id: corpus-007-lh_bili_season_bv1cy411d7gl-w003
   job_id: corpus-007-lh_bili_season_bv1cy411d7gl
   source_id: LH_BILI_SEASON_BV1CY411D7GL
   platform: Bilibili
@@ -5613,17 +6984,20 @@ windows:
   - top_elbow
   - racket_preparation
   - internal_rotation
+  - equipment
   - training_plan
   asr_matched_topics:
   - diagnosis_flow
   - top_elbow
   - racket_preparation
   - internal_rotation
+  - equipment
   topic_signal_counts:
     diagnosis_flow: 2
     top_elbow: 2
     racket_preparation: 1
     internal_rotation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -6084,17 +7458,20 @@ windows:
   - wrist
   - top_elbow
   - internal_rotation
+  - equipment
   - training_plan
   asr_matched_topics:
   - smash
   - wrist
   - top_elbow
   - internal_rotation
+  - equipment
   topic_signal_counts:
     smash: 2
     wrist: 2
     top_elbow: 1
     internal_rotation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -6118,12 +7495,15 @@ windows:
   reviewed_asr_segment_count: 24
   topic_tags:
   - safety
+  - equipment
   - smash
   - training_plan
   asr_matched_topics:
   - safety
+  - equipment
   topic_signal_counts:
     safety: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -6221,17 +7601,20 @@ windows:
   - smash
   - racket_preparation
   - internal_rotation
+  - equipment
   - training_plan
   asr_matched_topics:
   - top_elbow
   - smash
   - racket_preparation
   - internal_rotation
+  - equipment
   topic_signal_counts:
     top_elbow: 2
     smash: 1
     racket_preparation: 1
     internal_rotation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -10405,19 +11788,21 @@ windows:
   - diagnosis_flow
   - smash
   - top_elbow
-  - training_plan
+  - equipment
   asr_matched_topics:
   - racket_preparation
   - student_fit
   - diagnosis_flow
   - smash
   - top_elbow
+  - equipment
   topic_signal_counts:
     racket_preparation: 3
     student_fit: 1
     diagnosis_flow: 1
     smash: 1
     top_elbow: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -10549,7 +11934,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w002
+- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w001
   job_id: corpus-028-lh_bili_season_bv1tt411r7uu
   source_id: LH_BILI_SEASON_BV1TT411R7UU
   platform: Bilibili
@@ -10565,6 +11950,7 @@ windows:
   - smash
   - internal_rotation
   - safety
+  - equipment
   asr_matched_topics:
   - student_fit
   - racket_preparation
@@ -10573,6 +11959,7 @@ windows:
   - smash
   - internal_rotation
   - safety
+  - equipment
   topic_signal_counts:
     student_fit: 2
     racket_preparation: 2
@@ -10581,6 +11968,7 @@ windows:
     smash: 1
     internal_rotation: 1
     safety: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -10631,7 +12019,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w001
+- window_id: corpus-028-lh_bili_season_bv1tt411r7uu-w002
   job_id: corpus-028-lh_bili_season_bv1tt411r7uu
   source_id: LH_BILI_SEASON_BV1TT411R7UU
   platform: Bilibili
@@ -20209,6 +21597,7 @@ windows:
   - student_fit
   - internal_rotation
   - wrist
+  - equipment
   asr_matched_topics:
   - diagnosis_flow
   - racket_preparation
@@ -20217,6 +21606,7 @@ windows:
   - student_fit
   - internal_rotation
   - wrist
+  - equipment
   topic_signal_counts:
     diagnosis_flow: 2
     racket_preparation: 2
@@ -20225,6 +21615,7 @@ windows:
     student_fit: 1
     internal_rotation: 1
     wrist: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -20886,7 +22277,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w006
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w007
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -20917,7 +22308,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w001
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w002
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -20956,7 +22347,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w002
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w003
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -20992,7 +22383,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w007
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w004
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -21004,15 +22395,18 @@ windows:
   - smash
   - racket_preparation
   - training_plan
+  - equipment
   - internal_rotation
   asr_matched_topics:
   - smash
   - racket_preparation
   - training_plan
+  - equipment
   topic_signal_counts:
     smash: 1
     racket_preparation: 1
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -21061,7 +22455,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w004
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w005
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -21092,7 +22486,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w003
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w001
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -21105,16 +22499,19 @@ windows:
   - diagnosis_flow
   - internal_rotation
   - training_plan
+  - equipment
   asr_matched_topics:
   - top_elbow
   - diagnosis_flow
   - internal_rotation
   - training_plan
+  - equipment
   topic_signal_counts:
     top_elbow: 2
     diagnosis_flow: 1
     internal_rotation: 1
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -21128,7 +22525,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w005
+- window_id: corpus-081-lh_bili_season_bv1lf411o7jh-w006
   job_id: corpus-081-lh_bili_season_bv1lf411o7jh
   source_id: LH_BILI_SEASON_BV1LF411O7JH
   platform: Bilibili
@@ -28000,7 +29397,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w002
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w003
   job_id: corpus-110-lh_bili_season_bv1k34y1g7fv
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   platform: Bilibili
@@ -28031,7 +29428,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w003
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w001
   job_id: corpus-110-lh_bili_season_bv1k34y1g7fv
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   platform: Bilibili
@@ -28042,13 +29439,16 @@ windows:
   topic_tags:
   - internal_rotation
   - wrist
+  - equipment
   - training_plan
   asr_matched_topics:
   - internal_rotation
   - wrist
+  - equipment
   topic_signal_counts:
     internal_rotation: 1
     wrist: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -28089,7 +29489,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w001
+- window_id: corpus-110-lh_bili_season_bv1k34y1g7fv-w002
   job_id: corpus-110-lh_bili_season_bv1k34y1g7fv
   source_id: LH_BILI_SEASON_BV1K34Y1G7FV
   platform: Bilibili
@@ -30115,6 +31515,7 @@ windows:
   - high_clear
   - wrist
   - training_plan
+  - equipment
   asr_matched_topics:
   - high_clear
   - wrist
@@ -30145,6 +31546,7 @@ windows:
   topic_tags:
   - smash
   - training_plan
+  - equipment
   asr_matched_topics:
   - smash
   topic_signal_counts:
@@ -30713,16 +32115,19 @@ windows:
   end_seconds: 93
   reviewed_asr_segment_count: 27
   topic_tags:
+  - equipment
   - diagnosis_flow
   - smash
   - racket_preparation
   - student_fit
   - training_plan
   asr_matched_topics:
+  - equipment
   - diagnosis_flow
   - smash
   - racket_preparation
   topic_signal_counts:
+    equipment: 3
     diagnosis_flow: 1
     smash: 1
     racket_preparation: 1
@@ -30731,11 +32136,11 @@ windows:
   review_status: agent_asr_timestamp_reviewed
   human_review_status: not_human_reviewed
   summary: The private ASR interval at 46-93s was reviewed for topic signals. It supports
-    using this timestamp as a public-safe index for diagnosis order and retest logic,
-    without exposing or reconstructing transcript text.
-  diagnostic_use: Use to order observations, identify the first failed layer, and
-    define a retest.
-  promotion_target: diagnosis_flow
+    using this timestamp as a public-safe index for racket specification and player-fit
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -30749,13 +32154,16 @@ windows:
   reviewed_asr_segment_count: 32
   topic_tags:
   - racket_preparation
+  - equipment
   - student_fit
   - diagnosis_flow
   - training_plan
   asr_matched_topics:
   - racket_preparation
+  - equipment
   topic_signal_counts:
     racket_preparation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -36945,7 +38353,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w004
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w005
   job_id: corpus-149-lh_bili_season_bv1zz421y7yt
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   platform: Bilibili
@@ -36987,7 +38395,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w005
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w002
   job_id: corpus-149-lh_bili_season_bv1zz421y7yt
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   platform: Bilibili
@@ -37000,16 +38408,19 @@ windows:
   - racket_preparation
   - top_elbow
   - diagnosis_flow
+  - equipment
   asr_matched_topics:
   - smash
   - racket_preparation
   - top_elbow
   - diagnosis_flow
+  - equipment
   topic_signal_counts:
     smash: 2
     racket_preparation: 2
     top_elbow: 2
     diagnosis_flow: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -37020,6 +38431,40 @@ windows:
   diagnostic_use: Use to distinguish smash intent, prerequisites, contact, release,
     and recovery cost.
   promotion_target: smash_variant_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w007
+  job_id: corpus-149-lh_bili_season_bv1zz421y7yt
+  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
+  platform: Bilibili
+  source_title: 如何提升杀球速度和挥重？重杀和快杀怎么杀？2个技巧 迅速提升！不可错过的发力教学！
+  start_seconds: 101
+  end_seconds: 146
+  reviewed_asr_segment_count: 18
+  topic_tags:
+  - diagnosis_flow
+  - top_elbow
+  - equipment
+  - smash
+  asr_matched_topics:
+  - diagnosis_flow
+  - top_elbow
+  - equipment
+  topic_signal_counts:
+    diagnosis_flow: 1
+    top_elbow: 1
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 101-146s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -37068,7 +38513,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w002
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w003
   job_id: corpus-149-lh_bili_season_bv1zz421y7yt
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   platform: Bilibili
@@ -37082,6 +38527,7 @@ windows:
   - hip_rotation
   - internal_rotation
   - smash
+  - equipment
   asr_matched_topics:
   - top_elbow
   - diagnosis_flow
@@ -37105,7 +38551,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w007
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w008
   job_id: corpus-149-lh_bili_season_bv1zz421y7yt
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   platform: Bilibili
@@ -37117,6 +38563,7 @@ windows:
   - top_elbow
   - diagnosis_flow
   - smash
+  - equipment
   asr_matched_topics:
   - top_elbow
   - diagnosis_flow
@@ -37150,6 +38597,7 @@ windows:
   - diagnosis_flow
   - racket_preparation
   - smash
+  - equipment
   asr_matched_topics:
   - top_elbow
   - student_fit
@@ -37173,7 +38621,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w003
+- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w004
   job_id: corpus-149-lh_bili_season_bv1zz421y7yt
   source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
   platform: Bilibili
@@ -37187,6 +38635,7 @@ windows:
   - racket_preparation
   - internal_rotation
   - smash
+  - equipment
   asr_matched_topics:
   - top_elbow
   - student_fit
@@ -37210,35 +38659,61 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-149-lh_bili_season_bv1zz421y7yt-w008
-  job_id: corpus-149-lh_bili_season_bv1zz421y7yt
-  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
+- window_id: corpus-150-lh_bili_season_bv1er421w7we-w001
+  job_id: corpus-150-lh_bili_season_bv1er421w7we
+  source_id: LH_BILI_SEASON_BV1ER421W7WE
   platform: Bilibili
-  source_title: 如何提升杀球速度和挥重？重杀和快杀怎么杀？2个技巧 迅速提升！不可错过的发力教学！
-  start_seconds: 477
-  end_seconds: 489
-  reviewed_asr_segment_count: 10
+  source_title: 300和315平衡点有什么区别？羽毛球拍平衡点的秘密！
+  start_seconds: 0
+  end_seconds: 45
+  reviewed_asr_segment_count: 26
   topic_tags:
-  - top_elbow
-  - internal_rotation
-  - smash
+  - equipment
+  - diagnosis_flow
   asr_matched_topics:
-  - top_elbow
-  - internal_rotation
+  - equipment
+  - diagnosis_flow
   topic_signal_counts:
-    top_elbow: 2
-    internal_rotation: 1
+    equipment: 2
+    diagnosis_flow: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
   human_review_status: not_human_reviewed
-  summary: The private ASR interval at 477-489s was reviewed for topic signals. It
-    supports using this timestamp as a public-safe index for upper-arm and elbow sequencing,
-    without exposing or reconstructing transcript text.
-  diagnostic_use: Use only as an elbow-sequence review target; visible frames are
-    required for diagnosis.
-  promotion_target: overhead_rubric
-  visual_review_required: true
+  summary: The private ASR interval at 0-45s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for racket specification and player-fit
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
+  visual_review_required: false
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-150-lh_bili_season_bv1er421w7we-w002
+  job_id: corpus-150-lh_bili_season_bv1er421w7we
+  source_id: LH_BILI_SEASON_BV1ER421W7WE
+  platform: Bilibili
+  source_title: 300和315平衡点有什么区别？羽毛球拍平衡点的秘密！
+  start_seconds: 45
+  end_seconds: 59
+  reviewed_asr_segment_count: 8
+  topic_tags:
+  - equipment
+  asr_matched_topics:
+  - equipment
+  topic_signal_counts:
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 45-59s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for racket specification and player-fit
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
+  visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
 - window_id: corpus-151-lh_bili_season_bv1ai421d7ns-w004
@@ -39004,7 +40479,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w003
+- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w002
   job_id: corpus-157-lh_bili_season_bv1az421f7xp
   source_id: LH_BILI_SEASON_BV1AZ421F7XP
   platform: Bilibili
@@ -39019,6 +40494,7 @@ windows:
   - top_elbow
   - internal_rotation
   - match_transfer
+  - equipment
   asr_matched_topics:
   - student_fit
   - high_clear
@@ -39026,6 +40502,7 @@ windows:
   - top_elbow
   - internal_rotation
   - match_transfer
+  - equipment
   topic_signal_counts:
     student_fit: 1
     high_clear: 1
@@ -39033,6 +40510,7 @@ windows:
     top_elbow: 1
     internal_rotation: 1
     match_transfer: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -39085,7 +40563,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w002
+- window_id: corpus-157-lh_bili_season_bv1az421f7xp-w003
   job_id: corpus-157-lh_bili_season_bv1az421f7xp
   source_id: LH_BILI_SEASON_BV1AZ421F7XP
   platform: Bilibili
@@ -41891,6 +43369,152 @@ windows:
     required for diagnosis.
   promotion_target: overhead_rubric
   visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w001
+  job_id: corpus-173-lh_bili_season_bv1ks421w7cj
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  platform: Bilibili
+  source_title: 羽毛球拍的抗扭是什么？选拍子的重要参考！
+  start_seconds: 1
+  end_seconds: 50
+  reviewed_asr_segment_count: 29
+  topic_tags:
+  - racket_preparation
+  - equipment
+  asr_matched_topics:
+  - racket_preparation
+  - equipment
+  topic_signal_counts:
+    racket_preparation: 1
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 1-50s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for racket preparation and frame organization,
+    without exposing or reconstructing transcript text.
+  diagnostic_use: Use to request visible racket preparation and pre-contact frame
+    evidence.
+  promotion_target: swing_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w003
+  job_id: corpus-173-lh_bili_season_bv1ks421w7cj
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  platform: Bilibili
+  source_title: 羽毛球拍的抗扭是什么？选拍子的重要参考！
+  start_seconds: 50
+  end_seconds: 96
+  reviewed_asr_segment_count: 31
+  topic_tags:
+  - equipment
+  asr_matched_topics:
+  - equipment
+  topic_signal_counts:
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 50-96s was reviewed for topic signals. It supports
+    using this timestamp as a public-safe index for racket specification and player-fit
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
+  visual_review_required: false
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w002
+  job_id: corpus-173-lh_bili_season_bv1ks421w7cj
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  platform: Bilibili
+  source_title: 羽毛球拍的抗扭是什么？选拍子的重要参考！
+  start_seconds: 96
+  end_seconds: 143
+  reviewed_asr_segment_count: 30
+  topic_tags:
+  - student_fit
+  - diagnosis_flow
+  - equipment
+  asr_matched_topics:
+  - student_fit
+  - diagnosis_flow
+  - equipment
+  topic_signal_counts:
+    student_fit: 1
+    diagnosis_flow: 1
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 96-143s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for student-fit framework
+    selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to select a learner path before choosing isolated technical
+    cues.
+  promotion_target: student_profiles
+  visual_review_required: false
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w004
+  job_id: corpus-173-lh_bili_season_bv1ks421w7cj
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  platform: Bilibili
+  source_title: 羽毛球拍的抗扭是什么？选拍子的重要参考！
+  start_seconds: 143
+  end_seconds: 189
+  reviewed_asr_segment_count: 25
+  topic_tags:
+  - diagnosis_flow
+  - equipment
+  asr_matched_topics:
+  - diagnosis_flow
+  topic_signal_counts:
+    diagnosis_flow: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 143-189s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: false
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-173-lh_bili_season_bv1ks421w7cj-w005
+  job_id: corpus-173-lh_bili_season_bv1ks421w7cj
+  source_id: LH_BILI_SEASON_BV1KS421W7CJ
+  platform: Bilibili
+  source_title: 羽毛球拍的抗扭是什么？选拍子的重要参考！
+  start_seconds: 237
+  end_seconds: 285
+  reviewed_asr_segment_count: 27
+  topic_tags:
+  - diagnosis_flow
+  - equipment
+  asr_matched_topics:
+  - diagnosis_flow
+  topic_signal_counts:
+    diagnosis_flow: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 237-285s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for diagnosis order and retest
+    logic, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to order observations, identify the first failed layer, and
+    define a retest.
+  promotion_target: diagnosis_flow
+  visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
 - window_id: corpus-174-lh_bili_season_bv1zd421g7x9-w007
@@ -45941,16 +47565,19 @@ windows:
   - safety
   - diagnosis_flow
   - smash
+  - equipment
   asr_matched_topics:
   - top_elbow
   - safety
   - diagnosis_flow
   - smash
+  - equipment
   topic_signal_counts:
     top_elbow: 2
     safety: 2
     diagnosis_flow: 1
     smash: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -47084,37 +48711,6 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w008
-  job_id: corpus-197-lh_bili_season_bv1kz421i7cj
-  source_id: LH_BILI_SEASON_BV1KZ421I7CJ
-  platform: Bilibili
-  source_title: 史上最重杀球教学！遁地炮！
-  start_seconds: 98
-  end_seconds: 146
-  reviewed_asr_segment_count: 24
-  topic_tags:
-  - diagnosis_flow
-  - footwork
-  - smash
-  asr_matched_topics:
-  - diagnosis_flow
-  - footwork
-  topic_signal_counts:
-    diagnosis_flow: 1
-    footwork: 1
-  signal_status: asr_topic_signal_confirmed
-  evidence_level: asr_timestamp_reviewed_public_safe
-  review_status: agent_asr_timestamp_reviewed
-  human_review_status: not_human_reviewed
-  summary: The private ASR interval at 98-146s was reviewed for topic signals. It
-    supports using this timestamp as a public-safe index for diagnosis order and retest
-    logic, without exposing or reconstructing transcript text.
-  diagnostic_use: Use to order observations, identify the first failed layer, and
-    define a retest.
-  promotion_target: diagnosis_flow
-  visual_review_required: true
-  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
-    not a quote, and not visual proof of biomechanics.
 - window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w005
   job_id: corpus-197-lh_bili_season_bv1kz421i7cj
   source_id: LH_BILI_SEASON_BV1KZ421I7CJ
@@ -47213,6 +48809,40 @@ windows:
   diagnostic_use: Use to distinguish smash intent, prerequisites, contact, release,
     and recovery cost.
   promotion_target: smash_variant_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-197-lh_bili_season_bv1kz421i7cj-w008
+  job_id: corpus-197-lh_bili_season_bv1kz421i7cj
+  source_id: LH_BILI_SEASON_BV1KZ421I7CJ
+  platform: Bilibili
+  source_title: 史上最重杀球教学！遁地炮！
+  start_seconds: 468
+  end_seconds: 513
+  reviewed_asr_segment_count: 23
+  topic_tags:
+  - hip_rotation
+  - safety
+  - equipment
+  - smash
+  asr_matched_topics:
+  - hip_rotation
+  - safety
+  - equipment
+  topic_signal_counts:
+    hip_rotation: 1
+    safety: 1
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 468-513s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for foot-ground, hip, and
+    trunk contribution, without exposing or reconstructing transcript text.
+  diagnostic_use: Use only as a hip/trunk timing review target; visible full-body
+    frames are required.
+  promotion_target: footwork_rubric
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -48687,7 +50317,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w006
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w007
   job_id: corpus-205-lh_bili_season_bv11w4m167ui
   source_id: LH_BILI_SEASON_BV11W4M167UI
   platform: Bilibili
@@ -48822,7 +50452,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w007
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w008
   job_id: corpus-205-lh_bili_season_bv11w4m167ui
   source_id: LH_BILI_SEASON_BV11W4M167UI
   platform: Bilibili
@@ -48852,7 +50482,7 @@ windows:
   visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w008
+- window_id: corpus-205-lh_bili_season_bv11w4m167ui-w006
   job_id: corpus-205-lh_bili_season_bv11w4m167ui
   source_id: LH_BILI_SEASON_BV11W4M167UI
   platform: Bilibili
@@ -48863,12 +50493,15 @@ windows:
   topic_tags:
   - hip_rotation
   - match_transfer
+  - equipment
   asr_matched_topics:
   - hip_rotation
   - match_transfer
+  - equipment
   topic_signal_counts:
     hip_rotation: 1
     match_transfer: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -50258,6 +51891,7 @@ windows:
   - hip_rotation
   - safety
   - smash
+  - equipment
   asr_matched_topics:
   - student_fit
   - diagnosis_flow
@@ -50415,6 +52049,7 @@ windows:
   - smash
   - hip_rotation
   - safety
+  - equipment
   asr_matched_topics:
   - student_fit
   - diagnosis_flow
@@ -56694,7 +58329,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w004
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w007
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   platform: Bilibili
@@ -56724,7 +58359,37 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w005
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w003
+  job_id: corpus-241-lh_bili_season_bv1g8cfyveke
+  source_id: LH_BILI_SEASON_BV1G8CFYVEKE
+  platform: Bilibili
+  source_title: 5u版李宁90New评测完整版！羽毛球双打抽档利器打感细评！和5u大破拍pro对比测试高远球杀球
+  start_seconds: 47
+  end_seconds: 103
+  reviewed_asr_segment_count: 12
+  topic_tags:
+  - equipment
+  - high_clear
+  - smash
+  - doubles
+  asr_matched_topics:
+  - equipment
+  topic_signal_counts:
+    equipment: 2
+  signal_status: asr_topic_signal_confirmed
+  evidence_level: asr_timestamp_reviewed_public_safe
+  review_status: agent_asr_timestamp_reviewed
+  human_review_status: not_human_reviewed
+  summary: The private ASR interval at 47-103s was reviewed for topic signals. It
+    supports using this timestamp as a public-safe index for racket specification
+    and player-fit selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
+  visual_review_required: true
+  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
+    not a quote, and not visual proof of biomechanics.
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w008
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   platform: Bilibili
@@ -56753,7 +58418,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w003
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w004
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   platform: Bilibili
@@ -56819,36 +58484,6 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w006
-  job_id: corpus-241-lh_bili_season_bv1g8cfyveke
-  source_id: LH_BILI_SEASON_BV1G8CFYVEKE
-  platform: Bilibili
-  source_title: 5u版李宁90New评测完整版！羽毛球双打抽档利器打感细评！和5u大破拍pro对比测试高远球杀球
-  start_seconds: 396
-  end_seconds: 445
-  reviewed_asr_segment_count: 7
-  topic_tags:
-  - diagnosis_flow
-  - high_clear
-  - smash
-  - doubles
-  asr_matched_topics:
-  - diagnosis_flow
-  topic_signal_counts:
-    diagnosis_flow: 1
-  signal_status: asr_topic_signal_confirmed
-  evidence_level: asr_timestamp_reviewed_public_safe
-  review_status: agent_asr_timestamp_reviewed
-  human_review_status: not_human_reviewed
-  summary: The private ASR interval at 396-445s was reviewed for topic signals. It
-    supports using this timestamp as a public-safe index for diagnosis order and retest
-    logic, without exposing or reconstructing transcript text.
-  diagnostic_use: Use to order observations, identify the first failed layer, and
-    define a retest.
-  promotion_target: diagnosis_flow
-  visual_review_required: true
-  boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
-    not a quote, and not visual proof of biomechanics.
 - window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w001
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
@@ -56883,7 +58518,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w007
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w005
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   platform: Bilibili
@@ -56893,13 +58528,16 @@ windows:
   reviewed_asr_segment_count: 27
   topic_tags:
   - student_fit
+  - equipment
   - high_clear
   - smash
   - doubles
   asr_matched_topics:
   - student_fit
+  - equipment
   topic_signal_counts:
     student_fit: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -56913,7 +58551,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w008
+- window_id: corpus-241-lh_bili_season_bv1g8cfyveke-w006
   job_id: corpus-241-lh_bili_season_bv1g8cfyveke
   source_id: LH_BILI_SEASON_BV1G8CFYVEKE
   platform: Bilibili
@@ -56923,13 +58561,16 @@ windows:
   reviewed_asr_segment_count: 25
   topic_tags:
   - training_plan
+  - equipment
   - high_clear
   - smash
   - doubles
   asr_matched_topics:
   - training_plan
+  - equipment
   topic_signal_counts:
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -57874,14 +59515,17 @@ windows:
   - smash
   - drive
   - training_plan
+  - equipment
   asr_matched_topics:
   - smash
   - drive
   - training_plan
+  - equipment
   topic_signal_counts:
     smash: 1
     drive: 1
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -57905,10 +59549,13 @@ windows:
   reviewed_asr_segment_count: 31
   topic_tags:
   - training_plan
+  - equipment
   asr_matched_topics:
   - training_plan
+  - equipment
   topic_signal_counts:
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -58517,7 +60164,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w002
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w003
   job_id: corpus-249-lh_bili_season_bv1rachesepm
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   platform: Bilibili
@@ -58650,7 +60297,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w003
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w004
   job_id: corpus-249-lh_bili_season_bv1rachesepm
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   platform: Bilibili
@@ -58685,7 +60332,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w004
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w005
   job_id: corpus-249-lh_bili_season_bv1rachesepm
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   platform: Bilibili
@@ -58757,7 +60404,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-249-lh_bili_season_bv1rachesepm-w005
+- window_id: corpus-249-lh_bili_season_bv1rachesepm-w002
   job_id: corpus-249-lh_bili_season_bv1rachesepm
   source_id: LH_BILI_SEASON_BV1RACHESEPM
   platform: Bilibili
@@ -58770,18 +60417,20 @@ windows:
   - smash
   - wrist
   - training_plan
+  - equipment
   - student_fit
-  - contact_point
   asr_matched_topics:
   - diagnosis_flow
   - smash
   - wrist
   - training_plan
+  - equipment
   topic_signal_counts:
     diagnosis_flow: 1
     smash: 1
     wrist: 1
     training_plan: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -68863,7 +70512,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w001
+- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w002
   job_id: corpus-290-lh_bili_season_bv1q4jrz3eps
   source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
   platform: Bilibili
@@ -69082,7 +70731,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w002
+- window_id: corpus-290-lh_bili_season_bv1q4jrz3eps-w001
   job_id: corpus-290-lh_bili_season_bv1q4jrz3eps
   source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
   platform: Bilibili
@@ -69097,6 +70746,7 @@ windows:
   - hip_rotation
   - training_plan
   - safety
+  - equipment
   asr_matched_topics:
   - diagnosis_flow
   - racket_preparation
@@ -69104,6 +70754,7 @@ windows:
   - hip_rotation
   - training_plan
   - safety
+  - equipment
   topic_signal_counts:
     diagnosis_flow: 1
     racket_preparation: 1
@@ -69111,6 +70762,7 @@ windows:
     hip_rotation: 1
     training_plan: 1
     safety: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -70696,6 +72348,7 @@ windows:
   - smash
   - racket_preparation
   - internal_rotation
+  - equipment
   asr_matched_topics:
   - smash
   - racket_preparation
@@ -70729,6 +72382,7 @@ windows:
   - internal_rotation
   - smash
   - racket_preparation
+  - equipment
   asr_matched_topics:
   - internal_rotation
   topic_signal_counts:
@@ -70758,6 +72412,7 @@ windows:
   - internal_rotation
   - smash
   - racket_preparation
+  - equipment
   asr_matched_topics:
   - internal_rotation
   topic_signal_counts:
@@ -71720,7 +73375,7 @@ windows:
   visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w003
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w005
   job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   platform: Bilibili
@@ -71750,7 +73405,7 @@ windows:
   visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w002
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w003
   job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   platform: Bilibili
@@ -71786,7 +73441,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w007
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w008
   job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   platform: Bilibili
@@ -71845,7 +73500,7 @@ windows:
   visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w008
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w007
   job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   platform: Bilibili
@@ -71854,19 +73509,22 @@ windows:
   end_seconds: 282
   reviewed_asr_segment_count: 33
   topic_tags:
+  - equipment
   - student_fit
-  asr_matched_topics: []
-  topic_signal_counts: {}
-  signal_status: timestamp_has_asr_but_topic_depends_on_public_title
+  asr_matched_topics:
+  - equipment
+  topic_signal_counts:
+    equipment: 1
+  signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
   human_review_status: not_human_reviewed
   summary: The private ASR interval at 235-282s was reviewed for topic signals. It
-    supports using this timestamp as a public-safe index for student-fit framework
-    selection, without exposing or reconstructing transcript text.
-  diagnostic_use: Use to select a learner path before choosing isolated technical
-    cues.
-  promotion_target: student_profiles
+    supports using this timestamp as a public-safe index for racket specification
+    and player-fit selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
   visual_review_required: false
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -71881,13 +73539,16 @@ windows:
   topic_tags:
   - diagnosis_flow
   - racket_preparation
+  - equipment
   - student_fit
   asr_matched_topics:
   - diagnosis_flow
   - racket_preparation
+  - equipment
   topic_signal_counts:
     diagnosis_flow: 1
     racket_preparation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed
@@ -71901,7 +73562,7 @@ windows:
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
-- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w005
+- window_id: corpus-303-lh_bili_fav_bv16ptzzcew6-w002
   job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
   source_id: LH_BILI_FAV_BV16PTZZCEW6
   platform: Bilibili
@@ -71910,13 +73571,16 @@ windows:
   end_seconds: 373
   reviewed_asr_segment_count: 36
   topic_tags:
+  - equipment
   - diagnosis_flow
   - racket_preparation
   - student_fit
   asr_matched_topics:
+  - equipment
   - diagnosis_flow
   - racket_preparation
   topic_signal_counts:
+    equipment: 2
     diagnosis_flow: 1
     racket_preparation: 1
   signal_status: asr_topic_signal_confirmed
@@ -71924,11 +73588,11 @@ windows:
   review_status: agent_asr_timestamp_reviewed
   human_review_status: not_human_reviewed
   summary: The private ASR interval at 328-373s was reviewed for topic signals. It
-    supports using this timestamp as a public-safe index for diagnosis order and retest
-    logic, without exposing or reconstructing transcript text.
-  diagnostic_use: Use to order observations, identify the first failed layer, and
-    define a retest.
-  promotion_target: diagnosis_flow
+    supports using this timestamp as a public-safe index for racket specification
+    and player-fit selection, without exposing or reconstructing transcript text.
+  diagnostic_use: Use to test whether racket balance, torsional stability, weight,
+    or grip setup is constraining the current learning task.
+  promotion_target: equipment_rubric
   visual_review_required: true
   boundary: This is an agent-reviewed ASR timestamp summary, not a human coach review,
     not a quote, and not visual proof of biomechanics.
@@ -74915,12 +76579,15 @@ windows:
   topic_tags:
   - smash
   - hip_rotation
+  - equipment
   asr_matched_topics:
   - smash
   - hip_rotation
+  - equipment
   topic_signal_counts:
     smash: 2
     hip_rotation: 1
+    equipment: 1
   signal_status: asr_topic_signal_confirmed
   evidence_level: asr_timestamp_reviewed_public_safe
   review_status: agent_asr_timestamp_reviewed

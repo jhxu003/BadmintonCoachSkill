@@ -34,6 +34,18 @@ KEYWORD_TOPICS = [
     ("match_transfer", ["实战", "比赛", "多球", "连贯", "稳定", "熟练"]),
     ("training_plan", ["训练", "练", "组", "节奏", "慢动作", "分解"]),
     ("safety", ["疼", "伤", "肩", "腰", "膝", "脚踝"]),
+    (
+        "equipment",
+        [
+            "平衡点",
+            "抗扭",
+            "克重",
+            "底胶",
+            "中杆",
+            "挥重",
+            "磅数",
+        ],
+    ),
 ]
 
 PROMOTION_TARGET_BY_TOPIC = [
@@ -46,6 +58,7 @@ PROMOTION_TARGET_BY_TOPIC = [
     ("drive_rubric", {"drive"}),
     ("match_transfer_rubric", {"match_transfer"}),
     ("training_plans", {"training_plan"}),
+    ("equipment_rubric", {"equipment"}),
     ("overhead_rubric", {"high_clear", "top_elbow", "contact_point"}),
     ("swing_rubric", {"internal_rotation", "wrist", "racket_preparation"}),
 ]
@@ -135,6 +148,7 @@ def summarize_window(job: dict[str, Any], topics: list[str], start: int, end: in
         "match_transfer": "rally-pressure transfer",
         "training_plan": "staged practice progression",
         "safety": "load and injury-risk filtering",
+        "equipment": "racket specification and player-fit selection",
     }.get(primary, "badminton technique diagnosis")
     return {
         "summary": (

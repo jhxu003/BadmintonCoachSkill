@@ -21,3 +21,75 @@
     - racket_side_structure should remain stable at slow speed
   source_ids: [LH_BILI_FAV_BV16PTZZCEW6, LH_BILI_SEASON_BV1VEJRZIEXT, LH_BILI_SEASON_BV1JT421K7GY]
   confidence: hypothesis
+
+- rule_id: racket-balance-mismatch
+  issue: Racket balance point does not fit the current learning task
+  category: equipment_fit
+  priority: 74
+  applicable_actions: [high_clear, smash, drop, drive, backhand, serve_receive, doubles]
+  student_profile_fit: [beginner, intermediate, advanced, mobility_limited]
+  required_observations: [phase_observations.balance_point_fit]
+  observable_evidence:
+    - path: phase_observations.balance_point_fit
+      equals: too_head_heavy_for_task
+      label: A controlled same-task comparison indicates that the current head balance delays preparation, contact, or recovery.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for measured racket specification and a same-task A/B clip before attributing the problem to balance point.
+  likely_effect:
+    - Head-heavy balance may increase late preparation or recovery cost for this player and task.
+    - A different balance point may change timing without correcting the underlying stroke pattern.
+  correction_principle: Keep the movement target and feed constant, compare a manageable balance condition, and retain the racket only if timing and structure improve together.
+  drills: [equipment-fit-retest]
+  retest_metrics:
+    - phase_observations.balance_point_fit should become manageable
+    - preparation and recovery timing should improve without new frame collapse
+  source_ids: [LH_BILI_SEASON_BV1ER421W7WE, LH_BILI_FAV_BV16PTZZCEW6]
+  confidence: hypothesis
+
+- rule_id: racket-torsion-mismatch
+  issue: Torsional stability is not adequate for the player's current contact consistency
+  category: equipment_fit
+  priority: 73
+  applicable_actions: [high_clear, smash, drop, drive, backhand, serve_receive, doubles]
+  student_profile_fit: [beginner, intermediate, advanced]
+  required_observations: [phase_observations.torsional_stability_fit]
+  observable_evidence:
+    - path: phase_observations.torsional_stability_fit
+      equals: unstable_on_off_center
+      label: A controlled comparison shows larger direction or face instability on similar off-center contacts with the current racket.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Do not infer racket torsion from one miss; request repeated same-feed contacts and racket specifications.
+  likely_effect:
+    - Off-center contact may produce less predictable direction or feedback.
+    - Contact inconsistency can still be caused primarily by arrival, spacing, or racket-face control.
+  correction_principle: Diagnose contact and spacing first, then use repeated same-feed comparison to decide whether torsional stability materially improves predictability.
+  drills: [equipment-fit-retest]
+  retest_metrics:
+    - phase_observations.torsional_stability_fit should become stable_for_task
+    - directional dispersion should narrow across comparable feeds
+  source_ids: [LH_BILI_SEASON_BV1KS421W7CJ]
+  confidence: hypothesis
+
+- rule_id: shaft-stiffness-mismatch
+  issue: Shaft stiffness does not match the player's current release timing and swing demand
+  category: equipment_fit
+  priority: 72
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  student_profile_fit: [beginner, intermediate, advanced, mobility_limited]
+  required_observations: [phase_observations.shaft_stiffness_fit]
+  observable_evidence:
+    - path: phase_observations.shaft_stiffness_fit
+      equals: too_stiff_for_release
+      label: Under the same task, the player becomes tense or loses depth and timing with the current shaft but improves with a manageable comparison racket.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for shaft specification and a same-feed A/B clip; do not diagnose stiffness from subjective feel alone.
+  likely_effect:
+    - A stiffness mismatch may raise timing or strength demand and encourage compensatory tension.
+    - A softer shaft cannot repair late arrival, poor contact, or a broken force sequence.
+  correction_principle: Preserve the technical cue, compare shaft response under equal feed and effort, and choose the condition that improves timing without sacrificing control.
+  drills: [equipment-fit-retest]
+  retest_metrics:
+    - phase_observations.shaft_stiffness_fit should become matched_for_release
+    - depth or speed should improve at equal perceived effort without added tension
+  source_ids: [LH_BILI_SEASON_BV1GW411N772]
+  confidence: hypothesis

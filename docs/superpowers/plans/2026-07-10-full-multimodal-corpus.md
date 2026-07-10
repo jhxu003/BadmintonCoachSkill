@@ -6,7 +6,7 @@
 
 **Architecture:** Build an executable visual manifest from the reviewed corpus, run resumable node-local GPU shards, reduce private model artifacts into public-safe evidence, and repeatedly audit gaps until every source has a terminal status. The existing ASR corpus remains the routing layer; visual and temporal evidence strengthen only observable claims.
 
-**Tech Stack:** Python 3.10, PyYAML, yt-dlp, imageio-ffmpeg/OpenCV, Qwen2.5-VL-3B, PyTorch, Ultralytics YOLO pose, Git/GitHub.
+**Tech Stack:** Python 3.10, PyYAML, yt-dlp, imageio-ffmpeg/OpenCV, Qwen3-VL-8B-Instruct, PyTorch, Ultralytics YOLO pose, Git/GitHub.
 
 ## Global Constraints
 
@@ -26,11 +26,11 @@
 - Modify: `scripts/run_video_content_pipeline.py`
 - Modify: `scripts/run_video_batch_on_node.py`
 
-- [ ] Join all 396 visual-review jobs to original pipeline job definitions.
-- [ ] Preserve exact `planned_frames` and visual review targets per job.
-- [ ] Add `visual-review` as a keyframe source and extract every planned timestamp.
-- [ ] Emit requested, extracted, and failed frame counts.
-- [ ] Verify manifest counts are 396 jobs and 5977 planned frames.
+- [x] Join all 402 visual-review jobs to original pipeline job definitions.
+- [x] Preserve exact `planned_frames` and visual review targets per job.
+- [x] Add `visual-review` as a keyframe source and extract every planned timestamp.
+- [x] Emit requested, extracted, and failed frame counts.
+- [x] Verify manifest counts are 402 jobs and 6064 planned frames.
 
 ### Task 2: Structured Full-Corpus VLM And Pose Artifacts
 
@@ -39,11 +39,11 @@
 - Modify: `scripts/run_video_batch_on_node.py`
 - Create: `scripts/build_visual_completion_status.py`
 
-- [ ] Make VLM prompts explicitly preserve timestamp-to-image ordering and visible-only evidence.
-- [ ] Retain private Pose keypoints and bounding data needed for later geometry summaries.
-- [ ] Add skip/resume controls for existing successful VLM and Pose artifacts.
-- [ ] Build terminal status and retry manifests from artifact contents.
-- [ ] Verify failed stages cannot be counted as successful jobs.
+- [x] Make VLM prompts explicitly preserve timestamp-to-image ordering and visible-only evidence.
+- [x] Retain private Pose keypoints and bounding data needed for later geometry summaries.
+- [x] Add skip/resume controls for existing successful VLM and Pose artifacts.
+- [x] Build terminal status and retry manifests from artifact contents.
+- [x] Verify failed stages cannot be counted as successful jobs.
 
 ### Task 3: GPU Sharded Full Run
 
@@ -51,11 +51,11 @@
 - Private only: `data/raw-private/video-corpus/batch-runs/`
 - Private only: node-local shard roots under `/tmp`
 
-- [ ] Select healthy GPU nodes and copy the local VLM runtime/model where needed.
-- [ ] Split pending jobs into deterministic shards.
-- [ ] Run `download,keyframes,vlm,pose` for every pending action source.
-- [ ] Copy private JSON/log artifacts back after each shard.
-- [ ] Generate retries until every source is `ok` or concretely unavailable.
+- [x] Select healthy GPU nodes and copy the local VLM runtime/model where needed.
+- [x] Split pending jobs into deterministic shards.
+- [x] Run `download,keyframes,vlm,pose` for every pending action source.
+- [x] Copy private JSON/log artifacts back after each shard.
+- [x] Generate retries until every source is `ok` or concretely unavailable.
 
 ### Task 4: Critical Temporal Evidence
 
@@ -65,10 +65,10 @@
 - Create: `data/corpus/video-temporal-review-manifest.yaml`
 - Create: `data/corpus/video-temporal-pose-summary.yaml`
 
-- [ ] Select representative teaching windows for all 203 critical sources.
-- [ ] Extract dense short sequences around selected timestamps.
-- [ ] Run Pose over ordered sequences and compute public-safe geometry/visibility proxies.
-- [ ] Record explicit blocked uses for racket face, shuttle contact, and true internal rotation.
+- [x] Select representative teaching windows for all 204 critical sources.
+- [x] Extract dense short sequences around selected timestamps.
+- [x] Run Pose over ordered sequences and compute public-safe geometry/visibility proxies.
+- [x] Record explicit blocked uses for racket face, shuttle contact, and true internal rotation.
 
 ### Task 5: Distillation And Explainability Chain
 
@@ -80,10 +80,10 @@
 - Modify: `skills/liu-hui-badminton-coach/references/visual-evidence-contract.yaml`
 - Modify: `skills/liu-hui-badminton-coach/SKILL.md`
 
-- [ ] Map source/timestamp/visible evidence to frameworks and diagnostic questions.
-- [ ] Strengthen only observable rule wording supported by the evidence level.
-- [ ] Add report references that explain why a diagnosis was selected.
-- [ ] Keep unsupported biomechanics as hypotheses or required observations.
+- [x] Map source/timestamp/visible evidence to frameworks and diagnostic questions.
+- [x] Strengthen only observable rule wording supported by the evidence level.
+- [x] Add report references that explain why a diagnosis was selected.
+- [x] Keep unsupported biomechanics as hypotheses or required observations.
 
 ### Task 6: Iterative Completion Audit
 
@@ -94,8 +94,8 @@
 - Modify: `data/corpus/collection-status.md`
 - Modify: `data/corpus/video-parse-status.md`
 
-- [ ] Audit source, frame, VLM, Pose, temporal, explainability, and access-gap coverage.
-- [ ] Generate retry work whenever any accessible item is incomplete.
-- [ ] Run source integrity, examples, YAML parsing, compilation, and secret/raw-content scans.
-- [ ] Review remaining gaps and repeat Tasks 2-6 until all completion gates pass.
-- [ ] Commit and push the final verified state to `main`.
+- [x] Audit source, frame, VLM, Pose, temporal, explainability, and access-gap coverage.
+- [x] Generate retry work whenever any accessible item is incomplete.
+- [x] Run source integrity, examples, YAML parsing, compilation, and secret/raw-content scans.
+- [x] Review remaining gaps and repeat Tasks 2-6 until all completion gates pass.
+- [x] Commit and push the final verified state to `main`.

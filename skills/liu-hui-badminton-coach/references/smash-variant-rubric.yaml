@@ -98,6 +98,58 @@
   evidence_status: timestamp_candidate
   confidence: hypothesis
 
+- rule_id: frame-goal-mismatch
+  issue: Selected frame does not match the intended shot effect or recovery budget
+  category: framework_selection
+  priority: 69
+  applicable_actions: [high_clear, smash, drop, match_transfer]
+  student_profile_fit: [intermediate, advanced]
+  required_observations: [phase_observations.frame_goal_fit, phase_observations.shot_intent]
+  observable_evidence:
+    - path: phase_observations.frame_goal_fit
+      equals: mismatched
+      label: The chosen frame produces a different ball effect, timing cost, or recovery cost from the stated shot intent.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for shot intent, incoming-ball condition, frame variant, and recovery result before changing the frame.
+  likely_effect:
+    - A technically valid frame may still fail because it solves the wrong task.
+    - Extra preparation or body demand may reduce recovery without improving the intended ball effect.
+  correction_principle: Select the frame from ball condition, desired effect, player prerequisites, and recovery cost, then verify it with a controlled comparison.
+  drills: [framework-a-b-selector]
+  retest_metrics:
+    - phase_observations.frame_goal_fit should become task_matched
+    - intended shot effect should improve without slower next-shot recovery
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1BI4Y1Q7EH, LH_BILI_SEASON_BV1NF421X7JG]
+  evidence_ids: [pilot-012-w002-small-fast-frame-pros, pilot-012-w003-small-fast-frame-limits, pilot-013-w001-frame-variants-change-ball-effect]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
+- rule_id: pro-model-copying
+  issue: Player is copying an elite frame without the required timing, mobility, or coordination
+  category: student_fit
+  priority: 68
+  applicable_actions: [high_clear, smash, drop, match_transfer]
+  student_profile_fit: [beginner, intermediate, mobility_limited]
+  required_observations: [phase_observations.frame_selection_basis]
+  observable_evidence:
+    - path: phase_observations.frame_selection_basis
+      equals: copied_elite_model_without_prerequisites
+      label: The player selected a high-cost elite-style frame by appearance while prerequisite timing, range, balance, or recovery is not stable.
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask which model is being copied and test the prerequisite contact, mobility, balance, and recovery conditions.
+  likely_effect:
+    - The player may add complexity and load before the base frame is repeatable.
+    - Visual similarity can hide a different force path or ball effect.
+  correction_principle: Return to the lowest-cost frame that preserves the intended effect, then add specialized features only after prerequisites pass.
+  drills: [framework-a-b-selector]
+  retest_metrics:
+    - phase_observations.frame_selection_basis should become player_task_evidence
+    - selected frame should remain repeatable under controlled rally pressure
+  source_ids: [LH_BILI_FAV_BV15PBRB6EDK, LH_BILI_SEASON_BV1NF421X7JG]
+  evidence_ids: [pilot-012-w001-advanced-frame-prerequisites, pilot-026-w001-no-perfect-technique, pilot-026-w004-body-condition-and-tech-choice]
+  evidence_status: timestamp_candidate
+  confidence: hypothesis
+
 - rule_id: slow-racket-preparation-consumes-window
   issue: Racket preparation consumes the available hit window
   category: smash_variant
