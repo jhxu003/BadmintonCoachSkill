@@ -9,7 +9,6 @@ review_run:
   inputs:
     candidate_windows: data/corpus/video-asr-teaching-windows-full.yaml
     manifests:
-    - data/corpus/video-pilot-manifest.yaml
     - data/corpus/video-corpus-manifest.yaml
   summary:
     candidate_windows: 2610

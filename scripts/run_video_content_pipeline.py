@@ -27,8 +27,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--manifest",
-        default="data/corpus/video-pilot-manifest.yaml",
-        help="Pilot manifest YAML.",
+        default="data/corpus/video-corpus-manifest.yaml",
+        help="Video corpus manifest YAML.",
     )
     parser.add_argument(
         "--limit",
@@ -124,7 +124,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--teaching-windows",
-        default="data/corpus/video-asr-teaching-windows.yaml",
+        default="data/corpus/video-asr-teaching-windows-full.yaml",
         help="ASR-derived teaching window YAML used when --keyframe-source=teaching-windows.",
     )
     parser.add_argument(

@@ -81,7 +81,7 @@ gates:
     absolute_path_hits: []
   yaml_integrity:
     passed: true
-    parsed_files: 481
+    parsed_files: 39
     failures: []
   runtime_behavior:
     passed: true

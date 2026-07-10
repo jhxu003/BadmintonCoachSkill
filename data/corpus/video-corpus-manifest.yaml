@@ -1,15 +1,14 @@
-manifest_id: liu_hui_video_corpus_public_manifest_20260709
-created_at: '2026-07-09'
-purpose: Full public-source content-level parsing manifest for Liu Hui badminton teaching
-  videos. Raw media, ASR transcripts, OCR dumps, VLM dumps, cookies, and model logs
-  stay private.
+manifest_id: liu_hui_video_corpus_public_manifest_20260710
+created_at: '2026-07-10'
+purpose: Canonical public-safe processing manifest for the indexed Liu Hui Bilibili
+  video corpus. Raw media, transcripts, model dumps, cookies, and logs stay private.
 selection_policy:
   platforms:
   - Bilibili
   access_type: public
   source_type: video
-  exclude_existing_public_evidence: true
-  existing_evidence_source_count: 30
+  source_jobs: 409
+  preserve_existing_job_ids: true
 jobs:
 - job_id: corpus-001-lh_bili_season_bv1ed4y1s7vj
   source_id: LH_BILI_SEASON_BV1ED4Y1S7VJ
@@ -14916,8 +14915,8 @@ jobs:
   stroke_tags:
   - all
   selection_score: 13
-  processing_status: pending
-  review_status: not_started
+  processing_status: unavailable
+  review_status: access_unavailable
   private_paths:
     job_dir: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition
     metadata_json: data/raw-private/video-corpus/corpus-370-lh_bili_core_competition/metadata.json
@@ -14938,6 +14937,7 @@ jobs:
     pose: Ultralytics:yolo11n-pose.pt:v2
   promotion_policy: Only reviewed timestamp evidence may become source_backed skill
     rules. Title-only fallback evidence remains needs_content_model_review.
+  availability_note: Public Bilibili page resolves to a missing-video placeholder.
 - job_id: corpus-371-lh_bili_framework
   source_id: LH_BILI_FRAMEWORK
   title: Overhead power framework public clip
@@ -15303,6 +15303,1326 @@ jobs:
     run_log: data/raw-private/video-corpus/corpus-379-lh_bili_wrist_whip_error/run.log
   public_outputs:
     timestamp_evidence: data/corpus/video-evidence/corpus-379-lh_bili_wrist_whip_error.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-001-lh_bili_season_bv18tmub4e8d
+  source_id: LH_BILI_SEASON_BV18TMUB4E8D
+  title: 业余双打重杀教学！重杀框架是什么！业余后场不起跳重杀！省力还杀的重！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV18TmuB4E8D/
+  published_at: '2025-12-14'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power_framework
+  - doubles
+  stroke_tags:
+  - smash
+  - all
+  - doubles
+  selection_score: 71
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d
+    metadata_json: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/source_video
+    audio_file: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/pose.json
+    run_log: data/raw-private/video-corpus/pilot-001-lh_bili_season_bv18tmub4e8d/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-001-lh_bili_season_bv18tmub4e8d.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-002-lh_bili_season_bv1x9qbbbetx
+  source_id: LH_BILI_SEASON_BV1X9QBBBETX
+  title: 头顶突击杀球羽毛球教学！配一步蹬转步法和闪动发力技巧！不建议新手学啊！有基础的可以
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1X9qbBbETX/
+  published_at: '2025-12-16'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - hip_rotation
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power
+  - footwork
+  stroke_tags:
+  - smash
+  - all
+  - footwork
+  selection_score: 71
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx
+    metadata_json: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/source_video
+    audio_file: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/pose.json
+    run_log: data/raw-private/video-corpus/pilot-002-lh_bili_season_bv1x9qbbbetx/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-002-lh_bili_season_bv1x9qbbbetx.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-003-lh_bili_season_bv1aykwbjeuv
+  source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+  title: 业余杀球优化爆改教学！后场杀球架拍和发力动作细节！羽毛球新手必看！杀球不重的赶紧试试
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1AykwBJEUV/
+  published_at: '2026-01-16'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 71
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv
+    metadata_json: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/source_video
+    audio_file: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/pose.json
+    run_log: data/raw-private/video-corpus/pilot-003-lh_bili_season_bv1aykwbjeuv/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-003-lh_bili_season_bv1aykwbjeuv.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-004-lh_bili_season_bv1crftzbek7
+  source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+  title: 业余杀球爆改！羽毛球后场高吊杀框架细节！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1crFTzBEK7/
+  published_at: '2026-02-03'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power_framework
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 71
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7
+    metadata_json: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/source_video
+    audio_file: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/pose.json
+    run_log: data/raw-private/video-corpus/pilot-004-lh_bili_season_bv1crftzbek7/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-004-lh_bili_season_bv1crftzbek7.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-005-lh_bili_season_bv1hbyrbcece
+  source_id: LH_BILI_SEASON_BV1HBYRBCECE
+  title: 高远球发力到底是髋带腿还是腿带髋？正手发力原理逻辑解读！别搞错顺序啊
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1hByrBCEcE/
+  published_at: '2025-11-05'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  - power_framework
+  - student_fit
+  topic_tags:
+  - high_clear
+  - power
+  - learning_order
+  - hip_rotation
+  stroke_tags:
+  - high_clear
+  - all
+  - smash
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece
+    metadata_json: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/source_video
+    audio_file: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/pose.json
+    run_log: data/raw-private/video-corpus/pilot-005-lh_bili_season_bv1hbyrbcece/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-005-lh_bili_season_bv1hbyrbcece.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-006-lh_bili_season_bv1v6zabtekt
+  source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+  title: 头顶区突击杀球教学！单打远网抓推球路这样练！快速高框架实战应用
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1v6ZaBtEKt/
+  published_at: '2026-02-19'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - match_transfer
+  topic_tags:
+  - smash
+  - match_transfer
+  - power_framework
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt
+    metadata_json: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/source_video
+    audio_file: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/pose.json
+    run_log: data/raw-private/video-corpus/pilot-006-lh_bili_season_bv1v6zabtekt/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-006-lh_bili_season_bv1v6zabtekt.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-007-lh_bili_season_bv1km41147m1
+  source_id: LH_BILI_SEASON_BV1KM41147M1
+  title: 刘辉教练详解蹬转发力：新手必备发力技巧
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1kM41147m1/
+  published_at: '2023-01-20'
+  access_type: public
+  authorization_status: public
+  source_type: video
+  priority_topics:
+  - high_clear
+  - hip_rotation
+  - internal_rotation
+  - power_framework
+  - student_fit
+  topic_tags:
+  - power
+  stroke_tags:
+  - all
+  selection_score: 56
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1
+    metadata_json: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/source_video
+    audio_file: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/pose.json
+    run_log: data/raw-private/video-corpus/pilot-007-lh_bili_season_bv1km41147m1/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-007-lh_bili_season_bv1km41147m1.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-008-lh_bili_season_bv19c4y1s7z2
+  source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+  title: 为什么内旋感觉很别扭？刘辉教练教你内旋发力需要配合正确的击球点！调整更高的点后高远球杀球立马不一样
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV19C4y1S7z2/
+  published_at: '2023-12-22'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - high_clear
+  - smash
+  - contact_point
+  - power
+  - internal_rotation
+  stroke_tags:
+  - high_clear
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2
+    metadata_json: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/source_video
+    audio_file: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/pose.json
+    run_log: data/raw-private/video-corpus/pilot-008-lh_bili_season_bv19c4y1s7z2/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-008-lh_bili_season_bv19c4y1s7z2.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1iz421B7X8/
+  published_at: '2024-08-04'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - smash
+  - power
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8
+    metadata_json: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/source_video
+    audio_file: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/pose.json
+    run_log: data/raw-private/video-corpus/pilot-009-lh_bili_season_bv1iz421b7x8/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-009-lh_bili_season_bv1iz421b7x8.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-010-lh_bili_season_bv1a5zgyqesp
+  source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+  title: 羽毛球头顶突击从0到1完整版(1)实战篇！半侧身突击发力步法教学！巨好用的突击啊！18分钟干货价值十亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1a5zgYQESp/
+  published_at: '2024-11-26'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  - match_transfer
+  topic_tags:
+  - match_transfer
+  - power
+  - footwork
+  stroke_tags:
+  - all
+  - footwork
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp
+    metadata_json: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/source_video
+    audio_file: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/pose.json
+    run_log: data/raw-private/video-corpus/pilot-010-lh_bili_season_bv1a5zgyqesp/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-010-lh_bili_season_bv1a5zgyqesp.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-011-lh_bili_season_bv1s1vkbseab
+  source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+  title: 羽毛球劈吊直线爆改业余教学！实战巨好用，超多细节！很难！很长！但看完能学会！实战能用上
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1S1vkBsEab/
+  published_at: '2025-12-29'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - power_framework
+  - student_fit
+  - match_transfer
+  topic_tags:
+  - drop
+  - match_transfer
+  stroke_tags:
+  - drop
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab
+    metadata_json: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/source_video
+    audio_file: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/pose.json
+    run_log: data/raw-private/video-corpus/pilot-011-lh_bili_season_bv1s1vkbseab/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-011-lh_bili_season_bv1s1vkbseab.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-012-lh_bili_fav_bv15pbrb6edk
+  source_id: LH_BILI_FAV_BV15PBRB6EDK
+  title: 业余最优架拍方式！羽毛球重杀框架和快杀框架！三种后场框架优缺点和发力方式
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV15pBRB6EDk/
+  published_at: '2025-12-27'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - power_framework
+  - smash
+  - overhead
+  stroke_tags:
+  - smash
+  - high_clear
+  selection_score: 69
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk
+    metadata_json: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/source_video
+    audio_file: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/pose.json
+    run_log: data/raw-private/video-corpus/pilot-012-lh_bili_fav_bv15pbrb6edk/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-012-lh_bili_fav_bv15pbrb6edk.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-013-lh_bili_season_bv1bi4y1q7eh
+  source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+  title: 你不知道的架拍细节延伸！刘辉教练教你最适合业余球友的架拍方式！进阶霸王杀等多种架拍优势！7分钟极限输出
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Bi4y1q7eh/
+  published_at: '2024-01-10'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh
+    metadata_json: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/source_video
+    audio_file: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/pose.json
+    run_log: data/raw-private/video-corpus/pilot-013-lh_bili_season_bv1bi4y1q7eh/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-013-lh_bili_season_bv1bi4y1q7eh.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-014-lh_bili_season_bv1lb5qzxedz
+  source_id: LH_BILI_SEASON_BV1LB5QZXEDZ
+  title: 成人班学员跳杀进阶从1到2全过程！业余羽毛球跳杀框架多处细节调整！更完善的发力和滞空感
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Lb5QzxEdz/
+  published_at: '2025-04-25'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - power
+  - power_framework
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz
+    metadata_json: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/source_video
+    audio_file: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/pose.json
+    run_log: data/raw-private/video-corpus/pilot-014-lh_bili_season_bv1lb5qzxedz/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-014-lh_bili_season_bv1lb5qzxedz.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-015-lh_bili_season_bv1xdlezqery
+  source_id: LH_BILI_SEASON_BV1XDLEZQERY
+  title: 羽毛球滑板吊球教学！业余小白头顶滑拍框架多处细节纠错！整体提升全过程！价值一亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1xdLEzQERY/
+  published_at: '2025-04-26'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - drop
+  - power_framework
+  stroke_tags:
+  - smash
+  - drop
+  - all
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery
+    metadata_json: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/source_video
+    audio_file: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/pose.json
+    run_log: data/raw-private/video-corpus/pilot-015-lh_bili_season_bv1xdlezqery/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-015-lh_bili_season_bv1xdlezqery.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-016-lh_bili_season_bv1xmaazfe6e
+  source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+  title: 爆改业余杀球教学！成人班学员杀球从0到1！架拍挥拍连贯的秘诀！全程纠错
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1XmaAzfE6E/
+  published_at: '2025-09-05'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - swing
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e
+    metadata_json: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/source_video
+    audio_file: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/pose.json
+    run_log: data/raw-private/video-corpus/pilot-016-lh_bili_season_bv1xmaazfe6e/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-016-lh_bili_season_bv1xmaazfe6e.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-017-lh_bili_season_bv1nwrrbtedy
+  source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+  title: 中国跳突击教学！羽毛球业余选手爆改26分钟！超多细节！架拍手法步法！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1NwrrBtEdY/
+  published_at: '2026-01-17'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - footwork
+  stroke_tags:
+  - footwork
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy
+    metadata_json: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/source_video
+    audio_file: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/pose.json
+    run_log: data/raw-private/video-corpus/pilot-017-lh_bili_season_bv1nwrrbtedy/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-017-lh_bili_season_bv1nwrrbtedy.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-018-lh_bili_season_bv1v6zabteue
+  source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+  title: 最适合业余球友的架拍是哪种？！霸王杀架拍和标准架拍！一个视频解决90%新手架拍问题
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1v6ZaBtEue/
+  published_at: '2026-02-21'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue
+    metadata_json: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/source_video
+    audio_file: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/pose.json
+    run_log: data/raw-private/video-corpus/pilot-018-lh_bili_season_bv1v6zabteue/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-018-lh_bili_season_bv1v6zabteue.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-019-lh_bili_season_bv1zbwezeelw
+  source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+  title: 业余小白简易版跳杀教学！帮助99%羽毛球业余球友解决跳杀两大难点！架拍要帅！挥拍要快！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1zbwezEELW/
+  published_at: '2026-03-24'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - swing
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 61
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw
+    metadata_json: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/source_video
+    audio_file: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/pose.json
+    run_log: data/raw-private/video-corpus/pilot-019-lh_bili_season_bv1zbwezeelw/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-019-lh_bili_season_bv1zbwezeelw.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-020-lh_bili_season_bv13a4y1q7cb
+  source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+  title: 怎样让打球动作更好看（1）架拍框架篇！刘辉教练教你专业好看的高远球动作关键点(1)看完让你脱离新手 直接入门 打了几年的老鸟也未必知道
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV13a4y1q7cB/
+  published_at: '2024-01-03'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  topic_tags:
+  - high_clear
+  - power_framework
+  stroke_tags:
+  - high_clear
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb
+    metadata_json: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/source_video
+    audio_file: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/pose.json
+    run_log: data/raw-private/video-corpus/pilot-020-lh_bili_season_bv13a4y1q7cb/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-020-lh_bili_season_bv13a4y1q7cb.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1nQ4y157jT/
+  published_at: '2024-01-11'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt
+    metadata_json: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/source_video
+    audio_file: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/pose.json
+    run_log: data/raw-private/video-corpus/pilot-021-lh_bili_season_bv1nq4y157jt/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-021-lh_bili_season_bv1nq4y157jt.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV12Z4y1n7b4/
+  published_at: '2024-01-26'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - smash
+  - power
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4
+    metadata_json: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/source_video
+    audio_file: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/pose.json
+    run_log: data/raw-private/video-corpus/pilot-022-lh_bili_season_bv12z4y1n7b4/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-022-lh_bili_season_bv12z4y1n7b4.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1S642137xA/
+  published_at: '2024-02-07'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - smash
+  - power
+  - power_framework
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa
+    metadata_json: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/source_video
+    audio_file: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/pose.json
+    run_log: data/raw-private/video-corpus/pilot-023-lh_bili_season_bv1s642137xa/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-023-lh_bili_season_bv1s642137xa.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1by411Y7QH/
+  published_at: '2024-05-15'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - high_clear
+  - smash
+  - power
+  stroke_tags:
+  - high_clear
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh
+    metadata_json: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/source_video
+    audio_file: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/pose.json
+    run_log: data/raw-private/video-corpus/pilot-024-lh_bili_season_bv1by411y7qh/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-024-lh_bili_season_bv1by411y7qh.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-025-lh_bili_season_bv1cm42157us
+  source_id: LH_BILI_SEASON_BV1CM42157US
+  title: 正手顶髋发力细节！下半身动作分解示范！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1Cm42157uS/
+  published_at: '2024-06-04'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - hip_rotation
+  - power_framework
+  topic_tags:
+  - power
+  - hip_rotation
+  stroke_tags:
+  - all
+  - smash
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us
+    metadata_json: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/source_video
+    audio_file: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/pose.json
+    run_log: data/raw-private/video-corpus/pilot-025-lh_bili_season_bv1cm42157us/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-025-lh_bili_season_bv1cm42157us.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-026-lh_bili_season_bv1nf421x7jg
+  source_id: LH_BILI_SEASON_BV1NF421X7JG
+  title: 霸王杀架拍分析优点和缺点！竟有这么多细节！
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1nf421X7Jg/
+  published_at: '2024-06-08'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  topic_tags:
+  - smash
+  stroke_tags:
+  - smash
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg
+    metadata_json: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/source_video
+    audio_file: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/pose.json
+    run_log: data/raw-private/video-corpus/pilot-026-lh_bili_season_bv1nf421x7jg/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-026-lh_bili_season_bv1nf421x7jg.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-027-lh_bili_season_bv1qz421u7c6
+  source_id: LH_BILI_SEASON_BV1QZ421U7C6
+  title: 后场吊球教学！慢吊和快吊是怎么打出来的？石宇奇劈杀
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1qZ421u7C6/
+  published_at: '2024-06-12'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - smash
+  - drop
+  stroke_tags:
+  - smash
+  - drop
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6
+    metadata_json: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/source_video
+    audio_file: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/pose.json
+    run_log: data/raw-private/video-corpus/pilot-027-lh_bili_season_bv1qz421u7c6/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-027-lh_bili_season_bv1qz421u7c6.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-028-lh_bili_season_bv1p4dgyre8b
+  source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+  title: 甩大臂vs随摆！大臂是如何带动小臂发力的！正确的羽毛球发力核心动作怎么做？
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1P4DGYrE8B/
+  published_at: '2024-11-06'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  topic_tags:
+  - power
+  - arm_path
+  - follow_through
+  stroke_tags:
+  - all
+  - smash
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b
+    metadata_json: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/source_video
+    audio_file: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/pose.json
+    run_log: data/raw-private/video-corpus/pilot-028-lh_bili_season_bv1p4dgyre8b/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-028-lh_bili_season_bv1p4dgyre8b.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-029-lh_bili_season_bv1pcqpyjerm
+  source_id: LH_BILI_SEASON_BV1PCQPYJERM
+  title: 李梓嘉同款章鱼滑拍吊球！羽毛球头顶被动滑板教学细节揭秘！适合进阶
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1PcqPYJErm/
+  published_at: '2024-12-11'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  topic_tags:
+  - smash
+  - drop
+  stroke_tags:
+  - smash
+  - drop
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm
+    metadata_json: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/source_video
+    audio_file: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/pose.json
+    run_log: data/raw-private/video-corpus/pilot-029-lh_bili_season_bv1pcqpyjerm/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-029-lh_bili_season_bv1pcqpyjerm.yaml
+  model_plan:
+    asr: faster-whisper:large-v3-turbo
+    ocr: PaddleOCR
+    vlm: Qwen3-VL-8B-Instruct:v4:visible_still_frame_v2
+    pose: Ultralytics:yolo11n-pose.pt:v2
+  promotion_policy: Only reviewed timestamp evidence may become source_backed skill
+    rules. Title-only fallback evidence remains needs_content_model_review.
+- job_id: pilot-030-lh_bili_season_bv1bf6sytegz
+  source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+  title: 后场发力手腕怎么用？如此这般 终于会用手腕了！羽毛球大发力手腕力传导的方法
+  platform: Bilibili
+  url: https://www.bilibili.com/video/BV1bF6SYtEGz/
+  published_at: '2025-01-04'
+  access_type: public
+  authorization_status: authorized
+  source_type: video
+  priority_topics:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  topic_tags:
+  - kinetic_chain
+  - power
+  - wrist
+  stroke_tags:
+  - smash
+  - all
+  selection_score: 51
+  processing_status: pending
+  review_status: not_started
+  private_paths:
+    job_dir: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz
+    metadata_json: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/metadata.json
+    video_file: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/source_video
+    audio_file: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/audio.m4a
+    keyframes_dir: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/keyframes
+    asr_json: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/asr.json
+    ocr_json: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/ocr.json
+    vlm_json: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/vlm.json
+    pose_json: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/pose.json
+    run_log: data/raw-private/video-corpus/pilot-030-lh_bili_season_bv1bf6sytegz/run.log
+  public_outputs:
+    timestamp_evidence: data/corpus/video-evidence/pilot-030-lh_bili_season_bv1bf6sytegz.yaml
   model_plan:
     asr: faster-whisper:large-v3-turbo
     ocr: PaddleOCR

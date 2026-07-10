@@ -53,7 +53,6 @@ def source_jobs(paths: list[str]) -> dict[str, dict[str, Any]]:
 def main() -> None:
     args = parse_args()
     manifests = args.source_manifest or [
-        "data/corpus/video-pilot-manifest.yaml",
         "data/corpus/video-corpus-manifest.yaml",
     ]
     review = load_yaml(ROOT / args.review_manifest)

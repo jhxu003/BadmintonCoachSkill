@@ -53,10 +53,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--source-manifest",
         action="append",
-        default=[
-            "data/corpus/video-pilot-manifest.yaml",
-            "data/corpus/video-corpus-manifest.yaml",
-        ],
+        default=["data/corpus/video-corpus-manifest.yaml"],
         help="Source manifest used to include ASR-only accessible videos in the evidence map.",
     )
     parser.add_argument(

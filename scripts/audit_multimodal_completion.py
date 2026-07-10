@@ -321,7 +321,6 @@ def audit_source_accounting(
     manifest_paths: list[Path],
     asr_review_path: Path,
     visual_review_path: Path,
-    unavailable_manifest_path: Path | None = None,
 ) -> dict[str, Any]:
     with source_index_path.open(encoding="utf-8", newline="") as handle:
         indexed_rows = [
@@ -348,24 +347,11 @@ def audit_source_accounting(
     missing_manifest_source_ids = sorted(indexed_video_ids - set(jobs_by_source))
     extra_manifest_source_ids = sorted(set(jobs_by_source) - indexed_video_ids)
 
-    unavailable_source_ids: list[str] = []
-    if unavailable_manifest_path and unavailable_manifest_path.exists():
-        unavailable = load_yaml(unavailable_manifest_path)
-        unavailable_source_ids = [
-            str(job["source_id"]).casefold()
-            for job in unavailable.get("jobs", [])
-        ]
-    else:
-        for source_key, job in jobs_by_source.items():
-            evidence_path = ROOT / job["public_outputs"]["timestamp_evidence"]
-            evidence = load_yaml(evidence_path) if evidence_path.exists() else {}
-            stage_statuses = [
-                str(stage.get("status", ""))
-                for stage in evidence.get("run_status", {}).get("stages", {}).values()
-                if isinstance(stage, dict)
-            ]
-            if stage_statuses and all(status == "failed" for status in stage_statuses):
-                unavailable_source_ids.append(source_key)
+    unavailable_source_ids = [
+        source_key
+        for source_key, job in jobs_by_source.items()
+        if job.get("processing_status") == "unavailable"
+    ]
 
     asr_review = load_yaml(asr_review_path)
     reviewed_asr_ids = {
@@ -427,7 +413,8 @@ def tracked_files() -> list[str]:
         capture_output=True,
         check=False,
     )
-    return [item.decode("utf-8") for item in result.stdout.split(b"\0") if item]
+    paths = [item.decode("utf-8") for item in result.stdout.split(b"\0") if item]
+    return [path for path in paths if (ROOT / path).exists()]
 
 
 def audit_publication_safety() -> dict[str, Any]:
@@ -447,7 +434,7 @@ def audit_publication_safety() -> dict[str, Any]:
         r"(?:github_pat_[A-Za-z0-9_]{20,}|ghp_[A-Za-z0-9]{20,}|\bsk-[A-Za-z0-9]{16,})"
     )
     absolute_path_pattern = re.compile(
-        r"(?:/dataStor/home/jhxu|/tmp/jhxu-(?:badminton|qwen|conda))"
+        r"(?:/dataStor/home/[^/\s]+|/tmp/jhxu-(?:badminton|qwen|conda))"
     )
     secret_hits: list[str] = []
     absolute_path_hits: list[str] = []
@@ -504,7 +491,8 @@ def audit_yaml() -> dict[str, Any]:
         try:
             load_yaml(ROOT / raw_path)
         except Exception as exc:
-            failures.append({"path": raw_path, "reason": str(exc)})
+            reason = str(exc).replace(str(ROOT), ".")
+            failures.append({"path": raw_path, "reason": reason})
     return {"passed": not failures, "parsed_files": count, "failures": failures}
 
 
@@ -610,13 +598,9 @@ def main() -> None:
     gates = {
         "source_accounting": audit_source_accounting(
             ROOT / "data/source-index.tsv",
-            [
-                ROOT / "data/corpus/video-pilot-manifest.yaml",
-                ROOT / "data/corpus/video-corpus-manifest.yaml",
-            ],
+            [ROOT / "data/corpus/video-corpus-manifest.yaml"],
             ROOT / "data/corpus/video-asr-timestamp-review.yaml",
             ROOT / "data/corpus/video-visual-review-manifest.yaml",
-            ROOT / "data/corpus/video-corpus-asr-retry-manifest.yaml",
         ),
         "visual_corpus": audit_visual(visual_manifest),
         "temporal_corpus": audit_temporal(temporal_manifest, temporal_summary),

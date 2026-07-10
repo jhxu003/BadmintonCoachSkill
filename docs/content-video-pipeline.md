@@ -77,7 +77,7 @@ conda env create -f environment-video.yml
 conda activate badminton-coach-video
 ```
 
-Heavy ASR, VLM, Pose, and frame extraction must run on a compute node. `/dataStor` is shared across nodes, but each node has an independent `/tmp`; keep models, media, and large intermediates in node-local storage and copy back only the small private artifacts required for consolidation.
+Heavy ASR, VLM, Pose, and frame extraction should run on a GPU compute node. Keep models, media, and large intermediates on node-local scratch storage, then copy back only the small private artifacts required for consolidation.
 
 ## Build And Reduce
 

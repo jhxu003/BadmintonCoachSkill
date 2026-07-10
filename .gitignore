@@ -10,6 +10,14 @@ build/
 *.egg-info/
 .worktrees/
 
+# Internal planning and generated pipeline intermediates.
+docs/superpowers/
+data/corpus/*retry-manifest.yaml
+data/corpus/video-evidence/
+data/corpus/video-evidence-index.tsv
+data/corpus/video-pose-evidence-summary.yaml
+data/corpus/video-visual-completion-status.yaml
+
 # Private or potentially copyrighted research material.
 data/raw-private/*
 !data/raw-private/.gitkeep

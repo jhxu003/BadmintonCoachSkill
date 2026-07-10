@@ -23,7 +23,7 @@ def parse_args() -> argparse.Namespace:
             "Each job gets its own timeout and log so one bad source does not block the batch."
         )
     )
-    parser.add_argument("--manifest", default="data/corpus/video-pilot-manifest.yaml")
+    parser.add_argument("--manifest", default="data/corpus/video-corpus-manifest.yaml")
     parser.add_argument("--job-id", action="append", default=[])
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--offset", type=int, default=0)
@@ -42,7 +42,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--teaching-windows",
-        default="data/corpus/video-asr-teaching-windows.yaml",
+        default="data/corpus/video-asr-teaching-windows-full.yaml",
     )
     parser.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct")
     parser.add_argument("--vlm-max-new-tokens", type=int, default=1536)
@@ -57,7 +57,7 @@ def parse_args() -> argparse.Namespace:
         "--node-local-private-root",
         default="",
         help=(
-            "Optional compute-node-local private root, for example /tmp/jhxu-video-corpus. "
+            "Optional compute-node-local private root, for example /tmp/badminton-video-corpus. "
             "Large audio/video intermediates stay there; small JSON artifacts are copied back."
         ),
     )

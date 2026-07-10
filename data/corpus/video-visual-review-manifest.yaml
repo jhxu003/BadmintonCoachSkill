@@ -9,7 +9,6 @@ visual_review_run:
   inputs:
     timestamp_review: data/corpus/video-asr-timestamp-review.yaml
     manifests:
-    - data/corpus/video-pilot-manifest.yaml
     - data/corpus/video-corpus-manifest.yaml
   summary:
     sources_with_reviewed_asr_windows: 408

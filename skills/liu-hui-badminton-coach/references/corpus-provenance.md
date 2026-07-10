@@ -40,9 +40,7 @@ This skill uses a public-safe corpus. It is complete against the accessible non-
 - `data/source-index.tsv`
 - `data/corpus/teaching-points.yaml`
 - `data/corpus/timestamp-review.yaml`
-- `data/corpus/video-pilot-manifest.yaml`
-- `data/corpus/video-evidence-index.tsv`
-- `data/corpus/video-asr-teaching-windows.yaml`
+- `data/corpus/video-corpus-manifest.yaml`
 - `data/corpus/video-asr-teaching-windows-full.yaml`
 - `data/corpus/video-asr-timestamp-review.yaml`
 - `data/corpus/video-visual-review-manifest.yaml`

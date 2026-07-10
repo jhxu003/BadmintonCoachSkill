@@ -22,8 +22,7 @@ It must not contain raw videos, full subtitles, paid-course transcripts, screens
 7. `video-asr-timestamp-review.yaml`: public-safe agent review for every full-corpus ASR window; no transcript text is included.
 8. `video-visual-review-manifest.yaml`: complete visual-review queue for action-bearing Bilibili sources.
 9. `video-visual-evidence-summary.yaml`: safe timestamp and visibility summary from private VLM output.
-10. `video-pose-evidence-summary.yaml`: safe aggregate pose coverage without keypoint coordinates.
-11. `video-parse-status.md`: coverage report for video parsing runs and known unavailable sources.
+10. `video-parse-status.md`: coverage report for video parsing runs and known unavailable sources.
 
 ## Evidence Labels
 

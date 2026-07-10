@@ -40,7 +40,6 @@ scope:
     temporal_review_manifest: data/corpus/video-temporal-review-manifest.yaml
     temporal_pose_summary: data/corpus/video-temporal-pose-summary.yaml
     multimodal_evidence_map: skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml
-    evidence_index: data/corpus/video-evidence-index.tsv
     parse_status: data/corpus/video-parse-status.md
 
 topic_coverage:

@@ -59,7 +59,6 @@ Top topic counts:
 - VLM: `Qwen3-VL-8B-Instruct`, artifact version 4, schema `visible_still_frame_v2`.
 - Pose: Ultralytics `yolo11n-pose.pt`, private coordinates with public-safe aggregates.
 - Public visual summary: `video-visual-evidence-summary.yaml`.
-- Completion state: `video-visual-completion-status.yaml`.
 
 Sparse VLM output describes visible still-frame conditions and routes reviewers to timestamps. It cannot independently establish motion, shuttle contact, force production, causality, racket-face geometry, grip pressure, or true joint rotation.
 

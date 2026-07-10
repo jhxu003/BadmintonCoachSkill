@@ -13,7 +13,6 @@ review_run:
     max_windows_per_video: 8
   summary:
     manifests:
-    - data/corpus/video-pilot-manifest.yaml
     - data/corpus/video-corpus-manifest.yaml
     jobs_scanned: 409
     sources_with_windows: 408
