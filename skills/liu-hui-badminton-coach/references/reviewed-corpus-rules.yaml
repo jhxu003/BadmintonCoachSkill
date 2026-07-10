@@ -66,28 +66,29 @@
   decision: title_level_reviewed_keep_hypothesis
   allowed_use: Request preparation-size evidence for drive or flat-exchange diagnosis.
   blocked_use: Do not make a firm drive rule without direct timestamp-backed drive evidence.
-  source_ids: [LH_BILI_SEASON_BV15CM2Y1EUI, LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY]
+  source_ids: [LH_BILI_SEASON_BV15CM2Y1EUI]
 
 - rule_id: review-body-jammed-shot-is-positioning
   teaching_point_id: body-jammed-shot-is-positioning
-  decision: reviewed_not_promoted
+  decision: asr_timestamp_reviewed_public_safe
   allowed_use: Ask for positioning and preparation evidence when body-jammed issues are observed.
-  blocked_use: Do not source-back this point until YouTube/Douyin or Bilibili timestamps are reviewed.
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY]
+  blocked_use: Do not claim exact spacing, racket-face, or contact mechanics until the referenced Bilibili frames are visually reviewed.
+  source_ids: [LH_BILI_SEASON_BV1QB4Y1Z73X, LH_BILI_SEASON_BV1UD421E7UK, LH_BILI_LIVE_QA_20240202]
+  source_file: data/corpus/video-asr-timestamp-review.yaml
 
 - rule_id: review-net-action-must-stay-small
   teaching_point_id: net-action-must-stay-small
   decision: reviewed_not_promoted
   allowed_use: Keep compact net-action checks as a general observation target.
   blocked_use: Do not claim Liu Hui-specific net-action rules from the current corpus.
-  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_LIVE_QA_20240202]
 
 - rule_id: review-front-court-exit-is-part-of-shot
   teaching_point_id: front-court-exit-is-part-of-shot
   decision: reviewed_not_promoted
   allowed_use: Ask for post-contact exit frames in front-court review.
   blocked_use: Do not source-back front-court exit sequencing until timestamps are reviewed.
-  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+  source_ids: [LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HQ4Y1X7LK]
 
 - rule_id: review-rear-court-transition-footwork
   teaching_point_id: rear-court-transition-footwork
@@ -108,42 +109,42 @@
   decision: title_level_reviewed_keep_hypothesis
   allowed_use: Separate wrong solution choice from poor execution when video shows path and contact.
   blocked_use: Do not infer tactical choice from a single contact frame.
-  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1RX421M7RQ, LH_YT_HEAD_BACKHAND_CORNER]
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1RX421M7RQ]
 
 - rule_id: review-serve-receive-first-two-shots
   teaching_point_id: serve-receive-first-two-shots
   decision: reviewed_not_promoted
   allowed_use: Ask for serve, receive, and second-shot evidence in serve/receive reports.
   blocked_use: Do not cite this as a Liu Hui-derived serve/receive rule yet.
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  source_ids: [LH_BILI_MATCH_TRANSFER]
 
 - rule_id: review-receive-compact-racket
   teaching_point_id: receive-compact-racket
   decision: reviewed_not_promoted
   allowed_use: Keep racket-readiness as an observation field.
   blocked_use: Do not source-back compact receive claims from the current corpus.
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_CONSISTENCY]
+  source_ids: [LH_BILI_SEASON_BV1QB4Y1Z73X, LH_BILI_SEASON_BV1UD421E7UK, LH_BILI_SEASON_BV1CPWTZOEVT]
 
 - rule_id: review-doubles-shot-quality-position-coupling
   teaching_point_id: doubles-shot-quality-position-coupling
   decision: title_level_reviewed_keep_hypothesis
   allowed_use: Ask for partner/recovery view before doubles-position feedback.
   blocked_use: Do not infer partner-coverage tactics from isolated stroke clips.
-  source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_CORE_COMPETITION]
+  source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D]
 
 - rule_id: review-doubles-fast-exchange-pressure
   teaching_point_id: doubles-fast-exchange-pressure
   decision: title_level_reviewed_keep_hypothesis
   allowed_use: Require rally evidence for fast-exchange pressure diagnosis.
   blocked_use: Do not diagnose doubles fast exchange from a single static keyframe.
-  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_YT_BODY_JAMMED_SHOT]
+  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT]
 
 - rule_id: review-match-analysis-before-tactical-advice
   teaching_point_id: match-analysis-before-tactical-advice
   decision: reviewed_not_promoted
   allowed_use: Guard tactical advice behind rally evidence and observable shot quality.
   blocked_use: Do not invent tactics from one isolated stroke clip.
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX]
 
 - rule_id: timestamp-diagnose-goal-observe-retest
   teaching_point_id: diagnose-goal-observe-retest
@@ -243,27 +244,90 @@
 
 - rule_id: full-corpus-student-fit-diagnosis-first
   teaching_point_id: full-corpus-student-fit-diagnosis-first
-  decision: full_corpus_timestamp_candidate_requires_human_review
+  decision: asr_timestamp_reviewed_public_safe
   allowed_use: When observations are incomplete, first classify learner level, goal, body constraints, and current transfer problem before selecting a power framework or isolated cue.
   blocked_use: Do not claim the exact diagnostic sequence is human timestamp-reviewed or Liu Hui's wording.
-  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  source_file: data/corpus/video-asr-timestamp-review.yaml
   support_topics: [diagnosis_flow, training_plan, student_fit]
-  candidate_window_count: 3649
+  reviewed_window_signal_count: 3707
+
+- rule_id: full-corpus-safety-load-filter
+  teaching_point_id: full-corpus-safety-load-filter
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Filter framework choice and training dose through pain, mobility, equipment fit, jump load, and recovery capacity before chasing ideal form.
+  blocked_use: Do not diagnose injury or present this skill as medical advice.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [safety, training_plan, student_fit]
+  reviewed_window_signal_count: 2897
+
+- rule_id: full-corpus-footwork-arrival-recovery
+  teaching_point_id: full-corpus-footwork-arrival-recovery
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Diagnose movement through start, first step, arrival, body organization, contact condition, exit, and next-shot recovery before changing hand mechanics.
+  blocked_use: Do not make a firm footwork diagnosis without visible lower-body and recovery evidence.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [footwork, match_transfer, safety]
+  reviewed_window_signal_count: 1172
+
+- rule_id: full-corpus-rear-court-base
+  teaching_point_id: full-corpus-rear-court-base
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Build rear-court advice around arrival, front-high contact, racket-side frame, top-elbow organization, and simple safe release before advanced variation.
+  blocked_use: Do not claim contact point, elbow position, or racket preparation from ASR without visible frames.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [high_clear, top_elbow, racket_preparation, contact_point, safety]
+  reviewed_window_signal_count: 3423
 
 - rule_id: full-corpus-overhead-power-chain-selection
   teaching_point_id: full-corpus-overhead-power-chain-selection
-  decision: full_corpus_timestamp_candidate_requires_human_review
+  decision: asr_timestamp_reviewed_public_safe
   allowed_use: For high-clear and smash diagnosis, rank visible arrival/contact/frame issues before advanced wrist, whip, or internal-rotation proxy advice.
   blocked_use: Do not diagnose true shoulder internal rotation without visible frame evidence.
-  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  source_file: data/corpus/video-asr-timestamp-review.yaml
   support_topics: [smash, top_elbow, internal_rotation, racket_preparation, high_clear, wrist, hip_rotation, contact_point, safety]
-  candidate_window_count: 6311
+  reviewed_window_signal_count: 6443
+
+- rule_id: full-corpus-smash-variant-selection
+  teaching_point_id: full-corpus-smash-variant-selection
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Choose simple, heavy, fast, Bawang-style, low-loaded, point, jump, angle, slice, or deceleration smash paths from prerequisites, incoming-ball time, target effect, and recovery cost.
+  blocked_use: Do not prescribe specialized or high-load smash variants without visible prerequisites and safety evidence.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [smash, top_elbow, internal_rotation, hip_rotation, wrist, safety]
+  reviewed_window_signal_count: 4674
+
+- rule_id: full-corpus-drop-variation-selection
+  teaching_point_id: full-corpus-drop-variation-selection
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Identify the intended drop variant and target line before evaluating touch, slice amount, contact geometry, body direction, or disguise.
+  blocked_use: Do not bypass a failed overhead base or infer racket-face geometry without visible frames.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [drop, racket_preparation, contact_point, match_transfer]
+  reviewed_window_signal_count: 1659
+
+- rule_id: full-corpus-backhand-rear-corner-choice
+  teaching_point_id: full-corpus-backhand-rear-corner-choice
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: Check arrival, overhead-versus-backhand solution choice, contact height, face stability, release, and recovery before prescribing more wrist force.
+  blocked_use: Do not present backhand-specific mechanics as visually proven from cross-topic ASR evidence.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [footwork, contact_point, wrist, match_transfer]
+  reviewed_window_signal_count: 1574
+
+- rule_id: full-corpus-drive-receive-fast-exchange
+  teaching_point_id: full-corpus-drive-receive-fast-exchange
+  decision: asr_timestamp_reviewed_public_safe
+  allowed_use: For drive, body-jammed, push, receive-smash, serve/receive, or front exchange, request spacing, compact preparation, face stability, and second-shot readiness.
+  blocked_use: Do not recommend a larger swing or claim racket-face mechanics without direct action evidence.
+  source_file: data/corpus/video-asr-timestamp-review.yaml
+  support_topics: [drive, serve_receive, doubles, match_transfer, safety]
+  reviewed_window_signal_count: 1242
 
 - rule_id: full-corpus-transfer-before-complexity
   teaching_point_id: full-corpus-transfer-before-complexity
-  decision: full_corpus_timestamp_candidate_requires_human_review
+  decision: asr_timestamp_reviewed_public_safe
   allowed_use: If drill form is acceptable but rallies fail, request incoming-ball, timing, recovery, partner, and first-two-shot evidence before adding more technique.
   blocked_use: Do not infer rally tactics from a single isolated stroke clip.
-  source_file: data/corpus/video-asr-teaching-windows-full.yaml
+  source_file: data/corpus/video-asr-timestamp-review.yaml
   support_topics: [match_transfer, footwork, drop, serve_receive, drive, doubles]
-  candidate_window_count: 1117
+  reviewed_window_signal_count: 1154

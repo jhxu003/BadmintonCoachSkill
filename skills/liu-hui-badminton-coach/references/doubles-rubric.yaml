@@ -18,5 +18,5 @@
   drills: [doubles-after-shot-recovery]
   retest_metrics:
     - phase_observations.after_shot_recovery should become role_ready
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D]
+  source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D]
   confidence: hypothesis

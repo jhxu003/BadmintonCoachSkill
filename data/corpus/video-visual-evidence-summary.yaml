@@ -1,0 +1,1320 @@
+visual_summary_run:
+  run_id: visual_evidence_summary_20260710
+  created_at: '2026-07-10'
+  scope:
+  - Existing private VLM outputs for indexed non-YouTube Bilibili pilot sources.
+  - Only public-safe counts, timestamps, and original evidence limits are emitted.
+  - Raw frames, model text, and detected on-screen text remain private.
+  summary:
+    manifest_jobs_scanned: 409
+    sources_with_ok_vlm: 30
+    reviewed_keyframes: 336
+    topic_source_counts:
+      high_clear: 30
+      power_framework: 30
+      smash: 25
+      student_fit: 17
+      top_elbow: 16
+      rear_footwork: 11
+      hip_rotation: 4
+      internal_rotation: 4
+      match_transfer: 3
+    visible_signal_totals:
+      player_position_descriptions: 269
+      racket_preparation_descriptions: 269
+      contact_or_precontact_descriptions: 25
+      lower_body_descriptions: 255
+      recovery_descriptions: 21
+      frames_with_on_screen_text_detected: 228
+      explicit_no_stroke_action_mentions: 0
+  evidence_contract:
+    evidence_level: visual_model_candidate_reviewed_public_safe
+    review_status: agent_visual_summary_reviewed
+    human_review_required_for_rule_promotion: true
+sources:
+- job_id: pilot-001-lh_bili_season_bv18tmub4e8d
+  source_id: LH_BILI_SEASON_BV18TMUB4E8D
+  title: 业余双打重杀教学！重杀框架是什么！业余后场不起跳重杀！省力还杀的重！
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 12
+  - 60
+  - 98
+  - 131
+  - 168
+  - 5
+  - 56
+  - 90
+  - 124
+  - 160
+  - 19
+  - 65
+  - 107
+  - 138
+  - 175
+  visible_signal_counts:
+    player_position_descriptions: 5
+    racket_preparation_descriptions: 5
+    contact_or_precontact_descriptions: 4
+    lower_body_descriptions: 5
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 5
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-002-lh_bili_season_bv1x9qbbbetx
+  source_id: LH_BILI_SEASON_BV1X9QBBBETX
+  title: 头顶突击杀球羽毛球教学！配一步蹬转步法和闪动发力技巧！不建议新手学啊！有基础的可以
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - hip_rotation
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 16
+  - 72
+  - 124
+  - 152
+  - 168
+  - 7
+  - 59
+  - 115
+  - 145
+  - 165
+  - 24
+  - 85
+  - 132
+  - 158
+  - 171
+  visible_signal_counts:
+    player_position_descriptions: 10
+    racket_preparation_descriptions: 10
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 10
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 10
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-003-lh_bili_season_bv1aykwbjeuv
+  source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+  title: 业余杀球优化爆改教学！后场杀球架拍和发力动作细节！羽毛球新手必看！杀球不重的赶紧试试
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 24
+  - 74
+  - 136
+  - 12
+  - 63
+  - 112
+  - 37
+  - 84
+  - 161
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 9
+    lower_body_descriptions: 9
+    recovery_descriptions: 9
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-004-lh_bili_season_bv1crftzbek7
+  source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+  title: 业余杀球爆改！羽毛球后场高吊杀框架细节！
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 19
+  - 77
+  - 148
+  - 8
+  - 54
+  - 129
+  - 30
+  - 100
+  - 167
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-005-lh_bili_season_bv1hbyrbcece
+  source_id: LH_BILI_SEASON_BV1HBYRBCECE
+  title: 高远球发力到底是髋带腿还是腿带髋？正手发力原理逻辑解读！别搞错顺序啊
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - hip_rotation
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 22
+  - 38
+  - 56
+  - 16
+  - 33
+  - 52
+  - 27
+  - 42
+  - 60
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-006-lh_bili_season_bv1v6zabtekt
+  source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+  title: 头顶区突击杀球教学！单打远网抓推球路这样练！快速高框架实战应用
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - match_transfer
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 24
+  - 72
+  - 116
+  - 160
+  - 20
+  - 66
+  - 98
+  - 154
+  - 28
+  - 78
+  - 134
+  - 165
+  visible_signal_counts:
+    player_position_descriptions: 0
+    racket_preparation_descriptions: 0
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 0
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-007-lh_bili_season_bv1km41147m1
+  source_id: LH_BILI_SEASON_BV1KM41147M1
+  title: 刘辉教练详解蹬转发力：新手必备发力技巧
+  platform: Bilibili
+  topic_tags:
+  - high_clear
+  - hip_rotation
+  - internal_rotation
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 12
+  - 44
+  - 86
+  - 128
+  - 154
+  - 5
+  - 36
+  - 71
+  - 120
+  - 149
+  - 19
+  - 53
+  - 102
+  - 137
+  - 159
+  visible_signal_counts:
+    player_position_descriptions: 14
+    racket_preparation_descriptions: 14
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 14
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 14
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-008-lh_bili_season_bv19c4y1s7z2
+  source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+  title: 为什么内旋感觉很别扭？刘辉教练教你内旋发力需要配合正确的击球点！调整更高的点后高远球杀球立马不一样
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 22
+  - 64
+  - 134
+  - 156
+  - 174
+  - 9
+  - 59
+  - 129
+  - 149
+  - 171
+  - 36
+  - 69
+  - 140
+  - 162
+  - 178
+  visible_signal_counts:
+    player_position_descriptions: 12
+    racket_preparation_descriptions: 12
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 12
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 12
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-009-lh_bili_season_bv1iz421b7x8
+  source_id: LH_BILI_SEASON_BV1IZ421B7X8
+  title: 羽毛球跳杀发力教学！小臂发力和腰腹发力哪个重要？！价值十亿
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 8
+  - 28
+  - 48
+  - 68
+  - 88
+  - 108
+  - 128
+  - 148
+  - 168
+  - 188
+  - 208
+  - 228
+  - 248
+  - 268
+  - 288
+  visible_signal_counts:
+    player_position_descriptions: 15
+    racket_preparation_descriptions: 15
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 15
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 15
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-010-lh_bili_season_bv1a5zgyqesp
+  source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+  title: 羽毛球头顶突击从0到1完整版(1)实战篇！半侧身突击发力步法教学！巨好用的突击啊！18分钟干货价值十亿
+  platform: Bilibili
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - power_framework
+  - match_transfer
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 18
+  - 51
+  - 92
+  - 120
+  - 140
+  - 172
+  - 14
+  - 38
+  - 81
+  - 116
+  - 132
+  - 167
+  - 22
+  - 64
+  - 104
+  visible_signal_counts:
+    player_position_descriptions: 0
+    racket_preparation_descriptions: 0
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 0
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-011-lh_bili_season_bv1s1vkbseab
+  source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+  title: 羽毛球劈吊直线爆改业余教学！实战巨好用，超多细节！很难！很长！但看完能学会！实战能用上
+  platform: Bilibili
+  topic_tags:
+  - high_clear
+  - power_framework
+  - student_fit
+  - match_transfer
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 26
+  - 78
+  - 138
+  - 18
+  - 68
+  - 113
+  - 34
+  - 89
+  - 163
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-012-lh_bili_fav_bv15pbrb6edk
+  source_id: LH_BILI_FAV_BV15PBRB6EDK
+  title: 业余最优架拍方式！羽毛球重杀框架和快杀框架！三种后场框架优缺点和发力方式
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 28
+  - 110
+  - 158
+  - 13
+  - 94
+  - 145
+  - 42
+  - 126
+  - 171
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-013-lh_bili_season_bv1bi4y1q7eh
+  source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+  title: 你不知道的架拍细节延伸！刘辉教练教你最适合业余球友的架拍方式！进阶霸王杀等多种架拍优势！7分钟极限输出
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 42
+  - 62
+  - 82
+  - 142
+  - 37
+  - 55
+  - 76
+  - 124
+  - 47
+  - 68
+  - 87
+  - 159
+  visible_signal_counts:
+    player_position_descriptions: 12
+    racket_preparation_descriptions: 12
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 0
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-014-lh_bili_season_bv1lb5qzxedz
+  source_id: LH_BILI_SEASON_BV1LB5QZXEDZ
+  title: 成人班学员跳杀进阶从1到2全过程！业余羽毛球跳杀框架多处细节调整！更完善的发力和滞空感
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 6
+  timestamps_seconds:
+  - 108
+  - 152
+  - 97
+  - 136
+  - 118
+  - 167
+  visible_signal_counts:
+    player_position_descriptions: 6
+    racket_preparation_descriptions: 6
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 6
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 6
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-015-lh_bili_season_bv1xdlezqery
+  source_id: LH_BILI_SEASON_BV1XDLEZQERY
+  title: 羽毛球滑板吊球教学！业余小白头顶滑拍框架多处细节纠错！整体提升全过程！价值一亿
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 6
+  timestamps_seconds:
+  - 72
+  - 156
+  - 51
+  - 142
+  - 92
+  - 170
+  visible_signal_counts:
+    player_position_descriptions: 6
+    racket_preparation_descriptions: 6
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 6
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 6
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-016-lh_bili_season_bv1xmaazfe6e
+  source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+  title: 爆改业余杀球教学！成人班学员杀球从0到1！架拍挥拍连贯的秘诀！全程纠错
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 64
+  - 102
+  - 167
+  - 53
+  - 91
+  - 159
+  - 76
+  - 113
+  - 175
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-017-lh_bili_season_bv1nwrrbtedy
+  source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+  title: 中国跳突击教学！羽毛球业余选手爆改26分钟！超多细节！架拍手法步法！
+  platform: Bilibili
+  topic_tags:
+  - high_clear
+  - rear_footwork
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 16
+  - 55
+  - 86
+  - 150
+  - 11
+  - 45
+  - 77
+  - 132
+  - 20
+  - 65
+  - 94
+  - 168
+  visible_signal_counts:
+    player_position_descriptions: 12
+    racket_preparation_descriptions: 12
+    contact_or_precontact_descriptions: 12
+    lower_body_descriptions: 12
+    recovery_descriptions: 12
+    frames_with_on_screen_text_detected: 12
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-018-lh_bili_season_bv1v6zabteue
+  source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+  title: 最适合业余球友的架拍是哪种？！霸王杀架拍和标准架拍！一个视频解决90%新手架拍问题
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 22
+  - 57
+  - 87
+  - 152
+  - 9
+  - 54
+  - 73
+  - 137
+  - 34
+  - 60
+  - 101
+  - 168
+  visible_signal_counts:
+    player_position_descriptions: 12
+    racket_preparation_descriptions: 12
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 12
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 12
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-019-lh_bili_season_bv1zbwezeelw
+  source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+  title: 业余小白简易版跳杀教学！帮助99%羽毛球业余球友解决跳杀两大难点！架拍要帅！挥拍要快！
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 48
+  - 99
+  - 154
+  - 31
+  - 83
+  - 138
+  - 64
+  - 115
+  - 169
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-020-lh_bili_season_bv13a4y1q7cb
+  source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+  title: 怎样让打球动作更好看（1）架拍框架篇！刘辉教练教你专业好看的高远球动作关键点(1)看完让你脱离新手 直接入门 打了几年的老鸟也未必知道
+  platform: Bilibili
+  topic_tags:
+  - high_clear
+  - top_elbow
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 62
+  - 108
+  - 138
+  - 170
+  - 44
+  - 103
+  - 125
+  - 163
+  - 79
+  - 113
+  - 151
+  - 176
+  visible_signal_counts:
+    player_position_descriptions: 11
+    racket_preparation_descriptions: 11
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 11
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 11
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-021-lh_bili_season_bv1nq4y157jt
+  source_id: LH_BILI_SEASON_BV1NQ4Y157JT
+  title: 后场压不住球怎么办？刘辉教练教你VIP课合肘时机概念！让你杀球下压简单又轻松的秘诀 不看又错过一亿
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 8
+  - 28
+  - 48
+  - 68
+  - 88
+  - 108
+  - 128
+  - 148
+  - 168
+  - 188
+  - 208
+  - 228
+  - 248
+  - 268
+  - 288
+  visible_signal_counts:
+    player_position_descriptions: 13
+    racket_preparation_descriptions: 13
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 12
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 12
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-022-lh_bili_season_bv12z4y1n7b4
+  source_id: LH_BILI_SEASON_BV12Z4Y1N7B4
+  title: 杀球架拍要立腕吗？刘辉教练教你如果你要的是大发力杀球，立腕与不立腕有什么作用？
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 8
+  - 28
+  - 48
+  - 68
+  - 88
+  - 108
+  - 128
+  - 148
+  - 168
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-023-lh_bili_season_bv1s642137xa
+  source_id: LH_BILI_SEASON_BV1S642137XA
+  title: 怎样打出大发力重杀？重杀动作框架&发力技巧！11分钟极限输出讲透大发力！不看又错过一个亿
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 8
+  - 28
+  - 48
+  - 68
+  - 88
+  - 108
+  - 128
+  - 148
+  - 168
+  - 188
+  - 208
+  - 228
+  - 248
+  - 268
+  - 288
+  visible_signal_counts:
+    player_position_descriptions: 11
+    racket_preparation_descriptions: 11
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 11
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 11
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-024-lh_bili_season_bv1by411y7qh
+  source_id: LH_BILI_SEASON_BV1BY411Y7QH
+  title: 后场高远球杀球发力详解！核心动作和底层逻辑
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 15
+  timestamps_seconds:
+  - 8
+  - 28
+  - 48
+  - 68
+  - 88
+  - 108
+  - 128
+  - 148
+  - 168
+  - 188
+  - 208
+  - 228
+  - 248
+  - 268
+  - 288
+  visible_signal_counts:
+    player_position_descriptions: 15
+    racket_preparation_descriptions: 15
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 14
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 14
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-025-lh_bili_season_bv1cm42157us
+  source_id: LH_BILI_SEASON_BV1CM42157US
+  title: 正手顶髋发力细节！下半身动作分解示范！
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - hip_rotation
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 20
+  - 59
+  - 112
+  - 11
+  - 49
+  - 93
+  - 30
+  - 69
+  - 130
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 9
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-026-lh_bili_season_bv1nf421x7jg
+  source_id: LH_BILI_SEASON_BV1NF421X7JG
+  title: 霸王杀架拍分析优点和缺点！竟有这么多细节！
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - top_elbow
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 23
+  - 66
+  - 114
+  - 164
+  - 9
+  - 56
+  - 96
+  - 154
+  - 37
+  - 75
+  - 133
+  - 173
+  visible_signal_counts:
+    player_position_descriptions: 11
+    racket_preparation_descriptions: 11
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 11
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 11
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-027-lh_bili_season_bv1qz421u7c6
+  source_id: LH_BILI_SEASON_BV1QZ421U7C6
+  title: 后场吊球教学！慢吊和快吊是怎么打出来的？石宇奇劈杀
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 21
+  - 78
+  - 148
+  - 15
+  - 49
+  - 135
+  - 27
+  - 107
+  - 161
+  visible_signal_counts:
+    player_position_descriptions: 0
+    racket_preparation_descriptions: 0
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 0
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-028-lh_bili_season_bv1p4dgyre8b
+  source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+  title: 甩大臂vs随摆！大臂是如何带动小臂发力的！正确的羽毛球发力核心动作怎么做？
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - internal_rotation
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 9
+  timestamps_seconds:
+  - 30
+  - 68
+  - 151
+  - 18
+  - 56
+  - 134
+  - 41
+  - 81
+  - 168
+  visible_signal_counts:
+    player_position_descriptions: 9
+    racket_preparation_descriptions: 9
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 9
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 0
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-029-lh_bili_season_bv1pcqpyjerm
+  source_id: LH_BILI_SEASON_BV1PCQPYJERM
+  title: 李梓嘉同款章鱼滑拍吊球！羽毛球头顶被动滑板教学细节揭秘！适合进阶
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - power_framework
+  - student_fit
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 6
+  timestamps_seconds:
+  - 62
+  - 144
+  - 35
+  - 128
+  - 89
+  - 159
+  visible_signal_counts:
+    player_position_descriptions: 6
+    racket_preparation_descriptions: 6
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 6
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 6
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.
+- job_id: pilot-030-lh_bili_season_bv1bf6sytegz
+  source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+  title: 后场发力手腕怎么用？如此这般 终于会用手腕了！羽毛球大发力手腕力传导的方法
+  platform: Bilibili
+  topic_tags:
+  - smash
+  - high_clear
+  - rear_footwork
+  - power_framework
+  model: Qwen2.5-VL-3B-compatible
+  reviewed_frame_count: 12
+  timestamps_seconds:
+  - 20
+  - 68
+  - 130
+  - 162
+  - 13
+  - 55
+  - 121
+  - 152
+  - 26
+  - 80
+  - 139
+  - 173
+  visible_signal_counts:
+    player_position_descriptions: 8
+    racket_preparation_descriptions: 8
+    contact_or_precontact_descriptions: 0
+    lower_body_descriptions: 8
+    recovery_descriptions: 0
+    frames_with_on_screen_text_detected: 8
+    explicit_no_stroke_action_mentions: 0
+  evidence_level: visual_model_candidate_reviewed_public_safe
+  review_status: agent_visual_summary_reviewed
+  human_review_status: not_human_reviewed
+  summary: Private VLM keyframe output was reduced to public-safe visibility counts
+    and timestamp pointers. Raw model text, on-screen text, frames, and media remain
+    private.
+  allowed_use: Use to identify timestamps where racket preparation, contact phase,
+    lower-body orientation, or recovery may be visible and should receive human frame
+    review.
+  blocked_use: Do not treat these counts as proof of top elbow, hip timing, internal
+    rotation, racket face, or coaching intent without direct frame review.

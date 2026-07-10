@@ -12,7 +12,7 @@
       equals: true
       weight: 6
   priority: [late-arrival, contact-point-behind, low-elbow, slow-recovery]
-  source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV19G4Y1S75F, LH_YT_FIT_SYSTEM]
+  source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV19G4Y1S75F]
   confidence: inferred
 
 - framework_id: stable-overhead-frame
@@ -36,7 +36,7 @@
       equals: collapsed
       weight: 4
   priority: [late-arrival, contact-point-behind, low-elbow, collapsed-racket-structure, short-follow-through]
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_TOP_ELBOW_CLEAR, LH_BILI_LEARNING_ORDER, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_BILI_LEARNING_ORDER, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
   confidence: inferred
 
 - framework_id: high-clear-base-power-frame
@@ -95,7 +95,7 @@
       equals: late_hip
       weight: 6
   priority: [late-hip-rotation, low-elbow, pronation-whip-misread, short-follow-through]
-  source_ids: [LH_YT_PRONATION_WHIP, LH_YT_THREE_FRAMEWORKS, LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV11C411S7GQ]
+  source_ids: [LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV11C411S7GQ]
   confidence: inferred
 
 - framework_id: whip-release-frame
@@ -113,7 +113,7 @@
       equals: wrist_before_elbow
       weight: 5
   priority: [low-elbow, pronation-whip-misread, short-follow-through]
-  source_ids: [LH_BILI_SEASON_BV1XE41167TB, LH_BILI_SEASON_BV1EU4Y117LB, LH_YT_PRONATION_WHIP, LH_YT_WHIP_MECHANICS]
+  source_ids: [LH_BILI_SEASON_BV1XE41167TB, LH_BILI_SEASON_BV1EU4Y117LB]
   confidence: inferred
 
 - framework_id: internal-rotation-frame
@@ -399,7 +399,7 @@
       equals: doubles
       weight: 8
   priority: [doubles-watch-after-hit, slow-recovery, low-elbow]
-  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D, LH_BILI_CORE_COMPETITION]
+  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8, LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D]
   confidence: hypothesis
 
 - framework_id: compact-frontcourt-receive-frame
@@ -419,7 +419,7 @@
       equals: late
       weight: 5
   priority: [receive-large-preparation, late-front-arrival, slow-recovery]
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_LIVE_QA_20240202]
   confidence: hypothesis
 
 - framework_id: match-transfer-frame
@@ -439,7 +439,7 @@
       in: [singles, doubles, pressure]
       weight: 5
   priority: [slow-recovery, late-arrival, doubles-watch-after-hit]
-  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1YV4Y1N7GX]
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX]
   confidence: inferred
 
 - framework_id: mobility-safe-frame
@@ -459,7 +459,7 @@
       equals: true
       weight: 8
   priority: [slow-recovery, short-follow-through, collapsed-racket-structure]
-  source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1ML411Q7QA, LH_BILI_SEASON_BV1UHQLYBEW5]
+  source_ids: [LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1ML411Q7QA, LH_BILI_SEASON_BV1UHQLYBEW5]
   confidence: hypothesis
 
 - framework_id: high-clear-action-change-frame
@@ -496,7 +496,7 @@
       equals: true
       weight: 8
   priority: [contact-point-behind, backhand-low-contact, low-elbow, collapsed-racket-structure]
-  source_ids: [LH_YT_CONTACT_POINT, LH_YT_FIND_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1DW4Y1A7FX]
+  source_ids: [LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV19C4Y1S7Z2, LH_BILI_SEASON_BV1DW4Y1A7FX]
   confidence: inferred
 
 - framework_id: top-elbow-frame
@@ -516,8 +516,8 @@
       equals: wrist_before_elbow
       weight: 7
   priority: [low-elbow, collapsed-racket-structure, contact-point-behind]
-  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP, LH_BILI_SEASON_BV16H4Y1E7YC, LH_BILI_SEASON_BV1YZ421Y7AA]
-  confidence: source_backed
+  source_ids: [LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP, LH_BILI_SEASON_BV16H4Y1E7YC, LH_BILI_SEASON_BV1YZ421Y7AA]
+  confidence: asr_timestamp_reviewed_public_safe
 
 - framework_id: standard-ready-racket-frame
   name: Standard ready-racket frame
@@ -617,7 +617,7 @@
       equals: absent
       weight: 6
   priority: [late-hip-rotation, low-elbow, short-follow-through]
-  source_ids: [LH_YT_HIP_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1K6421G7YB, LH_BILI_SEASON_BV1PX4Y147UG]
+  source_ids: [LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_SEASON_BV1CM42157US, LH_BILI_SEASON_BV1K6421G7YB, LH_BILI_SEASON_BV1PX4Y147UG]
   confidence: inferred
 
 - framework_id: tension-observation-frame
@@ -637,7 +637,7 @@
       equals: forceful_but_weak
       weight: 9
   priority: [short-follow-through, pronation-whip-misread, collapsed-racket-structure]
-  source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_RELAXED_POWER, LH_BILI_SEASON_BV1ZI4Y1H7HE, LH_BILI_SEASON_BV1SWQOY5ENV]
+  source_ids: [LH_BILI_SEASON_BV1ZI4Y1H7HE, LH_BILI_SEASON_BV1SWQOY5ENV]
   confidence: inferred
 
 - framework_id: left-side-balance-frame
@@ -768,7 +768,7 @@
       equals: passive
       weight: 5
   priority: [late-arrival, contact-point-behind, backhand-low-contact, slow-recovery]
-  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PASSIVE_REAR_COURT, LH_BILI_SEASON_BV1X24Y1372D, LH_BILI_SEASON_BV1DFQXBBESP]
+  source_ids: [LH_BILI_SEASON_BV1X24Y1372D, LH_BILI_SEASON_BV1DFQXBBESP]
   confidence: hypothesis
 
 - framework_id: light-drop-frame
@@ -866,7 +866,7 @@
       equals: true
       weight: 8
   priority: [slow-recovery, late-arrival, late-front-arrival]
-  source_ids: [LH_BILI_LAZY_LEGS, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY, LH_BILI_SEASON_BV1HQ4Y1X7LK]
+  source_ids: [LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HQ4Y1X7LK]
   confidence: inferred
 
 - framework_id: front-court-arrival-frame
@@ -886,7 +886,7 @@
       equals: too_low
       weight: 6
   priority: [late-front-arrival, receive-large-preparation, slow-recovery]
-  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_SEASON_BV1UG4Y1M7B9]
+  source_ids: [LH_BILI_SEASON_BV1UG4Y1M7B9]
   confidence: inferred
 
 - framework_id: elastic-footwork-frame
@@ -928,7 +928,7 @@
       equals: low
       weight: 4
   priority: [backhand-low-contact, late-arrival, contact-point-behind]
-  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_BILI_SEASON_BV1RX421M7RQ, LH_BILI_SEASON_BV1X24Y1372D]
+  source_ids: [LH_BILI_SEASON_BV1RX421M7RQ, LH_BILI_SEASON_BV1X24Y1372D]
   confidence: hypothesis
 
 - framework_id: backhand-whip-frame
@@ -969,7 +969,7 @@
       equals: large
       weight: 7
   priority: [receive-large-preparation, late-front-arrival, slow-recovery]
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_LIVE_QA_20240202]
   confidence: hypothesis
 
 - framework_id: push-drive-power-frame
@@ -1009,7 +1009,7 @@
       equals: large
       weight: 6
   priority: [receive-large-preparation, slow-recovery, late-front-arrival]
-  source_ids: [LH_BILI_SEASON_BV1QB4Y1Z73X, LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_SEASON_BV1QB4Y1Z73X, LH_BILI_LIVE_QA_20240202]
   confidence: hypothesis
 
 - framework_id: serve-high-clear-frame
@@ -1049,7 +1049,7 @@
       equals: fast
       weight: 8
   priority: [doubles-watch-after-hit, receive-large-preparation, slow-recovery]
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL, LH_BILI_SEASON_BV1A7PVECEO8]
+  source_ids: [LH_BILI_SEASON_BV1A7PVECEO8]
   confidence: hypothesis
 
 - framework_id: singles-tactical-core-frame
@@ -1069,7 +1069,7 @@
       equals: true
       weight: 8
   priority: [late-arrival, slow-recovery, contact-point-behind]
-  source_ids: [LH_BILI_SEASON_BV1TM4Y1B7Z8, LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1I8411Z7KU]
+  source_ids: [LH_BILI_SEASON_BV1TM4Y1B7Z8, LH_BILI_SEASON_BV1I8411Z7KU]
   confidence: hypothesis
 
 - framework_id: tactical-observation-frame
@@ -1089,7 +1089,7 @@
       in: [singles, doubles, pressure]
       weight: 4
   priority: [slow-recovery, doubles-watch-after-hit, late-arrival]
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  source_ids: [LH_BILI_MATCH_TRANSFER]
   confidence: hypothesis
 
 - framework_id: equipment-fit-frame

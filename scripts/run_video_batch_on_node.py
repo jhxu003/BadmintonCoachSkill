@@ -234,6 +234,8 @@ def run_one_job(
         str(args.vlm_max_new_tokens),
         "--pose-model",
         args.pose_model,
+        "--evidence-index",
+        args.evidence_index,
     ]
     if args.node_local_private_root:
         command.extend(["--private-root-override", args.node_local_private_root])

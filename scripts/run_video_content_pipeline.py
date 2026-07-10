@@ -976,7 +976,10 @@ def sanitize_stage_status(stage: str, data: dict[str, Any]) -> dict[str, Any]:
     if stage in {"keyframes", "ocr", "vlm", "pose"}:
         for field in ["stage", "model", "frame_count"]:
             if field in data:
-                status[field] = data[field]
+                value = data[field]
+                if field == "model" and isinstance(value, str) and Path(value).is_absolute():
+                    value = Path(value).name
+                status[field] = value
     return status
 
 

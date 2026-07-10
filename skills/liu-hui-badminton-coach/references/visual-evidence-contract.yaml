@@ -1,0 +1,129 @@
+- diagnosis_id: arrival-and-contact-sequence
+  applies_to: [high_clear, smash, drop, backhand]
+  required_views: [rear_diagonal_or_side]
+  required_phases: [movement_start, arrival, pre_contact, contact_or_nearest_frame, recovery]
+  required_visibility: [feet, hips, shoulders, racket_arm, racket_head_when_possible]
+  allowed_claims:
+    - Arrival is early, on time, or late relative to the visible hitting phase.
+    - Contact appears front-high, overhead, beside, or behind relative to the head and trunk.
+  blocked_claims:
+    - Exact 3D contact coordinates from one monocular view.
+    - A causal wrist or shoulder diagnosis when arrival or contact is not visible.
+  retake_instruction: Record the full approach and follow-through from a rear-diagonal or side view at 60 fps or higher.
+
+- diagnosis_id: top-elbow-sequence
+  applies_to: [high_clear, smash, drop]
+  required_views: [side_or_rear_diagonal]
+  required_phases: [racket_preparation, elbow_lead, pre_contact, follow_through]
+  required_visibility: [shoulder, elbow, wrist, racket_shaft]
+  allowed_claims:
+    - The elbow appears below, near, or above the shoulder line in the selected frame.
+    - The elbow leads, moves together with, or trails the wrist during the visible sequence.
+  blocked_claims:
+    - Judging top elbow from a single front view with foreshortening.
+    - Treating elbow height alone as the cause without checking arrival, contact, and frame stability.
+  retake_instruction: Record three consecutive overhead strokes from the side and keep shoulder, elbow, wrist, and racket inside the frame.
+
+- diagnosis_id: hip-trunk-sequence
+  applies_to: [high_clear, smash, rear_footwork]
+  required_views: [rear_diagonal_or_side]
+  required_phases: [ground_load, hip_turn, trunk_turn, arm_acceleration, landing_or_recovery]
+  required_visibility: [both_feet, knees, pelvis_proxy, shoulders, racket_arm]
+  allowed_claims:
+    - Lower-body and trunk movement visibly starts before, with, or after arm acceleration.
+    - The player preserves or loses balance through the visible sequence.
+  blocked_claims:
+    - Exact hip angular velocity without calibrated motion capture.
+    - Prescribing more rotation when pain, late arrival, or unstable landing is visible.
+  retake_instruction: Record the whole body and both feet from a rear-diagonal view with no camera panning.
+
+- diagnosis_id: internal-rotation-proxy
+  applies_to: [high_clear, smash]
+  required_views: [side_and_rear_diagonal_preferred]
+  required_phases: [pre_acceleration, pre_contact, immediate_post_contact]
+  required_visibility: [upper_arm, elbow, forearm, wrist, racket_shaft, racket_head_when_possible]
+  allowed_claims:
+    - Visible forearm and racket-path proxies are consistent or inconsistent with a timed release.
+    - The sequence appears wrist-first, arm-blocked, or released through the visible path.
+  blocked_claims:
+    - Claiming true glenohumeral internal rotation from 2D video.
+    - Telling the player to force an isolated twist without stable contact and frame evidence.
+  retake_instruction: Use high-frame-rate side and rear-diagonal clips with the racket head visible before and after contact.
+
+- diagnosis_id: grip-wrist-racket-face
+  applies_to: [high_clear, smash, drop, drive, serve_receive, backhand]
+  required_views: [close_side_or_front_diagonal]
+  required_phases: [ready, preparation, pre_contact, immediate_post_contact]
+  required_visibility: [hand, fingers_when_possible, wrist, racket_handle, racket_face_when_possible]
+  allowed_claims:
+    - The visible hand and wrist appear tense, neutral, extended, flexed, or compensating.
+    - The racket face appears stable or changes visibly across the sampled frames.
+  blocked_claims:
+    - Grip-pressure claims when the hand is blurred or occluded.
+    - Racket-face claims when only the shaft is visible.
+  retake_instruction: Add a close camera angle that keeps the hand, handle, and racket head visible without motion blur.
+
+- diagnosis_id: footwork-arrival-recovery
+  applies_to: [rear_footwork, front_footwork, singles, doubles]
+  required_views: [full_court_or_full_body_rear_view]
+  required_phases: [base, split_or_start, first_step, arrival, hit, exit, recovery]
+  required_visibility: [both_feet, court_lines, trunk, racket_side, next_shot_context]
+  allowed_claims:
+    - Start timing, first-step size, arrival balance, exit direction, and recovery completeness are visible.
+    - The stroke problem follows late arrival or incomplete recovery in the sampled rally.
+  blocked_claims:
+    - Naming an exact step pattern when feet or court references are cropped.
+    - Treating one isolated shadow movement as match-ready footwork.
+  retake_instruction: Record at least three connected feeds or rally shots with the player and court lines fully visible.
+
+- diagnosis_id: drop-variant-geometry
+  applies_to: [drop]
+  required_views: [rear_diagonal_and_target_court]
+  required_phases: [base_overhead_preparation, contact_or_nearest_frame, shuttle_trajectory, recovery]
+  required_visibility: [racket_preparation, contact_region, target_line, shuttle_path_when_possible]
+  allowed_claims:
+    - The attempted shot is consistent with a light, fast, slice, slide, or deceptive drop target.
+    - Body direction and visible racket path support or conflict with the intended target line.
+  blocked_claims:
+    - Advising more slice before the intended variant and target line are known.
+    - Exact racket-face angle from a blurred or distant frame.
+  retake_instruction: Show the hitter and landing area in the same clip and state the intended drop variant.
+
+- diagnosis_id: drive-and-receive-compactness
+  applies_to: [drive, serve_receive]
+  required_views: [front_diagonal_or_side]
+  required_phases: [ready, first_move, preparation, contact, second_shot_ready]
+  required_visibility: [racket_head, elbow, torso, spacing_to_body, incoming_ball_direction]
+  allowed_claims:
+    - Preparation is compact or oversized for the visible time and spacing.
+    - The player is or is not ready for the next fast exchange after contact.
+  blocked_claims:
+    - Recommending a full swing without checking body-jammed spacing and time budget.
+    - Inferring receive tactics from a clip without the serve or incoming shot.
+  retake_instruction: Record a continuous serve/receive or drive exchange including the second shot.
+
+- diagnosis_id: doubles-positioning-and-continuity
+  applies_to: [doubles]
+  required_views: [wide_rally_view]
+  required_phases: [incoming_shot, player_action, partner_response, recovery, next_shot]
+  required_visibility: [both_partners, opponents_when_possible, court_lines, shuttle_path_when_possible]
+  allowed_claims:
+    - Partner coverage, front-back or side-side organization, and continuity after the shot are visible.
+    - A technical choice creates or reduces a visible coverage gap.
+  blocked_claims:
+    - Tactical diagnosis from one isolated stroke with the partner cropped out.
+    - Attributing a rally loss to technique when the incoming-ball and coverage context are missing.
+  retake_instruction: Use a wide rally view that includes both partners for at least three connected shots.
+
+- diagnosis_id: safety-and-load
+  applies_to: [all]
+  required_views: [full_body_when_load_is_relevant]
+  required_phases: [load, acceleration, landing_or_deceleration, recovery]
+  required_visibility: [pain_report, joint_range_proxy, balance, landing, fatigue_context]
+  allowed_claims:
+    - Visible load, unstable landing, guarded movement, or reported pain requires a lower-intensity path.
+    - The current clip is insufficient for a high-load progression.
+  blocked_claims:
+    - Medical diagnosis.
+    - Continuing jump, maximal smash, or extreme-range training through pain.
+  retake_instruction: Stop painful training and seek qualified assessment; only record low-intensity movement if safe.

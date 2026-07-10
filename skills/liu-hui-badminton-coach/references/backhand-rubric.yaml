@@ -18,5 +18,5 @@
   drills: [backhand-contact-height-check]
   retest_metrics:
     - contact_point should become playable_height
-  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG]
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG]
   confidence: hypothesis

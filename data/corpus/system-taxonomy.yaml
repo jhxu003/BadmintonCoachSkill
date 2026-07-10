@@ -13,7 +13,7 @@ student_profiles:
       - Arrival and balance.
       - Front-high contact window.
       - Top-elbow frame before speed.
-    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_HEIGHT]
+    source_ids: [LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_HEIGHT]
     evidence_status: inferred
 
   - id: intermediate_chain_ready
@@ -29,7 +29,7 @@ student_profiles:
       - Slow hip-to-elbow sequencing.
       - Elbow lead before release.
       - Progressive speed only after structure holds.
-    source_ids: [LH_YT_THREE_FRAMEWORKS, LH_YT_HIP_ROTATION, LH_YT_PRONATION_WHIP]
+    source_ids: [LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_BIG_ARM_INTERNAL_ROTATION]
     evidence_status: inferred
 
   - id: mobility_limited_adult
@@ -45,7 +45,7 @@ student_profiles:
       - Compact arrival.
       - Lower-risk swing range.
       - Recovery-first drills.
-    source_ids: [LH_YT_FOOTWORK_FIT, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS]
+    source_ids: [LH_BILI_LAZY_LEGS]
     evidence_status: inferred
 
   - id: match_pressure_breakdown
@@ -61,7 +61,7 @@ student_profiles:
       - Drill-to-rally progression.
       - Pressure retest.
       - Decision and recovery coupling.
-    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    source_ids: [LH_BILI_MATCH_TRANSFER]
     evidence_status: inferred
 
 power_frameworks:
@@ -80,8 +80,8 @@ power_frameworks:
       - Arrival shadow.
       - Contact-window freeze.
       - Top-elbow freeze.
-    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_CLEAR_FRAMEWORK, LH_BILI_AUTH_CLIP]
-    evidence_status: source_backed
+    source_ids: [LH_BILI_CLEAR_FRAMEWORK, LH_BILI_AUTH_CLIP]
+    evidence_status: asr_timestamp_reviewed_public_safe
 
   - id: kinetic_chain_power
     name: Kinetic-chain power
@@ -96,7 +96,7 @@ power_frameworks:
       - Slow hip-to-elbow sequence.
       - Progressive release.
       - Retest contact and frame after adding power.
-    source_ids: [LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_YT_THREE_FRAMEWORKS]
+    source_ids: [LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_SEASON_BV11C411S7GQ]
     evidence_status: inferred
 
   - id: compact_frontcourt
@@ -112,7 +112,7 @@ power_frameworks:
       - Early racket preparation.
       - Compact contact.
       - Recovery after touch.
-    source_ids: [LH_YT_RECEIVE_DROP_ALT, LH_YT_DROP_FOOTWORK, LH_YT_PRACTICAL_FOOTWORK]
+    source_ids: [LH_BILI_LIVE_QA_20240202, LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_SEASON_BV1QB4Y1Z73X]
     evidence_status: hypothesis
 
   - id: late_arrival_recovery
@@ -128,7 +128,7 @@ power_frameworks:
       - Rear-court arrival.
       - Balanced exit.
       - Stroke quality under passive rear-court pressure.
-    source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_YT_PASSIVE_WHIP, LH_BILI_BACKCOURT_STEAL_FOOTWORK]
+    source_ids: [LH_BILI_BACKCOURT_STEAL_FOOTWORK]
     evidence_status: inferred
 
   - id: student_fit_power_selection
@@ -144,7 +144,7 @@ power_frameworks:
       - Choose the current framework.
       - Retest one priority before changing systems.
       - Keep equipment and injury context visible.
-    source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_LEARNING_ORDER, LH_YT_FIT_SYSTEM]
+    source_ids: [LH_BILI_LEARNING_ORDER]
     evidence_status: inferred
 
   - id: equipment_fit
@@ -258,8 +258,8 @@ stroke_families:
       - Contact-window freeze.
       - Top-elbow sequence.
       - Clear-to-baseline retest.
-    source_ids: [LH_YT_CONTACT_POINT, LH_BILI_CLEAR_HEIGHT, LH_BILI_CLEAR_CHANGE_ACTION]
-    evidence_status: source_backed
+    source_ids: [LH_BILI_CLEAR_HEIGHT, LH_BILI_CLEAR_CHANGE_ACTION]
+    evidence_status: asr_timestamp_reviewed_public_safe
 
   - id: smash
     name: Smash
@@ -275,8 +275,8 @@ stroke_families:
       - Stable overhead frame.
       - Simple smash sequence.
       - Progressive power retest.
-    source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
-    evidence_status: source_backed
+    source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_BILI_SMASH_ELBOW]
+    evidence_status: asr_timestamp_reviewed_public_safe
 
   - id: drop
     name: Drop and slice drop
@@ -291,7 +291,7 @@ stroke_families:
       - Base overhead disguise.
       - Compact contact control.
       - Variation after frame stability.
-    source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_YT_PLAYLIST_FOREHAND, LH_BILI_CLEAR_FRAMEWORK]
+    source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK]
     evidence_status: inferred
 
   - id: drive
@@ -307,7 +307,7 @@ stroke_families:
       - Early racket set.
       - Compact forward contact.
       - Multi-shot rhythm.
-    source_ids: [LH_YT_CONSISTENCY, LH_YT_TENSION_OBSERVATION, LH_BILI_MATCH_TRANSFER]
+    source_ids: [LH_BILI_MATCH_TRANSFER]
     evidence_status: hypothesis
 
   - id: net
@@ -323,7 +323,7 @@ stroke_families:
       - Receive-drop footwork.
       - Compact touch.
       - Exit to base.
-    source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+    source_ids: [LH_BILI_LIVE_QA_20240202, LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_SEASON_BV1QB4Y1Z73X]
     evidence_status: inferred
 
   - id: backhand
@@ -339,7 +339,7 @@ stroke_families:
       - Position before contact.
       - Compact racket face.
       - Recovery after defensive contact.
-    source_ids: [LH_YT_PRACTICAL_FOOTWORK, LH_YT_REAR_TRANSITION, LH_YT_TENSION_OBSERVATION]
+    source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1X24Y1372D]
     evidence_status: hypothesis
 
   - id: serve_receive
@@ -355,7 +355,7 @@ stroke_families:
       - Ready posture.
       - Compact contact.
       - First two shots.
-    source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+    source_ids: [LH_BILI_MATCH_TRANSFER]
     evidence_status: hypothesis
 
   - id: doubles
@@ -371,7 +371,7 @@ stroke_families:
       - After-shot recovery.
       - Role-aware positioning.
       - Multi-shot pressure patterns.
-    source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, PUBLIC_DISCUSSION_THREADS]
+    source_ids: [PUBLIC_DISCUSSION_THREADS]
     evidence_status: hypothesis
 
 footwork_families:
@@ -388,7 +388,7 @@ footwork_families:
       - Rear-court arrival shadow.
       - Split-to-first-step timing.
       - Contact after stable arrival.
-    source_ids: [LH_YT_PASSIVE_REAR_COURT, LH_BILI_BACKCOURT_STEAL_FOOTWORK, LH_YT_REAR_TRANSITION]
+    source_ids: [LH_BILI_BACKCOURT_STEAL_FOOTWORK]
     evidence_status: inferred
 
   - id: front_court_arrival
@@ -404,7 +404,7 @@ footwork_families:
       - Receive-drop footwork.
       - Lunge-control retest.
       - Exit to base.
-    source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+    source_ids: [LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HQ4Y1X7LK]
     evidence_status: inferred
 
   - id: recovery_to_base
@@ -420,7 +420,7 @@ footwork_families:
       - Hit-and-exit rhythm.
       - Balanced recovery.
       - Two-shot retest.
-    source_ids: [LH_BILI_LAZY_LEGS, LH_YT_PRACTICAL_FOOTWORK, LH_YT_CONSISTENCY]
+    source_ids: [LH_BILI_LAZY_LEGS]
     evidence_status: inferred
 
 correction_order:
@@ -436,7 +436,7 @@ correction_order:
     training_focus:
       - Request retake or missing keyframes.
       - Mark insufficient evidence.
-    source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_TACTICAL_INTEL, PUBLIC_DISCUSSION_THREADS]
+    source_ids: [PUBLIC_DISCUSSION_THREADS]
     evidence_status: inferred
 
   - id: arrival_contact_frame_sequence
@@ -452,7 +452,7 @@ correction_order:
       - One primary issue.
       - One drill.
       - One retest metric.
-    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_LEARNING_ORDER, LH_BILI_CLEAR_CHANGE_ACTION]
+    source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_CLEAR_CHANGE_ACTION]
     evidence_status: inferred
 
 drill_families:
@@ -469,7 +469,7 @@ drill_families:
       - Contact-window freeze.
       - Top-elbow freeze.
       - Racket-frame wall check.
-    source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_FRAMEWORK]
+    source_ids: [LH_BILI_AUTH_CLIP, LH_BILI_CLEAR_FRAMEWORK]
     evidence_status: inferred
 
   - id: chain_timing_drills
@@ -485,7 +485,7 @@ drill_families:
       - Slow hip-to-elbow chain.
       - Progressive acceleration.
       - Retest sequence.
-    source_ids: [LH_YT_HIP_ROTATION, LH_YT_INTERNAL_ROTATION, LH_YT_PRONATION_WHIP]
+    source_ids: [LH_BILI_FAV_BV1HRC5ZYESG, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_BIG_ARM_INTERNAL_ROTATION]
     evidence_status: inferred
 
   - id: movement_pattern_drills
@@ -501,7 +501,7 @@ drill_families:
       - Rear-court arrival shadow.
       - Receive-drop footwork.
       - Two-shot recovery.
-    source_ids: [LH_YT_PRACTICAL_FOOTWORK, LH_YT_DROP_FOOTWORK, LH_BILI_LAZY_LEGS]
+    source_ids: [LH_BILI_LAZY_LEGS]
     evidence_status: inferred
 
 training_plans:
@@ -518,7 +518,7 @@ training_plans:
       - 5 minutes structure.
       - 10 minutes drill.
       - 5 minutes retest.
-    source_ids: [LH_BILI_LEARNING_ORDER, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+    source_ids: [LH_BILI_LEARNING_ORDER, LH_BILI_MATCH_TRANSFER]
     evidence_status: inferred
 
   - id: weekly_match_transfer
@@ -534,7 +534,7 @@ training_plans:
       - Slow correction.
       - Feeded pattern.
       - Pressure retest.
-    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    source_ids: [LH_BILI_MATCH_TRANSFER]
     evidence_status: inferred
 
 match_transfer:
@@ -551,7 +551,7 @@ match_transfer:
       - Feeder pressure.
       - Two-shot and three-shot retest.
       - Match clip review.
-    source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL]
+    source_ids: [LH_BILI_MATCH_TRANSFER]
     evidence_status: inferred
 
   - id: evidence_based_progression
@@ -567,5 +567,5 @@ match_transfer:
       - Retest metric.
       - Same-angle comparison.
       - Context-specific progression.
-    source_ids: [LH_YT_TENSION_OBSERVATION, LH_YT_CONSISTENCY, LH_BILI_LEARNING_ORDER]
+    source_ids: [LH_BILI_LEARNING_ORDER]
     evidence_status: inferred

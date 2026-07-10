@@ -19,7 +19,11 @@ It must not contain raw videos, full subtitles, paid-course transcripts, screens
 4. `deduplication-map.yaml`: exact duplicate and deferred duplicate decisions.
 5. Skill references: use `ready_for_skill` points directly; use reviewed title-level points only through skill guardrails; keep `reviewed_not_promoted` points out of deterministic Liu Hui-derived rules.
 6. `video-asr-teaching-windows-full.yaml`: expanded public-safe ASR candidate windows from the full indexed Bilibili corpus.
-7. `video-parse-status.md`: coverage report for video parsing runs and known unavailable sources.
+7. `video-asr-timestamp-review.yaml`: public-safe agent review for every full-corpus ASR window; no transcript text is included.
+8. `video-visual-review-manifest.yaml`: complete visual-review queue for action-bearing Bilibili sources.
+9. `video-visual-evidence-summary.yaml`: safe timestamp and visibility summary from private VLM output.
+10. `video-pose-evidence-summary.yaml`: safe aggregate pose coverage without keypoint coordinates.
+11. `video-parse-status.md`: coverage report for video parsing runs and known unavailable sources.
 
 ## Evidence Labels
 
@@ -27,4 +31,7 @@ It must not contain raw videos, full subtitles, paid-course transcripts, screens
 - `timestamp_note`: supported by timestamped human notes.
 - `whole_clip_title_backed`: whole public clip span is recorded, but no internal timestamp/subtitle evidence is available.
 - `inferred_from_titles`: plausible synthesis from multiple titles, not enough for direct quotation.
+- `asr_timestamp_reviewed_public_safe`: private ASR interval checked and reduced to an original topic/timestamp summary; not human review or visual proof.
+- `visual_model_candidate_reviewed_public_safe`: VLM visibility summary for locating frames; not standalone biomechanical proof.
+- `pose_model_candidate_reviewed_public_safe`: aggregate body-keypoint coverage; no coordinates and no racket/rotation proof.
 - `third_party`: discussion or learner feedback; auxiliary only.

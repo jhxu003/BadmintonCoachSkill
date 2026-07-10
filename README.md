@@ -73,7 +73,7 @@ See `examples/observations/` for ready-to-run inputs.
 
 ## Content-Level Video Corpus
 
-The repository now includes a public-safe pilot pipeline for turning indexed public teaching videos into reviewable timestamp evidence:
+The repository includes a public-safe pipeline for turning indexed public teaching videos into reviewable timestamp evidence:
 
 ```bash
 python3 scripts/build_video_pilot_manifest.py --limit 30
@@ -86,9 +86,11 @@ For actual content parsing, run model stages in a private environment:
 python3 scripts/run_video_content_pipeline.py --limit 1 --stages metadata,audio,asr,evidence --asr-model small
 ```
 
-The current public-safe corpus includes a 30-video pilot plus a full-audio ASR pass over the expanded indexed Bilibili corpus. The expanded pass processed 378 of 379 indexed public Bilibili jobs with `mobiuslabsgmbh/faster-whisper-large-v3-turbo`; one public page is currently unavailable. Combined pilot + corpus scanning produced 2567 public-safe timestamp candidate teaching windows across 401 sources.
+The accessible non-YouTube corpus includes a 30-video visual pilot plus a full-audio ASR pass over the expanded indexed Bilibili corpus. The pass processed 378 of 379 corpus jobs with `mobiuslabsgmbh/faster-whisper-large-v3-turbo`; one public page is unavailable. Combined scanning produced 2567 timestamp windows across 401 sources, and all 2567 windows were checked against their private ASR intervals to produce public-safe topic/timestamp reviews.
 
-The full-corpus candidates have been distilled into the Liu Hui-inspired framework map, candidate rules, rubrics, drills, and training plans. They are usable as reviewable coaching hypotheses and framework-ranking signals, not as final human-reviewed Liu Hui statements.
+The visual completion manifest covers 396 action-bearing sources with 5977 planned keyframes and marks 5 conceptual sources as ASR-only. Existing private VLM output covers 30 sources and 336 keyframes. A representative pose pilot covers 6 sources and 107 teaching-window keyframes; all 107 frames contained detectable body keypoints. The distilled system contains ten routing layers spanning student fit, safety/load, footwork, rear-court base, overhead power, smash variants, drop variations, backhand choice, fast exchange, and match transfer.
+
+YouTube is excluded by project decision. Douyin and Instagram remain discovery-level access gaps and are not counted as parsed content.
 
 Only original summaries and evidence metadata belong in git. Raw videos, subtitles, ASR transcripts, OCR dumps, VLM outputs, cookies, tokens, and paid material stay private.
 
@@ -113,7 +115,7 @@ The skill currently includes deterministic examples for:
 high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles, match_transfer
 ```
 
-The Liu Hui-inspired runtime contains 67 selectable frameworks, 36 reviewed or candidate rule guardrails, 41 deterministic rubric rules, 29 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
+The Liu Hui-inspired runtime contains 67 selectable frameworks, 43 reviewed or candidate rule guardrails, 41 deterministic rubric rules, 10 visual evidence contracts, 29 drills, and 8 training plans across student-fit paths, equipment fit, high-clear rebuilds, racket preparation, power systems, smash variants, drop/slice/slide variants, footwork, backhand, drive/receive defense, doubles/singles tactics, match transfer, and safety-load selection.
 
 The public corpus currently indexes hundreds of public/authorized source metadata rows, with separate records for collection status, deduplication, timestamp review, and access blockers.
 

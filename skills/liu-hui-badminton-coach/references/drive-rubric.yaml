@@ -22,7 +22,7 @@
   retest_metrics:
     - phase_observations.spacing should become playable
     - phase_observations.pressure_state should no longer be body_jammed
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_SEASON_BV1JP411Y7J8, LH_BILI_LIVE_QA_20240202]
   confidence: hypothesis
 
 - rule_id: drive-large-preparation
@@ -46,7 +46,7 @@
   retest_metrics:
     - phase_observations.preparation_size should become compact
     - phase_observations.second_shot_ready should become true
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_SEASON_BV15CM2Y1EUI]
+  source_ids: [LH_BILI_SEASON_BV17T2WYXEF3, LH_BILI_SEASON_BV15CM2Y1EUI]
   confidence: hypothesis
 
 - rule_id: exchange-second-shot-not-ready
@@ -69,5 +69,5 @@
   drills: [compact-drive-exchange]
   retest_metrics:
     - phase_observations.second_shot_ready should become true
-  source_ids: [LH_YT_CONSISTENCY, LH_YT_TACTICAL_INTEL, LH_BILI_MATCH_TRANSFER]
+  source_ids: [LH_BILI_MATCH_TRANSFER]
   confidence: hypothesis

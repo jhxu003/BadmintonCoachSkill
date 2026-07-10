@@ -14,7 +14,12 @@ public_safety:
 run_status:
   job_id: corpus-109-lh_bili_season_bv1qb4y1z73x
   stages:
-    asr:
+    download:
+      status: ok
+      returncode: 0
+    keyframes:
+      status: ok
+    pose:
       status: ok
 stage_status:
   keyframes:
@@ -35,7 +40,10 @@ stage_status:
   vlm:
     status: missing
   pose:
-    status: missing
+    status: ok
+    stage: pose
+    model: yolo11n-pose.pt
+    frame_count: 17
 segments:
 - evidence_id: corpus-109-lh_bili_season_bv1qb4y1z73x-seg-001
   start_seconds: 0

@@ -16,8 +16,8 @@
   do_not_start_with:
     - swing harder
     - force internal rotation
-  source_ids: [LH_BILI_CLEAR_HEIGHT, LH_YT_CONTACT_POINT, LH_YT_TOP_ELBOW_CLEAR]
-  evidence_status: source_backed
+  source_ids: [LH_BILI_CLEAR_HEIGHT]
+  evidence_status: asr_timestamp_reviewed_public_safe
 
 - stroke_id: smash
   family: overhead
@@ -36,8 +36,8 @@
   do_not_start_with:
     - steeper angle cue when contact is late
     - more shoulder effort
-  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_YT_HEAVY_SMASH_FRAMEWORK, LH_BILI_SMASH_ELBOW]
-  evidence_status: source_backed
+  source_ids: [LH_BILI_SIMPLE_SMASH_SEQUENCE, LH_BILI_SMASH_ELBOW]
+  evidence_status: asr_timestamp_reviewed_public_safe
 
 - stroke_id: drop
   family: overhead_variation
@@ -53,7 +53,7 @@
     - contact too low or too late
   do_not_start_with:
     - advanced slice detail if base contact fails
-  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK, LH_YT_PLAYLIST_FOREHAND]
+  source_ids: [LH_BILI_SLICE_DROP_SMASH, LH_BILI_CLEAR_FRAMEWORK]
   evidence_status: inferred
 
 - stroke_id: drive
@@ -70,7 +70,7 @@
     - getting jammed by poor spacing
   do_not_start_with:
     - full swing mechanics
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_LIVE_QA_20240202]
+  source_ids: [LH_BILI_LIVE_QA_20240202]
   evidence_status: hypothesis
 
 - stroke_id: net
@@ -87,7 +87,7 @@
     - no exit after contact
   do_not_start_with:
     - delicate touch cue when arrival is late
-  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+  source_ids: [LH_BILI_LIVE_QA_20240202, LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_SEASON_BV1QB4Y1Z73X]
   evidence_status: inferred
 
 - stroke_id: backhand
@@ -104,7 +104,7 @@
     - choosing defensive backhand when overhead transition was available
   do_not_start_with:
     - wrist strength cue without footwork/contact evidence
-  source_ids: [LH_YT_HEAD_BACKHAND_CORNER, LH_YT_REAR_TRANSITION, LH_YT_PRACTICAL_FOOTWORK]
+  source_ids: [LH_BILI_SEASON_BV1TT411R7FT, LH_BILI_SEASON_BV1WA4Y1P7IG, LH_BILI_SEASON_BV1X24Y1372D]
   evidence_status: hypothesis
 
 - stroke_id: serve_receive
@@ -121,7 +121,7 @@
     - no second-shot plan
   do_not_start_with:
     - isolated serve contact if receive/recovery is the failure
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  source_ids: [LH_BILI_MATCH_TRANSFER]
   evidence_status: hypothesis
 
 - stroke_id: doubles
@@ -138,5 +138,5 @@
     - big action in fast exchange
   do_not_start_with:
     - isolated technique advice when positioning caused the pressure
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION]
+  source_ids: [LH_BILI_SEASON_BV1CPWTZOEVT, LH_BILI_SEASON_BV18TMUB4E8D]
   evidence_status: hypothesis

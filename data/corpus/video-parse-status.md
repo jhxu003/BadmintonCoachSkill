@@ -1,6 +1,6 @@
 # Video Parse Status
 
-Updated: 2026-07-09
+Updated: 2026-07-10
 
 This file is public-safe. It records coverage counts and failure classes only. Raw video, audio, ASR text, metadata dumps, model logs, cookies, and temporary media URLs stay under ignored `data/raw-private/`.
 
@@ -18,49 +18,74 @@ Unavailable source:
 
 - `LH_BILI_CORE_COMPETITION` / `corpus-370-lh_bili_core_competition`: public page currently resolves to a missing-video placeholder (`视频去哪了呢？`) and `yt-dlp` cannot extract audio.
 
-## Full Teaching-Window Candidates
+## ASR Timestamp Review
 
 - Manifests scanned: `video-pilot-manifest.yaml`, `video-corpus-manifest.yaml`
 - Jobs scanned: 409
 - Sources with teaching-window candidates: 401
 - Public-safe candidate windows: 2567
-- Output: `video-asr-teaching-windows-full.yaml`
+- Agent-reviewed ASR timestamp windows: 2567
+- ASR topic signal confirmed inside the timestamp: 2491
+- Timestamp has ASR but topic still depends on the public title: 76
+- Missing manifest jobs behind reviewed windows: 0
+- Missing or failed ASR artifacts behind reviewed windows: 0
+- Candidate output: `video-asr-teaching-windows-full.yaml`
+- Reviewed output: `video-asr-timestamp-review.yaml`
 
 Top candidate topic counts:
 
 | Topic | Windows |
 |---|---:|
-| diagnosis_flow | 1411 |
-| training_plan | 1212 |
-| smash | 1158 |
-| student_fit | 1026 |
-| top_elbow | 1024 |
-| internal_rotation | 814 |
-| racket_preparation | 689 |
-| high_clear | 651 |
-| wrist | 589 |
-| safety | 563 |
-| hip_rotation | 413 |
-| contact_point | 410 |
-| match_transfer | 271 |
-| footwork | 263 |
-| drop | 257 |
-| serve_receive | 132 |
-| drive | 128 |
-| doubles | 66 |
+| diagnosis_flow | 1429 |
+| training_plan | 1237 |
+| smash | 1163 |
+| student_fit | 1041 |
+| top_elbow | 1035 |
+| internal_rotation | 834 |
+| racket_preparation | 691 |
+| high_clear | 656 |
+| safety | 619 |
+| wrist | 599 |
+| hip_rotation | 424 |
+| contact_point | 422 |
+| match_transfer | 284 |
+| footwork | 269 |
+| drop | 262 |
+| serve_receive | 135 |
+| drive | 134 |
+| doubles | 70 |
+
+## Visual Completion Layer
+
+- Sources with reviewed ASR windows: 401
+- Action-bearing visual review jobs: 396
+- Conceptual ASR-only sources: 5
+- Planned teaching-window keyframes: 5977
+- Existing private VLM sources: 30
+- Existing VLM keyframes summarized: 336
+- VLM visibility descriptions: 269 player-position, 269 racket-preparation, 25 contact/pre-contact, 255 lower-body, and 21 recovery observations
+- Representative GPU pose sources: 6
+- Pose keyframes summarized: 107
+- Pose keyframes with detected people: 107
+- Pose model: `yolo11n-pose.pt`
+- Visual queue: `video-visual-review-manifest.yaml`
+- Public-safe VLM summary: `video-visual-evidence-summary.yaml`
+- Public-safe pose summary: `video-pose-evidence-summary.yaml`
+
+The visual queue covers overhead mechanics, footwork, drop, drive, serve/receive, doubles, contact point, top elbow, hip/trunk timing, wrist/grip, and internal-rotation proxy review. VLM output is used to locate frames with visible evidence; it is not standalone proof of a biomechanical claim.
+
+The pose pilot sampled footwork, drop, receive-smash defense, push/drive, doubles continuity, and top-elbow sources. Pose output is used only to confirm body-keypoint visibility and prioritize later frame review; aggregate detections cannot establish racket-face geometry, contact, true joint rotation, or Liu Hui's intent.
 
 ## Interpretation
 
 The expanded corpus supports a broad Liu Hui-style runtime system centered on student-fit diagnosis, training-plan selection, overhead/smash power-chain analysis, frame and release mechanics, transfer to match pressure, and staged drills.
 
-All full-corpus windows remain `pending_human_review`. They can guide framework selection and review queues, but they must not be described as exact Liu Hui wording or human-reviewed timestamp evidence.
+All 2567 full-corpus windows now have `agent_asr_timestamp_reviewed` public-safe summaries. They can guide framework selection, timestamp lookup, diagnostic questions, and review queues. They must not be described as exact Liu Hui wording, human-reviewed evidence, or visual proof of contact point, top elbow, hip timing, racket face, or internal rotation.
 
-## Extra Platform Sources
+## Non-YouTube Platform Boundary
 
-- Extra platform manifest: `video-extra-platform-manifest.yaml`
-- Jobs: 25
-- Platforms: YouTube, Instagram
-- Audio/ASR result in this environment: 0 ok, 25 skipped
-- Retry manifest: `video-extra-platform-asr-retry-manifest.yaml`
+- YouTube: excluded by project decision and not part of completion accounting.
+- Instagram: the indexed public reel timed out through both direct HTTP and `yt-dlp` on 2026-07-10.
+- Douyin: the public profile still returns a dynamic HTTP 404 and no stable per-video metadata export.
 
-The YouTube sources were discovered and indexed, but direct `yt-dlp` access from this environment failed with network reachability / address-family errors. These sources remain discovery and title-level context until platform access is available.
+Instagram and Douyin remain discovery-level access gaps. They are not counted as parsed video evidence and cannot support deterministic technical rules until stable public metadata and media access are available.

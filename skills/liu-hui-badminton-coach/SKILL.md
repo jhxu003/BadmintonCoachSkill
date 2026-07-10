@@ -22,8 +22,12 @@ Read the references needed for the action:
 
 - Always read `references/report-contract.md`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
+- Always read `references/visual-evidence-contract.yaml` before making a biomechanical or tactical judgment from video observations.
 - Read `references/full-corpus-synthesis.yaml` when the user asks about Liu Hui system coverage, framework choice, or whether the skill reflects the expanded video corpus.
 - Read `references/reviewed-corpus-rules.yaml` before promoting a title-level or timestamp-review item into advice.
+- Use `data/corpus/video-asr-timestamp-review.yaml` for public-safe reviewed timestamp/topic routing across the accessible Bilibili corpus.
+- Use `data/corpus/video-visual-review-manifest.yaml` to identify which source claims still require visible action review.
+- Use `data/corpus/video-visual-evidence-summary.yaml` and `data/corpus/video-pose-evidence-summary.yaml` only as timestamp visibility aids, never as standalone proof of biomechanics.
 - Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
 - Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.
@@ -65,16 +69,19 @@ The runtime framework library covers 67 selectable frameworks. Route diagnosis t
 3. Select the most suitable framework from the player profile, action, training goal, and observable triggers before ranking technical issues.
 4. Select the stroke or footwork family and its diagnostic order.
 5. Check corpus provenance before presenting a concept as source-backed.
-6. Match observable evidence against rubric rules.
-7. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
-8. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
-9. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
+6. Use ASR timestamp review to locate the relevant teaching topic and use the visual manifest to determine whether the claim requires frame evidence.
+7. Match observable evidence against rubric rules.
+8. Prefer arrival, balance, and contact-point issues before advanced hand-speed or pronation advice.
+9. If required observations are missing, mark `证据不足` and ask for retake or additional keypoints.
+10. Output the diagnosis in this order: main priority, evidence, why it matters, correction principle, drill, and retest metric.
 
 ## Output Rules
 
 - Every diagnosis must include evidence tied to observations or keyframes.
 - Every training suggestion must include a retest metric.
 - Do not overstate invisible details such as true shoulder internal rotation when the input only has 2D proxies.
+- `asr_timestamp_reviewed_public_safe` supports framework routing and timestamp lookup; it does not prove visible mechanics.
+- `visual_model_candidate_reviewed_public_safe` and `pose_model_candidate_reviewed_public_safe` support visibility checks only until a human reviews the referenced frames.
 - 不模仿刘辉本人语气，不声称 "刘辉亲自判断", "刘辉认证", "官方授权", or equivalent claims.
 - Do not quote or reconstruct course text. Use original summaries and short technical labels only.
 - When evidence is insufficient, say so directly instead of forcing a confident diagnosis.

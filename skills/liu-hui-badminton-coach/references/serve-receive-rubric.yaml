@@ -19,5 +19,5 @@
   retest_metrics:
     - phase_observations.preparation_size should become compact
     - phase_observations.second_shot_ready should become true
-  source_ids: [LH_YT_BODY_JAMMED_SHOT, LH_YT_CONSISTENCY, LH_BILI_MATCH_TRANSFER]
+  source_ids: [LH_BILI_MATCH_TRANSFER]
   confidence: hypothesis

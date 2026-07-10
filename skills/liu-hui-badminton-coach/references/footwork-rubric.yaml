@@ -18,7 +18,7 @@
   drills: [rear-court-arrival-shadow]
   retest_metrics:
     - footwork_observations.arrival_timing should become on_time
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_YT_PASSIVE_REAR_COURT, LH_BILI_BACKCOURT_STEAL_FOOTWORK, LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_BILI_BACKCOURT_STEAL_FOOTWORK, LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK]
   confidence: inferred
 
 - rule_id: slow-recovery
@@ -41,7 +41,7 @@
   drills: [rear-court-arrival-shadow]
   retest_metrics:
     - footwork_observations.recovery should become normal
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_PRACTICAL_FOOTWORK, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_BILI_LAZY_LEGS, LH_BILI_SEASON_BV1HZ421E7XR, LH_BILI_SEASON_BV1HQ4Y1X7LK]
   confidence: hypothesis
 
 - rule_id: rear-foot-orientation-blocks-hip

@@ -18,5 +18,5 @@
   drills: [front-court-arrival-shadow]
   retest_metrics:
     - footwork_observations.front_arrival_timing should become on_time
-  source_ids: [LH_YT_DROP_FOOTWORK, LH_YT_RECEIVE_DROP_ALT, LH_YT_PRACTICAL_FOOTWORK]
+  source_ids: [LH_BILI_LIVE_QA_20240202, LH_BILI_SEASON_BV1UG4Y1M7B9, LH_BILI_SEASON_BV1QB4Y1Z73X]
   confidence: inferred

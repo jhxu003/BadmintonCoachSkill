@@ -8,7 +8,7 @@ This repository separates private video processing from public skill evidence.
 source-index public URL
   -> video manifest
   -> private metadata/audio/video/keyframe/model artifacts
-  -> public timestamp evidence summaries
+  -> public ASR timestamp review and visual visibility summaries
   -> human review
   -> skill framework, rubric, drill, or training-plan promotion
 ```
@@ -18,6 +18,8 @@ source-index public URL
 - Raw videos, subtitles, cookies, tokens, OCR dumps, VLM dumps, ASR transcripts, and paid material stay out of git.
 - Public evidence files may contain only original summaries, source ids, timestamps, topic tags, review status, and promotion decisions.
 - `content_model_candidate` means a model parsed the content, but a human still needs to review it.
+- `asr_timestamp_reviewed_public_safe` means the private ASR interval was checked and reduced to an original topic/timestamp summary; it supports routing but not visual mechanics.
+- `visual_model_candidate_reviewed_public_safe` and `pose_model_candidate_reviewed_public_safe` locate timestamps with usable visibility; they do not independently prove biomechanics.
 - `needs_content_model_review` means only metadata/title-level evidence exists; it must not be promoted into a deterministic skill rule.
 - `source_backed` is reserved for reviewed timestamp evidence or explicitly reviewed short public clips.
 
@@ -32,13 +34,17 @@ The first content-model pilot covered 30 public Bilibili jobs from `data/corpus/
 - Combined pilot + corpus jobs scanned for teaching windows: 409.
 - Sources with candidate windows: 401.
 - Public-safe timestamp candidate windows: 2567 in `data/corpus/video-asr-teaching-windows-full.yaml`.
+- Public-safe agent-reviewed ASR windows: 2567 in `data/corpus/video-asr-timestamp-review.yaml`.
+- Action-bearing visual review jobs: 396 with 5977 planned keyframes in `data/corpus/video-visual-review-manifest.yaml`.
+- Existing private VLM summaries: 30 sources and 336 keyframes in `data/corpus/video-visual-evidence-summary.yaml`.
+- Representative private pose summaries: 6 sources and 107 keyframes, all with detected people, in `data/corpus/video-pose-evidence-summary.yaml`.
 - `faster-whisper tiny` was rejected because badminton terms were unstable.
 - `mobiuslabsgmbh/faster-whisper-large-v3-turbo` is the accepted ASR model for candidate-window extraction.
 - `Qwen2.5-VL-3B-Instruct` with teaching-window-guided keyframe sampling remains the accepted visual candidate-review model from the pilot.
 
-The expanded Bilibili ASR pass parsed full audio. The visual pilot used sampled keyframes rather than dense full-video understanding. Future visual scaling should keep the same public/private boundary and should not promote model-only windows to firm rules until human review.
+The expanded Bilibili ASR pass parsed full audio and every selected teaching window now has a public-safe agent review. The visual layer uses sampled teaching-window keyframes rather than dense full-video understanding. Model-only visual or pose output must not become a firm biomechanical rule until a human reviews the referenced frames.
 
-Compute-node runs should use a conda-built runtime, node-local model cache, and node-local audio/video intermediates to avoid shared-filesystem stalls. In the pilot, shared `/dataStor` Python environments could enter NFS wait states; the stable pattern was to unpack the conda environment and cache models under `/tmp` on the GPU node, then copy back only small public-safe JSON/YAML/log summaries.
+`/dataStor` is shared across compute nodes, while each node has an independent `/tmp`. Keep large video, audio, keyframe, and model intermediates under the selected GPU node's `/tmp`, and copy back only small JSON/YAML/log summaries. A shared Conda environment may be used when that node reads NFS normally; if imports enter an NFS wait state, move the runtime or switch to a healthy node rather than moving heavy media back to the shared filesystem.
 
 ## Commands
 
@@ -91,4 +97,13 @@ After a batch run, rebuild the public-safe index:
 
 ```bash
 python3 scripts/rebuild_video_evidence_index.py
+```
+
+Build the reviewed ASR and visual coverage artifacts:
+
+```bash
+python3 scripts/build_asr_timestamp_review.py --manifest data/corpus/video-pilot-manifest.yaml --manifest data/corpus/video-corpus-manifest.yaml
+python3 scripts/build_visual_review_manifest.py --manifest data/corpus/video-pilot-manifest.yaml --manifest data/corpus/video-corpus-manifest.yaml
+python3 scripts/build_visual_evidence_summary.py --manifest data/corpus/video-pilot-manifest.yaml --manifest data/corpus/video-corpus-manifest.yaml
+python3 scripts/build_pose_evidence_summary.py --manifest data/corpus/video-pilot-manifest.yaml --manifest data/corpus/video-corpus-manifest.yaml
 ```

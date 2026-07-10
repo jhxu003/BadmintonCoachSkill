@@ -19,7 +19,7 @@
   retest_metrics:
     - phase_observations.drill_form_ok_rally_breaks should become false
     - phase_observations.pressure_success_rate should improve
-  source_ids: [LH_BILI_MATCH_TRANSFER, LH_YT_CONSISTENCY, LH_BILI_CORE_COMPETITION, LH_BILI_SEASON_BV1YV4Y1N7GX]
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX]
   confidence: inferred
 
 - rule_id: tactical-context-missing
@@ -42,5 +42,5 @@
   drills: [rally-context-retake]
   retest_metrics:
     - phase_observations.tactical_context_visible should become true
-  source_ids: [LH_YT_TACTICAL_INTEL, LH_BILI_CORE_COMPETITION, LH_YT_CONSISTENCY]
+  source_ids: [LH_BILI_MATCH_TRANSFER, LH_BILI_SEASON_BV1YV4Y1N7GX]
   confidence: hypothesis

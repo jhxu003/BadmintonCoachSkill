@@ -42,7 +42,7 @@ stage_status:
   vlm:
     status: ok
     stage: vlm
-    model: /tmp/jhxu-qwen25vl3b
+    model: Qwen2.5-VL-3B-compatible
     frame_count: 15
   pose:
     status: missing

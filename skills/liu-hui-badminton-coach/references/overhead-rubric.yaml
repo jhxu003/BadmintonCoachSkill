@@ -18,8 +18,8 @@
   drills: [contact-window-freeze]
   retest_metrics:
     - contact_point should become front_high
-  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_AUTH_CLIP, LH_YT_CONTACT_POINT, LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV1GO4Y1V7NS]
-  confidence: source_backed
+  source_ids: [LH_BILI_AUTH_CLIP, LH_BILI_CONTACT_POINT_CLEAR, LH_BILI_SEASON_BV1GO4Y1V7NS]
+  confidence: asr_timestamp_reviewed_public_safe
 
 - rule_id: low-elbow
   issue: Top elbow is not established before acceleration
@@ -45,8 +45,8 @@
   retest_metrics:
     - elbow_height_before_hit should become near_shoulder
     - wrist_elbow_sequence should become elbow_before_wrist
-  source_ids: [LH_YT_TOP_ELBOW_CLEAR, LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP]
-  confidence: source_backed
+  source_ids: [LH_BILI_SMASH_ELBOW, LH_BILI_AUTH_CLIP]
+  confidence: asr_timestamp_reviewed_public_safe
 
 - rule_id: collapsed-racket-structure
   issue: Racket-side frame collapses during preparation
@@ -68,7 +68,7 @@
   drills: [racket-frame-wall-check]
   retest_metrics:
     - racket_side_structure should become stable
-  source_ids: [LH_BILI_FRAMEWORK, LH_YT_THREE_FRAMEWORKS, LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
+  source_ids: [LH_BILI_FRAMEWORK, LH_BILI_CLEAR_FRAMEWORK, LH_BILI_SEASON_BV1XH4Y1R7GC, LH_BILI_FAV_BV15PBRB6EDK]
   confidence: inferred
 
 - rule_id: late-hip-rotation
@@ -91,7 +91,7 @@
   drills: [slow-chain-throw]
   retest_metrics:
     - hip_shoulder_sequence should become hip_before_arm
-  source_ids: [LH_YT_THREE_FRAMEWORKS, LH_BILI_FRAMEWORK, LH_YT_HIP_ROTATION, LH_BILI_FAV_BV1HRC5ZYESG]
+  source_ids: [LH_BILI_FRAMEWORK, LH_BILI_FAV_BV1HRC5ZYESG]
   confidence: inferred
 
 - rule_id: pronation-whip-misread
@@ -118,7 +118,7 @@
   retest_metrics:
     - wrist_elbow_sequence should become elbow_before_wrist
     - racket_side_structure should become stable
-  source_ids: [LH_YT_PRONATION_WHIP, LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_WRIST_WHIP_ERROR, LH_BILI_BIG_ARM_INTERNAL_ROTATION, LH_BILI_SEASON_BV19C4Y1S7Z2]
+  source_ids: [LH_BILI_INTERNAL_ROTATION_CUE, LH_BILI_WRIST_WHIP_ERROR, LH_BILI_BIG_ARM_INTERNAL_ROTATION, LH_BILI_SEASON_BV19C4Y1S7Z2]
   confidence: inferred
 
 - rule_id: short-follow-through
@@ -141,5 +141,5 @@
   drills: [complete-follow-through-line]
   retest_metrics:
     - follow_through should become complete
-  source_ids: [LH_YT_PRONATION_WHIP, LH_BILI_SMASH_ELBOW, LH_YT_WHIP_MECHANICS]
+  source_ids: [LH_BILI_SMASH_ELBOW]
   confidence: inferred
