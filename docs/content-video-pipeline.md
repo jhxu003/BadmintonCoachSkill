@@ -53,6 +53,21 @@ YouTube is excluded by project decision. Douyin and Instagram are retained as di
 
 Earlier `faster-whisper tiny`, Qwen2.5-VL-3B, and multi-frame VLM batching were evaluated and rejected for final corpus distillation.
 
+## Reviewed Keyframe Selection
+
+The 6064 sparse images are ASR-guided teaching-window samples, not automatically detected stroke-contact frames. Run the private review pass before treating them as useful teaching visuals:
+
+```bash
+python3 scripts/review_keyframe_quality.py \
+  --artifact-root <shared-private-video-corpus> \
+  --frame-root <node-local-keyframe-root> \
+  --output-dir <shared-private-keyframe-review>
+```
+
+The review joins the planned timestamp, structured VLM visibility, Pose person coverage, and the extracted JPEG. It scores exposure, contrast, sharpness, subject scale, racket visibility, action-bearing body state, topic compatibility, and visibility limits. Frames with no visible person or unusable image content are rejected; neutral-standing, cropped, small-subject, and racket-missing frames are penalized. Perceptual hashes suppress near duplicates within the same teaching window, and no more than three distinct frames are retained per window.
+
+Private outputs include a frame-level inventory, selection reasons, summary counts, an accepted/rejected comparison, a representative selected-frame sheet, and topic-specific contact sheets. These files remain under `data/raw-private/` and must not be committed.
+
 ## Reproducible Environment
 
 Create the video-processing environment from the pinned project file:
