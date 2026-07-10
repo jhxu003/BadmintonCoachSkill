@@ -37,7 +37,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
     parser.add_argument(
         "--keyframe-source",
-        choices=["fixed", "teaching-windows"],
+        choices=["fixed", "teaching-windows", "visual-review"],
         default="fixed",
     )
     parser.add_argument(
@@ -45,7 +45,7 @@ def parse_args() -> argparse.Namespace:
         default="data/corpus/video-asr-teaching-windows.yaml",
     )
     parser.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct")
-    parser.add_argument("--vlm-max-new-tokens", type=int, default=384)
+    parser.add_argument("--vlm-max-new-tokens", type=int, default=1536)
     parser.add_argument("--pose-model", default="yolo11n-pose.pt")
     parser.add_argument("--per-job-timeout", type=int, default=900)
     parser.add_argument("--metadata-timeout", type=int, default=120)
@@ -200,6 +200,8 @@ def run_one_job(
         job["job_id"],
         "--stages",
         args.stages,
+        "--offset",
+        "0",
         "--asr-model",
         args.asr_model,
         "--asr-device",

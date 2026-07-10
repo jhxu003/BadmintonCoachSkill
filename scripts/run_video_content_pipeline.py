@@ -15,6 +15,12 @@ sys.path.insert(0, str(ROOT / "src"))
 from badminton_coach_skill.video_corpus import load_yaml, write_evidence_index, write_yaml  # noqa: E402
 
 
+VLM_ARTIFACT_VERSION = 2
+POSE_ARTIFACT_VERSION = 2
+_VLM_RUNTIME_CACHE: dict[str, tuple[Any, Any, Any]] = {}
+_POSE_MODEL_CACHE: dict[str, Any] = {}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run public-video content parsing jobs and emit public-safe timestamp evidence."
@@ -29,6 +35,12 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=0,
         help="Process at most N jobs. 0 means all jobs.",
+    )
+    parser.add_argument(
+        "--offset",
+        type=int,
+        default=0,
+        help="Skip the first N selected jobs before applying --limit.",
     )
     parser.add_argument(
         "--job-id",
@@ -87,9 +99,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--keyframe-interval-seconds", type=int, default=20)
     parser.add_argument(
         "--keyframe-source",
-        choices=["fixed", "teaching-windows"],
+        choices=["fixed", "teaching-windows", "visual-review"],
         default="fixed",
-        help="Choose fixed-interval frames or ASR-derived teaching-window frames.",
+        help=(
+            "Choose fixed-interval frames, ASR-derived teaching-window frames, or the "
+            "exact planned_frames embedded in a visual pipeline manifest."
+        ),
     )
     parser.add_argument(
         "--teaching-windows",
@@ -101,7 +116,7 @@ def parse_args() -> argparse.Namespace:
         default="Qwen/Qwen2.5-VL-3B-Instruct",
         help="Transformers-compatible VLM checkpoint for private keyframe review.",
     )
-    parser.add_argument("--vlm-max-new-tokens", type=int, default=384)
+    parser.add_argument("--vlm-max-new-tokens", type=int, default=1536)
     parser.add_argument(
         "--pose-model",
         default="yolo11n-pose.pt",
@@ -177,6 +192,16 @@ def write_private_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def load_private_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    return data if isinstance(data, dict) else None
+
+
 def apply_private_root_override(job: dict[str, Any], private_root: str) -> dict[str, Any]:
     if not private_root:
         return job
@@ -224,6 +249,13 @@ def run_metadata(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any
 
 def run_download(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     path = ROOT / job["private_paths"]["video_file"]
+    existing = find_private_video(job)
+    if existing:
+        return {
+            "status": "ok",
+            "reason": "video already exists",
+            "video_path": str(existing),
+        }
     output_template = str(path) + ".%(ext)s"
     base_command = yt_dlp_command()
     if not base_command:
@@ -298,6 +330,21 @@ def keyframes_manifest_path(job: dict[str, Any]) -> Path:
 
 
 def planned_keyframes(job: dict[str, Any], args: argparse.Namespace) -> list[dict[str, Any]]:
+    if args.keyframe_source == "visual-review":
+        specs = []
+        for frame in job.get("planned_frames", []):
+            timestamp = max(int(round(float(frame.get("timestamp_seconds") or 0))), 0)
+            source_window_id = frame.get("source_window_id")
+            specs.append(
+                {
+                    "timestamp_seconds": timestamp,
+                    "source": "visual_review_manifest",
+                    "phase_sample": frame.get("phase_sample"),
+                    "source_window_id": source_window_id,
+                    "source_window_topic_tags": frame.get("topic_tags", []),
+                }
+            )
+        return specs
     count = max(args.keyframe_count, 0)
     if count <= 0:
         return []
@@ -377,13 +424,29 @@ def load_keyframes(job: dict[str, Any]) -> list[dict[str, Any]]:
 def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     output_dir = ROOT / job["private_paths"]["keyframes_dir"]
     manifest_path = keyframes_manifest_path(job)
+    frame_specs = planned_keyframes(job, args)
+    if not frame_specs:
+        result = {
+            "status": "failed",
+            "stage": "keyframes",
+            "reason": "no keyframes were planned for this job",
+            "keyframe_source": args.keyframe_source,
+            "requested_frame_count": 0,
+        }
+        write_private_json(manifest_path, result)
+        return result
     existing = load_keyframes(job)
-    if existing:
+    requested_timestamps = [item["timestamp_seconds"] for item in frame_specs]
+    existing_timestamps = [item.get("timestamp_seconds") for item in existing]
+    if existing and existing_timestamps == requested_timestamps:
         return {
             "status": "ok",
             "stage": "keyframes",
             "reason": "keyframes already exist",
+            "keyframe_source": args.keyframe_source,
+            "requested_frame_count": len(frame_specs),
             "frame_count": len(existing),
+            "failed_frame_count": 0,
             "manifest_path": str(manifest_path),
         }
     video_path = find_private_video(job)
@@ -398,7 +461,6 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
     output_dir.mkdir(parents=True, exist_ok=True)
     frames: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
-    frame_specs = planned_keyframes(job, args)
     try:
         from imageio_ffmpeg import get_ffmpeg_exe
     except Exception as ffmpeg_exc:
@@ -494,11 +556,19 @@ def run_keyframes(job: dict[str, Any], args: argparse.Namespace) -> dict[str, An
                     }
                 )
     result = {
-        "status": "ok" if frames else "failed",
+        "status": (
+            "ok"
+            if len(frames) == len(frame_specs)
+            else "partial"
+            if frames
+            else "failed"
+        ),
         "stage": "keyframes",
         "video_path": str(video_path),
         "keyframe_source": args.keyframe_source,
+        "requested_frame_count": len(frame_specs),
         "frame_count": len(frames),
+        "failed_frame_count": len(frame_specs) - len(frames),
         "frames": frames,
         "records": records,
     }
@@ -598,6 +668,44 @@ def run_ocr(job: dict[str, Any]) -> dict[str, Any]:
     return result
 
 
+def load_vlm_runtime(model_name: str) -> tuple[Any, Any, Any]:
+    cached = _VLM_RUNTIME_CACHE.get(model_name)
+    if cached:
+        return cached
+    import torch
+    from transformers import AutoConfig
+    from transformers import AutoProcessor
+    try:
+        from transformers import Qwen2_5_VLForConditionalGeneration
+    except Exception:
+        from transformers import AutoModelForVision2Seq as Qwen2_5_VLForConditionalGeneration
+
+    config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
+    config.base_model_tp_plan = None
+    for nested_name in ["text_config", "vision_config"]:
+        nested_config = getattr(config, nested_name, None)
+        if nested_config is not None and hasattr(nested_config, "base_model_tp_plan"):
+            nested_config.base_model_tp_plan = None
+    processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
+    torch_dtype = torch.float32
+    if torch.cuda.is_available():
+        torch_dtype = (
+            torch.bfloat16
+            if getattr(torch.cuda, "is_bf16_supported", lambda: False)()
+            else torch.float16
+        )
+    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+        model_name,
+        config=config,
+        torch_dtype=torch_dtype,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+    runtime = (torch, processor, model)
+    _VLM_RUNTIME_CACHE[model_name] = runtime
+    return runtime
+
+
 def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[str, Any]:
     private_path = ROOT / job["private_paths"]["vlm_json"]
     frames = load_keyframes(job)
@@ -609,15 +717,19 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         }
         write_private_json(private_path, result)
         return result
+    timestamps = [frame["timestamp_seconds"] for frame in frames[:18]]
+    existing = load_private_json(private_path)
+    if (
+        existing
+        and existing.get("status") == "ok"
+        and existing.get("artifact_version") == VLM_ARTIFACT_VERSION
+        and existing.get("timestamps_seconds") == timestamps
+        and existing.get("model") == model_name
+    ):
+        return existing
     try:
-        import torch
         from PIL import Image
-        from transformers import AutoConfig
-        from transformers import AutoProcessor
-        try:
-            from transformers import Qwen2_5_VLForConditionalGeneration
-        except Exception:
-            from transformers import AutoModelForVision2Seq as Qwen2_5_VLForConditionalGeneration
+        torch, processor, model = load_vlm_runtime(model_name)
     except Exception as exc:
         result = {
             "status": "skipped",
@@ -633,43 +745,20 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         for index, frame in enumerate(selected_frames)
     )
     prompt = (
-        "You are reviewing badminton coaching keyframes. For each image, describe only visible "
-        "evidence: player position, racket preparation, contact or pre-contact frame, lower-body "
-        "orientation, recovery state, and any on-screen teaching text. Do not infer invisible "
-        "biomechanics, coaching intent, or technical labels that are not directly visible. "
-        "If no stroke action is visible, say that no stroke action is visible. "
-        f"Images are ordered as: {frame_map}. Return concise JSON-like bullets in English "
-        "with timestamps."
+        "You are reviewing ordered badminton coaching keyframes. Report only directly visible "
+        "evidence. Never infer coaching intent, true joint rotation, force production, racket-face "
+        "angle, or shuttle contact when they are not visibly established. Images are ordered as: "
+        f"{frame_map}. Return one JSON object with a frames array. Each frame object must contain "
+        "image_index, timestamp_seconds, player_position, racket_preparation, contact_phase, "
+        "lower_body_orientation, recovery_state, on_screen_text_present, visibility_limits, and "
+        "confidence (low, medium, or high). Use null when a field is not visible. Also return a "
+        "sequence_observations array containing only visible changes across ordered frames."
     )
     try:
         images = [Image.open(frame["path"]).convert("RGB") for frame in selected_frames]
         content = [{"type": "image"} for _ in images]
         content.append({"type": "text", "text": prompt})
         messages = [{"role": "user", "content": content}]
-        config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
-        # This is single-GPU inference. Qwen2.5-VL's text config declares a
-        # tensor-parallel plan, but Transformers 4.52 only initializes its TP
-        # registry on torch>=2.5; torch 2.4 then fails during model construction.
-        config.base_model_tp_plan = None
-        for nested_name in ["text_config", "vision_config"]:
-            nested_config = getattr(config, nested_name, None)
-            if nested_config is not None and hasattr(nested_config, "base_model_tp_plan"):
-                nested_config.base_model_tp_plan = None
-        processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
-        torch_dtype = torch.float32
-        if torch.cuda.is_available():
-            torch_dtype = (
-                torch.bfloat16
-                if getattr(torch.cuda, "is_bf16_supported", lambda: False)()
-                else torch.float16
-            )
-        model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            model_name,
-            config=config,
-            torch_dtype=torch_dtype,
-            device_map="auto",
-            trust_remote_code=True,
-        )
         text = processor.apply_chat_template(
             messages,
             tokenize=False,
@@ -699,12 +788,15 @@ def run_vlm(job: dict[str, Any], model_name: str, max_new_tokens: int) -> dict[s
         result = {
             "status": "ok",
             "stage": "vlm",
+            "artifact_version": VLM_ARTIFACT_VERSION,
             "model": model_name,
             "frame_count": len(selected_frames),
             "frame_ids": [frame["frame_id"] for frame in selected_frames],
             "timestamps_seconds": [frame["timestamp_seconds"] for frame in selected_frames],
             "summary": output_text.strip(),
         }
+        for image in images:
+            image.close()
     except Exception as exc:
         result = {
             "status": "failed",
@@ -727,6 +819,16 @@ def run_pose(job: dict[str, Any], pose_model: str) -> dict[str, Any]:
         }
         write_private_json(private_path, result)
         return result
+    timestamps = [frame["timestamp_seconds"] for frame in frames]
+    existing = load_private_json(private_path)
+    if (
+        existing
+        and existing.get("status") == "ok"
+        and existing.get("artifact_version") == POSE_ARTIFACT_VERSION
+        and existing.get("timestamps_seconds") == timestamps
+        and Path(str(existing.get("model") or "")).name == Path(pose_model).name
+    ):
+        return existing
     try:
         from ultralytics import YOLO
     except Exception as exc:
@@ -738,7 +840,10 @@ def run_pose(job: dict[str, Any], pose_model: str) -> dict[str, Any]:
         write_private_json(private_path, result)
         return result
     try:
-        model = YOLO(pose_model)
+        model = _POSE_MODEL_CACHE.get(pose_model)
+        if model is None:
+            model = YOLO(pose_model)
+            _POSE_MODEL_CACHE[pose_model] = model
         frame_results = []
         for frame in frames:
             predictions = model(frame["path"], verbose=False)
@@ -749,14 +854,34 @@ def run_pose(job: dict[str, Any], pose_model: str) -> dict[str, Any]:
                     continue
                 xy = keypoints.xy.cpu().tolist()
                 conf = keypoints.conf.cpu().tolist() if keypoints.conf is not None else []
+                boxes = getattr(pred, "boxes", None)
+                box_xyxy = (
+                    boxes.xyxy.cpu().tolist()
+                    if boxes is not None and boxes.xyxy is not None
+                    else []
+                )
                 for person_index, points in enumerate(xy):
+                    person_confidence = (
+                        [round(float(value), 5) for value in conf[person_index]]
+                        if conf and person_index < len(conf)
+                        else []
+                    )
                     people.append(
                         {
                             "person_index": person_index,
                             "keypoint_count": len(points),
+                            "keypoints_xy": [
+                                [round(float(x), 3), round(float(y), 3)] for x, y in points
+                            ],
+                            "keypoint_confidence": person_confidence,
+                            "bbox_xyxy": (
+                                [round(float(value), 3) for value in box_xyxy[person_index]]
+                                if person_index < len(box_xyxy)
+                                else None
+                            ),
                             "mean_confidence": (
-                                round(sum(conf[person_index]) / len(conf[person_index]), 4)
-                                if conf and conf[person_index]
+                                round(sum(person_confidence) / len(person_confidence), 4)
+                                if person_confidence
                                 else None
                             ),
                         }
@@ -772,8 +897,10 @@ def run_pose(job: dict[str, Any], pose_model: str) -> dict[str, Any]:
         result = {
             "status": "ok",
             "stage": "pose",
+            "artifact_version": POSE_ARTIFACT_VERSION,
             "model": pose_model,
             "frame_count": len(frame_results),
+            "timestamps_seconds": timestamps,
             "frames": frame_results,
         }
     except Exception as exc:
@@ -1103,6 +1230,8 @@ def main() -> None:
     if args.job_id:
         requested = set(args.job_id)
         jobs = [job for job in jobs if job["job_id"] in requested]
+    if args.offset:
+        jobs = jobs[args.offset :]
     if args.limit:
         jobs = jobs[: args.limit]
     jobs = [apply_private_root_override(job, args.private_root_override) for job in jobs]

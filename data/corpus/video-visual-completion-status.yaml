@@ -1,0 +1,7940 @@
+visual_completion_run:
+  run_id: visual_completion_20260710
+  created_at: '2026-07-10'
+  manifest: data/corpus/video-visual-pipeline-manifest.yaml
+  summary:
+    total_jobs: 396
+    complete_jobs: 0
+    pending_jobs: 396
+    planned_frames: 5977
+    extracted_frames: 0
+    status_counts:
+      pending: 396
+      keyframes_missing: 396
+      vlm_missing: 371
+      pose_missing: 390
+      pose_ok: 6
+      vlm_ok: 25
+  completion_rule: A job is complete only when exact planned keyframes, VLM artifact
+    v2, and Pose artifact v2 are all status ok with matching frame counts.
+jobs:
+- job_id: corpus-001-lh_bili_season_bv1ed4y1s7vj
+  source_id: LH_BILI_SEASON_BV1ED4Y1S7VJ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-002-lh_bili_season_bv1qg4y127v9
+  source_id: LH_BILI_SEASON_BV1QG4Y127V9
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-003-lh_bili_season_bv1id4y1h7yf
+  source_id: LH_BILI_SEASON_BV1ID4Y1H7YF
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-004-lh_bili_season_bv15k411y7cx
+  source_id: LH_BILI_SEASON_BV15K411Y7CX
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-005-lh_bili_season_bv19d4y1l7uc
+  source_id: LH_BILI_SEASON_BV19D4Y1L7UC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-006-lh_bili_season_bv1ms4y1t7vr
+  source_id: LH_BILI_SEASON_BV1MS4Y1T7VR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-007-lh_bili_season_bv1cy411d7gl
+  source_id: LH_BILI_SEASON_BV1CY411D7GL
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-008-lh_bili_season_bv1sv4y167ct
+  source_id: LH_BILI_SEASON_BV1SV4Y167CT
+  review_priority: critical
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-009-lh_bili_season_bv1vx4y1j7ma
+  source_id: LH_BILI_SEASON_BV1VX4Y1J7MA
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-010-lh_bili_season_bv15d4y1p7ex
+  source_id: LH_BILI_SEASON_BV15D4Y1P7EX
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-011-lh_bili_season_bv1tm411h7lp
+  source_id: LH_BILI_SEASON_BV1TM411H7LP
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-012-lh_bili_season_bv1z54y1a74y
+  source_id: LH_BILI_SEASON_BV1Z54Y1A74Y
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-013-lh_bili_season_bv1te4y1c7qn
+  source_id: LH_BILI_SEASON_BV1TE4Y1C7QN
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-014-lh_bili_season_bv1884y1h7mi
+  source_id: LH_BILI_SEASON_BV1884Y1H7MI
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-015-lh_bili_season_bv1f54y1w7nr
+  source_id: LH_BILI_SEASON_BV1F54Y1W7NR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-016-lh_bili_season_bv1go4y1v7ns
+  source_id: LH_BILI_SEASON_BV1GO4Y1V7NS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-017-lh_bili_season_bv1ms4y157m3
+  source_id: LH_BILI_SEASON_BV1MS4Y157M3
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-018-lh_bili_season_bv1n54y1u7m6
+  source_id: LH_BILI_SEASON_BV1N54Y1U7M6
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-019-lh_bili_season_bv1h8411c7p2
+  source_id: LH_BILI_SEASON_BV1H8411C7P2
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-020-lh_bili_season_bv1x24y1372d
+  source_id: LH_BILI_SEASON_BV1X24Y1372D
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-021-lh_bili_season_bv1ss4y1v7tb
+  source_id: LH_BILI_SEASON_BV1SS4Y1V7TB
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-022-lh_bili_season_bv1et411r76m
+  source_id: LH_BILI_SEASON_BV1ET411R76M
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-023-lh_bili_season_bv1a54y1t7pe
+  source_id: LH_BILI_SEASON_BV1A54Y1T7PE
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-024-lh_bili_season_bv17l411k79k
+  source_id: LH_BILI_SEASON_BV17L411K79K
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-025-lh_bili_season_bv1e24y1e75q
+  source_id: LH_BILI_SEASON_BV1E24Y1E75Q
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-026-lh_bili_season_bv1tt411r7ft
+  source_id: LH_BILI_SEASON_BV1TT411R7FT
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-027-lh_bili_season_bv1tm4y1b7z8
+  source_id: LH_BILI_SEASON_BV1TM4Y1B7Z8
+  review_priority: high
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-028-lh_bili_season_bv1tt411r7uu
+  source_id: LH_BILI_SEASON_BV1TT411R7UU
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-029-lh_bili_season_bv1zx4y1d7ae
+  source_id: LH_BILI_SEASON_BV1ZX4Y1D7AE
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-030-lh_bili_season_bv1jk4y147ec
+  source_id: LH_BILI_SEASON_BV1JK4Y147EC
+  review_priority: critical
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-031-lh_bili_season_bv1sk4y1x71w
+  source_id: LH_BILI_SEASON_BV1SK4Y1X71W
+  review_priority: standard
+  planned_frame_count: 4
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-032-lh_bili_season_bv1vx4y1a71t
+  source_id: LH_BILI_SEASON_BV1VX4Y1A71T
+  review_priority: critical
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-033-lh_bili_season_bv1kk4y147fq
+  source_id: LH_BILI_SEASON_BV1KK4Y147FQ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-034-lh_bili_season_bv1sc411l7ur
+  source_id: LH_BILI_SEASON_BV1SC411L7UR
+  review_priority: high
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-035-lh_bili_season_bv1ml411q7qa
+  source_id: LH_BILI_SEASON_BV1ML411Q7QA
+  review_priority: critical
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-036-lh_bili_season_bv1un411t72o
+  source_id: LH_BILI_SEASON_BV1UN411T72O
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-037-lh_bili_season_bv1mm411m77u
+  source_id: LH_BILI_SEASON_BV1MM411M77U
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-038-lh_bili_season_bv19n411a7py
+  source_id: LH_BILI_SEASON_BV19N411A7PY
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-039-lh_bili_season_bv1yv4y1n7gx
+  source_id: LH_BILI_SEASON_BV1YV4Y1N7GX
+  review_priority: critical
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-040-lh_bili_season_bv1xm4y1b73w
+  source_id: LH_BILI_SEASON_BV1XM4Y1B73W
+  review_priority: high
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-041-lh_bili_season_bv1o24y1f7hs
+  source_id: LH_BILI_SEASON_BV1O24Y1F7HS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-042-lh_bili_season_bv1fa4y1n7p7
+  source_id: LH_BILI_SEASON_BV1FA4Y1N7P7
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-043-lh_bili_season_bv1ro4y157ag
+  source_id: LH_BILI_SEASON_BV1RO4Y157AG
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-044-lh_bili_season_bv1cv4y1o7h3
+  source_id: LH_BILI_SEASON_BV1CV4Y1O7H3
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-045-lh_bili_season_bv1qm4y127ms
+  source_id: LH_BILI_SEASON_BV1QM4Y127MS
+  review_priority: critical
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-047-lh_bili_season_bv1lv4y1e7oa
+  source_id: LH_BILI_SEASON_BV1LV4Y1E7OA
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-048-lh_bili_season_bv1ss4y1w7pg
+  source_id: LH_BILI_SEASON_BV1SS4Y1W7PG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 18
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-049-lh_bili_season_bv1th411e7lg
+  source_id: LH_BILI_SEASON_BV1TH411E7LG
+  review_priority: high
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-050-lh_bili_season_bv1ug4y1m7b9
+  source_id: LH_BILI_SEASON_BV1UG4Y1M7B9
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-051-lh_bili_season_bv1ws4y1a7nd
+  source_id: LH_BILI_SEASON_BV1WS4Y1A7ND
+  review_priority: high
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-052-lh_bili_season_bv11c411n7cw
+  source_id: LH_BILI_SEASON_BV11C411N7CW
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-053-lh_bili_season_bv15x4y1m7or
+  source_id: LH_BILI_SEASON_BV15X4Y1M7OR
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-054-lh_bili_season_bv1av4y1f7gn
+  source_id: LH_BILI_SEASON_BV1AV4Y1F7GN
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-055-lh_bili_season_bv1dp411s7zw
+  source_id: LH_BILI_SEASON_BV1DP411S7ZW
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-056-lh_bili_season_bv1qm4y127vu
+  source_id: LH_BILI_SEASON_BV1QM4Y127VU
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-057-lh_bili_season_bv1tl411v7i1
+  source_id: LH_BILI_SEASON_BV1TL411V7I1
+  review_priority: high
+  planned_frame_count: 3
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-058-lh_bili_season_bv16p411s7rq
+  source_id: LH_BILI_SEASON_BV16P411S7RQ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-059-lh_bili_season_bv1bm4y1274p
+  source_id: LH_BILI_SEASON_BV1BM4Y1274P
+  review_priority: critical
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-060-lh_bili_season_bv1uh4y1h7kj
+  source_id: LH_BILI_SEASON_BV1UH4Y1H7KJ
+  review_priority: critical
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-061-lh_bili_season_bv1wa4y1p7ig
+  source_id: LH_BILI_SEASON_BV1WA4Y1P7IG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-062-lh_bili_season_bv1uk4y1n7bg
+  source_id: LH_BILI_SEASON_BV1UK4Y1N7BG
+  review_priority: high
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-063-lh_bili_season_bv1um4y1c7t7
+  source_id: LH_BILI_SEASON_BV1UM4Y1C7T7
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-064-lh_bili_fav_bv1wm4y1h7gy
+  source_id: LH_BILI_FAV_BV1WM4Y1H7GY
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-065-lh_bili_season_bv15p411m7gg
+  source_id: LH_BILI_SEASON_BV15P411M7GG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-066-lh_bili_season_bv1tv4y1k73x
+  source_id: LH_BILI_SEASON_BV1TV4Y1K73X
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-067-lh_bili_season_bv1ym411g74x
+  source_id: LH_BILI_SEASON_BV1YM411G74X
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-068-lh_bili_season_bv1am4y1b7zv
+  source_id: LH_BILI_SEASON_BV1AM4Y1B7ZV
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-069-lh_bili_season_bv1uo4y1x71b
+  source_id: LH_BILI_SEASON_BV1UO4Y1X71B
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-070-lh_bili_season_bv17k4y1j7fq
+  source_id: LH_BILI_SEASON_BV17K4Y1J7FQ
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-071-lh_bili_season_bv19v4y1k7vy
+  source_id: LH_BILI_SEASON_BV19V4Y1K7VY
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-072-lh_bili_season_bv1jg4y157nr
+  source_id: LH_BILI_SEASON_BV1JG4Y157NR
+  review_priority: critical
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-073-lh_bili_season_bv1mk4y1l763
+  source_id: LH_BILI_SEASON_BV1MK4Y1L763
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-074-lh_bili_season_bv1eg4y1f7l9
+  source_id: LH_BILI_SEASON_BV1EG4Y1F7L9
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-075-lh_bili_season_bv1i8411z7ku
+  source_id: LH_BILI_SEASON_BV1I8411Z7KU
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-076-lh_bili_season_bv19w4y1q7x4
+  source_id: LH_BILI_SEASON_BV19W4Y1Q7X4
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-077-lh_bili_season_bv1eo4y1p76b
+  source_id: LH_BILI_SEASON_BV1EO4Y1P76B
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-078-lh_bili_season_bv1ug4y1k7qy
+  source_id: LH_BILI_SEASON_BV1UG4Y1K7QY
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-079-lh_bili_season_bv11h4y137lf
+  source_id: LH_BILI_SEASON_BV11H4Y137LF
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-080-lh_bili_season_bv1vm4y1y7as
+  source_id: LH_BILI_SEASON_BV1VM4Y1Y7AS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-081-lh_bili_season_bv1lf411o7jh
+  source_id: LH_BILI_SEASON_BV1LF411O7JH
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-083-lh_bili_season_bv1mf41197yh
+  source_id: LH_BILI_SEASON_BV1MF41197YH
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-084-lh_bili_season_bv17v4y1a7cu
+  source_id: LH_BILI_SEASON_BV17V4Y1A7CU
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-085-lh_bili_season_bv1jp411y7j8
+  source_id: LH_BILI_SEASON_BV1JP411Y7J8
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-086-lh_bili_season_bv1vp411y7fr
+  source_id: LH_BILI_SEASON_BV1VP411Y7FR
+  review_priority: high
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-087-lh_bili_season_bv1p94y1i7gm
+  source_id: LH_BILI_SEASON_BV1P94Y1I7GM
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-088-lh_bili_season_bv19h4y1j7g5
+  source_id: LH_BILI_SEASON_BV19H4Y1J7G5
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-089-lh_bili_season_bv1tv411n7n6
+  source_id: LH_BILI_SEASON_BV1TV411N7N6
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-090-lh_bili_season_bv1zh4y1f7q1
+  source_id: LH_BILI_SEASON_BV1ZH4Y1F7Q1
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-091-lh_bili_season_bv1c14y1r73r
+  source_id: LH_BILI_SEASON_BV1C14Y1R73R
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-092-lh_bili_season_bv1au411v7j2
+  source_id: LH_BILI_SEASON_BV1AU411V7J2
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-093-lh_bili_season_bv1rx4y197aq
+  source_id: LH_BILI_SEASON_BV1RX4Y197AQ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-094-lh_bili_season_bv1h8411276f
+  source_id: LH_BILI_SEASON_BV1H8411276F
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-095-lh_bili_season_bv1eu4y117lb
+  source_id: LH_BILI_SEASON_BV1EU4Y117LB
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-096-lh_bili_season_bv1nn411a7va
+  source_id: LH_BILI_SEASON_BV1NN411A7VA
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-097-lh_bili_season_bv1wx4y197qk
+  source_id: LH_BILI_SEASON_BV1WX4Y197QK
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-098-lh_bili_season_bv1xh4y1c7wb
+  source_id: LH_BILI_SEASON_BV1XH4Y1C7WB
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-099-lh_bili_season_bv1xh4y1r7gc
+  source_id: LH_BILI_SEASON_BV1XH4Y1R7GC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-100-lh_bili_season_bv1a8411r7vg
+  source_id: LH_BILI_SEASON_BV1A8411R7VG
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-101-lh_bili_season_bv1if411k7r2
+  source_id: LH_BILI_SEASON_BV1IF411K7R2
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 18
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-102-lh_bili_season_bv1gj411k7oq
+  source_id: LH_BILI_SEASON_BV1GJ411K7OQ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-103-lh_bili_season_bv1dh4y1h7vw
+  source_id: LH_BILI_SEASON_BV1DH4Y1H7VW
+  review_priority: high
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-104-lh_bili_season_bv1784y1s7pf
+  source_id: LH_BILI_SEASON_BV1784Y1S7PF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-105-lh_bili_season_bv1mw41117f1
+  source_id: LH_BILI_SEASON_BV1MW41117F1
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-106-lh_bili_season_bv14m4y1376b
+  source_id: LH_BILI_SEASON_BV14M4Y1376B
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-107-lh_bili_season_bv1p34y1v7qa
+  source_id: LH_BILI_SEASON_BV1P34Y1V7QA
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-108-lh_bili_season_bv1qc4y1r7jp
+  source_id: LH_BILI_SEASON_BV1QC4Y1R7JP
+  review_priority: critical
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-109-lh_bili_season_bv1qb4y1z73x
+  source_id: LH_BILI_SEASON_BV1QB4Y1Z73X
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 17
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-110-lh_bili_season_bv1k34y1g7fv
+  source_id: LH_BILI_SEASON_BV1K34Y1G7FV
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-111-lh_bili_season_bv1fb4y1z7cd
+  source_id: LH_BILI_SEASON_BV1FB4Y1Z7CD
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-112-lh_bili_season_bv1in411x78r
+  source_id: LH_BILI_SEASON_BV1IN411X78R
+  review_priority: high
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-113-lh_bili_season_bv1uq4y1h7gg
+  source_id: LH_BILI_SEASON_BV1UQ4Y1H7GG
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-114-lh_bili_season_bv1ag411x7fr
+  source_id: LH_BILI_SEASON_BV1AG411X7FR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-115-lh_bili_season_bv15e411q713
+  source_id: LH_BILI_SEASON_BV15E411Q713
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-116-lh_bili_season_bv1hz4y1a7xq
+  source_id: LH_BILI_SEASON_BV1HZ4Y1A7XQ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-117-lh_bili_season_bv1hq4y1x7lk
+  source_id: LH_BILI_SEASON_BV1HQ4Y1X7LK
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-118-lh_bili_season_bv1gw411n772
+  source_id: LH_BILI_SEASON_BV1GW411N772
+  review_priority: high
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-119-lh_bili_season_bv1xj411w7yz
+  source_id: LH_BILI_SEASON_BV1XJ411W7YZ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-120-lh_bili_season_bv1ic411m7jf
+  source_id: LH_BILI_SEASON_BV1IC411M7JF
+  review_priority: critical
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-121-lh_bili_season_bv1qe411b73p
+  source_id: LH_BILI_SEASON_BV1QE411B73P
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-122-lh_bili_season_bv1cj411n7zv
+  source_id: LH_BILI_SEASON_BV1CJ411N7ZV
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-123-lh_bili_season_bv1zi4y1h7he
+  source_id: LH_BILI_SEASON_BV1ZI4Y1H7HE
+  review_priority: critical
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-124-lh_bili_season_bv1fc4y1i7kz
+  source_id: LH_BILI_SEASON_BV1FC4Y1I7KZ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-125-lh_bili_season_bv1xe41167tb
+  source_id: LH_BILI_SEASON_BV1XE41167TB
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-126-lh_bili_season_bv1ji4y1r7zj
+  source_id: LH_BILI_SEASON_BV1JI4Y1R7ZJ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-127-lh_bili_season_bv1hq4y177qa
+  source_id: LH_BILI_SEASON_BV1HQ4Y177QA
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-128-lh_bili_season_bv1oc4y1i7bk
+  source_id: LH_BILI_SEASON_BV1OC4Y1I7BK
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-129-lh_bili_season_bv19g4y1s75f
+  source_id: LH_BILI_SEASON_BV19G4Y1S75F
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-130-lh_bili_season_bv1zt4y1w7ef
+  source_id: LH_BILI_SEASON_BV1ZT4Y1W7EF
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-131-lh_bili_season_bv1ra4y1q75z
+  source_id: LH_BILI_SEASON_BV1RA4Y1Q75Z
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-132-lh_bili_season_bv16g411b7fc
+  source_id: LH_BILI_SEASON_BV16G411B7FC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-133-lh_bili_season_bv1dw4y1a7fx
+  source_id: LH_BILI_SEASON_BV1DW4Y1A7FX
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-134-lh_bili_season_bv1h64y1n7iz
+  source_id: LH_BILI_SEASON_BV1H64Y1N7IZ
+  review_priority: high
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-135-lh_bili_season_bv11c411s7gq
+  source_id: LH_BILI_SEASON_BV11C411S7GQ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-136-lh_bili_season_bv1tc4y1c77u
+  source_id: LH_BILI_SEASON_BV1TC4Y1C77U
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-137-lh_bili_season_bv1764y1a79d
+  source_id: LH_BILI_SEASON_BV1764Y1A79D
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-138-lh_bili_season_bv1dg4y1y74q
+  source_id: LH_BILI_SEASON_BV1DG4Y1Y74Q
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-139-lh_bili_season_bv1k6421g7yb
+  source_id: LH_BILI_SEASON_BV1K6421G7YB
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-140-lh_bili_season_bv1r2421w7dx
+  source_id: LH_BILI_SEASON_BV1R2421W7DX
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-141-lh_bili_live_qa_20240202
+  source_id: LH_BILI_LIVE_QA_20240202
+  review_priority: critical
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-142-lh_bili_season_bv1rp421d7om
+  source_id: LH_BILI_SEASON_BV1RP421D7OM
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-143-lh_bili_season_bv1jj4m1b7wm
+  source_id: LH_BILI_SEASON_BV1JJ4M1B7WM
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-144-lh_bili_season_bv1mm411d7vq
+  source_id: LH_BILI_SEASON_BV1MM411D7VQ
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-145-lh_bili_season_bv1sj4m1x7x9
+  source_id: LH_BILI_SEASON_BV1SJ4M1X7X9
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-146-lh_bili_season_bv1g6421u77h
+  source_id: LH_BILI_SEASON_BV1G6421U77H
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-147-lh_bili_season_bv1y4421f7kv
+  source_id: LH_BILI_SEASON_BV1Y4421F7KV
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-148-lh_bili_season_bv16h4y1e7yc
+  source_id: LH_BILI_SEASON_BV16H4Y1E7YC
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-149-lh_bili_season_bv1zz421y7yt
+  source_id: LH_BILI_SEASON_BV1ZZ421Y7YT
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-151-lh_bili_season_bv1ai421d7ns
+  source_id: LH_BILI_SEASON_BV1AI421D7NS
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-152-lh_bili_season_bv15j421u7xq
+  source_id: LH_BILI_SEASON_BV15J421U7XQ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-153-lh_bili_season_bv1zy421i7nu
+  source_id: LH_BILI_SEASON_BV1ZY421I7NU
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-154-lh_bili_season_bv1ud421e7uk
+  source_id: LH_BILI_SEASON_BV1UD421E7UK
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 18
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-155-lh_bili_season_bv1pd421j7tp
+  source_id: LH_BILI_SEASON_BV1PD421J7TP
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-156-lh_bili_season_bv1yf421f7rt
+  source_id: LH_BILI_SEASON_BV1YF421F7RT
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-157-lh_bili_season_bv1az421f7xp
+  source_id: LH_BILI_SEASON_BV1AZ421F7XP
+  review_priority: high
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-158-lh_bili_season_bv1mm411d7ji
+  source_id: LH_BILI_SEASON_BV1MM411D7JI
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-159-lh_bili_season_bv1yz421y7aa
+  source_id: LH_BILI_SEASON_BV1YZ421Y7AA
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-160-lh_bili_season_bv1rx421m7rq
+  source_id: LH_BILI_SEASON_BV1RX421M7RQ
+  review_priority: critical
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-161-lh_bili_season_bv14e421m7ye
+  source_id: LH_BILI_SEASON_BV14E421M7YE
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-162-lh_bili_season_bv1rd421n7ic
+  source_id: LH_BILI_SEASON_BV1RD421N7IC
+  review_priority: critical
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-163-lh_bili_season_bv1hz421e7xr
+  source_id: LH_BILI_SEASON_BV1HZ421E7XR
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-164-lh_bili_season_bv1wm411m7uf
+  source_id: LH_BILI_SEASON_BV1WM411M7UF
+  review_priority: high
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-166-lh_bili_season_bv1rx4y1b7u1
+  source_id: LH_BILI_SEASON_BV1RX4Y1B7U1
+  review_priority: critical
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-167-lh_bili_season_bv1up421d7ng
+  source_id: LH_BILI_SEASON_BV1UP421D7NG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-168-lh_bili_season_bv1az421u7kk
+  source_id: LH_BILI_SEASON_BV1AZ421U7KK
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-169-lh_bili_season_bv1ub42187dy
+  source_id: LH_BILI_SEASON_BV1UB42187DY
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-170-lh_bili_season_bv1gi421y7rp
+  source_id: LH_BILI_SEASON_BV1GI421Y7RP
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-171-lh_bili_season_bv1ni421k7vr
+  source_id: LH_BILI_SEASON_BV1NI421K7VR
+  review_priority: high
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-172-lh_bili_season_bv1vm421m7co
+  source_id: LH_BILI_SEASON_BV1VM421M7CO
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-174-lh_bili_season_bv1zd421g7x9
+  source_id: LH_BILI_SEASON_BV1ZD421G7X9
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-175-lh_bili_season_bv1wi421q7ax
+  source_id: LH_BILI_SEASON_BV1WI421Q7AX
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-176-lh_bili_season_bv1cd421v7qw
+  source_id: LH_BILI_SEASON_BV1CD421V7QW
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-177-lh_bili_season_bv1di421s7l3
+  source_id: LH_BILI_SEASON_BV1DI421S7L3
+  review_priority: critical
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-178-lh_bili_season_bv1k7421f7wd
+  source_id: LH_BILI_SEASON_BV1K7421F7WD
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-179-lh_bili_season_bv1bs411k7t6
+  source_id: LH_BILI_SEASON_BV1BS411K7T6
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-180-lh_bili_season_bv1wm4m167jx
+  source_id: LH_BILI_SEASON_BV1WM4M167JX
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-181-lh_bili_season_bv1cy411b7mj
+  source_id: LH_BILI_SEASON_BV1CY411B7MJ
+  review_priority: high
+  planned_frame_count: 3
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-182-lh_bili_season_bv1cw4m1e7pb
+  source_id: LH_BILI_SEASON_BV1CW4M1E7PB
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-183-lh_bili_season_bv1a6421z7le
+  source_id: LH_BILI_SEASON_BV1A6421Z7LE
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-184-lh_bili_season_bv1e4421s76x
+  source_id: LH_BILI_SEASON_BV1E4421S76X
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-185-lh_bili_season_bv1xs421t74y
+  source_id: LH_BILI_SEASON_BV1XS421T74Y
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-186-lh_bili_season_bv1z4421s776
+  source_id: LH_BILI_SEASON_BV1Z4421S776
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-187-lh_bili_season_bv1qs42197dd
+  source_id: LH_BILI_SEASON_BV1QS42197DD
+  review_priority: critical
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-188-lh_bili_season_bv1xr421t7z3
+  source_id: LH_BILI_SEASON_BV1XR421T7Z3
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-189-lh_bili_season_bv1jt421k7gy
+  source_id: LH_BILI_SEASON_BV1JT421K7GY
+  review_priority: high
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-190-lh_bili_season_bv1mb421n77f
+  source_id: LH_BILI_SEASON_BV1MB421N77F
+  review_priority: critical
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-191-lh_bili_season_bv1mz421t7lr
+  source_id: LH_BILI_SEASON_BV1MZ421T7LR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-192-lh_bili_season_bv13u411s7am
+  source_id: LH_BILI_SEASON_BV13U411S7AM
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-193-lh_bili_season_bv1ez421i7px
+  source_id: LH_BILI_SEASON_BV1EZ421I7PX
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-194-lh_bili_season_bv1su411u7fd
+  source_id: LH_BILI_SEASON_BV1SU411U7FD
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-195-lh_bili_season_bv1ms421x7sn
+  source_id: LH_BILI_SEASON_BV1MS421X7SN
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-196-lh_bili_season_bv1bs421x7ha
+  source_id: LH_BILI_SEASON_BV1BS421X7HA
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-197-lh_bili_season_bv1kz421i7cj
+  source_id: LH_BILI_SEASON_BV1KZ421I7CJ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-198-lh_bili_season_bv1px4y147ug
+  source_id: LH_BILI_SEASON_BV1PX4Y147UG
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-199-lh_bili_season_bv1bi421h7b5
+  source_id: LH_BILI_SEASON_BV1BI421H7B5
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-200-lh_bili_season_bv1je4m1d7x2
+  source_id: LH_BILI_SEASON_BV1JE4M1D7X2
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-201-lh_bili_season_bv1px4y1s7gl
+  source_id: LH_BILI_SEASON_BV1PX4Y1S7GL
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-202-lh_bili_season_bv1wm4m1173q
+  source_id: LH_BILI_SEASON_BV1WM4M1173Q
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-203-lh_bili_season_bv1ow4m1r7x8
+  source_id: LH_BILI_SEASON_BV1OW4M1R7X8
+  review_priority: high
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-204-lh_bili_season_bv1cs42197qo
+  source_id: LH_BILI_SEASON_BV1CS42197QO
+  review_priority: critical
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-205-lh_bili_season_bv11w4m167ui
+  source_id: LH_BILI_SEASON_BV11W4M167UI
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-206-lh_bili_season_bv11y411h74p
+  source_id: LH_BILI_SEASON_BV11Y411H74P
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-207-lh_bili_season_bv1em4m1a7of
+  source_id: LH_BILI_SEASON_BV1EM4M1A7OF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-208-lh_bili_season_bv1gkpcemexm
+  source_id: LH_BILI_SEASON_BV1GKPCEMEXM
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-209-lh_bili_season_bv1wg4jedetk
+  source_id: LH_BILI_SEASON_BV1WG4JEDETK
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-210-lh_bili_season_bv1uqtge5enw
+  source_id: LH_BILI_SEASON_BV1UQTGE5ENW
+  review_priority: high
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-211-lh_bili_season_bv1vxtfesenw
+  source_id: LH_BILI_SEASON_BV1VXTFESENW
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-212-lh_bili_season_bv1ecsbeaemr
+  source_id: LH_BILI_SEASON_BV1ECSBEAEMR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-213-lh_bili_season_bv17t2wyxef3
+  source_id: LH_BILI_SEASON_BV17T2WYXEF3
+  review_priority: critical
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-214-lh_bili_season_bv1zx2wydesv
+  source_id: LH_BILI_SEASON_BV1ZX2WYDESV
+  review_priority: critical
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-215-lh_bili_season_bv1kc2uy8elq
+  source_id: LH_BILI_SEASON_BV1KC2UY8ELQ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-216-lh_bili_season_bv19x2ryfebu
+  source_id: LH_BILI_SEASON_BV19X2RYFEBU
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-217-lh_bili_season_bv11kmpy2esb
+  source_id: LH_BILI_SEASON_BV11KMPY2ESB
+  review_priority: high
+  planned_frame_count: 3
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-218-lh_bili_season_bv1bfmnynen5
+  source_id: LH_BILI_SEASON_BV1BFMNYNEN5
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-219-lh_bili_season_bv1xacmybeo7
+  source_id: LH_BILI_SEASON_BV1XACMYBEO7
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-220-lh_bili_season_bv1gtcdyze69
+  source_id: LH_BILI_SEASON_BV1GTCDYZE69
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-221-lh_bili_season_bv1xrywy8edw
+  source_id: LH_BILI_SEASON_BV1XRYWY8EDW
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-222-lh_bili_season_bv1mh1py5eqq
+  source_id: LH_BILI_SEASON_BV1MH1PY5EQQ
+  review_priority: standard
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-223-lh_bili_fav_bv1ys1ayke54
+  source_id: LH_BILI_FAV_BV1YS1AYKE54
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-224-lh_bili_season_bv1wksty7e8w
+  source_id: LH_BILI_SEASON_BV1WKSTY7E8W
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-225-lh_bili_season_bv1vpdnyjepu
+  source_id: LH_BILI_SEASON_BV1VPDNYJEPU
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-226-lh_bili_season_bv1cjdqyuegc
+  source_id: LH_BILI_SEASON_BV1CJDQYUEGC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-227-lh_bili_season_bv1cadqygeis
+  source_id: LH_BILI_SEASON_BV1CADQYGEIS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-228-lh_bili_season_bv1eadqypejo
+  source_id: LH_BILI_SEASON_BV1EADQYPEJO
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-229-lh_bili_season_bv15cm2y1eui
+  source_id: LH_BILI_SEASON_BV15CM2Y1EUI
+  review_priority: critical
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-230-lh_bili_season_bv1ezu3ydeys
+  source_id: LH_BILI_SEASON_BV1EZU3YDEYS
+  review_priority: high
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-231-lh_bili_season_bv1cxsny2ekp
+  source_id: LH_BILI_SEASON_BV1CXSNY2EKP
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-232-lh_bili_season_bv1kxbeyiebj
+  source_id: LH_BILI_SEASON_BV1KXBEYIEBJ
+  review_priority: standard
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-233-lh_bili_season_bv1lnzzy3edv
+  source_id: LH_BILI_SEASON_BV1LNZZY3EDV
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-234-lh_bili_season_bv1wezoyvebn
+  source_id: LH_BILI_SEASON_BV1WEZOYVEBN
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-235-lh_bili_season_bv1tki1ybeul
+  source_id: LH_BILI_SEASON_BV1TKI1YBEUL
+  review_priority: high
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-236-lh_bili_season_bv18kqwymex7
+  source_id: LH_BILI_SEASON_BV18KQWYMEX7
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-237-lh_bili_season_bv19wqpyyey9
+  source_id: LH_BILI_SEASON_BV19WQPYYEY9
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-238-lh_bili_fav_bv1srqdyzea3
+  source_id: LH_BILI_FAV_BV1SRQDYZEA3
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-239-lh_bili_season_bv158qhy5ela
+  source_id: LH_BILI_SEASON_BV158QHY5ELA
+  review_priority: critical
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-240-lh_bili_season_bv1bqbfywepu
+  source_id: LH_BILI_SEASON_BV1BQBFYWEPU
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-241-lh_bili_season_bv1g8cfyveke
+  source_id: LH_BILI_SEASON_BV1G8CFYVEKE
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-242-lh_bili_season_bv1b9cryfetr
+  source_id: LH_BILI_SEASON_BV1B9CRYFETR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-243-lh_bili_season_bv1bbcbyzedr
+  source_id: LH_BILI_SEASON_BV1BBCBYZEDR
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-244-lh_bili_season_bv1e76uy9eeb
+  source_id: LH_BILI_SEASON_BV1E76UY9EEB
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-245-lh_bili_season_bv1i3rpyje6v
+  source_id: LH_BILI_SEASON_BV1I3RPYJE6V
+  review_priority: high
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-246-lh_bili_season_bv1qdr3ybecn
+  source_id: LH_BILI_SEASON_BV1QDR3YBECN
+  review_priority: high
+  planned_frame_count: 2
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-247-lh_bili_season_bv1tdruyte46
+  source_id: LH_BILI_SEASON_BV1TDRUYTE46
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-248-lh_bili_season_bv1rurkywe8x
+  source_id: LH_BILI_SEASON_BV1RURKYWE8X
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-249-lh_bili_season_bv1rachesepm
+  source_id: LH_BILI_SEASON_BV1RACHESEPM
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-250-lh_bili_season_bv1dkc2eeeql
+  source_id: LH_BILI_SEASON_BV1DKC2EEEQL
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-251-lh_bili_season_bv1szc8eqevs
+  source_id: LH_BILI_SEASON_BV1SZC8EQEVS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-252-lh_bili_season_bv11nwmebeqk
+  source_id: LH_BILI_SEASON_BV11NWMEBEQK
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-253-lh_bili_season_bv1tqfxecehy
+  source_id: LH_BILI_SEASON_BV1TQFXECEHY
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-254-lh_bili_season_bv1fafoe7exf
+  source_id: LH_BILI_SEASON_BV1FAFOE7EXF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-255-lh_bili_season_bv1ucpreveje
+  source_id: LH_BILI_SEASON_BV1UCPREVEJE
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-256-lh_bili_season_bv1yinbezeep
+  source_id: LH_BILI_SEASON_BV1YINBEZEEP
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-257-lh_bili_season_bv1lzaae7egy
+  source_id: LH_BILI_SEASON_BV1LZAAE7EGY
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-258-lh_bili_season_bv1u7aoebew7
+  source_id: LH_BILI_SEASON_BV1U7AOEBEW7
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-259-lh_bili_season_bv1a7pvece1g
+  source_id: LH_BILI_SEASON_BV1A7PVECE1G
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-260-lh_bili_season_bv1a7pveceo8
+  source_id: LH_BILI_SEASON_BV1A7PVECEO8
+  review_priority: critical
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-261-lh_bili_season_bv1b99tytexv
+  source_id: LH_BILI_SEASON_BV1B99TYTEXV
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-262-lh_bili_season_bv1nix9yyeyg
+  source_id: LH_BILI_SEASON_BV1NIX9YYEYG
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-263-lh_bili_season_bv1t394yfeiy
+  source_id: LH_BILI_SEASON_BV1T394YFEIY
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-264-lh_bili_season_bv1bprjy5eni
+  source_id: LH_BILI_SEASON_BV1BPRJY5ENI
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-265-lh_bili_season_bv1uhqlybew5
+  source_id: LH_BILI_SEASON_BV1UHQLYBEW5
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-266-lh_bili_season_bv1nwqay1e5m
+  source_id: LH_BILI_SEASON_BV1NWQAY1E5M
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-267-lh_bili_season_bv1swqoy5env
+  source_id: LH_BILI_SEASON_BV1SWQOY5ENV
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-268-lh_bili_season_bv18nxay5e9r
+  source_id: LH_BILI_SEASON_BV18NXAY5E9R
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-269-lh_bili_season_bv1snzcyheon
+  source_id: LH_BILI_SEASON_BV1SNZCYHEON
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-270-lh_bili_season_bv16wzeyqeta
+  source_id: LH_BILI_SEASON_BV16WZEYQETA
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-271-lh_bili_season_bv1jbzbyfe9t
+  source_id: LH_BILI_SEASON_BV1JBZBYFE9T
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-272-lh_bili_season_bv1xcd8ynenf
+  source_id: LH_BILI_SEASON_BV1XCD8YNENF
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-273-lh_bili_season_bv1q2d8yeecg
+  source_id: LH_BILI_SEASON_BV1Q2D8YEECG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-274-lh_bili_season_bv1fjdzy6emy
+  source_id: LH_BILI_SEASON_BV1FJDZY6EMY
+  review_priority: high
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-275-lh_bili_season_bv1kvdzy1ewg
+  source_id: LH_BILI_SEASON_BV1KVDZY1EWG
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-276-lh_bili_season_bv1yr5ezbev9
+  source_id: LH_BILI_SEASON_BV1YR5EZBEV9
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-277-lh_bili_season_bv13f5ezden4
+  source_id: LH_BILI_SEASON_BV13F5EZDEN4
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-278-lh_bili_season_bv1uulez4e9m
+  source_id: LH_BILI_SEASON_BV1UULEZ4E9M
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-279-lh_bili_season_bv1g8v8zhe29
+  source_id: LH_BILI_SEASON_BV1G8V8ZHE29
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-280-lh_bili_season_bv1dh5uzfeus
+  source_id: LH_BILI_SEASON_BV1DH5UZFEUS
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-281-lh_bili_season_bv1ike3zxemg
+  source_id: LH_BILI_SEASON_BV1IKE3ZXEMG
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-282-lh_bili_season_bv1khewz1efg
+  source_id: LH_BILI_SEASON_BV1KHEWZ1EFG
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-283-lh_bili_season_bv1vfeszrecd
+  source_id: LH_BILI_SEASON_BV1VFESZRECD
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-284-lh_bili_season_bv1o2erz5eew
+  source_id: LH_BILI_SEASON_BV1O2ERZ5EEW
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-285-lh_bili_season_bv17tjhzme18
+  source_id: LH_BILI_SEASON_BV17TJHZME18
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-286-lh_bili_season_bv1jgjhz5ewl
+  source_id: LH_BILI_SEASON_BV1JGJHZ5EWL
+  review_priority: standard
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-287-lh_bili_season_bv1upjgzkelr
+  source_id: LH_BILI_SEASON_BV1UPJGZKELR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-288-lh_bili_season_bv1k4jgzyeox
+  source_id: LH_BILI_SEASON_BV1K4JGZYEOX
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-290-lh_bili_season_bv1q4jrz3eps
+  source_id: LH_BILI_SEASON_BV1Q4JRZ3EPS
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-291-lh_bili_season_bv1dg7wzyeym
+  source_id: LH_BILI_SEASON_BV1DG7WZYEYM
+  review_priority: high
+  planned_frame_count: 3
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-292-lh_bili_season_bv14m7szlemb
+  source_id: LH_BILI_SEASON_BV14M7SZLEMB
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-293-lh_bili_season_bv13ctmzge3u
+  source_id: LH_BILI_SEASON_BV13CTMZGE3U
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-294-lh_bili_season_bv1sattzfe1c
+  source_id: LH_BILI_SEASON_BV1SATTZFE1C
+  review_priority: critical
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-295-lh_bili_season_bv1dknzzrenf
+  source_id: LH_BILI_SEASON_BV1DKNZZRENF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-296-lh_bili_season_bv1bckoz6eob
+  source_id: LH_BILI_SEASON_BV1BCKOZ6EOB
+  review_priority: critical
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-297-lh_bili_season_bv1zik6zre3x
+  source_id: LH_BILI_SEASON_BV1ZIK6ZRE3X
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-298-lh_bili_season_bv1ckmqzseef
+  source_id: LH_BILI_SEASON_BV1CKMQZSEEF
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-299-lh_bili_season_bv1nku2zmeai
+  source_id: LH_BILI_SEASON_BV1NKU2ZMEAI
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-301-lh_bili_season_bv1f38gzseyl
+  source_id: LH_BILI_SEASON_BV1F38GZSEYL
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-302-lh_bili_season_bv1kftbzeedc
+  source_id: LH_BILI_SEASON_BV1KFTBZEEDC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-303-lh_bili_fav_bv16ptzzcew6
+  source_id: LH_BILI_FAV_BV16PTZZCEW6
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-304-lh_bili_season_bv1fcbazlejj
+  source_id: LH_BILI_SEASON_BV1FCBAZLEJJ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-305-lh_bili_season_bv1sebrzpe2k
+  source_id: LH_BILI_SEASON_BV1SEBRZPE2K
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-306-lh_bili_season_bv15lbpzkeh1
+  source_id: LH_BILI_SEASON_BV15LBPZKEH1
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-307-lh_bili_season_bv1xoe9zkevt
+  source_id: LH_BILI_SEASON_BV1XOE9ZKEVT
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-308-lh_bili_season_bv1ayeozeewj
+  source_id: LH_BILI_SEASON_BV1AYEOZEEWJ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-309-lh_bili_season_bv1lcaazyejm
+  source_id: LH_BILI_SEASON_BV1LCAAZYEJM
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-310-lh_bili_season_bv1vjy7zueqn
+  source_id: LH_BILI_SEASON_BV1VJY7ZUEQN
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-311-lh_bili_season_bv1aohhzweu7
+  source_id: LH_BILI_SEASON_BV1AOHHZWEU7
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-312-lh_bili_season_bv1hzpszfegw
+  source_id: LH_BILI_SEASON_BV1HZPSZFEGW
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-313-lh_bili_season_bv18zpszfe6v
+  source_id: LH_BILI_SEASON_BV18ZPSZFE6V
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-314-lh_bili_season_bv1s6p9znezj
+  source_id: LH_BILI_SEASON_BV1S6P9ZNEZJ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-315-lh_bili_season_bv1pcp9zaefy
+  source_id: LH_BILI_SEASON_BV1PCP9ZAEFY
+  review_priority: critical
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-316-lh_bili_season_bv1ngnnztema
+  source_id: LH_BILI_SEASON_BV1NGNNZTEMA
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-317-lh_bili_season_bv1cgnnzfez3
+  source_id: LH_BILI_SEASON_BV1CGNNZFEZ3
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-318-lh_bili_season_bv1ngnnzfebd
+  source_id: LH_BILI_SEASON_BV1NGNNZFEBD
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-319-lh_bili_season_bv1flnnzser5
+  source_id: LH_BILI_SEASON_BV1FLNNZSER5
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-320-lh_bili_season_bv1tvhvzpeuu
+  source_id: LH_BILI_SEASON_BV1TVHVZPEUU
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-321-lh_bili_season_bv1sc42zpexc
+  source_id: LH_BILI_SEASON_BV1SC42ZPEXC
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-322-lh_bili_season_bv1w14qzheta
+  source_id: LH_BILI_SEASON_BV1W14QZHETA
+  review_priority: critical
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-323-lh_bili_season_bv1knwszeev5
+  source_id: LH_BILI_SEASON_BV1KNWSZEEV5
+  review_priority: critical
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-324-lh_bili_season_bv1cpwtzoevt
+  source_id: LH_BILI_SEASON_BV1CPWTZOEVT
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 18
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-325-lh_bili_season_bv1ejsizyeez
+  source_id: LH_BILI_SEASON_BV1EJSIZYEEZ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-326-lh_bili_season_bv1hxybbqexf
+  source_id: LH_BILI_SEASON_BV1HXYBBQEXF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-327-lh_bili_season_bv1avyrb1eet
+  source_id: LH_BILI_SEASON_BV1AVYRB1EET
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-328-lh_bili_season_bv1geyrb7esa
+  source_id: LH_BILI_SEASON_BV1GEYRB7ESA
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-329-lh_bili_season_bv1dbyrbceqf
+  source_id: LH_BILI_SEASON_BV1DBYRBCEQF
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-330-lh_bili_season_bv1z22wbqewd
+  source_id: LH_BILI_SEASON_BV1Z22WBQEWD
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-331-lh_bili_season_bv1bmcjbpeav
+  source_id: LH_BILI_SEASON_BV1BMCJBPEAV
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-332-lh_bili_season_bv1jscsbueer
+  source_id: LH_BILI_SEASON_BV1JSCSBUEER
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: ok
+    frame_count: 18
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-333-lh_bili_season_bv1mmypbre8f
+  source_id: LH_BILI_SEASON_BV1MMYPBRE8F
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-334-lh_bili_season_bv1keseb1ew9
+  source_id: LH_BILI_SEASON_BV1KESEB1EW9
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-335-lh_bili_season_bv1jss1bnesv
+  source_id: LH_BILI_SEASON_BV1JSS1BNESV
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-336-lh_bili_season_bv1n8sxbae4m
+  source_id: LH_BILI_SEASON_BV1N8SXBAE4M
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-337-lh_bili_season_bv18a27b7ehj
+  source_id: LH_BILI_SEASON_BV18A27B7EHJ
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-338-lh_bili_season_bv1rmmdbyerr
+  source_id: LH_BILI_SEASON_BV1RMMDBYERR
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-339-lh_bili_season_bv1wzqrblet2
+  source_id: LH_BILI_SEASON_BV1WZQRBLET2
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-340-lh_bili_season_bv14ebtboexk
+  source_id: LH_BILI_SEASON_BV14EBTBOEXK
+  review_priority: critical
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-341-lh_bili_season_bv1vwiebhe2x
+  source_id: LH_BILI_SEASON_BV1VWIEBHE2X
+  review_priority: critical
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-342-lh_bili_season_bv18grmbre6k
+  source_id: LH_BILI_SEASON_BV18GRMBRE6K
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-343-lh_bili_season_bv1mekebjene
+  source_id: LH_BILI_SEASON_BV1MEKEBJENE
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-344-lh_bili_season_bv1kqkeb5e5p
+  source_id: LH_BILI_SEASON_BV1KQKEB5E5P
+  review_priority: critical
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-345-lh_bili_season_bv1n8zcbfeib
+  source_id: LH_BILI_SEASON_BV1N8ZCBFEIB
+  review_priority: critical
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-346-lh_bili_season_bv15d6mbeemk
+  source_id: LH_BILI_SEASON_BV15D6MBEEMK
+  review_priority: high
+  planned_frame_count: 17
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-347-lh_bili_season_bv12g6ebfefz
+  source_id: LH_BILI_SEASON_BV12G6EBFEFZ
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-348-lh_bili_season_bv1qy6qbdebt
+  source_id: LH_BILI_SEASON_BV1QY6QBDEBT
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-349-lh_bili_season_bv1gzftzoefu
+  source_id: LH_BILI_SEASON_BV1GZFTZOEFU
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-350-lh_bili_fav_bv1hrc5zyesg
+  source_id: LH_BILI_FAV_BV1HRC5ZYESG
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-351-lh_bili_season_bv136c5zjeue
+  source_id: LH_BILI_SEASON_BV136C5ZJEUE
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-352-lh_bili_fav_bv1pmarzsepc
+  source_id: LH_BILI_FAV_BV1PMARZSEPC
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-353-lh_bili_season_bv1tgwezfenf
+  source_id: LH_BILI_SEASON_BV1TGWEZFENF
+  review_priority: standard
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-354-lh_bili_season_bv1c2xcbxe62
+  source_id: LH_BILI_SEASON_BV1C2XCBXE62
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-355-lh_bili_season_bv1vfxyb1ejd
+  source_id: LH_BILI_SEASON_BV1VFXYB1EJD
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-356-lh_bili_season_bv1x4sfbkeap
+  source_id: LH_BILI_SEASON_BV1X4SFBKEAP
+  review_priority: high
+  planned_frame_count: 16
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-357-lh_bili_season_bv1dfqxbbesp
+  source_id: LH_BILI_SEASON_BV1DFQXBBESP
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-358-lh_bili_season_bv1lfqxb8eqv
+  source_id: LH_BILI_SEASON_BV1LFQXB8EQV
+  review_priority: critical
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-359-lh_bili_season_bv1ggojbbeqd
+  source_id: LH_BILI_SEASON_BV1GGOJBBEQD
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-360-lh_bili_fav_bv11krjbrevh
+  source_id: LH_BILI_FAV_BV11KRJBREVH
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-361-lh_bili_season_bv1lkgr6jec4
+  source_id: LH_BILI_SEASON_BV1LKGR6JEC4
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-362-lh_bili_season_bv1reed6we1v
+  source_id: LH_BILI_SEASON_BV1REED6WE1V
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-363-lh_bili_auth_clip
+  source_id: LH_BILI_AUTH_CLIP
+  review_priority: high
+  planned_frame_count: 10
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-364-lh_bili_backcourt_steal_footwork
+  source_id: LH_BILI_BACKCOURT_STEAL_FOOTWORK
+  review_priority: critical
+  planned_frame_count: 5
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-365-lh_bili_big_arm_internal_rotation
+  source_id: LH_BILI_BIG_ARM_INTERNAL_ROTATION
+  review_priority: high
+  planned_frame_count: 9
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-366-lh_bili_clear_change_action
+  source_id: LH_BILI_CLEAR_CHANGE_ACTION
+  review_priority: critical
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-367-lh_bili_clear_framework
+  source_id: LH_BILI_CLEAR_FRAMEWORK
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-368-lh_bili_clear_height
+  source_id: LH_BILI_CLEAR_HEIGHT
+  review_priority: high
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-369-lh_bili_contact_point_clear
+  source_id: LH_BILI_CONTACT_POINT_CLEAR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-371-lh_bili_framework
+  source_id: LH_BILI_FRAMEWORK
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-372-lh_bili_internal_rotation_cue
+  source_id: LH_BILI_INTERNAL_ROTATION_CUE
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-373-lh_bili_lazy_legs
+  source_id: LH_BILI_LAZY_LEGS
+  review_priority: critical
+  planned_frame_count: 14
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-374-lh_bili_learning_order
+  source_id: LH_BILI_LEARNING_ORDER
+  review_priority: critical
+  planned_frame_count: 7
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-375-lh_bili_match_transfer
+  source_id: LH_BILI_MATCH_TRANSFER
+  review_priority: critical
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-376-lh_bili_simple_smash_sequence
+  source_id: LH_BILI_SIMPLE_SMASH_SEQUENCE
+  review_priority: high
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-377-lh_bili_slice_drop_smash
+  source_id: LH_BILI_SLICE_DROP_SMASH
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-378-lh_bili_smash_elbow
+  source_id: LH_BILI_SMASH_ELBOW
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: corpus-379-lh_bili_wrist_whip_error
+  source_id: LH_BILI_WRIST_WHIP_ERROR
+  review_priority: critical
+  planned_frame_count: 18
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-001-lh_bili_season_bv18tmub4e8d
+  source_id: LH_BILI_SEASON_BV18TMUB4E8D
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 15
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-002-lh_bili_season_bv1x9qbbbetx
+  source_id: LH_BILI_SEASON_BV1X9QBBBETX
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 15
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-003-lh_bili_season_bv1aykwbjeuv
+  source_id: LH_BILI_SEASON_BV1AYKWBJEUV
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-004-lh_bili_season_bv1crftzbek7
+  source_id: LH_BILI_SEASON_BV1CRFTZBEK7
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-005-lh_bili_season_bv1hbyrbcece
+  source_id: LH_BILI_SEASON_BV1HBYRBCECE
+  review_priority: high
+  planned_frame_count: 6
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-006-lh_bili_season_bv1v6zabtekt
+  source_id: LH_BILI_SEASON_BV1V6ZABTEKT
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-007-lh_bili_season_bv1km41147m1
+  source_id: LH_BILI_SEASON_BV1KM41147M1
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 15
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-008-lh_bili_season_bv19c4y1s7z2
+  source_id: LH_BILI_SEASON_BV19C4Y1S7Z2
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 15
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-010-lh_bili_season_bv1a5zgyqesp
+  source_id: LH_BILI_SEASON_BV1A5ZGYQESP
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 15
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-011-lh_bili_season_bv1s1vkbseab
+  source_id: LH_BILI_SEASON_BV1S1VKBSEAB
+  review_priority: high
+  planned_frame_count: 8
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-012-lh_bili_fav_bv15pbrb6edk
+  source_id: LH_BILI_FAV_BV15PBRB6EDK
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-013-lh_bili_season_bv1bi4y1q7eh
+  source_id: LH_BILI_SEASON_BV1BI4Y1Q7EH
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-014-lh_bili_season_bv1lb5qzxedz
+  source_id: LH_BILI_SEASON_BV1LB5QZXEDZ
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 6
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-015-lh_bili_season_bv1xdlezqery
+  source_id: LH_BILI_SEASON_BV1XDLEZQERY
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 6
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-016-lh_bili_season_bv1xmaazfe6e
+  source_id: LH_BILI_SEASON_BV1XMAAZFE6E
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-017-lh_bili_season_bv1nwrrbtedy
+  source_id: LH_BILI_SEASON_BV1NWRRBTEDY
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-018-lh_bili_season_bv1v6zabteue
+  source_id: LH_BILI_SEASON_BV1V6ZABTEUE
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-019-lh_bili_season_bv1zbwezeelw
+  source_id: LH_BILI_SEASON_BV1ZBWEZEELW
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-020-lh_bili_season_bv13a4y1q7cb
+  source_id: LH_BILI_SEASON_BV13A4Y1Q7CB
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-025-lh_bili_season_bv1cm42157us
+  source_id: LH_BILI_SEASON_BV1CM42157US
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-026-lh_bili_season_bv1nf421x7jg
+  source_id: LH_BILI_SEASON_BV1NF421X7JG
+  review_priority: high
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-027-lh_bili_season_bv1qz421u7c6
+  source_id: LH_BILI_SEASON_BV1QZ421U7C6
+  review_priority: critical
+  planned_frame_count: 12
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-028-lh_bili_season_bv1p4dgyre8b
+  source_id: LH_BILI_SEASON_BV1P4DGYRE8B
+  review_priority: high
+  planned_frame_count: 13
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 9
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-029-lh_bili_season_bv1pcqpyjerm
+  source_id: LH_BILI_SEASON_BV1PCQPYJERM
+  review_priority: critical
+  planned_frame_count: 11
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 6
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
+- job_id: pilot-030-lh_bili_season_bv1bf6sytegz
+  source_id: LH_BILI_SEASON_BV1BF6SYTEGZ
+  review_priority: high
+  planned_frame_count: 15
+  keyframes:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  vlm:
+    status: ok
+    frame_count: 12
+    artifact_version: null
+    complete: false
+  pose:
+    status: missing
+    frame_count: 0
+    artifact_version: null
+    complete: false
+  complete: false
