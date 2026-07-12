@@ -942,6 +942,8 @@ def parse_vlm_frame_batch(text: str, expected_timestamps: list[int]) -> list[dic
         if not isinstance(frame["on_screen_text_present"], bool):
             raise ValueError(f"frame {expected_index} on_screen_text_present is not boolean")
         limits = frame["visibility_limits"]
+        if isinstance(limits, str):
+            limits = [limits]
         if (
             not isinstance(limits, list)
             or any(not isinstance(item, str) for item in limits)

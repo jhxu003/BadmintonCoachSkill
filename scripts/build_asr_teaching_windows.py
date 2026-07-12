@@ -79,6 +79,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--window-seconds", type=int, default=45)
     parser.add_argument("--min-score", type=int, default=2)
     parser.add_argument("--max-windows-per-video", type=int, default=8)
+    parser.add_argument("--coach-name", default="Liu Hui")
     return parser.parse_args()
 
 
@@ -231,6 +232,17 @@ def build_windows_for_job(job: dict[str, Any], args: argparse.Namespace) -> list
     return selected
 
 
+def coach_scope(coach_name: str) -> list[str]:
+    return [
+        (
+            "Machine-generated public-safe ASR teaching-window candidates for "
+            f"indexed public {coach_name} videos."
+        ),
+        "Raw ASR segments stay private; this file contains original summaries only.",
+        "Every candidate requires human timestamp review before skill promotion.",
+    ]
+
+
 def main() -> None:
     args = parse_args()
     jobs = load_jobs(args.manifest)
@@ -245,11 +257,7 @@ def main() -> None:
         "review_run": {
             "run_id": f"video_asr_teaching_windows_full_{date.today().strftime('%Y%m%d')}",
             "created_at": date.today().isoformat(),
-            "scope": [
-                "Machine-generated public-safe ASR teaching-window candidates for indexed public Liu Hui videos.",
-                "Raw ASR segments stay private; this file contains original summaries only.",
-                "Every candidate requires human timestamp review before skill promotion.",
-            ],
+            "scope": coach_scope(args.coach_name),
             "generation_method": {
                 "type": "deterministic_topic_windowing",
                 "window_seconds": args.window_seconds,

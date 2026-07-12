@@ -42,6 +42,15 @@ def parse_args() -> argparse.Namespace:
         help="Keep the loaded model alive and process new audio files as they arrive.",
     )
     parser.add_argument("--watch-interval-seconds", type=int, default=30)
+    parser.add_argument(
+        "--max-asr-attempts-per-job",
+        type=int,
+        default=3,
+        help=(
+            "Maximum ASR attempts for one job in watch mode. Exhausted jobs are "
+            "recorded in the batch summary so one bad source cannot keep the worker alive forever."
+        ),
+    )
     parser.add_argument("--batch-id", default="")
     parser.add_argument("--log-dir", default="data/raw-private/video-corpus/batch-runs")
     return parser.parse_args()
@@ -89,6 +98,32 @@ def available_pending_jobs(jobs: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if (ROOT / job["private_paths"]["audio_file"]).exists()
         and not asr_already_ok(job)
     ]
+
+
+def watch_candidates(
+    jobs: list[dict[str, Any]],
+    attempt_counts: dict[str, int],
+    max_attempts: int,
+) -> list[dict[str, Any]]:
+    """Return audio-ready jobs that have not succeeded or exhausted their retry bound."""
+    return [
+        job
+        for job in available_pending_jobs(jobs)
+        if attempt_counts.get(job["job_id"], 0) < max_attempts
+    ]
+
+
+def watch_has_completed(
+    jobs: list[dict[str, Any]],
+    attempt_counts: dict[str, int],
+    max_attempts: int,
+) -> bool:
+    """Finish only after every job succeeded or has an explicit exhausted outcome."""
+    return all(
+        asr_already_ok(job)
+        or attempt_counts.get(job["job_id"], 0) >= max_attempts
+        for job in jobs
+    )
 
 
 def run_asr_with_model(
@@ -182,16 +217,20 @@ def main() -> None:
         device=args.asr_device,
         compute_type=args.asr_compute_type,
     )
+    max_attempts = max(args.max_asr_attempts_per_job, 1)
     processed_ids: set[str] = set()
+    attempt_counts: dict[str, int] = {}
     while True:
-        candidates = (
-            available_pending_jobs(jobs) if args.watch_for_audio else jobs
-        )
-        candidates = [job for job in candidates if job["job_id"] not in processed_ids]
+        if args.watch_for_audio:
+            candidates = watch_candidates(jobs, attempt_counts, max_attempts)
+        else:
+            candidates = [
+                job for job in jobs if job["job_id"] not in processed_ids
+            ]
         if not candidates:
             if not args.watch_for_audio:
                 break
-            if all(asr_already_ok(job) for job in jobs):
+            if watch_has_completed(jobs, attempt_counts, max_attempts):
                 break
             time.sleep(max(args.watch_interval_seconds, 1))
             continue
@@ -216,7 +255,13 @@ def main() -> None:
                 "asr_segment_count": asr_result.get("segment_count"),
                 "evidence_path": str(evidence_path.relative_to(ROOT)),
             }
-            processed_ids.add(job["job_id"])
+            if args.watch_for_audio:
+                attempt_counts[job["job_id"]] = (
+                    attempt_counts.get(job["job_id"], 0) + 1
+                )
+                result["asr_attempt"] = attempt_counts[job["job_id"]]
+            else:
+                processed_ids.add(job["job_id"])
             summary["results"].append(result)
             summary_path.write_text(
                 json.dumps(summary, ensure_ascii=False, indent=2),
@@ -227,6 +272,14 @@ def main() -> None:
                 f"asr={result['asr_status']}\tsegments={result['asr_segment_count']}",
                 flush=True,
             )
+    summary["exhausted_watch_job_ids"] = sorted(
+        job_id
+        for job_id, attempts in attempt_counts.items()
+        if attempts >= max_attempts
+        and not asr_already_ok(
+            next(job for job in jobs if job["job_id"] == job_id)
+        )
+    )
     summary["finished_at"] = utc_now()
     summary_path.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2),
