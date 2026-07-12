@@ -67,6 +67,7 @@ def main() -> None:
         args.private_root = str(config["private_root"])
         args.public_corpus_root = str(config["corpus_path"])
         args.coach_id = str(config["coach_id"])
+        args.job_prefix = str(config.get("job_prefix", args.job_prefix))
     platforms = args.platform or ["Bilibili"]
     private_root = args.private_root or "data/raw-private/video-corpus"
     public_corpus_root = args.public_corpus_root or "data/corpus"

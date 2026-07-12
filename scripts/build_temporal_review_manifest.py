@@ -42,6 +42,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output", default="data/corpus/video-temporal-review-manifest.yaml"
     )
+    parser.add_argument(
+        "--private-root", default="data/raw-private/video-corpus-temporal"
+    )
+    parser.add_argument("--coach-id", default="liu-hui")
     parser.add_argument("--max-sequences-per-source", type=int, default=2)
     parser.add_argument("--radius-seconds", type=float, default=1.5)
     parser.add_argument("--step-seconds", type=float, default=0.25)
@@ -137,8 +141,8 @@ def build_sequences(
     return sequences
 
 
-def temporal_private_paths(job_id: str) -> dict[str, str]:
-    root = Path("data/raw-private/video-corpus-temporal") / job_id
+def temporal_private_paths(job_id: str, private_root: str) -> dict[str, str]:
+    root = Path(private_root) / job_id
     return {
         "job_dir": str(root),
         "metadata_json": str(root / "metadata.json"),
@@ -170,10 +174,10 @@ def main() -> None:
             continue
         job = copy.deepcopy(source_job)
         job["source_private_paths"] = copy.deepcopy(source_job.get("private_paths", {}))
-        job["private_paths"] = temporal_private_paths(job["job_id"])
+        job["private_paths"] = temporal_private_paths(job["job_id"], args.private_root)
         job["public_outputs"] = {
             "timestamp_evidence": str(
-                Path("data/raw-private/video-corpus-temporal")
+                Path(args.private_root)
                 / job["job_id"]
                 / "public-evidence-staging.yaml"
             )
@@ -186,7 +190,7 @@ def main() -> None:
         planned_frames += len(job["planned_frames"])
         jobs.append(job)
     output = {
-        "manifest_id": f"liu_hui_temporal_review_{date.today().strftime('%Y%m%d')}",
+        "manifest_id": f"{args.coach_id.replace('-', '_')}_temporal_review_{date.today().strftime('%Y%m%d')}",
         "created_at": date.today().isoformat(),
         "source_manifest": args.manifest,
         "summary": {

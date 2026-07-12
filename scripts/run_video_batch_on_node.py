@@ -117,6 +117,13 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
 def load_jobs(args: argparse.Namespace) -> list[dict[str, Any]]:
     manifest = load_yaml(ROOT / args.manifest)
     jobs = list(manifest.get("jobs", []))
@@ -288,7 +295,7 @@ def run_one_job(
         "timed_out": timed_out,
         "asr_status": asr_status,
         "asr_segment_count": asr_segment_count,
-        "log_path": str(log_path.relative_to(ROOT)),
+        "log_path": display_path(log_path),
         "copied_back": copied_back,
     }
 
@@ -366,7 +373,7 @@ def main() -> None:
         json.dumps(summary, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"wrote {summary_path.relative_to(ROOT)}")
+    print(f"wrote {display_path(summary_path)}")
 
 
 if __name__ == "__main__":

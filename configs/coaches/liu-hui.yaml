@@ -6,6 +6,8 @@ reference_path: skills/liu-hui-badminton-coach/references
 source_index: data/source-index.tsv
 corpus_path: data/corpus
 private_root: data/raw-private/video-corpus
+temporal_private_root: data/raw-private/video-corpus-temporal
+job_prefix: corpus
 completion_audit: data/corpus/multimodal-completion-status.yaml
 source_platforms: [Bilibili]
 discovery_source_types: [playlist, search]

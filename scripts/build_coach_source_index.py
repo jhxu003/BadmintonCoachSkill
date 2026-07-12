@@ -97,6 +97,7 @@ def video_row(
     title = str(detail.get("title") or video.get("discovery_metadata", {}).get("title") or video["bvid"])
     topics = topic_tags(title)
     owner_mid = detail.get("owner_mid")
+    detail_available = bool(detail)
     paid = bool(
         detail.get("arc_pay")
         or detail.get("ugc_pay")
@@ -104,7 +105,7 @@ def video_row(
         or detail.get("is_chargeable_season")
     )
     state = detail.get("state")
-    accessible = state in {None, 0} and not paid
+    accessible = detail_available and state == 0 and not paid
     methods = ",".join(video.get("discovery_methods") or [])
     collections = " | ".join(video.get("collection_titles") or [])
     notes = (
@@ -113,7 +114,9 @@ def video_row(
     )
     if collections:
         notes += f"; collections={collections}"
-    if paid:
+    if not detail_available:
+        notes += "; public detail endpoint unavailable; excluded from content parsing"
+    elif paid:
         notes += "; paid/exclusive metadata only and excluded from content parsing"
     return {
         "source_id": f"{prefix}_{video['bvid'].upper()}",

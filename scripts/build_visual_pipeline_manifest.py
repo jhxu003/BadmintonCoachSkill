@@ -38,6 +38,7 @@ def parse_args() -> argparse.Namespace:
         "--output",
         default="data/corpus/video-visual-pipeline-manifest.yaml",
     )
+    parser.add_argument("--coach-id", default="liu-hui")
     return parser.parse_args()
 
 
@@ -80,7 +81,7 @@ def main() -> None:
         jobs.append(job)
 
     output = {
-        "manifest_id": f"liu_hui_visual_pipeline_{date.today().strftime('%Y%m%d')}",
+        "manifest_id": f"{args.coach_id.replace('-', '_')}_visual_pipeline_{date.today().strftime('%Y%m%d')}",
         "created_at": date.today().isoformat(),
         "purpose": (
             "Executable non-YouTube visual pipeline manifest using the exact reviewed "

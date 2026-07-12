@@ -171,23 +171,57 @@ def fetch_json(
 
 
 def fetch_collections(args: argparse.Namespace, cache_path: Path) -> dict[str, Any] | None:
+    payload: dict[str, Any] | None = None
     if cache_path.exists():
         cached = read_json(cache_path)
         if cached.get("code") == 0:
-            return cached
-    if args.skip_remote_discovery:
-        return None
-    try:
-        payload = fetch_json(
-            "/x/polymer/web-space/seasons_series_list",
-            {"mid": args.mid, "page_num": 1, "page_size": 20},
-            timeout=args.timeout,
-            max_attempts=args.max_attempts,
-            sleep_seconds=args.sleep_seconds,
-        )
-    except RuntimeError as exc:
-        print(f"collection discovery unavailable: {exc}", flush=True)
-        return None
+            payload = cached
+    if payload is None:
+        if args.skip_remote_discovery:
+            return None
+        try:
+            payload = fetch_json(
+                "/x/polymer/web-space/seasons_series_list",
+                {"mid": args.mid, "page_num": 1, "page_size": 20},
+                timeout=args.timeout,
+                max_attempts=args.max_attempts,
+                sleep_seconds=args.sleep_seconds,
+            )
+        except RuntimeError as exc:
+            print(f"collection discovery unavailable: {exc}", flush=True)
+            return None
+    lists = ((payload.get("data") or {}).get("items_lists") or {})
+    for container in lists.get("series_list") or []:
+        meta = container.get("meta") or {}
+        series_id = meta.get("series_id")
+        total = int(meta.get("total") or 0)
+        if not series_id or total <= len(container.get("archives") or []):
+            continue
+        archives: list[dict[str, Any]] = []
+        page_number = 1
+        while len(archives) < total:
+            page = fetch_json(
+                "/x/series/archives",
+                {
+                    "mid": args.mid,
+                    "series_id": series_id,
+                    "only_normal": "true",
+                    "sort": "desc",
+                    "pn": page_number,
+                    "ps": 100,
+                },
+                timeout=args.timeout,
+                max_attempts=args.max_attempts,
+                sleep_seconds=args.sleep_seconds,
+            )
+            page_archives = (page.get("data") or {}).get("archives") or []
+            if not page_archives:
+                break
+            archives.extend(page_archives)
+            page_number += 1
+            time.sleep(args.sleep_seconds)
+        if archives:
+            container["archives"] = archives
     write_json(cache_path, payload)
     return payload
 
