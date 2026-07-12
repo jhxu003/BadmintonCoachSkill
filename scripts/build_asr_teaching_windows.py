@@ -193,6 +193,32 @@ def build_windows_for_job(job: dict[str, Any], args: argparse.Namespace) -> list
     if asr.get("status") != "ok":
         return []
     merged = merge_segments(asr.get("segments", []), args.window_seconds)
+    if not merged:
+        return [
+            {
+                "window_id": f"{job['job_id']}-w001",
+                "source_id": job["source_id"],
+                "evidence_id": f"{job['job_id']}-asr-no-speech",
+                "start_seconds": 0,
+                "end_seconds": 0,
+                "topic_tags": ["unclassified_public_video"],
+                "evidence_level": "content_index_fallback_public_safe",
+                "review_status": "fallback_no_speech_content_index_only",
+                "teaching_point_candidate": {
+                    "problem": "ASR completed but found no speech segment to review.",
+                    "diagnosis_rule": (
+                        "Account for this public source, but do not infer a technical "
+                        "coaching rule or timestamped teaching point from it."
+                    ),
+                    "correction": "Keep this source as a content-availability index only.",
+                    "promotion_target": "review_queue",
+                },
+                "summary": (
+                    "This public source completed ASR with no speech segment. It is kept "
+                    "only for corpus accounting and cannot support a technical coaching rule."
+                ),
+            }
+        ]
     scored: list[tuple[int, dict[str, Any], list[str]]] = []
     title_hits = topic_hits(job.get("title", ""))
     for window in merged:

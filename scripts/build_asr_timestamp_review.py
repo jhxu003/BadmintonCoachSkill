@@ -145,6 +145,35 @@ def review_window(
 ) -> dict[str, Any]:
     start_seconds = float(window.get("start_seconds") or 0)
     end_seconds = float(window.get("end_seconds") or start_seconds)
+    if window.get("review_status") == "fallback_no_speech_content_index_only":
+        return {
+            "window_id": window["window_id"],
+            "job_id": job["job_id"],
+            "source_id": job["source_id"],
+            "platform": job["platform"],
+            "source_title": job["title"],
+            "start_seconds": int(round(start_seconds)),
+            "end_seconds": int(round(end_seconds)),
+            "reviewed_asr_segment_count": 0,
+            "topic_tags": ["unclassified_public_video"],
+            "asr_matched_topics": [],
+            "topic_signal_counts": {},
+            "signal_status": "no_speech_content_index_only",
+            "evidence_level": "content_index_fallback_public_safe",
+            "review_status": "fallback_no_speech_content_index_only",
+            "human_review_status": "not_human_reviewed",
+            "summary": (
+                "ASR completed with no speech segment. This public source is retained "
+                "for corpus accounting only and cannot support a timestamped technical claim."
+            ),
+            "diagnostic_use": "Do not route technical diagnosis or biomechanics through this source.",
+            "promotion_target": "review_queue",
+            "visual_review_required": False,
+            "boundary": (
+                "This is a no-speech content-availability index, not transcript evidence, "
+                "a technical teaching point, or visual proof of biomechanics."
+            ),
+        }
     segments = overlapping_segments(asr.get("segments", []), start_seconds, end_seconds)
     text = " ".join(str(segment.get("text", "")) for segment in segments)
     hits = topic_hits(text)
