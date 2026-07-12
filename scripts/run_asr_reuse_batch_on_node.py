@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import sys
+import time
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +36,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--asr-compute-type", default="float16")
     parser.add_argument("--asr-audio-seconds", type=int, default=0)
     parser.add_argument("--skip-ok-asr", action="store_true")
+    parser.add_argument(
+        "--watch-for-audio",
+        action="store_true",
+        help="Keep the loaded model alive and process new audio files as they arrive.",
+    )
+    parser.add_argument("--watch-interval-seconds", type=int, default=30)
     parser.add_argument("--batch-id", default="")
     parser.add_argument("--log-dir", default="data/raw-private/video-corpus/batch-runs")
     return parser.parse_args()
@@ -73,6 +80,15 @@ def asr_already_ok(job: dict[str, Any]) -> bool:
     except Exception:
         return False
     return data.get("status") == "ok"
+
+
+def available_pending_jobs(jobs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        job
+        for job in jobs
+        if (ROOT / job["private_paths"]["audio_file"]).exists()
+        and not asr_already_ok(job)
+    ]
 
 
 def run_asr_with_model(
@@ -166,21 +182,23 @@ def main() -> None:
         device=args.asr_device,
         compute_type=args.asr_compute_type,
     )
-    for job in jobs:
-        if args.skip_ok_asr and asr_already_ok(job):
-            result = {
-                "job_id": job["job_id"],
-                "source_id": job["source_id"],
-                "title": job["title"],
-                "started_at": utc_now(),
-                "finished_at": utc_now(),
-                "returncode": 0,
-                "timed_out": False,
-                "asr_status": "ok",
-                "asr_segment_count": None,
-                "skipped": "private ASR already ok",
-            }
-        else:
+    processed_ids: set[str] = set()
+    while True:
+        candidates = (
+            available_pending_jobs(jobs) if args.watch_for_audio else jobs
+        )
+        candidates = [job for job in candidates if job["job_id"] not in processed_ids]
+        if not candidates:
+            if not args.watch_for_audio:
+                break
+            if all(asr_already_ok(job) for job in jobs):
+                break
+            time.sleep(max(args.watch_interval_seconds, 1))
+            continue
+        for job in candidates:
+            if args.skip_ok_asr and asr_already_ok(job):
+                processed_ids.add(job["job_id"])
+                continue
             started_at = utc_now()
             asr_result = run_asr_with_model(job, model, args)
             run_status = {"job_id": job["job_id"], "stages": {"asr": asr_result}}
@@ -198,16 +216,17 @@ def main() -> None:
                 "asr_segment_count": asr_result.get("segment_count"),
                 "evidence_path": str(evidence_path.relative_to(ROOT)),
             }
-        summary["results"].append(result)
-        summary_path.write_text(
-            json.dumps(summary, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        print(
-            f"{job['job_id']}\treturncode={result['returncode']}\t"
-            f"asr={result['asr_status']}\tsegments={result['asr_segment_count']}",
-            flush=True,
-        )
+            processed_ids.add(job["job_id"])
+            summary["results"].append(result)
+            summary_path.write_text(
+                json.dumps(summary, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            print(
+                f"{job['job_id']}\treturncode={result['returncode']}\t"
+                f"asr={result['asr_status']}\tsegments={result['asr_segment_count']}",
+                flush=True,
+            )
     summary["finished_at"] = utc_now()
     summary_path.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2),
