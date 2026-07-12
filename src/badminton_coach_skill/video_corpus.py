@@ -190,13 +190,14 @@ def build_processing_job(
     selected: SelectedSource,
     index: int,
     private_root: str = "data/raw-private/video-corpus",
+    public_corpus_root: str = "data/corpus",
     job_prefix: str = "pilot",
     job_id: str | None = None,
 ) -> dict[str, Any]:
     row = selected.source
     job_id = job_id or f"{job_prefix}-{index:03d}-{row['source_id'].lower()}"
     private_dir = f"{private_root}/{job_id}"
-    public_evidence_path = f"data/corpus/video-evidence/{job_id}.yaml"
+    public_evidence_path = f"{public_corpus_root}/video-evidence/{job_id}.yaml"
     return {
         "job_id": job_id,
         "source_id": row["source_id"],

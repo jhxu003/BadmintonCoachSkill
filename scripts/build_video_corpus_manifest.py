@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 from pathlib import Path
 import sys
 
@@ -13,12 +14,14 @@ from badminton_coach_skill.video_corpus import (  # noqa: E402
     select_public_video_sources,
     write_yaml,
 )
+import yaml
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build a public-safe full-corpus manifest for Liu Hui video parsing."
+        description="Build a public-safe full-corpus manifest for one coach."
     )
+    parser.add_argument("--coach-config", default="")
     parser.add_argument("--source-index", default="data/source-index.tsv")
     parser.add_argument("--output", default="data/corpus/video-corpus-manifest.yaml")
     parser.add_argument(
@@ -35,6 +38,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--job-prefix", default="corpus")
+    parser.add_argument("--private-root", default="")
+    parser.add_argument("--public-corpus-root", default="")
+    parser.add_argument("--coach-id", default="")
     parser.add_argument(
         "--existing-manifest",
         default="data/corpus/video-corpus-manifest.yaml",
@@ -52,7 +58,19 @@ def existing_jobs(path: Path) -> dict[str, dict]:
 
 def main() -> None:
     args = parse_args()
+    config: dict = {}
+    if args.coach_config:
+        config = yaml.safe_load((ROOT / args.coach_config).read_text(encoding="utf-8"))
+        args.source_index = str(config["source_index"])
+        args.output = f"{config['corpus_path']}/video-corpus-manifest.yaml"
+        args.existing_manifest = args.output
+        args.private_root = str(config["private_root"])
+        args.public_corpus_root = str(config["corpus_path"])
+        args.coach_id = str(config["coach_id"])
     platforms = args.platform or ["Bilibili"]
+    private_root = args.private_root or "data/raw-private/video-corpus"
+    public_corpus_root = args.public_corpus_root or "data/corpus"
+    coach_id = args.coach_id or "liu-hui"
     selected = select_public_video_sources(
         ROOT / args.source_index,
         platforms=set(platforms),
@@ -88,6 +106,8 @@ def main() -> None:
         job = build_processing_job(
             item,
             next_index,
+            private_root=private_root,
+            public_corpus_root=public_corpus_root,
             job_prefix=args.job_prefix,
             job_id=job_id,
         )
@@ -97,10 +117,10 @@ def main() -> None:
             job["availability_note"] = prior.get("availability_note", "")
         jobs.append(job)
     manifest = {
-        "manifest_id": "liu_hui_video_corpus_public_manifest_20260710",
-        "created_at": "2026-07-10",
+        "manifest_id": f"{coach_id.replace('-', '_')}_video_corpus_public_manifest",
+        "created_at": date.today().isoformat(),
         "purpose": (
-            "Full public-source content-level parsing manifest for Liu Hui badminton "
+            f"Full public-source content-level parsing manifest for {coach_id} badminton "
             "teaching videos. Raw media, ASR transcripts, OCR dumps, VLM dumps, "
             "cookies, and model logs stay private."
         ),
