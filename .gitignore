@@ -17,6 +17,7 @@ data/corpus/video-evidence/
 data/corpus/video-evidence-index.tsv
 data/corpus/video-pose-evidence-summary.yaml
 data/corpus/video-visual-completion-status.yaml
+data/coaches/*/corpus/video-evidence/
 
 # Private or potentially copyrighted research material.
 data/raw-private/*
