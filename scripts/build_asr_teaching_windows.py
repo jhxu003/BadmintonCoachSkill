@@ -228,6 +228,34 @@ def build_windows_for_job(job: dict[str, Any], args: argparse.Namespace) -> list
                 **summary,
             }
         )
+    if not selected and merged:
+        # Preserve corpus accounting without inventing a technical topic. This is only
+        # a timestamped content index for later human review.
+        fallback = merged[0]
+        start = int(round(float(fallback["start"])))
+        end = int(round(float(fallback["end"])))
+        summary = summarize_window(job, ["unclassified_public_video"], start, end)
+        selected.append(
+            {
+                "window_id": f"{job['job_id']}-w001",
+                "source_id": job["source_id"],
+                "evidence_id": f"{job['job_id']}-seg-001",
+                "start_seconds": start,
+                "end_seconds": end,
+                "topic_tags": ["unclassified_public_video"],
+                "evidence_level": "content_index_fallback_public_safe",
+                "review_status": "fallback_content_index_only",
+                "teaching_point_candidate": {
+                    **summary["teaching_point_candidate"],
+                    "promotion_target": "review_queue",
+                },
+                "summary": (
+                    f"Between {start}s and {end}s, this public source has successful ASR "
+                    "but no deterministic topic signal. Keep it as a timestamped content "
+                    "index only; do not promote it to a technical coaching rule."
+                ),
+            }
+        )
     selected.sort(key=lambda item: (item["source_id"], item["start_seconds"]))
     return selected
 
