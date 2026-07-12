@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 import sys
 
@@ -9,6 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from badminton_coach_skill.source_index import read_source_index
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Validate source references for one coach Skill.")
+    parser.add_argument("--coach-config", default="configs/coaches/liu-hui.yaml")
+    return parser.parse_args()
 
 
 def _load_yaml(path: Path):
@@ -68,13 +75,18 @@ def _collect_rule_source_ids(reference_dir: Path) -> list[tuple[str, str]]:
 
 
 def main() -> None:
+    args = parse_args()
+    config = _load_yaml(ROOT / args.coach_config)
+    source_index_path = ROOT / str(config["source_index"])
+    corpus_path = ROOT / str(config["corpus_path"])
+    reference_dir = ROOT / str(config["reference_path"])
     source_ids = {
-        row["source_id"] for row in read_source_index(ROOT / "data" / "source-index.tsv")
+        row["source_id"] for row in read_source_index(source_index_path)
     }
-    taxonomy = _load_yaml(ROOT / "data" / "corpus" / "system-taxonomy.yaml")
+    taxonomy = _load_yaml(corpus_path / "system-taxonomy.yaml")
     taxonomy_ids = _taxonomy_ids(taxonomy)
-    teaching_points = _load_yaml(ROOT / "data" / "corpus" / "teaching-points.yaml")
-    topic_map = _load_yaml(ROOT / "data" / "corpus" / "source-topic-map.yaml")
+    teaching_points = _load_yaml(corpus_path / "teaching-points.yaml")
+    topic_map = _load_yaml(corpus_path / "source-topic-map.yaml")
     missing: list[str] = []
 
     for point in teaching_points:
@@ -96,7 +108,6 @@ def main() -> None:
                     f"source-topic-map:{source_id}->{section}:{taxonomy_id}"
                 )
 
-    reference_dir = ROOT / "skills" / "liu-hui-badminton-coach" / "references"
     for owner, source_id in _collect_rule_source_ids(reference_dir):
         if source_id not in source_ids:
             missing.append(f"skill-rule:{owner}->{source_id}")

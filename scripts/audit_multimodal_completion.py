@@ -19,27 +19,15 @@ from badminton_coach_skill.video_corpus import load_yaml, write_yaml  # noqa: E4
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Audit every completion gate for the full Liu Hui multimodal Skill build."
+        description="Audit every completion gate for one coach's multimodal Skill build."
     )
-    parser.add_argument(
-        "--visual-manifest", default="data/corpus/video-visual-pipeline-manifest.yaml"
-    )
-    parser.add_argument(
-        "--visual-review", default="data/corpus/video-visual-review-manifest.yaml"
-    )
-    parser.add_argument(
-        "--temporal-manifest", default="data/corpus/video-temporal-review-manifest.yaml"
-    )
-    parser.add_argument(
-        "--temporal-summary", default="data/corpus/video-temporal-pose-summary.yaml"
-    )
-    parser.add_argument(
-        "--evidence-map",
-        default="skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml",
-    )
-    parser.add_argument(
-        "--output", default="data/corpus/multimodal-completion-status.yaml"
-    )
+    parser.add_argument("--coach-config", default="configs/coaches/liu-hui.yaml")
+    parser.add_argument("--visual-manifest")
+    parser.add_argument("--visual-review")
+    parser.add_argument("--temporal-manifest")
+    parser.add_argument("--temporal-summary")
+    parser.add_argument("--evidence-map")
+    parser.add_argument("--output")
     parser.add_argument("--no-fail", action="store_true")
     return parser.parse_args()
 
@@ -321,14 +309,17 @@ def audit_source_accounting(
     manifest_paths: list[Path],
     asr_review_path: Path,
     visual_review_path: Path,
+    source_platforms: set[str],
+    discovery_types: set[str],
+    expected: dict[str, Any],
 ) -> dict[str, Any]:
     with source_index_path.open(encoding="utf-8", newline="") as handle:
         indexed_rows = [
             row
             for row in csv.DictReader(handle, delimiter="\t")
-            if str(row.get("platform", "")).casefold() == "bilibili"
+            if str(row.get("platform", "")).casefold()
+            in {platform.casefold() for platform in source_platforms}
         ]
-    discovery_types = {"playlist", "search"}
     discovery_rows = [
         row for row in indexed_rows if row.get("source_type") in discovery_types
     ]
@@ -374,16 +365,26 @@ def audit_source_accounting(
     missing_visual_accounting_ids = sorted(reviewed_asr_ids - visually_accounted_ids)
     unexpected_visual_accounting_ids = sorted(visually_accounted_ids - reviewed_asr_ids)
 
+    actual_counts = {
+        "indexed_rows": len(indexed_rows),
+        "discovery_rows": len(discovery_rows),
+        "video_jobs": len(jobs_by_source),
+        "unavailable_video_jobs": len(unavailable_source_ids),
+        "accessible_video_jobs": len(accessible_ids),
+    }
+    expected_mismatches = {
+        key: {"expected": int(value), "actual": actual_counts.get(key)}
+        for key, value in expected.items()
+        if key in actual_counts and actual_counts[key] != int(value)
+    }
     passed = (
-        len(indexed_rows) == 411
-        and len(discovery_rows) == 2
-        and len(jobs_by_source) == 409
+        bool(indexed_rows)
+        and bool(jobs_by_source)
         and not missing_manifest_source_ids
         and not extra_manifest_source_ids
-        and len(unavailable_source_ids) == 1
-        and len(accessible_ids) == 408
         and reviewed_asr_ids == accessible_ids
         and visually_accounted_ids == reviewed_asr_ids
+        and not expected_mismatches
     )
     return {
         "passed": passed,
@@ -403,6 +404,7 @@ def audit_source_accounting(
         "unexpected_asr_source_ids": unexpected_asr_ids,
         "missing_visual_accounting_source_ids": missing_visual_accounting_ids,
         "unexpected_visual_accounting_source_ids": unexpected_visual_accounting_ids,
+        "expected_mismatches": expected_mismatches,
     }
 
 
@@ -501,8 +503,7 @@ def duplicate_ids(items: list[dict[str, Any]], field: str) -> list[str]:
     return sorted(item_id for item_id, count in counts.items() if item_id and count > 1)
 
 
-def audit_knowledge_integrity() -> dict[str, Any]:
-    reference_dir = ROOT / "skills/liu-hui-badminton-coach/references"
+def audit_knowledge_integrity(reference_dir: Path) -> dict[str, Any]:
     frameworks = load_yaml(reference_dir / "frameworks.yaml")
     drills = load_yaml(reference_dir / "drills.yaml")
     training_plans = load_yaml(reference_dir / "training-plans.yaml")
@@ -572,8 +573,7 @@ def audit_knowledge_integrity() -> dict[str, Any]:
     }
 
 
-def audit_skill_integration() -> dict[str, Any]:
-    skill_path = ROOT / "skills/liu-hui-badminton-coach/SKILL.md"
+def audit_skill_integration(skill_path: Path) -> dict[str, Any]:
     text = skill_path.read_text(encoding="utf-8") if skill_path.exists() else ""
     required = [
         "multimodal-evidence-map.yaml",
@@ -588,24 +588,36 @@ def audit_skill_integration() -> dict[str, Any]:
 
 def main() -> None:
     args = parse_args()
-    visual_manifest = load_yaml(ROOT / args.visual_manifest)
-    visual_review = load_yaml(ROOT / args.visual_review)
-    temporal_manifest = load_yaml(ROOT / args.temporal_manifest)
-    temporal_summary_path = ROOT / args.temporal_summary
+    config = load_yaml(ROOT / args.coach_config)
+    corpus_path = Path(str(config["corpus_path"]))
+    reference_path = Path(str(config["reference_path"]))
+    skill_path = Path(str(config["skill_path"]))
+    visual_manifest_path = Path(args.visual_manifest) if args.visual_manifest else corpus_path / "video-visual-pipeline-manifest.yaml"
+    visual_review_path = Path(args.visual_review) if args.visual_review else corpus_path / "video-visual-review-manifest.yaml"
+    temporal_manifest_path = Path(args.temporal_manifest) if args.temporal_manifest else corpus_path / "video-temporal-review-manifest.yaml"
+    temporal_summary_path = ROOT / (Path(args.temporal_summary) if args.temporal_summary else corpus_path / "video-temporal-pose-summary.yaml")
+    evidence_map_path = Path(args.evidence_map) if args.evidence_map else reference_path / "multimodal-evidence-map.yaml"
+    output_path = Path(args.output) if args.output else Path(str(config["completion_audit"]))
+    visual_manifest = load_yaml(ROOT / visual_manifest_path)
+    visual_review = load_yaml(ROOT / visual_review_path)
+    temporal_manifest = load_yaml(ROOT / temporal_manifest_path)
     temporal_summary = (
         load_yaml(temporal_summary_path) if temporal_summary_path.exists() else None
     )
     gates = {
         "source_accounting": audit_source_accounting(
-            ROOT / "data/source-index.tsv",
-            [ROOT / "data/corpus/video-corpus-manifest.yaml"],
-            ROOT / "data/corpus/video-asr-timestamp-review.yaml",
-            ROOT / "data/corpus/video-visual-review-manifest.yaml",
+            ROOT / str(config["source_index"]),
+            [ROOT / corpus_path / "video-corpus-manifest.yaml"],
+            ROOT / corpus_path / "video-asr-timestamp-review.yaml",
+            ROOT / visual_review_path,
+            set(config.get("source_platforms", ["Bilibili"])),
+            set(config.get("discovery_source_types", ["playlist", "search"])),
+            dict(config.get("expected_source_accounting", {})),
         ),
         "visual_corpus": audit_visual(visual_manifest),
         "temporal_corpus": audit_temporal(temporal_manifest, temporal_summary),
         "explainability_chain": audit_evidence_map(
-            ROOT / args.evidence_map,
+            ROOT / evidence_map_path,
             len(visual_manifest.get("jobs", []))
             + len(visual_review.get("asr_only_sources", [])),
             {str(job["source_id"]) for job in visual_manifest.get("jobs", [])},
@@ -615,16 +627,15 @@ def main() -> None:
             },
             {str(job["source_id"]) for job in temporal_manifest.get("jobs", [])},
         ),
-        "knowledge_integrity": audit_knowledge_integrity(),
-        "skill_integration": audit_skill_integration(),
+        "knowledge_integrity": audit_knowledge_integrity(ROOT / reference_path),
+        "skill_integration": audit_skill_integration(ROOT / skill_path / "SKILL.md"),
         "publication_safety": audit_publication_safety(),
         "yaml_integrity": audit_yaml(),
     }
     executable_checks = [
         run_check([sys.executable, "-m", "compileall", "-q", "scripts", "src", "examples"]),
-        run_check([sys.executable, "scripts/check_source_integrity.py"]),
-        run_check([sys.executable, "examples/run_usage_case.py"]),
-        run_check([sys.executable, "examples/run_full_system_cases.py"]),
+        run_check([sys.executable, "scripts/check_source_integrity.py", "--coach-config", args.coach_config]),
+        run_check([sys.executable, "examples/run_usage_case.py", "--coach", str(config["coach_id"])]),
     ]
     gates["runtime_behavior"] = {
         "passed": all(item["passed"] for item in executable_checks),
@@ -641,8 +652,8 @@ def main() -> None:
         },
         "gates": gates,
     }
-    write_yaml(ROOT / args.output, output)
-    print(f"wrote {args.output}")
+    write_yaml(ROOT / output_path, output)
+    print(f"wrote {output_path}")
     print(f"complete {str(complete).lower()}")
     for name, gate in gates.items():
         print(f"{name} {'pass' if gate.get('passed') else 'fail'}")

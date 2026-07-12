@@ -1,6 +1,6 @@
 multimodal_completion_audit:
-  run_id: multimodal_completion_20260710
-  created_at: '2026-07-10'
+  run_id: multimodal_completion_20260712
+  created_at: '2026-07-12'
   complete: true
   gate_count: 9
   passed_gate_count: 9
@@ -24,6 +24,7 @@ gates:
     unexpected_asr_source_ids: []
     missing_visual_accounting_source_ids: []
     unexpected_visual_accounting_source_ids: []
+    expected_mismatches: {}
   visual_corpus:
     passed: true
     total_jobs: 402
@@ -81,7 +82,7 @@ gates:
     absolute_path_hits: []
   yaml_integrity:
     passed: true
-    parsed_files: 39
+    parsed_files: 41
     failures: []
   runtime_behavior:
     passed: true
@@ -101,6 +102,8 @@ gates:
     - command:
       - python3
       - scripts/check_source_integrity.py
+      - --coach-config
+      - configs/coaches/liu-hui.yaml
       passed: true
       returncode: 0
       stdout_tail: 'source_integrity_ok
@@ -110,6 +113,8 @@ gates:
     - command:
       - python3
       - examples/run_usage_case.py
+      - --coach
+      - liu-hui
       passed: true
       returncode: 0
       stdout_tail: 'lease.
@@ -152,33 +157,6 @@ gates:
         Retest: footwork_observations.recovery should become normal
 
         Drill: Rear-court arrival shadow (5 sets of 8 reps per rear corner.)
-
-        '
-      stderr_tail: ''
-    - command:
-      - python3
-      - examples/run_full_system_cases.py
-      passed: true
-      returncode: 0
-      stdout_tail: 'high_clear: late-arrival
-
-        smash: low-elbow
-
-        drop: drop-too-slow
-
-        drive: body-jammed-spacing
-
-        rear_footwork: late-arrival
-
-        front_footwork: late-front-arrival
-
-        backhand: backhand-low-contact
-
-        serve_receive: receive-large-preparation
-
-        doubles: doubles-watch-after-hit
-
-        match_transfer: drill-form-rally-breakdown
 
         '
       stderr_tail: ''

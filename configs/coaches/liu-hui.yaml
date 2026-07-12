@@ -1,0 +1,19 @@
+coach_id: liu-hui
+display_name: 刘辉
+english_name: Liu Hui
+skill_path: skills/liu-hui-badminton-coach
+reference_path: skills/liu-hui-badminton-coach/references
+source_index: data/source-index.tsv
+corpus_path: data/corpus
+private_root: data/raw-private/video-corpus
+completion_audit: data/corpus/multimodal-completion-status.yaml
+source_platforms: [Bilibili]
+discovery_source_types: [playlist, search]
+expected_source_accounting:
+  indexed_rows: 411
+  discovery_rows: 2
+  video_jobs: 409
+  unavailable_video_jobs: 1
+  accessible_video_jobs: 408
+official_status: non-official research synthesis
+diagnosis_notice: This is a non-official research diagnosis, not Liu Hui's personal judgment.

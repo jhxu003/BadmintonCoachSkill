@@ -14,6 +14,8 @@
     "safety_notes"
   ],
   "properties": {
+    "coach_id": { "type": "string" },
+    "coach_name": { "type": "string" },
     "primary_framework": { "type": "string" },
     "issues": { "type": "array", "items": { "type": "object" } },
     "evidence": { "type": "array", "items": { "type": "string" } },
@@ -26,4 +28,3 @@
   },
   "additionalProperties": true
 }
-

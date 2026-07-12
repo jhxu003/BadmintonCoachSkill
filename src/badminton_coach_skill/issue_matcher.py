@@ -260,8 +260,14 @@ def match_diagnosis(
                 }
             )
 
+    coach = knowledge.get("coach", {})
     safety_notes = [
-        "This is a non-official research diagnosis, not Liu Hui's personal judgment."
+        str(
+            coach.get(
+                "diagnosis_notice",
+                "This is a non-official research badminton diagnosis.",
+            )
+        )
     ]
     if player_profile.get("injury_risk"):
         safety_notes.append(
@@ -277,6 +283,8 @@ def match_diagnosis(
     )
 
     return {
+        "coach_id": coach.get("coach_id", "custom"),
+        "coach_name": coach.get("display_name", "Custom"),
         "primary_framework": framework["framework_id"],
         "issues": issues,
         "evidence": all_evidence,

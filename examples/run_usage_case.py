@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 import sys
@@ -8,17 +9,26 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from badminton_coach_skill.coach_registry import load_coach_knowledge
 from badminton_coach_skill.issue_matcher import match_diagnosis
 from badminton_coach_skill.report_compiler import compile_llm_context
-from badminton_coach_skill.rubric_loader import load_skill_knowledge
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run a badminton coaching Skill example.")
+    parser.add_argument("--coach", default="liu-hui")
+    parser.add_argument(
+        "--observation",
+        default="examples/observations/high_clear_late_arrival.json",
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
-    case_path = ROOT / "examples" / "observations" / "high_clear_late_arrival.json"
+    args = parse_args()
+    case_path = ROOT / args.observation
     payload = json.loads(case_path.read_text(encoding="utf-8"))
-    knowledge = load_skill_knowledge(
-        ROOT / "skills" / "liu-hui-badminton-coach" / "references"
-    )
+    knowledge = load_coach_knowledge(args.coach, root=ROOT)
     diagnosis = match_diagnosis(
         payload["player_profile"], payload["video_observation"], knowledge
     )
@@ -40,4 +50,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
