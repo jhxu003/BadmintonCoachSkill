@@ -47,36 +47,56 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Build the public-safe source-to-framework multimodal explainability map."
     )
-    parser.add_argument(
-        "--visual-manifest", default="data/corpus/video-visual-pipeline-manifest.yaml"
-    )
+    parser.add_argument("--coach-config")
+    parser.add_argument("--visual-manifest")
     parser.add_argument(
         "--source-manifest",
         action="append",
-        default=["data/corpus/video-corpus-manifest.yaml"],
+        default=[],
         help="Source manifest used to include ASR-only accessible videos in the evidence map.",
     )
-    parser.add_argument(
-        "--asr-review", default="data/corpus/video-asr-timestamp-review.yaml"
-    )
-    parser.add_argument(
-        "--visual-summary", default="data/corpus/video-visual-evidence-summary.yaml"
-    )
-    parser.add_argument(
-        "--temporal-summary", default="data/corpus/video-temporal-pose-summary.yaml"
-    )
-    parser.add_argument(
-        "--frameworks", default="skills/liu-hui-badminton-coach/references/frameworks.yaml"
-    )
-    parser.add_argument(
-        "--visual-contract",
-        default="skills/liu-hui-badminton-coach/references/visual-evidence-contract.yaml",
-    )
-    parser.add_argument(
-        "--output",
-        default="skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml",
-    )
+    parser.add_argument("--asr-review")
+    parser.add_argument("--visual-summary")
+    parser.add_argument("--temporal-summary")
+    parser.add_argument("--frameworks")
+    parser.add_argument("--visual-contract")
+    parser.add_argument("--output")
     return parser.parse_args()
+
+
+def coach_artifact_defaults(config_path: str) -> dict[str, str]:
+    config = load_yaml(ROOT / config_path)
+    corpus_path = Path(str(config["corpus_path"]))
+    reference_path = Path(str(config["reference_path"]))
+    return {
+        "coach_id": str(config["coach_id"]),
+        "coach_name": str(config["display_name"]),
+        "source_manifest": str(corpus_path / "video-corpus-manifest.yaml"),
+        "asr_review": str(corpus_path / "video-asr-timestamp-review.yaml"),
+        "visual_manifest": str(corpus_path / "video-visual-pipeline-manifest.yaml"),
+        "visual_summary": str(corpus_path / "video-visual-evidence-summary.yaml"),
+        "temporal_summary": str(corpus_path / "video-temporal-pose-summary.yaml"),
+        "frameworks": str(reference_path / "frameworks.yaml"),
+        "visual_contract": str(reference_path / "visual-evidence-contract.yaml"),
+        "output": str(reference_path / "multimodal-evidence-map.yaml"),
+    }
+
+
+def artifact_defaults(args: argparse.Namespace) -> dict[str, str]:
+    if args.coach_config:
+        return coach_artifact_defaults(args.coach_config)
+    return {
+        "coach_id": "liu-hui",
+        "coach_name": "Liu Hui",
+        "source_manifest": "data/corpus/video-corpus-manifest.yaml",
+        "asr_review": "data/corpus/video-asr-timestamp-review.yaml",
+        "visual_manifest": "data/corpus/video-visual-pipeline-manifest.yaml",
+        "visual_summary": "data/corpus/video-visual-evidence-summary.yaml",
+        "temporal_summary": "data/corpus/video-temporal-pose-summary.yaml",
+        "frameworks": "skills/liu-hui-badminton-coach/references/frameworks.yaml",
+        "visual_contract": "skills/liu-hui-badminton-coach/references/visual-evidence-contract.yaml",
+        "output": "skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml",
+    }
 
 
 def expanded_actions(topics: set[str]) -> set[str]:
@@ -116,7 +136,12 @@ def rank_frameworks(
     scored.sort(key=lambda item: (-item[0], item[1]))
     ranked = [framework_id for _, framework_id in scored[: max(limit, 0)]]
     if not ranked:
-        ranked = ["learner-fit-sequence-frame"]
+        catalog_ids = sorted(
+            str(framework.get("framework_id"))
+            for framework in frameworks
+            if framework.get("framework_id")
+        )
+        ranked = catalog_ids[:1]
     return ranked
 
 
@@ -174,12 +199,13 @@ def confidence_boundary(has_visual: bool, has_temporal: bool) -> str:
 
 def main() -> None:
     args = parse_args()
-    manifest = load_yaml(ROOT / args.visual_manifest)
-    asr = load_yaml(ROOT / args.asr_review)
-    visual = load_optional(ROOT / args.visual_summary)
-    temporal = load_optional(ROOT / args.temporal_summary)
-    frameworks = load_yaml(ROOT / args.frameworks)
-    contracts = load_yaml(ROOT / args.visual_contract)
+    defaults = artifact_defaults(args)
+    manifest = load_yaml(ROOT / (args.visual_manifest or defaults["visual_manifest"]))
+    asr = load_yaml(ROOT / (args.asr_review or defaults["asr_review"]))
+    visual = load_optional(ROOT / (args.visual_summary or defaults["visual_summary"]))
+    temporal = load_optional(ROOT / (args.temporal_summary or defaults["temporal_summary"]))
+    frameworks = load_yaml(ROOT / (args.frameworks or defaults["frameworks"]))
+    contracts = load_yaml(ROOT / (args.visual_contract or defaults["visual_contract"]))
 
     asr_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for window in asr.get("windows", []):
@@ -196,7 +222,8 @@ def main() -> None:
         str(job["source_id"]) for job in manifest.get("jobs", [])
     }
     source_jobs = load_source_jobs(
-        [ROOT / path for path in args.source_manifest], set(asr_by_source)
+        [ROOT / path for path in (args.source_manifest or [defaults["source_manifest"]])],
+        set(asr_by_source),
     )
 
     sources: list[dict[str, Any]] = []
@@ -287,7 +314,7 @@ def main() -> None:
         "multimodal_evidence_run": {
             "run_id": f"multimodal_evidence_{date.today().strftime('%Y%m%d')}",
             "created_at": date.today().isoformat(),
-            "scope": "Accessible non-YouTube Liu Hui public corpus only.",
+            "scope": f"Accessible non-YouTube {defaults['coach_name']} public corpus only.",
             "summary": {
                 "source_count": len(sources),
                 "sources_with_asr": sum(bool(item["asr_timestamp_refs"]) for item in sources),
@@ -305,8 +332,9 @@ def main() -> None:
         },
         "sources": sources,
     }
-    write_yaml(ROOT / args.output, output)
-    print(f"wrote {args.output}")
+    output_path = args.output or defaults["output"]
+    write_yaml(ROOT / output_path, output)
+    print(f"wrote {output_path}")
     print(f"source_count {len(sources)}")
     print(f"sources_with_visual {sum(bool(item['visual_timestamp_refs']) for item in sources)}")
     print(f"sources_with_temporal {sum(bool(item['temporal_sequence_refs']) for item in sources)}")
