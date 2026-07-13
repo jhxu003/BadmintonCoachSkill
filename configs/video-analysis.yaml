@@ -8,9 +8,9 @@ pose:
   model_path: yolo11n-pose.pt
   inference_stride: 2
 visual_review:
-  provider: disabled
+  provider: qwen_local
   model_path: Qwen/Qwen2.5-VL-3B-Instruct
-  max_new_tokens: 180
+  max_new_tokens: 256
   allowed_confidence: [low, medium, high]
 boundaries:
   prohibited_claims:

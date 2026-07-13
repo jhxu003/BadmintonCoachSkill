@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import os
 from pathlib import Path
 from typing import Callable
 
@@ -24,6 +25,7 @@ class VideoPipelineConfig:
     pose_inference_stride: int
     visual_review_provider: str
     visual_review_model_path: str
+    visual_review_max_new_tokens: int
 
 
 def load_video_pipeline_config(path: Path) -> VideoPipelineConfig:
@@ -40,6 +42,7 @@ def load_video_pipeline_config(path: Path) -> VideoPipelineConfig:
         pose_inference_stride=max(1, int(pose.get("inference_stride", 2))),
         visual_review_provider=str(visual_review.get("provider", "disabled")),
         visual_review_model_path=str(visual_review.get("model_path", "")),
+        visual_review_max_new_tokens=max(96, int(visual_review.get("max_new_tokens", 256))),
     )
 
 
@@ -89,7 +92,10 @@ def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline
     )
     reviewer: VisualReviewer
     if config.visual_review_provider == "qwen_local":
-        reviewer = QwenLocalVisualReviewer(config.visual_review_model_path)
+        reviewer = QwenLocalVisualReviewer(
+            os.environ.get("BADMINTON_VLM_MODEL_PATH", config.visual_review_model_path),
+            max_new_tokens=config.visual_review_max_new_tokens,
+        )
     else:
         reviewer = DisabledVisualReviewer()
     return ConfiguredVideoPipeline(

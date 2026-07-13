@@ -22,6 +22,7 @@
   <a href="#from-video-to-plan">诊断路径</a> ·
   <a href="#evidence-scale">数据规模</a> ·
   <a href="#quick-start">快速开始</a> ·
+  <a href="#video-evidence-web-app">视频诊断网页</a> ·
   <a href="#agent-integration">Agent 接入</a>
 </p>
 
@@ -143,6 +144,40 @@ python3 examples/run_usage_case.py --coach liu-hui
 ```
 
 输入示例位于 [`examples/observations/`](examples/observations/)。视频 Agent 只需输出与示例相同的结构化字段，即可调用对应 Skill。
+
+## Video Evidence Web App
+
+项目包含一个可运行的视频证据诊断网页：上传一段动作视频，选择教练体系和动作类型后，服务会在 GPU 上依次完成视频规范化、单人姿态轨迹、候选相位帧、Qwen-VL 语义门控、Skill 诊断和同阶段公开教练参考匹配。页面展示学员关键帧、对应的公开教练参考帧与原平台时间点链接。
+
+视频服务需要运行在具备 CUDA 的主机上。建议使用 Conda 环境：
+
+```bash
+conda env create -f environment-video.yml
+conda activate badminton-video
+python -m pip install -e .
+npm --prefix web ci
+```
+
+在 GPU 主机启动 API：
+
+```bash
+export BADMINTON_PROJECT_ROOT="$PWD"
+export BADMINTON_RUNTIME_ROOT="$HOME/.cache/badminton-coach-runtime"
+export BADMINTON_VLM_MODEL_PATH="/models/qwen-vl"
+uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port 8000
+```
+
+`BADMINTON_VLM_MODEL_PATH` 是可选项。未设置时，服务使用 [`configs/video-analysis.yaml`](configs/video-analysis.yaml) 中的 Qwen-VL 模型标识；在离线服务器或共享 GPU 集群中，建议将其指向预先下载的本地模型目录。
+
+另开一个终端启动网页：
+
+```bash
+VITE_API_BASE=http://127.0.0.1:8000 npm --prefix web run dev -- --host 0.0.0.0
+```
+
+生产部署可设置 `BADMINTON_DISPATCH_MODE=celery` 和 `CELERY_BROKER_URL`，由独立 GPU Worker 执行推理；本地模式由 API 进程内的单线程任务队列执行。完整的运行边界、接口和部署变量见 [`docs/video-evidence-web-app.md`](docs/video-evidence-web-app.md)。
+
+学员上传的视频、归一化视频、关键帧和中间媒体默认在 24 小时后删除，也可通过删除分析任务立即删除。公开教练参考帧只按诊断需要临时物化到部署私有缓存，Git 仓库不包含任何原始视频、截图、模型输出或学员媒体。
 
 ## Agent Integration
 

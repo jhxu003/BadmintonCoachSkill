@@ -8,7 +8,7 @@ from .contracts import FrameRef
 from .ffmpeg import extract_frame
 from .phases import PhaseCandidate, PoseSample, select_phase_candidates
 from .pose import PoseEstimator
-from .vlm_review import DisabledVisualReviewer, VisualReviewer
+from .vlm_review import DisabledVisualReviewer, VisualReview, VisualReviewer
 
 
 @dataclass(frozen=True)
@@ -57,8 +57,23 @@ def build_observation_and_frames(
         "racket_side_structure",
         "follow_through",
     ]
+    reviewed_candidates: list[tuple[PhaseCandidate, str, VisualReview]] = []
+    rejected_non_action = False
+    for index, candidate in enumerate(selected, start=1):
+        frame_id = f"student-{candidate.phase}-{candidate.timestamp_ms}-{index}"
+        media_key = frame_media_keys.get(candidate.timestamp_ms)
+        if not media_key:
+            continue
+        image_path = image_paths.get(candidate.timestamp_ms) if image_paths else None
+        review = visual_reviewer.review(candidate, image_path or Path(media_key), frame_id)
+        if review.phase_assessment == "not_action":
+            rejected_non_action = True
+            continue
+        reviewed_candidates.append((candidate, media_key, review))
+
     top_elbow_candidate = next(
-        (candidate for candidate in selected if candidate.phase == "top_elbow"), None
+        (candidate for candidate, _, _ in reviewed_candidates if candidate.phase == "top_elbow"),
+        None,
     )
     elbow_height, elbow_facts = _elbow_observation(
         samples_by_timestamp.get(top_elbow_candidate.timestamp_ms)
@@ -67,16 +82,8 @@ def build_observation_and_frames(
     )
     keyframes: list[dict[str, object]] = []
     frames: list[FrameRef] = []
-    for index, candidate in enumerate(selected, start=1):
+    for index, (candidate, media_key, review) in enumerate(reviewed_candidates, start=1):
         frame_id = f"student-{candidate.phase}-{candidate.timestamp_ms}-{index}"
-        media_key = frame_media_keys.get(candidate.timestamp_ms)
-        if not media_key:
-            continue
-        review = (
-            visual_reviewer.review(candidate, image_paths[candidate.timestamp_ms], frame_id)
-            if image_paths and candidate.timestamp_ms in image_paths
-            else DisabledVisualReviewer().review(candidate, Path(media_key), frame_id)
-        )
         phase_facts = elbow_facts if candidate.phase == "top_elbow" else ()
         facts = tuple(dict.fromkeys((*phase_facts, *review.visible_facts)))
         limitations = tuple(
@@ -111,6 +118,8 @@ def build_observation_and_frames(
         )
     if top_elbow_candidate is None:
         missing.append("elbow_height_before_hit")
+    if rejected_non_action and not reviewed_candidates:
+        missing.append("action_phase_evidence")
     return (
         {
             "action": action,
