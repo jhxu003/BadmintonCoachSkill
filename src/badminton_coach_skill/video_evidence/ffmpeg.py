@@ -3,7 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
+import re
 import subprocess
+from shutil import which
 
 
 @dataclass(frozen=True)
@@ -14,15 +16,55 @@ class VideoMetadata:
     fps: float
 
 
+def ffmpeg_executable() -> str:
+    """Resolve FFmpeg without assuming a Conda package placed it on PATH."""
+    system_ffmpeg = which("ffmpeg")
+    if system_ffmpeg:
+        return system_ffmpeg
+    try:
+        import imageio_ffmpeg
+    except ImportError as error:
+        raise RuntimeError("FFmpeg is unavailable; install ffmpeg or imageio-ffmpeg") from error
+    return imageio_ffmpeg.get_ffmpeg_exe()
+
+
 def _run(command: list[str]) -> subprocess.CompletedProcess[str]:
     return subprocess.run(command, check=True, capture_output=True, text=True)
 
 
+def _parse_duration(value: str) -> int:
+    hours, minutes, seconds = value.split(":", 2)
+    return round((int(hours) * 3600 + int(minutes) * 60 + float(seconds)) * 1000)
+
+
+def _probe_with_ffmpeg(video_path: Path) -> VideoMetadata:
+    completed = subprocess.run(
+        [ffmpeg_executable(), "-hide_banner", "-i", str(video_path)],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    output = f"{completed.stdout}\n{completed.stderr}"
+    duration_match = re.search(r"Duration:\s*(\d\d:\d\d:\d\d(?:\.\d+)?)", output)
+    video_match = re.search(r"Video:.*?(\d{2,5})x(\d{2,5}).*?(\d+(?:\.\d+)?)\s*fps", output)
+    if duration_match is None or video_match is None:
+        raise ValueError("Unable to read video metadata")
+    return VideoMetadata(
+        duration_ms=_parse_duration(duration_match.group(1)),
+        width=int(video_match.group(1)),
+        height=int(video_match.group(2)),
+        fps=float(video_match.group(3)),
+    )
+
+
 def probe_video(video_path: Path) -> VideoMetadata:
     """Read video metadata using ffprobe without decoding frames."""
+    ffprobe = which("ffprobe")
+    if ffprobe is None:
+        return _probe_with_ffmpeg(video_path)
     output = _run(
         [
-            "ffprobe",
+            ffprobe,
             "-v",
             "error",
             "-select_streams",
@@ -56,7 +98,7 @@ def normalize_video(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     _run(
         [
-            "ffmpeg",
+            ffmpeg_executable(),
             "-y",
             "-i",
             str(input_path),
@@ -84,7 +126,7 @@ def extract_frame(video_path: Path, timestamp_ms: int, output_path: Path) -> Non
     output_path.parent.mkdir(parents=True, exist_ok=True)
     _run(
         [
-            "ffmpeg",
+            ffmpeg_executable(),
             "-y",
             "-ss",
             f"{timestamp_ms / 1000:.3f}",

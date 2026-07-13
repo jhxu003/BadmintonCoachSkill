@@ -98,15 +98,19 @@ def create_app(
                 status_code=415, detail="Upload must use a video MIME type"
             )
         profile = _parse_player_profile(player_profile)
-        payload = await video.read(runtime.max_upload_bytes + 1)
-        if len(payload) > runtime.max_upload_bytes:
-            raise HTTPException(status_code=413, detail="Video exceeds configured upload limit")
-        if not payload:
-            raise HTTPException(status_code=422, detail="Video file is empty")
-
         job = create_analysis_job(database, coach_id, action_hint, profile)
         suffix = Path(video.filename).suffix.lower() or ".mp4"
-        media_key = media_store.write_bytes(job.id, f"upload{suffix}", payload)
+        try:
+            media_key = await media_store.write_upload(
+                job.id,
+                f"upload{suffix}",
+                video,
+                max_bytes=runtime.max_upload_bytes,
+            )
+        except ValueError as error:
+            delete_analysis_job(database, media_store, job.id)
+            status_code = 413 if "limit" in str(error).lower() else 422
+            raise HTTPException(status_code=status_code, detail=str(error)) from error
         database.add_media_asset(
             MediaAsset(
                 id=str(uuid4()),

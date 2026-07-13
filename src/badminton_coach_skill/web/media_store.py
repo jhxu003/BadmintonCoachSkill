@@ -3,6 +3,12 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import shutil
+from typing import Protocol
+
+
+class AsyncUploadReader(Protocol):
+    async def read(self, size: int = -1) -> bytes:
+        """Read the next upload chunk."""
 
 
 class LocalMediaStore:
@@ -32,6 +38,34 @@ class LocalMediaStore:
         temporary.write_bytes(content)
         os.replace(temporary, target)
         return str(target.relative_to(self.root))
+
+    async def write_upload(
+        self,
+        job_id: str,
+        name: str,
+        upload: AsyncUploadReader,
+        *,
+        max_bytes: int,
+        chunk_bytes: int = 1024 * 1024,
+    ) -> str:
+        target = self._target(job_id, name)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_suffix(target.suffix + ".part")
+        total = 0
+        try:
+            with temporary.open("wb") as output:
+                while chunk := await upload.read(chunk_bytes):
+                    total += len(chunk)
+                    if total > max_bytes:
+                        raise ValueError("Upload exceeds configured upload limit")
+                    output.write(chunk)
+            if total == 0:
+                raise ValueError("Upload is empty")
+            os.replace(temporary, target)
+            return str(target.relative_to(self.root))
+        except Exception:
+            temporary.unlink(missing_ok=True)
+            raise
 
     def resolve_key(self, media_key: str) -> Path:
         target = (self.root / media_key).resolve()

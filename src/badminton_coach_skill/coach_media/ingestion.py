@@ -44,6 +44,8 @@ ExtractReferenceFrame = Callable[[Path, int, Path], None]
 def download_public_source(source_url: str, target: Path) -> None:
     """Download one public source to a private transient location for frame extraction."""
     target.parent.mkdir(parents=True, exist_ok=True)
+    from ..video_evidence.ffmpeg import ffmpeg_executable
+
     completed = subprocess.run(
         [
             "yt-dlp",
@@ -51,6 +53,8 @@ def download_public_source(source_url: str, target: Path) -> None:
             "--no-progress",
             "--remux-video",
             "mp4",
+            "--ffmpeg-location",
+            ffmpeg_executable(),
             "--output",
             str(target),
             source_url,
