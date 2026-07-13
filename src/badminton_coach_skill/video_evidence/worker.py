@@ -38,6 +38,21 @@ def _elbow_observation(sample: PoseSample | None) -> tuple[str, tuple[str, ...]]
     return "near_shoulder", ("elbow_near_shoulder_height",)
 
 
+def _racket_side_structure(
+    reviewed_candidates: Iterable[tuple[PhaseCandidate, str, VisualReview]],
+) -> str:
+    """Expose only a VLM-confirmed, top-elbow-frame visual condition."""
+    for candidate, _, review in reviewed_candidates:
+        if candidate.phase != "top_elbow":
+            continue
+        facts = set(review.visible_facts)
+        if "racket_side_frame_collapsed" in facts:
+            return "collapsed"
+        if "racket_side_frame_stable" in facts:
+            return "stable"
+    return "unknown"
+
+
 def build_observation_and_frames(
     action: str,
     candidates: Iterable[PhaseCandidate],
@@ -80,6 +95,9 @@ def build_observation_and_frames(
         if top_elbow_candidate
         else None
     )
+    racket_side_structure = _racket_side_structure(reviewed_candidates)
+    if racket_side_structure != "unknown":
+        missing.remove("racket_side_structure")
     keyframes: list[dict[str, object]] = []
     frames: list[FrameRef] = []
     for index, (candidate, media_key, review) in enumerate(reviewed_candidates, start=1):
@@ -130,7 +148,7 @@ def build_observation_and_frames(
             "elbow_height_before_hit": elbow_height,
             "wrist_elbow_sequence": "unknown",
             "hip_shoulder_sequence": "unknown",
-            "racket_side_structure": "unknown",
+            "racket_side_structure": racket_side_structure,
             "follow_through": "unknown",
             "footwork_observations": {},
             "missing_observations": sorted(set(missing)),
