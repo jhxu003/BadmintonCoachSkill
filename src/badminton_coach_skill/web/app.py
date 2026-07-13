@@ -126,7 +126,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         if job.state == "expired" or job.expires_at <= datetime.now(timezone.utc):
             raise HTTPException(status_code=410, detail="Student media has expired")
         asset = database.find_media_asset(analysis_id, asset_id)
-        if asset is None or asset.kind not in {"upload", "derivative", "student_frame"}:
+        if asset is None or asset.kind != "student_frame":
             raise HTTPException(status_code=404, detail="Frame not found")
         target = media_store.resolve_key(asset.media_key)
         if not target.exists():
