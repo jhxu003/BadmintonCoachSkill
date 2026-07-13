@@ -19,6 +19,31 @@ class PoseEstimator(Protocol):
         """Return selected-player, public-safe pose summaries for one video."""
 
 
+def select_player_index(
+    boxes: list[list[float]], previous_center: tuple[float, float] | None
+) -> int:
+    """Prefer a stable visible player track; fall back to the largest person at start/loss."""
+    if not boxes:
+        raise ValueError("At least one person box is required")
+
+    def area(index: int) -> float:
+        left, top, right, bottom = boxes[index]
+        return max(right - left, 0.0) * max(bottom - top, 0.0)
+
+    largest = max(range(len(boxes)), key=area)
+    if previous_center is None:
+        return largest
+
+    def normalized_distance(index: int) -> float:
+        left, top, right, bottom = boxes[index]
+        center_x, center_y = (left + right) / 2, (top + bottom) / 2
+        scale = max(((right - left) ** 2 + (bottom - top) ** 2) ** 0.5, 1.0)
+        return ((center_x - previous_center[0]) ** 2 + (center_y - previous_center[1]) ** 2) ** 0.5 / scale
+
+    nearest = min(range(len(boxes)), key=lambda index: (normalized_distance(index), -area(index)))
+    return nearest if normalized_distance(nearest) <= 2.0 else largest
+
+
 class UltralyticsPoseEstimator:
     """Lazy YOLO pose adapter; model loading only occurs in a GPU worker."""
 
@@ -55,10 +80,7 @@ class UltralyticsPoseEstimator:
                     continue
                 boxes = result.boxes.xyxy.cpu().tolist()
                 confidences = result.boxes.conf.cpu().tolist()
-                selected = max(
-                    range(len(boxes)),
-                    key=lambda item: (boxes[item][2] - boxes[item][0]) * (boxes[item][3] - boxes[item][1]),
-                )
+                selected = select_player_index(boxes, previous_center)
                 keypoints = result.keypoints.xy[selected].cpu().tolist()
                 point_confidence = result.keypoints.conf[selected].cpu().tolist()
                 center = ((boxes[selected][0] + boxes[selected][2]) / 2, (boxes[selected][1] + boxes[selected][3]) / 2)
