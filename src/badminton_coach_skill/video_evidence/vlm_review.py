@@ -71,6 +71,8 @@ class QwenLocalVisualReviewer:
             f"Assess requested badminton phase {candidate.phase}. "
             "Set not_action when this is a static talking, gesturing, or instruction shot rather "
             "than an athletic swing phase. Set unclear if the still cannot distinguish them. "
+            "A clearly visible athletic badminton practice swing or drill remains plausible even "
+            "if no shuttle is visible; do not reject it solely because it is demonstrated for instruction. "
             "For a top_elbow frame, use visible_facts racket_side_frame_collapsed only when the "
             "racket-side preparation frame is visibly collapsed; use racket_side_frame_stable only "
             "when that frame is visibly stable; otherwise omit both. "
