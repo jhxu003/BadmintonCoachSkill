@@ -12,8 +12,7 @@ review_run:
     min_score: 2
     max_windows_per_video: 8
   summary:
-    manifests:
-    - data/coaches/li-yuxuan/corpus/video-corpus-manifest.yaml
+    source_index: data/coaches/li-yuxuan/source-index.tsv
     jobs_scanned: 382
     sources_with_windows: 382
     windows: 2886

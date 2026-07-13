@@ -21,7 +21,7 @@ Do not commit:
 - Raw videos.
 - Authentication material or exported account data.
 
-Private research artifacts belong under `data/raw-private/`, which is ignored by git.
+Private research artifacts remain outside the published repository.
 
 ## Output Boundary
 

@@ -35,12 +35,9 @@ scope:
   files:
     full_windows: data/corpus/video-asr-teaching-windows-full.yaml
     asr_timestamp_review: data/corpus/video-asr-timestamp-review.yaml
-    visual_review_manifest: data/corpus/video-visual-review-manifest.yaml
     visual_evidence_summary: data/corpus/video-visual-evidence-summary.yaml
-    temporal_review_manifest: data/corpus/video-temporal-review-manifest.yaml
     temporal_pose_summary: data/corpus/video-temporal-pose-summary.yaml
     multimodal_evidence_map: skills/liu-hui-badminton-coach/references/multimodal-evidence-map.yaml
-    parse_status: data/corpus/video-parse-status.md
 
 topic_coverage:
   diagnosis_flow: 1453

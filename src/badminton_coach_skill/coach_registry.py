@@ -34,4 +34,3 @@ def load_coach_knowledge(coach_id: str, root: str | Path) -> dict[str, Any]:
     knowledge = load_skill_knowledge(project_root / str(coach["reference_path"]))
     knowledge["coach"] = coach
     return knowledge
-

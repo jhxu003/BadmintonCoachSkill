@@ -31,6 +31,10 @@ When raw video is the only input, request structured observations or run a video
 - Read `references/safety-rubric.yaml` when pain, equipment, footwear, floor condition, or jump load appears.
 - Read `references/drills.yaml` and `references/training-plans.yaml` before writing practice.
 - Read `references/multimodal-evidence-map.yaml` whenever a report links a recommendation to the public corpus.
+- Use `asr_timestamp_reviewed_public_safe` for reviewed topic routing and timestamp lookup.
+- Use `asr_only_conceptual_public_safe` only for conceptual routing when no action-bearing visual review exists.
+- Use `visual_model_structured_candidate_public_safe` only for schema-validated visible still-frame conditions.
+- Use `temporal_pose_proxy_public_safe` only for coarse, bounded 2D change across a reviewed sequence.
 
 ## Coaching Surface
 

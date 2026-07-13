@@ -12,8 +12,7 @@ review_run:
     min_score: 2
     max_windows_per_video: 8
   summary:
-    manifests:
-    - data/corpus/video-corpus-manifest.yaml
+    source_index: data/source-index.tsv
     jobs_scanned: 409
     sources_with_windows: 408
     windows: 2610

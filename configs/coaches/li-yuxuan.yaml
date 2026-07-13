@@ -5,12 +5,5 @@ skill_path: skills/li-yuxuan-badminton-coach
 reference_path: skills/li-yuxuan-badminton-coach/references
 source_index: data/coaches/li-yuxuan/source-index.tsv
 corpus_path: data/coaches/li-yuxuan/corpus
-private_root: data/raw-private/li-yuxuan/video-corpus
-temporal_private_root: data/raw-private/li-yuxuan/video-corpus-temporal
-job_prefix: lyx
-completion_audit: data/coaches/li-yuxuan/corpus/multimodal-completion-status.yaml
-source_platforms: [Bilibili]
-discovery_source_types: [playlist, search, course_catalog]
-expected_source_accounting: {}
 official_status: non-official research synthesis
 diagnosis_notice: This is a non-official research diagnosis, not Li Yuxuan's personal judgment.

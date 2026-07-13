@@ -1,0 +1,399 @@
+- rule_id: lyx-rushed-release
+  issue: Release is rushed before preparation and contact space are stable
+  category: overhead_release
+  priority: 31
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [phase_observations.release_timing, contact_point]
+  observable_evidence: [{path: phase_observations.release_timing, equals: rushed, label: Acceleration starts before the player establishes a usable contact window.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request preparation through follow-through in one continuous side or rear-diagonal clip.
+  likely_effect: [Power is attempted before the chain is organized., Contact consistency falls under speed.]
+  correction_principle: Restore preparation and contact space before asking for a faster release.
+  drills: [lyx-turn-release-chain]
+  retest_metrics: [phase_observations.release_timing should become delayed_until_contact_window]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ]
+  confidence: inferred
+
+- rule_id: lyx-unsafe-load
+  issue: Planned movement or jump load exceeds visible readiness or stated symptoms
+  category: load_management
+  priority: 3
+  applicable_actions: [smash, rear_footwork, training_plan]
+  required_observations: [safety_observations.pain_status, footwork_observations.landing]
+  observable_evidence: [{path: safety_observations.pain_status, equals: present, label: Pain is reported or visible caution is required.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for pain status, current load, and a full landing view before increasing volume.
+  likely_effect: [Technique practice becomes guarded., Jump or speed progression can raise injury risk.]
+  correction_principle: Reduce load and use a pain-free prerequisite before increasing speed or jump demand.
+  drills: [lyx-grounded-smash-target, lyx-jump-land-reset]
+  retest_metrics: [safety_observations.pain_status should become absent_before_progression]
+  source_ids: [LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1RZ9YBCELY]
+  confidence: source_backed
+
+- rule_id: lyx-missing-prerequisite
+  issue: A higher-level variation is attempted before its base movement is repeatable
+  category: progression
+  priority: 5
+  applicable_actions: [smash, jump_smash, overhead_variation, training_plan]
+  required_observations: [phase_observations.prerequisite_status]
+  observable_evidence: [{path: phase_observations.prerequisite_status, equals: missing, label: Base contact, landing, or recovery is not yet repeatable.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for a slow base version and the intended advanced variation.
+  likely_effect: [The learner compensates with tension or timing shortcuts., Progression becomes inconsistent.]
+  correction_principle: Rebuild the prerequisite at a stable pace before adding variation or speed.
+  drills: [lyx-grounded-smash-target, lyx-top-elbow-frame]
+  retest_metrics: [phase_observations.prerequisite_status should become repeatable]
+  source_ids: [LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1HV41117WQ]
+  confidence: inferred
+
+- rule_id: lyx-short-swing-distance
+  issue: Arrival or contact position leaves too little usable swing distance
+  category: overhead_contact
+  priority: 19
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [contact_point, phase_observations.swing_distance]
+  observable_evidence: [{path: phase_observations.swing_distance, equals: short, label: The visible racket-side path is compressed before contact.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a side or rear-diagonal view including trunk, elbow, and contact region.
+  likely_effect: [The player forces wrist action., Clear length or smash pace becomes unreliable.]
+  correction_principle: Create time and contact distance before adding force.
+  drills: [lyx-high-contact-shadow, lyx-relaxed-clear-distance]
+  retest_metrics: [phase_observations.swing_distance should become usable]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+  confidence: source_backed
+
+- rule_id: lyx-collapsed-frame
+  issue: Shoulder-elbow-racket preparation frame collapses before release
+  category: overhead_preparation
+  priority: 22
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [elbow_height_before_hit, racket_side_structure]
+  observable_evidence: [{path: racket_side_structure, equals: collapsed, label: Racket-side elbow and preparation frame visibly fold before contact.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a side or rear-diagonal view with shoulder, elbow, wrist, and racket in frame.
+  likely_effect: [Release becomes wrist-led., Contact height and repeatability fall.]
+  correction_principle: Rebuild a stable shoulder-elbow frame before training speed.
+  drills: [lyx-top-elbow-frame]
+  retest_metrics: [racket_side_structure should become stable]
+  source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB]
+  confidence: inferred
+
+- rule_id: lyx-late-trunk-turn
+  issue: Trunk turn arrives after the arm has started the overhead action
+  category: power_sequence
+  priority: 28
+  applicable_actions: [high_clear, smash]
+  required_observations: [hip_shoulder_sequence]
+  observable_evidence: [{path: hip_shoulder_sequence, equals: trunk_after_arm, label: Arm action visibly begins before the trunk contributes.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a continuous rear-diagonal clip including lower body, trunk, and hitting arm.
+  likely_effect: [Arm load rises., Power is disconnected from arrival and turn.]
+  correction_principle: Link turn and arm release without claiming unobservable joint mechanics.
+  drills: [lyx-turn-release-chain]
+  retest_metrics: [hip_shoulder_sequence should become trunk_then_arm]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1Z64Y1F7YS]
+  confidence: inferred
+
+- rule_id: lyx-pain
+  issue: Pain or symptoms make a technical loading prescription unsafe
+  category: safety
+  priority: 1
+  applicable_actions: [all]
+  required_observations: [safety_observations.pain_status]
+  observable_evidence: [{path: safety_observations.pain_status, equals: present, label: Pain is reported during the movement or training load.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Stop technical progression and obtain appropriate clinical assessment when needed.
+  likely_effect: [Compensation obscures diagnosis., Continued load can worsen symptoms.]
+  correction_principle: Keep practice pain-free and reduce load; this Skill does not provide medical diagnosis.
+  drills: [lyx-equipment-comfort-log]
+  retest_metrics: [safety_observations.pain_status should be absent_before_load_progression]
+  source_ids: [LYX_BILI_BV1RZ9YBCELY]
+  confidence: source_backed
+
+- rule_id: lyx-late-preparation
+  issue: Racket and elbow preparation begins too late for the incoming ball
+  category: overhead_preparation
+  priority: 21
+  applicable_actions: [smash, high_clear, drop]
+  required_observations: [phase_observations.preparation_timing]
+  observable_evidence: [{path: phase_observations.preparation_timing, equals: late, label: The preparation frame appears only after the contact window is compressed.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request movement start through contact with the racket side visible.
+  likely_effect: [Contact is late or low., Jump work becomes a compensation.]
+  correction_principle: Prepare before speed and preserve a recoverable base.
+  drills: [lyx-top-elbow-frame, lyx-grounded-smash-target]
+  retest_metrics: [phase_observations.preparation_timing should become early_enough]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1WK411K7KW]
+  confidence: inferred
+
+- rule_id: lyx-telegraphed-preparation
+  issue: Preparation makes the intended overhead variation visible too early
+  category: overhead_variation
+  priority: 34
+  applicable_actions: [drop, smash, high_clear]
+  required_observations: [phase_observations.preparation_variation]
+  observable_evidence: [{path: phase_observations.preparation_variation, equals: telegraphed, label: Preparation changes visibly before the intended variation.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request repeated comparison clips with consistent camera view and target context.
+  likely_effect: [Opponent reads the shot early., Player sacrifices contact to disguise intent.]
+  correction_principle: Stabilize shared preparation before adding a variation at contact.
+  drills: [lyx-drop-target-contrast]
+  retest_metrics: [phase_observations.preparation_variation should become shared_until_late]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW]
+  confidence: inferred
+
+- rule_id: lyx-forced-wrist
+  issue: Wrist action is used to compensate for missing preparation, arrival, or contact
+  category: release
+  priority: 30
+  applicable_actions: [high_clear, smash, drop, backhand]
+  required_observations: [wrist_elbow_sequence, contact_point]
+  observable_evidence: [{path: wrist_elbow_sequence, equals: forced, label: Wrist action appears forced rather than released from a prepared chain.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request side or rear-diagonal sequence through contact; do not infer grip pressure.
+  likely_effect: [Tension rises., Contact and direction become unstable.]
+  correction_principle: Restore frame and path before refining release.
+  drills: [lyx-turn-release-chain]
+  retest_metrics: [wrist_elbow_sequence should become elbow_then_release]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  confidence: inferred
+
+- rule_id: lyx-low-contact
+  issue: Drop or overhead variation is attempted from a low or late contact window
+  category: overhead_contact
+  priority: 20
+  applicable_actions: [drop, high_clear, smash]
+  required_observations: [contact_point]
+  observable_evidence: [{path: contact_point, equals: low, label: Contact is visibly below the intended high attacking window.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request approach and contact in one rear-diagonal clip.
+  likely_effect: [Variation becomes forced., Player loses target control.]
+  correction_principle: Recover contact height before adding hand variation.
+  drills: [lyx-high-contact-shadow, lyx-drop-target-contrast]
+  retest_metrics: [contact_point should become high_in_front]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV]
+  confidence: inferred
+
+- rule_id: lyx-forced-cut
+  issue: Cut or slice is forced instead of selected from a stable contact and target
+  category: drop_variation
+  priority: 35
+  applicable_actions: [drop]
+  required_observations: [phase_observations.cut_control, contact_point]
+  observable_evidence: [{path: phase_observations.cut_control, equals: forced, label: The player changes the hand path to manufacture cut from an unstable contact.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request full racket and contact region with target context.
+  likely_effect: [Drop height and direction vary., Contact becomes late.]
+  correction_principle: Select variation after contact height and target intent are stable.
+  drills: [lyx-drop-target-contrast]
+  retest_metrics: [phase_observations.cut_control should become selected_not_forced]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW]
+  confidence: inferred
+
+- rule_id: lyx-large-preparation
+  issue: Drive preparation is too large for a fast exchange
+  category: drive
+  priority: 26
+  applicable_actions: [drive, doubles, serve_receive]
+  required_observations: [phase_observations.preparation_size]
+  observable_evidence: [{path: phase_observations.preparation_size, equals: large, label: Racket preparation travels too far before a fast reply.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a continuous fast-exchange clip with racket and contact region visible.
+  likely_effect: [Contact arrives late., Opponent gains time.]
+  correction_principle: Reduce preparation only after ready-racket height and arrival are stable.
+  drills: [lyx-drive-compact-exchange]
+  retest_metrics: [phase_observations.preparation_size should become compact]
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ]
+  confidence: inferred
+
+- rule_id: lyx-late-contact
+  issue: Fast-exchange contact is made after the useful interception window
+  category: interception
+  priority: 23
+  applicable_actions: [drive, frontcourt, serve_receive, doubles]
+  required_observations: [phase_observations.contact_timing]
+  observable_evidence: [{path: phase_observations.contact_timing, equals: late, label: The shuttle is contacted after the intended interception window.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a full ready-to-contact sequence rather than an isolated contact frame.
+  likely_effect: [Reply is defensive., Preparation becomes rushed.]
+  correction_principle: Rebuild ready-racket position, first response, and contact timing in that order.
+  drills: [lyx-drive-compact-exchange, lyx-receive-first-attack]
+  retest_metrics: [phase_observations.contact_timing should become early_or_on_time]
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1N94Y127Z9]
+  confidence: inferred
+
+- rule_id: lyx-late-first-step
+  issue: First response begins too late for front-court or receive interception
+  category: footwork_timing
+  priority: 11
+  applicable_actions: [front_footwork, serve_receive, doubles]
+  required_observations: [footwork_observations.first_step]
+  observable_evidence: [{path: footwork_observations.first_step, equals: late, label: The first move begins after the available interception time is lost.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request opponent contact or feeder release through first step and reply.
+  likely_effect: [Racket height drops., Contact becomes late.]
+  correction_principle: Start from the cue and keep the ready position usable.
+  drills: [lyx-split-start-call, lyx-receive-first-attack]
+  retest_metrics: [footwork_observations.first_step should become on_cue]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1H5411L7QQ]
+  confidence: inferred
+
+- rule_id: lyx-passive-third-shot
+  issue: Serve sequence does not create an active third-shot option
+  category: serve_receive
+  priority: 32
+  applicable_actions: [serve_receive, doubles]
+  required_observations: [phase_observations.third_shot_intent]
+  observable_evidence: [{path: phase_observations.third_shot_intent, equals: passive, label: Serve and first response leave no active third-shot plan.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request serve, return, and third shot in one continuous clip.
+  likely_effect: [Initiative passes to the opponent., Pair coverage becomes reactive.]
+  correction_principle: Fit serve placement to a repeatable first response and next shot.
+  drills: [lyx-serve-repeatability-grid, lyx-receive-first-attack]
+  retest_metrics: [phase_observations.third_shot_intent should become active]
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1H5411L7QQ]
+  confidence: inferred
+
+- rule_id: lyx-grip-tension
+  issue: Serve or receive preparation is visibly over-tensed
+  category: serve_receive
+  priority: 39
+  applicable_actions: [serve_receive]
+  required_observations: [phase_observations.preparation_tension]
+  observable_evidence: [{path: phase_observations.preparation_tension, equals: high, label: The preparation looks rigid before the serve or first reply.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for repeated serve or receive attempts; do not infer grip pressure from ordinary video.
+  likely_effect: [Touch and placement vary., The first response is delayed.]
+  correction_principle: Use a relaxed, repeatable preparation without claiming a specific grip-force value.
+  drills: [lyx-serve-repeatability-grid]
+  retest_metrics: [phase_observations.preparation_tension should become relaxed]
+  source_ids: [LYX_BILI_BV1SH411X7AF]
+  confidence: inferred
+
+- rule_id: lyx-slow-recovery
+  issue: Recovery is too slow to support the next connected rally action
+  category: recovery
+  priority: 25
+  applicable_actions: [doubles, match_transfer, high_clear, smash, drop]
+  required_observations: [footwork_observations.recovery]
+  observable_evidence: [{path: footwork_observations.recovery, equals: slow, label: The player cannot reconnect to a usable base before the next task.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request continuation through the opponent's next contact.
+  likely_effect: [Isolated form does not transfer., Doubles coverage gaps appear.]
+  correction_principle: Add exit and recovery to every technical drill.
+  drills: [lyx-rally-transfer-ladder, lyx-doubles-two-shot-role]
+  retest_metrics: [footwork_observations.recovery should become timely]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1GY4Y127MB]
+  confidence: inferred
+
+- rule_id: lyx-cramped-contact
+  issue: Backhand or compact reply is struck too close to the body
+  category: backhand_contact
+  priority: 18
+  applicable_actions: [backhand, drive, serve_receive]
+  required_observations: [contact_point]
+  observable_evidence: [{path: contact_point, equals: cramped, label: Contact is visibly jammed into the trunk-side space.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a side view including the approach, body, and racket side.
+  likely_effect: [Wrist action is forced., Direction and pace are unstable.]
+  correction_principle: Solve early choice and spacing before asking for a stronger backhand reply.
+  drills: [lyx-backhand-early-choice]
+  retest_metrics: [contact_point should become outside_body_line]
+  source_ids: [LYX_BILI_BV1KX4Y1G7L4]
+  confidence: inferred
+
+- rule_id: lyx-decision-breakdown
+  issue: A technically available option is lost under rally decision pressure
+  category: match_transfer
+  priority: 45
+  applicable_actions: [match_transfer, singles, doubles]
+  required_observations: [phase_observations.decision_quality]
+  observable_evidence: [{path: phase_observations.decision_quality, equals: breaks_under_pressure, label: The chosen response degrades when connected rally constraints are added.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Compare controlled feed with connected-rally footage.
+  likely_effect: [Practice success overstates match readiness., Recovery and selection disconnect.]
+  correction_principle: Add one decision or recovery constraint at a time.
+  drills: [lyx-rally-transfer-ladder]
+  retest_metrics: [phase_observations.decision_quality should become stable_under_constraint]
+  source_ids: [LYX_BILI_BV1GY4Y127MB, LYX_BILI_BV1UT4Y1U7X9]
+  confidence: inferred
+
+- rule_id: lyx-unstable-base
+  issue: Base position cannot support a repeatable next movement
+  category: footwork_base
+  priority: 9
+  applicable_actions: [rear_footwork, front_footwork, drive, serve_receive]
+  required_observations: [footwork_observations.base]
+  observable_evidence: [{path: footwork_observations.base, equals: unstable, label: Base position visibly prevents a balanced first response.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request full-body view including base, cue, first step, and return.
+  likely_effect: [Late start repeats., Contact and recovery become inconsistent.]
+  correction_principle: Stabilize a recoverable base before adding speed or variation.
+  drills: [lyx-split-start-call, lyx-rear-turn-freeze]
+  retest_metrics: [footwork_observations.base should become stable]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- rule_id: lyx-no-retest
+  issue: Training change has no explicit observable retest condition
+  category: progression
+  priority: 60
+  applicable_actions: [training_plan, match_transfer]
+  required_observations: [phase_observations.retest_defined]
+  observable_evidence: [{path: phase_observations.retest_defined, equals: false, label: A correction is prescribed without a measurable next check.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for the current correction cue and what counts as a successful repetition.
+  likely_effect: [Learner cannot tell whether the change worked., Cue overload persists.]
+  correction_principle: Attach one observable retest before progressing the drill.
+  drills: [lyx-rally-transfer-ladder]
+  retest_metrics: [phase_observations.retest_defined should become true]
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+  confidence: inferred
+
+- rule_id: lyx-unstable-contact
+  issue: Contact quality changes too much across comparable repetitions
+  category: skill_stability
+  priority: 29
+  applicable_actions: [high_clear, smash, drop, serve_receive]
+  required_observations: [phase_observations.contact_consistency]
+  observable_evidence: [{path: phase_observations.contact_consistency, equals: unstable, label: Comparable repetitions produce inconsistent contact outcomes.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request several repeated attempts from the same feeding condition.
+  likely_effect: [Equipment changes are blamed too early., Variation cannot be trained reliably.]
+  correction_principle: Stabilize movement and contact before changing equipment variables.
+  drills: [lyx-high-contact-shadow, lyx-equipment-comfort-log]
+  retest_metrics: [phase_observations.contact_consistency should become stable]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+  confidence: inferred
+
+- rule_id: lyx-delayed-first-step
+  issue: First step is delayed after the movement cue
+  category: footwork_timing
+  priority: 12
+  applicable_actions: [rear_footwork, front_footwork, high_clear]
+  required_observations: [footwork_observations.first_step]
+  observable_evidence: [{path: footwork_observations.first_step, equals: delayed, label: The first step occurs after a visible hesitation.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request cue through first step with both feet visible.
+  likely_effect: [Arrival is late., Arm mechanics become compensations.]
+  correction_principle: Train response to the opponent-contact or feeder-release cue before changing the swing.
+  drills: [lyx-split-start-call]
+  retest_metrics: [footwork_observations.first_step should become on_cue]
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+  confidence: source_backed
+
+- rule_id: lyx-forced-release
+  issue: Release is forced because contact and preparation do not support it
+  category: overhead_release
+  priority: 33
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [phase_observations.release_quality, contact_point]
+  observable_evidence: [{path: phase_observations.release_quality, equals: forced, label: Arm and racket release visibly stop or force through an unstable contact.}]
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request preparation, contact, and immediate follow-through in one sequence.
+  likely_effect: [Arm tension rises., Direction and recovery are inconsistent.]
+  correction_principle: Repair arrival, contact, and frame before adding release speed.
+  drills: [lyx-turn-release-chain, lyx-relaxed-clear-distance]
+  retest_metrics: [phase_observations.release_quality should become natural]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ]
+  confidence: inferred

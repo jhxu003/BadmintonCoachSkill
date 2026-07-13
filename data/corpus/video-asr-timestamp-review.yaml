@@ -8,8 +8,7 @@ review_run:
     Hui's exact wording.
   inputs:
     candidate_windows: data/corpus/video-asr-teaching-windows-full.yaml
-    manifests:
-    - data/corpus/video-corpus-manifest.yaml
+    source_index: data/source-index.tsv
   summary:
     candidate_windows: 2610
     reviewed_windows: 2610

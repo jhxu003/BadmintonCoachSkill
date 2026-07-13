@@ -22,6 +22,8 @@ It contains public source indexes, original topic summaries, source identifiers,
 6. `video-temporal-pose-summary.yaml`: aggregate 2D body-geometry proxy for selected motion sequences, with no coordinates.
 7. The bundled Skill references contain the runtime frameworks, deterministic rules, drills, plans, and source-linked evidence map.
 
+The completed accessible corpus contributes 2,886 reviewed timestamp windows, 369 sparse visual-review sources with 6,240 planned frames, and 306 temporal Pose sources with 611 sequences and 7,943 dense frames.
+
 ## Promotion Boundary
 
 - ASR can support topic routing, timestamp lookup, question selection, and original summaries. It cannot be presented as a quote, exact coaching language, or visual biomechanical proof.

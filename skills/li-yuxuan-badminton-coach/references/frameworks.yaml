@@ -7,7 +7,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: footwork_observations.arrival, equals: late, weight: 8}
-  priority: [late-start, late-arrival, contact-behind, rushed-release]
+  priority: [lyx-late-start, lyx-late-arrival, lyx-contact-behind, lyx-rushed-release]
   source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HZ4Y1M7WB]
   confidence: inferred
 
@@ -20,7 +20,7 @@
   avoid_for: {injury_risk: [shoulder_pain, elbow_pain, ankle_pain]}
   observation_triggers:
     - {path: phase_observations.force_strategy, equals: copied_elite_pattern, weight: 7}
-  priority: [unsafe-load, missing-prerequisite, late-arrival]
+  priority: [lyx-unsafe-load, lyx-missing-prerequisite, lyx-late-arrival]
   source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV12T4Y1E7L4]
   confidence: inferred
 
@@ -33,7 +33,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: footwork_observations.start_timing, equals: after_shuttle_leaves, weight: 9}
-  priority: [late-start, late-arrival, contact-behind]
+  priority: [lyx-late-start, lyx-late-arrival, lyx-contact-behind]
   source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1UT4Y1U7X9]
   confidence: source_backed
 
@@ -47,7 +47,7 @@
   observation_triggers:
     - {path: footwork_observations.rear_turn, equals: wrong_leg_leads, weight: 7}
     - {path: footwork_observations.confirmation_step, equals: absent, weight: 6}
-  priority: [late-start, rear-turn-error, no-confirmation-step, contact-behind]
+  priority: [lyx-late-start, lyx-rear-turn-error, lyx-no-confirmation-step, lyx-contact-behind]
   source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1Z64Y1F7YS]
   confidence: inferred
 
@@ -61,7 +61,7 @@
   observation_triggers:
     - {path: contact_point, equals: behind_head, weight: 8}
     - {path: phase_observations.swing_distance, equals: short, weight: 6}
-  priority: [late-arrival, contact-behind, short-swing-distance, early-tension]
+  priority: [lyx-late-arrival, lyx-contact-behind, lyx-short-swing-distance, lyx-early-tension]
   source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1RY4Y1S7ZV, LYX_BILI_BV1KX4Y1G7L4]
   confidence: source_backed
 
@@ -74,7 +74,7 @@
   avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
   observation_triggers:
     - {path: phase_observations.pre_hit_tension, equals: high, weight: 7}
-  priority: [early-tension, rushed-release, short-follow-through]
+  priority: [lyx-early-tension, lyx-rushed-release, lyx-short-follow-through]
   source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
   confidence: inferred
 
@@ -88,7 +88,7 @@
   observation_triggers:
     - {path: elbow_height_before_hit, equals: below_shoulder, weight: 8}
     - {path: racket_side_structure, equals: collapsed, weight: 6}
-  priority: [low-elbow, collapsed-frame, contact-behind]
+  priority: [lyx-low-elbow, lyx-collapsed-frame, lyx-contact-behind]
   source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB, LYX_BILI_BV1ED4Y1H7N5]
   confidence: inferred
 
@@ -101,7 +101,7 @@
   avoid_for: {injury_risk: [back_pain, shoulder_pain]}
   observation_triggers:
     - {path: hip_shoulder_sequence, equals: arm_before_trunk, weight: 7}
-  priority: [late-arrival, arm-first-swing, late-trunk-turn, contact-behind]
+  priority: [lyx-late-arrival, lyx-arm-first-swing, lyx-late-trunk-turn, lyx-contact-behind]
   source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1Z64Y1F7YS, LYX_BILI_BV1A8411A7BB]
   confidence: inferred
 
@@ -114,7 +114,7 @@
   avoid_for: {injury_risk: [wrist_pain, elbow_pain, shoulder_pain]}
   observation_triggers:
     - {path: wrist_elbow_sequence, equals: wrist_before_elbow, weight: 8}
-  priority: [wrist-first, collapsed-frame, contact-behind]
+  priority: [lyx-wrist-first, lyx-collapsed-frame, lyx-contact-behind]
   source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1YT4Y1Q7ZW]
   confidence: inferred
 
@@ -127,7 +127,7 @@
   avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
   observation_triggers:
     - {path: phase_observations.release_path, equals: forced_twist, weight: 8}
-  priority: [forced-twist, low-elbow, wrist-first, pain]
+  priority: [lyx-forced-twist, lyx-low-elbow, lyx-wrist-first, lyx-pain]
   source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1RP4Y1X7WW]
   confidence: hypothesis
 
@@ -140,7 +140,7 @@
   avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
   observation_triggers:
     - {path: phase_observations.power_strategy, equals: arm_speed_only, weight: 8}
-  priority: [late-arrival, low-elbow, contact-behind, wrist-first, no-recovery]
+  priority: [lyx-late-arrival, lyx-low-elbow, lyx-contact-behind, lyx-wrist-first, lyx-no-recovery]
   source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1BI4Y1G7RU]
   confidence: inferred
 
@@ -153,7 +153,7 @@
   avoid_for: {injury_risk: [ankle_pain, knee_pain, shoulder_pain]}
   observation_triggers:
     - {path: footwork_observations.landing, equals: unstable, weight: 7}
-  priority: [unstable-landing, contact-behind, no-recovery]
+  priority: [lyx-unstable-landing, lyx-contact-behind, lyx-no-recovery]
   source_ids: [LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1BI4Y1G7RU, LYX_BILI_BV1UH411O75P]
   confidence: inferred
 
@@ -166,7 +166,7 @@
   avoid_for: {injury_risk: [ankle_pain, knee_pain, back_pain]}
   observation_triggers:
     - {path: phase_observations.jump_readiness, equals: not_ready, weight: 9}
-  priority: [unstable-landing, late-preparation, contact-behind, no-recovery]
+  priority: [lyx-unstable-landing, lyx-late-preparation, lyx-contact-behind, lyx-no-recovery]
   source_ids: [LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1QK4Y157P6]
   confidence: source_backed
 
@@ -179,7 +179,7 @@
   avoid_for: {injury_risk: [shoulder_pain]}
   observation_triggers:
     - {path: phase_observations.preparation, equals: telegraphed, weight: 6}
-  priority: [telegraphed-preparation, contact-behind, forced-wrist]
+  priority: [lyx-telegraphed-preparation, lyx-contact-behind, lyx-forced-wrist]
   source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW, LYX_BILI_BV1WG411K79D]
   confidence: inferred
 
@@ -192,7 +192,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: contact_point, equals: below_head, weight: 7}
-  priority: [late-arrival, low-contact, forced-cut, no-recovery]
+  priority: [lyx-late-arrival, lyx-low-contact, lyx-forced-cut, lyx-no-recovery]
   source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW, LYX_BILI_BV1JR4Y1C7KT]
   confidence: inferred
 
@@ -205,7 +205,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.preparation_size, equals: large, weight: 7}
-  priority: [low-ready-racket, large-preparation, late-contact]
+  priority: [lyx-low-ready-racket, lyx-large-preparation, lyx-late-contact]
   source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1N94Y127Z9, LYX_BILI_BV1KA411Q763]
   confidence: inferred
 
@@ -218,7 +218,7 @@
   avoid_for: {injury_risk: [knee_pain, ankle_pain]}
   observation_triggers:
     - {path: phase_observations.ready_racket, equals: low, weight: 7}
-  priority: [low-ready-racket, late-first-step, passive-receive]
+  priority: [lyx-low-ready-racket, lyx-late-first-step, lyx-passive-receive]
   source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1CA411J7BJ]
   confidence: source_backed
 
@@ -231,7 +231,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.serve_pattern, equals: copied_unstable, weight: 7}
-  priority: [unstable-serve, passive-third-shot, grip-tension]
+  priority: [lyx-unstable-serve, lyx-passive-third-shot, lyx-grip-tension]
   source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1JM4M1Y7GT, LYX_BILI_BV1FMMPY9EAO]
   confidence: source_backed
 
@@ -244,7 +244,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.next_shot_role, equals: unclear, weight: 6}
-  priority: [passive-receive, role-conflict, slow-recovery]
+  priority: [lyx-passive-receive, lyx-role-conflict, lyx-slow-recovery]
   source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV12P4Y1Y7HS, LYX_BILI_BV1GY4Y1P7B2]
   confidence: inferred
 
@@ -257,7 +257,7 @@
   avoid_for: {injury_risk: [wrist_pain, elbow_pain]}
   observation_triggers:
     - {path: footwork_observations.arrival, equals: late, weight: 6}
-  priority: [late-arrival, cramped-contact, forced-wrist]
+  priority: [lyx-late-arrival, lyx-cramped-contact, lyx-forced-wrist]
   source_ids: [LYX_BILI_BV1T34Y1772E, LYX_BILI_BV1MS4Y187PC, LYX_BILI_BV1US4Y1E715]
   confidence: inferred
 
@@ -270,7 +270,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.practice_transfer, equals: breaks_in_rally, weight: 8}
-  priority: [form-only-success, slow-recovery, decision-breakdown]
+  priority: [lyx-form-only-success, lyx-slow-recovery, lyx-decision-breakdown]
   source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB, LYX_BILI_BV1J64Y1O7SN]
   confidence: inferred
 
@@ -283,7 +283,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.correction_load, equals: too_many_cues, weight: 7}
-  priority: [too-many-cues, unstable-base, no-retest]
+  priority: [lyx-too-many-cues, lyx-unstable-base, lyx-no-retest]
   source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1DV411U7FZ]
   confidence: inferred
 
@@ -296,7 +296,7 @@
   avoid_for: {injury_risk: [elbow_pain, shoulder_pain, wrist_pain]}
   observation_triggers:
     - {path: phase_observations.equipment_change, equals: chasing_power, weight: 5}
-  priority: [technique-before-equipment, pain, unstable-contact]
+  priority: [lyx-technique-before-equipment, lyx-pain, lyx-unstable-contact]
   source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
   confidence: source_backed
 
@@ -309,7 +309,7 @@
   avoid_for: {injury_risk: [ankle_pain, knee_pain]}
   observation_triggers:
     - {path: phase_observations.pain, equals: present, weight: 10}
-  priority: [pain, unstable-landing, unsafe-floor]
+  priority: [lyx-pain, lyx-unstable-landing, lyx-unsafe-floor]
   source_ids: [LYX_BILI_BV1RZ9YBCELY, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1Z64Y1F7YS]
   confidence: source_backed
 
@@ -322,7 +322,7 @@
   avoid_for: {injury_risk: [ankle_pain, knee_pain]}
   observation_triggers:
     - {path: footwork_observations.first_step, equals: delayed, weight: 7}
-  priority: [late-start, delayed-first-step, late-arrival]
+  priority: [lyx-late-start, lyx-delayed-first-step, lyx-late-arrival]
   source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1Z64Y1F7YS]
   confidence: inferred
 
@@ -335,7 +335,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: contact_point, equals: behind_head, weight: 7}
-  priority: [late-arrival, contact-behind, forced-release]
+  priority: [lyx-late-arrival, lyx-contact-behind, lyx-forced-release]
   source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV17A4Y1J7KV]
   confidence: inferred
 
@@ -348,7 +348,7 @@
   avoid_for: {injury_risk: [ankle_pain, knee_pain, shoulder_pain]}
   observation_triggers:
     - {path: phase_observations.smash_choice, equals: high_cost_for_low_return, weight: 7}
-  priority: [unstable-landing, no-recovery, late-contact]
+  priority: [lyx-unstable-landing, lyx-no-recovery, lyx-late-contact]
   source_ids: [LYX_BILI_BV1BI4Y1G7RU, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV12P4Y1Y7HS]
   confidence: inferred
 
@@ -361,7 +361,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.ready_racket, equals: low, weight: 7}
-  priority: [low-ready-racket, late-first-step, passive-receive]
+  priority: [lyx-low-ready-racket, lyx-late-first-step, lyx-passive-receive]
   source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1NT4Y1O7WQ]
   confidence: inferred
 
@@ -374,7 +374,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.serve_target, equals: inconsistent, weight: 6}
-  priority: [unstable-serve, passive-third-shot]
+  priority: [lyx-unstable-serve, lyx-passive-third-shot]
   source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1JM4M1Y7GT]
   confidence: source_backed
 
@@ -387,7 +387,7 @@
   avoid_for: {injury_risk: [wrist_pain, elbow_pain]}
   observation_triggers:
     - {path: phase_observations.backhand_preparation, equals: oversized, weight: 6}
-  priority: [late-arrival, cramped-contact, forced-wrist]
+  priority: [lyx-late-arrival, lyx-cramped-contact, lyx-forced-wrist]
   source_ids: [LYX_BILI_BV1T34Y1772E, LYX_BILI_BV1MS4Y187PC, LYX_BILI_BV1US4Y1E715]
   confidence: inferred
 
@@ -400,7 +400,7 @@
   avoid_for: {}
   observation_triggers:
     - {path: phase_observations.retest, equals: absent, weight: 6}
-  priority: [no-retest, form-only-success, too-many-cues]
+  priority: [lyx-no-retest, lyx-form-only-success, lyx-too-many-cues]
   source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB, LYX_BILI_BV1J64Y1O7SN]
   confidence: inferred
 
@@ -413,6 +413,6 @@
   avoid_for: {injury_risk: [wrist_pain, elbow_pain, shoulder_pain]}
   observation_triggers:
     - {path: phase_observations.equipment_change, equals: multiple_changes, weight: 6}
-  priority: [technique-before-equipment, pain, unstable-contact]
+  priority: [lyx-technique-before-equipment, lyx-pain, lyx-unstable-contact]
   source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
   confidence: inferred

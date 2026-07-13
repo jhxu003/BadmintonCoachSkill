@@ -8,8 +8,7 @@ review_run:
     Hui's exact wording.
   inputs:
     candidate_windows: data/coaches/li-yuxuan/corpus/video-asr-teaching-windows-full.yaml
-    manifests:
-    - data/coaches/li-yuxuan/corpus/video-corpus-manifest.yaml
+    source_index: data/coaches/li-yuxuan/source-index.tsv
   summary:
     candidate_windows: 2886
     reviewed_windows: 2886

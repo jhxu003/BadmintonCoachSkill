@@ -1,4 +1,20 @@
 system_id: li-yuxuan-public-source-system
+corpus_coverage:
+  indexed_public_records: 391
+  discovered_video_candidates: 389
+  accessible_reviewed_videos: 382
+  unavailable_historical_candidates: 7
+  reviewed_timestamp_windows: 2886
+  visual_review_sources: 369
+  visual_reviewed_frames: 6240
+  temporal_pose_sources: 306
+  temporal_pose_sequences: 611
+  temporal_pose_frames: 7943
+knowledge_coverage:
+  frameworks: 32
+  deterministic_rules: 49
+  drills: 17
+  training_plans: 3
 scope: Public-source Li Yuxuan coaching synthesis with source-level ASR, semantic, visual, and selected temporal evidence routing.
 teaching_system:
   diagnostic_principles:

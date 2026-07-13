@@ -46,7 +46,7 @@ The distinctive coaching value to model is not a single "standard swing." It is 
 
 ## Video Corpus Distillation
 
-`data/corpus/video-asr-teaching-windows-full.yaml` stores the full candidate-window layer. `data/corpus/video-asr-timestamp-review.yaml` stores the complete public-safe agent review. `data/corpus/video-visual-pipeline-manifest.yaml` defines sparse visual coverage, `data/corpus/video-temporal-review-manifest.yaml` defines the critical dense sequences, and `references/multimodal-evidence-map.yaml` bundles the source-to-framework explainability chain for standalone skill use. Raw ASR text, audio, video, OCR, VLM outputs, keypoint coordinates, cookies, tokens, temporary media URLs, and paid-course material must stay private.
+`data/corpus/video-asr-teaching-windows-full.yaml` stores the candidate-window layer. `data/corpus/video-asr-timestamp-review.yaml` stores the public-safe topic review. The visual and temporal summaries provide aggregate visibility and bounded 2D sequence evidence, while `references/multimodal-evidence-map.yaml` bundles the source-to-framework explainability chain for standalone Skill use. Raw ASR text, audio, video, OCR, VLM outputs, keypoint coordinates, authentication material, temporary media URLs, and paid-course material remain outside the published repository.
 
 Use reviewed timestamp material as follows:
 

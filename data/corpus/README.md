@@ -16,13 +16,11 @@ It must not contain raw videos, full subtitles, paid-course transcripts, screens
 1. `data/source-index.tsv`: canonical list of discovered public sources.
 2. `teaching-points.yaml`: distilled coaching points tied to source ids.
 3. `timestamp-review.yaml`: review ledger for timestamp-blocked or title-level reviewed points.
-4. `deduplication-map.yaml`: exact duplicate and deferred duplicate decisions.
-5. Skill references: use `ready_for_skill` points directly; use reviewed title-level points only through skill guardrails; keep `reviewed_not_promoted` points out of deterministic Liu Hui-derived rules.
-6. `video-asr-teaching-windows-full.yaml`: expanded public-safe ASR candidate windows from the full indexed Bilibili corpus.
-7. `video-asr-timestamp-review.yaml`: public-safe agent review for every full-corpus ASR window; no transcript text is included.
-8. `video-visual-review-manifest.yaml`: complete visual-review queue for action-bearing Bilibili sources.
-9. `video-visual-evidence-summary.yaml`: safe timestamp and visibility summary from private VLM output.
-10. `video-parse-status.md`: coverage report for video parsing runs and known unavailable sources.
+4. Skill references: use `ready_for_skill` points directly; use reviewed title-level points only through skill guardrails; keep `reviewed_not_promoted` points out of deterministic Liu Hui-derived rules.
+5. `video-asr-teaching-windows-full.yaml`: expanded public-safe ASR candidate windows from the full indexed Bilibili corpus.
+6. `video-asr-timestamp-review.yaml`: public-safe agent review for every full-corpus ASR window; no transcript text is included.
+7. `video-visual-evidence-summary.yaml`: safe timestamp and visibility summary derived from structured visual review.
+8. `video-temporal-pose-summary.yaml`: safe aggregate 2D sequence summary with no raw coordinates or frames.
 
 ## Evidence Labels
 
