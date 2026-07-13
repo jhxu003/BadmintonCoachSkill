@@ -56,6 +56,30 @@ def _racket_side_structure(
     return "unknown"
 
 
+def _distinct_frame_candidates(
+    candidates: Iterable[PhaseCandidate], frame_media_keys: dict[int, str]
+) -> list[PhaseCandidate]:
+    """Keep one logical phase for each extracted image, preferring top-elbow evidence."""
+    selected: list[tuple[int, PhaseCandidate]] = []
+    by_media_key: dict[str, tuple[int, PhaseCandidate]] = {}
+    for index, candidate in enumerate(candidates):
+        media_key = frame_media_keys.get(candidate.timestamp_ms)
+        if not media_key:
+            selected.append((index, candidate))
+            continue
+        existing = by_media_key.get(media_key)
+        if existing is None or (
+            candidate.phase == "top_elbow" and existing[1].phase != "top_elbow"
+        ):
+            by_media_key[media_key] = (index, candidate)
+    return [
+        candidate
+        for _, candidate in sorted(
+            (*selected, *by_media_key.values()), key=lambda item: item[0]
+        )
+    ]
+
+
 def build_observation_and_frames(
     action: str,
     candidates: Iterable[PhaseCandidate],
@@ -67,7 +91,7 @@ def build_observation_and_frames(
 ) -> tuple[dict[str, object], list[FrameRef]]:
     """Convert selected candidate frames into a bounded Skill observation payload."""
     visual_reviewer = reviewer or DisabledVisualReviewer()
-    selected = list(candidates)
+    selected = _distinct_frame_candidates(candidates, frame_media_keys)
     missing: list[str] = [
         "contact_point",
         "wrist_elbow_sequence",
