@@ -1,6 +1,6 @@
 # Legal and Content Boundaries
 
-This repository is non-official, non-authorized, and not affiliated with Liu Hui.
+This repository contains independent public-source research syntheses. It is non-official, non-authorized, and not affiliated with any coach represented by a bundled Skill.
 
 ## Public-Safe Content
 
@@ -19,7 +19,7 @@ Do not commit:
 - Long subtitles or full transcripts.
 - Screenshots from paid content.
 - Raw videos.
-- Cookies, tokens, or exported account data.
+- Authentication material or exported account data.
 
 Private research artifacts belong under `data/raw-private/`, which is ignored by git.
 
@@ -27,7 +27,7 @@ Private research artifacts belong under `data/raw-private/`, which is ignored by
 
 Generated reports must not say:
 
-- "刘辉亲自判断"
-- "刘辉认证"
+- "教练亲自判断"
+- "教练认证"
 - "官方授权"
 - Any equivalent claim implying endorsement or affiliation.

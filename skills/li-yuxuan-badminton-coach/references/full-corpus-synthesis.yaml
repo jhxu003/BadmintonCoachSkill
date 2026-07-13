@@ -1,0 +1,34 @@
+system_id: li-yuxuan-public-source-system
+scope: Public-source Li Yuxuan coaching synthesis with source-level ASR, semantic, visual, and selected temporal evidence routing.
+teaching_system:
+  diagnostic_principles:
+    - Start with time budget, arrival, contact window, and recovery rather than isolated hand force.
+    - Select movement and power routes according to learner prerequisites rather than a universal elite pattern.
+    - Progress one bottleneck at a time from stable execution to speed, variation, jump load, and rally transfer.
+  coverage:
+    - learner_fit
+    - high_clear
+    - rear_turn_and_confirmation_step
+    - top_elbow_and_racket_preparation
+    - trunk_to_arm_release
+    - wrist_and_internal_rotation_proxies
+    - grounded_and_jump_smash
+    - drop_and_overhead_variation
+    - drive_and_fast_exchange
+    - frontcourt_and_receive
+    - serve_receive_and_doubles
+    - backhand_time_budget
+    - match_transfer
+    - equipment_and_safety
+  source_boundaries:
+    - LYX_BILI_BV13C4Y1T7SN
+    - LYX_BILI_BV1HZ4Y1M7WB
+    - LYX_BILI_BV1EV411I7ZS
+    - LYX_BILI_BV1HV41117WQ
+    - LYX_BILI_BV1FF4Y1Q7TD
+    - LYX_BILI_BV1WK411K7KW
+    - LYX_BILI_BV1SH411X7AF
+    - LYX_BILI_BV1H5411L7QQ
+    - LYX_BILI_BV1SL4Y1J77Z
+    - LYX_BILI_BV1RZ9YBCELY
+completion_boundary: Coverage means the public accessible corpus has been indexed and distilled into the supported topics; it does not claim access to private coaching, paid lessons, or unpublished material.

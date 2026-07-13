@@ -1,0 +1,50 @@
+- rule_id: lyx-pain-stop
+  issue: Pain is present during the observed task
+  category: safety
+  priority: 1
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork, backhand, serve_receive, doubles]
+  required_observations: [phase_observations.pain]
+  observable_evidence:
+    - {path: phase_observations.pain, equals: present, label: Player reports or visibly responds to pain.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Do not diagnose through pain; obtain qualified medical assessment when appropriate.
+  likely_effect: [Additional power or jump load can worsen symptoms.]
+  correction_principle: Stop the provocative load and regress to pain-free movement or seek professional assessment.
+  drills: []
+  retest_metrics: [pain status should be cleared before load progression]
+  source_ids: [LYX_BILI_BV1RZ9YBCELY, LYX_BILI_BV1WK411K7KW]
+  confidence: source_backed
+
+- rule_id: lyx-unsafe-floor
+  issue: Shoe-floor or ankle conditions make aggressive movement unsafe
+  category: safety
+  priority: 2
+  applicable_actions: [rear_footwork, front_footwork, smash, doubles]
+  required_observations: [phase_observations.surface_safety]
+  observable_evidence:
+    - {path: phase_observations.surface_safety, equals: unsafe, label: Surface, shoe condition, or ankle readiness is reported unsafe.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Do not infer floor traction from a cropped video; ask for context.
+  likely_effect: [Slip, inversion, and landing risks rise.]
+  correction_principle: Resolve floor, shoe, and ankle readiness before adding speed or jump height.
+  drills: []
+  retest_metrics: [phase_observations.surface_safety should become cleared]
+  source_ids: [LYX_BILI_BV1RZ9YBCELY]
+  confidence: source_backed
+
+- rule_id: lyx-technique-before-equipment
+  issue: Equipment change is being used as a substitute for a visible technique bottleneck
+  category: equipment
+  priority: 65
+  applicable_actions: [high_clear, smash, drive]
+  required_observations: [phase_observations.equipment_change]
+  observable_evidence:
+    - {path: phase_observations.equipment_change, equals: chasing_power, label: Racket or tension change is proposed to solve an unresolved contact or timing issue.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for the current setup, pain response, and stable technical baseline.
+  likely_effect: [Player confounds equipment effects with technique and may increase discomfort.]
+  correction_principle: Stabilise visible technique, then change one equipment variable and log response.
+  drills: [lyx-equipment-comfort-log]
+  retest_metrics: [same target drill should be logged over 3 sessions before another equipment change]
+  source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
+  confidence: inferred

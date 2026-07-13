@@ -1,0 +1,418 @@
+- framework_id: lyx-observation-first
+  name: Observation-first diagnostic frame
+  summary: Start from the visible ball condition, start timing, arrival, contact window, and recovery before assigning a hand or power problem.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork]
+  training_goals: [diagnose_root_cause, stable_execution]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: footwork_observations.arrival, equals: late, weight: 8}
+  priority: [late-start, late-arrival, contact-behind, rushed-release]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- framework_id: lyx-fit-before-force
+  name: Learner-fit before force frame
+  summary: Choose a power, preparation, and progression route that matches the learner's coordination, mobility, available time, and current prerequisites.
+  applicable_actions: [high_clear, smash, rear_footwork, doubles]
+  training_goals: [learner_fit, efficient_power, safe_progression]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain, elbow_pain, ankle_pain]}
+  observation_triggers:
+    - {path: phase_observations.force_strategy, equals: copied_elite_pattern, weight: 7}
+  priority: [unsafe-load, missing-prerequisite, late-arrival]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV12T4Y1E7L4]
+  confidence: inferred
+
+- framework_id: lyx-start-on-opponent-contact
+  name: Start-on-opponent-contact frame
+  summary: Treat the opponent's contact as the start cue; rebuild first-step timing before blaming stamina or speed.
+  applicable_actions: [rear_footwork, front_footwork, doubles]
+  training_goals: [start_timing, first_step, court_coverage]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: footwork_observations.start_timing, equals: after_shuttle_leaves, weight: 9}
+  priority: [late-start, late-arrival, contact-behind]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1UT4Y1U7X9]
+  confidence: source_backed
+
+- framework_id: lyx-rear-turn-confirm-step
+  name: Rear-court turn and confirmation-step frame
+  summary: Build the rear-court overhead from an early turn, retreat leg, adjustment or confirmation step, balanced contact, and an exit path.
+  applicable_actions: [rear_footwork, high_clear, smash, drop]
+  training_goals: [rear_court_arrival, balanced_contact, recovery]
+  suitable_for: {level: [beginner, intermediate, advanced], mobility: [normal, good]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain]}
+  observation_triggers:
+    - {path: footwork_observations.rear_turn, equals: wrong_leg_leads, weight: 7}
+    - {path: footwork_observations.confirmation_step, equals: absent, weight: 6}
+  priority: [late-start, rear-turn-error, no-confirmation-step, contact-behind]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1Z64Y1F7YS]
+  confidence: inferred
+
+- framework_id: lyx-contact-distance-clear
+  name: High-clear contact-distance frame
+  summary: For a short high clear, first inspect whether the player reaches a high usable contact and has enough swing distance before adding force.
+  applicable_actions: [high_clear]
+  training_goals: [clear_length, overhead_timing, relaxed_power]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: contact_point, equals: behind_head, weight: 8}
+    - {path: phase_observations.swing_distance, equals: short, weight: 6}
+  priority: [late-arrival, contact-behind, short-swing-distance, early-tension]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1RY4Y1S7ZV, LYX_BILI_BV1KX4Y1G7L4]
+  confidence: source_backed
+
+- framework_id: lyx-relax-then-release
+  name: Relax-then-release frame
+  summary: Preserve a relaxed pre-hit preparation and concentrate the release near contact instead of maintaining maximum tension through the whole swing.
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  training_goals: [relaxed_power, release_timing, consistency]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
+  observation_triggers:
+    - {path: phase_observations.pre_hit_tension, equals: high, weight: 7}
+  priority: [early-tension, rushed-release, short-follow-through]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  confidence: inferred
+
+- framework_id: lyx-top-elbow-preparation
+  name: Top-elbow preparation frame
+  summary: Establish a visible shoulder-elbow preparation relationship and a usable racket-side frame before pursuing fast release.
+  applicable_actions: [high_clear, smash, drop]
+  training_goals: [racket_preparation, top_elbow, stable_overhead]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain]}
+  observation_triggers:
+    - {path: elbow_height_before_hit, equals: below_shoulder, weight: 8}
+    - {path: racket_side_structure, equals: collapsed, weight: 6}
+  priority: [low-elbow, collapsed-frame, contact-behind]
+  source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB, LYX_BILI_BV1ED4Y1H7N5]
+  confidence: inferred
+
+- framework_id: lyx-turn-then-arm-release
+  name: Turn-then-arm-release frame
+  summary: Link the lower-body and trunk turn to a delayed arm release; avoid using arm speed to compensate for a late or unbalanced rear-court position.
+  applicable_actions: [high_clear, smash, rear_footwork]
+  training_goals: [hip_trunk_timing, efficient_power, rear_court_stability]
+  suitable_for: {level: [intermediate, advanced], mobility: [normal, good]}
+  avoid_for: {injury_risk: [back_pain, shoulder_pain]}
+  observation_triggers:
+    - {path: hip_shoulder_sequence, equals: arm_before_trunk, weight: 7}
+  priority: [late-arrival, arm-first-swing, late-trunk-turn, contact-behind]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1Z64Y1F7YS, LYX_BILI_BV1A8411A7BB]
+  confidence: inferred
+
+- framework_id: lyx-release-not-isolated-wrist
+  name: Release-not-isolated-wrist frame
+  summary: Treat wrist and forearm action as a release within preparation, contact, and arm path, rather than a standalone flick used to manufacture power.
+  applicable_actions: [high_clear, smash, drop, drive, backhand]
+  training_goals: [release_timing, wrist_efficiency, injury_aware_power]
+  suitable_for: {level: [intermediate, advanced]}
+  avoid_for: {injury_risk: [wrist_pain, elbow_pain, shoulder_pain]}
+  observation_triggers:
+    - {path: wrist_elbow_sequence, equals: wrist_before_elbow, weight: 8}
+  priority: [wrist-first, collapsed-frame, contact-behind]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1YT4Y1Q7ZW]
+  confidence: inferred
+
+- framework_id: lyx-internal-rotation-proxy
+  name: Internal-rotation proxy frame
+  summary: Use visible arm-path and racket-path proxies to decide whether a timed release needs review; do not infer true joint rotation from ordinary video.
+  applicable_actions: [high_clear, smash]
+  training_goals: [efficient_power, internal_rotation_proxy, safe_release]
+  suitable_for: {level: [intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
+  observation_triggers:
+    - {path: phase_observations.release_path, equals: forced_twist, weight: 8}
+  priority: [forced-twist, low-elbow, wrist-first, pain]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1RP4Y1X7WW]
+  confidence: hypothesis
+
+- framework_id: lyx-smash-sequence-before-speed
+  name: Smash sequence before speed frame
+  summary: Build smash power through arrival, preparation, contact, release, and recovery in that order; a faster arm is not the first correction for an unstable sequence.
+  applicable_actions: [smash]
+  training_goals: [smash_power, smash_consistency, recovery]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain, elbow_pain]}
+  observation_triggers:
+    - {path: phase_observations.power_strategy, equals: arm_speed_only, weight: 8}
+  priority: [late-arrival, low-elbow, contact-behind, wrist-first, no-recovery]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1BI4Y1G7RU]
+  confidence: inferred
+
+- framework_id: lyx-standing-smash-base
+  name: Standing-smash base frame
+  summary: Use a stable standing or grounded smash as the base route when a learner cannot yet preserve contact, landing readiness, and next-shot recovery.
+  applicable_actions: [smash]
+  training_goals: [grounded_smash, stable_contact, safe_power]
+  suitable_for: {level: [beginner, intermediate]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain, shoulder_pain]}
+  observation_triggers:
+    - {path: footwork_observations.landing, equals: unstable, weight: 7}
+  priority: [unstable-landing, contact-behind, no-recovery]
+  source_ids: [LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1BI4Y1G7RU, LYX_BILI_BV1UH411O75P]
+  confidence: inferred
+
+- framework_id: lyx-jump-smash-prerequisite
+  name: Jump-smash prerequisite frame
+  summary: Add double-leg jump-smash only when preparation time, contact quality, landing control, and recovery are already reproducible.
+  applicable_actions: [smash]
+  training_goals: [jump_smash, explosive_power, landing_control]
+  suitable_for: {level: [intermediate, advanced], mobility: [good]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain, back_pain]}
+  observation_triggers:
+    - {path: phase_observations.jump_readiness, equals: not_ready, weight: 9}
+  priority: [unstable-landing, late-preparation, contact-behind, no-recovery]
+  source_ids: [LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1QK4Y157P6]
+  confidence: source_backed
+
+- framework_id: lyx-overhead-variation-control
+  name: Overhead variation control frame
+  summary: Keep one recognisable preparation while differentiating clear, smash, and drop through timing, target, and controlled release.
+  applicable_actions: [high_clear, smash, drop]
+  training_goals: [overhead_variation, deception, stroke_transfer]
+  suitable_for: {level: [intermediate, advanced]}
+  avoid_for: {injury_risk: [shoulder_pain]}
+  observation_triggers:
+    - {path: phase_observations.preparation, equals: telegraphed, weight: 6}
+  priority: [telegraphed-preparation, contact-behind, forced-wrist]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW, LYX_BILI_BV1WG411K79D]
+  confidence: inferred
+
+- framework_id: lyx-drop-height-and-feel
+  name: Drop height-and-feel frame
+  summary: Diagnose a drop by arrival, contact height, target intent, and release feel before prescribing a slice or deceptive variation.
+  applicable_actions: [drop]
+  training_goals: [drop_quality, target_control, overhead_variation]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: contact_point, equals: below_head, weight: 7}
+  priority: [late-arrival, low-contact, forced-cut, no-recovery]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW, LYX_BILI_BV1JR4Y1C7KT]
+  confidence: inferred
+
+- framework_id: lyx-drive-compact-first
+  name: Drive compactness frame
+  summary: Under fast exchange, protect ready-racket height, compact preparation, body balance, and an attackable first response.
+  applicable_actions: [drive, serve_receive, doubles]
+  training_goals: [fast_exchange, compact_drive, first_attack]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.preparation_size, equals: large, weight: 7}
+  priority: [low-ready-racket, large-preparation, late-contact]
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1N94Y127Z9, LYX_BILI_BV1KA411Q763]
+  confidence: inferred
+
+- framework_id: lyx-frontcourt-first-response
+  name: Front-court first-response frame
+  summary: At the net and on receive, use a lower ready centre, racket preparation, and a first response that preserves the next shot.
+  applicable_actions: [front_footwork, serve_receive, doubles]
+  training_goals: [front_court_arrival, receive_attack, next_shot]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [knee_pain, ankle_pain]}
+  observation_triggers:
+    - {path: phase_observations.ready_racket, equals: low, weight: 7}
+  priority: [low-ready-racket, late-first-step, passive-receive]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1CA411J7BJ]
+  confidence: source_backed
+
+- framework_id: lyx-serve-individual-fit
+  name: Serve individual-fit frame
+  summary: Select doubles serve grip, height, and placement according to what the player can repeat and what the first-two-shot plan requires.
+  applicable_actions: [serve_receive, doubles]
+  training_goals: [serve_quality, individual_fit, first_two_shots]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.serve_pattern, equals: copied_unstable, weight: 7}
+  priority: [unstable-serve, passive-third-shot, grip-tension]
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1JM4M1Y7GT, LYX_BILI_BV1FMMPY9EAO]
+  confidence: source_backed
+
+- framework_id: lyx-doubles-first-two-shot
+  name: Doubles first-two-shot frame
+  summary: Diagnose serve and receive as a connected first-two-shot problem, including who attacks, who covers, and how the pair avoids passive transition.
+  applicable_actions: [serve_receive, doubles]
+  training_goals: [doubles_rotation, first_two_shots, attack_continuity]
+  suitable_for: {level: [intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.next_shot_role, equals: unclear, weight: 6}
+  priority: [passive-receive, role-conflict, slow-recovery]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV12P4Y1Y7HS, LYX_BILI_BV1GY4Y1P7B2]
+  confidence: inferred
+
+- framework_id: lyx-backhand-time-budget
+  name: Backhand time-budget frame
+  summary: "Treat the backhand as a time-and-space decision: arrive early enough to choose a controlled reply before demanding a large hand action."
+  applicable_actions: [backhand, rear_footwork, drive]
+  training_goals: [backhand_choice, early_arrival, stable_reply]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [wrist_pain, elbow_pain]}
+  observation_triggers:
+    - {path: footwork_observations.arrival, equals: late, weight: 6}
+  priority: [late-arrival, cramped-contact, forced-wrist]
+  source_ids: [LYX_BILI_BV1T34Y1772E, LYX_BILI_BV1MS4Y187PC, LYX_BILI_BV1US4Y1E715]
+  confidence: inferred
+
+- framework_id: lyx-match-transfer-constraint
+  name: Match-transfer constraint frame
+  summary: Transfer a technical change into rallies by progressively adding target, time, recovery, and decision constraints.
+  applicable_actions: [match_transfer, high_clear, smash, drop, drive, doubles]
+  training_goals: [match_transfer, pressure_tolerance, repeatability]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.practice_transfer, equals: breaks_in_rally, weight: 8}
+  priority: [form-only-success, slow-recovery, decision-breakdown]
+  source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB, LYX_BILI_BV1J64Y1O7SN]
+  confidence: inferred
+
+- framework_id: lyx-progression-one-variable
+  name: One-variable progression frame
+  summary: Change one bottleneck at a time and retest its visible effect before layering power, speed, variation, or match pressure.
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork]
+  training_goals: [training_plan, repeatability, error_isolation]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.correction_load, equals: too_many_cues, weight: 7}
+  priority: [too-many-cues, unstable-base, no-retest]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1DV411U7FZ]
+  confidence: inferred
+
+- framework_id: lyx-equipment-technique-maturity
+  name: Equipment-technique maturity frame
+  summary: Treat racket tension and equipment choices as individual load and skill-maturity variables, not universal fixes for stroke errors.
+  applicable_actions: [high_clear, smash, drive, equipment]
+  training_goals: [equipment_fit, comfort, technique_maturity]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [elbow_pain, shoulder_pain, wrist_pain]}
+  observation_triggers:
+    - {path: phase_observations.equipment_change, equals: chasing_power, weight: 5}
+  priority: [technique-before-equipment, pain, unstable-contact]
+  source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
+  confidence: source_backed
+
+- framework_id: lyx-shoe-floor-ankle-safety
+  name: Shoe-floor-ankle safety frame
+  summary: Make shoe, floor, ankle readiness, landing, and pain status explicit before adding aggressive movement or jump load.
+  applicable_actions: [rear_footwork, front_footwork, smash, doubles]
+  training_goals: [safety, landing_control, load_management]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain]}
+  observation_triggers:
+    - {path: phase_observations.pain, equals: present, weight: 10}
+  priority: [pain, unstable-landing, unsafe-floor]
+  source_ids: [LYX_BILI_BV1RZ9YBCELY, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1Z64Y1F7YS]
+  confidence: source_backed
+
+- framework_id: lyx-foot-ground-response
+  name: Foot-ground response frame
+  summary: Make the visible ground response and first step a prerequisite for court coverage rather than treating the legs as a generic fitness deficit.
+  applicable_actions: [rear_footwork, front_footwork, high_clear, doubles]
+  training_goals: [first_step, ground_response, court_coverage]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain]}
+  observation_triggers:
+    - {path: footwork_observations.first_step, equals: delayed, weight: 7}
+  priority: [late-start, delayed-first-step, late-arrival]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1Z64Y1F7YS]
+  confidence: inferred
+
+- framework_id: lyx-contact-before-angle
+  name: Contact-before-angle frame
+  summary: Build a high usable contact and stable route to the shuttle before pursuing a sharper smash or drop angle.
+  applicable_actions: [smash, drop, high_clear]
+  training_goals: [contact_quality, angle_control, stable_overhead]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: contact_point, equals: behind_head, weight: 7}
+  priority: [late-arrival, contact-behind, forced-release]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HV41117WQ, LYX_BILI_BV17A4Y1J7KV]
+  confidence: inferred
+
+- framework_id: lyx-smash-pace-tradeoff
+  name: Smash pace-and-recovery tradeoff frame
+  summary: Choose a grounded, faster, heavier, or jump-based smash according to the player's contact time, landing cost, and next-shot requirement.
+  applicable_actions: [smash, doubles]
+  training_goals: [smash_selection, attack_continuity, recovery]
+  suitable_for: {level: [intermediate, advanced]}
+  avoid_for: {injury_risk: [ankle_pain, knee_pain, shoulder_pain]}
+  observation_triggers:
+    - {path: phase_observations.smash_choice, equals: high_cost_for_low_return, weight: 7}
+  priority: [unstable-landing, no-recovery, late-contact]
+  source_ids: [LYX_BILI_BV1BI4Y1G7RU, LYX_BILI_BV1WK411K7KW, LYX_BILI_BV12P4Y1Y7HS]
+  confidence: inferred
+
+- framework_id: lyx-racket-height-interception
+  name: Racket-height interception frame
+  summary: Adjust ready-racket height and body centre to the imminent interception task instead of using one fixed ready posture.
+  applicable_actions: [drive, serve_receive, doubles, front_footwork]
+  training_goals: [interception, ready_racket, first_attack]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.ready_racket, equals: low, weight: 7}
+  priority: [low-ready-racket, late-first-step, passive-receive]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1NT4Y1O7WQ]
+  confidence: inferred
+
+- framework_id: lyx-serve-height-placement
+  name: Serve height-and-placement frame
+  summary: Treat height and placement as a repeatable pair tied to the intended opponent reply and partner coverage.
+  applicable_actions: [serve_receive, doubles]
+  training_goals: [serve_height, serve_placement, first_two_shots]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.serve_target, equals: inconsistent, weight: 6}
+  priority: [unstable-serve, passive-third-shot]
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1JM4M1Y7GT]
+  confidence: source_backed
+
+- framework_id: lyx-backhand-compact-reply
+  name: Backhand compact-reply frame
+  summary: Use a compact backhand reply when the time budget is limited, then expand variation only after the player arrives early enough to choose.
+  applicable_actions: [backhand, drive, doubles]
+  training_goals: [backhand_control, compact_reply, pressure_response]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [wrist_pain, elbow_pain]}
+  observation_triggers:
+    - {path: phase_observations.backhand_preparation, equals: oversized, weight: 6}
+  priority: [late-arrival, cramped-contact, forced-wrist]
+  source_ids: [LYX_BILI_BV1T34Y1772E, LYX_BILI_BV1MS4Y187PC, LYX_BILI_BV1US4Y1E715]
+  confidence: inferred
+
+- framework_id: lyx-rally-target-feedback
+  name: Rally target-feedback frame
+  summary: Turn a technical goal into a target and recovery feedback loop, so the player can observe whether the change survives realistic ball conditions.
+  applicable_actions: [match_transfer, high_clear, smash, drop, drive]
+  training_goals: [feedback, target_control, match_transfer]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.retest, equals: absent, weight: 6}
+  priority: [no-retest, form-only-success, too-many-cues]
+  source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB, LYX_BILI_BV1J64Y1O7SN]
+  confidence: inferred
+
+- framework_id: lyx-equipment-one-change
+  name: Equipment one-change frame
+  summary: Change one racket or string variable only against a stable drill baseline so comfort and performance are not confused with simultaneous technique change.
+  applicable_actions: [high_clear, smash, drive]
+  training_goals: [equipment_fit, equipment_testing, comfort]
+  suitable_for: {level: [beginner, intermediate, advanced]}
+  avoid_for: {injury_risk: [wrist_pain, elbow_pain, shoulder_pain]}
+  observation_triggers:
+    - {path: phase_observations.equipment_change, equals: multiple_changes, weight: 6}
+  priority: [technique-before-equipment, pain, unstable-contact]
+  source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
+  confidence: inferred

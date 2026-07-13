@@ -1,0 +1,18 @@
+- point_id: lyx-start-timing-before-speed
+  summary: Rebuild the opponent-contact start cue before treating late reach as a conditioning or arm-speed problem.
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+- point_id: lyx-rear-turn-contact-base
+  summary: Build rear-court overhead from a turn, retreat, adjustment, balanced contact, and recovery sequence.
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV13C4Y1T7SN]
+- point_id: lyx-clear-contact-distance-release
+  summary: Diagnose high-clear length through arrival, contact height, swing distance, relaxation, and late release.
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+- point_id: lyx-smash-sequence-and-landing
+  summary: Stage smash power through preparation, contact, release, landing, and recovery; jump load has prerequisites.
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1WK411K7KW]
+- point_id: lyx-doubles-first-two-shots
+  summary: Treat serve and receive as an individual-fit, ready-racket, first-response, and partner-role system.
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1H5411L7QQ]
+- point_id: lyx-equipment-and-safety
+  summary: Treat racket tension, shoe-floor context, and joint readiness as fit and load variables rather than universal fixes.
+  source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1RZ9YBCELY]

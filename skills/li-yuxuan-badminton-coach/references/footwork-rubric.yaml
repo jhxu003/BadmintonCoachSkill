@@ -1,0 +1,118 @@
+- rule_id: lyx-low-ready-racket
+  issue: Ready racket is too low for the available first response
+  category: ready_position
+  priority: 22
+  applicable_actions: [drive, serve_receive, doubles, front_footwork]
+  required_observations: [phase_observations.ready_racket]
+  observable_evidence:
+    - {path: phase_observations.ready_racket, equals: low, label: Racket starts below the available fast-response window.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a pre-contact frame with the racket hand visible.
+  likely_effect: [First attack or interception is delayed., Player must make a larger late swing.]
+  correction_principle: Raise and prepare the racket only as much as the player's next-shot task requires.
+  drills: [lyx-receive-first-attack, lyx-drive-compact-exchange]
+  retest_metrics: [phase_observations.ready_racket should become prepared]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1NT4Y1O7WQ]
+  confidence: source_backed
+
+- rule_id: lyx-large-drive-preparation
+  issue: Preparation is too large for a fast flat exchange
+  category: drive
+  priority: 28
+  applicable_actions: [drive, serve_receive, doubles]
+  required_observations: [phase_observations.preparation_size]
+  observable_evidence:
+    - {path: phase_observations.preparation_size, equals: large, label: Racket preparation travels too far before the flat response.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a continuous fast-exchange clip, not a single still.
+  likely_effect: [Contact arrives late and the player loses compact control.]
+  correction_principle: Reduce preparation travel while retaining a clear target and recovery position.
+  drills: [lyx-drive-compact-exchange]
+  retest_metrics: [phase_observations.preparation_size should become compact]
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1N94Y127Z9]
+  confidence: inferred
+
+- rule_id: lyx-passive-receive
+  issue: Receive does not create an active first response
+  category: serve_receive
+  priority: 24
+  applicable_actions: [serve_receive, doubles]
+  required_observations: [phase_observations.receive_intent]
+  observable_evidence:
+    - {path: phase_observations.receive_intent, equals: passive, label: First reply returns the shuttle without an active next-shot plan.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request the serve, first reply, and opponent's next ball in one clip.
+  likely_effect: [Opponent receives initiative and the pair enters defense early.]
+  correction_principle: Link lower ready centre, racket preparation, and a first attackable reply.
+  drills: [lyx-receive-first-attack, lyx-doubles-two-shot-role]
+  retest_metrics: [phase_observations.receive_intent should become active]
+  source_ids: [LYX_BILI_BV1H5411L7QQ]
+  confidence: source_backed
+
+- rule_id: lyx-unstable-landing
+  issue: Landing cannot support the next recovery step
+  category: landing
+  priority: 8
+  applicable_actions: [smash, rear_footwork, doubles]
+  required_observations: [footwork_observations.landing]
+  observable_evidence:
+    - {path: footwork_observations.landing, equals: unstable, label: Landing visibly loses balance or delays the next movement.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request full lower-body and next-step visibility.
+  likely_effect: [Next-shot coverage fails and jump load rises unnecessarily.]
+  correction_principle: Reduce jump demand and rebuild quiet, balanced landing before adding height or pace.
+  drills: [lyx-jump-land-reset, lyx-grounded-smash-target]
+  retest_metrics: [footwork_observations.landing should become balanced]
+  source_ids: [LYX_BILI_BV1WK411K7KW]
+  confidence: source_backed
+
+- rule_id: lyx-no-recovery
+  issue: Stroke finish does not reconnect to a recoverable base
+  category: recovery
+  priority: 25
+  applicable_actions: [high_clear, smash, drop, rear_footwork, doubles]
+  required_observations: [footwork_observations.recovery]
+  observable_evidence:
+    - {path: footwork_observations.recovery, equals: absent, label: Player finishes without a visible exit or recovery step.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request clip continuation through the opponent's next contact.
+  likely_effect: [Good isolated shots do not transfer to rallies., Partner coverage becomes unclear in doubles.]
+  correction_principle: Pair every technical shot with its next position and next-step choice.
+  drills: [lyx-grounded-smash-target, lyx-rally-transfer-ladder]
+  retest_metrics: [footwork_observations.recovery should become complete]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1GY4Y127MB]
+  confidence: inferred
+
+- rule_id: lyx-form-only-success
+  issue: Technical form holds in drill but breaks under rally constraints
+  category: match_transfer
+  priority: 38
+  applicable_actions: [match_transfer, high_clear, smash, drop, drive, doubles]
+  required_observations: [phase_observations.practice_transfer]
+  observable_evidence:
+    - {path: phase_observations.practice_transfer, equals: breaks_in_rally, label: Form changes disappear when recovery or decision pressure is added.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Compare one controlled feed and one connected-rally clip.
+  likely_effect: [Player overestimates learning from isolated repetition.]
+  correction_principle: Add target, recovery, decision, and time constraints one variable at a time.
+  drills: [lyx-rally-transfer-ladder]
+  retest_metrics: [phase_observations.practice_transfer should become holds_under_constraint]
+  source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB]
+  confidence: inferred
+
+- rule_id: lyx-too-many-cues
+  issue: Training block attempts to change too many movement variables at once
+  category: progression
+  priority: 58
+  applicable_actions: [high_clear, smash, drop, drive, rear_footwork, front_footwork]
+  required_observations: [phase_observations.correction_load]
+  observable_evidence:
+    - {path: phase_observations.correction_load, equals: too_many_cues, label: Player is asked to change several unresolved checkpoints in the same repetition.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Ask for the current drill structure and one stated retest condition.
+  likely_effect: [The player cannot identify which change helped., Stable learning is replaced by cue overload.]
+  correction_principle: Isolate one bottleneck, establish one visible retest, then layer the next variable.
+  drills: [lyx-rally-transfer-ladder]
+  retest_metrics: [one correction cue should remain stable for 4 of 5 repetitions before progression]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV1DV411U7FZ]
+  confidence: inferred

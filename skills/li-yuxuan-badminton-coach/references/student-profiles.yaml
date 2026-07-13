@@ -1,0 +1,19 @@
+- profile_id: lyx-foundation-builder
+  suitable_frameworks: [lyx-observation-first, lyx-start-on-opponent-contact, lyx-high-contact-distance-clear, lyx-top-elbow-preparation, lyx-standing-smash-base]
+  priority: [time_and_contact_before_force, one_variable_progression]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV13C4Y1T7SN]
+
+- profile_id: lyx-chain-ready-overhead
+  suitable_frameworks: [lyx-rear-turn-confirm-step, lyx-turn-then-arm-release, lyx-release-not-isolated-wrist, lyx-smash-sequence-before-speed]
+  priority: [balance_before_speed, release_within_chain]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1HV41117WQ]
+
+- profile_id: lyx-jump-readiness
+  suitable_frameworks: [lyx-standing-smash-base, lyx-jump-smash-prerequisite, lyx-shoe-floor-ankle-safety]
+  priority: [landing_before_height, pain_free_load]
+  source_ids: [LYX_BILI_BV1WK411K7KW, LYX_BILI_BV1RZ9YBCELY]
+
+- profile_id: lyx-fast-exchange-player
+  suitable_frameworks: [lyx-drive-compact-first, lyx-frontcourt-first-response, lyx-doubles-first-two-shot]
+  priority: [ready_racket, compact_response, connected_roles]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV1NT4Y1O7WQ]

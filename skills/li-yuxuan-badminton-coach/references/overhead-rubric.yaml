@@ -1,0 +1,189 @@
+- rule_id: lyx-late-start
+  issue: Movement begins after the opponent-contact cue
+  category: footwork_timing
+  priority: 10
+  applicable_actions: [rear_footwork, front_footwork, high_clear, smash, drop]
+  required_observations: [footwork_observations.start_timing]
+  observable_evidence:
+    - {path: footwork_observations.start_timing, equals: after_shuttle_leaves, label: Start begins after the shuttle flight is already visible.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a full-body view containing the opponent contact or feeder release.
+  likely_effect: [Late start compresses the available contact window., The player may mislabel a timing problem as lack of strength.]
+  correction_principle: Rehearse the response from the opponent-contact cue before changing arm mechanics.
+  drills: [lyx-split-start-call]
+  retest_metrics: [footwork_observations.start_timing should become on_opponent_contact]
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+  confidence: source_backed
+
+- rule_id: lyx-late-arrival
+  issue: Arrival leaves no stable overhead contact window
+  category: footwork_arrival
+  priority: 12
+  applicable_actions: [rear_footwork, high_clear, smash, drop]
+  required_observations: [footwork_observations.arrival, contact_point]
+  observable_evidence:
+    - {path: footwork_observations.arrival, equals: late, label: Player reaches the hitting area late.}
+    - {path: contact_point, equals: behind_head, label: Contact shifts behind the head under time pressure.}
+  min_evidence_count: 2
+  insufficient_evidence_policy: Ask for the approach and contact in one continuous rear-diagonal clip.
+  likely_effect: [Swing distance and release timing become compressed., Arm-only correction can increase tension.]
+  correction_principle: Restore time and balance before prescribing a stronger swing.
+  drills: [lyx-rear-turn-freeze, lyx-high-contact-shadow]
+  retest_metrics: [footwork_observations.arrival should become on_time, contact_point should become high_in_front]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- rule_id: lyx-rear-turn-error
+  issue: Rear-court turn sequence does not create a balanced hitting base
+  category: rear_footwork
+  priority: 15
+  applicable_actions: [rear_footwork, high_clear, smash]
+  required_observations: [footwork_observations.rear_turn]
+  observable_evidence:
+    - {path: footwork_observations.rear_turn, equals: wrong_leg_leads, label: Visible retreat sequence uses the wrong lead pattern for the player's overhead turn.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request full lower-body visibility through turn and contact.
+  likely_effect: [Player arrives side-on too late or lets the shuttle pass the usable contact window.]
+  correction_principle: Separate turn, retreat, adjustment, and contact base before adding speed.
+  drills: [lyx-rear-turn-freeze]
+  retest_metrics: [footwork_observations.rear_turn should become balanced_turn]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- rule_id: lyx-no-confirmation-step
+  issue: No visible adjustment or confirmation step before overhead contact
+  category: rear_footwork
+  priority: 18
+  applicable_actions: [rear_footwork, high_clear, smash, drop]
+  required_observations: [footwork_observations.confirmation_step]
+  observable_evidence:
+    - {path: footwork_observations.confirmation_step, equals: absent, label: Player reaches but cannot make a visible final adjustment before contact.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request a whole-body clip with feet inside the frame.
+  likely_effect: [Contact height varies and release must be improvised.]
+  correction_principle: Add a controlled final adjustment before pursuing power or variation.
+  drills: [lyx-rear-turn-freeze]
+  retest_metrics: [footwork_observations.confirmation_step should become present]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- rule_id: lyx-contact-behind
+  issue: Overhead contact is visibly behind the usable head-and-trunk window
+  category: contact
+  priority: 20
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [contact_point]
+  observable_evidence:
+    - {path: contact_point, equals: behind_head, label: Contact appears behind the head.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request rear-diagonal or side view before treating the apparent position as causal.
+  likely_effect: [Depth, downward angle, and release consistency decrease., Player may force wrist or shoulder action.]
+  correction_principle: Check start and arrival first, then restore a high usable contact window.
+  drills: [lyx-high-contact-shadow, lyx-relaxed-clear-distance]
+  retest_metrics: [contact_point should become high_in_front]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HZ4Y1M7WB]
+  confidence: inferred
+
+- rule_id: lyx-low-elbow
+  issue: Preparation elbow remains below a usable shoulder-level frame
+  category: racket_preparation
+  priority: 30
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [elbow_height_before_hit, racket_side_structure]
+  observable_evidence:
+    - {path: elbow_height_before_hit, equals: below_shoulder, label: Elbow is visibly below shoulder level before hit.}
+    - {path: racket_side_structure, equals: collapsed, label: Racket-side frame collapses before release.}
+  min_evidence_count: 2
+  insufficient_evidence_policy: Request side or rear-diagonal preparation frames.
+  likely_effect: [Player loses a repeatable arm path and compensates with a late hand action.]
+  correction_principle: Rebuild the preparation frame before adding speed.
+  drills: [lyx-top-elbow-frame]
+  retest_metrics: [elbow_height_before_hit should become shoulder_or_above, racket_side_structure should become stable]
+  source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB]
+  confidence: inferred
+
+- rule_id: lyx-early-tension
+  issue: Pre-hit tension is high before the player reaches the release window
+  category: power_timing
+  priority: 35
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [phase_observations.pre_hit_tension]
+  observable_evidence:
+    - {path: phase_observations.pre_hit_tension, equals: high, label: Hand, arm, or shoulder appears braced before the release phase.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Treat tension as a hypothesis unless hand and arm are visible across the sequence.
+  likely_effect: [Swing distance shortens and release becomes rushed.]
+  correction_principle: Create relaxed preparation and concentrate effort closer to contact.
+  drills: [lyx-relaxed-clear-distance]
+  retest_metrics: [phase_observations.pre_hit_tension should become relaxed]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+  confidence: hypothesis
+
+- rule_id: lyx-arm-first-swing
+  issue: Arm acceleration visibly precedes usable lower-body and trunk contribution
+  category: kinetic_chain
+  priority: 40
+  applicable_actions: [high_clear, smash]
+  required_observations: [hip_shoulder_sequence]
+  observable_evidence:
+    - {path: hip_shoulder_sequence, equals: arm_before_trunk, label: Arm begins accelerating before visible trunk contribution.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request full body rear-diagonal sequence; 2D video cannot quantify true rotational timing.
+  likely_effect: [Power becomes arm-dominant and balance can deteriorate.]
+  correction_principle: Reconnect a balanced turn to delayed arm release.
+  drills: [lyx-turn-release-chain]
+  retest_metrics: [hip_shoulder_sequence should become trunk_then_arm]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1Z64Y1F7YS]
+  confidence: hypothesis
+
+- rule_id: lyx-wrist-first
+  issue: Wrist action is forced before the rest of the release path is established
+  category: release
+  priority: 45
+  applicable_actions: [high_clear, smash, drop, backhand]
+  required_observations: [wrist_elbow_sequence, racket_side_structure]
+  observable_evidence:
+    - {path: wrist_elbow_sequence, equals: wrist_before_elbow, label: Wrist action appears before elbow-led release.}
+    - {path: racket_side_structure, equals: collapsed, label: The frame is not stable enough for a fast release.}
+  min_evidence_count: 2
+  insufficient_evidence_policy: Do not infer grip pressure or true joint rotation from a blurred frame.
+  likely_effect: [Player tries to create power with an isolated flick., Elbow and shoulder load can rise.]
+  correction_principle: Restore contact, frame, and arm path before training a faster release.
+  drills: [lyx-turn-release-chain]
+  retest_metrics: [wrist_elbow_sequence should become elbow_then_release]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  confidence: inferred
+
+- rule_id: lyx-forced-twist
+  issue: Player attempts an isolated internal-rotation twist
+  category: release
+  priority: 48
+  applicable_actions: [high_clear, smash]
+  required_observations: [phase_observations.release_path]
+  observable_evidence:
+    - {path: phase_observations.release_path, equals: forced_twist, label: Visible path is steered as an isolated twist.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: State this only as a visible path proxy, never as proof of true glenohumeral rotation.
+  likely_effect: [Release may become tense, late, or uncomfortable.]
+  correction_principle: Use preparation, contact, and release-path prerequisites; do not prescribe a forced twist.
+  drills: [lyx-top-elbow-frame, lyx-turn-release-chain]
+  retest_metrics: [phase_observations.release_path should become natural_release]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1WK411K7KW]
+  confidence: hypothesis
+
+- rule_id: lyx-short-follow-through
+  issue: Swing decelerates before a natural finish
+  category: finish
+  priority: 55
+  applicable_actions: [high_clear, smash, drop]
+  required_observations: [follow_through]
+  observable_evidence:
+    - {path: follow_through, equals: short, label: Follow-through stops visibly early.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request frames after contact before assigning a finish problem.
+  likely_effect: [Release is interrupted and recovery may be tense.]
+  correction_principle: Fix arrival and contact first, then permit a natural pain-free deceleration path.
+  drills: [lyx-smash-five-phase]
+  retest_metrics: [follow_through should become natural_release]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  confidence: inferred

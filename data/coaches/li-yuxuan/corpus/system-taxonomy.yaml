@@ -1,0 +1,10 @@
+technical_domains:
+  - {id: learner_fit, name: Learner fit and diagnostic order}
+  - {id: high_clear, name: High clear and overhead contact}
+  - {id: smash, name: Smash and jump-smash progression}
+  - {id: footwork, name: Start timing, rear turn, arrival, landing, recovery}
+  - {id: release, name: Preparation, top elbow, turn-to-arm release, wrist proxy}
+  - {id: drop_drive, name: Drop, drive, and fast exchange}
+  - {id: serve_receive, name: Serve, receive, and doubles first two shots}
+  - {id: match_transfer, name: Practice-to-rally transfer}
+  - {id: equipment_safety, name: Equipment maturity and load-aware safety}

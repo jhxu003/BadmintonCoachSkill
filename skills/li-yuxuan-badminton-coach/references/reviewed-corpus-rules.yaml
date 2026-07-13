@@ -1,0 +1,95 @@
+- evidence_id: lyx-start-timing-boundary
+  topic: footwork
+  promoted_rule: Start timing is reviewed before conditioning or arm-force explanations when the full cue-to-contact sequence is visible.
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: full_body_start_to_contact
+  confidence_boundary: The source supports diagnostic order; an individual player's start time still requires a visible sequence.
+
+- evidence_id: lyx-rear-turn-boundary
+  topic: rear_footwork
+  promoted_rule: Rear-court turn, final adjustment, contact base, and recovery are evaluated as a connected sequence.
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV13C4Y1T7SN]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: feet_and_contact_visible
+  confidence_boundary: Do not name an exact step pattern if feet are cropped.
+
+- evidence_id: lyx-clear-distance-boundary
+  topic: high_clear
+  promoted_rule: High-clear depth is routed through arrival, contact window, swing distance, relaxation, and release before strength.
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: side_or_rear_diagonal_contact
+  confidence_boundary: Does not prove force production or joint rotation.
+
+- evidence_id: lyx-preparation-boundary
+  topic: racket_preparation
+  promoted_rule: Preparation frame and elbow relationship are prerequisites for faster release work.
+  source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB]
+  evidence_level: inferred
+  visual_dependency: shoulder_elbow_wrist_visible
+  confidence_boundary: Elbow height is not assigned from an occluded or foreshortened front view.
+
+- evidence_id: lyx-release-boundary
+  topic: wrist
+  promoted_rule: Wrist and forearm cues are only coached within a visible preparation-contact-release sequence.
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  evidence_level: inferred
+  visual_dependency: arm_and_racket_path_visible
+  confidence_boundary: No grip pressure, true internal rotation, or force claim from 2D video.
+
+- evidence_id: lyx-smash-sequence-boundary
+  topic: smash
+  promoted_rule: Smash power is progressed through arrival, preparation, contact, release, landing, and recovery.
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+  evidence_level: inferred
+  visual_dependency: full_stroke_and_exit_visible
+  confidence_boundary: A single contact frame cannot determine the cause of lost power.
+
+- evidence_id: lyx-jump-smash-boundary
+  topic: smash
+  promoted_rule: Jump-smash work requires repeatable contact, controlled landing, and next-shot recovery.
+  source_ids: [LYX_BILI_BV1WK411K7KW]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: feet_and_landing_visible
+  confidence_boundary: Do not prescribe jump height or volume from one clip.
+
+- evidence_id: lyx-drop-boundary
+  topic: drop
+  promoted_rule: Drop variations are selected after contact height and target intent, not by forcing a hand action.
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW]
+  evidence_level: inferred
+  visual_dependency: contact_and_target_context
+  confidence_boundary: Racket-face claims need visible racket head.
+
+- evidence_id: lyx-fast-exchange-boundary
+  topic: drive
+  promoted_rule: Fast exchange diagnosis begins with ready-racket position and compact preparation.
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1N94Y127Z9]
+  evidence_level: inferred
+  visual_dependency: ready_and_contact_visible
+  confidence_boundary: Do not infer shuttle speed from sparse frames.
+
+- evidence_id: lyx-serve-receive-boundary
+  topic: serve_receive
+  promoted_rule: Serve and receive are fitted to repeatability and connected to an active first response.
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1H5411L7QQ]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: serve_or_receive_to_next_shot
+  confidence_boundary: Player-specific grip choice needs repeated observations.
+
+- evidence_id: lyx-doubles-boundary
+  topic: doubles
+  promoted_rule: First-two-shot roles and coverage are evaluated with both partners and the next opponent reply in view.
+  source_ids: [LYX_BILI_BV12P4Y1Y7HS, LYX_BILI_BV1H5411L7QQ]
+  evidence_level: inferred
+  visual_dependency: both_partners_and_rally_context
+  confidence_boundary: An isolated stroke cannot prove doubles rotation quality.
+
+- evidence_id: lyx-safety-boundary
+  topic: safety
+  promoted_rule: Shoe-floor context, landing control, and pain status gate movement and jump-load progression.
+  source_ids: [LYX_BILI_BV1RZ9YBCELY, LYX_BILI_BV1WK411K7KW]
+  evidence_level: asr_timestamp_reviewed_public_safe
+  visual_dependency: lower_body_and_context_visible
+  confidence_boundary: This is conservative load filtering, not medical diagnosis.

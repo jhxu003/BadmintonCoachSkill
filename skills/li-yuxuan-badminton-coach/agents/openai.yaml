@@ -1,0 +1,4 @@
+interface:
+  display_name: Li Yuxuan Badminton Coach
+  short_description: Evidence-grounded Li Yuxuan public-source coaching diagnosis
+  default_prompt: Use the Li Yuxuan badminton coaching Skill to turn structured player and video observations into a bounded diagnosis, learner-fit training route, drills, and retest metrics. State uncertainty when video evidence cannot support a claim.

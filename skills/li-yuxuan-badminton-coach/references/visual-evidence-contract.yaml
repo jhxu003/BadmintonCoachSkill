@@ -1,0 +1,26 @@
+- diagnosis_id: lyx-arrival-contact
+  applies_to: [high_clear, smash, drop, rear_footwork]
+  required_views: [rear_diagonal_or_side]
+  required_phases: [movement_start, arrival, pre_contact, contact_or_nearest_frame, recovery]
+  required_visibility: [both_feet, trunk, shoulder, elbow, racket_arm]
+  allowed_claims: [Arrival is early, on time, or late in the visible sequence., Contact appears high and in front or behind relative to head and trunk.]
+  blocked_claims: [Exact 3D contact coordinates., Causal wrist diagnosis when arrival is not visible.]
+  retake_instruction: Record the complete movement and follow-through from rear diagonal or side at 60 fps or higher.
+
+- diagnosis_id: lyx-release-proxy
+  applies_to: [high_clear, smash, drop, backhand]
+  required_views: [side_or_rear_diagonal]
+  required_phases: [preparation, pre_contact, immediate_post_contact]
+  required_visibility: [shoulder, elbow, wrist, racket_shaft, racket_head_when_possible]
+  allowed_claims: [Visible arm and racket path appears wrist-first, blocked, or naturally released.]
+  blocked_claims: [True internal rotation., Grip pressure., Racket-face angle when the head is not visible.]
+  retake_instruction: Record high-frame-rate side and rear-diagonal clips with the full racket in frame.
+
+- diagnosis_id: lyx-footwork-recovery
+  applies_to: [rear_footwork, front_footwork, doubles, serve_receive]
+  required_views: [full_body_or_full_court]
+  required_phases: [base, opponent_contact_or_feeder_release, first_step, arrival, hit, exit, recovery]
+  required_visibility: [both_feet, court_lines_when_possible, trunk, racket_side]
+  allowed_claims: [Start timing, first step, arrival balance, and recovery completeness are visible.]
+  blocked_claims: [Exact step naming when feet are cropped., Match readiness from isolated shadow movement.]
+  retake_instruction: Record at least three connected feeds or rally shots with both feet visible.

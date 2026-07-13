@@ -1,0 +1,11 @@
+strokes:
+  - {stroke_id: high_clear, name: High clear, diagnostic_order: [start_timing, rear_arrival, contact_window, preparation_frame, turn_release, recovery]}
+  - {stroke_id: smash, name: Smash, diagnostic_order: [arrival, contact, preparation, release, landing, recovery]}
+  - {stroke_id: drop, name: Drop, diagnostic_order: [arrival, contact_height, target_intent, controlled_release, recovery]}
+  - {stroke_id: drive, name: Drive, diagnostic_order: [ready_racket, compact_preparation, contact, target, recovery]}
+  - {stroke_id: backhand, name: Backhand, diagnostic_order: [time_budget, arrival, contact_space, controlled_reply, recovery]}
+  - {stroke_id: serve_receive, name: Serve and receive, diagnostic_order: [individual_fit, ready_centre, first_reply, next_shot_role]}
+  - {stroke_id: doubles, name: Doubles transition, diagnostic_order: [first_two_shots, role, coverage, recovery]}
+boundaries:
+  - Do not merge high clear, smash, and drop into one generic overhead diagnosis.
+  - Do not name true internal rotation, force, grip pressure, racket-face angle, shuttle contact, or calibrated 3D biomechanics from ordinary monocular video.

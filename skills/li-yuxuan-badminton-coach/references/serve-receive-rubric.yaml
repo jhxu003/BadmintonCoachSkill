@@ -1,0 +1,50 @@
+- rule_id: lyx-unstable-serve
+  issue: Chosen serve pattern is not repeatable enough for the intended first-two-shot plan
+  category: serve
+  priority: 16
+  applicable_actions: [serve_receive, doubles]
+  required_observations: [phase_observations.serve_pattern]
+  observable_evidence:
+    - {path: phase_observations.serve_pattern, equals: copied_unstable, label: Player copies a serve style that cannot be repeated under target constraint.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Collect at least 8 serves to the same target before judging repeatability.
+  likely_effect: [Third-shot plan becomes reactive and partner coverage is delayed.]
+  correction_principle: Choose grip, height, and placement that the player can repeat before adding deception.
+  drills: [lyx-serve-repeatability-grid]
+  retest_metrics: [6 of 8 serves should meet the chosen target and height constraint]
+  source_ids: [LYX_BILI_BV1SH411X7AF]
+  confidence: source_backed
+
+- rule_id: lyx-role-conflict
+  issue: Doubles pair has no clear first-two-shot coverage role
+  category: doubles_tactics
+  priority: 20
+  applicable_actions: [doubles, serve_receive]
+  required_observations: [phase_observations.next_shot_role]
+  observable_evidence:
+    - {path: phase_observations.next_shot_role, equals: unclear, label: Pair hesitates or occupies the same response space after serve or receive.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Request both players and the next opponent reply in frame.
+  likely_effect: [Attack continuity disappears and open court is exposed.]
+  correction_principle: Define first striker, coverer, and recovery route before expanding tactics.
+  drills: [lyx-doubles-two-shot-role]
+  retest_metrics: [phase_observations.next_shot_role should become explicit]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV12P4Y1Y7HS]
+  confidence: inferred
+
+- rule_id: lyx-grip-tension-serve
+  issue: Serve grip is visibly over-tight and reduces placement repeatability
+  category: serve
+  priority: 34
+  applicable_actions: [serve_receive, doubles]
+  required_observations: [phase_observations.serve_grip_tension]
+  observable_evidence:
+    - {path: phase_observations.serve_grip_tension, equals: high, label: Hand appears braced through the serve release.}
+  min_evidence_count: 1
+  insufficient_evidence_policy: Treat grip pressure as uncertain unless hand and handle are clearly visible.
+  likely_effect: [Height and placement vary, especially under pressure.]
+  correction_principle: Adjust only the visible setup and release feel; do not infer exact grip pressure.
+  drills: [lyx-serve-repeatability-grid]
+  retest_metrics: [phase_observations.serve_grip_tension should become relaxed]
+  source_ids: [LYX_BILI_BV1SH411X7AF]
+  confidence: hypothesis

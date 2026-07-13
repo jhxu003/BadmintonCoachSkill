@@ -1,8 +1,8 @@
 # Li Yuxuan Public Corpus
 
-This directory contains public-safe corpus artifacts for the non-official Li Yuxuan badminton coaching Skill.
+This directory contains public-safe provenance artifacts for the non-official Li Yuxuan badminton coaching Skill.
 
-It contains source indexes, original topic summaries, source identifiers, timestamp pointers, review status, and provenance labels. It does not contain raw media, complete ASR transcripts, screenshots, model dumps, cookies, access tokens, or paid-course material.
+It contains public source indexes, original topic summaries, source identifiers, timestamp pointers, aggregate review status, and provenance labels. It excludes raw media, complete ASR transcripts, screenshots, model dumps, private runtime inputs, and paid-course material.
 
 ## Source Boundary
 
@@ -15,12 +15,12 @@ It contains source indexes, original topic summaries, source identifiers, timest
 ## Evidence Layers
 
 1. `source-index.tsv`: canonical public-source ledger.
-2. `video-corpus-manifest.yaml`: per-video parsing jobs and private/public path contracts.
+2. `system-taxonomy.yaml`, `teaching-points.yaml`, and `source-topic-map.yaml`: concise, source-linked system map.
 3. `video-asr-teaching-windows-full.yaml`: public-safe candidate timestamps distilled from private ASR.
 4. `video-asr-timestamp-review.yaml`: original topic/timestamp summaries without transcript text.
-5. `video-visual-review-manifest.yaml` and `video-visual-evidence-summary.yaml`: sparse still-frame visibility review only.
-6. `video-temporal-review-manifest.yaml` and `video-temporal-pose-summary.yaml`: dense 2D Pose proxy summaries for selected motion sequences.
-7. The bundled Skill references contain only condensed, source-linked rules and framework descriptions.
+5. `video-visual-evidence-summary.yaml`: aggregate sparse visibility review, with no images or model text.
+6. `video-temporal-pose-summary.yaml`: aggregate 2D body-geometry proxy for selected motion sequences, with no coordinates.
+7. The bundled Skill references contain the runtime frameworks, deterministic rules, drills, plans, and source-linked evidence map.
 
 ## Promotion Boundary
 
@@ -28,3 +28,4 @@ It contains source indexes, original topic summaries, source identifiers, timest
 - Sparse VLM stills can describe whether a person, racket, posture, or on-screen text is visible. They cannot prove motion, force, contact, grip pressure, or true joint rotation.
 - Dense monocular Pose can describe coarse 2D change over a planned sequence. It cannot prove shuttle contact, racket face, calibrated 3D biomechanics, force, or true internal rotation.
 - Any deterministic Skill rule must carry a source id, evidence level, confidence boundary, and promotion status.
+- Processing manifests, private artifact locations, raw model outputs, and controller logs are intentionally excluded from the public repository.

@@ -1,0 +1,23 @@
+- plan_id: lyx-overhead-foundation-plan
+  name: Overhead foundation and depth plan
+  suitable_for: [lyx-foundation-builder]
+  structure: [start cue, rear turn, high contact shadow, relaxed clear distance, recovery]
+  output_requirements: [one primary bottleneck, one drill, one retest metric]
+  stop_conditions: [pain, persistent_late_arrival]
+  source_ids: [LYX_BILI_BV1EV411I7ZS, LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1HZ4Y1M7WB]
+
+- plan_id: lyx-smash-progression-plan
+  name: Smash sequence and landing plan
+  suitable_for: [lyx-chain-ready-overhead, lyx-jump-readiness]
+  structure: [grounded sequence, target and exit, low-amplitude jump test, landing reset, rally transfer]
+  output_requirements: [contact condition, release boundary, landing metric, recovery metric]
+  stop_conditions: [pain, unstable_landing, contact_behind]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD, LYX_BILI_BV1WK411K7KW]
+
+- plan_id: lyx-doubles-first-two-shot-plan
+  name: Doubles serve/receive to first-two-shot plan
+  suitable_for: [lyx-fast-exchange-player]
+  structure: [serve repeatability, ready centre, receive first attack, partner roles, constrained rally]
+  output_requirements: [chosen serve fit, first reply target, explicit pair roles]
+  stop_conditions: [role_conflict, passive_receive]
+  source_ids: [LYX_BILI_BV1SH411X7AF, LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV12P4Y1Y7HS]

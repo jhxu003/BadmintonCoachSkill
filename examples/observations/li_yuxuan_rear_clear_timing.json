@@ -1,0 +1,44 @@
+{
+  "player_profile": {
+    "level": "beginner",
+    "age_band": "adult",
+    "strength": "normal",
+    "mobility": "normal",
+    "coordination": "inconsistent",
+    "injury_risk": [],
+    "training_goal": "clear_length",
+    "dominant_hand": "right",
+    "available_training_time": "3 sessions per week"
+  },
+  "video_observation": {
+    "action": "high_clear",
+    "camera_view": "rear_diagonal",
+    "fps_quality": "60fps",
+    "phase_observations": {
+      "pre_hit_tension": "high",
+      "swing_distance": "short",
+      "release_path": "forced_twist",
+      "practice_transfer": "breaks_in_rally"
+    },
+    "contact_point": "behind_head",
+    "elbow_height_before_hit": "below_shoulder",
+    "wrist_elbow_sequence": "wrist_before_elbow",
+    "hip_shoulder_sequence": "arm_before_trunk",
+    "racket_side_structure": "collapsed",
+    "follow_through": "short",
+    "footwork_observations": {
+      "start_timing": "after_shuttle_leaves",
+      "arrival": "late",
+      "rear_turn": "wrong_leg_leads",
+      "confirmation_step": "absent",
+      "recovery": "absent"
+    },
+    "missing_observations": [],
+    "keyframes": [
+      {"label": "opponent_contact", "time_ms": 0},
+      {"label": "rear_turn", "time_ms": 330},
+      {"label": "pre_contact", "time_ms": 790},
+      {"label": "follow_through", "time_ms": 1060}
+    ]
+  }
+}

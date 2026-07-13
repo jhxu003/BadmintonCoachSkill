@@ -1,0 +1,135 @@
+- drill_id: lyx-split-start-call
+  name: Opponent-contact start call
+  purpose: Coordinate the split or first response with the feeder's contact rather than the shuttle's late flight.
+  dosage: 3 sets x 8 feeds each direction, rest 45-60 seconds
+  progression: Add unpredictable rear and front targets only after the first step begins on the feeder cue.
+  stop_conditions: [ankle_pain, knee_pain, repeated_late_start]
+  source_ids: [LYX_BILI_BV1EV411I7ZS]
+
+- drill_id: lyx-rear-turn-freeze
+  name: Rear turn and confirmation-step freeze
+  purpose: Separate turn, retreat, confirmation step, contact base, and exit before adding a full swing.
+  dosage: 4 sets x 6 controlled rear-court feeds
+  progression: Add high clear, then smash preparation, then recovery to base.
+  stop_conditions: [loss_of_balance, ankle_pain]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV13C4Y1T7SN]
+
+- drill_id: lyx-high-contact-shadow
+  name: High-contact shadow line
+  purpose: Rehearse arrival and a high usable contact window without forcing power.
+  dosage: 3 sets x 10 shadows, then 3 sets x 6 easy feeds
+  progression: Increase feed depth before increasing swing speed.
+  stop_conditions: [shoulder_pain, contact_moves_behind_head]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN]
+
+- drill_id: lyx-relaxed-clear-distance
+  name: Relaxed clear distance ladder
+  purpose: Build depth through preparation, swing distance, and a late release instead of continuous grip tension.
+  dosage: 5 rounds x 5 clears to progressively deeper targets
+  progression: Advance only when 4 of 5 clears meet the target without visible early tension.
+  stop_conditions: [shoulder_pain, loss_of_contact_height]
+  source_ids: [LYX_BILI_BV13C4Y1T7SN, LYX_BILI_BV1RY4Y1S7ZV]
+
+- drill_id: lyx-top-elbow-frame
+  name: Shoulder-elbow frame rehearsal
+  purpose: Establish a repeatable pre-hit arm frame before adding a fast release.
+  dosage: 3 sets x 8 slow shadows plus 3 sets x 6 gentle feeds
+  progression: Add trunk turn after the frame stays stable in 5 consecutive repetitions.
+  stop_conditions: [shoulder_pain, elbow_below_shoulder]
+  source_ids: [LYX_BILI_BV1SK4Y1S7NB, LYX_BILI_BV1A8411A7BB]
+
+- drill_id: lyx-turn-release-chain
+  name: Turn-to-release chain
+  purpose: Connect balanced lower-body turn, trunk timing, elbow path, and release without an isolated wrist flick.
+  dosage: 4 sets x 6 half-speed overhead feeds
+  progression: Increase shuttle pace only after balance and contact height remain stable.
+  stop_conditions: [back_pain, shoulder_pain, wrist_first]
+  source_ids: [LYX_BILI_BV1HZ4Y1M7WB, LYX_BILI_BV1HV41117WQ]
+
+- drill_id: lyx-smash-five-phase
+  name: Five-phase smash rebuild
+  purpose: Name and rehearse arrival, preparation, contact, release, and recovery as distinct checkpoints.
+  dosage: 5 rounds x 4 feeds, one checkpoint per round
+  progression: Combine phases only after each checkpoint is repeatable.
+  stop_conditions: [pain, unstable_landing, contact_behind]
+  source_ids: [LYX_BILI_BV1HV41117WQ, LYX_BILI_BV1FF4Y1Q7TD]
+
+- drill_id: lyx-grounded-smash-target
+  name: Grounded smash target and exit
+  purpose: Produce a controlled downward shot while preserving a recoverable base.
+  dosage: 4 sets x 6 grounded smashes with marked recovery target
+  progression: Add pace before adding jump height.
+  stop_conditions: [no_recovery, shoulder_pain]
+  source_ids: [LYX_BILI_BV1BI4Y1G7RU, LYX_BILI_BV1UH411O75P]
+
+- drill_id: lyx-jump-land-reset
+  name: Jump, land, reset
+  purpose: Test jump-smash readiness through controlled landing and an immediate next-step recovery.
+  dosage: 3 sets x 4 low-amplitude jump contacts
+  progression: Increase height only when all landings are quiet, balanced, and recoverable.
+  stop_conditions: [ankle_pain, knee_pain, unstable_landing]
+  source_ids: [LYX_BILI_BV1WK411K7KW]
+
+- drill_id: lyx-drop-target-contrast
+  name: Drop target contrast
+  purpose: Preserve overhead preparation while contrasting a controlled soft drop and a faster drop.
+  dosage: 4 sets x 8 alternating target feeds
+  progression: Add direction change only after contact height and target accuracy hold.
+  stop_conditions: [forced_wrist, contact_below_head]
+  source_ids: [LYX_BILI_BV17A4Y1J7KV, LYX_BILI_BV1RP4Y1X7WW]
+
+- drill_id: lyx-drive-compact-exchange
+  name: Compact drive exchange
+  purpose: Keep preparation small and racket ready through a timed flat exchange.
+  dosage: 4 rounds x 20 seconds with 40 seconds rest
+  progression: Narrow target corridor and increase feed pace after stable contact.
+  stop_conditions: [large_preparation, low_ready_racket]
+  source_ids: [LYX_BILI_BV1NT4Y1O7WQ, LYX_BILI_BV1KA411Q763]
+
+- drill_id: lyx-receive-first-attack
+  name: Receive-to-first-attack sequence
+  purpose: Rehearse lower ready centre, active racket preparation, first reply, and next-shot position.
+  dosage: 5 sets x 6 serve-receive sequences
+  progression: Add server variation and partner coverage call.
+  stop_conditions: [passive_receive, knee_pain]
+  source_ids: [LYX_BILI_BV1H5411L7QQ]
+
+- drill_id: lyx-serve-repeatability-grid
+  name: Serve repeatability grid
+  purpose: Test a personalised grip, height, and placement pattern across a marked target grid.
+  dosage: 4 target zones x 8 serves
+  progression: Add a planned third-shot response only after the chosen serve is repeatable.
+  stop_conditions: [grip_tension, unstable_serve]
+  source_ids: [LYX_BILI_BV1SH411X7AF]
+
+- drill_id: lyx-doubles-two-shot-role
+  name: Doubles first-two-shot roles
+  purpose: Connect serve or receive to attacking role, partner coverage, and recovery.
+  dosage: 5 sets x 5 two-shot patterns per rotation
+  progression: Add live return variation after roles are clear.
+  stop_conditions: [role_conflict, passive_transition]
+  source_ids: [LYX_BILI_BV1H5411L7QQ, LYX_BILI_BV12P4Y1Y7HS]
+
+- drill_id: lyx-backhand-early-choice
+  name: Backhand early-choice feed
+  purpose: Create time to choose a controlled backhand reply before loading hand speed.
+  dosage: 4 sets x 6 rear-corner feeds
+  progression: Add straight/cross decision after early arrival is stable.
+  stop_conditions: [forced_wrist, elbow_pain]
+  source_ids: [LYX_BILI_BV1T34Y1772E, LYX_BILI_BV1MS4Y187PC]
+
+- drill_id: lyx-rally-transfer-ladder
+  name: Technical-to-rally transfer ladder
+  purpose: Transfer one technical target from isolated feed to recovery, target, decision, and rally constraints.
+  dosage: 4 levels x 5 successful repetitions
+  progression: Move up only after 4 of 5 repetitions meet the prior level's retest metric.
+  stop_conditions: [form_breakdown, pain]
+  source_ids: [LYX_BILI_BV1UT4Y1U7X9, LYX_BILI_BV1GY4Y127MB]
+
+- drill_id: lyx-equipment-comfort-log
+  name: Equipment comfort log
+  purpose: Separate equipment response from technique changes by tracking tension, comfort, pain, contact, and depth across repeated sessions.
+  dosage: 3 sessions with the same drill and target set
+  progression: Change one equipment variable only after the baseline is stable.
+  stop_conditions: [pain, abrupt_performance_drop]
+  source_ids: [LYX_BILI_BV1SL4Y1J77Z, LYX_BILI_BV1KD4Y1B7NW]
