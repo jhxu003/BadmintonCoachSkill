@@ -46,10 +46,13 @@ def _racket_side_structure(
         if candidate.phase != "top_elbow":
             continue
         facts = set(review.visible_facts)
-        if "racket_side_frame_collapsed" in facts:
+        collapsed = "racket_side_frame_collapsed" in facts
+        stable = "racket_side_frame_stable" in facts
+        if collapsed == stable:
+            return "unknown"
+        if collapsed:
             return "collapsed"
-        if "racket_side_frame_stable" in facts:
-            return "stable"
+        return "stable"
     return "unknown"
 
 
