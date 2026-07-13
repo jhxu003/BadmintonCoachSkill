@@ -32,6 +32,7 @@ export interface FrameRef {
   limitations: string[];
   media_url?: string;
   source_url?: string;
+  source_jump_url?: string;
   title?: string;
 }
 
@@ -63,6 +64,7 @@ export interface CoachingReport {
   frame_refs: FrameRef[];
   coach_references: FrameRef[];
   missing_evidence: string[];
+  retake_guidance?: string;
 }
 
 export interface JobEvent {
@@ -73,8 +75,14 @@ export interface JobEvent {
   created_at: string;
 }
 
+const apiBase = (import.meta.env.VITE_API_BASE ?? "").replace(/\/$/, "");
+
+function apiPath(path: string): string {
+  return `${apiBase}${path}`;
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(path, init);
+  const response = await fetch(apiPath(path), init);
   if (!response.ok) {
     const payload = await response.json().catch(() => ({}));
     throw new Error(payload.detail || `Request failed (${response.status})`);
@@ -104,13 +112,14 @@ export function subscribeToJob(
   onEvent: (event: JobEvent) => void,
   onError: (error: Event) => void
 ): () => void {
-  const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-  const socket = new WebSocket(`${protocol}://${window.location.host}/api/analyses/${analysisId}/events`);
+  const endpoint = new URL(apiPath(`/api/analyses/${analysisId}/events`), window.location.origin);
+  endpoint.protocol = endpoint.protocol === "https:" ? "wss:" : "ws:";
+  const socket = new WebSocket(endpoint.toString());
   socket.onmessage = (message) => onEvent(JSON.parse(message.data) as JobEvent);
   socket.onerror = onError;
   return () => socket.close();
 }
 
 export function studentFrameUrl(analysisId: string, frameId: string): string {
-  return `/api/analyses/${analysisId}/frames/${frameId}`;
+  return apiPath(`/api/analyses/${analysisId}/frames/${frameId}`);
 }

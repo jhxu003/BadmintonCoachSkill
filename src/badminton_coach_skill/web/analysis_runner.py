@@ -7,6 +7,7 @@ from typing import Protocol
 
 from ..coach_media.catalog import build_source_catalog
 from ..coach_media.ingestion import ensure_reference_image
+from ..coach_media.links import source_timestamp_url
 from ..coach_registry import load_coach_knowledge
 from ..issue_matcher import match_diagnosis
 from ..video_evidence.contracts import CoachReference, FrameRef
@@ -34,6 +35,9 @@ def _public_student_frame(frame: FrameRef) -> dict[str, object]:
 def _public_coach_reference(reference: CoachReference) -> dict[str, object]:
     payload = reference.to_dict()
     payload.pop("media_key", None)
+    payload["source_jump_url"] = source_timestamp_url(
+        reference.source_url, reference.timestamp_ms
+    )
     if reference.availability == "cached" and reference.media_key:
         payload["media_url"] = f"/api/coach-references/{reference.reference_id}/frame"
     return payload
@@ -44,6 +48,20 @@ def _student_media_key(job_id: str, relative_key: str) -> str:
     if relative.is_absolute() or ".." in relative.parts or not relative.parts:
         raise ValueError("Frame media key must be a relative path inside the analysis job")
     return str(Path(job_id) / relative)
+
+
+def _retake_guidance(observation: dict[str, object], frames: Iterable[FrameRef]) -> str | None:
+    if any(True for _ in frames):
+        return None
+    action = str(observation.get("action", "动作"))
+    camera_view = str(observation.get("camera_view", "unknown"))
+    if action in {"smash", "high_clear", "drop"}:
+        view = "侧后方"
+    elif camera_view == "front":
+        view = "侧后方"
+    else:
+        view = "侧后方或侧面"
+    return f"请用{view}机位重拍一次{action}：全身和持拍侧保持清晰可见，从启动、到位、挥拍到回位连续拍摄，不要只截击球瞬间。"
 
 
 def _upload_asset(database: Database, job_id: str) -> MediaAsset:
@@ -177,6 +195,9 @@ def run_analysis_job(
             "frame_refs": [_public_student_frame(frame) for frame in student_frames],
             "coach_references": [_public_coach_reference(reference) for reference in references],
         }
+        retake_guidance = _retake_guidance(evidence.observation, student_frames)
+        if retake_guidance:
+            report["retake_guidance"] = retake_guidance
         database.save_report(job.id, report)
         return database.set_state(job.id, "completed", 100, "Evidence report is ready.")
     except Exception as error:
