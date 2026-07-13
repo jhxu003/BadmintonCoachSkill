@@ -41,6 +41,8 @@ DownloadSource = Callable[[str, Path], None]
 ExtractReferenceFrame = Callable[[Path, int, Path], None]
 PUBLIC_SOURCE_TIMEOUT_SECONDS = 120
 PUBLIC_SOURCE_MAX_BYTES = 512 * 1024 * 1024
+PUBLIC_REFERENCE_FORMAT = "bestvideo[height<=480][ext=mp4]/best[height<=480][ext=mp4]"
+PUBLIC_REFERENCE_FORMAT_SORT = "res,+size"
 
 
 def download_public_source(source_url: str, target: Path) -> None:
@@ -61,6 +63,10 @@ def download_public_source(source_url: str, target: Path) -> None:
             "2",
             "--max-filesize",
             str(PUBLIC_SOURCE_MAX_BYTES),
+            "--format",
+            PUBLIC_REFERENCE_FORMAT,
+            "--format-sort",
+            PUBLIC_REFERENCE_FORMAT_SORT,
             "--remux-video",
             "mp4",
             "--ffmpeg-location",
