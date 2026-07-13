@@ -163,11 +163,12 @@ npm --prefix web ci
 ```bash
 export BADMINTON_PROJECT_ROOT="$PWD"
 export BADMINTON_RUNTIME_ROOT="$HOME/.cache/badminton-coach-runtime"
+export BADMINTON_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
 export BADMINTON_VLM_MODEL_PATH="/models/qwen-vl"
 uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port 8000
 ```
 
-`BADMINTON_VLM_MODEL_PATH` 是可选项。未设置时，服务使用 [`configs/video-analysis.yaml`](configs/video-analysis.yaml) 中的 Qwen-VL 模型标识；在离线服务器或共享 GPU 集群中，建议将其指向预先下载的本地模型目录。
+`BADMINTON_POSE_MODEL_PATH` 和 `BADMINTON_VLM_MODEL_PATH` 均为可选项。未设置时，服务使用 [`configs/video-analysis.yaml`](configs/video-analysis.yaml) 中的模型标识；在离线服务器或共享 GPU 集群中，建议分别将其指向预先下载的 YOLO 权重文件和 Qwen-VL 模型目录，避免处理上传视频时临时下载权重。
 
 另开一个终端启动网页：
 

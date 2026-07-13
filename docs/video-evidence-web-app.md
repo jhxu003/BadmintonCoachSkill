@@ -35,11 +35,12 @@ npm --prefix web ci
 ```bash
 export BADMINTON_PROJECT_ROOT="$PWD"
 export BADMINTON_RUNTIME_ROOT="$HOME/.cache/badminton-coach-runtime"
+export BADMINTON_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
 export BADMINTON_VLM_MODEL_PATH="/models/qwen-vl"
 uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port 8000
 ```
 
-The optional `BADMINTON_VLM_MODEL_PATH` setting overrides the model identifier in `configs/video-analysis.yaml`. Use it for a pre-downloaded model directory on an offline server or shared compute cluster.
+The optional `BADMINTON_POSE_MODEL_PATH` and `BADMINTON_VLM_MODEL_PATH` settings override the model identifiers in `configs/video-analysis.yaml`. Point both to pre-downloaded model files or directories on an offline server or shared GPU cluster so the worker does not fetch weights while processing an upload.
 
 Start the browser client in another terminal:
 

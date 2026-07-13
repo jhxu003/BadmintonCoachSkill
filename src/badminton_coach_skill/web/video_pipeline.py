@@ -87,7 +87,7 @@ class ConfiguredVideoPipeline:
 def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline:
     config = load_video_pipeline_config(project_root / "configs" / "video-analysis.yaml")
     pose_estimator = UltralyticsPoseEstimator(
-        config.pose_model_path,
+        os.environ.get("BADMINTON_POSE_MODEL_PATH", config.pose_model_path),
         inference_stride=config.pose_inference_stride,
     )
     reviewer: VisualReviewer
