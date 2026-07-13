@@ -45,7 +45,7 @@ The optional `BADMINTON_POSE_MODEL_PATH` and `BADMINTON_VLM_MODEL_PATH` settings
 Start the browser client in another terminal:
 
 ```bash
-VITE_API_BASE=http://127.0.0.1:8000 npm --prefix web run dev -- --host 0.0.0.0
+npm --prefix web run dev -- --host 0.0.0.0
 ```
 
 ## Dispatch Modes
@@ -76,11 +76,12 @@ The worker uses the same environment variables as the API. The periodic Celery t
 | `WS` | `/api/analyses/{analysis_id}/events` | Receive progress updates. |
 
 Student upload requests stream to disk in chunks rather than loading the entire video into API memory.
+The upload response returns a random analysis access token exactly once. Send it as `X-Analysis-Token` for job status, reports, deletion, and frame requests; browser image and WebSocket requests use the `access_token` query parameter because those browser APIs cannot attach a custom header. Keep the token only in the active browser session—reloading the page intentionally does not restore a private analysis.
 
 ## Privacy And Media Lifetime
 
 - Original uploads, normalized derivatives, selected student frames, and model intermediates are private deployment media.
-- Each analysis has a 24-hour expiry by default.
+- Each analysis has a 24-hour expiry by default; set `ANALYSIS_TTL_HOURS` only when a deployment needs a longer retention period.
 - Deleting an analysis immediately removes its private media and marks the job expired.
 - The application never exposes the original upload through a frame endpoint.
 - Coach reference media is downloaded only when needed for a completed diagnostic report, extracted to one cached image, and the temporary source download is removed.

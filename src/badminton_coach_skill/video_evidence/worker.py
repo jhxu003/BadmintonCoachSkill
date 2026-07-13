@@ -66,7 +66,7 @@ def build_observation_and_frames(
             continue
         image_path = image_paths.get(candidate.timestamp_ms) if image_paths else None
         review = visual_reviewer.review(candidate, image_path or Path(media_key), frame_id)
-        if review.phase_assessment == "not_action":
+        if review.phase_assessment != "plausible":
             rejected_non_action = True
             continue
         reviewed_candidates.append((candidate, media_key, review))

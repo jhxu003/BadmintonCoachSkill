@@ -39,6 +39,9 @@ class Settings:
             project_root=Path(os.environ.get("BADMINTON_PROJECT_ROOT", Path.cwd())).expanduser(),
             dispatch_mode=os.environ.get("BADMINTON_DISPATCH_MODE", "local"),
             celery_broker_url=os.environ.get("CELERY_BROKER_URL"),
+            analysis_ttl=timedelta(
+                hours=max(1.0, float(os.environ.get("ANALYSIS_TTL_HOURS", "24")))
+            ),
             cleanup_interval_seconds=max(
                 60.0, float(os.environ.get("CLEANUP_INTERVAL_SECONDS", "900"))
             ),

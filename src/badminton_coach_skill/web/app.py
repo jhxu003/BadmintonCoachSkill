@@ -2,12 +2,13 @@ from __future__ import annotations
 
 import asyncio
 from contextlib import asynccontextmanager
+from dataclasses import replace
 from datetime import datetime, timezone
 import json
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile, WebSocket, WebSocketDisconnect, status
+from fastapi import FastAPI, File, Form, Header, HTTPException, UploadFile, WebSocket, WebSocketDisconnect, status
 from fastapi.responses import FileResponse
 
 from .database import Database
@@ -15,12 +16,12 @@ from .cleanup import cleanup_expired_jobs
 from .dispatch import AnalysisDispatcher, create_dispatcher
 from .jobs import create_analysis_job, delete_analysis_job
 from .media_store import LocalMediaStore
-from .models import MediaAsset
+from .models import AnalysisJob, MediaAsset
 from .schemas import AnalysisJobResponse, AnalysisReportResponse
 from .settings import Settings
 
 
-def _job_response(job: object) -> AnalysisJobResponse:
+def _job_response(job: AnalysisJob) -> AnalysisJobResponse:
     return AnalysisJobResponse(
         analysis_id=job.id,
         state=job.state,
@@ -28,6 +29,7 @@ def _job_response(job: object) -> AnalysisJobResponse:
         expires_at=job.expires_at,
         action_hint=job.action_hint,
         failure_code=job.failure_code,
+        access_token=job.access_token,
     )
 
 
@@ -78,6 +80,15 @@ def create_app(
     app.state.media_store = media_store
     app.state.dispatcher = active_dispatcher
 
+    def require_analysis_access(analysis_id: str, access_token: str | None) -> AnalysisJob:
+        try:
+            job = database.get_job(analysis_id)
+        except KeyError as error:
+            raise HTTPException(status_code=404, detail="Analysis not found") from error
+        if not database.has_valid_access_token(analysis_id, access_token):
+            raise HTTPException(status_code=401, detail="Analysis access token is required")
+        return job
+
     @app.get("/api/health")
     def health() -> dict[str, str]:
         return {"status": "ok"}
@@ -98,7 +109,9 @@ def create_app(
                 status_code=415, detail="Upload must use a video MIME type"
             )
         profile = _parse_player_profile(player_profile)
-        job = create_analysis_job(database, coach_id, action_hint, profile)
+        job = create_analysis_job(
+            database, coach_id, action_hint, profile, ttl=runtime.analysis_ttl
+        )
         suffix = Path(video.filename).suffix.lower() or ".mp4"
         try:
             media_key = await media_store.write_upload(
@@ -132,29 +145,27 @@ def create_app(
                 failure_code=type(error).__name__,
             )
             raise HTTPException(status_code=503, detail="Analysis worker is unavailable") from error
-        return _job_response(database.get_job(job.id))
+        return _job_response(replace(database.get_job(job.id), access_token=job.access_token))
 
     @app.get("/api/analyses/{analysis_id}", response_model=AnalysisJobResponse)
-    def get_analysis(analysis_id: str) -> AnalysisJobResponse:
-        try:
-            return _job_response(database.get_job(analysis_id))
-        except KeyError as error:
-            raise HTTPException(status_code=404, detail="Analysis not found") from error
+    def get_analysis(
+        analysis_id: str, x_analysis_token: str | None = Header(default=None)
+    ) -> AnalysisJobResponse:
+        return _job_response(require_analysis_access(analysis_id, x_analysis_token))
 
     @app.delete("/api/analyses/{analysis_id}", response_model=AnalysisJobResponse, status_code=status.HTTP_202_ACCEPTED)
-    def delete_analysis(analysis_id: str) -> AnalysisJobResponse:
-        try:
-            return _job_response(delete_analysis_job(database, media_store, analysis_id))
-        except KeyError as error:
-            raise HTTPException(status_code=404, detail="Analysis not found") from error
+    def delete_analysis(
+        analysis_id: str, x_analysis_token: str | None = Header(default=None)
+    ) -> AnalysisJobResponse:
+        require_analysis_access(analysis_id, x_analysis_token)
+        return _job_response(delete_analysis_job(database, media_store, analysis_id))
 
     @app.get("/api/analyses/{analysis_id}/report", response_model=AnalysisReportResponse)
-    def get_report(analysis_id: str) -> AnalysisReportResponse:
-        try:
-            job = database.get_job(analysis_id)
-            report = database.get_report(analysis_id)
-        except KeyError as error:
-            raise HTTPException(status_code=404, detail="Analysis not found") from error
+    def get_report(
+        analysis_id: str, x_analysis_token: str | None = Header(default=None)
+    ) -> AnalysisReportResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token)
+        report = database.get_report(analysis_id)
         if job.state == "expired":
             raise HTTPException(status_code=410, detail="Analysis media has expired")
         if report is None:
@@ -162,11 +173,13 @@ def create_app(
         return AnalysisReportResponse(report=report)
 
     @app.get("/api/analyses/{analysis_id}/frames/{asset_id}")
-    def get_student_frame(analysis_id: str, asset_id: str) -> FileResponse:
-        try:
-            job = database.get_job(analysis_id)
-        except KeyError as error:
-            raise HTTPException(status_code=404, detail="Analysis not found") from error
+    def get_student_frame(
+        analysis_id: str,
+        asset_id: str,
+        access_token: str | None = None,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> FileResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token or access_token)
         if job.state == "expired" or job.expires_at <= datetime.now(timezone.utc):
             raise HTTPException(status_code=410, detail="Student media has expired")
         asset = database.find_media_asset(analysis_id, asset_id)
@@ -178,7 +191,15 @@ def create_app(
         return FileResponse(target, headers={"Cache-Control": "private, no-store"})
 
     @app.get("/api/coach-references/{reference_id}/frame")
-    def get_coach_reference_frame(reference_id: str) -> FileResponse:
+    def get_coach_reference_frame(
+        reference_id: str,
+        analysis_id: str,
+        access_token: str | None = None,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> FileResponse:
+        require_analysis_access(analysis_id, x_analysis_token or access_token)
+        if not database.job_has_coach_reference(analysis_id, reference_id):
+            raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
         reference = database.get_coach_reference(reference_id)
         if reference is None or reference.availability != "cached" or not reference.media_key:
             raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
@@ -189,11 +210,13 @@ def create_app(
         return FileResponse(target, headers={"Cache-Control": "private, no-store"})
 
     @app.websocket("/api/analyses/{analysis_id}/events")
-    async def analysis_events(websocket: WebSocket, analysis_id: str) -> None:
+    async def analysis_events(
+        websocket: WebSocket, analysis_id: str, access_token: str | None = None
+    ) -> None:
         try:
-            database.get_job(analysis_id)
-        except KeyError:
-            await websocket.close(code=4404)
+            require_analysis_access(analysis_id, access_token)
+        except HTTPException as error:
+            await websocket.close(code=4401 if error.status_code == 401 else 4404)
             return
         await websocket.accept()
         sequence = 0

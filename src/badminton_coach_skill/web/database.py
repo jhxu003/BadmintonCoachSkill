@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import hashlib
+import hmac
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import DateTime, ForeignKey, Integer, JSON, String, Text, create_engine, select
+from sqlalchemy import DateTime, ForeignKey, Integer, JSON, String, Text, create_engine, inspect, select, text, update
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 from ..video_evidence.contracts import CoachReference
@@ -36,6 +38,7 @@ class AnalysisJobRecord(Base):
     player_profile: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
     failure_code: Mapped[str | None] = mapped_column(String(128), nullable=True)
     report: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
+    access_token_hash: Mapped[str] = mapped_column(String(64), nullable=False, default="")
 
 
 class AnalysisEventRecord(Base):
@@ -77,6 +80,16 @@ class Database:
 
     def create_all(self) -> None:
         Base.metadata.create_all(self.engine)
+        if self.engine.dialect.name == "sqlite":
+            columns = {column["name"] for column in inspect(self.engine).get_columns("analysis_jobs")}
+            if "access_token_hash" not in columns:
+                with self.engine.begin() as connection:
+                    connection.execute(
+                        text(
+                            "ALTER TABLE analysis_jobs ADD COLUMN access_token_hash "
+                            "VARCHAR(64) NOT NULL DEFAULT ''"
+                        )
+                    )
 
     def session(self) -> Session:
         return self._sessions()
@@ -94,7 +107,9 @@ class Database:
             failure_code=record.failure_code,
         )
 
-    def create_job(self, job: AnalysisJob, player_profile: dict[str, Any]) -> AnalysisJob:
+    def create_job(
+        self, job: AnalysisJob, player_profile: dict[str, Any], *, access_token: str
+    ) -> AnalysisJob:
         with self.session() as session:
             session.add(
                 AnalysisJobRecord(
@@ -106,10 +121,24 @@ class Database:
                     expires_at=job.expires_at,
                     action_hint=job.action_hint,
                     player_profile=player_profile,
+                    access_token_hash=self._token_hash(access_token),
                 )
             )
             session.commit()
         return job
+
+    @staticmethod
+    def _token_hash(access_token: str) -> str:
+        return hashlib.sha256(access_token.encode("utf-8")).hexdigest()
+
+    def has_valid_access_token(self, job_id: str, access_token: str | None) -> bool:
+        if not access_token:
+            return False
+        with self.session() as session:
+            record = session.get(AnalysisJobRecord, job_id)
+            if record is None or not record.access_token_hash:
+                return False
+            return hmac.compare_digest(record.access_token_hash, self._token_hash(access_token))
 
     def get_job(self, job_id: str) -> AnalysisJob:
         with self.session() as session:
@@ -184,12 +213,37 @@ class Database:
     def list_expired_jobs(self, now: datetime) -> list[AnalysisJob]:
         with self.session() as session:
             records = session.scalars(
-                select(AnalysisJobRecord).where(
-                    AnalysisJobRecord.expires_at <= now,
-                    AnalysisJobRecord.state.not_in(("expired", "deleting")),
-                )
+                select(AnalysisJobRecord).where(AnalysisJobRecord.expires_at <= now)
             ).all()
             return [self._job(record) for record in records]
+
+    def claim_analysis_job(self, job_id: str) -> AnalysisJob | None:
+        """Atomically claim an upload or queued job for one worker."""
+        with self.session() as session:
+            claimed = session.execute(
+                update(AnalysisJobRecord)
+                .where(
+                    AnalysisJobRecord.id == job_id,
+                    AnalysisJobRecord.state.in_(("uploaded", "queued")),
+                )
+                .values(state="normalizing", progress=8, failure_code=None)
+            )
+            if claimed.rowcount != 1:
+                session.rollback()
+                return None
+            session.add(
+                AnalysisEventRecord(
+                    job_id=job_id,
+                    state="normalizing",
+                    progress=8,
+                    message="Preparing uploaded video.",
+                    created_at=utcnow(),
+                )
+            )
+            record = session.get(AnalysisJobRecord, job_id)
+            assert record is not None
+            session.commit()
+            return self._job(record)
 
     def add_media_asset(self, asset: MediaAsset) -> None:
         with self.session() as session:
@@ -266,6 +320,16 @@ class Database:
                 visible_facts=tuple(str(item) for item in payload.get("visible_facts", [])),
                 limitations=tuple(str(item) for item in payload.get("limitations", [])),
             )
+
+    def job_has_coach_reference(self, job_id: str, reference_id: str) -> bool:
+        report = self.get_report(job_id)
+        if not report:
+            return False
+        references = report.get("coach_references", [])
+        return any(
+            isinstance(reference, dict) and reference.get("reference_id") == reference_id
+            for reference in references
+        )
 
     def delete_media_assets(self, job_id: str) -> None:
         with self.session() as session:

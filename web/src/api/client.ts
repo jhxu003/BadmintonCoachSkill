@@ -20,6 +20,7 @@ export interface AnalysisJob {
   expires_at: string;
   action_hint?: string | null;
   failure_code?: string | null;
+  access_token: string;
 }
 
 export interface FrameRef {
@@ -34,6 +35,26 @@ export interface FrameRef {
   source_url?: string;
   source_jump_url?: string;
   title?: string;
+}
+
+export interface CoachReference {
+  reference_id: string;
+  coach_id: string;
+  source_id: string;
+  phase: string;
+  timestamp_ms: number;
+  confidence: "low" | "medium" | "high";
+  availability: "indexed" | "cached" | "unavailable" | "removed";
+  visible_facts: string[];
+  limitations: string[];
+  media_url?: string;
+  source_url?: string;
+  source_jump_url?: string;
+  title?: string;
+}
+
+export function indexCoachReferences(references: CoachReference[]): Map<string, CoachReference> {
+  return new Map(references.map((reference) => [reference.reference_id, reference]));
 }
 
 export interface IssueEvidence {
@@ -62,7 +83,7 @@ export interface CoachingReport {
   issues: CoachingIssue[];
   issue_evidence: IssueEvidence[];
   frame_refs: FrameRef[];
-  coach_references: FrameRef[];
+  coach_references: CoachReference[];
   missing_evidence: string[];
   retake_guidance?: string;
 }
@@ -90,36 +111,60 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+function accessToken(job: AnalysisJob): string {
+  if (!job.access_token) throw new Error("This analysis session is no longer available in this browser.");
+  return job.access_token;
+}
+
+function authorisedRequest<T>(path: string, job: AnalysisJob, init?: RequestInit): Promise<T> {
+  return request<T>(path, {
+    ...init,
+    headers: { ...init?.headers, "X-Analysis-Token": accessToken(job) }
+  });
+}
+
+function mediaUrl(path: string, job: AnalysisJob): string {
+  const endpoint = new URL(apiPath(path), window.location.origin);
+  endpoint.searchParams.set("access_token", accessToken(job));
+  return endpoint.toString();
+}
+
 export async function createAnalysis(form: FormData): Promise<AnalysisJob> {
   return request<AnalysisJob>("/api/analyses", { method: "POST", body: form });
 }
 
-export async function getAnalysis(analysisId: string): Promise<AnalysisJob> {
-  return request<AnalysisJob>(`/api/analyses/${analysisId}`);
+export async function getAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
+  const updated = await authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}`, job);
+  return { ...updated, access_token: accessToken(job) };
 }
 
-export async function getReport(analysisId: string): Promise<CoachingReport> {
-  const response = await request<{ report: CoachingReport }>(`/api/analyses/${analysisId}/report`);
+export async function getReport(job: AnalysisJob): Promise<CoachingReport> {
+  const response = await authorisedRequest<{ report: CoachingReport }>(`/api/analyses/${job.analysis_id}/report`, job);
   return response.report;
 }
 
-export async function deleteAnalysis(analysisId: string): Promise<AnalysisJob> {
-  return request<AnalysisJob>(`/api/analyses/${analysisId}`, { method: "DELETE" });
+export async function deleteAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
+  return authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}`, job, { method: "DELETE" });
 }
 
 export function subscribeToJob(
-  analysisId: string,
+  job: AnalysisJob,
   onEvent: (event: JobEvent) => void,
   onError: (error: Event) => void
 ): () => void {
-  const endpoint = new URL(apiPath(`/api/analyses/${analysisId}/events`), window.location.origin);
+  const endpoint = new URL(apiPath(`/api/analyses/${job.analysis_id}/events`), window.location.origin);
   endpoint.protocol = endpoint.protocol === "https:" ? "wss:" : "ws:";
+  endpoint.searchParams.set("access_token", accessToken(job));
   const socket = new WebSocket(endpoint.toString());
   socket.onmessage = (message) => onEvent(JSON.parse(message.data) as JobEvent);
   socket.onerror = onError;
   return () => socket.close();
 }
 
-export function studentFrameUrl(analysisId: string, frameId: string): string {
-  return apiPath(`/api/analyses/${analysisId}/frames/${frameId}`);
+export function studentFrameUrl(job: AnalysisJob, frameId: string): string {
+  return mediaUrl(`/api/analyses/${job.analysis_id}/frames/${frameId}`, job);
+}
+
+export function coachReferenceUrl(url: string, job: AnalysisJob): string {
+  return mediaUrl(url, job);
 }

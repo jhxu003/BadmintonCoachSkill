@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ChevronLeft, CircleAlert, Gauge, Trash2 } from "lucide-react";
 
-import { deleteAnalysis, type AnalysisJob, type CoachingReport, type FrameRef } from "../../api/client";
+import { deleteAnalysis, indexCoachReferences, studentFrameUrl, type AnalysisJob, type CoachingReport, type FrameRef } from "../../api/client";
 import { FrameComparison } from "./FrameComparison";
 import { PhaseRail } from "./PhaseRail";
 
@@ -18,14 +18,14 @@ export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWo
   const selectedIssue = report.issues.find((issue) => issue.issue_id === selectedIssueId);
   const evidence = report.issue_evidence.find((item) => item.issue_id === selectedIssueId);
   const studentFrames = useMemo(() => new Map(report.frame_refs.map((frame) => [frame.frame_id, frame])), [report.frame_refs]);
-  const coachFrames = useMemo(() => new Map(report.coach_references.map((frame) => [frame.frame_id, frame])), [report.coach_references]);
+  const coachFrames = useMemo(() => indexCoachReferences(report.coach_references), [report.coach_references]);
   const framesForIssue = evidence?.student_frame_ids.map((id) => studentFrames.get(id)).filter(Boolean) as FrameRef[] | undefined;
   const visibleFrames = framesForIssue?.length ? framesForIssue : report.frame_refs;
   const activeFrame = visibleFrames.find((frame) => frame.frame_id === activeFrameId) ?? visibleFrames[0];
   const retakeMessage = report.retake_guidance ?? (report.missing_evidence.length ? `仍需补拍：${report.missing_evidence.join("、")}` : undefined);
 
   async function remove(): Promise<void> {
-    await deleteAnalysis(job.analysis_id);
+    await deleteAnalysis(job);
     onDeleted();
   }
 
@@ -44,7 +44,7 @@ export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWo
       <div className="workspace-grid">
         <section className="student-review">
           <div className="panel-top"><div><p className="eyebrow">当前学员帧</p><h2>{activeFrame?.phase ?? "等待关键帧"}</h2></div>{activeFrame && <span>{(activeFrame.timestamp_ms / 1000).toFixed(2)}s</span>}</div>
-          {activeFrame ? <img className="student-image" src={activeFrame.media_url ?? `/api/analyses/${job.analysis_id}/frames/${activeFrame.frame_id}`} alt="学员当前阶段关键帧" /> : <div className="video-empty">当前视频没有可用关键帧</div>}
+          {activeFrame ? <img className="student-image" src={activeFrame.media_url ?? studentFrameUrl(job, activeFrame.frame_id)} alt="学员当前阶段关键帧" /> : <div className="video-empty">当前视频没有可用关键帧</div>}
           <p className="student-limits">{activeFrame?.limitations.join("；")}</p>
         </section>
         <aside className="issue-panel">
@@ -54,7 +54,7 @@ export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWo
           <div className="drill-card"><p className="eyebrow">本次训练</p><b>{selectedIssue?.drills[0]?.name ?? "暂无训练动作"}</b><span>{selectedIssue?.drills[0]?.dosage}</span><p>{selectedIssue?.retest_metrics[0]}</p></div>
         </aside>
       </div>
-      <FrameComparison analysisId={job.analysis_id} evidence={evidence} studentFrames={studentFrames} coachFrames={coachFrames} />
+      <FrameComparison job={job} evidence={evidence} studentFrames={studentFrames} coachFrames={coachFrames} />
     </main>
   );
 }

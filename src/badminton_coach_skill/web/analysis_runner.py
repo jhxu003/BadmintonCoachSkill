@@ -32,14 +32,16 @@ def _public_student_frame(frame: FrameRef) -> dict[str, object]:
     return payload
 
 
-def _public_coach_reference(reference: CoachReference) -> dict[str, object]:
+def _public_coach_reference(reference: CoachReference, analysis_id: str) -> dict[str, object]:
     payload = reference.to_dict()
     payload.pop("media_key", None)
     payload["source_jump_url"] = source_timestamp_url(
         reference.source_url, reference.timestamp_ms
     )
     if reference.availability == "cached" and reference.media_key:
-        payload["media_url"] = f"/api/coach-references/{reference.reference_id}/frame"
+        payload["media_url"] = (
+            f"/api/coach-references/{reference.reference_id}/frame?analysis_id={analysis_id}"
+        )
     return payload
 
 
@@ -69,6 +71,17 @@ def _upload_asset(database: Database, job_id: str) -> MediaAsset:
     if not uploads:
         raise FileNotFoundError("The uploaded video asset is unavailable")
     return uploads[0]
+
+
+def _stop_if_media_was_deleted(
+    database: Database, media_store: LocalMediaStore, job_id: str
+) -> AnalysisJob | None:
+    latest = database.get_job(job_id)
+    if latest.state not in {"deleting", "expired"}:
+        return None
+    media_store.delete_job(job_id)
+    database.delete_media_assets(job_id)
+    return database.get_job(job_id)
 
 
 def _persist_student_frames(
@@ -150,8 +163,11 @@ def run_analysis_job(
     job = database.get_job(job_id)
     if job.state in {"completed", "expired", "deleting"}:
         return job
+    claimed = database.claim_analysis_job(job.id)
+    if claimed is None:
+        return database.get_job(job.id)
+    job = claimed
     try:
-        database.set_state(job.id, "normalizing", 8, "Preparing uploaded video.")
         upload = _upload_asset(database, job.id)
         video_path = media_store.resolve_key(upload.media_key)
         if not video_path.is_file():
@@ -160,9 +176,15 @@ def run_analysis_job(
         database.set_state(job.id, "tracking", 22, "Tracking visible learner movement.")
         output_dir = media_store.job_dir(job.id)
         evidence = pipeline(video_path, output_dir, job.action_hint or "unknown")
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
 
         database.set_state(job.id, "phase_candidates", 48, "Selecting action-phase keyframes.")
         student_frames = _persist_student_frames(database, media_store, job, evidence.frames)
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
         database.set_state(job.id, "visual_review", 62, "Reviewing visible movement evidence.")
 
         database.set_state(job.id, "diagnosing", 76, "Matching the selected coaching system.")
@@ -195,7 +217,9 @@ def run_analysis_job(
         report = {
             **diagnosis,
             "frame_refs": [_public_student_frame(frame) for frame in student_frames],
-            "coach_references": [_public_coach_reference(reference) for reference in references],
+            "coach_references": [
+                _public_coach_reference(reference, job.id) for reference in references
+            ],
         }
         retake_guidance = _retake_guidance(evidence.observation, student_frames)
         if retake_guidance:
@@ -205,6 +229,8 @@ def run_analysis_job(
     except Exception as error:
         latest = database.get_job(job.id)
         if latest.state in {"expired", "deleting"}:
+            media_store.delete_job(job.id)
+            database.delete_media_assets(job.id)
             return latest
         return database.set_state(
             job.id,

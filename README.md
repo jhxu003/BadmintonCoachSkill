@@ -173,12 +173,14 @@ uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port
 另开一个终端启动网页：
 
 ```bash
-VITE_API_BASE=http://127.0.0.1:8000 npm --prefix web run dev -- --host 0.0.0.0
+npm --prefix web run dev -- --host 0.0.0.0
 ```
 
 生产部署可设置 `BADMINTON_DISPATCH_MODE=celery` 和 `CELERY_BROKER_URL`，由独立 GPU Worker 执行推理；本地模式由 API 进程内的单线程任务队列执行。完整的运行边界、接口和部署变量见 [`docs/video-evidence-web-app.md`](docs/video-evidence-web-app.md)。
 
 学员上传的视频、归一化视频、关键帧和中间媒体默认在 24 小时后删除，也可通过删除分析任务立即删除。公开教练参考帧只按诊断需要临时物化到部署私有缓存，Git 仓库不包含任何原始视频、截图、模型输出或学员媒体。
+
+创建任务的响应会一次性返回分析访问令牌。网页仅在当前浏览器会话保存它，并在读取报告、私有关键帧和删除任务时发送；刷新页面不会恢复该私有任务。
 
 ## Agent Integration
 

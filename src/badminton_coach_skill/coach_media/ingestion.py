@@ -39,6 +39,8 @@ def cache_reference_image(reference: CoachReference, image_path: Path, cache_roo
 
 DownloadSource = Callable[[str, Path], None]
 ExtractReferenceFrame = Callable[[Path, int, Path], None]
+PUBLIC_SOURCE_TIMEOUT_SECONDS = 120
+PUBLIC_SOURCE_MAX_BYTES = 512 * 1024 * 1024
 
 
 def download_public_source(source_url: str, target: Path) -> None:
@@ -51,6 +53,14 @@ def download_public_source(source_url: str, target: Path) -> None:
             "yt-dlp",
             "--no-playlist",
             "--no-progress",
+            "--socket-timeout",
+            "20",
+            "--retries",
+            "2",
+            "--fragment-retries",
+            "2",
+            "--max-filesize",
+            str(PUBLIC_SOURCE_MAX_BYTES),
             "--remux-video",
             "mp4",
             "--ffmpeg-location",
@@ -60,9 +70,10 @@ def download_public_source(source_url: str, target: Path) -> None:
             source_url,
         ],
         capture_output=True,
-        text=True,
-        check=False,
-    )
+            text=True,
+            check=False,
+            timeout=PUBLIC_SOURCE_TIMEOUT_SECONDS,
+        )
     if completed.returncode != 0 or not target.exists():
         raise RuntimeError("public_source_download_failed")
 

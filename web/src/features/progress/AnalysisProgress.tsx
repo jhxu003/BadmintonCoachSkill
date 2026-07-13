@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, LoaderCircle } from "lucide-react";
+import { CheckCircle2, CircleAlert, LoaderCircle } from "lucide-react";
 
 import { getAnalysis, subscribeToJob, type AnalysisJob, type JobEvent } from "../../api/client";
 
@@ -28,17 +28,18 @@ export function AnalysisProgress({ job, onComplete, onExpired }: AnalysisProgres
   const [message, setMessage] = useState("正在建立分析任务。");
 
   useEffect(() => {
-    const unsubscribe = subscribeToJob(job.analysis_id, (event: JobEvent) => {
+    const unsubscribe = subscribeToJob(job, (event: JobEvent) => {
       setCurrent((previous) => ({ ...previous, state: event.state, progress: event.progress }));
       setMessage(event.message);
       if (event.state === "completed") onComplete();
       if (event.state === "expired") onExpired();
     }, () => undefined);
     const timer = window.setInterval(() => {
-      getAnalysis(job.analysis_id).then(setCurrent).catch(() => undefined);
+      getAnalysis(job).then(setCurrent).catch(() => undefined);
     }, 3000);
     return () => { unsubscribe(); window.clearInterval(timer); };
   }, [job.analysis_id, onComplete, onExpired]);
 
-  return <main className="progress-page"><section className="progress-card"><div className="progress-icon">{current.state === "completed" ? <CheckCircle2 /> : <LoaderCircle className="spin" />}</div><p className="eyebrow">视频证据分析</p><h1>{labels[current.state] ?? current.state}</h1><p>{message}</p><div className="progress-track"><span style={{ width: `${current.progress}%` }} /></div><div className="progress-meta"><span>{current.progress}%</span><span>媒体将在 {new Date(current.expires_at).toLocaleString("zh-CN")} 删除</span></div></section></main>;
+  const failed = current.state === "failed";
+  return <main className="progress-page"><section className="progress-card"><div className="progress-icon">{current.state === "completed" ? <CheckCircle2 /> : failed ? <CircleAlert /> : <LoaderCircle className="spin" />}</div><p className="eyebrow">视频证据分析</p><h1>{labels[current.state] ?? current.state}</h1><p>{message}</p><div className="progress-track"><span style={{ width: `${current.progress}%` }} /></div><div className="progress-meta"><span>{current.progress}%</span><span>媒体将在 {new Date(current.expires_at).toLocaleString("zh-CN")} 删除</span></div>{failed && <button className="primary-button" type="button" onClick={onExpired}>返回重新上传</button>}</section></main>;
 }

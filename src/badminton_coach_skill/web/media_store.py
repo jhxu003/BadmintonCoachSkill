@@ -74,4 +74,7 @@ class LocalMediaStore:
         return target
 
     def delete_job(self, job_id: str) -> None:
-        shutil.rmtree(self.job_dir(job_id), ignore_errors=True)
+        try:
+            shutil.rmtree(self.job_dir(job_id))
+        except FileNotFoundError:
+            return

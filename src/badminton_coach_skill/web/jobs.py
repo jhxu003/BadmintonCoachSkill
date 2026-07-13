@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from datetime import datetime, timedelta
+from secrets import token_urlsafe
 from uuid import uuid4
 
 from .database import Database, utcnow
@@ -24,20 +26,23 @@ def create_analysis_job(
         created_at=created_at,
         expires_at=created_at + ttl,
         action_hint=action_hint,
+        access_token=token_urlsafe(32),
     )
-    database.create_job(job, player_profile or {})
+    database.create_job(job, player_profile or {}, access_token=job.access_token or "")
     database.set_state(job.id, "uploaded", 0, "Video upload accepted.")
-    return database.get_job(job.id)
+    return replace(database.get_job(job.id), access_token=job.access_token)
 
 
 def expire_jobs(database: Database, media_store: LocalMediaStore, now: datetime | None = None) -> int:
     expiry_time = now or utcnow()
     expired = 0
     for job in database.list_expired_jobs(expiry_time):
-        database.set_state(job.id, "deleting", job.progress, "Deleting expired student media.")
+        if job.state != "expired":
+            database.set_state(job.id, "deleting", job.progress, "Deleting expired student media.")
         media_store.delete_job(job.id)
         database.delete_media_assets(job.id)
-        database.set_state(job.id, "expired", 100, "Student media expired and was deleted.")
+        if job.state != "expired":
+            database.set_state(job.id, "expired", 100, "Student media expired and was deleted.")
         expired += 1
     return expired
 

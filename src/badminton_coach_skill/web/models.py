@@ -32,6 +32,7 @@ class AnalysisJob:
     expires_at: datetime
     action_hint: str | None = None
     failure_code: str | None = None
+    access_token: str | None = None
 
 
 @dataclass(frozen=True)
