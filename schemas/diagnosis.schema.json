@@ -24,7 +24,35 @@
     "training_plan": { "type": "array", "items": { "type": "object" } },
     "retest_metrics": { "type": "array", "items": { "type": "string" } },
     "missing_evidence": { "type": "array", "items": { "type": "string" } },
-    "safety_notes": { "type": "array", "items": { "type": "string" } }
+    "safety_notes": { "type": "array", "items": { "type": "string" } },
+    "issue_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "comparison_phase",
+          "student_frame_ids",
+          "coach_reference_ids",
+          "correction_target",
+          "confidence_boundary",
+          "status"
+        ],
+        "properties": {
+          "issue_id": { "type": "string" },
+          "comparison_phase": { "type": "string" },
+          "student_frame_ids": { "type": "array", "items": { "type": "string" } },
+          "coach_reference_ids": { "type": "array", "items": { "type": "string" } },
+          "correction_target": { "type": "string" },
+          "confidence_boundary": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["matched", "insufficient_evidence", "coach_reference_unavailable"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   },
   "additionalProperties": true
 }
