@@ -7,6 +7,7 @@ from typing import Any
 from sqlalchemy import DateTime, ForeignKey, Integer, JSON, String, Text, create_engine, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
+from ..video_evidence.contracts import CoachReference
 from .models import AnalysisEvent, AnalysisJob, JobState, MediaAsset
 
 
@@ -58,6 +59,16 @@ class MediaAssetRecord(Base):
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, index=True)
 
 
+class CoachReferenceRecord(Base):
+    __tablename__ = "coach_references"
+
+    reference_id: Mapped[str] = mapped_column(String(256), primary_key=True)
+    coach_id: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    availability: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
+    media_key: Mapped[str] = mapped_column(String(512), nullable=False, default="")
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+
+
 class Database:
     def __init__(self, database_url: str):
         connect_args = {"check_same_thread": False} if database_url.startswith("sqlite") else {}
@@ -106,6 +117,13 @@ class Database:
             if record is None:
                 raise KeyError(job_id)
             return self._job(record)
+
+    def get_player_profile(self, job_id: str) -> dict[str, Any]:
+        with self.session() as session:
+            record = session.get(AnalysisJobRecord, job_id)
+            if record is None:
+                raise KeyError(job_id)
+            return dict(record.player_profile or {})
 
     def get_report(self, job_id: str) -> dict[str, Any] | None:
         with self.session() as session:
@@ -185,6 +203,69 @@ class Database:
                 )
             )
             session.commit()
+
+    def list_media_assets(self, job_id: str, kind: str | None = None) -> list[MediaAsset]:
+        with self.session() as session:
+            statement = select(MediaAssetRecord).where(MediaAssetRecord.job_id == job_id)
+            if kind is not None:
+                statement = statement.where(MediaAssetRecord.kind == kind)
+            records = session.scalars(statement.order_by(MediaAssetRecord.id)).all()
+            return [
+                MediaAsset(
+                    id=record.id,
+                    job_id=record.job_id,
+                    media_key=record.media_key,
+                    kind=record.kind,  # type: ignore[arg-type]
+                    expires_at=_as_utc(record.expires_at),
+                )
+                for record in records
+            ]
+
+    def save_coach_reference(self, reference: CoachReference) -> None:
+        with self.session() as session:
+            record = session.get(CoachReferenceRecord, reference.reference_id)
+            payload = reference.to_dict()
+            if record is None:
+                session.add(
+                    CoachReferenceRecord(
+                        reference_id=reference.reference_id,
+                        coach_id=reference.coach_id,
+                        availability=reference.availability,
+                        media_key=reference.media_key,
+                        payload=payload,
+                    )
+                )
+            else:
+                record.coach_id = reference.coach_id
+                record.availability = reference.availability
+                record.media_key = reference.media_key
+                record.payload = payload
+            session.commit()
+
+    def get_coach_reference(self, reference_id: str) -> CoachReference | None:
+        with self.session() as session:
+            record = session.get(CoachReferenceRecord, reference_id)
+            if record is None:
+                return None
+            payload = record.payload
+            return CoachReference(
+                reference_id=str(payload["reference_id"]),
+                coach_id=str(payload["coach_id"]),
+                source_id=str(payload["source_id"]),
+                phase=str(payload["phase"]),  # type: ignore[arg-type]
+                timestamp_ms=int(payload["timestamp_ms"]),
+                source_url=str(payload["source_url"]),
+                confidence=str(payload["confidence"]),  # type: ignore[arg-type]
+                actions=tuple(str(item) for item in payload.get("actions", [])),
+                framework_ids=tuple(str(item) for item in payload.get("framework_ids", [])),
+                availability=str(payload["availability"]),  # type: ignore[arg-type]
+                media_key=str(payload.get("media_key", "")),
+                title=str(payload.get("title", "")),
+                window_start_ms=payload.get("window_start_ms"),
+                window_end_ms=payload.get("window_end_ms"),
+                visible_facts=tuple(str(item) for item in payload.get("visible_facts", [])),
+                limitations=tuple(str(item) for item in payload.get("limitations", [])),
+            )
 
     def delete_media_assets(self, job_id: str) -> None:
         with self.session() as session:

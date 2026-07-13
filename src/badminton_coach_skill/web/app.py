@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -10,6 +11,8 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile, WebSocket, W
 from fastapi.responses import FileResponse
 
 from .database import Database
+from .cleanup import cleanup_expired_jobs
+from .dispatch import AnalysisDispatcher, create_dispatcher
 from .jobs import create_analysis_job, delete_analysis_job
 from .media_store import LocalMediaStore
 from .models import MediaAsset
@@ -38,16 +41,42 @@ def _parse_player_profile(raw: str) -> dict[str, object]:
     return parsed
 
 
-def create_app(settings: Settings | None = None) -> FastAPI:
+def create_app(
+    settings: Settings | None = None, dispatcher: AnalysisDispatcher | None = None
+) -> FastAPI:
     runtime = settings or Settings.from_env()
     database = Database(runtime.database_url)
     database.create_all()
     media_store = LocalMediaStore(runtime.media_root)
+    active_dispatcher = dispatcher or create_dispatcher(runtime)
+    cleanup_task: asyncio.Task[None] | None = None
 
-    app = FastAPI(title="BadmintonCoach Video Evidence API", version="0.2.0")
+    async def cleanup_loop() -> None:
+        while True:
+            cleanup_expired_jobs(database, media_store)
+            await asyncio.sleep(runtime.cleanup_interval_seconds)
+
+    @asynccontextmanager
+    async def lifespan(_: FastAPI):
+        nonlocal cleanup_task
+        if runtime.dispatch_mode == "local":
+            cleanup_task = asyncio.create_task(cleanup_loop())
+        try:
+            yield
+        finally:
+            if cleanup_task is not None:
+                cleanup_task.cancel()
+            close = getattr(active_dispatcher, "close", None)
+            if callable(close):
+                close()
+
+    app = FastAPI(
+        title="BadmintonCoach Video Evidence API", version="0.2.0", lifespan=lifespan
+    )
     app.state.settings = runtime
     app.state.database = database
     app.state.media_store = media_store
+    app.state.dispatcher = active_dispatcher
 
     @app.get("/api/health")
     def health() -> dict[str, str]:
@@ -88,6 +117,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             )
         )
         database.set_state(job.id, "queued", 2, "Video queued for analysis.")
+        try:
+            app.state.dispatcher.enqueue(job.id)
+        except Exception as error:
+            database.set_state(
+                job.id,
+                "failed",
+                2,
+                "Analysis worker is unavailable. Please try again later.",
+                failure_code=type(error).__name__,
+            )
+            raise HTTPException(status_code=503, detail="Analysis worker is unavailable") from error
         return _job_response(database.get_job(job.id))
 
     @app.get("/api/analyses/{analysis_id}", response_model=AnalysisJobResponse)
@@ -131,6 +171,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         target = media_store.resolve_key(asset.media_key)
         if not target.exists():
             raise HTTPException(status_code=404, detail="Frame is unavailable")
+        return FileResponse(target, headers={"Cache-Control": "private, no-store"})
+
+    @app.get("/api/coach-references/{reference_id}/frame")
+    def get_coach_reference_frame(reference_id: str) -> FileResponse:
+        reference = database.get_coach_reference(reference_id)
+        if reference is None or reference.availability != "cached" or not reference.media_key:
+            raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
+        target = (runtime.coach_media_root / reference.media_key).resolve()
+        cache_root = runtime.coach_media_root.resolve()
+        if cache_root not in target.parents or not target.is_file():
+            raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
         return FileResponse(target, headers={"Cache-Control": "private, no-store"})
 
     @app.websocket("/api/analyses/{analysis_id}/events")

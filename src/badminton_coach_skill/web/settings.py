@@ -11,7 +11,11 @@ class Settings:
     database_url: str
     media_root: Path
     coach_media_root: Path
+    project_root: Path
+    dispatch_mode: str = "local"
+    celery_broker_url: str | None = None
     analysis_ttl: timedelta = timedelta(hours=24)
+    cleanup_interval_seconds: float = 900.0
     max_upload_bytes: int = 1_500_000_000
     websocket_poll_seconds: float = 0.5
 
@@ -32,6 +36,12 @@ class Settings:
             coach_media_root=Path(
                 os.environ.get("COACH_MEDIA_ROOT", runtime_root / "coach-media")
             ).expanduser(),
+            project_root=Path(os.environ.get("BADMINTON_PROJECT_ROOT", Path.cwd())).expanduser(),
+            dispatch_mode=os.environ.get("BADMINTON_DISPATCH_MODE", "local"),
+            celery_broker_url=os.environ.get("CELERY_BROKER_URL"),
+            cleanup_interval_seconds=max(
+                60.0, float(os.environ.get("CLEANUP_INTERVAL_SECONDS", "900"))
+            ),
         )
 
     @classmethod
@@ -40,4 +50,5 @@ class Settings:
             database_url=f"sqlite:///{root / 'test.db'}",
             media_root=root / "student-media",
             coach_media_root=root / "coach-media",
+            project_root=Path.cwd(),
         )
