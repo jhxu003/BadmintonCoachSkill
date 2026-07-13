@@ -2,6 +2,9 @@ from __future__ import annotations
 
 from typing import Any
 
+from .video_evidence.contracts import CoachReference, FrameRef
+from .video_evidence.evidence_resolver import resolve_issue_evidence
+
 
 MISSING_VALUES = {None, "", "missing", "unknown", "not_visible"}
 ACTION_TOPIC_ALIASES = {
@@ -213,6 +216,8 @@ def match_diagnosis(
     player_profile: dict[str, Any],
     video_observation: dict[str, Any],
     knowledge: dict[str, Any],
+    student_frames: list[FrameRef] | None = None,
+    coach_references: list[CoachReference] | None = None,
 ) -> dict[str, Any]:
     """Match profile and video observations against the skill's rubric."""
     framework = _select_framework(
@@ -282,7 +287,7 @@ def match_diagnosis(
         corpus_sources,
     )
 
-    return {
+    diagnosis = {
         "coach_id": coach.get("coach_id", "custom"),
         "coach_name": coach.get("display_name", "Custom"),
         "primary_framework": framework["framework_id"],
@@ -296,3 +301,16 @@ def match_diagnosis(
         "safety_notes": safety_notes,
         "corpus_evidence": corpus_evidence,
     }
+    if student_frames is not None or coach_references is not None:
+        diagnosis["issue_evidence"] = [
+            item.to_dict()
+            for item in resolve_issue_evidence(
+                diagnosis=diagnosis,
+                observation=video_observation,
+                student_frames=student_frames or [],
+                coach_references=coach_references or [],
+                coach_id=str(coach.get("coach_id", "custom")),
+                framework_id=str(framework["framework_id"]),
+            )
+        ]
+    return diagnosis

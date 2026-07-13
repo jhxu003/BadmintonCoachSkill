@@ -53,7 +53,16 @@
         "required": ["label", "time_ms"],
         "properties": {
           "label": { "type": "string" },
-          "time_ms": { "type": "number" }
+          "time_ms": { "type": "number" },
+          "frame_id": { "type": "string" },
+          "phase": {
+            "type": "string",
+            "enum": ["preparation", "start", "arrival", "top_elbow", "contact_window", "follow_through", "recovery"]
+          },
+          "media_key": { "type": "string" },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "visible_facts": { "type": "array", "items": { "type": "string" } },
+          "limitations": { "type": "array", "items": { "type": "string" } }
         },
         "additionalProperties": true
       }

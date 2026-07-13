@@ -1,0 +1,22 @@
+analysis:
+  normalized_fps: 30
+  max_width: 1280
+  max_candidates_per_action_window: 7
+  minimum_pose_confidence: 0.5
+pose:
+  provider: ultralytics
+  model_path: yolo11n-pose.pt
+  inference_stride: 2
+visual_review:
+  provider: qwen_local
+  model_path: Qwen/Qwen2.5-VL-3B-Instruct
+  max_new_tokens: 256
+  allowed_confidence: [low, medium, high]
+boundaries:
+  prohibited_claims:
+    - true_internal_rotation
+    - racket_face_angle
+    - grip_pressure
+    - exact_shuttle_contact
+    - force
+    - calibrated_3d_biomechanics
