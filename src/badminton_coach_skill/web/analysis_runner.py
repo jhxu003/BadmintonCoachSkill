@@ -84,15 +84,17 @@ def _persist_student_frames(
         media_key = _student_media_key(job.id, frame.media_key)
         if not media_store.resolve_key(media_key).is_file():
             continue
-        database.add_media_asset(
-            MediaAsset(
-                id=frame.frame_id,
-                job_id=job.id,
-                media_key=media_key,
-                kind="student_frame",
-                expires_at=job.expires_at,
+        existing = database.find_media_asset(job.id, frame.frame_id)
+        if existing is None:
+            database.add_media_asset(
+                MediaAsset(
+                    id=frame.frame_id,
+                    job_id=job.id,
+                    media_key=media_key,
+                    kind="student_frame",
+                    expires_at=job.expires_at,
+                )
             )
-        )
         persisted.append(frame)
     return persisted
 
@@ -146,7 +148,7 @@ def run_analysis_job(
 ) -> AnalysisJob:
     """Execute a queued analysis outside the HTTP request and persist a public-safe report."""
     job = database.get_job(job_id)
-    if job.state in {"expired", "deleting"}:
+    if job.state in {"completed", "expired", "deleting"}:
         return job
     try:
         database.set_state(job.id, "normalizing", 8, "Preparing uploaded video.")
