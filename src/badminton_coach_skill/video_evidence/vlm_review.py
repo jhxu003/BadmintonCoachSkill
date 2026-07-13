@@ -83,7 +83,9 @@ class QwenLocalVisualReviewer:
         text = self._processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = self._processor(text=[text], images=[str(image_path)], return_tensors="pt", padding=True)
         inputs = inputs.to(self._model.device)
-        generated = self._model.generate(**inputs, max_new_tokens=self.max_new_tokens)
+        generated = self._model.generate(
+            **inputs, max_new_tokens=self.max_new_tokens, do_sample=False
+        )
         input_length = inputs.input_ids.shape[1]
         raw = self._processor.batch_decode(
             generated[:, input_length:], skip_special_tokens=True
