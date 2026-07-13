@@ -12,9 +12,10 @@ from ..coach_registry import load_coach_knowledge
 from ..issue_matcher import match_diagnosis
 from ..video_evidence.contracts import CoachReference, FrameRef
 from ..video_evidence.worker import VideoEvidenceResult
-from .database import Database
+from .database import Database, utcnow
+from .jobs import expire_jobs
 from .media_store import LocalMediaStore
-from .models import AnalysisJob, MediaAsset
+from .models import AnalysisJob, JobState, MediaAsset
 
 
 class VideoPipeline(Protocol):
@@ -77,11 +78,28 @@ def _stop_if_media_was_deleted(
     database: Database, media_store: LocalMediaStore, job_id: str
 ) -> AnalysisJob | None:
     latest = database.get_job(job_id)
+    if latest.expires_at <= utcnow() and latest.state not in {"deleting", "expired"}:
+        expire_jobs(database, media_store, now=utcnow())
+        latest = database.get_job(job_id)
     if latest.state not in {"deleting", "expired"}:
         return None
     media_store.delete_job(job_id)
     database.delete_media_assets(job_id)
     return database.get_job(job_id)
+
+
+def _advance_active_job(
+    database: Database,
+    media_store: LocalMediaStore,
+    job_id: str,
+    state: JobState,
+    progress: int,
+    message: str,
+) -> AnalysisJob | None:
+    updated = database.set_active_state(job_id, state, progress, message)
+    if updated is not None:
+        return None
+    return _stop_if_media_was_deleted(database, media_store, job_id) or database.get_job(job_id)
 
 
 def _persist_student_frames(
@@ -161,11 +179,12 @@ def run_analysis_job(
 ) -> AnalysisJob:
     """Execute a queued analysis outside the HTTP request and persist a public-safe report."""
     job = database.get_job(job_id)
-    if job.state in {"completed", "expired", "deleting"}:
-        return job
+    stopped = _stop_if_media_was_deleted(database, media_store, job.id)
+    if stopped is not None or job.state == "completed":
+        return stopped or job
     claimed = database.claim_analysis_job(job.id)
     if claimed is None:
-        return database.get_job(job.id)
+        return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
     job = claimed
     try:
         upload = _upload_asset(database, job.id)
@@ -173,24 +192,43 @@ def run_analysis_job(
         if not video_path.is_file():
             raise FileNotFoundError("The uploaded video file is unavailable")
 
-        database.set_state(job.id, "tracking", 22, "Tracking visible learner movement.")
+        stopped = _advance_active_job(
+            database, media_store, job.id, "tracking", 22, "Tracking visible learner movement."
+        )
+        if stopped is not None:
+            return stopped
         output_dir = media_store.job_dir(job.id)
         evidence = pipeline(video_path, output_dir, job.action_hint or "unknown")
         deleted = _stop_if_media_was_deleted(database, media_store, job.id)
         if deleted is not None:
             return deleted
 
-        database.set_state(job.id, "phase_candidates", 48, "Selecting action-phase keyframes.")
+        stopped = _advance_active_job(
+            database, media_store, job.id, "phase_candidates", 48, "Selecting action-phase keyframes."
+        )
+        if stopped is not None:
+            return stopped
         student_frames = _persist_student_frames(database, media_store, job, evidence.frames)
         deleted = _stop_if_media_was_deleted(database, media_store, job.id)
         if deleted is not None:
             return deleted
-        database.set_state(job.id, "visual_review", 62, "Reviewing visible movement evidence.")
+        stopped = _advance_active_job(
+            database, media_store, job.id, "visual_review", 62, "Reviewing visible movement evidence."
+        )
+        if stopped is not None:
+            return stopped
 
-        database.set_state(job.id, "diagnosing", 76, "Matching the selected coaching system.")
+        stopped = _advance_active_job(
+            database, media_store, job.id, "diagnosing", 76, "Matching the selected coaching system."
+        )
+        if stopped is not None:
+            return stopped
         profile = database.get_player_profile(job.id)
         knowledge = load_coach_knowledge(job.coach_id, project_root)
         catalog = catalog_loader(job.coach_id, project_root)
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
         initial_diagnosis = match_diagnosis(
             profile,
             evidence.observation,
@@ -199,7 +237,11 @@ def run_analysis_job(
             coach_references=catalog,
         )
 
-        database.set_state(job.id, "matching_references", 91, "Binding same-phase coaching references.")
+        stopped = _advance_active_job(
+            database, media_store, job.id, "matching_references", 91, "Binding same-phase coaching references."
+        )
+        if stopped is not None:
+            return stopped
         references = _materialize_matched_references(
             database=database,
             catalog=catalog,
@@ -207,6 +249,9 @@ def run_analysis_job(
             cache_root=coach_media_root or media_store.root.parent / "coach-media",
             materializer=reference_materializer,
         )
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
         diagnosis = match_diagnosis(
             profile,
             evidence.observation,
@@ -224,18 +269,21 @@ def run_analysis_job(
         retake_guidance = _retake_guidance(evidence.observation, student_frames)
         if retake_guidance:
             report["retake_guidance"] = retake_guidance
-        database.save_report(job.id, report)
-        return database.set_state(job.id, "completed", 100, "Evidence report is ready.")
+        if not database.save_report_if_active(job.id, report):
+            return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+        completed = database.set_active_state(job.id, "completed", 100, "Evidence report is ready.")
+        if completed is not None:
+            return completed
+        return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
     except Exception as error:
-        latest = database.get_job(job.id)
-        if latest.state in {"expired", "deleting"}:
-            media_store.delete_job(job.id)
-            database.delete_media_assets(job.id)
-            return latest
-        return database.set_state(
+        stopped = _stop_if_media_was_deleted(database, media_store, job.id)
+        if stopped is not None:
+            return stopped
+        failed = database.set_active_state(
             job.id,
             "failed",
-            latest.progress,
+            database.get_job(job.id).progress,
             "Analysis could not be completed. Please upload a clearer full-body video.",
             failure_code=type(error).__name__,
         )
+        return failed or database.get_job(job.id)

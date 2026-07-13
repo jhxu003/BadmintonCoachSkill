@@ -95,21 +95,42 @@ class QwenLocalVisualReviewer:
             payload = json.loads(raw[start : end + 1])
         except json.JSONDecodeError:
             return self._invalid_response(frame_id)
-        confidence = payload.get("confidence") if payload.get("confidence") in {"low", "medium", "high"} else "low"
-        camera_view = payload.get("camera_view")
+        if not isinstance(payload, dict):
+            return self._invalid_response(frame_id)
+        required_fields = (
+            "camera_view",
+            "phase_assessment",
+            "confidence",
+            "visible_facts",
+            "limitations",
+        )
+        if any(field not in payload for field in required_fields):
+            return self._invalid_response(frame_id)
+        raw_confidence = payload["confidence"]
+        camera_view = payload["camera_view"]
+        assessment = payload["phase_assessment"]
+        visible_facts = payload["visible_facts"]
+        limitations = payload["limitations"]
+        if (
+            not all(isinstance(value, str) for value in (raw_confidence, camera_view, assessment))
+            or not isinstance(visible_facts, list)
+            or not isinstance(limitations, list)
+            or not all(isinstance(item, str) for item in (*visible_facts, *limitations))
+        ):
+            return self._invalid_response(frame_id)
+        confidence = raw_confidence if raw_confidence in {"low", "medium", "high"} else "low"
         if camera_view not in {"front", "side", "rear_side", "unknown"}:
             camera_view = "unknown"
-        assessment = payload.get("phase_assessment")
         if assessment not in {"plausible", "not_action", "unclear"}:
             assessment = "unclear"
         facts = tuple(
             str(item)
-            for item in payload.get("visible_facts", [])[:3]
+            for item in visible_facts[:3]
             if isinstance(item, str)
         )
         limitations = tuple(
             str(item)
-            for item in payload.get("limitations", [])[:3]
+            for item in limitations[:3]
             if isinstance(item, str)
         )
         return VisualReview(

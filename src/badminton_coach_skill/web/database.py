@@ -169,6 +169,24 @@ class Database:
             record.report = report
             session.commit()
 
+    def save_report_if_active(self, job_id: str, report: dict[str, Any]) -> bool:
+        """Persist a report only while its job remains active and unexpired."""
+        with self.session() as session:
+            saved = session.execute(
+                update(AnalysisJobRecord)
+                .where(
+                    AnalysisJobRecord.id == job_id,
+                    ~AnalysisJobRecord.state.in_(("deleting", "expired")),
+                    AnalysisJobRecord.expires_at > utcnow(),
+                )
+                .values(report=report)
+            )
+            if saved.rowcount != 1:
+                session.rollback()
+                return False
+            session.commit()
+            return True
+
     def set_state(
         self, job_id: str, state: JobState, progress: int, message: str, failure_code: str | None = None
     ) -> AnalysisJob:
@@ -179,6 +197,41 @@ class Database:
             record.state = state
             record.progress = max(0, min(progress, 100))
             record.failure_code = failure_code
+            session.add(
+                AnalysisEventRecord(
+                    job_id=job_id,
+                    state=state,
+                    progress=record.progress,
+                    message=message,
+                    created_at=utcnow(),
+                )
+            )
+            session.commit()
+            return self._job(record)
+
+    def set_active_state(
+        self, job_id: str, state: JobState, progress: int, message: str, failure_code: str | None = None
+    ) -> AnalysisJob | None:
+        """Advance a worker-owned job without reviving deletion or expiry terminal states."""
+        with self.session() as session:
+            updated = session.execute(
+                update(AnalysisJobRecord)
+                .where(
+                    AnalysisJobRecord.id == job_id,
+                    ~AnalysisJobRecord.state.in_(("deleting", "expired")),
+                    AnalysisJobRecord.expires_at > utcnow(),
+                )
+                .values(
+                    state=state,
+                    progress=max(0, min(progress, 100)),
+                    failure_code=failure_code,
+                )
+            )
+            if updated.rowcount != 1:
+                session.rollback()
+                return None
+            record = session.get(AnalysisJobRecord, job_id)
+            assert record is not None
             session.add(
                 AnalysisEventRecord(
                     job_id=job_id,
@@ -225,6 +278,7 @@ class Database:
                 .where(
                     AnalysisJobRecord.id == job_id,
                     AnalysisJobRecord.state.in_(("uploaded", "queued")),
+                    AnalysisJobRecord.expires_at > utcnow(),
                 )
                 .values(state="normalizing", progress=8, failure_code=None)
             )

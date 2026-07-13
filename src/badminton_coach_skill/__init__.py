@@ -11,6 +11,8 @@ __all__ = [
     "available_coaches",
     "load_coach_config",
     "load_coach_knowledge",
+    "load_skill_knowledge",
+    "match_diagnosis",
     "CoachReference",
     "FrameRef",
     "IssueEvidence",

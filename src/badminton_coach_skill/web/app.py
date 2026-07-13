@@ -166,7 +166,7 @@ def create_app(
     ) -> AnalysisReportResponse:
         job = require_analysis_access(analysis_id, x_analysis_token)
         report = database.get_report(analysis_id)
-        if job.state == "expired":
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
             raise HTTPException(status_code=410, detail="Analysis media has expired")
         if report is None:
             raise HTTPException(status_code=409, detail="Analysis report is not ready")
@@ -180,7 +180,7 @@ def create_app(
         x_analysis_token: str | None = Header(default=None),
     ) -> FileResponse:
         job = require_analysis_access(analysis_id, x_analysis_token or access_token)
-        if job.state == "expired" or job.expires_at <= datetime.now(timezone.utc):
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
             raise HTTPException(status_code=410, detail="Student media has expired")
         asset = database.find_media_asset(analysis_id, asset_id)
         if asset is None or asset.kind != "student_frame":
@@ -197,7 +197,9 @@ def create_app(
         access_token: str | None = None,
         x_analysis_token: str | None = Header(default=None),
     ) -> FileResponse:
-        require_analysis_access(analysis_id, x_analysis_token or access_token)
+        job = require_analysis_access(analysis_id, x_analysis_token or access_token)
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
+            raise HTTPException(status_code=410, detail="Analysis media has expired")
         if not database.job_has_coach_reference(analysis_id, reference_id):
             raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
         reference = database.get_coach_reference(reference_id)
