@@ -190,6 +190,28 @@ def create_app(
             raise HTTPException(status_code=404, detail="Frame is unavailable")
         return FileResponse(target, headers={"Cache-Control": "private, no-store"})
 
+    @app.get("/api/analyses/{analysis_id}/segments/{asset_id}")
+    def get_student_segment(
+        analysis_id: str,
+        asset_id: str,
+        access_token: str | None = None,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> FileResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token or access_token)
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
+            raise HTTPException(status_code=410, detail="Student media has expired")
+        asset = database.find_media_asset(analysis_id, asset_id)
+        if asset is None or asset.kind != "student_segment":
+            raise HTTPException(status_code=404, detail="Segment not found")
+        target = media_store.resolve_key(asset.media_key)
+        if not target.exists():
+            raise HTTPException(status_code=404, detail="Segment is unavailable")
+        return FileResponse(
+            target,
+            media_type="video/mp4",
+            headers={"Cache-Control": "private, no-store"},
+        )
+
     @app.get("/api/coach-references/{reference_id}/frame")
     def get_coach_reference_frame(
         reference_id: str,
@@ -210,6 +232,31 @@ def create_app(
         if cache_root not in target.parents or not target.is_file():
             raise HTTPException(status_code=404, detail="Coach reference frame is unavailable")
         return FileResponse(target, headers={"Cache-Control": "private, no-store"})
+
+    @app.get("/api/coach-references/{reference_id}/clip")
+    def get_coach_reference_clip(
+        reference_id: str,
+        analysis_id: str,
+        access_token: str | None = None,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> FileResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token or access_token)
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
+            raise HTTPException(status_code=410, detail="Analysis media has expired")
+        if not database.job_has_coach_reference(analysis_id, reference_id):
+            raise HTTPException(status_code=404, detail="Coach reference clip is unavailable")
+        reference = database.get_coach_reference(reference_id)
+        if reference is None or reference.availability != "cached" or not reference.clip_media_key:
+            raise HTTPException(status_code=404, detail="Coach reference clip is unavailable")
+        target = (runtime.coach_media_root / reference.clip_media_key).resolve()
+        cache_root = runtime.coach_media_root.resolve()
+        if cache_root not in target.parents or not target.is_file():
+            raise HTTPException(status_code=404, detail="Coach reference clip is unavailable")
+        return FileResponse(
+            target,
+            media_type="video/mp4",
+            headers={"Cache-Control": "private, no-store"},
+        )
 
     @app.websocket("/api/analyses/{analysis_id}/events")
     async def analysis_events(

@@ -139,3 +139,36 @@ def extract_frame(video_path: Path, timestamp_ms: int, output_path: Path) -> Non
             str(output_path),
         ]
     )
+
+
+def extract_clip(
+    video_path: Path, start_ms: int, end_ms: int, output_path: Path
+) -> None:
+    """Extract a private H.264 action-context clip from an already normalized video."""
+    if start_ms < 0:
+        raise ValueError("start_ms must be non-negative")
+    if end_ms <= start_ms:
+        raise ValueError("end_ms must be greater than start_ms")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    _run(
+        [
+            ffmpeg_executable(),
+            "-y",
+            "-ss",
+            f"{start_ms / 1000:.3f}",
+            "-i",
+            str(video_path),
+            "-map",
+            "0:v:0",
+            "-an",
+            "-t",
+            f"{(end_ms - start_ms) / 1000:.3f}",
+            "-c:v",
+            "libx264",
+            "-pix_fmt",
+            "yuv420p",
+            "-movflags",
+            "+faststart",
+            str(output_path),
+        ]
+    )

@@ -29,6 +29,9 @@ def cache_reference_image(reference: CoachReference, image_path: Path, cache_roo
         framework_ids=reference.framework_ids,
         availability="cached",
         media_key=str(relative),
+        clip_media_key=reference.clip_media_key,
+        clip_start_ms=reference.clip_start_ms,
+        clip_end_ms=reference.clip_end_ms,
         title=reference.title,
         window_start_ms=reference.window_start_ms,
         window_end_ms=reference.window_end_ms,
@@ -39,6 +42,7 @@ def cache_reference_image(reference: CoachReference, image_path: Path, cache_roo
 
 DownloadSource = Callable[[str, Path], None]
 ExtractReferenceFrame = Callable[[Path, int, Path], None]
+ExtractReferenceClip = Callable[[Path, int, int, Path], None]
 PUBLIC_SOURCE_TIMEOUT_SECONDS = 120
 PUBLIC_SOURCE_MAX_BYTES = 512 * 1024 * 1024
 PUBLIC_REFERENCE_FORMAT = "bestvideo[height<=480][ext=mp4]/best[height<=480][ext=mp4]"
@@ -90,8 +94,30 @@ def extract_reference_frame(video_path: Path, timestamp_ms: int, image_path: Pat
     extract_frame(video_path, timestamp_ms, image_path)
 
 
+def extract_reference_clip(
+    video_path: Path, start_ms: int, end_ms: int, clip_path: Path
+) -> None:
+    from ..video_evidence.ffmpeg import extract_clip
+
+    extract_clip(video_path, start_ms, end_ms, clip_path)
+
+
 def _relative_image_key(reference: CoachReference) -> Path:
     return Path(reference.coach_id) / reference.source_id / f"{reference.timestamp_ms}.jpg"
+
+
+def _reference_clip_window(reference: CoachReference) -> tuple[int, int]:
+    start_ms = max(0, reference.timestamp_ms - 400)
+    return start_ms, start_ms + 800
+
+
+def _relative_clip_key(reference: CoachReference) -> Path:
+    start_ms, end_ms = _reference_clip_window(reference)
+    return (
+        Path(reference.coach_id)
+        / reference.source_id
+        / f"{reference.timestamp_ms}-{start_ms}-{end_ms}.mp4"
+    )
 
 
 def ensure_reference_image(
@@ -100,6 +126,7 @@ def ensure_reference_image(
     cache_root: Path,
     downloader: DownloadSource = download_public_source,
     extractor: ExtractReferenceFrame = extract_reference_frame,
+    clip_extractor: ExtractReferenceClip = extract_reference_clip,
 ) -> CoachReference:
     """Materialize one indexed public reference as a private cached frame when possible.
 
@@ -108,8 +135,19 @@ def ensure_reference_image(
     """
     relative = _relative_image_key(reference)
     cached_image = cache_root / relative
+    clip_relative = _relative_clip_key(reference)
+    cached_clip = cache_root / clip_relative
+    clip_start_ms, clip_end_ms = _reference_clip_window(reference)
     if cached_image.is_file():
-        return replace(reference, availability="cached", media_key=str(relative))
+        cached_clip_key = str(clip_relative) if cached_clip.is_file() else ""
+        return replace(
+            reference,
+            availability="cached",
+            media_key=str(relative),
+            clip_media_key=cached_clip_key,
+            clip_start_ms=clip_start_ms if cached_clip_key else None,
+            clip_end_ms=clip_end_ms if cached_clip_key else None,
+        )
 
     download_dir = cache_root / ".downloads"
     transient = download_dir / f"{reference.coach_id}-{reference.source_id}.mp4"
@@ -118,7 +156,27 @@ def ensure_reference_image(
         extractor(transient, reference.timestamp_ms, cached_image)
         if not cached_image.is_file():
             raise RuntimeError("reference_frame_extraction_failed")
-        return replace(reference, availability="cached", media_key=str(relative))
+        try:
+            clip_extractor(transient, clip_start_ms, clip_end_ms, cached_clip)
+        except Exception:
+            return replace(
+                reference,
+                availability="cached",
+                media_key=str(relative),
+                limitations=tuple(
+                    dict.fromkeys((*reference.limitations, "reference_clip_acquisition_failed"))
+                ),
+            )
+        if not cached_clip.is_file():
+            raise RuntimeError("reference_clip_extraction_failed")
+        return replace(
+            reference,
+            availability="cached",
+            media_key=str(relative),
+            clip_media_key=str(clip_relative),
+            clip_start_ms=clip_start_ms,
+            clip_end_ms=clip_end_ms,
+        )
     except Exception:
         return replace(
             reference,

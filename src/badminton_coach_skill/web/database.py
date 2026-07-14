@@ -368,6 +368,9 @@ class Database:
                 framework_ids=tuple(str(item) for item in payload.get("framework_ids", [])),
                 availability=str(payload["availability"]),  # type: ignore[arg-type]
                 media_key=str(payload.get("media_key", "")),
+                clip_media_key=str(payload.get("clip_media_key", "")),
+                clip_start_ms=payload.get("clip_start_ms"),
+                clip_end_ms=payload.get("clip_end_ms"),
                 title=str(payload.get("title", "")),
                 window_start_ms=payload.get("window_start_ms"),
                 window_end_ms=payload.get("window_end_ms"),

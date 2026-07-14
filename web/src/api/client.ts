@@ -48,9 +48,24 @@ export interface CoachReference {
   visible_facts: string[];
   limitations: string[];
   media_url?: string;
+  clip_media_url?: string;
+  clip_start_ms?: number | null;
+  clip_end_ms?: number | null;
   source_url?: string;
   source_jump_url?: string;
   title?: string;
+}
+
+export interface ActionPackageSegment {
+  segment_id: string;
+  phase: string;
+  anchor_ms: number;
+  start_ms: number;
+  end_ms: number;
+  confidence: "low" | "medium" | "high";
+  caption: string;
+  limitations: string[];
+  media_url?: string;
 }
 
 export function indexCoachReferences(references: CoachReference[]): Map<string, CoachReference> {
@@ -83,6 +98,8 @@ export interface CoachingReport {
   issues: CoachingIssue[];
   issue_evidence: IssueEvidence[];
   frame_refs: FrameRef[];
+  action_package: ActionPackageSegment[];
+  action_package_missing_phases?: string[];
   coach_references: CoachReference[];
   missing_evidence: string[];
   retake_guidance?: string;
@@ -165,6 +182,14 @@ export function studentFrameUrl(job: AnalysisJob, frameId: string): string {
   return mediaUrl(`/api/analyses/${job.analysis_id}/frames/${frameId}`, job);
 }
 
+export function studentSegmentUrl(job: AnalysisJob, segmentId: string): string {
+  return mediaUrl(`/api/analyses/${job.analysis_id}/segments/${segmentId}`, job);
+}
+
 export function coachReferenceUrl(url: string, job: AnalysisJob): string {
+  return mediaUrl(url, job);
+}
+
+export function coachReferenceClipUrl(url: string, job: AnalysisJob): string {
   return mediaUrl(url, job);
 }

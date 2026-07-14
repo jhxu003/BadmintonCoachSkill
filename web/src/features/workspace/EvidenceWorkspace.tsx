@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ChevronLeft, CircleAlert, Gauge, Trash2 } from "lucide-react";
 
 import { deleteAnalysis, indexCoachReferences, studentFrameUrl, type AnalysisJob, type CoachingReport, type FrameRef } from "../../api/client";
+import { ActionPackageTimeline } from "./ActionPackageTimeline";
 import { FrameComparison } from "./FrameComparison";
 import { PhaseRail } from "./PhaseRail";
 
@@ -15,6 +16,7 @@ interface EvidenceWorkspaceProps {
 export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWorkspaceProps) {
   const [selectedIssueId, setSelectedIssueId] = useState(report.issues[0]?.issue_id);
   const [activeFrameId, setActiveFrameId] = useState(report.frame_refs[0]?.frame_id);
+  const [activeSegmentId, setActiveSegmentId] = useState(report.action_package?.[0]?.segment_id);
   const selectedIssue = report.issues.find((issue) => issue.issue_id === selectedIssueId);
   const evidence = report.issue_evidence.find((item) => item.issue_id === selectedIssueId);
   const studentFrames = useMemo(() => new Map(report.frame_refs.map((frame) => [frame.frame_id, frame])), [report.frame_refs]);
@@ -40,7 +42,8 @@ export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWo
         <div><p className="eyebrow">{report.coach_name}体系 / 视频证据诊断</p><h1>{job.action_hint ?? "羽毛球动作"}</h1></div>
         <div className="case-stat"><Gauge size={17} /><span>诊断可信度：{report.confidence}</span></div>
       </section>
-      <PhaseRail frames={visibleFrames} activeFrameId={activeFrame?.frame_id} onSelect={(frame) => setActiveFrameId(frame.frame_id)} />
+      <PhaseRail job={job} frames={report.frame_refs} activeFrameId={activeFrame?.frame_id} onSelect={(frame) => setActiveFrameId(frame.frame_id)} />
+      <ActionPackageTimeline job={job} segments={report.action_package ?? []} missingPhases={report.action_package_missing_phases} activeSegmentId={activeSegmentId} onSelect={(segment) => setActiveSegmentId(segment.segment_id)} />
       <div className="workspace-grid">
         <section className="student-review">
           <div className="panel-top"><div><p className="eyebrow">当前学员帧</p><h2>{activeFrame?.phase ?? "等待关键帧"}</h2></div>{activeFrame && <span>{(activeFrame.timestamp_ms / 1000).toFixed(2)}s</span>}</div>
@@ -54,7 +57,7 @@ export function EvidenceWorkspace({ job, report, onBack, onDeleted }: EvidenceWo
           <div className="drill-card"><p className="eyebrow">本次训练</p><b>{selectedIssue?.drills[0]?.name ?? "暂无训练动作"}</b><span>{selectedIssue?.drills[0]?.dosage}</span><p>{selectedIssue?.retest_metrics[0]}</p></div>
         </aside>
       </div>
-      <FrameComparison job={job} evidence={evidence} studentFrames={studentFrames} coachFrames={coachFrames} />
+      <FrameComparison job={job} evidence={evidence} studentFrames={studentFrames} coachFrames={coachFrames} actionPackage={report.action_package ?? []} />
     </main>
   );
 }

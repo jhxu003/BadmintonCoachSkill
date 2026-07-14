@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from .video_evidence.contracts import CoachReference, FrameRef
-from .video_evidence.evidence_resolver import resolve_issue_evidence
+from .video_evidence.contracts import ActionPackageSegment, CoachReference, FrameRef
+from .video_evidence.evidence_resolver import required_phases_for_issue, resolve_issue_evidence
 
 
 MISSING_VALUES = {None, "", "missing", "unknown", "not_visible"}
@@ -218,6 +218,7 @@ def match_diagnosis(
     knowledge: dict[str, Any],
     student_frames: list[FrameRef] | None = None,
     coach_references: list[CoachReference] | None = None,
+    action_package: tuple[ActionPackageSegment, ...] | None = None,
 ) -> dict[str, Any]:
     """Match profile and video observations against the skill's rubric."""
     framework = _select_framework(
@@ -225,6 +226,9 @@ def match_diagnosis(
     )
     missing_evidence: list[str] = list(video_observation.get("missing_observations", []))
     issues: list[dict[str, Any]] = []
+    available_phases = {
+        segment.phase for segment in action_package or () if segment.media_key
+    }
 
     for rule in knowledge["rules"]:
         if not _rule_applies_to_action(rule, video_observation.get("action", "unknown")):
@@ -233,6 +237,19 @@ def match_diagnosis(
             rule, video_observation, knowledge["drill_map"]
         )
         missing_evidence.extend(item for item in missing if item not in missing_evidence)
+        if issue is not None and action_package is not None:
+            missing_phases = [
+                phase
+                for phase in required_phases_for_issue(str(issue["issue_id"]))
+                if phase not in available_phases
+            ]
+            missing_evidence.extend(
+                f"action_package.{phase}"
+                for phase in missing_phases
+                if f"action_package.{phase}" not in missing_evidence
+            )
+            if missing_phases:
+                continue
         if issue:
             issues.append(issue)
 
@@ -311,6 +328,7 @@ def match_diagnosis(
                 coach_references=coach_references or [],
                 coach_id=str(coach.get("coach_id", "custom")),
                 framework_id=str(framework["framework_id"]),
+                action_package=action_package,
             )
         ]
     return diagnosis

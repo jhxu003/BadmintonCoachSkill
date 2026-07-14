@@ -10,7 +10,8 @@ from ..coach_media.ingestion import ensure_reference_image
 from ..coach_media.links import source_timestamp_url
 from ..coach_registry import load_coach_knowledge
 from ..issue_matcher import match_diagnosis
-from ..video_evidence.contracts import CoachReference, FrameRef
+from ..video_evidence.contracts import ActionPackageSegment, CoachReference, FrameRef
+from ..video_evidence.phases import ACTION_PACKAGE_STAGE_OFFSETS_MS
 from ..video_evidence.worker import VideoEvidenceResult
 from .database import Database, utcnow
 from .jobs import expire_jobs
@@ -33,6 +34,18 @@ def _public_student_frame(frame: FrameRef) -> dict[str, object]:
     return payload
 
 
+def _public_action_segment(
+    segment: ActionPackageSegment, analysis_id: str
+) -> dict[str, object]:
+    payload = segment.to_dict()
+    payload.pop("media_key", None)
+    if segment.media_key:
+        payload["media_url"] = (
+            f"/api/analyses/{analysis_id}/segments/{segment.segment_id}"
+        )
+    return payload
+
+
 def _public_coach_reference(reference: CoachReference, analysis_id: str) -> dict[str, object]:
     payload = reference.to_dict()
     payload.pop("media_key", None)
@@ -42,6 +55,11 @@ def _public_coach_reference(reference: CoachReference, analysis_id: str) -> dict
     if reference.availability == "cached" and reference.media_key:
         payload["media_url"] = (
             f"/api/coach-references/{reference.reference_id}/frame?analysis_id={analysis_id}"
+        )
+    payload.pop("clip_media_key", None)
+    if reference.availability == "cached" and reference.clip_media_key:
+        payload["clip_media_url"] = (
+            f"/api/coach-references/{reference.reference_id}/clip?analysis_id={analysis_id}"
         )
     return payload
 
@@ -53,7 +71,42 @@ def _student_media_key(job_id: str, relative_key: str) -> str:
     return str(Path(job_id) / relative)
 
 
-def _retake_guidance(observation: dict[str, object], frames: Iterable[FrameRef]) -> str | None:
+ACTION_PACKAGE_PHASE_LABELS = {
+    "preparation": "启动与后退",
+    "start": "最后两步与制动",
+    "arrival": "引拍、侧身与起跳准备",
+    "top_elbow": "架拍",
+    "contact_window": "腾空与击球附近",
+    "follow_through": "随挥与落地",
+    "recovery": "回位",
+}
+
+
+def _missing_action_package_phases(
+    action_package: Iterable[ActionPackageSegment],
+) -> list[str]:
+    available = {segment.phase for segment in action_package if segment.media_key}
+    return [
+        phase
+        for phase, _ in ACTION_PACKAGE_STAGE_OFFSETS_MS
+        if phase not in available
+    ]
+
+
+def _retake_guidance(
+    observation: dict[str, object],
+    frames: Iterable[FrameRef],
+    action_package: Iterable[ActionPackageSegment],
+) -> str | None:
+    missing_phases = _missing_action_package_phases(action_package)
+    if missing_phases:
+        missing_labels = "、".join(
+            ACTION_PACKAGE_PHASE_LABELS[phase] for phase in missing_phases
+        )
+        return (
+            f"本次视频没有连续覆盖：{missing_labels}。"
+            "请用侧后方机位，保持全身和持拍侧清晰可见，从启动、后退、最后两步、起跳、挥拍、落地到回位完整重拍一次。"
+        )
     if any(True for _ in frames):
         return None
     action = str(observation.get("action", "动作"))
@@ -127,6 +180,32 @@ def _persist_student_frames(
                 )
             )
         persisted.append(frame)
+    return persisted
+
+
+def _persist_action_package(
+    database: Database,
+    media_store: LocalMediaStore,
+    job: AnalysisJob,
+    segments: Iterable[ActionPackageSegment],
+) -> list[ActionPackageSegment]:
+    persisted: list[ActionPackageSegment] = []
+    for segment in segments:
+        media_key = _student_media_key(job.id, segment.media_key)
+        if not media_store.resolve_key(media_key).is_file():
+            continue
+        existing = database.find_media_asset(job.id, segment.segment_id)
+        if existing is None:
+            database.add_media_asset(
+                MediaAsset(
+                    id=segment.segment_id,
+                    job_id=job.id,
+                    media_key=media_key,
+                    kind="student_segment",
+                    expires_at=job.expires_at,
+                )
+            )
+        persisted.append(segment)
     return persisted
 
 
@@ -209,6 +288,9 @@ def run_analysis_job(
         if stopped is not None:
             return stopped
         student_frames = _persist_student_frames(database, media_store, job, evidence.frames)
+        action_package = _persist_action_package(
+            database, media_store, job, evidence.action_package
+        )
         deleted = _stop_if_media_was_deleted(database, media_store, job.id)
         if deleted is not None:
             return deleted
@@ -235,6 +317,7 @@ def run_analysis_job(
             knowledge,
             student_frames=student_frames,
             coach_references=catalog,
+            action_package=tuple(action_package),
         )
 
         stopped = _advance_active_job(
@@ -258,15 +341,24 @@ def run_analysis_job(
             knowledge,
             student_frames=student_frames,
             coach_references=references,
+            action_package=tuple(action_package),
         )
         report = {
             **diagnosis,
             "frame_refs": [_public_student_frame(frame) for frame in student_frames],
+            "action_package": [
+                _public_action_segment(segment, job.id) for segment in action_package
+            ],
+            "action_package_missing_phases": _missing_action_package_phases(
+                action_package
+            ),
             "coach_references": [
                 _public_coach_reference(reference, job.id) for reference in references
             ],
         }
-        retake_guidance = _retake_guidance(evidence.observation, student_frames)
+        retake_guidance = _retake_guidance(
+            evidence.observation, student_frames, action_package
+        )
         if retake_guidance:
             report["retake_guidance"] = retake_guidance
         if not database.save_report_if_active(job.id, report):

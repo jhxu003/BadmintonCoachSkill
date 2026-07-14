@@ -50,5 +50,5 @@ class MediaAsset:
     id: str
     job_id: str
     media_key: str
-    kind: Literal["upload", "derivative", "student_frame"]
+    kind: Literal["upload", "derivative", "student_frame", "student_segment"]
     expires_at: datetime

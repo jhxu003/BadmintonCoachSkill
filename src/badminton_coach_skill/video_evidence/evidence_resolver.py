@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any
 
-from .contracts import CoachReference, FrameRef, IssueEvidence, Phase
+from .contracts import ActionPackageSegment, CoachReference, FrameRef, IssueEvidence, Phase
 
 
 ISSUE_PHASES: tuple[tuple[tuple[str, ...], Phase], ...] = (
@@ -16,6 +16,14 @@ ISSUE_PHASES: tuple[tuple[tuple[str, ...], Phase], ...] = (
 )
 
 DEFAULT_PHASE: Phase = "preparation"
+ISSUE_REQUIRED_PHASES: tuple[tuple[tuple[str, ...], tuple[Phase, ...]], ...] = (
+    (("late-start", "late_start", "start-"), ("preparation", "start", "arrival")),
+    (("arrival", "turn", "confirmation", "landing"), ("start", "arrival")),
+    (("elbow", "racket-structure", "racket_structure", "frame", "wrist-first", "wrist_first"), ("arrival", "top_elbow", "contact_window")),
+    (("contact", "swing-distance", "swing_distance"), ("top_elbow", "contact_window", "follow_through")),
+    (("follow", "twist", "rotation", "arm-first", "arm_first"), ("contact_window", "follow_through", "recovery")),
+    (("recovery", "exit"), ("follow_through", "recovery")),
+)
 BOUNDARY = (
     "Frame evidence supports only visible conditions in the selected phase. "
     "It does not prove force, exact shuttle contact, racket-face angle, grip pressure, "
@@ -29,6 +37,15 @@ def phase_for_issue(issue_id: str) -> Phase:
         if any(keyword in normalized for keyword in keywords):
             return phase
     return DEFAULT_PHASE
+
+
+def required_phases_for_issue(issue_id: str) -> tuple[Phase, ...]:
+    """Return the continuous action stages needed before exposing this diagnosis."""
+    normalized = issue_id.lower().replace("_", "-")
+    for keywords, phases in ISSUE_REQUIRED_PHASES:
+        if any(keyword in normalized for keyword in keywords):
+            return phases
+    return (DEFAULT_PHASE,)
 
 
 def _rank_student_frames(
@@ -77,21 +94,32 @@ def resolve_issue_evidence(
     coach_references: Iterable[CoachReference],
     coach_id: str,
     framework_id: str,
+    action_package: Iterable[ActionPackageSegment] | None = None,
 ) -> list[IssueEvidence]:
     """Attach same-phase student and coach references without substituting frames."""
     student_by_phase = list(student_frames)
     coach_catalog = list(coach_references)
+    package = tuple(action_package) if action_package is not None else None
+    available_phases = {
+        segment.phase for segment in package or () if segment.media_key
+    }
     action = str(observation.get("action", "unknown"))
     resolved: list[IssueEvidence] = []
 
     for issue in diagnosis.get("issues", []):
         issue_id = str(issue.get("issue_id", "unknown"))
         phase = phase_for_issue(issue_id)
+        required_phases = required_phases_for_issue(issue_id)
+        missing_phases = tuple(
+            required_phase
+            for required_phase in required_phases
+            if package is not None and required_phase not in available_phases
+        )
         student = _rank_student_frames(student_by_phase, phase)[:2]
         coach = _rank_coach_references(
             coach_catalog, phase, coach_id, action, framework_id
         )[:2]
-        if not student:
+        if missing_phases or not student:
             status = "insufficient_evidence"
         elif not coach:
             status = "coach_reference_unavailable"
@@ -106,6 +134,8 @@ def resolve_issue_evidence(
                 correction_target=str(issue.get("correction_principle", "")),
                 confidence_boundary=BOUNDARY,
                 status=status,
+                required_phases=required_phases,
+                missing_phases=missing_phases,
             )
         )
     return resolved

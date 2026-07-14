@@ -1,16 +1,17 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Callable, Iterable
 
-from .contracts import FrameRef
-from .ffmpeg import extract_frame
+from .contracts import ActionPackageSegment, FrameRef
+from .ffmpeg import extract_clip, extract_frame
 from .phases import (
     ACTIVE_PRE_CONTACT_REASON,
     MIN_PHASE_SEPARATION_MS,
     PhaseCandidate,
     PoseSample,
+    select_action_package,
     select_phase_candidates,
 )
 from .pose import PoseEstimator
@@ -22,6 +23,7 @@ class VideoEvidenceResult:
     observation: dict[str, object]
     frames: tuple[FrameRef, ...]
     candidates: tuple[PhaseCandidate, ...]
+    action_package: tuple[ActionPackageSegment, ...] = ()
 
 
 def _shoulder_line(sample: PoseSample) -> float | None:
@@ -218,6 +220,7 @@ def analyze_video(
     """Extract bounded phase evidence from one already-normalized student video."""
     track = pose_estimator.estimate(video_path)
     candidates = select_phase_candidates(list(track.samples), action)
+    action_package_candidates = select_action_package(list(track.samples), action)
     output_dir.mkdir(parents=True, exist_ok=True)
     frame_media_keys: dict[int, str] = {}
     image_paths: dict[int, Path] = {}
@@ -230,6 +233,17 @@ def analyze_video(
         frame_extractor(video_path, candidate.timestamp_ms, target)
         frame_media_keys[candidate.timestamp_ms] = relative_key
         image_paths[candidate.timestamp_ms] = target
+    action_package: list[ActionPackageSegment] = []
+    for segment in action_package_candidates:
+        filename = f"{segment.phase}-{segment.anchor_ms}.mp4"
+        relative_key = str(Path("segments") / filename)
+        target = output_dir / relative_key
+        try:
+            extract_clip(video_path, segment.start_ms, segment.end_ms, target)
+        except Exception:
+            continue
+        if target.is_file():
+            action_package.append(replace(segment, media_key=relative_key))
     observation, frames = build_observation_and_frames(
         action=action,
         candidates=candidates,
@@ -243,4 +257,5 @@ def analyze_video(
         observation=observation,
         frames=tuple(frames),
         candidates=tuple(candidates),
+        action_package=tuple(action_package),
     )
