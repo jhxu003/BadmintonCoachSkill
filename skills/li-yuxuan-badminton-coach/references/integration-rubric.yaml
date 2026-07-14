@@ -67,7 +67,7 @@
   category: overhead_preparation
   priority: 22
   applicable_actions: [high_clear, smash, drop]
-  required_observations: [elbow_height_before_hit, racket_side_structure]
+  required_observations: [racket_side_structure]
   observable_evidence: [{path: racket_side_structure, equals: collapsed, label: Racket-side elbow and preparation frame visibly fold before contact.}]
   min_evidence_count: 1
   insufficient_evidence_policy: Request a side or rear-diagonal view with shoulder, elbow, wrist, and racket in frame.

@@ -7,6 +7,9 @@ from typing import Protocol
 from .phases import PoseSample
 
 
+MIN_RACKET_JOINT_CONFIDENCE = 0.5
+
+
 @dataclass(frozen=True)
 class PoseTrack:
     samples: tuple[PoseSample, ...]
@@ -65,6 +68,8 @@ class UltralyticsPoseEstimator:
         fps = capture.get(cv2.CAP_PROP_FPS) or 30.0
         index = 0
         previous_center: tuple[float, float] | None = None
+        previous_racket_joints: tuple[tuple[float, float], tuple[float, float]] | None = None
+        previous_racket_side: int | None = None
         samples: list[PoseSample] = []
         try:
             while True:
@@ -76,6 +81,9 @@ class UltralyticsPoseEstimator:
                     continue
                 result = model(frame, verbose=False)[0]
                 if result.keypoints is None or result.boxes is None or len(result.boxes) == 0:
+                    previous_center = None
+                    previous_racket_joints = None
+                    previous_racket_side = None
                     index += 1
                     continue
                 boxes = result.boxes.xyxy.cpu().tolist()
@@ -83,22 +91,67 @@ class UltralyticsPoseEstimator:
                 selected = select_player_index(boxes, previous_center)
                 keypoints = result.keypoints.xy[selected].cpu().tolist()
                 point_confidence = result.keypoints.conf[selected].cpu().tolist()
-                center = ((boxes[selected][0] + boxes[selected][2]) / 2, (boxes[selected][1] + boxes[selected][3]) / 2)
-                motion = 0.0 if previous_center is None else ((center[0] - previous_center[0]) ** 2 + (center[1] - previous_center[1]) ** 2) ** 0.5
+                left, top, right, bottom = boxes[selected]
+                center = ((left + right) / 2, (top + bottom) / 2)
+                scale = max(bottom - top, 1.0)
+                if previous_center is not None:
+                    track_distance = (
+                        (center[0] - previous_center[0]) ** 2
+                        + (center[1] - previous_center[1]) ** 2
+                    ) ** 0.5 / scale
+                    if track_distance > 2.0:
+                        previous_racket_joints = None
+                        previous_racket_side = None
                 previous_center = center
-                scale = max(boxes[selected][3] - boxes[selected][1], 1.0)
                 # COCO pose indices: shoulders 5/6, elbows 7/8, wrists 9/10.
-                racket_side = 8 if point_confidence[8] >= point_confidence[7] else 7
+                racket_side = previous_racket_side
+                if racket_side is None:
+                    left_joint_confidence = min(
+                        float(point_confidence[7]), float(point_confidence[9])
+                    )
+                    right_joint_confidence = min(
+                        float(point_confidence[8]), float(point_confidence[10])
+                    )
+                    racket_side = 8 if right_joint_confidence >= left_joint_confidence else 7
                 wrist_side = 10 if racket_side == 8 else 9
+                elbow_point = (
+                    (keypoints[racket_side][0] - left) / scale,
+                    (keypoints[racket_side][1] - top) / scale,
+                )
+                wrist_point = (
+                    (keypoints[wrist_side][0] - left) / scale,
+                    (keypoints[wrist_side][1] - top) / scale,
+                )
+                joint_confidence = min(
+                    float(point_confidence[racket_side]), float(point_confidence[wrist_side])
+                )
+                motion = 0.0
+                if joint_confidence >= MIN_RACKET_JOINT_CONFIDENCE and previous_racket_joints is not None:
+                    motion = max(
+                        ((elbow_point[0] - previous_racket_joints[0][0]) ** 2
+                         + (elbow_point[1] - previous_racket_joints[0][1]) ** 2) ** 0.5,
+                        ((wrist_point[0] - previous_racket_joints[1][0]) ** 2
+                         + (wrist_point[1] - previous_racket_joints[1][1]) ** 2) ** 0.5,
+                    )
+                previous_racket_joints = (
+                    (elbow_point, wrist_point)
+                    if joint_confidence >= MIN_RACKET_JOINT_CONFIDENCE
+                    else None
+                )
+                if (
+                    previous_racket_side is None
+                    and joint_confidence >= MIN_RACKET_JOINT_CONFIDENCE
+                ):
+                    previous_racket_side = racket_side
                 samples.append(
                     PoseSample(
                         timestamp_ms=round(index * 1000 / fps),
-                        left_shoulder_y=keypoints[5][1] / scale,
-                        right_shoulder_y=keypoints[6][1] / scale,
-                        racket_elbow_y=keypoints[racket_side][1] / scale,
-                        racket_wrist_y=keypoints[wrist_side][1] / scale,
-                        motion_score=motion / scale,
-                        confidence=min(float(confidences[selected]), float(point_confidence[racket_side])),
+                        left_shoulder_y=(keypoints[5][1] - top) / scale,
+                        right_shoulder_y=(keypoints[6][1] - top) / scale,
+                        racket_elbow_y=elbow_point[1],
+                        racket_wrist_y=wrist_point[1],
+                        motion_score=motion,
+                        confidence=min(float(confidences[selected]), joint_confidence),
                     )
                 )
                 index += 1

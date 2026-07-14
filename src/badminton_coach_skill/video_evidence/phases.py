@@ -23,6 +23,10 @@ SUPPORTED_ACTIONS = frozenset(
     }
 )
 MIN_POSE_CONFIDENCE = 0.5
+ACTION_CONTEXT_MS = 1200
+MIN_PHASE_SEPARATION_MS = 200
+ACTIVE_PRE_CONTACT_WINDOW_MS = 500
+ACTIVE_PRE_CONTACT_REASON = "highest_visible_elbow_in_active_pre_contact_window"
 
 
 @dataclass(frozen=True)
@@ -91,66 +95,45 @@ def select_phase_candidates(
     motion_peak = max(
         visible, key=lambda sample: (sample.motion_score, -sample.timestamp_ms)
     )
+    action_window = [
+        sample
+        for sample in visible
+        if abs(sample.timestamp_ms - motion_peak.timestamp_ms) <= ACTION_CONTEXT_MS
+    ]
     before_peak = [
-        sample for sample in visible if sample.timestamp_ms <= motion_peak.timestamp_ms
+        sample for sample in action_window if sample.timestamp_ms <= motion_peak.timestamp_ms
     ]
     after_peak = [
-        sample for sample in visible if sample.timestamp_ms >= motion_peak.timestamp_ms
+        sample for sample in action_window if sample.timestamp_ms > motion_peak.timestamp_ms
     ]
     elbow_candidates = [sample for sample in before_peak if sample.has_visible_elbow()]
-    candidates: list[PhaseCandidate] = [
-        _candidate(
-            "preparation",
-            visible[0],
-            "earliest_visible_pose_in_selected_action_window",
-            [visible[0]],
-        )
-    ]
-
-    movement_start = next(
-        (
-            sample
-            for sample in before_peak
-            if sample.motion_score > visible[0].motion_score
-        ),
-        None,
-    )
-    if movement_start is not None:
-        candidates.append(
-            _candidate(
-                "start",
-                movement_start,
-                "first_visible_motion_increase_within_selected_window",
-                [movement_start],
-            )
-        )
+    candidates: list[PhaseCandidate] = []
 
     if elbow_candidates:
-        top_elbow = min(
-            elbow_candidates,
-            key=lambda sample: (float(sample.racket_elbow_y), sample.timestamp_ms),
-        )
-        arrival_candidates = [
-            sample for sample in before_peak if sample.timestamp_ms <= top_elbow.timestamp_ms
+        distinct_pre_hit = [
+            sample
+            for sample in elbow_candidates
+            if sample.timestamp_ms <= motion_peak.timestamp_ms - MIN_PHASE_SEPARATION_MS
         ]
-        if arrival_candidates:
+        active_pre_contact = [
+            sample
+            for sample in distinct_pre_hit
+            if sample.timestamp_ms
+            >= motion_peak.timestamp_ms - ACTIVE_PRE_CONTACT_WINDOW_MS
+        ]
+        if active_pre_contact:
+            top_elbow = max(
+                active_pre_contact,
+                key=lambda sample: (-float(sample.racket_elbow_y), sample.timestamp_ms),
+            )
             candidates.append(
                 _candidate(
-                    "arrival",
-                    arrival_candidates[-1],
-                    "last_visible_pose_before_top_elbow_preparation_proxy",
-                    [arrival_candidates[-1]],
+                    "top_elbow",
+                    top_elbow,
+                    ACTIVE_PRE_CONTACT_REASON,
+                    [top_elbow],
                 )
             )
-        candidates.append(
-            _candidate(
-                "top_elbow",
-                top_elbow,
-                "highest_visible_elbow_before_motion_peak",
-                [top_elbow],
-            )
-        )
-
     candidates.append(
         _candidate(
             "contact_window",
@@ -160,10 +143,13 @@ def select_phase_candidates(
         )
     )
 
-    if len(after_peak) > 1:
-        follow = max(
-            after_peak[1:], key=lambda sample: (sample.motion_score, -sample.timestamp_ms)
-        )
+    distinct_follow_through = [
+        sample
+        for sample in after_peak
+        if sample.timestamp_ms >= motion_peak.timestamp_ms + MIN_PHASE_SEPARATION_MS
+    ]
+    if distinct_follow_through:
+        follow = distinct_follow_through[0]
         candidates.append(
             _candidate(
                 "follow_through",
@@ -172,18 +158,6 @@ def select_phase_candidates(
                 [follow],
             )
         )
-        recovery = min(
-            after_peak[1:], key=lambda sample: (sample.motion_score, sample.timestamp_ms)
-        )
-        candidates.append(
-            _candidate(
-                "recovery",
-                recovery,
-                "lowest_visible_motion_after_selected_action_window_peak",
-                [recovery],
-            )
-        )
-
     phase_order = {
         "preparation": 0,
         "start": 1,

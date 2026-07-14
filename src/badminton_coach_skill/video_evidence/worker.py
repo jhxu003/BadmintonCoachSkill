@@ -6,7 +6,13 @@ from typing import Callable, Iterable
 
 from .contracts import FrameRef
 from .ffmpeg import extract_frame
-from .phases import PhaseCandidate, PoseSample, select_phase_candidates
+from .phases import (
+    ACTIVE_PRE_CONTACT_REASON,
+    MIN_PHASE_SEPARATION_MS,
+    PhaseCandidate,
+    PoseSample,
+    select_phase_candidates,
+)
 from .pose import PoseEstimator
 from .vlm_review import DisabledVisualReviewer, VisualReview, VisualReviewer
 
@@ -59,25 +65,33 @@ def _racket_side_structure(
 def _distinct_frame_candidates(
     candidates: Iterable[PhaseCandidate], frame_media_keys: dict[int, str]
 ) -> list[PhaseCandidate]:
-    """Keep one logical phase for each extracted image, preferring top-elbow evidence."""
-    selected: list[tuple[int, PhaseCandidate]] = []
-    by_media_key: dict[str, tuple[int, PhaseCandidate]] = {}
-    for index, candidate in enumerate(candidates):
-        media_key = frame_media_keys.get(candidate.timestamp_ms)
-        if not media_key:
-            selected.append((index, candidate))
-            continue
-        existing = by_media_key.get(media_key)
-        if existing is None or (
-            candidate.phase == "top_elbow" and existing[1].phase != "top_elbow"
-        ):
-            by_media_key[media_key] = (index, candidate)
-    return [
-        candidate
-        for _, candidate in sorted(
-            (*selected, *by_media_key.values()), key=lambda item: item[0]
-        )
+    """Keep a bounded, temporally distinct action sequence for the report."""
+    action_phases = ("top_elbow", "contact_window", "follow_through")
+    phase_rank = {phase: index for index, phase in enumerate(action_phases)}
+    all_candidates = list(candidates)
+    action_candidates = [
+        candidate for candidate in all_candidates if candidate.phase in phase_rank
     ]
+    source = action_candidates or all_candidates
+    is_action_sequence = bool(action_candidates)
+    selected: list[PhaseCandidate] = []
+    selected_media_keys: set[str] = set()
+    for candidate in sorted(
+        source,
+        key=lambda item: (phase_rank.get(item.phase, len(phase_rank)), item.timestamp_ms),
+    ):
+        media_key = frame_media_keys.get(candidate.timestamp_ms)
+        if media_key and media_key in selected_media_keys:
+            continue
+        if is_action_sequence and any(
+            abs(candidate.timestamp_ms - item.timestamp_ms) < MIN_PHASE_SEPARATION_MS
+            for item in selected
+        ):
+            continue
+        selected.append(candidate)
+        if media_key:
+            selected_media_keys.add(media_key)
+    return sorted(selected, key=lambda item: item.timestamp_ms)
 
 
 def build_observation_and_frames(
@@ -117,9 +131,13 @@ def build_observation_and_frames(
         (candidate for candidate, _, _ in reviewed_candidates if candidate.phase == "top_elbow"),
         None,
     )
+    top_elbow_has_height_proxy = bool(
+        top_elbow_candidate
+        and top_elbow_candidate.reason != ACTIVE_PRE_CONTACT_REASON
+    )
     elbow_height, elbow_facts = _elbow_observation(
         samples_by_timestamp.get(top_elbow_candidate.timestamp_ms)
-        if top_elbow_candidate
+        if top_elbow_candidate and top_elbow_has_height_proxy
         else None
     )
     racket_side_structure = _racket_side_structure(reviewed_candidates)
@@ -129,7 +147,11 @@ def build_observation_and_frames(
     frames: list[FrameRef] = []
     for index, (candidate, media_key, review) in enumerate(reviewed_candidates, start=1):
         frame_id = f"student-{candidate.phase}-{candidate.timestamp_ms}-{index}"
-        phase_facts = elbow_facts if candidate.phase == "top_elbow" else ()
+        phase_facts = (
+            elbow_facts
+            if candidate.phase == "top_elbow" and top_elbow_has_height_proxy
+            else ()
+        )
         facts = tuple(dict.fromkeys((*phase_facts, *review.visible_facts)))
         limitations = tuple(
             dict.fromkeys(
@@ -161,7 +183,7 @@ def build_observation_and_frames(
                 "limitations": list(limitations),
             }
         )
-    if top_elbow_candidate is None:
+    if top_elbow_candidate is None or not top_elbow_has_height_proxy:
         missing.append("elbow_height_before_hit")
     if rejected_non_action and not reviewed_candidates:
         missing.append("action_phase_evidence")
