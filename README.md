@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme/hero-banner-v3.webp" alt="单人跳杀动作、姿态和轨迹分析叠层，以及 BadmintonCoachSkill 的证据规模信息" width="100%" />
+  <img src="assets/readme/hero-banner-v4.webp" alt="单人跳杀动作、姿态和轨迹分析叠层，以及 BadmintonCoachSkill 的证据规模信息" width="100%" />
 </p>
 
 <h1 align="center">BadmintonCoachSkill</h1>
