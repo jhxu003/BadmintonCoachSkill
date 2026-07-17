@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/readme/hero-banner-v4.webp" alt="单人跳杀动作、姿态和轨迹分析叠层，以及 BadmintonCoachSkill 的证据规模信息" width="100%" />
-</p>
-
 <h1 align="center">BadmintonCoachSkill</h1>
 
 <p align="center">
@@ -269,7 +265,7 @@ export BADMINTON_PROJECT_ROOT="$PWD"
 export BADMINTON_RUNTIME_ROOT="$HOME/.cache/badminton-coach-runtime"
 export BADMINTON_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
 export BADMINTON_MULTIPLAYER_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
-export BADMINTON_SHUTTLE_MODEL_PATH="/models/tracknet-seq4-concat.ts"
+export BADMINTON_SHUTTLE_MODEL_PATH="/models/private-tracknet-model.ts"
 export BADMINTON_VLM_MODEL_PATH="/models/qwen-vl"
 uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port 8000
 ```
@@ -280,7 +276,7 @@ uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port
 npm --prefix web run dev -- --host 0.0.0.0
 ```
 
-模型路径可以不设置，默认标识位于 [`configs/video-analysis.yaml`](configs/video-analysis.yaml)。混双全场机位建议保留 `multiplayer.inference_size: 1280`，以减少远场小目标被漏检；离线服务器或共享 GPU 集群建议指向预下载的 YOLO、TrackNet 和 Qwen-VL，避免在处理上传视频时临时下载模型。
+模型路径可以不设置，默认标识位于 [`configs/video-analysis.yaml`](configs/video-analysis.yaml)。`BADMINTON_SHUTTLE_MODEL_PATH` 必须指向部署环境中私有保存的 TorchScript 羽球热图模型；混双全场机位建议保留 `multiplayer.inference_size: 1280`，以减少远场小目标被漏检。离线服务器或共享 GPU 集群建议指向预下载的 YOLO、TrackNet 和 Qwen-VL，避免在处理上传视频时临时下载模型。
 
 <a id="agent-integration"></a>
 
