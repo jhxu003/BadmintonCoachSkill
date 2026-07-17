@@ -36,8 +36,18 @@ sources:
     framework_ids: [zsw-receive-opening-exchange, zsw-pair-rotation-two-lanes]
     evidence_levels: [official_public_metadata_reviewed]
     asr_timestamp_refs: []
-    visual_timestamp_refs: []
-    visual_observation_refs: []
+    visual_timestamp_refs: [39.8]
+    visual_observation_refs:
+      - frame_id: zsw-bv1sattewebs-frame-039800
+        timestamp_seconds: 39.8
+        person_visible: true
+        racket_visibility: visible
+        racket_position: waist_to_shoulder
+        primary_subject_view: back
+        body_configuration: [arm_extended]
+        on_screen_text_present: true
+        visibility_limits: [still_frame_no_motion, exact_shuttle_contact_not_visible]
+        confidence: high
     temporal_sequence_refs: []
     confidence_boundary: Official title supports receive-route review; it does not establish a fixed gender role for every pair.
 
@@ -108,8 +118,18 @@ sources:
     framework_ids: [zsw-frontcourt-pressure, zsw-rear-attack-continuity, zsw-pair-rotation-two-lanes, zsw-reset-match-transfer]
     evidence_levels: [official_public_metadata_reviewed]
     asr_timestamp_refs: []
-    visual_timestamp_refs: []
-    visual_observation_refs: []
+    visual_timestamp_refs: [199.8]
+    visual_observation_refs:
+      - frame_id: zsw-bv1zkbnzlehr-frame-199800
+        timestamp_seconds: 199.8
+        person_visible: true
+        racket_visibility: visible
+        racket_position: waist_to_shoulder
+        primary_subject_view: rear_diagonal
+        body_configuration: [arm_extended]
+        on_screen_text_present: true
+        visibility_limits: [still_frame_no_motion, exact_shuttle_contact_not_visible]
+        confidence: high
     temporal_sequence_refs: []
     confidence_boundary: Official title directly supports continuity as a review topic; pair-lane rules still require structured learner evidence.
 

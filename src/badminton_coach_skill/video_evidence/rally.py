@@ -277,11 +277,14 @@ def segment_rallies(
 def _same_lane_conflict_ratio(
     learner_samples: dict[int, PlayerTrackSample],
     partner_samples: dict[int, PlayerTrackSample],
-) -> float | None:
+) -> tuple[float | None, int]:
     shared = sorted(set(learner_samples) & set(partner_samples))
     if not shared:
-        return None
+        return None, 0
     conflicts = 0
+    longest_conflict_ms = 0
+    current_start_ms: int | None = None
+    previous_conflict_ms: int | None = None
     for timestamp in shared:
         learner = learner_samples[timestamp]
         partner = partner_samples[timestamp]
@@ -290,7 +293,15 @@ def _same_lane_conflict_ratio(
         overlapping_depth = abs(learner.court_y - partner.court_y) <= 0.38
         if same_half and narrow_lateral_gap and overlapping_depth:
             conflicts += 1
-    return conflicts / len(shared)
+            if previous_conflict_ms is None or timestamp - previous_conflict_ms > 250:
+                current_start_ms = timestamp
+            if current_start_ms is not None:
+                longest_conflict_ms = max(longest_conflict_ms, timestamp - current_start_ms)
+            previous_conflict_ms = timestamp
+        else:
+            current_start_ms = None
+            previous_conflict_ms = None
+    return conflicts / len(shared), longest_conflict_ms
 
 
 def build_mixed_doubles_observation(
@@ -307,12 +318,12 @@ def build_mixed_doubles_observation(
         if sample.track_id in tracks:
             tracks[sample.track_id][sample.timestamp_ms] = sample
 
-    pair_ratio = _same_lane_conflict_ratio(
+    pair_ratio, longest_conflict_ms = _same_lane_conflict_ratio(
         tracks[selection.learner_track_id], tracks[selection.partner_track_id]
     )
     if pair_ratio is None:
         pair_rotation = "unknown"
-    elif pair_ratio >= 0.4:
+    elif pair_ratio >= 0.4 or longest_conflict_ms >= 500:
         pair_rotation = "same_lane_conflict"
     else:
         pair_rotation = "two_lanes_available"
@@ -321,7 +332,9 @@ def build_mixed_doubles_observation(
     pair_contacts = [
         contact for contact in contacts if pair_ids & set(contact.possible_track_ids)
     ]
-    if not pair_contacts:
+    if pair_rotation == "same_lane_conflict":
+        next_shot_role = "unclear"
+    elif not pair_contacts:
         next_shot_role = "unknown"
     elif any(pair_ids <= set(contact.possible_track_ids) for contact in pair_contacts):
         next_shot_role = "unclear"

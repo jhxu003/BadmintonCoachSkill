@@ -63,9 +63,12 @@ class MultiPlayerTracker(Protocol):
 class UltralyticsMultiPlayerTracker:
     """Lazy ByteTrack adapter for four-player court footage."""
 
-    def __init__(self, model_path: str, inference_stride: int = 1):
+    def __init__(
+        self, model_path: str, inference_stride: int = 1, inference_size: int = 640
+    ):
         self.model_path = model_path
         self.inference_stride = max(1, inference_stride)
+        self.inference_size = max(320, inference_size)
 
     def track(self, video_path: Path) -> tuple[ImagePlayerTrackSample, ...]:
         try:
@@ -87,6 +90,7 @@ class UltralyticsMultiPlayerTracker:
             tracker="bytetrack.yaml",
             classes=[0],
             vid_stride=self.inference_stride,
+            imgsz=self.inference_size,
             verbose=False,
         )
         for result_index, result in enumerate(results):
@@ -173,41 +177,38 @@ class PlayerDiscoveryResult:
 def select_four_player_candidates(
     samples: tuple[ImagePlayerTrackSample, ...] | list[ImagePlayerTrackSample],
 ) -> tuple[int, int, tuple[PlayerCandidate, ...]]:
-    """Choose four persistent tracks and one frame where all are visible."""
+    """Choose four visible on-court tracks before manual player-role confirmation."""
     if not samples:
         raise ValueError("No player tracks were detected")
+    court_samples = [
+        sample
+        for sample in samples
+        if 0.20 <= sample.bbox.x + sample.bbox.width / 2 <= 0.78
+        and 0.35 <= sample.bbox.y + sample.bbox.height <= 0.98
+    ]
+    if not court_samples:
+        raise ValueError("No tracks fall inside the central court candidate area")
     grouped: dict[str, list[ImagePlayerTrackSample]] = defaultdict(list)
-    for sample in samples:
+    for sample in court_samples:
         grouped[sample.track_id].append(sample)
-    ranked_tracks = sorted(
-        grouped,
-        key=lambda track_id: (
-            -len(grouped[track_id]),
-            -(sum(item.confidence for item in grouped[track_id]) / len(grouped[track_id])),
-            track_id,
-        ),
-    )[:4]
-    if len(ranked_tracks) != 4:
-        raise ValueError("Four persistent player tracks are required")
 
     by_frame: dict[tuple[int, int], dict[str, ImagePlayerTrackSample]] = defaultdict(dict)
-    for sample in samples:
-        if sample.track_id in ranked_tracks:
-            key = (sample.timestamp_ms, sample.frame_index)
-            existing = by_frame[key].get(sample.track_id)
-            if existing is None or sample.confidence > existing.confidence:
-                by_frame[key][sample.track_id] = sample
+    for sample in court_samples:
+        key = (sample.timestamp_ms, sample.frame_index)
+        existing = by_frame[key].get(sample.track_id)
+        if existing is None or sample.confidence > existing.confidence:
+            by_frame[key][sample.track_id] = sample
     shared_frames = [
-        (key, visible)
+        (key, tuple(sorted(visible.values(), key=lambda sample: (-sample.confidence, sample.track_id))[:4]))
         for key, visible in by_frame.items()
-        if set(visible) == set(ranked_tracks)
+        if len(visible) >= 4
     ]
     if not shared_frames:
-        raise ValueError("No frame contains all four persistent player tracks")
+        raise ValueError("No central-court frame contains four visible player tracks")
     (timestamp_ms, frame_index), visible = min(
         shared_frames,
         key=lambda item: (
-            -sum(sample.confidence for sample in item[1].values()),
+            -sum(sample.confidence for sample in item[1]),
             item[0][0],
             item[0][1],
         ),
@@ -215,12 +216,12 @@ def select_four_player_candidates(
     players = tuple(
         PlayerCandidate(
             track_id=track_id,
-            bbox=visible[track_id].bbox,
+            bbox=next(sample.bbox for sample in visible if sample.track_id == track_id),
             confidence=sum(item.confidence for item in grouped[track_id])
             / len(grouped[track_id]),
             visible_sample_count=len(grouped[track_id]),
         )
-        for track_id in sorted(ranked_tracks)
+        for track_id in sorted(sample.track_id for sample in visible)
     )
     return timestamp_ms, frame_index, players
 

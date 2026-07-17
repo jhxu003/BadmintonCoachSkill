@@ -45,7 +45,8 @@ ExtractReferenceFrame = Callable[[Path, int, Path], None]
 ExtractReferenceClip = Callable[[Path, int, int, Path], None]
 PUBLIC_SOURCE_TIMEOUT_SECONDS = 120
 PUBLIC_SOURCE_MAX_BYTES = 512 * 1024 * 1024
-PUBLIC_REFERENCE_FORMAT = "bestvideo[height<=480][ext=mp4]/best[height<=480][ext=mp4]"
+PUBLIC_SOURCE_DOWNLOAD_ATTEMPTS = 2
+PUBLIC_REFERENCE_FORMAT = "bestvideo[width<=480][ext=mp4]/best[width<=480][ext=mp4]/bestvideo[ext=mp4]/best[ext=mp4]"
 PUBLIC_REFERENCE_FORMAT_SORT = "res,+size"
 
 
@@ -54,38 +55,45 @@ def download_public_source(source_url: str, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     from ..video_evidence.ffmpeg import ffmpeg_executable
 
-    completed = subprocess.run(
-        [
-            "yt-dlp",
-            "--no-playlist",
-            "--no-progress",
-            "--socket-timeout",
-            "20",
-            "--retries",
-            "2",
-            "--fragment-retries",
-            "2",
-            "--max-filesize",
-            str(PUBLIC_SOURCE_MAX_BYTES),
-            "--format",
-            PUBLIC_REFERENCE_FORMAT,
-            "--format-sort",
-            PUBLIC_REFERENCE_FORMAT_SORT,
-            "--remux-video",
-            "mp4",
-            "--ffmpeg-location",
-            ffmpeg_executable(),
-            "--output",
-            str(target),
-            source_url,
-        ],
-        capture_output=True,
-            text=True,
-            check=False,
-            timeout=PUBLIC_SOURCE_TIMEOUT_SECONDS,
-        )
-    if completed.returncode != 0 or not target.exists():
-        raise RuntimeError("public_source_download_failed")
+    command = [
+        "yt-dlp",
+        "--no-playlist",
+        "--no-progress",
+        "--socket-timeout",
+        "20",
+        "--retries",
+        "2",
+        "--fragment-retries",
+        "2",
+        "--max-filesize",
+        str(PUBLIC_SOURCE_MAX_BYTES),
+        "--format",
+        PUBLIC_REFERENCE_FORMAT,
+        "--format-sort",
+        PUBLIC_REFERENCE_FORMAT_SORT,
+        "--remux-video",
+        "mp4",
+        "--ffmpeg-location",
+        ffmpeg_executable(),
+        "--output",
+        str(target),
+        source_url,
+    ]
+    for _ in range(PUBLIC_SOURCE_DOWNLOAD_ATTEMPTS):
+        target.unlink(missing_ok=True)
+        try:
+            completed = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=PUBLIC_SOURCE_TIMEOUT_SECONDS,
+            )
+        except (OSError, subprocess.TimeoutExpired):
+            continue
+        if completed.returncode == 0 and target.exists():
+            return
+    raise RuntimeError("public_source_download_failed")
 
 
 def extract_reference_frame(video_path: Path, timestamp_ms: int, image_path: Path) -> None:
@@ -122,7 +130,6 @@ def _relative_clip_key(reference: CoachReference) -> Path:
 
 def ensure_reference_image(
     reference: CoachReference,
-    *,
     cache_root: Path,
     downloader: DownloadSource = download_public_source,
     extractor: ExtractReferenceFrame = extract_reference_frame,

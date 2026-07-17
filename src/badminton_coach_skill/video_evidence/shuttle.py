@@ -15,6 +15,29 @@ class ShuttleDetector(Protocol):
         """Return temporal heatmap candidates in normalized image coordinates."""
 
 
+def compose_temporal_input(
+    frames: tuple[np.ndarray, ...] | list[np.ndarray],
+    *,
+    background: np.ndarray | None = None,
+) -> np.ndarray:
+    if not frames:
+        raise ValueError("at least one temporal frame is required")
+    shape = frames[0].shape
+    if len(shape) != 3 or any(frame.shape != shape for frame in frames):
+        raise ValueError("temporal frames must share one CHW shape")
+    inputs = ((background,) if background is not None else ()) + tuple(frames)
+    if background is not None and background.shape != shape:
+        raise ValueError("background must share the temporal frame CHW shape")
+    return np.concatenate(inputs, axis=0)
+
+
+def temporal_center_timestamp_ms(
+    *, frame_index: int, fps: float, temporal_frames: int
+) -> int:
+    center_index = frame_index - ((temporal_frames - 1) - temporal_frames // 2)
+    return max(0, round(center_index * 1000 / max(fps, 1e-6)))
+
+
 def decode_heatmap_peaks(
     heatmap: np.ndarray,
     *,
@@ -110,6 +133,7 @@ class TemporalHeatmapShuttleDetector:
         input_width: int = 512,
         input_height: int = 288,
         temporal_frames: int = 3,
+        background_mode: str = "",
         confidence_threshold: float = 0.35,
         batch_size: int = 32,
         maximum_missing_frames: int = 2,
@@ -118,6 +142,9 @@ class TemporalHeatmapShuttleDetector:
         self.input_width = max(64, input_width)
         self.input_height = max(64, input_height)
         self.temporal_frames = max(3, temporal_frames)
+        if background_mode not in {"", "concat"}:
+            raise ValueError("background_mode must be empty or concat")
+        self.background_mode = background_mode
         self.confidence_threshold = max(0.0, min(1.0, confidence_threshold))
         self.batch_size = max(1, batch_size)
         self.maximum_missing_frames = max(0, maximum_missing_frames)
@@ -151,6 +178,32 @@ class TemporalHeatmapShuttleDetector:
             ) from error
         device = "cuda" if torch.cuda.is_available() else "cpu"
         model = torch.jit.load(self.model_path, map_location=device).eval()
+        background: np.ndarray | None = None
+        if self.background_mode == "concat":
+            background_capture = cv2.VideoCapture(str(video_path))
+            total_frames = max(1, int(background_capture.get(cv2.CAP_PROP_FRAME_COUNT)))
+            sample_stride = max(1, total_frames // 120)
+            sampled: list[np.ndarray] = []
+            sample_index = 0
+            try:
+                while True:
+                    ok, frame = background_capture.read()
+                    if not ok:
+                        break
+                    if sample_index % sample_stride == 0:
+                        rgb = cv2.cvtColor(
+                            cv2.resize(frame, (self.input_width, self.input_height)),
+                            cv2.COLOR_BGR2RGB,
+                        )
+                        sampled.append(
+                            np.transpose(rgb, (2, 0, 1)).astype(np.float32) / 255.0
+                        )
+                    sample_index += 1
+            finally:
+                background_capture.release()
+            if not sampled:
+                raise ValueError("Unable to estimate a private video background")
+            background = np.median(np.stack(sampled), axis=0).astype(np.float32)
         capture = cv2.VideoCapture(str(video_path))
         fps = capture.get(cv2.CAP_PROP_FPS) or 30.0
         frame_interval_ms = max(1, round(1000 / fps))
@@ -201,8 +254,16 @@ class TemporalHeatmapShuttleDetector:
                 )
                 window.append(np.transpose(rgb, (2, 0, 1)).astype(np.float32) / 255.0)
                 if len(window) == self.temporal_frames:
-                    pending_tensors.append(np.concatenate(tuple(window), axis=0))
-                    pending_timestamps.append(round(frame_index * 1000 / fps))
+                    pending_tensors.append(
+                        compose_temporal_input(tuple(window), background=background)
+                    )
+                    pending_timestamps.append(
+                        temporal_center_timestamp_ms(
+                            frame_index=frame_index,
+                            fps=fps,
+                            temporal_frames=self.temporal_frames,
+                        )
+                    )
                     if len(pending_tensors) >= self.batch_size:
                         infer_batch()
                 frame_index += 1

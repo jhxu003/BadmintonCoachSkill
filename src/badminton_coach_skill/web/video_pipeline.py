@@ -54,10 +54,12 @@ class VideoPipelineConfig:
     visual_review_max_new_tokens: int
     multiplayer_pose_model_path: str = "yolo11n-pose.pt"
     multiplayer_inference_stride: int = 2
+    multiplayer_inference_size: int = 640
     shuttle_model_path: str = ""
     shuttle_input_width: int = 512
     shuttle_input_height: int = 288
     shuttle_temporal_frames: int = 3
+    shuttle_background_mode: str = ""
     shuttle_confidence_threshold: float = 0.35
 
 
@@ -90,10 +92,12 @@ def load_video_pipeline_config(path: Path) -> VideoPipelineConfig:
         multiplayer_inference_stride=max(
             1, int(multiplayer.get("inference_stride", pose.get("inference_stride", 2)))
         ),
+        multiplayer_inference_size=max(320, int(multiplayer.get("inference_size", 640))),
         shuttle_model_path=str(shuttle.get("model_path", "")),
         shuttle_input_width=max(64, int(shuttle.get("input_width", 512))),
         shuttle_input_height=max(64, int(shuttle.get("input_height", 288))),
         shuttle_temporal_frames=max(3, int(shuttle.get("temporal_frames", 3))),
+        shuttle_background_mode=str(shuttle.get("background_mode", "")),
         shuttle_confidence_threshold=max(
             0.0, min(1.0, float(shuttle.get("confidence_threshold", 0.35)))
         ),
@@ -304,12 +308,14 @@ def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline
             config.multiplayer_pose_model_path,
         ),
         inference_stride=config.multiplayer_inference_stride,
+        inference_size=config.multiplayer_inference_size,
     )
     shuttle_detector = TemporalHeatmapShuttleDetector(
         os.environ.get("BADMINTON_SHUTTLE_MODEL_PATH", config.shuttle_model_path),
         input_width=config.shuttle_input_width,
         input_height=config.shuttle_input_height,
         temporal_frames=config.shuttle_temporal_frames,
+        background_mode=config.shuttle_background_mode,
         confidence_threshold=config.shuttle_confidence_threshold,
     )
     return ConfiguredVideoPipeline(
