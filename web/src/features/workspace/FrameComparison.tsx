@@ -1,6 +1,7 @@
 import { ExternalLink, ImageOff } from "lucide-react";
 
 import { coachReferenceClipUrl, coachReferenceUrl, studentFrameUrl, studentSegmentUrl, type ActionPackageSegment, type AnalysisJob, type CoachReference, type FrameRef, type IssueEvidence } from "../../api/client";
+import { evidenceTokenLabel } from "./rallyModel";
 
 interface FrameComparisonProps {
   job: AnalysisJob;
@@ -8,9 +9,10 @@ interface FrameComparisonProps {
   studentFrames: Map<string, FrameRef>;
   coachFrames: Map<string, CoachReference>;
   actionPackage: ActionPackageSegment[];
+  comparisonLabel?: string;
 }
 
-export function FrameComparison({ job, evidence, studentFrames, coachFrames, actionPackage }: FrameComparisonProps) {
+export function FrameComparison({ job, evidence, studentFrames, coachFrames, actionPackage, comparisonLabel }: FrameComparisonProps) {
   if (!evidence) {
     return <section className="comparison-empty"><ImageOff size={22} /><p>选择一个诊断问题后查看对应画面。</p></section>;
   }
@@ -23,7 +25,7 @@ export function FrameComparison({ job, evidence, studentFrames, coachFrames, act
   return (
     <section className="comparison-panel">
       <div className="comparison-head">
-        <div><p className="eyebrow">同阶段画面对照</p><h2>{evidence.comparison_phase}</h2></div>
+        <div><p className="eyebrow">同阶段画面对照</p><h2>{comparisonLabel ?? evidence.comparison_phase}</h2></div>
         {coach?.source_jump_url && <a className="source-link" href={coach.source_jump_url} target="_blank" rel="noreferrer">在原平台定位 <ExternalLink size={14} /></a>}
       </div>
       <div className="comparison-grid">
@@ -51,5 +53,5 @@ function EmptyFrame({ text }: { text: string }) {
 
 function FrameFacts({ frame }: { frame?: FrameRef | CoachReference }) {
   if (!frame) return <p className="frame-facts" />;
-  return <p className="frame-facts"><b>可见事实：</b>{frame.visible_facts.join("；") || "当前帧未提供额外可见事实"}<br /><span>{frame.limitations.join("；")}</span></p>;
+  return <p className="frame-facts"><b>可见事实：</b>{frame.visible_facts.map(evidenceTokenLabel).join("；") || "当前帧未提供额外可见事实"}<br /><span>{frame.limitations.map(evidenceTokenLabel).join("；")}</span></p>;
 }
