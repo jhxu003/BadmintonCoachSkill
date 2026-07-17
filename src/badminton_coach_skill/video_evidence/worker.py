@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Callable, Iterable
 
 from .contracts import ActionPackageSegment, FrameRef
+from .multiplayer_pipeline import MixedDoublesEvidence
 from .ffmpeg import extract_clip, extract_frame
 from .phases import (
     ACTIVE_PRE_CONTACT_REASON,
@@ -24,6 +25,7 @@ class VideoEvidenceResult:
     frames: tuple[FrameRef, ...]
     candidates: tuple[PhaseCandidate, ...]
     action_package: tuple[ActionPackageSegment, ...] = ()
+    multiplayer: MixedDoublesEvidence | None = None
 
 
 def _shoulder_line(sample: PoseSample) -> float | None:
