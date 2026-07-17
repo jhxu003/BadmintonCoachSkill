@@ -26,3 +26,9 @@ class AnalysisEventResponse(BaseModel):
 
 class AnalysisReportResponse(BaseModel):
     report: dict[str, Any] = Field(description="Bounded Skill diagnosis and phase evidence.")
+
+
+class MixedDoublesSetupRequest(BaseModel):
+    learner_track_id: str
+    partner_track_id: str
+    court_corners: dict[str, dict[str, float]]
