@@ -7,6 +7,19 @@ pose:
   provider: ultralytics
   model_path: yolo11n-pose.pt
   inference_stride: 2
+multiplayer:
+  provider: ultralytics_bytetrack
+  pose_model_path: yolo11n-pose.pt
+  inference_stride: 2
+  inference_size: 1280
+shuttle:
+  provider: torchscript_temporal_heatmap
+  model_path: ''
+  input_width: 512
+  input_height: 288
+  temporal_frames: 4
+  background_mode: concat
+  confidence_threshold: 0.15
 visual_review:
   provider: qwen_local
   model_path: Qwen/Qwen2.5-VL-3B-Instruct
@@ -18,5 +31,6 @@ boundaries:
     - racket_face_angle
     - grip_pressure
     - exact_shuttle_contact
+    - tactical_intent
     - force
     - calibrated_3d_biomechanics

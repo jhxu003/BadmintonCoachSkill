@@ -38,6 +38,7 @@ class AnalysisJobRecord(Base):
     player_profile: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
     failure_code: Mapped[str | None] = mapped_column(String(128), nullable=True)
     report: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
+    analysis_setup: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
     access_token_hash: Mapped[str] = mapped_column(String(64), nullable=False, default="")
 
 
@@ -89,6 +90,11 @@ class Database:
                             "ALTER TABLE analysis_jobs ADD COLUMN access_token_hash "
                             "VARCHAR(64) NOT NULL DEFAULT ''"
                         )
+                    )
+            if "analysis_setup" not in columns:
+                with self.engine.begin() as connection:
+                    connection.execute(
+                        text("ALTER TABLE analysis_jobs ADD COLUMN analysis_setup JSON")
                     )
 
     def session(self) -> Session:
@@ -160,6 +166,61 @@ class Database:
             if record is None:
                 raise KeyError(job_id)
             return record.report
+
+    def get_analysis_setup(self, job_id: str) -> dict[str, Any] | None:
+        with self.session() as session:
+            record = session.get(AnalysisJobRecord, job_id)
+            if record is None:
+                raise KeyError(job_id)
+            return dict(record.analysis_setup) if record.analysis_setup else None
+
+    def save_analysis_setup_candidates(
+        self, job_id: str, candidates: dict[str, Any]
+    ) -> None:
+        with self.session() as session:
+            record = session.get(AnalysisJobRecord, job_id)
+            if record is None:
+                raise KeyError(job_id)
+            existing = dict(record.analysis_setup or {})
+            record.analysis_setup = {
+                **existing,
+                "candidate_frame": {
+                    "asset_id": candidates.get("frame_asset_id", ""),
+                    "timestamp_ms": int(candidates.get("timestamp_ms", 0)),
+                    "width": int(candidates.get("width", 0)),
+                    "height": int(candidates.get("height", 0)),
+                },
+                "players": list(candidates.get("players", [])),
+                "selection": existing.get("selection"),
+            }
+            session.commit()
+
+    def save_analysis_selection_and_queue(
+        self, job_id: str, selection: dict[str, Any]
+    ) -> AnalysisJob | None:
+        with self.session() as session:
+            record = session.get(AnalysisJobRecord, job_id)
+            if record is None:
+                raise KeyError(job_id)
+            if record.state != "needs_player_selection" or not record.analysis_setup:
+                return None
+            setup = dict(record.analysis_setup)
+            setup["selection"] = selection
+            record.analysis_setup = setup
+            record.state = "queued"
+            record.progress = max(record.progress, 32)
+            record.failure_code = None
+            session.add(
+                AnalysisEventRecord(
+                    job_id=job_id,
+                    state="queued",
+                    progress=record.progress,
+                    message="Player roles and court calibration accepted; analysis resumed.",
+                    created_at=utcnow(),
+                )
+            )
+            session.commit()
+            return self._job(record)
 
     def save_report(self, job_id: str, report: dict[str, Any]) -> None:
         with self.session() as session:

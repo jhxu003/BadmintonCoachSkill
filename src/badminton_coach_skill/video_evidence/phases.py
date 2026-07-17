@@ -18,6 +18,7 @@ SUPPORTED_ACTIONS = frozenset(
         "backhand",
         "serve_receive",
         "doubles",
+        "mixed_doubles",
         "match_transfer",
         "unknown",
     }

@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Evidence-grounded badminton coach skill and rule matcher."
 requires-python = ">=3.10"
 dependencies = [
+  "numpy>=1.24,<3.0",
   "PyYAML>=6.0",
   "jsonschema>=4.0",
   "fastapi>=0.115,<1.0",

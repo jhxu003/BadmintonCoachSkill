@@ -103,6 +103,51 @@ export interface CoachingReport {
   coach_references: CoachReference[];
   missing_evidence: string[];
   retake_guidance?: string;
+  participants?: {
+    learner_track_id: string;
+    partner_track_id: string;
+    opponent_track_ids: string[];
+    candidate_track_ids: string[];
+  };
+  multiplayer_evidence?: {
+    tracked_player_count: number;
+    shuttle_candidate_count: number;
+    player_tracks: Array<{ track_id: string; role: "learner" | "partner" | "opponent"; sample_count: number; mean_confidence: number }>;
+    contact_candidates: Array<{ candidate_id: string; start_ms: number; end_ms: number; anchor_ms: number; contact_time_ms: null; possible_track_ids: string[]; confidence: "low" | "medium" | "high"; limitations: string[] }>;
+    rallies: Array<{ rally_id: string; start_ms: number; end_ms: number; shuttle_candidate_ids: string[] }>;
+    limitations: string[];
+  };
+  rally_frames?: RallyFrame[];
+}
+
+export interface SetupPlayer {
+  track_id: string;
+  bbox: { x: number; y: number; width: number; height: number };
+  confidence: number;
+  visible_sample_count: number;
+}
+
+export interface MixedDoublesSetup {
+  analysis_id: string;
+  state: JobState;
+  candidate_frame: { asset_id: string; timestamp_ms: number; width: number; height: number; media_url?: string };
+  players: SetupPlayer[];
+  selection: null | {
+    learner_track_id: string;
+    partner_track_id: string;
+    court_corners: Record<string, { x: number; y: number }>;
+  };
+}
+
+export interface RallyFrame {
+  frame_id: string;
+  module: string;
+  timestamp_ms: number;
+  caption: string;
+  confidence: "low" | "medium" | "high";
+  visible_facts: string[];
+  limitations: string[];
+  media_url: string;
 }
 
 export interface JobEvent {
@@ -164,6 +209,26 @@ export async function deleteAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
   return authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}`, job, { method: "DELETE" });
 }
 
+export async function getMixedDoublesSetup(job: AnalysisJob): Promise<MixedDoublesSetup> {
+  return authorisedRequest<MixedDoublesSetup>(`/api/analyses/${job.analysis_id}/setup`, job);
+}
+
+export async function submitMixedDoublesSetup(
+  job: AnalysisJob,
+  payload: {
+    learner_track_id: string;
+    partner_track_id: string;
+    court_corners: Record<string, { x: number; y: number }>;
+  },
+): Promise<AnalysisJob> {
+  const updated = await authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}/setup`, job, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return { ...updated, access_token: accessToken(job) };
+}
+
 export function subscribeToJob(
   job: AnalysisJob,
   onEvent: (event: JobEvent) => void,
@@ -184,6 +249,10 @@ export function studentFrameUrl(job: AnalysisJob, frameId: string): string {
 
 export function studentSegmentUrl(job: AnalysisJob, segmentId: string): string {
   return mediaUrl(`/api/analyses/${job.analysis_id}/segments/${segmentId}`, job);
+}
+
+export function setupFrameUrl(path: string, job: AnalysisJob): string {
+  return mediaUrl(path, job);
 }
 
 export function coachReferenceUrl(url: string, job: AnalysisJob): string {

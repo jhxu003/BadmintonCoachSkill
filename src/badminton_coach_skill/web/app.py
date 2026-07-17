@@ -11,13 +11,15 @@ from uuid import uuid4
 from fastapi import FastAPI, File, Form, Header, HTTPException, UploadFile, WebSocket, WebSocketDisconnect, status
 from fastapi.responses import FileResponse
 
+from ..coach_registry import available_coaches
+from ..video_evidence.multiplayer import ParticipantSelection
 from .database import Database
 from .cleanup import cleanup_expired_jobs
 from .dispatch import AnalysisDispatcher, create_dispatcher
 from .jobs import create_analysis_job, delete_analysis_job
 from .media_store import LocalMediaStore
 from .models import AnalysisJob, MediaAsset
-from .schemas import AnalysisJobResponse, AnalysisReportResponse
+from .schemas import AnalysisJobResponse, AnalysisReportResponse, MixedDoublesSetupRequest
 from .settings import Settings
 
 
@@ -100,8 +102,13 @@ def create_app(
         action_hint: str | None = Form(None),
         player_profile: str = Form("{}"),
     ) -> AnalysisJobResponse:
-        if coach_id not in {"liu-hui", "li-yuxuan"}:
+        if coach_id not in set(available_coaches(runtime.project_root)):
             raise HTTPException(status_code=422, detail="Unsupported coach_id")
+        if coach_id == "zheng-siwei" and action_hint != "mixed_doubles":
+            raise HTTPException(
+                status_code=422,
+                detail="Zheng Siwei coaching currently requires action_hint=mixed_doubles",
+            )
         if not video.filename:
             raise HTTPException(status_code=422, detail="A video file is required")
         if not video.content_type or not video.content_type.startswith("video/"):
@@ -171,6 +178,98 @@ def create_app(
         if report is None:
             raise HTTPException(status_code=409, detail="Analysis report is not ready")
         return AnalysisReportResponse(report=report)
+
+    @app.get("/api/analyses/{analysis_id}/setup")
+    def get_mixed_doubles_setup(
+        analysis_id: str, x_analysis_token: str | None = Header(default=None)
+    ) -> dict[str, object]:
+        job = require_analysis_access(analysis_id, x_analysis_token)
+        if job.action_hint != "mixed_doubles":
+            raise HTTPException(status_code=409, detail="Analysis does not use mixed-doubles setup")
+        setup = database.get_analysis_setup(analysis_id)
+        if setup is None:
+            raise HTTPException(status_code=409, detail="Player candidates are not ready")
+        candidate_frame = dict(setup.get("candidate_frame", {}))
+        asset_id = str(candidate_frame.get("asset_id", ""))
+        if asset_id:
+            candidate_frame["media_url"] = (
+                f"/api/analyses/{analysis_id}/setup-frame/{asset_id}"
+            )
+        return {
+            "analysis_id": analysis_id,
+            "state": job.state,
+            "candidate_frame": candidate_frame,
+            "players": list(setup.get("players", [])),
+            "selection": setup.get("selection"),
+        }
+
+    @app.post(
+        "/api/analyses/{analysis_id}/setup",
+        response_model=AnalysisJobResponse,
+        status_code=status.HTTP_202_ACCEPTED,
+    )
+    def save_mixed_doubles_setup(
+        analysis_id: str,
+        request: MixedDoublesSetupRequest,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> AnalysisJobResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token)
+        if job.action_hint != "mixed_doubles":
+            raise HTTPException(status_code=409, detail="Analysis does not use mixed-doubles setup")
+        if job.state != "needs_player_selection":
+            raise HTTPException(status_code=409, detail="Player selection is not currently accepted")
+        setup = database.get_analysis_setup(analysis_id)
+        if not setup:
+            raise HTTPException(status_code=409, detail="Player candidates are not ready")
+        candidate_track_ids = [
+            str(player.get("track_id", ""))
+            for player in setup.get("players", [])
+            if isinstance(player, dict)
+        ]
+        try:
+            selection = ParticipantSelection.from_payload(
+                learner_track_id=request.learner_track_id,
+                partner_track_id=request.partner_track_id,
+                candidate_track_ids=candidate_track_ids,
+                court_corners=request.court_corners,
+            )
+        except ValueError as error:
+            raise HTTPException(status_code=422, detail=str(error)) from error
+        resumed = database.save_analysis_selection_and_queue(
+            analysis_id, selection.to_dict()
+        )
+        if resumed is None:
+            raise HTTPException(status_code=409, detail="Player selection could not be resumed")
+        try:
+            app.state.dispatcher.enqueue(analysis_id)
+        except Exception as error:
+            database.set_state(
+                analysis_id,
+                "failed",
+                resumed.progress,
+                "Analysis worker is unavailable. Please try again later.",
+                failure_code=type(error).__name__,
+            )
+            raise HTTPException(status_code=503, detail="Analysis worker is unavailable") from error
+        return _job_response(database.get_job(analysis_id))
+
+    @app.get("/api/analyses/{analysis_id}/setup-frame/{asset_id}")
+    def get_setup_frame(
+        analysis_id: str,
+        asset_id: str,
+        access_token: str | None = None,
+        x_analysis_token: str | None = Header(default=None),
+    ) -> FileResponse:
+        job = require_analysis_access(analysis_id, x_analysis_token or access_token)
+        if job.state in {"deleting", "expired"} or job.expires_at <= datetime.now(timezone.utc):
+            raise HTTPException(status_code=410, detail="Student media has expired")
+        asset = database.find_media_asset(analysis_id, asset_id)
+        if asset is None or asset.kind != "selection_frame":
+            raise HTTPException(status_code=404, detail="Setup frame not found")
+        target = media_store.resolve_key(asset.media_key)
+        if not target.is_file():
+            raise HTTPException(status_code=404, detail="Setup frame is unavailable")
+        return FileResponse(target, headers={"Cache-Control": "private, no-store"})
 
     @app.get("/api/analyses/{analysis_id}/frames/{asset_id}")
     def get_student_frame(

@@ -1,0 +1,94 @@
+- framework_id: zsw-serve-opening-plan
+  name: Serve plus third-shot plan
+  summary: Connect serve placement, partner readiness, expected reply, and the serving side's third shot instead of scoring the serve in isolation.
+  applicable_actions: [mixed_doubles, serve_receive]
+  training_goals: [serve_opening, first_three_shots]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.third_shot_role, equals: unclear, weight: 8}
+  priority: [zsw-serve-without-third-shot-plan, zsw-opening-role-unclear, zsw-slow-reset]
+  source_ids: [ZSW_BILI_BV11O4ZEPEPT, ZSW_BILI_BV1JCKPENEIW]
+  confidence: source_backed
+
+- framework_id: zsw-receive-opening-exchange
+  name: Receive route plus next exchange
+  summary: Judge a receive by whether it creates a playable second exchange for both partners, including rear-cover responses to a flick serve.
+  applicable_actions: [mixed_doubles, serve_receive]
+  training_goals: [receive_opening, first_three_shots]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.receive_result, equals: passive, weight: 8}
+    - {path: phase_observations.flick_response, equals: late, weight: 7}
+  priority: [zsw-passive-receive-route, zsw-flick-serve-cover-late, zsw-opening-role-unclear]
+  source_ids: [ZSW_BILI_BV11O4ZEPEPT, ZSW_BILI_BV1SATTEWEBS, ZSW_BILI_BV1J6BCEIEAG, ZSW_BILI_BV1JCKPENEIW]
+  confidence: source_backed
+
+- framework_id: zsw-frontcourt-pressure
+  name: Front-court pressure continuity
+  summary: Keep the front player connected to shuttle height, reply lane, partner attack, and the next intercept rather than treating the net shot as a finish.
+  applicable_actions: [mixed_doubles, front_footwork, drop]
+  training_goals: [frontcourt_pressure, attack_continuity]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {injury_risk: [knee_pain, ankle_pain]}
+  observation_triggers:
+    - {path: phase_observations.front_player_state, equals: watching, weight: 8}
+  priority: [zsw-front-player-disconnected, zsw-opening-role-unclear, zsw-slow-reset]
+  source_ids: [ZSW_BILI_BV1BPN8EMEL5, ZSW_BILI_BV1ZKBNZLEHR]
+  confidence: inferred
+
+- framework_id: zsw-rear-attack-continuity
+  name: Rear attack with an exit
+  summary: Select a rear-court attack that preserves landing, recovery, partner access, and the next attacking ball.
+  applicable_actions: [mixed_doubles, smash, drop, rear_footwork]
+  training_goals: [rear_attack, attack_continuity]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {injury_risk: [shoulder_pain, ankle_pain, knee_pain]}
+  observation_triggers:
+    - {path: phase_observations.rear_attack_next_shot, equals: unavailable, weight: 9}
+  priority: [zsw-rear-attack-no-continuation, zsw-same-lane-rotation-conflict, zsw-slow-reset]
+  source_ids: [ZSW_BILI_BV1VE1DYME52, ZSW_BILI_BV1ILCNYVEHW, ZSW_BILI_BV1ZKBNZLEHR]
+  confidence: source_backed
+
+- framework_id: zsw-pair-rotation-two-lanes
+  name: Pair rotation through two usable lanes
+  summary: Resolve same-lane crowding and unclear next-shot ownership before prescribing faster movement or harder hitting.
+  applicable_actions: [mixed_doubles, doubles]
+  training_goals: [mixed_doubles_rotation, partner_coordination]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.pair_rotation, equals: same_lane_conflict, weight: 12}
+    - {path: phase_observations.next_shot_role, equals: unclear, weight: 8}
+  priority: [zsw-same-lane-rotation-conflict, zsw-opening-role-unclear, zsw-front-player-disconnected, zsw-slow-reset]
+  source_ids: [ZSW_BILI_BV1SATTEWEBS, ZSW_BILI_BV1ZKBNZLEHR, ZSW_BILI_BV1BSBWZSEFS]
+  confidence: inferred
+
+- framework_id: zsw-defense-transition
+  name: Defense to neutral or attack transition
+  summary: Track whether the pair changes spacing and roles after creating time instead of remaining pinned in the previous defensive shape.
+  applicable_actions: [mixed_doubles, doubles, backhand]
+  training_goals: [defense_transition, counterattack]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: phase_observations.transition_after_lift, equals: absent, weight: 8}
+    - {path: phase_observations.defense_spacing, equals: collapsed, weight: 7}
+  priority: [zsw-defense-spacing-collapsed, zsw-no-transition-after-time-gained, zsw-slow-reset]
+  source_ids: [ZSW_BILI_BV1AURDY3EPT, ZSW_BILI_BV1TZHUZIEZQ, ZSW_BILI_BV1FXIJBKEZC]
+  confidence: inferred
+
+- framework_id: zsw-reset-match-transfer
+  name: Reset and match-transfer frame
+  summary: Require role-ready recovery and pressure retests so a clean drill pattern becomes usable in a rally.
+  applicable_actions: [mixed_doubles, doubles, serve_receive, smash, drop, backhand]
+  training_goals: [rally_reset, match_transfer]
+  suitable_for: {level: [beginner, intermediate, competitive]}
+  avoid_for: {}
+  observation_triggers:
+    - {path: footwork_observations.recovery, equals: late, weight: 8}
+    - {path: phase_observations.drill_form_ok_rally_breaks, equals: true, weight: 9}
+  priority: [zsw-slow-reset, zsw-drill-to-rally-breakdown, zsw-opening-role-unclear]
+  source_ids: [ZSW_BILI_BV1ILCNYVEHW, ZSW_BILI_BV1ZKBNZLEHR, ZSW_BILI_BV1TZHUZIEZQ]
+  confidence: inferred

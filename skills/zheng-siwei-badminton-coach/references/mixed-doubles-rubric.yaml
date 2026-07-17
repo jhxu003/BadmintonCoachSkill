@@ -1,0 +1,178 @@
+- rule_id: zsw-serve-without-third-shot-plan
+  issue: The serve is isolated from the pair's third-shot plan.
+  category: serve_opening
+  priority: 1
+  applicable_actions: [mixed_doubles, serve_receive]
+  required_observations: [phase_observations.third_shot_role]
+  observable_evidence:
+    - {path: phase_observations.third_shot_role, equals: unclear, label: The serving pair has no visible owner for the expected third shot.}
+  min_evidence_count: 1
+  likely_effect: [The server or partner hesitates after the return., The opening loses initiative without a technical serve error.]
+  correction_principle: Name the likely return lane and third-shot owner before serving.
+  drills: [zsw-serve-return-third-shot]
+  retest_metrics: [At least 8 of 10 serves produce a role-ready third shot without partner hesitation.]
+  source_ids: [ZSW_BILI_BV11O4ZEPEPT, ZSW_BILI_BV1JCKPENEIW]
+  confidence: inferred
+
+- rule_id: zsw-passive-receive-route
+  issue: The receive does not create an active next exchange.
+  category: receive_opening
+  priority: 1
+  applicable_actions: [mixed_doubles, serve_receive]
+  required_observations: [phase_observations.receive_result, phase_observations.next_shot_role]
+  observable_evidence:
+    - {path: phase_observations.receive_result, equals: passive, label: The receive leaves the pair immediately defending or reaching.}
+    - {path: phase_observations.next_shot_role, equals: unclear, label: Neither partner is visibly ready for the next exchange.}
+  min_evidence_count: 2
+  likely_effect: [The pair gives away the first attacking chance., Both players react after the opponent's next contact.]
+  correction_principle: Choose a receive route together with its second-exchange owner.
+  drills: [zsw-receive-two-exchange]
+  retest_metrics: [At least 7 of 10 receives leave one named partner balanced and racket-ready for the next exchange.]
+  source_ids: [ZSW_BILI_BV11O4ZEPEPT, ZSW_BILI_BV1SATTEWEBS, ZSW_BILI_BV1JCKPENEIW]
+  confidence: source_backed
+
+- rule_id: zsw-flick-serve-cover-late
+  issue: Rear cover starts after the flick serve has already created separation.
+  category: receive_opening
+  priority: 2
+  applicable_actions: [mixed_doubles, serve_receive]
+  required_observations: [phase_observations.flick_response]
+  observable_evidence:
+    - {path: phase_observations.flick_response, equals: late, label: The selected receiver begins rear cover only after the shuttle is already behind the ready position.}
+  min_evidence_count: 1
+  likely_effect: [The reply is contacted under pressure., The partner cannot form a stable next-shot shape.]
+  correction_principle: Preserve a ready split and name the first rear-cover route before the serve.
+  drills: [zsw-flick-serve-first-step]
+  retest_metrics: [Receiver reaches a balanced contact candidate on 8 of 10 randomized short/flick serves.]
+  source_ids: [ZSW_BILI_BV1J6BCEIEAG, ZSW_BILI_BV1AURDY3EPT]
+  confidence: source_backed
+
+- rule_id: zsw-front-player-disconnected
+  issue: The front player stops participating while the partner attacks.
+  category: frontcourt_pressure
+  priority: 1
+  applicable_actions: [mixed_doubles, doubles]
+  required_observations: [phase_observations.front_player_state]
+  observable_evidence:
+    - {path: phase_observations.front_player_state, equals: watching, label: The front player watches the rear attack instead of holding an intercept-ready lane.}
+  min_evidence_count: 1
+  likely_effect: [Blocks and loose replies are uncontested., The rear attacker must cover both the attack and the next neutral ball.]
+  correction_principle: Tie the front player's base and racket preparation to the partner's attack lane.
+  drills: [zsw-front-back-three-ball]
+  retest_metrics: [Front player is racket-ready before the opponent contact on 8 of 10 rear attacks.]
+  source_ids: [ZSW_BILI_BV1BPN8EMEL5, ZSW_BILI_BV1ZKBNZLEHR]
+  confidence: inferred
+
+- rule_id: zsw-rear-attack-no-continuation
+  issue: The rear attack removes the attacker's next-shot availability.
+  category: rear_attack
+  priority: 1
+  applicable_actions: [mixed_doubles, doubles, smash, drop]
+  required_observations: [phase_observations.rear_attack_next_shot, footwork_observations.recovery]
+  observable_evidence:
+    - {path: phase_observations.rear_attack_next_shot, equals: unavailable, label: The attacker cannot cover a plausible next rear or mid-court ball.}
+    - {path: footwork_observations.recovery, equals: late, label: Recovery is visibly late after the rear attack.}
+  min_evidence_count: 2
+  likely_effect: [A strong first attack still ends the pair's initiative., The partner is forced to leave the assigned pressure lane.]
+  correction_principle: Select attack and landing so the next ball remains playable.
+  drills: [zsw-rear-attack-exit]
+  retest_metrics: [Attacker reaches the named second rear/mid feed in at least 7 of 10 patterns.]
+  source_ids: [ZSW_BILI_BV1VE1DYME52, ZSW_BILI_BV1ILCNYVEHW, ZSW_BILI_BV1ZKBNZLEHR]
+  confidence: source_backed
+
+- rule_id: zsw-same-lane-rotation-conflict
+  issue: Both partners rotate into the same usable lane.
+  category: pair_rotation
+  priority: 1
+  applicable_actions: [mixed_doubles, doubles]
+  required_observations: [phase_observations.pair_rotation, phase_observations.next_shot_role]
+  observable_evidence:
+    - {path: phase_observations.pair_rotation, equals: same_lane_conflict, label: Learner and partner enter the same court lane during the role change.}
+    - {path: phase_observations.next_shot_role, equals: unclear, label: The next-shot owner remains unclear after the rotation.}
+  min_evidence_count: 2
+  likely_effect: [One lane becomes uncovered., Both partners slow down to avoid a collision or duplicate movement.]
+  correction_principle: Assign one exit lane and one pressure lane before adding speed.
+  drills: [zsw-two-lane-rotation-call]
+  retest_metrics: [Complete 8 of 10 two-shot rotations with two occupied lanes and one named next-shot owner.]
+  source_ids: [ZSW_BILI_BV1SATTEWEBS, ZSW_BILI_BV1ZKBNZLEHR, ZSW_BILI_BV1BSBWZSEFS]
+  confidence: inferred
+
+- rule_id: zsw-opening-role-unclear
+  issue: The next-shot role is not agreed by the pair.
+  category: partner_coordination
+  priority: 2
+  applicable_actions: [mixed_doubles, doubles, serve_receive]
+  required_observations: [phase_observations.next_shot_role]
+  observable_evidence:
+    - {path: phase_observations.next_shot_role, equals: unclear, label: Both partners hesitate or move toward the same next shot.}
+  min_evidence_count: 1
+  likely_effect: [The pair loses time even when court coverage is physically possible.]
+  correction_principle: Use one short call tied to the next-shot lane, not to player gender or a fixed front/back identity.
+  drills: [zsw-role-call-random-feed]
+  retest_metrics: [One audible/visible role call precedes movement on 9 of 10 randomized feeds.]
+  source_ids: [ZSW_BILI_BV1SATTEWEBS, ZSW_BILI_BV1JCKPENEIW, ZSW_BILI_BV1ZKBNZLEHR]
+  confidence: inferred
+
+- rule_id: zsw-defense-spacing-collapsed
+  issue: Defensive spacing collapses the pair's coverage and counterattack options.
+  category: defense_transition
+  priority: 1
+  applicable_actions: [mixed_doubles, doubles]
+  required_observations: [phase_observations.defense_spacing]
+  observable_evidence:
+    - {path: phase_observations.defense_spacing, equals: collapsed, label: Both partners are compressed into one defensive channel while another channel remains uncovered.}
+  min_evidence_count: 1
+  likely_effect: [The pair cannot absorb a direction change., A neutral block does not create a transition opportunity.]
+  correction_principle: Restore two reachable channels while keeping the middle seam explicitly owned.
+  drills: [zsw-defense-two-channel]
+  retest_metrics: [Pair covers 8 of 10 alternating attack directions without both entering one channel.]
+  source_ids: [ZSW_BILI_BV1AURDY3EPT, ZSW_BILI_BV1TZHUZIEZQ]
+  confidence: inferred
+
+- rule_id: zsw-no-transition-after-time-gained
+  issue: The pair stays in the old defensive shape after gaining time.
+  category: defense_transition
+  priority: 2
+  applicable_actions: [mixed_doubles, doubles, backhand]
+  required_observations: [phase_observations.transition_after_lift]
+  observable_evidence:
+    - {path: phase_observations.transition_after_lift, equals: absent, label: No player changes to a role-ready neutral or attacking position after a time-gaining reply.}
+  min_evidence_count: 1
+  likely_effect: [The opponent retains attack despite a neutralizing shot., The next ball again finds the pair late.]
+  correction_principle: Treat a time-gaining reply as a cue to rebuild lanes and next-shot ownership.
+  drills: [zsw-defense-neutral-attack-ladder]
+  retest_metrics: [A visible shape change occurs before opponent contact on 7 of 10 time-gaining replies.]
+  source_ids: [ZSW_BILI_BV1AURDY3EPT, ZSW_BILI_BV1TZHUZIEZQ, ZSW_BILI_BV1FXIJBKEZC]
+  confidence: source_backed
+
+- rule_id: zsw-slow-reset
+  issue: Recovery does not restore a role-ready pair shape.
+  category: reset
+  priority: 3
+  applicable_actions: [mixed_doubles, doubles, serve_receive, smash, drop, backhand]
+  required_observations: [footwork_observations.recovery]
+  observable_evidence:
+    - {path: footwork_observations.recovery, equals: late, label: Learner or partner is not role-ready before the next opponent contact.}
+  min_evidence_count: 1
+  likely_effect: [The same pressure repeats on the next shot., A technically successful stroke does not transfer into rally control.]
+  correction_principle: Finish each shot at the next role, not at the previous contact.
+  drills: [zsw-hit-call-reset]
+  retest_metrics: [Both players reach named next roles before opponent contact in 8 of 10 patterns.]
+  source_ids: [ZSW_BILI_BV1ILCNYVEHW, ZSW_BILI_BV1ZKBNZLEHR, ZSW_BILI_BV1TZHUZIEZQ]
+  confidence: inferred
+
+- rule_id: zsw-drill-to-rally-breakdown
+  issue: The pair pattern works in a fixed drill but disappears under rally uncertainty.
+  category: match_transfer
+  priority: 2
+  applicable_actions: [mixed_doubles, doubles]
+  required_observations: [phase_observations.drill_form_ok_rally_breaks]
+  observable_evidence:
+    - {path: phase_observations.drill_form_ok_rally_breaks, equals: true, label: The target spacing or role call is repeatable in a fixed feed but not in a rally.}
+  min_evidence_count: 1
+  likely_effect: [Training success overstates match readiness.]
+  correction_principle: Add one uncertainty at a time while preserving the same pair decision.
+  drills: [zsw-rally-transfer-ladder]
+  retest_metrics: [Target pair decision succeeds in at least 6 of 10 randomized rally starts.]
+  source_ids: [ZSW_BILI_BV1ZKBNZLEHR, ZSW_BILI_BV1S24Y1P7NM]
+  confidence: hypothesis

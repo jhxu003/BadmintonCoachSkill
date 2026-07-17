@@ -1,0 +1,230 @@
+evidence_run:
+  run_id: zsw_public_metadata_20260717
+  created_at: '2026-07-17'
+  scope: Public metadata and bounded mixed-doubles teaching synthesis; no published media or transcripts.
+  module_coverage:
+    serve_opening: tier_a_supported
+    receive_opening_exchange: tier_a_supported
+    frontcourt_pressure: tier_a_supported_with_pair_level_inference
+    rear_attack: tier_a_supported
+    rotation: tier_a_supported_with_reviewed_tier_b_gap
+    defense_transition: tier_a_supported_with_pair_level_inference
+    reset_match_transfer: tier_a_supported_with_tier_c_match_context_only
+  evidence_policy:
+    deterministic_rule: Direct structured learner evidence plus Tier A support, or a reviewed Tier A/B chain.
+    third_party_boundary: Tier C cannot independently create, strengthen, or settle a deterministic rule.
+    visual_boundary: Metadata and titles route review; they do not prove a visible action phase.
+    contact_boundary: Shuttle-racket contact remains a bounded candidate window with uncertainty.
+
+sources:
+  - source_id: ZSW_BILI_BV11O4ZEPEPT
+    title: 欢迎进入羽球思维第一期🏸接发球教学
+    source_tier: A
+    topic_tags: [mixed_doubles, serve_receive, receive, opening]
+    framework_ids: [zsw-serve-opening-plan, zsw-receive-opening-exchange]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports topic routing; content timestamps and action phases require separate review.
+
+  - source_id: ZSW_BILI_BV1SATTEWEBS
+    title: 欢迎来到羽球思维第二期🏸男生在左半场的几种接发球套路
+    source_tier: A
+    topic_tags: [mixed_doubles, serve_receive, receive, rotation, role_route]
+    framework_ids: [zsw-receive-opening-exchange, zsw-pair-rotation-two-lanes]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: [39.8]
+    visual_observation_refs:
+      - frame_id: zsw-bv1sattewebs-frame-039800
+        timestamp_seconds: 39.8
+        person_visible: true
+        racket_visibility: visible
+        racket_position: waist_to_shoulder
+        primary_subject_view: back
+        body_configuration: [arm_extended]
+        on_screen_text_present: true
+        visibility_limits: [still_frame_no_motion, exact_shuttle_contact_not_visible]
+        confidence: high
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports receive-route review; it does not establish a fixed gender role for every pair.
+
+  - source_id: ZSW_BILI_BV1J6BCEIEAG
+    title: 欢迎来到羽球思维第三期🏸防偷后场教学
+    source_tier: A
+    topic_tags: [mixed_doubles, serve_receive, rear_cover, opening]
+    framework_ids: [zsw-receive-opening-exchange]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports flick/rear-cover topic routing; exact first-step claims require reviewed frames.
+
+  - source_id: ZSW_BILI_BV1JCKPENEIW
+    title: 羽球思维四十三期🏸双打实用的接发球方法
+    source_tier: A
+    topic_tags: [mixed_doubles, serve_receive, receive, first_three_shots]
+    framework_ids: [zsw-serve-opening-plan, zsw-receive-opening-exchange]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports doubles receive topic routing; deterministic cues require learner evidence.
+
+  - source_id: ZSW_BILI_BV1BPN8EMEL5
+    title: 羽球思维第四十期🏸更简单学会贴网的吊球
+    source_tier: A
+    topic_tags: [mixed_doubles, drop, frontcourt_pressure, attack_building]
+    framework_ids: [zsw-frontcourt-pressure]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports shot-quality review; pair pressure continuity is a bounded synthesis, not a quoted claim.
+
+  - source_id: ZSW_BILI_BV1VE1DYME52
+    title: 欢迎来到羽球思维第八期🏸几种后场进攻方式
+    source_tier: A
+    topic_tags: [mixed_doubles, rear_attack, smash, drop, shot_choice]
+    framework_ids: [zsw-rear-attack-continuity]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports rear-attack option routing; exact selection rules require content and learner context.
+
+  - source_id: ZSW_BILI_BV1ILCNYVEHW
+    title: 羽球思维第三十二期🏸正手区后场突击步伐
+    source_tier: A
+    topic_tags: [mixed_doubles, rear_attack, rear_footwork, recovery]
+    framework_ids: [zsw-rear-attack-continuity, zsw-reset-match-transfer]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports rear attack-footwork review; ordinary footage cannot prove force or joint mechanics.
+
+  - source_id: ZSW_BILI_BV1ZKBNZLEHR
+    title: 羽球思维第七十三期🏸后场进攻下一拍无法连贯？
+    source_tier: A
+    topic_tags: [mixed_doubles, rear_attack, continuity, rotation, recovery]
+    framework_ids: [zsw-frontcourt-pressure, zsw-rear-attack-continuity, zsw-pair-rotation-two-lanes, zsw-reset-match-transfer]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: [199.8]
+    visual_observation_refs:
+      - frame_id: zsw-bv1zkbnzlehr-frame-199800
+        timestamp_seconds: 199.8
+        person_visible: true
+        racket_visibility: visible
+        racket_position: waist_to_shoulder
+        primary_subject_view: rear_diagonal
+        body_configuration: [arm_extended]
+        on_screen_text_present: true
+        visibility_limits: [still_frame_no_motion, exact_shuttle_contact_not_visible]
+        confidence: high
+    temporal_sequence_refs: []
+    confidence_boundary: Official title directly supports continuity as a review topic; pair-lane rules still require structured learner evidence.
+
+  - source_id: ZSW_BILI_BV1AURDY3EPT
+    title: 羽球思维第五十四期🏸被压后场来不及退怎么办？
+    source_tier: A
+    topic_tags: [mixed_doubles, rear_cover, defense_transition, recovery]
+    framework_ids: [zsw-defense-transition]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports defensive rear-transition review; the cause must be observed in the learner video.
+
+  - source_id: ZSW_BILI_BV1TZHUZIEZQ
+    title: 羽球思维第七十一期🏸被推压反手底线如何处理
+    source_tier: A
+    topic_tags: [mixed_doubles, backhand, defense_transition, reset]
+    framework_ids: [zsw-defense-transition, zsw-reset-match-transfer]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports backhand-corner transition review; no exact contact or racket-face claim is made.
+
+  - source_id: ZSW_BILI_BV1FXIJBKEZC
+    title: 羽球思维第九十二期 反手底线低手位过渡对角
+    source_tier: A
+    topic_tags: [mixed_doubles, backhand, defense_transition, reset, shot_choice]
+    framework_ids: [zsw-defense-transition]
+    evidence_levels: [official_public_metadata_reviewed]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Official title supports low-contact transition option review; route choice remains context dependent.
+
+  - source_id: ZSW_BILI_BV1BSBWZSEFS
+    title: 羽毛球双打到底应该怎么攻
+    source_tier: B
+    topic_tags: [doubles, rear_attack, rotation, continuity]
+    framework_ids: [zsw-pair-rotation-two-lanes]
+    evidence_levels: [institutional_public_metadata_candidate]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Instructor identity and relevant lesson windows must be reviewed before this source supports a rule.
+
+  - source_id: ZSW_BILI_BV18Y411E7Y3
+    title: 第4集｜打混双，男生怎么接发球更合理？
+    source_tier: B
+    topic_tags: [mixed_doubles, serve_receive, receive, opening]
+    framework_ids: [zsw-receive-opening-exchange]
+    evidence_levels: [third_party_public_metadata_candidate]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Requires content-level review and cannot independently create a deterministic rule.
+
+  - source_id: ZSW_BILI_BV1R24Y1M71B
+    title: '#混双球路剖析#混双教科书 雅思组合'
+    source_tier: C
+    topic_tags: [mixed_doubles, rotation, match_analysis]
+    framework_ids: [zsw-pair-rotation-two-lanes]
+    evidence_levels: [third_party_analysis_candidate]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Use for rally questions and visible-pattern candidates only; never as sole rule support.
+
+  - source_id: ZSW_BILI_BV1D6E96JEM2
+    title: 业余羽毛球混双防守+反击逻辑拆解
+    source_tier: C
+    topic_tags: [mixed_doubles, defense_transition, counterattack]
+    framework_ids: [zsw-defense-transition]
+    evidence_levels: [third_party_analysis_candidate]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Use for learner-route questions only; never as sole rule support.
+
+  - source_id: ZSW_BILI_BV1S24Y1P7NM
+    title: 【直播回放】苏迪曼杯决赛 郑思维/黄雅琼VS徐承宰/蔡侑玎
+    source_tier: C
+    topic_tags: [mixed_doubles, rally_context, match_transfer]
+    framework_ids: [zsw-reset-match-transfer]
+    evidence_levels: [match_footage_visible_candidate]
+    asr_timestamp_refs: []
+    visual_timestamp_refs: []
+    visual_observation_refs: []
+    temporal_sequence_refs: []
+    confidence_boundary: Match footage can show bounded positions and sequence candidates, not intent, causality, or a universal rule.

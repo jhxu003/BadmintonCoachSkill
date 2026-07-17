@@ -1,0 +1,120 @@
+- drill_id: zsw-serve-return-third-shot
+  name: Serve-return-third-shot call
+  target_issues: [zsw-serve-without-third-shot-plan]
+  steps:
+    - Name the serve target and the two most likely return lanes.
+    - Assign the server and partner one third-shot lane each.
+    - Play only three shots, then freeze and check both roles.
+    - Randomize the return after the base pattern is stable.
+  dosage: 5 rounds of 6 three-shot openings.
+  retest_metrics: [At least 8 of 10 serves produce a role-ready third shot without partner hesitation.]
+
+- drill_id: zsw-receive-two-exchange
+  name: Receive plus two-exchange route
+  target_issues: [zsw-passive-receive-route]
+  steps:
+    - Choose one short-serve receive route and name the partner's next lane.
+    - Play the receive and two following exchanges.
+    - Count only repetitions where both players remain balanced and available.
+    - Add one alternate serve direction after 70 percent success.
+  dosage: 6 sets of 8 receives.
+  retest_metrics: [At least 7 of 10 receives leave one named partner balanced and racket-ready for the next exchange.]
+
+- drill_id: zsw-flick-serve-first-step
+  name: Short-or-flick first-step read
+  target_issues: [zsw-flick-serve-cover-late]
+  steps:
+    - Start in the normal receive position with the full rear lane visible.
+    - Feeder randomizes short and flick serves without announcing the choice.
+    - Receiver uses one decision step and reaches a balanced contact candidate.
+    - Partner calls the uncovered lane and resets for the next exchange.
+  dosage: 5 sets of 10 randomized serves.
+  retest_metrics: [Receiver reaches a balanced contact candidate on 8 of 10 randomized short/flick serves.]
+
+- drill_id: zsw-front-back-three-ball
+  name: Front-back three-ball pressure
+  target_issues: [zsw-front-player-disconnected]
+  steps:
+    - Rear player attacks to a named lane.
+    - Front player holds racket-ready pressure for the block or loose reply.
+    - Feed a third ball behind or beside the front player to test partner access.
+    - Reset only after both players name their next roles.
+  dosage: 5 sets of 8 three-ball patterns.
+  retest_metrics: [Front player is racket-ready before the opponent contact on 8 of 10 rear attacks.]
+
+- drill_id: zsw-rear-attack-exit
+  name: Rear attack and exit route
+  target_issues: [zsw-rear-attack-no-continuation]
+  steps:
+    - Feed one rear attack ball and name the likely reply lane.
+    - Attacker lands and exits toward the named second ball.
+    - Partner protects the complementary pressure lane.
+    - Add attack speed only when both remain available.
+  dosage: 6 sets of 6 two-ball attacks.
+  retest_metrics: [Attacker reaches the named second rear/mid feed in at least 7 of 10 patterns.]
+
+- drill_id: zsw-two-lane-rotation-call
+  name: Two-lane rotation call
+  target_issues: [zsw-same-lane-rotation-conflict]
+  steps:
+    - Mark two usable exit lanes with floor-safe markers.
+    - Name the next-shot owner before the first feed.
+    - Learner and partner rotate through different lanes after contact.
+    - Freeze after the second shot and verify one pressure lane plus one cover lane.
+  dosage: 5 sets of 8 two-shot rotations, then 10 randomized feeds.
+  retest_metrics: [Complete 8 of 10 two-shot rotations with two occupied lanes and one named next-shot owner.]
+
+- drill_id: zsw-role-call-random-feed
+  name: Random-feed role call
+  target_issues: [zsw-opening-role-unclear]
+  steps:
+    - Use two short calls that name court lanes rather than fixed player identities.
+    - Feeder sends one of three possible next balls.
+    - The first player who reads the ball calls; the partner immediately fills the other lane.
+    - Stop repetitions with duplicate calls or silent movement.
+  dosage: 4 sets of 12 randomized feeds.
+  retest_metrics: [One audible or visible role call precedes movement on 9 of 10 randomized feeds.]
+
+- drill_id: zsw-defense-two-channel
+  name: Two-channel defense
+  target_issues: [zsw-defense-spacing-collapsed]
+  steps:
+    - Mark two reachable defensive channels and the middle seam.
+    - Feeder alternates body, straight, and cross attacks.
+    - Each defender protects one channel and calls any seam takeover.
+    - Count only replies that preserve access to the following ball.
+  dosage: 5 sets of 10 alternating attacks.
+  retest_metrics: [Pair covers 8 of 10 alternating attack directions without both entering one channel.]
+
+- drill_id: zsw-defense-neutral-attack-ladder
+  name: Defense-neutral-attack ladder
+  target_issues: [zsw-no-transition-after-time-gained]
+  steps:
+    - Begin with two defensive feeds.
+    - Feeder then sends a ball that permits a time-gaining block, drive, or lift.
+    - Pair rebuilds lanes before the next opponent contact.
+    - Add one counterattack only after the neutral shape is stable.
+  dosage: 5 rounds of 6 four-ball patterns.
+  retest_metrics: [A visible shape change occurs before opponent contact on 7 of 10 time-gaining replies.]
+
+- drill_id: zsw-hit-call-reset
+  name: Hit-call-reset
+  target_issues: [zsw-slow-reset]
+  steps:
+    - Player calls the intended next role immediately after contact.
+    - Partner confirms or calls the complementary lane.
+    - Both reach role-ready positions before the next feed.
+    - Randomize feed timing after the movement is repeatable.
+  dosage: 4 sets of 10 connected feeds.
+  retest_metrics: [Both players reach named next roles before opponent contact in 8 of 10 patterns.]
+
+- drill_id: zsw-rally-transfer-ladder
+  name: Mixed-doubles rally transfer ladder
+  target_issues: [zsw-drill-to-rally-breakdown]
+  steps:
+    - Repeat the corrected pair decision in a fixed three-shot pattern.
+    - Randomize only the return lane.
+    - Add a fifth shot and one attack/defense transition.
+    - Finish with short rallies that start from the original failure condition.
+  dosage: 3 rounds each of fixed, one-variable, five-shot, and short-rally stages.
+  retest_metrics: [Target pair decision succeeds in at least 6 of 10 randomized rally starts.]

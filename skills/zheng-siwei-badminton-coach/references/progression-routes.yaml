@@ -1,0 +1,20 @@
+- route_id: zsw-beginner-two-lanes
+  level: beginner
+  focus: Stabilize one learner identity, one partner identity, two usable lanes, and one next-shot call.
+  module_order: [serve_opening, receive_opening, rotation, reset]
+  progression_gate: Complete 8 of 10 fixed two-shot patterns without a same-lane conflict.
+  blocked_progression: Do not add jump load, deception, or opponent-specific rotations while roles remain unclear.
+
+- route_id: zsw-intermediate-connected-rally
+  level: intermediate
+  focus: Connect first-three-shot plans, front-back pressure, rear attack exits, and defense transitions.
+  module_order: [receive_opening, rear_attack, frontcourt_pressure, rotation, defense_transition, reset]
+  progression_gate: Preserve the named pair shape on 7 of 10 randomized five-shot patterns.
+  blocked_progression: Do not score isolated stroke quality when the pair loses the next exchange.
+
+- route_id: zsw-competitive-match-transfer
+  level: competitive
+  focus: Hold the same pair decisions under serve variation, opponent tendencies, disguise, tempo changes, and rally pressure.
+  module_order: [serve_opening, receive_opening, rotation, rear_attack, frontcourt_pressure, defense_transition, match_transfer]
+  progression_gate: Meet the module retest in two comparable rally sets against an resisting pair.
+  blocked_progression: Do not label a pattern match-ready from shadow movement, cooperative feeds, or one successful rally.
