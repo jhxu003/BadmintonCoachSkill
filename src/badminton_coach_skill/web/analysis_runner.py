@@ -452,7 +452,11 @@ def run_analysis_job(
             return stopped
         profile = database.get_player_profile(job.id)
         knowledge = load_coach_knowledge(job.coach_id, project_root)
-        catalog = catalog_loader(job.coach_id, project_root)
+        catalog = (
+            build_source_catalog(job.coach_id, project_root, knowledge=knowledge)
+            if catalog_loader is build_source_catalog
+            else catalog_loader(job.coach_id, project_root)
+        )
         deleted = _stop_if_media_was_deleted(database, media_store, job.id)
         if deleted is not None:
             return deleted

@@ -360,6 +360,35 @@ class Database:
             session.commit()
             return self._job(record)
 
+    def claim_demonstration_job(self, job_id: str) -> AnalysisJob | None:
+        """Atomically claim a queued coach-demonstration job."""
+        with self.session() as session:
+            claimed = session.execute(
+                update(AnalysisJobRecord)
+                .where(
+                    AnalysisJobRecord.id == job_id,
+                    AnalysisJobRecord.state.in_(("uploaded", "queued")),
+                    AnalysisJobRecord.expires_at > utcnow(),
+                )
+                .values(state="matching_references", progress=18, failure_code=None)
+            )
+            if claimed.rowcount != 1:
+                session.rollback()
+                return None
+            session.add(
+                AnalysisEventRecord(
+                    job_id=job_id,
+                    state="matching_references",
+                    progress=18,
+                    message="Selecting an action-compatible teaching route and same-phase references.",
+                    created_at=utcnow(),
+                )
+            )
+            record = session.get(AnalysisJobRecord, job_id)
+            assert record is not None
+            session.commit()
+            return self._job(record)
+
     def add_media_asset(self, asset: MediaAsset) -> None:
         with self.session() as session:
             session.add(
@@ -437,6 +466,8 @@ class Database:
                 window_end_ms=payload.get("window_end_ms"),
                 visible_facts=tuple(str(item) for item in payload.get("visible_facts", [])),
                 limitations=tuple(str(item) for item in payload.get("limitations", [])),
+                review_status=str(payload.get("review_status", "model_candidate")),  # type: ignore[arg-type]
+                teaching_use=str(payload.get("teaching_use", "")),
             )
 
     def job_has_coach_reference(self, job_id: str, reference_id: str) -> bool:

@@ -34,3 +34,22 @@ def load_coach_knowledge(coach_id: str, root: str | Path) -> dict[str, Any]:
     knowledge = load_skill_knowledge(project_root / str(coach["reference_path"]))
     knowledge["coach"] = coach
     return knowledge
+
+
+def available_coach_actions(coach_id: str, root: str | Path) -> list[str]:
+    """Read only the small framework index for request-time action validation."""
+    project_root = Path(root)
+    coach = load_coach_config(coach_id, project_root)
+    path = project_root / str(coach["reference_path"]) / "frameworks.yaml"
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"Invalid framework index: {path}")
+    return sorted(
+        {
+            str(action)
+            for framework in data
+            if isinstance(framework, dict)
+            for action in framework.get("applicable_actions", [])
+            if action
+        }
+    )

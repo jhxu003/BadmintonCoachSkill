@@ -6,8 +6,8 @@
 </p>
 
 <p align="center">
-  上传一段动作视频。看完整动作，而不是只看三个瞬间。<br>
-  证据不足就不下结论。获得教练对照、训练动作和复测标准。
+  先选择要学习的动作和阶段，无需先有学员视频。<br>
+  查看教练教学路线、公开视频关键帧与连续参考短片。
 </p>
 
 <p align="center">
@@ -31,7 +31,15 @@
 
 ---
 
-BadmintonCoachSkill 是羽毛球视频分析 Agent 的**教练知识层与证据层**。它不把视频模型的一句描述直接包装成建议，而是把可见动作、教练规则、公开来源、纠正练习和复测指标连接成一条可以检查的诊断路径。
+BadmintonCoachSkill 是羽毛球教学 Agent 的**教练知识层与证据层**。它可以独立解释一个动作、选择教学框架，并从已索引的教练公开视频时间点提取同阶段关键帧或短片；当未来接入学员观察时，再把可见动作、教练规则、公开来源、纠正练习和复测指标连接成可检查的诊断路径。
+
+```mermaid
+flowchart LR
+    Q["选择教练、动作与阶段"] --> F["匹配教学框架"]
+    F --> S["定位公开来源与时间点"]
+    S --> M["提取关键帧与参考短片"]
+    M --> T["动作原则、练习与证据边界"]
+```
 
 > **三帧负责定位，七阶段负责理解，Skill 负责诊断。** 任何阶段只要机位、动作连续性或画面可见性不足，系统就保留“不知道”，并告诉学员该怎么重拍。
 
@@ -231,7 +239,22 @@ cd BadmintonCoachSkill
 python3 -m pip install -e .
 ```
 
-运行李宇轩体系的后场高远球示例：
+不需要学员视频，查询刘辉体系的高远球架拍示范：
+
+```bash
+python3 examples/run_coach_demonstration.py \
+  --coach liu-hui \
+  --action high_clear \
+  --phase top_elbow \
+  --level beginner \
+  --training-goal racket_frame
+```
+
+默认只返回教学框架、来源和时间点。需要实际下载公开视频并抽取私有关键帧/短片时，在计算节点或媒体 worker 上增加 `--materialize`；完整源视频会在抽取后删除。
+
+示范报告区分 `agent_reviewed`、`model_candidate` 和 `timestamp_only`。已视觉复核的时间点优先展示；模型定位候选会明确标记“待复核”，不会包装成官方认证的标准动作。
+
+已有结构化学员观察时，再运行李宇轩体系的诊断示例：
 
 ```bash
 python3 examples/run_usage_case.py \

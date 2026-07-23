@@ -1,4 +1,4 @@
 interface:
   display_name: "Zheng Siwei Mixed Doubles Coach"
-  short_description: "Evidence-grounded mixed doubles diagnosis and training"
-  default_prompt: "Use $zheng-siwei-badminton-coach to diagnose this structured mixed-doubles observation and return one evidence-bounded correction, drill, and retest plan."
+  short_description: "Mixed-doubles teaching routes and demonstrations"
+  default_prompt: "Use $zheng-siwei-badminton-coach to explain a mixed-doubles route and return a same-phase public coach-video frame or clip with source boundaries."

@@ -4,6 +4,8 @@ from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from ..coach_registry import load_coach_config, load_coach_knowledge
 from ..source_index import read_source_index
 from ..video_evidence.contracts import CoachReference, Phase
@@ -36,6 +38,10 @@ def _reference(
     suffix: str,
     visible_facts: tuple[str, ...] = (),
     limitations: tuple[str, ...] = (),
+    confidence: str = "medium",
+    review_status: str = "model_candidate",
+    teaching_use: str = "",
+    actions: tuple[str, ...] | None = None,
 ) -> CoachReference:
     source_id = str(source["source_id"])
     return CoachReference(
@@ -45,8 +51,8 @@ def _reference(
         phase=phase,
         timestamp_ms=round(timestamp_seconds * 1000),
         source_url=source_row["url"],
-        confidence="high" if source.get("visual_observation_refs") else "medium",
-        actions=tuple(source.get("topic_tags", [])),
+        confidence=confidence,  # type: ignore[arg-type]
+        actions=actions if actions is not None else tuple(source.get("topic_tags", [])),
         framework_ids=tuple(source.get("framework_ids", [])),
         availability="indexed",
         title=source_row["title"],
@@ -54,14 +60,41 @@ def _reference(
         window_end_ms=None,
         visible_facts=visible_facts,
         limitations=limitations,
+        review_status=review_status,  # type: ignore[arg-type]
+        teaching_use=teaching_use,
     )
 
 
-def build_source_catalog(coach_id: str, root: str | Path) -> list[CoachReference]:
+def _reviewed_demonstrations(
+    root: Path, coach_id: str
+) -> dict[tuple[str, int], dict[str, Any]]:
+    config = load_coach_config(coach_id, root)
+    path = root / str(config["reference_path"]) / "reviewed-demonstrations.yaml"
+    if not path.is_file():
+        return {}
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    rows = payload.get("references", []) if isinstance(payload, dict) else []
+    return {
+        (str(row["source_id"]), round(float(row["timestamp_seconds"]) * 1000)): row
+        for row in rows
+        if isinstance(row, dict)
+        and row.get("source_id")
+        and row.get("timestamp_seconds") is not None
+    }
+
+
+def build_source_catalog(
+    coach_id: str,
+    root: str | Path,
+    knowledge: dict[str, Any] | None = None,
+) -> list[CoachReference]:
     """Build public-safe reference metadata without reading or writing media files."""
     project_root = Path(root)
     rows = _source_rows(project_root, coach_id)
-    evidence = load_coach_knowledge(coach_id, project_root).get("multimodal_evidence", {})
+    reviewed = _reviewed_demonstrations(project_root, coach_id)
+    evidence = (knowledge or load_coach_knowledge(coach_id, project_root)).get(
+        "multimodal_evidence", {}
+    )
     references: list[CoachReference] = []
     for source in evidence.get("sources", []):
         source_id = str(source.get("source_id", ""))
@@ -71,18 +104,43 @@ def build_source_catalog(coach_id: str, root: str | Path) -> list[CoachReference
         observations = source.get("visual_observation_refs", [])
         for index, observation in enumerate(observations):
             timestamp = float(observation.get("timestamp_seconds", 0))
-            body = tuple(str(item) for item in observation.get("body_configuration", []))
+            body = [str(item) for item in observation.get("body_configuration", [])]
+            if observation.get("person_visible"):
+                body.append("person_visible")
+            racket_position = str(observation.get("racket_position", ""))
+            if racket_position not in {"", "not_visible", "unclear"}:
+                body.extend(("racket_visible", f"racket_{racket_position}"))
+            view = str(observation.get("primary_subject_view", ""))
+            if view not in {"", "not_visible", "unclear"}:
+                body.append(f"view_{view}")
+            body.append(
+                "on_screen_text_present"
+                if observation.get("on_screen_text_present")
+                else "on_screen_text_absent"
+            )
             limitations = tuple(str(item) for item in observation.get("visibility_limits", []))
+            review = reviewed.get((source_id, round(timestamp * 1000)), {})
+            reviewed_facts = [str(item) for item in review.get("visible_facts", [])]
+            reviewed_limits = [str(item) for item in review.get("limitations", [])]
+            reviewed_action = str(review.get("action", "")).strip()
             references.append(
                 _reference(
                     coach_id,
                     source,
                     source_row,
                     timestamp,
-                    _phase_for_observation(observation),
+                    str(review.get("phase", _phase_for_observation(observation))),  # type: ignore[arg-type]
                     f"visual-{index}",
-                    visible_facts=body,
-                    limitations=limitations,
+                    visible_facts=tuple(dict.fromkeys((*body, *reviewed_facts))),
+                    limitations=tuple(dict.fromkeys((*limitations, *reviewed_limits))),
+                    confidence=(
+                        "high"
+                        if review.get("review_status") == "agent_reviewed"
+                        else str(observation.get("confidence", "medium"))
+                    ),
+                    review_status=str(review.get("review_status", "model_candidate")),
+                    teaching_use=str(review.get("teaching_use", "")),
+                    actions=(reviewed_action,) if reviewed_action else None,
                 )
             )
         if observations:
@@ -97,6 +155,7 @@ def build_source_catalog(coach_id: str, root: str | Path) -> list[CoachReference
                     "preparation",
                     f"timestamp-{index}",
                     limitations=("visual_details_not_available_in_public_safe_catalog",),
+                    review_status="timestamp_only",
                 )
             )
     return sorted(

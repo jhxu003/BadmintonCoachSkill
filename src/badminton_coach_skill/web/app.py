@@ -11,15 +11,20 @@ from uuid import uuid4
 from fastapi import FastAPI, File, Form, Header, HTTPException, UploadFile, WebSocket, WebSocketDisconnect, status
 from fastapi.responses import FileResponse
 
-from ..coach_registry import available_coaches
+from ..coach_registry import available_coach_actions, available_coaches
 from ..video_evidence.multiplayer import ParticipantSelection
 from .database import Database
 from .cleanup import cleanup_expired_jobs
 from .dispatch import AnalysisDispatcher, create_dispatcher
-from .jobs import create_analysis_job, delete_analysis_job
+from .jobs import create_analysis_job, create_demonstration_job, delete_analysis_job
 from .media_store import LocalMediaStore
 from .models import AnalysisJob, MediaAsset
-from .schemas import AnalysisJobResponse, AnalysisReportResponse, MixedDoublesSetupRequest
+from .schemas import (
+    AnalysisJobResponse,
+    AnalysisReportResponse,
+    CoachDemonstrationRequest,
+    MixedDoublesSetupRequest,
+)
 from .settings import Settings
 
 
@@ -152,6 +157,48 @@ def create_app(
                 failure_code=type(error).__name__,
             )
             raise HTTPException(status_code=503, detail="Analysis worker is unavailable") from error
+        return _job_response(replace(database.get_job(job.id), access_token=job.access_token))
+
+    @app.post(
+        "/api/demonstrations",
+        response_model=AnalysisJobResponse,
+        status_code=status.HTTP_202_ACCEPTED,
+    )
+    def create_demonstration(
+        request: CoachDemonstrationRequest,
+    ) -> AnalysisJobResponse:
+        if request.coach_id not in set(available_coaches(runtime.project_root)):
+            raise HTTPException(status_code=422, detail="Unsupported coach_id")
+        if request.action not in available_coach_actions(
+            request.coach_id, runtime.project_root
+        ):
+            raise HTTPException(status_code=422, detail="Unsupported action for coach")
+        if request.level not in {"beginner", "intermediate", "advanced", "competitive"}:
+            raise HTTPException(status_code=422, detail="Unsupported learner level")
+        job = create_demonstration_job(
+            database,
+            request.coach_id,
+            request.action,
+            {
+                "phase": request.phase,
+                "training_goal": request.training_goal,
+                "level": request.level,
+                "framework_id": request.framework_id,
+                "limit": request.limit,
+            },
+            ttl=runtime.analysis_ttl,
+        )
+        try:
+            app.state.dispatcher.enqueue(job.id)
+        except Exception as error:
+            database.set_state(
+                job.id,
+                "failed",
+                2,
+                "Demonstration worker is unavailable. Please try again later.",
+                failure_code=type(error).__name__,
+            )
+            raise HTTPException(status_code=503, detail="Demonstration worker is unavailable") from error
         return _job_response(replace(database.get_job(job.id), access_token=job.access_token))
 
     @app.get("/api/analyses/{analysis_id}", response_model=AnalysisJobResponse)

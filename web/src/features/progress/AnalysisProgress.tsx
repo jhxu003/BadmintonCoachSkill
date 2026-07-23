@@ -23,9 +23,10 @@ interface AnalysisProgressProps {
   onComplete: () => void;
   onNeedsSetup: () => void;
   onExpired: () => void;
+  variant?: "video" | "demonstration";
 }
 
-export function AnalysisProgress({ job, onComplete, onNeedsSetup, onExpired }: AnalysisProgressProps) {
+export function AnalysisProgress({ job, onComplete, onNeedsSetup, onExpired, variant = "video" }: AnalysisProgressProps) {
   const [current, setCurrent] = useState(job);
   const [message, setMessage] = useState("正在建立分析任务。");
 
@@ -49,5 +50,6 @@ export function AnalysisProgress({ job, onComplete, onNeedsSetup, onExpired }: A
   }, [job.analysis_id, onComplete, onNeedsSetup, onExpired]);
 
   const failed = current.state === "failed";
-  return <main className="progress-page"><section className="progress-card"><div className="progress-icon">{current.state === "completed" ? <CheckCircle2 /> : failed ? <CircleAlert /> : <LoaderCircle className="spin" />}</div><p className="eyebrow">视频证据分析</p><h1>{labels[current.state] ?? current.state}</h1><p>{message}</p><div className="progress-track"><span style={{ width: `${current.progress}%` }} /></div><div className="progress-meta"><span>{current.progress}%</span><span>媒体将在 {new Date(current.expires_at).toLocaleString("zh-CN")} 删除</span></div>{failed && <button className="primary-button" type="button" onClick={onExpired}>返回重新上传</button>}</section></main>;
+  const heading = variant === "demonstration" && current.state === "matching_references" ? "准备同阶段教练示范" : labels[current.state] ?? current.state;
+  return <main className="progress-page"><section className="progress-card"><div className="progress-icon">{current.state === "completed" ? <CheckCircle2 /> : failed ? <CircleAlert /> : <LoaderCircle className="spin" />}</div><p className="eyebrow">{variant === "demonstration" ? "教练示范 Skill" : "视频证据分析"}</p><h1>{heading}</h1><p>{message}</p><div className="progress-track"><span style={{ width: `${current.progress}%` }} /></div><div className="progress-meta"><span>{current.progress}%</span><span>访问权限将在 {new Date(current.expires_at).toLocaleString("zh-CN")} 过期</span></div>{failed && <button className="primary-button" type="button" onClick={onExpired}>{variant === "demonstration" ? "返回示范库" : "返回重新上传"}</button>}</section></main>;
 }

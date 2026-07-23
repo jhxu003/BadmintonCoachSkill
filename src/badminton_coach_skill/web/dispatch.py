@@ -5,6 +5,7 @@ from typing import Protocol
 
 from .analysis_runner import run_analysis_job
 from .database import Database
+from .demonstration_runner import run_demonstration_job
 from .media_store import LocalMediaStore
 from .settings import Settings
 from .video_pipeline import create_default_video_pipeline
@@ -28,6 +29,16 @@ class LocalAnalysisDispatcher:
     def _run(self, analysis_id: str) -> None:
         database = Database(self.settings.database_url)
         database.create_all()
+        profile = database.get_player_profile(analysis_id)
+        if profile.get("request_type") == "coach_demonstration":
+            run_demonstration_job(
+                database=database,
+                media_store=LocalMediaStore(self.settings.media_root),
+                project_root=self.settings.project_root,
+                job_id=analysis_id,
+                coach_media_root=self.settings.coach_media_root,
+            )
+            return
         run_analysis_job(
             database=database,
             media_store=LocalMediaStore(self.settings.media_root),

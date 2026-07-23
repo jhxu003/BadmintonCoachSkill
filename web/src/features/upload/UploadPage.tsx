@@ -5,9 +5,10 @@ import { createAnalysis, type AnalysisJob } from "../../api/client";
 
 interface UploadPageProps {
   onCreated: (job: AnalysisJob) => void;
+  onShowDemonstrations: () => void;
 }
 
-export function UploadPage({ onCreated }: UploadPageProps) {
+export function UploadPage({ onCreated, onShowDemonstrations }: UploadPageProps) {
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
   const [coach, setCoach] = useState("liu-hui");
@@ -50,6 +51,7 @@ export function UploadPage({ onCreated }: UploadPageProps) {
           <span><Video size={17} /> 保持全身与持拍侧可见</span>
           <span><FileVideo size={17} /> 后场动作建议使用侧后方机位</span>
         </div>
+        <button className="text-button" type="button" onClick={onShowDemonstrations}>暂时没有学员视频？先看教练动作示范</button>
       </section>
       <section className="upload-surface" aria-label="创建视频分析">
         <div className="form-title"><p className="eyebrow">新建分析</p><h2>上传学员视频</h2></div>

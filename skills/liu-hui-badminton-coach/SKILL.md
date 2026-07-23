@@ -1,32 +1,49 @@
 ---
 name: liu-hui-badminton-coach
-description: Use when turning structured badminton player profiles and video observations into evidence-grounded Liu Hui-inspired badminton diagnosis across high clear, smash, drop, drive, footwork, backhand, serve/receive, doubles, match transfer, and student-fit power frameworks.
+description: Use for evidence-grounded Liu Hui-inspired badminton teaching, including explaining correct action principles, selecting learner-fit frameworks, locating same-phase public coach-video demonstrations, extracting reference keyframes or clips, building drills and retests, or diagnosing structured player observations across high clear, smash, drop, drive, footwork, backhand, serve/receive, doubles, equipment, and match transfer. Teaching-demonstration requests do not require learner video.
 ---
 
 # Liu Hui Badminton Coach Skill
 
 This is a non-official, non-authorized research skill. 这是非官方研究 skill。It must not claim Liu Hui personally reviewed a video, certified an answer, or participated in this project.
 
+## Usage Modes
+
+Choose one mode before loading detailed references:
+
+1. **Teaching demonstration**: Accept an action, learning level, teaching goal, and desired phase. Return the appropriate framework, original teaching summary, public source and timestamp, and same-phase reference frame or clip when available. Do not require learner video or invent a learner problem.
+2. **Structured diagnosis**: Accept a player profile plus structured observations from a human or video agent. Rank one observable bottleneck and bind it to teaching, practice, and retest evidence.
+
+Always read `references/demonstration-contract.md` in teaching-demonstration mode.
+
 ## Required Inputs
 
-Use this skill only after a video agent or human annotator provides:
+For teaching demonstration, require:
+
+- `action`: the stroke, footwork, tactical, or equipment topic.
+- `phase`: preparation, start, arrival, top elbow, contact window, follow-through, or recovery.
+- Optional `level`, `training_goal`, or `framework_id` to select a narrower route.
+
+Do not request learner video when these inputs are sufficient.
+
+For structured diagnosis, use diagnosis mode only after a video agent or human annotator provides:
 
 - `player_profile`: level, physical constraints, coordination pattern, injury risk, and training goal.
 - `video_observation`: action, key phases, contact point, elbow height, wrist/elbow sequence, hip/shoulder sequence, racket-side structure, follow-through, footwork observations, missing observations, and keyframes.
 
-If raw video is the only input, ask for structured observations or state that video analysis must run first.
+If raw learner video is the only diagnostic input, ask for structured observations or state that video analysis must run first. This restriction does not apply to teaching-demonstration requests.
 
 ## Reference Loading
 
-Read the references needed for the action:
+Load references by mode and action:
 
-- Always read `references/report-contract.md`.
+- In teaching-demonstration mode, read `references/demonstration-contract.md`, `references/reviewed-demonstrations.yaml`, and `references/frameworks.yaml`. Prefer an `agent_reviewed` same-phase timepoint over a model-only candidate.
+- In structured-diagnosis mode, always read `references/report-contract.md` and `references/visual-evidence-contract.yaml`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
-- Read `references/multimodal-evidence-map.yaml` whenever a diagnosis or training choice is linked to the Liu Hui corpus. Use its source, timestamp, framework, evidence-level, and confidence-boundary fields as one chain.
-- Always read `references/visual-evidence-contract.yaml` before making a biomechanical or tactical judgment from video observations.
+- Read `references/multimodal-evidence-map.yaml` whenever a diagnosis, training choice, or demonstration is linked to the Liu Hui corpus. Use its source, timestamp, framework, evidence-level, and confidence-boundary fields as one chain.
 - Read `references/full-corpus-synthesis.yaml` when the user asks about Liu Hui system coverage, framework choice, or whether the skill reflects the expanded video corpus.
 - Read `references/reviewed-corpus-rules.yaml` before promoting a title-level or timestamp-review item into advice.
-- Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a training direction.
+- Read `references/liu-hui-system.md` and `references/frameworks.yaml` before choosing a diagnosis training direction.
 - Read `references/student-profiles.yaml` before deciding whether the player needs a beginner, chain-ready, mobility-limited, or match-transfer path.
 - Read `references/stroke-taxonomy.yaml` when the action is high clear, smash, drop, drive, net, backhand, serve/receive, or doubles.
 - Read `references/overhead-rubric.yaml` for high clear and smash.
@@ -77,6 +94,11 @@ The runtime framework library covers 67 selectable frameworks. Route diagnosis t
 11. Output the diagnosis in this order: main priority, evidence chain, why it matters, correction principle, drill, and retest metric.
 
 ## Output Rules
+
+- In teaching-demonstration mode, output the selected framework, action and phase, concise teaching principle, source id, timestamp, reference availability, visible facts, limitations, and original-platform jump link.
+- Treat a keyframe as posture navigation and a short clip as process context. Never present one frame as the whole correct technique.
+- Use only an action-compatible, same-phase reference. If no reliable reference exists, return `no_reliable_same_phase_demonstration_frame`; do not borrow another phase.
+- Label model-located public frames as demonstration references, not official certification or independent proof that every visible detail is correct.
 
 - Every diagnosis must include evidence tied to observations or keyframes.
 - Every training suggestion must include a retest metric.

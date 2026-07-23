@@ -54,6 +54,8 @@ export interface CoachReference {
   source_url?: string;
   source_jump_url?: string;
   title?: string;
+  review_status?: "agent_reviewed" | "model_candidate" | "timestamp_only";
+  teaching_use?: string;
 }
 
 export interface ActionPackageSegment {
@@ -118,6 +120,35 @@ export interface CoachingReport {
     limitations: string[];
   };
   rally_frames?: RallyFrame[];
+}
+
+export interface TeachingRoute {
+  framework_id: string;
+  name: string;
+  summary: string;
+  confidence: string;
+  applicable_actions: string[];
+  training_goals: string[];
+  source_ids: string[];
+}
+
+export interface CoachDemonstrationReport {
+  report_type: "coach_demonstration";
+  coach_id: string;
+  coach_name: string;
+  official_status: string;
+  notice: string;
+  query: {
+    coach_id: string;
+    action: string;
+    phase: string;
+    training_goal: string;
+    level: string;
+    framework_id: string;
+  };
+  teaching_routes: TeachingRoute[];
+  coach_references: CoachReference[];
+  limitations: string[];
 }
 
 export interface SetupPlayer {
@@ -195,6 +226,22 @@ export async function createAnalysis(form: FormData): Promise<AnalysisJob> {
   return request<AnalysisJob>("/api/analyses", { method: "POST", body: form });
 }
 
+export async function createDemonstration(payload: {
+  coach_id: string;
+  action: string;
+  phase: string;
+  training_goal?: string;
+  level?: string;
+  framework_id?: string;
+  limit?: number;
+}): Promise<AnalysisJob> {
+  return request<AnalysisJob>("/api/demonstrations", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function getAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
   const updated = await authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}`, job);
   return { ...updated, access_token: accessToken(job) };
@@ -202,6 +249,11 @@ export async function getAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
 
 export async function getReport(job: AnalysisJob): Promise<CoachingReport> {
   const response = await authorisedRequest<{ report: CoachingReport }>(`/api/analyses/${job.analysis_id}/report`, job);
+  return response.report;
+}
+
+export async function getDemonstrationReport(job: AnalysisJob): Promise<CoachDemonstrationReport> {
+  const response = await authorisedRequest<{ report: CoachDemonstrationReport }>(`/api/analyses/${job.analysis_id}/report`, job);
   return response.report;
 }
 

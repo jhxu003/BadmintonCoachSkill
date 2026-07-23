@@ -137,6 +137,8 @@ class CoachReference:
     window_end_ms: int | None = None
     visible_facts: tuple[str, ...] = ()
     limitations: tuple[str, ...] = ()
+    review_status: Literal["agent_reviewed", "model_candidate", "timestamp_only"] = "model_candidate"
+    teaching_use: str = ""
 
     def __post_init__(self) -> None:
         if not self.reference_id or not self.source_id or not self.coach_id:
@@ -149,6 +151,8 @@ class CoachReference:
             raise ValueError(f"Unsupported confidence: {self.confidence}")
         if self.availability not in {"indexed", "cached", "unavailable", "removed"}:
             raise ValueError(f"Unsupported availability: {self.availability}")
+        if self.review_status not in {"agent_reviewed", "model_candidate", "timestamp_only"}:
+            raise ValueError(f"Unsupported review status: {self.review_status}")
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -171,6 +175,8 @@ class CoachReference:
             "window_end_ms": self.window_end_ms,
             "visible_facts": list(self.visible_facts),
             "limitations": list(self.limitations),
+            "review_status": self.review_status,
+            "teaching_use": self.teaching_use,
         }
 
 

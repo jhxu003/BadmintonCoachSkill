@@ -5,6 +5,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from ..video_evidence.contracts import Phase
+
 
 class AnalysisJobResponse(BaseModel):
     analysis_id: str
@@ -32,3 +34,13 @@ class MixedDoublesSetupRequest(BaseModel):
     learner_track_id: str
     partner_track_id: str
     court_corners: dict[str, dict[str, float]]
+
+
+class CoachDemonstrationRequest(BaseModel):
+    coach_id: str
+    action: str
+    phase: Phase
+    training_goal: str = ""
+    level: str = "beginner"
+    framework_id: str = ""
+    limit: int = Field(default=2, ge=1, le=3)

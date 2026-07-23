@@ -1,0 +1,15 @@
+version: 1
+references:
+  - source_id: LH_BILI_SEASON_BV15E411Q713
+    timestamp_seconds: 196
+    action: high_clear
+    phase: top_elbow
+    review_status: agent_reviewed
+    teaching_use: Front-view static demonstration of the expanded racket-side frame with the racket arm raised above shoulder level.
+    visible_facts:
+      - coach_static_demonstration
+      - expanded_racket_side_frame
+    limitations:
+      - front_view_only
+      - on_screen_text_present
+      - still_frame_no_motion

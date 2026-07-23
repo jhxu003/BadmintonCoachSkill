@@ -1,17 +1,28 @@
 ---
 name: li-yuxuan-badminton-coach
-description: Use when turning structured badminton player profiles and video observations into evidence-grounded Li Yuxuan coaching diagnosis for high clear, smash, drop, drive, footwork, backhand, serve/receive, doubles, training progression, equipment fit, and load-aware practice.
+description: Use for evidence-grounded Li Yuxuan public-source badminton teaching, including explaining correct action progressions, selecting time-budget and learner-fit frameworks, locating same-phase coach-video demonstrations, extracting reference keyframes or clips, creating drills and retests, or diagnosing structured observations for high clear, smash, drop, drive, footwork, backhand, serve/receive, doubles, equipment, and load-aware practice. Teaching-demonstration requests do not require learner video.
 ---
 
 # Li Yuxuan Badminton Coach Skill
 
 This is a non-official public-source research synthesis. It provides an evidence-bounded diagnostic and training workflow informed by publicly accessible Li Yuxuan teaching material. It must not claim that Li Yuxuan reviewed, approved, endorsed, or personally delivered a diagnosis.
 
+## Usage Modes
+
+Choose one mode:
+
+1. **Teaching demonstration**: Accept an action, phase, level, and optional training goal. Select a teaching framework and return a same-phase public coach-video reference with source and timestamp when available. Do not infer a learner fault.
+2. **Structured diagnosis**: Accept a player profile and structured observation, resolve the time budget and visible bottleneck, then return one correction, drill, and retest.
+
+Always read `references/demonstration-contract.md` in teaching-demonstration mode.
+
 ## Required Inputs
 
-Use this Skill after a video agent or a human annotator has supplied a `player_profile` and a `video_observation` that includes the action, camera view, visible phases, contact proxy, preparation frame, release sequence proxy, footwork, recovery, missing observations, and keyframes.
+For teaching demonstration, require `action` and `phase`. Accept `level`, `training_goal`, or `framework_id` when supplied. Do not request learner video solely to show or explain the coach's action.
 
-When raw video is the only input, request structured observations or run a video-analysis agent first. Do not convert a title, an isolated still, or a model-generated description into a biomechanical fact.
+For structured diagnosis, use diagnosis mode after a video agent or a human annotator has supplied a `player_profile` and a `video_observation` that includes the action, camera view, visible phases, contact proxy, preparation frame, release sequence proxy, footwork, recovery, missing observations, and keyframes.
+
+When raw learner video is the only diagnostic input, request structured observations or run a video-analysis agent first. Do not convert a title, an isolated still, or a model-generated description into a biomechanical fact. This restriction does not block teaching-demonstration mode.
 
 ## Diagnostic Order
 
@@ -22,15 +33,16 @@ When raw video is the only input, request structured observations or run a video
 
 ## Reference Loading
 
-- Always read `references/report-contract.md`, `references/corpus-provenance.md`, and `references/visual-evidence-contract.yaml`.
-- Read `references/frameworks.yaml` before choosing the primary route and `references/student-profiles.yaml` before giving a progression path.
+- In teaching-demonstration mode, read `references/demonstration-contract.md` and `references/frameworks.yaml`. Read `references/multimodal-evidence-map.yaml` only when resolving a source, timestamp, or evidence level.
+- In structured-diagnosis mode, always read `references/report-contract.md`, `references/corpus-provenance.md`, and `references/visual-evidence-contract.yaml`.
+- Read `references/frameworks.yaml` before choosing the primary route and `references/student-profiles.yaml` before giving a diagnosis progression path.
 - Read `references/stroke-taxonomy.yaml` for action-specific diagnostic order.
 - Read `references/overhead-rubric.yaml` for high clear, smash, drop, top elbow, turn, release, or internal-rotation proxy questions.
 - Read `references/footwork-rubric.yaml` for starting, rear/front movement, ready-racket, landing, recovery, and match-transfer questions.
 - Read `references/serve-receive-rubric.yaml` for serve, receive, doubles roles, and the first two shots.
 - Read `references/safety-rubric.yaml` when pain, equipment, footwear, floor condition, or jump load appears.
 - Read `references/drills.yaml` and `references/training-plans.yaml` before writing practice.
-- Read `references/multimodal-evidence-map.yaml` whenever a report links a recommendation to the public corpus.
+- Read `references/multimodal-evidence-map.yaml` whenever a report links a recommendation or demonstration to the public corpus.
 - Use `asr_timestamp_reviewed_public_safe` for reviewed topic routing and timestamp lookup.
 - Use `asr_only_conceptual_public_safe` only for conceptual routing when no action-bearing visual review exists.
 - Use `visual_model_structured_candidate_public_safe` only for schema-validated visible still-frame conditions.
@@ -53,3 +65,5 @@ Its central diagnostic rule is that a visible late start or late arrival must be
 ## Report Requirements
 
 Every report must include the selected framework, ranked issue list, observable evidence, confidence and limitations, one correction principle per issue, one drill per issue, a measurable retest, safety notes, and a request for missing views where needed. Advice about pain must be conservative and must not substitute for medical assessment.
+
+For a teaching demonstration, return the selected framework, action and phase, teaching principle, source id, timestamp, frame or clip availability, visible facts, limitations, and original-platform link. Use only same-phase references. A still frame is posture navigation, not proof of complete motion; return `no_reliable_same_phase_demonstration_frame` instead of substituting another phase.

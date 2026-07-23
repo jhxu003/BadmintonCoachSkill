@@ -5,6 +5,7 @@ import os
 from .analysis_runner import run_analysis_job
 from .cleanup import cleanup_expired_jobs
 from .database import Database
+from .demonstration_runner import run_demonstration_job
 from .media_store import LocalMediaStore
 from .settings import Settings
 from .video_pipeline import create_default_video_pipeline
@@ -14,6 +15,16 @@ def execute_analysis(analysis_id: str) -> None:
     settings = Settings.from_env()
     database = Database(settings.database_url)
     database.create_all()
+    profile = database.get_player_profile(analysis_id)
+    if profile.get("request_type") == "coach_demonstration":
+        run_demonstration_job(
+            database=database,
+            media_store=LocalMediaStore(settings.media_root),
+            project_root=settings.project_root,
+            job_id=analysis_id,
+            coach_media_root=settings.coach_media_root,
+        )
+        return
     run_analysis_job(
         database=database,
         media_store=LocalMediaStore(settings.media_root),

@@ -33,6 +33,35 @@ def create_analysis_job(
     return replace(database.get_job(job.id), access_token=job.access_token)
 
 
+def create_demonstration_job(
+    database: Database,
+    coach_id: str,
+    action: str,
+    request: dict[str, object],
+    ttl: timedelta = timedelta(hours=24),
+) -> AnalysisJob:
+    created_at = utcnow()
+    job = AnalysisJob(
+        id=str(uuid4()),
+        coach_id=coach_id,
+        state="queued",
+        progress=2,
+        created_at=created_at,
+        expires_at=created_at + ttl,
+        action_hint=action,
+        access_token=token_urlsafe(32),
+    )
+    database.create_job(
+        job,
+        {"request_type": "coach_demonstration", "action": action, **request},
+        access_token=job.access_token or "",
+    )
+    database.set_state(
+        job.id, "queued", 2, "Coach demonstration request queued."
+    )
+    return replace(database.get_job(job.id), access_token=job.access_token)
+
+
 def expire_jobs(database: Database, media_store: LocalMediaStore, now: datetime | None = None) -> int:
     expiry_time = now or utcnow()
     expired = 0
