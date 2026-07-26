@@ -1168,6 +1168,178 @@ def command_gate(args: argparse.Namespace) -> None:
         )
 
 
+def extend_action_window(
+    action_start: float,
+    action_end: float,
+    duration: float,
+    focus_seconds: float,
+    lead_seconds: float,
+    post_seconds: float,
+) -> tuple[float, float]:
+    """Expand a review-only action interval without extending past the source.
+
+    The first pass deliberately uses short, motion-ranked windows so it does
+    not turn repeated drills into a montage.  A strong partial candidate can
+    still be clipped just before landing or recovery.  This helper grows that
+    *single* VLM-delimited action on both sides, with ``focus_seconds`` as a
+    ceiling rather than a target.  Forcing every episode to a long duration
+    pulled nearby speech back into otherwise useful demonstrations.  The
+    second Qwen gate must still reject a window that contains multiple
+    repetitions or explanation.
+    """
+    safe_end = max(0.0, duration - 0.35)
+    start = max(0.0, action_start - lead_seconds)
+    end = min(safe_end, action_end + post_seconds)
+    if end - start > focus_seconds:
+        # Preserve both sides of the original evidence where possible, but
+        # never expand a long VLM interval into a multi-repetition montage.
+        center = (action_start + action_end) / 2
+        start = max(0.0, center - focus_seconds / 2)
+        end = min(safe_end, start + focus_seconds)
+        start = max(0.0, end - focus_seconds)
+    return round(start, 4), round(end, 4)
+
+
+def command_refine(args: argparse.Namespace) -> None:
+    """Create wider, review-only candidates from strong partial demonstrations.
+
+    This is intentionally a separate batch root.  The first pass remains an
+    immutable audit record, while the continuity pass has its own frames,
+    sheets and gate results.  Nothing created here is publishable until the
+    existing strict gate and an explicit human decision both succeed.
+    """
+    manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    rows = selected_rows(manifest, args)
+    for video_number, video in enumerate(rows, start=1):
+        source_root = video_root(args.source_batch_root, video)
+        source_candidates_path = source_root / "candidates.json"
+        source_results_path = source_root / "gate-results.jsonl"
+        target_root = video_root(args.batch_root, video)
+        target_candidates_path = target_root / "candidates.json"
+        if target_candidates_path.is_file() and not args.force:
+            print("REFINE_SKIP", video["job_id"], flush=True)
+            continue
+        if not source_candidates_path.is_file() or not source_results_path.is_file():
+            print("REFINE_SKIP_SOURCE_MISSING", video["job_id"], flush=True)
+            continue
+        try:
+            set_status(target_root, "refine", "running")
+            source_document = json.loads(source_candidates_path.read_text(encoding="utf-8"))
+            source_record_path = source_root / "source.json"
+            if not source_record_path.is_file():
+                raise RuntimeError("source_record_missing")
+            source_record = json.loads(source_record_path.read_text(encoding="utf-8"))
+            source = Path(str(source_record.get("path", "")))
+            if not source.is_file() or source.stat().st_size <= 0:
+                raise RuntimeError(f"prepared_source_missing:{source}")
+            duration = float(source_record.get("duration_seconds", video["duration_seconds"]))
+            candidate_map = {
+                row["candidate_id"]: row for row in source_document["candidates"]
+            }
+            source_results = [
+                json.loads(line)
+                for line in source_results_path.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            ]
+            selected: list[tuple[dict[str, Any], dict[str, Any]]] = []
+            for result in source_results:
+                candidate = candidate_map.get(str(result.get("candidate_id", "")))
+                payload = result.get("payload")
+                if not candidate or not isinstance(payload, dict):
+                    continue
+                payload = normalize_gate_consistency(dict(payload))
+                if review_candidate(candidate, payload):
+                    selected.append((candidate, payload))
+            selected.sort(key=lambda item: (float(item[0]["start_seconds"]), item[0]["candidate_id"]))
+            refined: list[dict[str, Any]] = []
+            for index, (source_candidate, payload) in enumerate(selected, start=1):
+                action_start, action_end = action_interval(source_candidate, payload)
+                start, end = extend_action_window(
+                    action_start,
+                    action_end,
+                    duration,
+                    args.focus_seconds,
+                    args.lead_seconds,
+                    args.post_seconds,
+                )
+                if end - start < args.minimum_seconds:
+                    continue
+                candidate = dict(source_candidate)
+                candidate_id = f"continuity-{index:03d}"
+                candidate.update(
+                    {
+                        "candidate_id": candidate_id,
+                        "start_seconds": start,
+                        "end_seconds": end,
+                        "candidate_basis": "wider_context_from_review_candidate",
+                        "refined_from_candidate_id": source_candidate["candidate_id"],
+                        "first_pass_action_start_seconds": action_start,
+                        "first_pass_action_end_seconds": action_end,
+                        "first_pass_scope_limitations": payload["scope_limitations"],
+                    }
+                )
+                timestamps = sample_timestamps(start, end, args.frames_per_candidate)
+                frame_paths: list[Path] = []
+                actual_timestamps: list[float] = []
+                for frame_index, timestamp in enumerate(timestamps, start=1):
+                    frame = (
+                        target_root
+                        / "candidate-frames"
+                        / candidate_id
+                        / f"frame-{frame_index:02d}-{timestamp:.3f}.jpg"
+                    )
+                    actual_timestamps.append(
+                        extract_frame(source, args.ffmpeg, timestamp, frame)
+                    )
+                    frame_paths.append(frame)
+                sheet = target_root / "candidate-sheets" / f"{candidate_id}.jpg"
+                contact_sheet(frame_paths, actual_timestamps, sheet)
+                candidate["timestamps"] = [round(value, 6) for value in actual_timestamps]
+                candidate["frame_paths"] = [
+                    str(path.relative_to(target_root)) for path in frame_paths
+                ]
+                candidate["contact_sheet"] = str(sheet.relative_to(target_root))
+                refined.append(candidate)
+            atomic_json(target_root / "source.json", source_record)
+            atomic_json(
+                target_candidates_path,
+                {
+                    "video": video,
+                    "semantic_inventory": source_document["semantic_inventory"],
+                    "candidate_count": len(refined),
+                    "candidates": refined,
+                    "continuity_review": {
+                        "source_batch_root": str(args.source_batch_root),
+                        "focus_seconds": args.focus_seconds,
+                        "lead_seconds": args.lead_seconds,
+                        "post_seconds": args.post_seconds,
+                    },
+                },
+            )
+            set_status(
+                target_root,
+                "refine",
+                "succeeded",
+                candidate_count=len(refined),
+            )
+            print(
+                "REFINE_DONE",
+                video_number,
+                len(rows),
+                video["job_id"],
+                len(refined),
+                flush=True,
+            )
+        except Exception as error:
+            set_status(
+                target_root,
+                "refine",
+                "failed",
+                error=f"{type(error).__name__}:{error}",
+            )
+            print("REFINE_FAILED", video["job_id"], repr(error), flush=True)
+
+
 def overlap(left: tuple[float, float], right: tuple[float, float]) -> float:
     return max(0.0, min(left[1], right[1]) - max(left[0], right[0]))
 
@@ -1585,6 +1757,38 @@ def parser() -> argparse.ArgumentParser:
     gate.add_argument("--model", type=Path, required=True)
     gate.add_argument("--max-new-tokens", type=int, default=384)
     gate.set_defaults(func=command_gate)
+
+    refine = commands.add_parser("refine")
+    batch_arguments(refine)
+    refine.add_argument(
+        "--source-batch-root",
+        type=Path,
+        required=True,
+        help="completed first-pass batch whose review candidates seed this pass",
+    )
+    refine.add_argument("--ffmpeg", type=Path, required=True)
+    refine.add_argument(
+        "--focus-seconds",
+        type=float,
+        default=8.0,
+        help="maximum wider context supplied to the continuity gate",
+    )
+    refine.add_argument(
+        "--lead-seconds",
+        type=float,
+        default=1.8,
+        help="context added before the first-pass action interval",
+    )
+    refine.add_argument(
+        "--post-seconds",
+        type=float,
+        default=2.4,
+        help="context added after the first-pass action interval",
+    )
+    refine.add_argument("--minimum-seconds", type=float, default=1.2)
+    refine.add_argument("--frames-per-candidate", type=int, default=17)
+    refine.add_argument("--force", action="store_true")
+    refine.set_defaults(func=command_refine)
 
     materialize = commands.add_parser("materialize")
     batch_arguments(materialize)
