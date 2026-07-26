@@ -1005,6 +1005,18 @@ def materializable(
     )
 
 
+def is_review_context_episode(candidate: dict[str, Any], payload: dict[str, Any]) -> bool:
+    """Return whether an artifact is context for a reviewer, not a lesson.
+
+    A partial demonstration can be useful evidence when a human needs to see
+    the lead-in and attempted recovery.  It is nevertheless not a sequence of
+    confirmed teaching stages, even if a previous model selected several
+    frame indices from it.  Keeping this distinction in the exported artifact
+    prevents a review preview from being mistaken for a publishable lesson.
+    """
+    return review_candidate(candidate, payload) and not admitted(candidate, payload)
+
+
 def command_gate(args: argparse.Namespace) -> None:
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     rows = selected_rows(manifest, args)
@@ -1412,9 +1424,15 @@ def render_video_preview(root: Path, video: dict[str, Any], inventory: list[dict
                 review_label = (
                     "自动门控通过的完整示范候选，仍需抽样人工复核。"
                     if episode["automatic_admission"]
-                    else "不完整示范候选，仅供人工审核；不会自动发布到 Skill。"
+                    else "不完整示范的连续上下文，仅供人工核查；它不是教学阶段，不能发布到 Skill。"
                 )
-                episodes.append(f'<article><h3>{html.escape(episode["episode_id"])}</h3><p>{html.escape(review_label)}</p><p>动作 {episode["action_start_seconds"]:.3f}–{episode["action_end_seconds"]:.3f}s；播放 {episode["clip_start_seconds"]:.3f}–{episode["clip_end_seconds"]:.3f}s</p><video controls preload="metadata" src="{html.escape(episode["clip"])}"></video><div class="grid">{cards}</div></article>')
+                timing = (
+                    f'模型动作定位 {episode["model_action_start_seconds"]:.3f}–{episode["model_action_end_seconds"]:.3f}s；'
+                    f'审核上下文／播放 {episode["clip_start_seconds"]:.3f}–{episode["clip_end_seconds"]:.3f}s'
+                    if episode.get("review_context_only")
+                    else f'动作 {episode["action_start_seconds"]:.3f}–{episode["action_end_seconds"]:.3f}s；播放 {episode["clip_start_seconds"]:.3f}–{episode["clip_end_seconds"]:.3f}s'
+                )
+                episodes.append(f'<article><h3>{html.escape(episode["episode_id"])}</h3><p>{html.escape(review_label)}</p><p>{html.escape(timing)}</p><video controls preload="metadata" src="{html.escape(episode["clip"])}"></video><div class="grid">{cards}</div></article>')
             sections.append(f'<section><h2>{html.escape(package["label_zh"])} · {html.escape(package["action"])}</h2><p>{html.escape(package["teaching_summary_zh"])}</p>{"".join(episodes) or "<p>no_reliable_action_episode</p>"}</section>')
     document = f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(video["title"])}</title><style>body{{font:15px/1.55 system-ui;max-width:1500px;margin:24px auto;padding:0 16px;background:#07111f;color:#edf5ff}}section,article{{background:#102038;border:1px solid #29405d;border-radius:14px;padding:18px;margin:18px 0}}video{{display:block;width:min(420px,100%);max-height:650px;margin:12px auto;background:#000}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}}figure{{margin:0;background:#091625;border-radius:10px;overflow:hidden}}img{{width:100%;aspect-ratio:9/16;object-fit:cover}}figcaption{{padding:10px}}small{{color:#9bb0c8}}</style></head><body><h1>{html.escape(video["title"])}</h1><p>{html.escape(video["source_id"])}</p>{"".join(sections)}</body></html>'''
     (root / "preview.html").write_text(document, encoding="utf-8")
@@ -1444,7 +1462,17 @@ def command_materialize(args: argparse.Namespace) -> None:
                     candidate, payload, args.include_review_candidates
                 ):
                     continue
-                start, end = action_interval(candidate, payload)
+                review_context_only = is_review_context_episode(candidate, payload)
+                action_start, action_end = action_interval(candidate, payload)
+                # A partial candidate is deliberately preserved as one wider
+                # timeline for human review.  Cropping it back to the model's
+                # already-incomplete action interval hid the exact lead-in or
+                # follow-through needed to decide whether it is a real demo.
+                start, end = (
+                    (float(candidate["start_seconds"]), float(candidate["end_seconds"]))
+                    if review_context_only
+                    else (action_start, action_end)
+                )
                 if end - start < 0.65:
                     continue
                 for technique in candidate.get("techniques") or [candidate]:
@@ -1452,6 +1480,9 @@ def command_materialize(args: argparse.Namespace) -> None:
                         "candidate": candidate,
                         "technique": technique,
                         "payload": payload,
+                        "review_context_only": review_context_only,
+                        "model_action_start_seconds": action_start,
+                        "model_action_end_seconds": action_end,
                         "action_start_seconds": start,
                         "action_end_seconds": end,
                         "action_duration_seconds": round(end - start, 4),
@@ -1479,10 +1510,16 @@ def command_materialize(args: argparse.Namespace) -> None:
                 source_record.get("duration_seconds", video["duration_seconds"])
             )
             for index, episode in enumerate(ordered):
-                next_start = next((later["action_start_seconds"] for later in ordered[index+1:] if later["action_start_seconds"] > episode["action_end_seconds"]), None)
-                latest = prepared_duration if next_start is None else max(episode["action_end_seconds"], next_start - 0.25)
                 episode["clip_start_seconds"] = episode["action_start_seconds"]
-                episode["clip_end_seconds"] = round(min(episode["action_end_seconds"] + args.post_roll_seconds, latest), 4)
+                if episode["review_context_only"]:
+                    # The r3 candidate itself already includes bounded lead
+                    # and post context.  Do not trim it or add unrelated
+                    # lecture footage after it.
+                    episode["clip_end_seconds"] = episode["action_end_seconds"]
+                else:
+                    next_start = next((later["action_start_seconds"] for later in ordered[index+1:] if later["action_start_seconds"] > episode["action_end_seconds"]), None)
+                    latest = prepared_duration if next_start is None else max(episode["action_end_seconds"], next_start - 0.25)
+                    episode["clip_end_seconds"] = round(min(episode["action_end_seconds"] + args.post_roll_seconds, latest), 4)
                 episode["clip_duration_seconds"] = round(episode["clip_end_seconds"] - episode["clip_start_seconds"], 4)
             source_cache = args.source_cache or args.batch_root / "sources"
             source = Path(str(source_record.get("path") or source_cache / f"{video['job_id']}.mp4"))
@@ -1507,11 +1544,23 @@ def command_materialize(args: argparse.Namespace) -> None:
                     frames: list[dict[str, Any]] = []
                     stage_frame_paths: list[Path] = []
                     step = (timestamps[-1] - timestamps[0]) / max(1, len(timestamps)-1)
-                    for frame_index, ((stage_id, phase, label), timestamp) in enumerate(zip(PHASES, timestamps), start=1):
+                    phase_rows = (
+                        PHASES
+                        if not episode["review_context_only"]
+                        else [
+                            (
+                                f"review_context_{index:02d}",
+                                "review_context",
+                                f"审阅上下文 {index:02d}",
+                            )
+                            for index in range(1, len(timestamps) + 1)
+                        ]
+                    )
+                    for frame_index, ((stage_id, phase, label), timestamp) in enumerate(zip(phase_rows, timestamps), start=1):
                         frame = episode_root / "frames" / f"stage-{frame_index:02d}-{stage_id}.jpg"
                         extract_frame(source, args.ffmpeg, timestamp, frame)
                         stage_frame_paths.append(frame)
-                        frames.append({"frame_index": frame_index, "stage_id": stage_id, "phase": phase, "label_zh": label, "start_seconds": round(max(episode["action_start_seconds"], timestamp-step*0.45),4), "anchor_seconds": round(timestamp,4), "end_seconds": round(min(episode["action_end_seconds"], timestamp+step*0.45),4), "image": str(frame.relative_to(root)), "teaching_point_zh": stage_tip(route["family_id"], stage_id), "evidence_boundary_zh": "仅描述普通单目视频中这一时刻可见的二维姿态和动作路线；不能确认精确触球、拍面角度、真实内旋、握拍压力、力量大小或三维运动学。"})
+                        frames.append({"frame_index": frame_index, "stage_id": stage_id, "phase": phase, "label_zh": label, "start_seconds": round(max(episode["action_start_seconds"], timestamp-step*0.45),4), "anchor_seconds": round(timestamp,4), "end_seconds": round(min(episode["action_end_seconds"], timestamp+step*0.45),4), "image": str(frame.relative_to(root)), "teaching_point_zh": ("整段上下文仅供人工确认准备、主动作和随挥／回收是否连续可见；这不是已确认的教学阶段。" if episode["review_context_only"] else stage_tip(route["family_id"], stage_id)), "evidence_boundary_zh": ("模型仍判定为不完整示范；不得把这张图用作正式动作教学，也不能确认精确触球、拍面角度、真实内旋、握拍压力、力量大小或三维运动学。" if episode["review_context_only"] else "仅描述普通单目视频中这一时刻可见的二维姿态和动作路线；不能确认精确触球、拍面角度、真实内旋、握拍压力、力量大小或三维运动学。")})
                     contact_sheet(
                         stage_frame_paths,
                         timestamps,
@@ -1538,6 +1587,19 @@ def command_materialize(args: argparse.Namespace) -> None:
                         "action_repetitions": episode["payload"]["action_repetitions"],
                         "visible_stage_coverage": episode["payload"]["visible_stage_coverage"],
                         "score": episode["score"],
+                        "artifact_role": (
+                            "review_context"
+                            if episode["review_context_only"]
+                            else "candidate_teaching_episode"
+                        ),
+                        "review_context_only": episode["review_context_only"],
+                        "stage_frame_semantics": (
+                            "review_context_not_confirmed_stage"
+                            if episode["review_context_only"]
+                            else "candidate_stage_sequence"
+                        ),
+                        "model_action_start_seconds": episode["model_action_start_seconds"],
+                        "model_action_end_seconds": episode["model_action_end_seconds"],
                         "action_start_seconds": episode["action_start_seconds"],
                         "action_end_seconds": episode["action_end_seconds"],
                         "action_duration_seconds": episode["action_duration_seconds"],
@@ -1557,7 +1619,7 @@ def command_materialize(args: argparse.Namespace) -> None:
                         "scope_limitations": episode["payload"]["scope_limitations"],
                     })
                 packages.append(package)
-            lesson = {"artifact_version": 2, "video": video, "semantic_inventory": document["semantic_inventory"], "techniques": packages, "scope_boundary_zh": "普通单目视频只能支持可见二维动作路线；证据不足时返回不知道或建议补充示范。"}
+            lesson = {"artifact_version": 3, "video": video, "semantic_inventory": document["semantic_inventory"], "techniques": packages, "scope_boundary_zh": "普通单目视频只能支持可见二维动作路线；证据不足时返回不知道或建议补充示范。", "review_context_boundary_zh": "review_context 只用于人工检查一段连续上下文，不是教学阶段，也不能通过人工决定直接发布；正式发布必须来自自动门控通过的完整连续示范。"}
             atomic_json(root / "lesson-package.json", lesson)
             render_video_preview(root, video, document["semantic_inventory"], packages)
             set_status(root, "materialize", "succeeded", technique_count=len(packages), episode_count=sum(len(row["episodes"]) for row in packages))
@@ -1685,12 +1747,20 @@ def command_publish(args: argparse.Namespace) -> None:
         lesson_id = f"{video['job_id']}-{technique['action']}-{episode['candidate_id']}"
         complete = (
             episode["classification"] == "continuous_demonstration"
+            and episode.get("automatic_admission") is True
+            and episode.get("review_context_only") is not True
+            and episode.get("semantic_assignment_status") == "resolved"
             and episode.get("action_repetitions") == 1
             and len(episode.get("visible_stage_coverage", [])) >= 4
             and not {"no_full_action", "incomplete_sequence"}.intersection(
                 episode.get("scope_limitations", [])
             )
         )
+        if not complete:
+            raise RuntimeError(
+                "decision_not_publishable:"
+                f"{video['job_id']}:{technique['action']}:{episode['candidate_id']}"
+            )
         row = {"lesson_id": lesson_id, "source_id": video["source_id"], "lesson_topic": technique["label_zh"], "action": technique["action"], "family_id": technique["family_id"], "taxonomy_path": technique["taxonomy_path"], "semantic_review_status": "agent_reviewed", "completeness": "complete_demonstration" if complete else "partial_demonstration", "review_status": "agent_reviewed", "confidence": episode["confidence"], "teaching_summary": f"人工复核的完整{technique['label_zh']}连续示范；教学仅依据可见的二维动作路线。", "episode": {"start_seconds": episode["action_start_seconds"], "end_seconds": episode["action_end_seconds"], "clip_start_seconds": episode["clip_start_seconds"], "clip_end_seconds": episode["clip_end_seconds"]}, "stages": [{"stage_id": frame["stage_id"], "label": frame["label_zh"], "phase": frame["phase"], "start_seconds": frame["start_seconds"], "anchor_seconds": frame["anchor_seconds"], "end_seconds": frame["end_seconds"], "confidence": episode["confidence"], "teaching_use": frame["teaching_point_zh"], "teaching_points": [frame["teaching_point_zh"]], "visible_facts": ["ordered_public_coach_action_stage_visible"], "limitations": ["ordinary_monocular_video_visibility_boundary"]} for frame in episode["frames"]], "limitations": ["ordinary_monocular_video_does_not_prove_contact_racket_face_force_or_3d_kinematics"]}
         families.setdefault(technique["family_id"], []).append(row)
         index.append({"lesson_id": lesson_id, "source_id": video["source_id"], "action": technique["action"], "family_id": technique["family_id"], "shard": f"video-lessons/{technique['family_id']}.yaml"})
