@@ -79,6 +79,11 @@ REJECTING_EVIDENCE = {
     "shuttle_throw_without_racket_action",
     "ordinary_hand_gesture",
 }
+# These routes are valuable catalogue context, but they do not provide a
+# coach's repeatable technique demonstration.  A match replay can show a
+# badminton stroke, and a conditioning drill can show athletic movement, yet
+# neither may become a "correct coach action" reference for the learner.
+NON_DEMONSTRATION_FAMILIES = {"tactical_review", "conditioning", "equipment"}
 
 
 def atomic_json(path: Path, payload: Any) -> None:
@@ -522,22 +527,60 @@ def sample_timestamps(start: float, end: float, count: int) -> list[float]:
     return [start + inset + (end - start - 2 * inset) * index / (count - 1) for index in range(count)]
 
 
+def readable_image(path: Path) -> bool:
+    """Return whether a derived JPEG can actually be decoded by Pillow.
+
+    A non-zero file is not sufficient evidence here.  An interrupted ffmpeg
+    writer can leave a truncated JPEG behind, and a later retry must not treat
+    that file as a valid cache hit.  This check applies only to disposable
+    derived frames, never to the downloaded source video.
+    """
+    if not path.is_file() or path.stat().st_size <= 0:
+        return False
+    try:
+        with Image.open(path) as image:
+            image.verify()
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+def preserve_corrupt_derived(path: Path) -> None:
+    """Move an unreadable derived image aside before regenerating it.
+
+    Keeping the corrupt by-product makes a retry auditable while ensuring it
+    cannot be mistaken for an extracted frame.  The source media remains
+    untouched.
+    """
+    if path.exists():
+        quarantine = path.parent / ".corrupt-derived"
+        quarantine.mkdir(parents=True, exist_ok=True)
+        path.replace(quarantine / f"{path.name}.{uuid4().hex}.corrupt")
+
+
 def extract_frame(source: Path, ffmpeg: Path, timestamp: float, output: Path) -> float:
-    if output.is_file() and output.stat().st_size > 0:
+    if readable_image(output):
         return timestamp
+    preserve_corrupt_derived(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     last_error: Exception | None = None
     attempts = list(
         dict.fromkeys(max(0.0, timestamp - offset) for offset in (0, 0.35, 0.75, 1.5, 3.0))
     )
     for actual_timestamp in attempts:
+        temporary = output.with_name(
+            f".{output.stem}.{uuid4().hex}.tmp{output.suffix}"
+        )
         try:
-            run([str(ffmpeg), "-hide_banner", "-loglevel", "fatal", "-y", "-ss", f"{actual_timestamp:.3f}", "-i", str(source), "-frames:v", "1", "-vf", "scale='min(384,iw)':-2", "-q:v", "2", str(output)])
+            run([str(ffmpeg), "-hide_banner", "-loglevel", "fatal", "-y", "-ss", f"{actual_timestamp:.3f}", "-i", str(source), "-frames:v", "1", "-vf", "scale='min(384,iw)':-2", "-q:v", "2", str(temporary)])
         except subprocess.CalledProcessError as error:
             last_error = error
+            temporary.unlink(missing_ok=True)
             continue
-        if output.is_file() and output.stat().st_size > 0:
+        if readable_image(temporary):
+            temporary.replace(output)
             return actual_timestamp
+        preserve_corrupt_derived(temporary)
         last_error = RuntimeError(
             f"ffmpeg produced no frame at {actual_timestamp:.3f}s for {source}"
         )
@@ -775,6 +818,7 @@ def gate_prompt(candidate: dict[str, Any]) -> str:
         "Do not quote, reconstruct, or summarize subtitles or transcripts. Only verify whether the visible frames contain one real coordinated badminton technique execution compatible with that fixed route. "
         "continuous_demonstration requires a meaningful preparation/start, active movement path, finish, and recovery. partial_demonstration is a genuine execution with a major stage cut. "
         "Talking, pointing, posing, grip adjustment, racket-face placement, isolated wrist/forearm rotation, or a small racket wave while explaining is static_explanation. Throwing a shuttle by hand without executing the routed technique is not an action. "
+        "Competition footage, a replay, or another player's rally is reject even when the stroke looks compatible: it is tactical context, not a coach demonstration. Conditioning, rehabilitation and equipment demonstrations are also not badminton technique demonstrations. "
         "If multiple repetitions are visible, action_repetitions counts all visible repetitions, but action_start_frame and action_end_frame must delimit only the single most complete repetition rather than the whole multi-repetition span. "
         f"Racket visibility required for admission: {str(racket_required).lower()}. Footwork may be admitted without a visible racket. "
         "Output exactly these twelve keys: classification, confidence, demonstration_purity, person_visibility, racket_visibility, action_repetitions, action_start_frame, action_end_frame, visible_stage_coverage, semantic_compatibility, observed_evidence, scope_limitations. "
@@ -892,6 +936,8 @@ def normalized_reject_payload() -> dict[str, Any]:
 def admitted(candidate: dict[str, Any], payload: dict[str, Any] | None) -> bool:
     if not payload:
         return False
+    if candidate["family_id"] in NON_DEMONSTRATION_FAMILIES:
+        return False
     payload = normalize_gate_consistency(dict(payload))
     if payload["classification"] != "continuous_demonstration":
         return False
@@ -928,6 +974,8 @@ def review_candidate(candidate: dict[str, Any], payload: dict[str, Any] | None) 
     review preview.
     """
     if not payload or payload["classification"] != "partial_demonstration":
+        return False
+    if candidate["family_id"] in NON_DEMONSTRATION_FAMILIES:
         return False
     if payload["action_repetitions"] != 1:
         return False
@@ -1189,7 +1237,12 @@ def render_video_preview(root: Path, video: dict[str, Any], inventory: list[dict
             episodes: list[str] = []
             for episode in package["episodes"]:
                 cards = "".join(f'<figure><img src="{html.escape(frame["image"])}"><figcaption><b>{frame["frame_index"]:02d} · {html.escape(frame["label_zh"])}</b><p>{html.escape(frame["teaching_point_zh"])}</p><small>{html.escape(frame["evidence_boundary_zh"])}</small></figcaption></figure>' for frame in episode["frames"])
-                episodes.append(f'<article><h3>{html.escape(episode["episode_id"])}</h3><p>动作 {episode["action_start_seconds"]:.3f}–{episode["action_end_seconds"]:.3f}s；播放 {episode["clip_start_seconds"]:.3f}–{episode["clip_end_seconds"]:.3f}s</p><video controls preload="metadata" src="{html.escape(episode["clip"])}"></video><div class="grid">{cards}</div></article>')
+                review_label = (
+                    "自动门控通过的完整示范候选，仍需抽样人工复核。"
+                    if episode["automatic_admission"]
+                    else "不完整示范候选，仅供人工审核；不会自动发布到 Skill。"
+                )
+                episodes.append(f'<article><h3>{html.escape(episode["episode_id"])}</h3><p>{html.escape(review_label)}</p><p>动作 {episode["action_start_seconds"]:.3f}–{episode["action_end_seconds"]:.3f}s；播放 {episode["clip_start_seconds"]:.3f}–{episode["clip_end_seconds"]:.3f}s</p><video controls preload="metadata" src="{html.escape(episode["clip"])}"></video><div class="grid">{cards}</div></article>')
             sections.append(f'<section><h2>{html.escape(package["label_zh"])} · {html.escape(package["action"])}</h2><p>{html.escape(package["teaching_summary_zh"])}</p>{"".join(episodes) or "<p>no_reliable_action_episode</p>"}</section>')
     document = f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(video["title"])}</title><style>body{{font:15px/1.55 system-ui;max-width:1500px;margin:24px auto;padding:0 16px;background:#07111f;color:#edf5ff}}section,article{{background:#102038;border:1px solid #29405d;border-radius:14px;padding:18px;margin:18px 0}}video{{display:block;width:min(420px,100%);max-height:650px;margin:12px auto;background:#000}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}}figure{{margin:0;background:#091625;border-radius:10px;overflow:hidden}}img{{width:100%;aspect-ratio:9/16;object-fit:cover}}figcaption{{padding:10px}}small{{color:#9bb0c8}}</style></head><body><h1>{html.escape(video["title"])}</h1><p>{html.escape(video["source_id"])}</p>{"".join(sections)}</body></html>'''
     (root / "preview.html").write_text(document, encoding="utf-8")
@@ -1426,7 +1479,7 @@ def command_summarize(args: argparse.Namespace) -> None:
             f'技术 {row["technique_count"]} · 动作 {row["episode_count"]}</p>{link}</article>'
         )
     cards = "".join(card_rows)
-    page = f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>408 视频解析总览</title><style>body{{font:15px/1.5 system-ui;max-width:1200px;margin:24px auto;background:#f3f5f8}}header,article{{background:white;padding:16px;margin:12px;border-radius:12px;border:1px solid #d8dde6}}h2{{font-size:18px}}</style></head><body><header><h1>教练视频全量解析</h1><p>成功 {summary["succeeded_video_count"]}/{summary["video_count"]}；技术 {summary["technique_count"]}；动作片段 {summary["episode_count"]}；必审 {summary["required_review_count"]}</p></header>{cards}</body></html>'
+    page = f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>{summary["video_count"]} 条教练教学候选解析总览</title><style>body{{font:15px/1.5 system-ui;max-width:1200px;margin:24px auto;background:#f3f5f8}}header,article{{background:white;padding:16px;margin:12px;border-radius:12px;border:1px solid #d8dde6}}h2{{font-size:18px}}</style></head><body><header><h1>教练教学候选解析总览</h1><p>本批次 {summary["video_count"]} 条技术教学候选：成功 {summary["succeeded_video_count"]}；技术路由 {summary["technique_count"]}；可审核动作片段 {summary["episode_count"]}；必审 {summary["required_review_count"]}。只有人工确认后的连续示范才可接入 Skill。</p></header>{cards}</body></html>'
     (args.batch_root / "preview.html").write_text(page, encoding="utf-8")
     print("SUMMARY", json.dumps({key: summary[key] for key in ("status", "video_count", "succeeded_video_count", "failed_video_count", "technique_count", "episode_count", "required_review_count")}, ensure_ascii=False))
 
