@@ -11,14 +11,14 @@ Use public teaching and bounded rally evidence to turn a four-player mixed-doubl
 
 Choose one mode:
 
-1. **Teaching demonstration**: Accept a mixed-doubles module or action, phase, level, and optional training goal. Return the module framework, pair principle, public source and timestamp, and same-phase coach reference when available. Do not require four learner tracks.
+1. **Teaching demonstration**: Accept a mixed-doubles module or action, level, and optional training goal. Treat one public coach video as a lesson container and, when an approved video-lesson index is installed, show one continuous action episode before its ordered stage frames. A requested `phase` narrows to a posture reference; it does not replace the complete teaching sequence. Do not require four learner tracks.
 2. **Structured pair diagnosis**: Require the learner/partner identities, court calibration, rally context, and bounded shuttle/contact candidates described below.
 
-Always read `references/demonstration-contract.md` in teaching-demonstration mode.
+Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Use `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
 
 ## Required Inputs
 
-For teaching demonstration, require `action` and `phase`; accept `level`, `training_goal`, or `framework_id` when supplied. Do not request learner tracks or a rally video merely to explain a coaching module.
+For teaching demonstration, require `action`; accept `level`, `training_goal`, `framework_id`, or an optional `phase` when supplied. Do not request learner tracks or a rally video merely to explain a coaching module.
 
 For structured pair diagnosis, require a `player_profile` plus a structured `video_observation`. Require the user-selected learner and partner, four manually confirmed court corners, visible player identities, rally context, and bounded shuttle/contact candidates. Keep `contact_candidates` as time windows with uncertainty; never invent an exact contact instant.
 
@@ -34,7 +34,7 @@ If roles, court geometry, shuttle evidence, or the next shot are missing, reques
 
 ## Reference Loading
 
-- In teaching-demonstration mode, read `references/demonstration-contract.md`, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`.
+- In teaching-demonstration mode, read `references/video-lesson-contract.md`, the installed video-lesson index or catalog, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`. An approved private staging root may be supplied through `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content.
 - In structured-pair-diagnosis mode, always read `references/report-contract.md`, `references/evidence-policy.md`, and `references/corpus-provenance.md`.
 - Read `references/frameworks.yaml` to select the module and route.
 - Read `references/mixed-doubles-rubric.yaml` and `references/drills.yaml` before producing a deterministic diagnosis.
@@ -57,4 +57,4 @@ Cover the seven modules as one connected rally system: serve/opening, receive/op
 
 Return the selected framework, learner and partner identities, rally module, ranked pair-level issues, visible evidence, bounded shuttle/contact candidates, source support, confidence limits, one correction per issue, one drill per issue, retest metrics, missing evidence, and safety notes. Use plain coaching language; do not imitate Zheng Siwei's voice.
 
-For a teaching demonstration, return the module framework, pair principle, action and phase, source id, timestamp, frame or clip availability, visible facts, limitations, and original-platform link. Use only same-phase references and never infer fixed roles, intent, or exact contact from the reference. Return `no_reliable_same_phase_demonstration_frame` rather than borrowing an unrelated rally phase.
+For a teaching demonstration, return the module framework, pair principle, action, source id, title, continuous playback clip, ordered stage frames, visible facts, limitations, and original-platform link. Use only action-compatible references and never infer fixed roles, intent, or exact contact from the reference. When no reviewed continuous package exists, return `no_reliable_action_episode` rather than borrowing an unrelated rally phase, a match replay, or a talking frame.
