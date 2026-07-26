@@ -84,6 +84,10 @@ REJECTING_EVIDENCE = {
 # badminton stroke, and a conditioning drill can show athletic movement, yet
 # neither may become a "correct coach action" reference for the learner.
 NON_DEMONSTRATION_FAMILIES = {"tactical_review", "conditioning", "equipment"}
+# ``tactical_review`` is intentionally stored below a sport-context family in
+# the Zheng Siwei routing taxonomy, so action and family are separate safety
+# boundaries.
+NON_DEMONSTRATION_ACTIONS = {"tactical_review"}
 
 
 def atomic_json(path: Path, payload: Any) -> None:
@@ -933,10 +937,18 @@ def normalized_reject_payload() -> dict[str, Any]:
     }
 
 
+def is_non_demonstration_route(route: dict[str, Any]) -> bool:
+    """Whether a semantic route can never become a coach-action reference."""
+    return (
+        route.get("family_id") in NON_DEMONSTRATION_FAMILIES
+        or route.get("action") in NON_DEMONSTRATION_ACTIONS
+    )
+
+
 def admitted(candidate: dict[str, Any], payload: dict[str, Any] | None) -> bool:
     if not payload:
         return False
-    if candidate["family_id"] in NON_DEMONSTRATION_FAMILIES:
+    if is_non_demonstration_route(candidate):
         return False
     payload = normalize_gate_consistency(dict(payload))
     if payload["classification"] != "continuous_demonstration":
@@ -975,7 +987,7 @@ def review_candidate(candidate: dict[str, Any], payload: dict[str, Any] | None) 
     """
     if not payload or payload["classification"] != "partial_demonstration":
         return False
-    if candidate["family_id"] in NON_DEMONSTRATION_FAMILIES:
+    if is_non_demonstration_route(candidate):
         return False
     if payload["action_repetitions"] != 1:
         return False
@@ -1481,7 +1493,7 @@ def command_materialize(args: argparse.Namespace) -> None:
                     # a useful stroke window must not also be rendered under
                     # an overlapping tactical, conditioning or equipment
                     # route as though that route had a coach demonstration.
-                    if technique["family_id"] in NON_DEMONSTRATION_FAMILIES:
+                    if is_non_demonstration_route(technique):
                         continue
                     grouped.setdefault(technique["action"], []).append({
                         "candidate": candidate,
