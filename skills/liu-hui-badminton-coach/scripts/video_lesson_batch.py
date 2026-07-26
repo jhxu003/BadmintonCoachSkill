@@ -1476,6 +1476,13 @@ def command_materialize(args: argparse.Namespace) -> None:
                 if end - start < 0.65:
                     continue
                 for technique in candidate.get("techniques") or [candidate]:
+                    # A broad candidate may have more than one title/ASR
+                    # route.  Candidate-level gating is not sufficient here:
+                    # a useful stroke window must not also be rendered under
+                    # an overlapping tactical, conditioning or equipment
+                    # route as though that route had a coach demonstration.
+                    if technique["family_id"] in NON_DEMONSTRATION_FAMILIES:
+                        continue
                     grouped.setdefault(technique["action"], []).append({
                         "candidate": candidate,
                         "technique": technique,
