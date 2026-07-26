@@ -136,3 +136,131 @@ lessons:
       - return_to_tactical_base_not_shown
       - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
       - ordinary_monocular_video_no_calibrated_3d_kinematics
+  - lesson_id: lh-bv1a54y1t7pe-high-clear-stationary-swing-255600
+    source_id: LH_BILI_SEASON_BV1A54Y1T7PE
+    lesson_topic: 原地高远球翻拍连续挥拍
+    action: high_clear
+    family_id: overhead
+    taxonomy_path:
+      - stroke_families.high_clear
+      - power_frameworks.stable_overhead_frame
+    semantic_review_status: agent_reviewed
+    completeness: complete_demonstration
+    review_status: agent_reviewed
+    confidence: high
+    teaching_summary: >-
+      同一次原地高远球翻拍挥拍，连续覆盖可见准备、启动、举拍加载、
+      近似击球窗口、随挥和回收开始。它用于理解这一击的二维挥拍路线，
+      不代表完整后场到位、精确触球或回中心。
+    episode:
+      start_seconds: 255.60
+      end_seconds: 258.75
+      clip_start_seconds: 255.60
+      clip_end_seconds: 259.10
+    stages:
+      - stage_id: prepare
+        label: 持拍准备
+        phase: preparation
+        start_seconds: 255.60
+        anchor_seconds: 255.72
+        end_seconds: 255.88
+        confidence: high
+        teaching_use: 先确认身体、持拍臂和球拍均在画面内，并从一个可启动的姿态进入挥拍。
+        teaching_points:
+          - 用整段连续画面理解准备如何接到后面的举拍，而不是只模仿一张定格。
+        visible_facts:
+          - coach_full_body_visible
+          - racket_visible_before_overhead_loading
+        limitations:
+          - rear_court_approach_not_shown
+      - stage_id: start
+        label: 启动转体
+        phase: start
+        start_seconds: 255.88
+        anchor_seconds: 256.05
+        end_seconds: 256.22
+        confidence: medium
+        teaching_use: 观察身体如何从准备状态进入连续举拍与转体。
+        teaching_points:
+          - 不从挥拍最高点开始模仿；先看动作如何由准备状态衔接出来。
+        visible_facts:
+          - body_transitions_from_ready_state
+          - racket_arm_begins_upward_path
+        limitations:
+          - exact_joint_angles_unknown
+      - stage_id: arrival
+        label: 原地形成头顶加载位置
+        phase: arrival
+        start_seconds: 256.22
+        anchor_seconds: 256.40
+        end_seconds: 256.57
+        confidence: medium
+        teaching_use: 这是原地示范中的可见加载过程，不把它解释为完整后场步法到位。
+        teaching_points:
+          - 观察躯干和持拍臂继续向头顶区域组织空间。
+        visible_facts:
+          - upper_body_and_racket_continue_toward_overhead_position
+        limitations:
+          - rear_court_movement_route_not_visible
+      - stage_id: load
+        label: 举拍加载
+        phase: top_elbow
+        start_seconds: 256.57
+        anchor_seconds: 256.74
+        end_seconds: 256.92
+        confidence: high
+        teaching_use: 观察球拍和持拍臂在头顶区域形成的可见加载结构。
+        teaching_points:
+          - 将这一帧与前后的连续帧一起看，不推断精确关节角度或真实内旋。
+        visible_facts:
+          - racket_and_hitting_arm_visible_in_overhead_loading
+        limitations:
+          - exact_joint_geometry_and_true_internal_rotation_unknown
+      - stage_id: contact-window
+        label: 近似击球窗口
+        phase: contact_window
+        start_seconds: 256.92
+        anchor_seconds: 257.10
+        end_seconds: 257.28
+        confidence: medium
+        teaching_use: 只标记球拍经过头顶预期击球区域的连续窗口。
+        teaching_points:
+          - 用前后动作路线理解挥拍通过头顶区域；普通单目画面不能确认精确触球。
+        visible_facts:
+          - racket_sweeps_through_overhead_region
+        limitations:
+          - exact_shuttle_contact_and_racket_face_angle_unknown
+      - stage_id: follow
+        label: 随挥释放
+        phase: follow_through
+        start_seconds: 257.28
+        anchor_seconds: 257.55
+        end_seconds: 257.85
+        confidence: high
+        teaching_use: 展示球拍通过近似窗口后仍继续向前的可见随挥路线。
+        teaching_points:
+          - 不要把近似击球窗口当成动作终点；观察随挥如何自然接续。
+        visible_facts:
+          - racket_arm_continues_after_overhead_window
+          - body_turns_through_visible_follow_through
+        limitations:
+          - force_and_deceleration_load_unknown
+      - stage_id: recover
+        label: 随挥后的回收开始
+        phase: recovery
+        start_seconds: 257.85
+        anchor_seconds: 258.30
+        end_seconds: 258.75
+        confidence: medium
+        teaching_use: 只展示随挥后的回收开始；它不是已经回到比赛中心位置的证据。
+        teaching_points:
+          - 观察挥拍后身体与球拍如何开始回收，再在完整步法练习中补足回位。
+        visible_facts:
+          - follow_through_transitions_into_early_recovery
+        limitations:
+          - fully_settled_recovery_and_tactical_return_not_shown
+    limitations:
+      - stationary_demonstration_no_rear_court_approach
+      - fully_settled_recovery_and_tactical_return_not_shown
+      - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
+      - ordinary_monocular_video_no_calibrated_3d_kinematics

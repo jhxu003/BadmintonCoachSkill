@@ -463,14 +463,23 @@ def select_video_lessons(
     frameworks: list[dict[str, object]],
     lessons: list[VideoLessonPackage],
 ) -> list[VideoLessonPackage]:
+    """Select only publishable continuous teaching demonstrations.
+
+    The catalog deliberately retains partial, static, and model-only packages
+    for private review.  They must never become a learner-facing fallback just
+    because no complete package exists for the requested action.
+    """
     candidates = [
         lesson
         for lesson in lessons
-        if lesson.coach_id == query.coach_id and lesson.action == query.action
+        if (
+            lesson.coach_id == query.coach_id
+            and lesson.action == query.action
+            and lesson.completeness == "complete_demonstration"
+            and lesson.review_status == "agent_reviewed"
+            and lesson.semantic_review_status == "agent_reviewed"
+        )
     ]
-    reviewed = [lesson for lesson in candidates if lesson.review_status == "agent_reviewed"]
-    if reviewed:
-        candidates = reviewed
     framework_source_ids = {
         str(source_id)
         for framework in frameworks
