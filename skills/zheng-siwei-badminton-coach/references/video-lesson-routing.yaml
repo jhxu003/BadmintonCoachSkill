@@ -5,6 +5,69 @@ scope_boundary_zh: >-
   不完整片段不得发布为动作教学包。普通单目画面不能证明精确触球、拍面角度、握拍
   压力、力量大小、真实内旋、三维运动学或对手意图。
 routes:
+  - route_id: net-skill
+    priority: 110
+    pattern: 正手.*勾球|反手.*勾球|搓球|扑抹|扑球|抹腰球|挡网|放网|头顶封网|网前
+    action: net_skill
+    label_zh: 网前控球、扑抹与封网
+    family_id: frontcourt_skill
+    taxonomy_path: [frameworks.zsw-frontcourt-pressure, frameworks.zsw-reset-match-transfer]
+  - route_id: forehand-midcourt
+    priority: 108
+    pattern: 正手.*(中半场|下手位|后半场|抹腰)|中半场.*正手|借力.*对角
+    action: forehand_transition
+    label_zh: 正手中半场与过渡对角
+    family_id: forehand_transition
+    taxonomy_path: [frameworks.zsw-defense-transition, frameworks.zsw-reset-match-transfer]
+  - route_id: drive-exchange
+    priority: 106
+    pattern: 平抽|平快|抽挡|抽球|快推|挡卸力|卸力反击
+    action: drive_exchange
+    label_zh: 平抽挡与中前场快攻衔接
+    family_id: drive_exchange
+    taxonomy_path: [frameworks.zsw-frontcourt-pressure, frameworks.zsw-receive-opening-exchange]
+  - route_id: defense-transition
+    priority: 104
+    pattern: 防守|接杀|泄力|卸力|顶到后场|平高球|被动球|摆脱线路
+    action: defense_transition
+    label_zh: 防守过渡、卸力与反击
+    family_id: defense_transition
+    taxonomy_path: [frameworks.zsw-defense-transition, frameworks.zsw-reset-match-transfer]
+  - route_id: mixed-doubles-rotation
+    priority: 102
+    pattern: 混双|轮转|男生.*女生|放网后|后杀前封|下一拍
+    action: doubles
+    label_zh: 混双轮转与后杀前封衔接
+    family_id: doubles_context
+    taxonomy_path: [frameworks.zsw-pair-rotation-two-lanes, frameworks.zsw-rear-attack-continuity]
+  - route_id: overhead-skill
+    priority: 101
+    pattern: 杀球|高远球|头顶|起球|后场.*击球
+    action: overhead_skill
+    label_zh: 后场高远、杀球与头顶处理
+    family_id: overhead
+    taxonomy_path: [frameworks.zsw-rear-attack-continuity, frameworks.zsw-defense-transition]
+  - route_id: footwork-start
+    priority: 99
+    pattern: 启动步|步伐|移动|热身
+    action: rear_footwork
+    label_zh: 启动、移动与后场到位
+    family_id: footwork
+    taxonomy_path: [frameworks.zsw-rear-attack-continuity, frameworks.zsw-defense-transition]
+  - route_id: conditioning
+    priority: 92
+    pattern: 体能|康复|腰疼|膝盖|肩部|拉伸|训练日常
+    action: conditioning
+    label_zh: 专项热身、体能与康复训练
+    family_id: conditioning
+    taxonomy_path: [frameworks.zsw-reset-match-transfer]
+  - route_id: match-review
+    priority: 45
+    pattern: 球路讲解|点评|评价|预测|Q&A
+    action: tactical_review
+    label_zh: 比赛球路讲解候选
+    family_id: doubles_context
+    taxonomy_path: [frameworks.zsw-reset-match-transfer]
   - route_id: serve-receive
     priority: 100
     pattern: 接发球|接发|发球
@@ -48,6 +111,13 @@ routes:
     family_id: doubles_context
     taxonomy_path: [frameworks.zsw-pair-rotation-two-lanes, frameworks.zsw-reset-match-transfer]
 topic_fallbacks:
+  net_skill: net-skill
+  forehand_transition: forehand-midcourt
+  drive_exchange: drive-exchange
+  defense_transition: defense-transition
+  overhead_skill: overhead-skill
+  conditioning: conditioning
+  tactical_review: match-review
   serve_receive: serve-receive
   receive: serve-receive
   rear_cover: rear-cover
