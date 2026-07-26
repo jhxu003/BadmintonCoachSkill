@@ -1029,6 +1029,47 @@ def is_review_context_episode(candidate: dict[str, Any], payload: dict[str, Any]
     return review_candidate(candidate, payload) and not admitted(candidate, payload)
 
 
+def continuity_review_seed_kind(
+    candidate: dict[str, Any], payload: dict[str, Any]
+) -> str | None:
+    """Identify a strict first-pass near-miss worth a wider *private* review.
+
+    Older Qwen passes occasionally emitted an internally contradictory
+    ``continuous_demonstration`` plus ``no_full_action``.  That contradiction
+    is correctly rejected by :func:`admitted`, but it should not force the
+    reviewer to start again from a talking-frame scan.  A second, wider and
+    stricter gate can resolve it.  This is only a seed for a separate review
+    batch and never changes admission of the first pass.
+    """
+    if review_candidate(candidate, payload):
+        return "strong_partial_candidate"
+    if payload.get("classification") != "continuous_demonstration":
+        return None
+    if admitted(candidate, payload) or is_non_demonstration_route(candidate):
+        return None
+    if (
+        payload.get("confidence") != "high"
+        or payload.get("demonstration_purity") != "high"
+        or payload.get("semantic_compatibility") != "yes"
+        or payload.get("person_visibility") != "clear"
+        or payload.get("action_repetitions") != 1
+        or "full_action_trajectory" not in payload.get("observed_evidence", [])
+        or REJECTING_EVIDENCE.intersection(payload.get("observed_evidence", []))
+    ):
+        return None
+    if (
+        candidate["family_id"] not in {"footwork", "doubles_context", "equipment"}
+        and payload.get("racket_visibility") != "clear"
+    ):
+        return None
+    limitations = set(payload.get("scope_limitations", []))
+    if limitations.intersection({"no_full_action", "incomplete_sequence"}) or len(
+        payload.get("visible_stage_coverage", [])
+    ) < 4:
+        return "contradictory_continuous_candidate"
+    return None
+
+
 def command_gate(args: argparse.Namespace) -> None:
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     rows = selected_rows(manifest, args)
@@ -1265,18 +1306,19 @@ def command_refine(args: argparse.Namespace) -> None:
                 for line in source_results_path.read_text(encoding="utf-8").splitlines()
                 if line.strip()
             ]
-            selected: list[tuple[dict[str, Any], dict[str, Any]]] = []
+            selected: list[tuple[dict[str, Any], dict[str, Any], str]] = []
             for result in source_results:
                 candidate = candidate_map.get(str(result.get("candidate_id", "")))
                 payload = result.get("payload")
                 if not candidate or not isinstance(payload, dict):
                     continue
                 payload = normalize_gate_consistency(dict(payload))
-                if review_candidate(candidate, payload):
-                    selected.append((candidate, payload))
+                seed_kind = continuity_review_seed_kind(candidate, payload)
+                if seed_kind:
+                    selected.append((candidate, payload, seed_kind))
             selected.sort(key=lambda item: (float(item[0]["start_seconds"]), item[0]["candidate_id"]))
             refined: list[dict[str, Any]] = []
-            for index, (source_candidate, payload) in enumerate(selected, start=1):
+            for index, (source_candidate, payload, seed_kind) in enumerate(selected, start=1):
                 action_start, action_end = action_interval(source_candidate, payload)
                 start, end = extend_action_window(
                     action_start,
@@ -1295,7 +1337,7 @@ def command_refine(args: argparse.Namespace) -> None:
                         "candidate_id": candidate_id,
                         "start_seconds": start,
                         "end_seconds": end,
-                        "candidate_basis": "wider_context_from_review_candidate",
+                        "candidate_basis": f"wider_context_from_{seed_kind}",
                         "refined_from_candidate_id": source_candidate["candidate_id"],
                         "first_pass_action_start_seconds": action_start,
                         "first_pass_action_end_seconds": action_end,
