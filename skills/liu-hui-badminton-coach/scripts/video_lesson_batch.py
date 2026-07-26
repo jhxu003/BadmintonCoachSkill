@@ -1275,6 +1275,7 @@ def command_refine(args: argparse.Namespace) -> None:
     """
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     rows = selected_rows(manifest, args)
+    continuity_videos: list[dict[str, Any]] = []
     for video_number, video in enumerate(rows, start=1):
         source_root = video_root(args.source_batch_root, video)
         source_candidates_path = source_root / "candidates.json"
@@ -1282,10 +1283,13 @@ def command_refine(args: argparse.Namespace) -> None:
         target_root = video_root(args.batch_root, video)
         target_candidates_path = target_root / "candidates.json"
         if target_candidates_path.is_file() and not args.force:
+            existing = json.loads(target_candidates_path.read_text(encoding="utf-8"))
+            if existing.get("candidates"):
+                continuity_videos.append(video)
             print("REFINE_SKIP", video["job_id"], flush=True)
             continue
         if not source_candidates_path.is_file() or not source_results_path.is_file():
-            print("REFINE_SKIP_SOURCE_MISSING", video["job_id"], flush=True)
+            print("REFINE_SKIP_INPUT_MISSING", video["job_id"], flush=True)
             continue
         try:
             set_status(target_root, "refine", "running")
@@ -1382,6 +1386,8 @@ def command_refine(args: argparse.Namespace) -> None:
                     },
                 },
             )
+            if refined:
+                continuity_videos.append(video)
             set_status(
                 target_root,
                 "refine",
@@ -1404,6 +1410,16 @@ def command_refine(args: argparse.Namespace) -> None:
                 error=f"{type(error).__name__}:{error}",
             )
             print("REFINE_FAILED", video["job_id"], repr(error), flush=True)
+    atomic_json(
+        args.batch_root / "continuity-review-manifest.json",
+        {
+            "batch_version": BATCH_VERSION,
+            "source_manifest": str(args.manifest),
+            "video_count": len(continuity_videos),
+            "videos": continuity_videos,
+        },
+    )
+    print("REFINE_MANIFEST", len(continuity_videos), flush=True)
 
 
 def overlap(left: tuple[float, float], right: tuple[float, float]) -> float:
