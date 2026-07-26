@@ -918,6 +918,45 @@ def admitted(candidate: dict[str, Any], payload: dict[str, Any] | None) -> bool:
     return not REJECTING_EVIDENCE.intersection(payload["observed_evidence"])
 
 
+def review_candidate(candidate: dict[str, Any], payload: dict[str, Any] | None) -> bool:
+    """Keep strong but incomplete demonstrations for human review only.
+
+    A sparse contact sheet can cut a real action at either end.  It must not
+    pass the automatic admission gate, but losing it entirely makes reviewers
+    inspect only talking frames.  This predicate intentionally never changes
+    ``admitted`` and callers must opt in explicitly before materialising a
+    review preview.
+    """
+    if not payload or payload["classification"] != "partial_demonstration":
+        return False
+    if payload["action_repetitions"] != 1:
+        return False
+    if (
+        payload["demonstration_purity"] not in {"medium", "high"}
+        or payload["semantic_compatibility"] != "yes"
+        or payload["person_visibility"] != "clear"
+        or len(payload["visible_stage_coverage"]) < 4
+        or "full_action_trajectory" not in payload["observed_evidence"]
+        or REJECTING_EVIDENCE.intersection(payload["observed_evidence"])
+    ):
+        return False
+    if (
+        candidate["family_id"]
+        not in {"footwork", "doubles_context", "equipment"}
+        and payload["racket_visibility"] != "clear"
+    ):
+        return False
+    return True
+
+
+def materializable(
+    candidate: dict[str, Any], payload: dict[str, Any] | None, include_review_candidates: bool
+) -> bool:
+    return admitted(candidate, payload) or (
+        include_review_candidates and review_candidate(candidate, payload)
+    )
+
+
 def command_gate(args: argparse.Namespace) -> None:
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     rows = selected_rows(manifest, args)
@@ -961,6 +1000,9 @@ def command_gate(args: argparse.Namespace) -> None:
                             dict(row["payload"])
                         )
                         row["admitted"] = admitted(candidate, row["payload"])
+                        row["review_candidate"] = review_candidate(
+                            candidate, row["payload"]
+                        )
                         existing[row["candidate_id"]] = row
                     latest_rows[row["candidate_id"]] = row
             compacted = [
@@ -976,6 +1018,9 @@ def command_gate(args: argparse.Namespace) -> None:
                 "succeeded",
                 completed_candidates=len(existing),
                 admitted_candidates=sum(bool(row["admitted"]) for row in existing.values()),
+                review_candidate_count=sum(
+                    bool(row.get("review_candidate")) for row in existing.values()
+                ),
             )
         else:
             set_status(root, "gate", "running", completed_candidates=len(existing))
@@ -986,6 +1031,7 @@ def command_gate(args: argparse.Namespace) -> None:
             len(existing),
             len(document["candidates"]),
             sum(bool(row["admitted"]) for row in existing.values()),
+            sum(bool(row.get("review_candidate")) for row in existing.values()),
             flush=True,
         )
 
@@ -1044,6 +1090,7 @@ def command_gate(args: argparse.Namespace) -> None:
                 "parse_error": parse_error,
                 "raw_output": raw,
                 "admitted": admitted(candidate, payload),
+                "review_candidate": review_candidate(candidate, payload),
                 "inference_seconds": round(inference_seconds, 3),
                 "peak_gpu_allocated_gib": round(torch.cuda.max_memory_allocated() / 1024**3, 3),
             }
@@ -1051,7 +1098,7 @@ def command_gate(args: argparse.Namespace) -> None:
                 result["normalization_error"] = normalization_error
             with results_path.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(result, ensure_ascii=False) + "\n")
-            print("GATE", video_number, len(gate_jobs), video["job_id"], candidate_number, len(document["candidates"]), candidate["candidate_id"], payload["classification"] if payload else parse_error, result["admitted"], flush=True)
+            print("GATE", video_number, len(gate_jobs), video["job_id"], candidate_number, len(document["candidates"]), candidate["candidate_id"], payload["classification"] if payload else parse_error, result["admitted"], result["review_candidate"], flush=True)
             del inputs, generated
             torch.cuda.empty_cache()
         latest: dict[str, dict[str, Any]] = {}
@@ -1061,7 +1108,16 @@ def command_gate(args: argparse.Namespace) -> None:
                 latest[row["candidate_id"]] = row
         rows_done = [latest[row["candidate_id"]] for row in document["candidates"] if row["candidate_id"] in latest]
         atomic_jsonl(results_path, rows_done)
-        set_status(root, "gate", "succeeded", completed_candidates=len(rows_done), admitted_candidates=sum(bool(row["admitted"]) for row in rows_done))
+        set_status(
+            root,
+            "gate",
+            "succeeded",
+            completed_candidates=len(rows_done),
+            admitted_candidates=sum(bool(row["admitted"]) for row in rows_done),
+            review_candidate_count=sum(
+                bool(row.get("review_candidate")) for row in rows_done
+            ),
+        )
 
 
 def overlap(left: tuple[float, float], right: tuple[float, float]) -> float:
@@ -1159,7 +1215,9 @@ def command_materialize(args: argparse.Namespace) -> None:
                     if result.get("payload")
                     else None
                 )
-                if not admitted(candidate, payload):
+                if not materializable(
+                    candidate, payload, args.include_review_candidates
+                ):
                     continue
                 start, end = action_interval(candidate, payload)
                 if end - start < 0.65:
@@ -1263,7 +1321,14 @@ def command_materialize(args: argparse.Namespace) -> None:
                         "clip_duration_seconds": episode["clip_duration_seconds"],
                         "clip": str(clip.relative_to(root)),
                         "frames": frames,
-                        "review_status": "model_candidate",
+                        "review_status": (
+                            "model_candidate"
+                            if admitted(episode["candidate"], episode["payload"])
+                            else "required_human_review"
+                        ),
+                        "automatic_admission": admitted(
+                            episode["candidate"], episode["payload"]
+                        ),
                         "scope_limitations": episode["payload"]["scope_limitations"],
                     })
                 packages.append(package)
@@ -1474,6 +1539,11 @@ def parser() -> argparse.ArgumentParser:
     materialize.add_argument("--source-cache", type=Path)
     materialize.add_argument("--max-episodes-per-technique", type=int, default=8)
     materialize.add_argument("--post-roll-seconds", type=float, default=1.5)
+    materialize.add_argument(
+        "--include-review-candidates",
+        action="store_true",
+        help="materialize strong partial demonstrations for human review; never auto-publishes them",
+    )
     materialize.set_defaults(func=command_materialize)
 
     summarize = commands.add_parser("summarize")
