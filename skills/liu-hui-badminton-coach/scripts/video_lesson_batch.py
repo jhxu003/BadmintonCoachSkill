@@ -1043,6 +1043,31 @@ def continuity_review_seed_kind(
     """
     if review_candidate(candidate, payload):
         return "strong_partial_candidate"
+    # Qwen sometimes identifies one clean, single-repetition trajectory in a
+    # short motion window but under-reports its stage labels (for example,
+    # only ``overhead_loading``).  That is still far from publishable: it
+    # fails ``review_candidate`` and, by design, cannot pass ``admitted``.
+    # It is nevertheless a safe seed for one *wider private re-gate* when all
+    # non-temporal evidence is strong.  Without this branch, the pipeline
+    # never gets a chance to recover a preparation or recovery that was cut
+    # just outside the initial short window.
+    if payload.get("classification") == "partial_demonstration":
+        if (
+            payload.get("demonstration_purity") == "high"
+            and payload.get("semantic_compatibility") == "yes"
+            and payload.get("person_visibility") == "clear"
+            and payload.get("action_repetitions") == 1
+            and "full_action_trajectory" in payload.get("observed_evidence", [])
+            and not REJECTING_EVIDENCE.intersection(
+                payload.get("observed_evidence", [])
+            )
+            and (
+                candidate["family_id"] in {"footwork", "doubles_context", "equipment"}
+                or payload.get("racket_visibility") == "clear"
+            )
+        ):
+            return "narrow_stage_coverage_candidate"
+        return None
     if payload.get("classification") != "continuous_demonstration":
         return None
     if admitted(candidate, payload) or is_non_demonstration_route(candidate):
@@ -1294,6 +1319,23 @@ def command_refine(args: argparse.Namespace) -> None:
         try:
             set_status(target_root, "refine", "running")
             source_document = json.loads(source_candidates_path.read_text(encoding="utf-8"))
+            # Early batches recorded the manifest video directly at the
+            # document root, while current batches use a ``video`` envelope.
+            # Both are private audit artifacts, but a continuity pass must
+            # never silently pair an old candidate sheet with a different
+            # manifest row.  Accept the legacy shape only after its identity
+            # has been checked against the requested source.
+            source_video = source_document.get("video")
+            if not isinstance(source_video, dict):
+                source_video = source_document
+            if str(source_video.get("job_id", "")) != str(video["job_id"]):
+                raise RuntimeError(
+                    "source_candidate_video_mismatch:"
+                    f"{source_video.get('job_id', '')}:{video['job_id']}"
+                )
+            semantic_inventory = source_document.get("semantic_inventory")
+            if not isinstance(semantic_inventory, list):
+                raise RuntimeError("source_semantic_inventory_missing")
             source_record_path = source_root / "source.json"
             if not source_record_path.is_file():
                 raise RuntimeError("source_record_missing")
@@ -1375,7 +1417,7 @@ def command_refine(args: argparse.Namespace) -> None:
                 target_candidates_path,
                 {
                     "video": video,
-                    "semantic_inventory": source_document["semantic_inventory"],
+                    "semantic_inventory": semantic_inventory,
                     "candidate_count": len(refined),
                     "candidates": refined,
                     "continuity_review": {
