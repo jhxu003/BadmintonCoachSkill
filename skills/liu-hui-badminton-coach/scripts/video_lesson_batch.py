@@ -1401,10 +1401,10 @@ def command_summarize(args: argparse.Namespace) -> None:
     queue: list[dict[str, Any]] = []
     high_by_family: dict[str, list[dict[str, Any]]] = {}
     queued_candidates: set[str] = set()
-    for video in manifest["videos"]:
+    for fallback_video_index, video in enumerate(manifest["videos"]):
         root = video_root(args.batch_root, video)
         status = json.loads((root / "status.json").read_text(encoding="utf-8")) if (root / "status.json").is_file() else {"state": "pending", "stage": "inventory"}
-        record = {"video_index": video["video_index"], "job_id": video["job_id"], "source_id": video["source_id"], "title": video["title"], "state": status.get("state"), "stage": status.get("stage"), "preview": str((root / "preview.html").relative_to(args.batch_root)) if (root / "preview.html").is_file() else "", "technique_count": 0, "episode_count": 0}
+        record = {"video_index": video.get("video_index", fallback_video_index), "job_id": video["job_id"], "source_id": video["source_id"], "title": video["title"], "state": status.get("state"), "stage": status.get("stage"), "preview": str((root / "preview.html").relative_to(args.batch_root)) if (root / "preview.html").is_file() else "", "technique_count": 0, "episode_count": 0}
         lesson_path = root / "lesson-package.json"
         if lesson_path.is_file():
             lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
