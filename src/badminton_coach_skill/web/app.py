@@ -180,7 +180,8 @@ def create_app(
             request.coach_id,
             request.action,
             {
-                "phase": request.phase,
+                "mode": "phase_reference" if request.phase else "video_lesson",
+                **({"phase": request.phase} if request.phase else {}),
                 "training_goal": request.training_goal,
                 "level": request.level,
                 "framework_id": request.framework_id,

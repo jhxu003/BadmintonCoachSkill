@@ -132,8 +132,41 @@ export interface TeachingRoute {
   source_ids: string[];
 }
 
+export interface VideoLessonStage {
+  stage_id: string;
+  label: string;
+  phase: string;
+  teaching_points: string[];
+  reference: CoachReference;
+}
+
+export interface VideoLessonPackage {
+  lesson_id: string;
+  coach_id: string;
+  action: string;
+  lesson_topic: string;
+  family_id: string;
+  taxonomy_path: string[];
+  semantic_review_status: "agent_reviewed" | "model_candidate";
+  source_id: string;
+  source_url: string;
+  title: string;
+  completeness: "complete_demonstration" | "partial_demonstration" | "static_explanation" | "concept_only";
+  review_status: "agent_reviewed" | "model_candidate";
+  teaching_summary: string;
+  episode_start_ms: number;
+  episode_end_ms: number;
+  action_start_ms: number;
+  action_end_ms: number;
+  clip_start_ms: number;
+  clip_end_ms: number;
+  full_reference: CoachReference;
+  stages: VideoLessonStage[];
+  limitations: string[];
+}
+
 export interface CoachDemonstrationReport {
-  report_type: "coach_demonstration";
+  report_type: "coach_demonstration" | "coach_video_lesson";
   coach_id: string;
   coach_name: string;
   official_status: string;
@@ -141,12 +174,13 @@ export interface CoachDemonstrationReport {
   query: {
     coach_id: string;
     action: string;
-    phase: string;
+    phase?: string;
     training_goal: string;
     level: string;
     framework_id: string;
   };
   teaching_routes: TeachingRoute[];
+  video_lessons?: VideoLessonPackage[];
   coach_references: CoachReference[];
   limitations: string[];
 }
@@ -229,7 +263,7 @@ export async function createAnalysis(form: FormData): Promise<AnalysisJob> {
 export async function createDemonstration(payload: {
   coach_id: string;
   action: string;
-  phase: string;
+  phase?: string;
   training_goal?: string;
   level?: string;
   framework_id?: string;

@@ -11,14 +11,14 @@ This is a non-official public-source research synthesis. It provides an evidence
 
 Choose one mode:
 
-1. **Teaching demonstration**: Accept an action, phase, level, and optional training goal. Select a teaching framework and return a same-phase public coach-video reference with source and timestamp when available. Do not infer a learner fault.
+1. **Teaching demonstration**: Accept an action, learning level, and optional training goal. When a reviewed video lesson exists, first show its continuous coach-action episode and then its ordered nine-stage navigation with teaching text; a source video may teach several actions. Accept `phase` only for an explicitly targeted posture reference. Do not infer a learner fault.
 2. **Structured diagnosis**: Accept a player profile and structured observation, resolve the time budget and visible bottleneck, then return one correction, drill, and retest.
 
-Always read `references/demonstration-contract.md` in teaching-demonstration mode.
+Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed continuous lesson package exists.
 
 ## Required Inputs
 
-For teaching demonstration, require `action` and `phase`. Accept `level`, `training_goal`, or `framework_id` when supplied. Do not request learner video solely to show or explain the coach's action.
+For teaching demonstration, require `action`. Accept `level`, `training_goal`, or `framework_id` when supplied. Require `phase` only for a targeted same-phase lookup. Do not request learner video solely to show or explain the coach's action.
 
 For structured diagnosis, use diagnosis mode after a video agent or a human annotator has supplied a `player_profile` and a `video_observation` that includes the action, camera view, visible phases, contact proxy, preparation frame, release sequence proxy, footwork, recovery, missing observations, and keyframes.
 
@@ -33,7 +33,7 @@ When raw learner video is the only diagnostic input, request structured observat
 
 ## Reference Loading
 
-- In teaching-demonstration mode, read `references/demonstration-contract.md` and `references/frameworks.yaml`. Read `references/multimodal-evidence-map.yaml` only when resolving a source, timestamp, or evidence level.
+- In teaching-demonstration mode, read `references/video-lesson-contract.md`, the installed video-lesson index or catalog, and `references/frameworks.yaml`. Use the title plus reviewed ASR index to identify the lesson topic; use VLM only for strict action gating. An approved private staging root may be supplied at runtime through `BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
 - In structured-diagnosis mode, always read `references/report-contract.md`, `references/corpus-provenance.md`, and `references/visual-evidence-contract.yaml`.
 - Read `references/frameworks.yaml` before choosing the primary route and `references/student-profiles.yaml` before giving a diagnosis progression path.
 - Read `references/stroke-taxonomy.yaml` for action-specific diagnostic order.
@@ -66,4 +66,4 @@ Its central diagnostic rule is that a visible late start or late arrival must be
 
 Every report must include the selected framework, ranked issue list, observable evidence, confidence and limitations, one correction principle per issue, one drill per issue, a measurable retest, safety notes, and a request for missing views where needed. Advice about pain must be conservative and must not substitute for medical assessment.
 
-For a teaching demonstration, return the selected framework, action and phase, teaching principle, source id, timestamp, frame or clip availability, visible facts, limitations, and original-platform link. Use only same-phase references. A still frame is posture navigation, not proof of complete motion; return `no_reliable_same_phase_demonstration_frame` instead of substituting another phase.
+For a teaching demonstration, return the selected framework, lesson topic, controlled action, source id, continuous action and playback boundaries, clip availability, and an ordered stage list with a teaching point and evidence boundary for every frame. A still is posture navigation, not proof of complete motion. For an explicitly requested phase, use only a same-phase reference; return `no_reliable_same_phase_demonstration_frame` instead of substituting another phase. If no reviewed continuous episode exists, return `no_reliable_action_episode` rather than a speech or gesture frame.

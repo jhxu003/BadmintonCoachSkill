@@ -1,4 +1,4 @@
 interface:
   display_name: "Liu Hui Badminton Coach"
-  short_description: "Public-source badminton teaching and demonstrations"
-  default_prompt: "Use $liu-hui-badminton-coach to explain a badminton action and return a same-phase public coach-video frame or clip with source boundaries."
+  short_description: "Video-based badminton technique teaching"
+  default_prompt: "Use $liu-hui-badminton-coach to teach a badminton action with one continuous public coach-video lesson, ordered stage evidence, and explicit visibility limits."

@@ -1,0 +1,122 @@
+version: 1
+scope_boundary_zh: >-
+  路由只确定公开视频片段所讲的受控技术主题，并且只接纳可见的完整或部分协调动作。
+  普通单目画面不能证明精确触球、拍面角度、握拍压力、力量大小、真实内旋、三维运动学或对手意图。
+  握拍比划、静态讲解、纯战术口述和装备内容不能发布为连续动作教学包。
+routes:
+  - route_id: jump-smash
+    priority: 120
+    pattern: 跳杀|起跳杀球|腾空杀球
+    action: smash
+    label_zh: 跳杀与落地回收
+    family_id: overhead
+    taxonomy_path: [strokes.smash, frameworks.lyx-jump-smash-prerequisite]
+  - route_id: high-clear
+    priority: 110
+    pattern: 高远球|后场高球|高远发力
+    action: high_clear
+    label_zh: 后场高远球
+    family_id: overhead
+    taxonomy_path: [strokes.high_clear, frameworks.lyx-contact-distance-clear]
+  - route_id: smash
+    priority: 105
+    pattern: 杀球|扣杀|点杀|重杀
+    action: smash
+    label_zh: 杀球
+    family_id: overhead
+    taxonomy_path: [strokes.smash, frameworks.lyx-smash-sequence-before-speed]
+  - route_id: drop
+    priority: 100
+    pattern: 吊球|劈吊|滑板吊|切吊|勾球|放网
+    action: drop
+    label_zh: 吊球与前场控制
+    family_id: overhead_variation
+    taxonomy_path: [strokes.drop, frameworks.lyx-drop-height-and-feel]
+  - route_id: backhand
+    priority: 95
+    pattern: 反手|反拍
+    action: backhand
+    label_zh: 反手技术
+    family_id: backhand
+    taxonomy_path: [strokes.backhand, frameworks.lyx-backhand-time-budget]
+  - route_id: forehand-drive
+    priority: 90
+    pattern: 正手抽球|正手平抽|正手挡|正手推球
+    action: drive
+    label_zh: 正手抽挡／推球
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [strokes.drive, frameworks.lyx-drive-compact-first]
+  - route_id: backhand-drive
+    priority: 90
+    pattern: 反手抽球|反手平抽|反手挡|反手推球
+    action: drive
+    label_zh: 反手抽挡／推球
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [strokes.drive, frameworks.lyx-drive-compact-first]
+  - route_id: drive
+    priority: 85
+    pattern: 平抽|抽球|抽挡|挡球|推球|封网|扑球
+    action: drive
+    label_zh: 平抽挡与快速交换
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [strokes.drive, frameworks.lyx-drive-compact-first]
+  - route_id: serve-receive
+    priority: 80
+    pattern: 发球|接发|接发球
+    action: serve_receive
+    label_zh: 发接发
+    family_id: serve_receive
+    taxonomy_path: [strokes.serve_receive, frameworks.lyx-serve-individual-fit]
+  - route_id: rear-footwork
+    priority: 75
+    pattern: 后场步法|后退步|后场移动|转身步|交叉步|确认步|后场到位
+    action: rear_footwork
+    label_zh: 后场步法与到位
+    family_id: footwork
+    taxonomy_path: [frameworks.lyx-rear-turn-confirm-step]
+  - route_id: front-footwork
+    priority: 74
+    pattern: 上网步|前场步法|网前步法|蹬跨|前场移动
+    action: front_footwork
+    label_zh: 前场步法与第一反应
+    family_id: footwork
+    taxonomy_path: [frameworks.lyx-frontcourt-first-response]
+  - route_id: footwork
+    priority: 70
+    pattern: 步法|启动步|启动时机|并步|移动|连贯性
+    action: rear_footwork
+    label_zh: 步法与启动
+    family_id: footwork
+    taxonomy_path: [frameworks.lyx-observation-first]
+  - route_id: doubles
+    priority: 65
+    pattern: 双打|轮转|补位|搭档|前两拍|连贯进攻
+    action: doubles
+    label_zh: 双打前两拍与轮转
+    family_id: doubles_context
+    taxonomy_path: [strokes.doubles, frameworks.lyx-doubles-first-two-shot]
+  - route_id: preparation
+    priority: 35
+    pattern: 握拍|架拍|引拍|拍面|准备姿势
+    action: racket_preparation
+    label_zh: 持拍与准备结构
+    family_id: preparation
+    taxonomy_path: [frameworks.lyx-top-elbow-preparation]
+  - route_id: equipment
+    priority: 20
+    pattern: 球拍|磅数|拉线|平衡点|挥重|中杆|装备
+    action: equipment
+    label_zh: 球拍与装备选择
+    family_id: equipment
+    taxonomy_path: [equipment]
+topic_fallbacks:
+  high_clear: high-clear
+  smash: smash
+  drop: drop
+  drive: drive
+  backhand: backhand
+  serve_receive: serve-receive
+  doubles: doubles
+  rear_footwork: rear-footwork
+  front_footwork: front-footwork
+  footwork: footwork

@@ -202,7 +202,18 @@ class ConfiguredVideoPipeline:
         normalized, _ = self._normalized_video(video_path, output_dir)
         image_tracks = self._load_track_cache(output_dir)
         player_samples = project_player_tracks_to_court(image_tracks, selection)
-        shuttle_candidates = self.shuttle_detector.detect(normalized)
+        raw_shuttle_candidates = self.shuttle_detector.detect(normalized)
+        # TrackNet-style models can produce visually convincing high scores on
+        # scoreboards, banners or spectators.  Mixed-doubles navigation is
+        # more useful as an explicit "unknown" than as a fabricated rally, so
+        # retain only peaks projected on the manually confirmed court surface.
+        # This deliberately rejects high-lift points above the far baseline;
+        # callers must request a clearer recording rather than infer them.
+        shuttle_candidates = tuple(
+            candidate
+            for candidate in raw_shuttle_candidates
+            if selection.court.contains_image_point(candidate.x, candidate.y)
+        )
         contacts = tuple(build_contact_candidates(shuttle_candidates, player_samples))
         rallies = tuple(segment_rallies(shuttle_candidates, minimum_candidates=3))
         observation = build_mixed_doubles_observation(
@@ -210,6 +221,11 @@ class ConfiguredVideoPipeline:
             player_samples=player_samples,
             contacts=contacts,
         )
+        observation["shuttle_candidate_filter"] = {
+            "raw_candidate_count": len(raw_shuttle_candidates),
+            "court_surface_candidate_count": len(shuttle_candidates),
+            "policy": "outside_court_peaks_rejected_as_insufficient_evidence",
+        }
         rally_frames: list[RallyFrameRef] = []
         student_frames: list[FrameRef] = []
         keyframes: list[dict[str, object]] = []
@@ -312,11 +328,52 @@ def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline
     )
     shuttle_detector = TemporalHeatmapShuttleDetector(
         os.environ.get("BADMINTON_SHUTTLE_MODEL_PATH", config.shuttle_model_path),
-        input_width=config.shuttle_input_width,
-        input_height=config.shuttle_input_height,
-        temporal_frames=config.shuttle_temporal_frames,
-        background_mode=config.shuttle_background_mode,
-        confidence_threshold=config.shuttle_confidence_threshold,
+        # Keep deployment-specific checkpoint geometry out of versioned YAML.
+        # TrackNet checkpoints encode their own temporal contract (for example
+        # the verified public v3 checkpoint uses 8 RGB frames plus a median
+        # background), while the bundled private model currently uses 4.
+        # Operators must set these variables together with the private model
+        # path when their checkpoint differs from the repository default.
+        input_width=max(
+            64,
+            int(
+                os.environ.get(
+                    "BADMINTON_SHUTTLE_INPUT_WIDTH", config.shuttle_input_width
+                )
+            ),
+        ),
+        input_height=max(
+            64,
+            int(
+                os.environ.get(
+                    "BADMINTON_SHUTTLE_INPUT_HEIGHT", config.shuttle_input_height
+                )
+            ),
+        ),
+        temporal_frames=max(
+            3,
+            int(
+                os.environ.get(
+                    "BADMINTON_SHUTTLE_TEMPORAL_FRAMES",
+                    config.shuttle_temporal_frames,
+                )
+            ),
+        ),
+        background_mode=os.environ.get(
+            "BADMINTON_SHUTTLE_BACKGROUND_MODE", config.shuttle_background_mode
+        ),
+        confidence_threshold=max(
+            0.0,
+            min(
+                1.0,
+                float(
+                    os.environ.get(
+                        "BADMINTON_SHUTTLE_CONFIDENCE_THRESHOLD",
+                        config.shuttle_confidence_threshold,
+                    )
+                ),
+            ),
+        ),
     )
     return ConfiguredVideoPipeline(
         config=config,

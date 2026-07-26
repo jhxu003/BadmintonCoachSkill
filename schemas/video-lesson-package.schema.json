@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoLessonPackage",
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "source_id",
+    "lesson_topic",
+    "action",
+    "family_id",
+    "taxonomy_path",
+    "semantic_review_status",
+    "completeness",
+    "review_status",
+    "episode",
+    "stages"
+  ],
+  "properties": {
+    "lesson_id": { "type": "string", "minLength": 1 },
+    "source_id": { "type": "string", "minLength": 1 },
+    "lesson_topic": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "family_id": { "type": "string", "minLength": 1 },
+    "taxonomy_path": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "semantic_review_status": { "enum": ["agent_reviewed", "model_candidate"] },
+    "completeness": {
+      "enum": [
+        "complete_demonstration",
+        "partial_demonstration",
+        "static_explanation",
+        "concept_only"
+      ]
+    },
+    "review_status": { "enum": ["agent_reviewed", "model_candidate"] },
+    "confidence": { "enum": ["low", "medium", "high"] },
+    "teaching_summary": { "type": "string" },
+    "framework_ids": { "type": "array", "items": { "type": "string" } },
+    "episode": {
+      "type": "object",
+      "required": ["start_seconds", "end_seconds"],
+      "properties": {
+        "start_seconds": { "type": "number", "minimum": 0 },
+        "end_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "clip_start_seconds": { "type": "number", "minimum": 0 },
+        "clip_end_seconds": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_id",
+          "label",
+          "phase",
+          "start_seconds",
+          "anchor_seconds",
+          "end_seconds"
+        ],
+        "properties": {
+          "stage_id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "phase": {
+            "enum": [
+              "preparation",
+              "start",
+              "arrival",
+              "top_elbow",
+              "contact_window",
+              "follow_through",
+              "recovery"
+            ]
+          },
+          "start_seconds": { "type": "number", "minimum": 0 },
+          "anchor_seconds": { "type": "number", "minimum": 0 },
+          "end_seconds": { "type": "number", "exclusiveMinimum": 0 },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "teaching_use": { "type": "string" },
+          "teaching_points": { "type": "array", "items": { "type": "string" } },
+          "visible_facts": { "type": "array", "items": { "type": "string" } },
+          "limitations": { "type": "array", "items": { "type": "string" } },
+          "framework_ids": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

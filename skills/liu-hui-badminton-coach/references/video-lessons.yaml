@@ -1,0 +1,138 @@
+version: 1
+lessons:
+  - lesson_id: lh-bv15e411q713-smash-stationary-feed-577
+    source_id: LH_BILI_SEASON_BV15E411Q713
+    lesson_topic: 原地喂球头顶杀球连续动作
+    action: smash
+    family_id: overhead
+    taxonomy_path:
+      - stroke_families.smash
+      - power_frameworks.stable_overhead_frame
+    semantic_review_status: agent_reviewed
+    completeness: partial_demonstration
+    review_status: agent_reviewed
+    confidence: high
+    teaching_summary: >-
+      同一次原地喂球头顶杀球动作，连续覆盖抬头准备、屈膝启动、起跳举拍、
+      近似击球窗口、随挥和落地回稳。它用于讲清挥拍过程，不代表完整后场移动与回中心路线。
+    framework_ids:
+      - static-lock-racket-frame
+    episode:
+      start_seconds: 577.50
+      end_seconds: 579.50
+    stages:
+      - stage_id: prepare
+        label: 抬头观察与持拍准备
+        phase: preparation
+        start_seconds: 577.50
+        anchor_seconds: 577.70
+        end_seconds: 577.90
+        confidence: high
+        framework_ids:
+          - static-lock-racket-frame
+        teaching_use: 先用完整画面确认来球、身体和球拍均可见，再进入启动阶段。
+        teaching_points:
+          - 观察来球下降过程，同时保留后续举拍空间。
+          - 此帧只用于定位准备状态，不能单独代表整套动作。
+        visible_facts:
+          - coach_full_body_visible
+          - head_oriented_upward_toward_descending_feed
+          - racket_held_in_front_before_loading
+        limitations:
+          - rear_court_approach_not_shown
+      - stage_id: load
+        label: 屈膝降重心并启动举拍
+        phase: start
+        start_seconds: 577.87
+        anchor_seconds: 578.00
+        end_seconds: 578.13
+        confidence: high
+        framework_ids:
+          - static-lock-racket-frame
+        teaching_use: 展示从等待状态进入起跳和举拍的连续启动，而不是直接跳到最高点。
+        teaching_points:
+          - 观察屈膝、身体下沉和球拍上举如何在同一段连续动作中开始。
+        visible_facts:
+          - knees_flex_and_center_of_mass_lowers
+          - racket_arm_begins_upward_motion
+        limitations:
+          - force_and_muscle_activation_unknown
+      - stage_id: rise
+        label: 起跳举拍形成头顶击球结构
+        phase: top_elbow
+        start_seconds: 578.13
+        anchor_seconds: 578.33
+        end_seconds: 578.43
+        confidence: medium
+        framework_ids:
+          - static-lock-racket-frame
+        teaching_use: 用于观察腾空时持拍臂已举过肩部的可见结构，不推断精确关节角度。
+        teaching_points:
+          - 结合前后短片观察举拍过程，不要只模仿这一张定格。
+        visible_facts:
+          - both_feet_leave_floor
+          - racket_arm_is_raised_above_shoulder_level
+          - racket_and_hitting_arm_remain_inside_frame
+        limitations:
+          - motion_blur_limits_exact_joint_geometry
+          - true_shoulder_internal_rotation_unknown
+      - stage_id: contact-window
+        label: 近似击球窗口
+        phase: contact_window
+        start_seconds: 578.40
+        anchor_seconds: 578.50
+        end_seconds: 578.60
+        confidence: medium
+        framework_ids:
+          - static-lock-racket-frame
+        teaching_use: 只标记球拍经过头顶区域的时间窗口，不声称识别到精确触球帧。
+        teaching_points:
+          - 用前后连续帧理解球拍经过头顶区域的过程。
+          - 精确触球、拍面和力量无法由该普通单目视频确认。
+        visible_facts:
+          - coach_is_airborne
+          - racket_sweeps_through_overhead_region
+          - shuttle_and_racket_are_visible_near_the_overhead_action_window
+        limitations:
+          - exact_shuttle_contact_frame_unknown
+          - racket_face_angle_unknown
+          - force_and_grip_pressure_unknown
+      - stage_id: follow
+        label: 随挥与身体转回
+        phase: follow_through
+        start_seconds: 578.57
+        anchor_seconds: 578.73
+        end_seconds: 579.00
+        confidence: medium
+        framework_ids:
+          - static-lock-racket-frame
+        teaching_use: 展示球拍通过头顶区域后动作仍连续向前，不把近似击球窗口当作终点。
+        teaching_points:
+          - 观察随挥、身体转回和下降落地如何连续发生。
+        visible_facts:
+          - racket_arm_continues_after_the_overhead_window
+          - torso_rotates_forward_during_descent
+          - landing_sequence_begins
+        limitations:
+          - joint_torque_and_deceleration_load_unknown
+      - stage_id: recover
+        label: 落地后重新站稳
+        phase: recovery
+        start_seconds: 578.90
+        anchor_seconds: 579.23
+        end_seconds: 579.50
+        confidence: high
+        teaching_use: 展示本次原地动作结束后的落地回稳；不冒充回到比赛中心位置。
+        teaching_points:
+          - 动作教学要延续到落地重新稳定，而不是停在挥拍结束处。
+        visible_facts:
+          - both_feet_return_to_floor
+          - upper_body_returns_toward_upright
+          - coach_regains_a_stable_stance
+        limitations:
+          - return_to_tactical_base_not_shown
+    limitations:
+      - stationary_feed_no_rear_court_approach
+      - return_to_tactical_base_not_shown
+      - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
+      - ordinary_monocular_video_no_calibrated_3d_kinematics

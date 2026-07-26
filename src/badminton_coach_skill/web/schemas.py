@@ -39,7 +39,7 @@ class MixedDoublesSetupRequest(BaseModel):
 class CoachDemonstrationRequest(BaseModel):
     coach_id: str
     action: str
-    phase: Phase
+    phase: Phase | None = None
     training_goal: str = ""
     level: str = "beginner"
     framework_id: str = ""

@@ -385,14 +385,42 @@ RALLY_MODULE_PHASES = {
     "reset_match_transfer": "recovery",
 }
 
+# Seven navigation modules are useful only when the shuttle heatmap contains
+# enough individually credible temporal anchors.  A dense run of low-score
+# peaks is often background or overlay noise; treating it as a rally would
+# fabricate an apparently complete tactical sequence.
+RALLY_MODULE_MINIMUM_ANCHOR_CONFIDENCE = 0.55
+# Seven review cards should navigate a material portion of one rally, not turn
+# a one- or two-second cluster of static heatmap artefacts into seven named
+# tactical events.  Shorter exchanges remain available as raw private context
+# but intentionally return no module package.
+RALLY_MODULE_MINIMUM_SEQUENCE_SPAN_MS = 4_000
+
 
 def select_rally_module_anchors(
     shuttle_candidates: tuple[ShuttleHeatmapCandidate, ...]
     | list[ShuttleHeatmapCandidate],
 ) -> tuple[tuple[RallyModule, ShuttleHeatmapCandidate], ...]:
-    """Select seven ordered review anchors without asserting seven proven events."""
-    ordered = sorted(shuttle_candidates, key=lambda candidate: candidate.timestamp_ms)
+    """Select seven ordered review anchors without asserting seven events.
+
+    Low-confidence peaks cannot be promoted merely because one exists for
+    every decoded frame.  In that case callers receive no module sequence and
+    can ask for a clearer full-court recording instead.
+    """
+    ordered = [
+        candidate
+        for candidate in sorted(
+            shuttle_candidates, key=lambda candidate: candidate.timestamp_ms
+        )
+        if candidate.confidence >= RALLY_MODULE_MINIMUM_ANCHOR_CONFIDENCE
+        and not candidate.interpolated
+    ]
     if len(ordered) < len(RALLY_MODULE_ORDER):
+        return ()
+    if (
+        ordered[-1].timestamp_ms - ordered[0].timestamp_ms
+        < RALLY_MODULE_MINIMUM_SEQUENCE_SPAN_MS
+    ):
         return ()
     last = len(ordered) - 1
     indices = [round(index * last / (len(RALLY_MODULE_ORDER) - 1)) for index in range(7)]

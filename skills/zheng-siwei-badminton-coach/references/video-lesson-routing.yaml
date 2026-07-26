@@ -1,0 +1,63 @@
+version: 1
+scope_boundary_zh: >-
+  此路由只把郑思维官方公开视频的标题和受控主题连接到待审核的连续示范候选。
+  只有可见的单次、完整、连续动作才可进入人工审核；讲解、站位比划、静态手势和
+  不完整片段不得发布为动作教学包。普通单目画面不能证明精确触球、拍面角度、握拍
+  压力、力量大小、真实内旋、三维运动学或对手意图。
+routes:
+  - route_id: serve-receive
+    priority: 100
+    pattern: 接发球|接发|发球
+    action: serve_receive
+    label_zh: 接发与下一拍衔接
+    family_id: serve_receive
+    taxonomy_path: [frameworks.zsw-receive-opening-exchange, frameworks.zsw-serve-opening-plan]
+  - route_id: rear-cover
+    priority: 95
+    pattern: 防偷后场|后场来不及退|后场突击步伐|后场步法
+    action: rear_footwork
+    label_zh: 后场补位、到位与回收
+    family_id: footwork
+    taxonomy_path: [frameworks.zsw-rear-attack-continuity, frameworks.zsw-defense-transition]
+  - route_id: backhand-transition
+    priority: 90
+    pattern: 反手底线|反手.*过渡|反手
+    action: backhand
+    label_zh: 反手底线过渡
+    family_id: backhand
+    taxonomy_path: [frameworks.zsw-defense-transition, frameworks.zsw-reset-match-transfer]
+  - route_id: net-drop
+    priority: 85
+    pattern: 贴网.*吊球|吊球|网前
+    action: drop
+    label_zh: 贴网吊球与前场压迫
+    family_id: overhead_variation
+    taxonomy_path: [frameworks.zsw-frontcourt-pressure, frameworks.zsw-rear-attack-continuity]
+  - route_id: rear-attack
+    priority: 80
+    pattern: 后场进攻|后场攻击|进攻方式
+    action: smash
+    label_zh: 后场进攻与落地衔接
+    family_id: overhead
+    taxonomy_path: [frameworks.zsw-rear-attack-continuity]
+  - route_id: doubles-continuity
+    priority: 70
+    pattern: 双打|下一拍.*连贯|连贯
+    action: doubles
+    label_zh: 双打两条通道与下一拍衔接
+    family_id: doubles_context
+    taxonomy_path: [frameworks.zsw-pair-rotation-two-lanes, frameworks.zsw-reset-match-transfer]
+topic_fallbacks:
+  serve_receive: serve-receive
+  receive: serve-receive
+  rear_cover: rear-cover
+  rear_footwork: rear-cover
+  defense_transition: rear-cover
+  backhand: backhand-transition
+  drop: net-drop
+  frontcourt_pressure: net-drop
+  rear_attack: rear-attack
+  smash: rear-attack
+  doubles: doubles-continuity
+  rotation: doubles-continuity
+  continuity: doubles-continuity

@@ -126,7 +126,11 @@ def build_observation_and_frames(
             continue
         image_path = image_paths.get(candidate.timestamp_ms) if image_paths else None
         review = visual_reviewer.review(candidate, image_path or Path(media_key), frame_id)
-        if review.phase_assessment != "plausible":
+        # A still image can be genuinely uncertain while the temporal pose
+        # candidate remains useful as a navigation point. Only a positive
+        # non-action finding may remove it; an unclear result stays explicitly
+        # limited and cannot by itself establish a coaching diagnosis.
+        if review.phase_assessment == "not_action":
             rejected_non_action = True
             continue
         reviewed_candidates.append((candidate, media_key, review))

@@ -11,18 +11,18 @@ This is a non-official, non-authorized research skill. 这是非官方研究 ski
 
 Choose one mode before loading detailed references:
 
-1. **Teaching demonstration**: Accept an action, learning level, teaching goal, and desired phase. Return the appropriate framework, original teaching summary, public source and timestamp, and same-phase reference frame or clip when available. Do not require learner video or invent a learner problem.
+1. **Teaching demonstration**: Accept an action, learning level, and teaching goal. Treat one public coach video as a lesson container that may cover several techniques. Resolve and display its complete reviewed technique inventory before selecting one or more technique packages. For each requested technique, show a continuous pure-action episode before 7–9 ordered stage frames; attach an action point and evidence boundary to every frame. Accept `phase` only when the user explicitly asks for one targeted posture reference. Do not require learner video or invent a learner problem.
 2. **Structured diagnosis**: Accept a player profile plus structured observations from a human or video agent. Rank one observable bottleneck and bind it to teaching, practice, and retest evidence.
 
-Always read `references/demonstration-contract.md` in teaching-demonstration mode.
+Always read `references/video-lesson-contract.md` in teaching-demonstration mode. When a batch corpus is installed, use `references/video-lessons-index.yaml` to select the relevant family shard under `references/video-lessons/`; otherwise load `references/video-lessons.yaml`. In the local runtime, an approved private staging root may instead be supplied through `BADMINTON_VIDEO_LESSON_ROOT`; it must contain that index and its `video-lessons/` shards, and its absolute path must remain deployment configuration rather than Git content. Read `references/demonstration-contract.md` as the fallback contract for an explicitly requested phase or when no reviewed video lesson package exists.
 
 ## Required Inputs
 
 For teaching demonstration, require:
 
 - `action`: the stroke, footwork, tactical, or equipment topic.
-- `phase`: preparation, start, arrival, top elbow, contact window, follow-through, or recovery.
 - Optional `level`, `training_goal`, or `framework_id` to select a narrower route.
+- Optional `phase`: preparation, start, arrival, top elbow, contact window, follow-through, or recovery, only for a targeted phase lookup.
 
 Do not request learner video when these inputs are sufficient.
 
@@ -37,7 +37,8 @@ If raw learner video is the only diagnostic input, ask for structured observatio
 
 Load references by mode and action:
 
-- In teaching-demonstration mode, read `references/demonstration-contract.md`, `references/reviewed-demonstrations.yaml`, and `references/frameworks.yaml`. Prefer an `agent_reviewed` same-phase timepoint over a model-only candidate.
+- In teaching-demonstration mode, first read `references/video-lesson-contract.md`, the installed video-lesson index or catalog, and `references/frameworks.yaml`. Build the source video's full technique inventory before frame selection: use the public title and reviewed ASR topic indexes to route each lesson topic, action, family, taxonomy path, and semantic interval; use VLM action windows only for strict action gating and visual compatibility. Prefer `agent_reviewed` packages, exclude speech and isolated racket gestures from storyboards, and keep every displayed stage inside its one continuous episode.
+- For an explicitly requested phase or when no reviewed lesson package exists, read `references/demonstration-contract.md` and `references/reviewed-demonstrations.yaml`. Prefer an `agent_reviewed` same-phase timepoint over a model-only candidate.
 - In structured-diagnosis mode, always read `references/report-contract.md` and `references/visual-evidence-contract.yaml`.
 - Read `references/corpus-provenance.md` before treating a source or teaching point as evidence.
 - Read `references/multimodal-evidence-map.yaml` whenever a diagnosis, training choice, or demonstration is linked to the Liu Hui corpus. Use its source, timestamp, framework, evidence-level, and confidence-boundary fields as one chain.
@@ -95,7 +96,12 @@ The runtime framework library covers 67 selectable frameworks. Route diagnosis t
 
 ## Output Rules
 
-- In teaching-demonstration mode, output the selected framework, action and phase, concise teaching principle, source id, timestamp, reference availability, visible facts, limitations, and original-platform jump link.
+- In teaching-demonstration mode, first output the source video's reviewed technique inventory. For each requested technique, output the lesson topic, controlled action, technique family, taxonomy path, semantic review status, selected framework, package completeness, concise teaching summary, source id, full episode boundary, continuous clip availability, ordered stages, a teaching point and evidence boundary for every stage frame, visible facts, limitations, and original-platform jump link.
+- Do not reduce a video lesson to `demonstration` versus `talking`. Motion gating only decides which windows deserve action expansion; it does not identify the taught technique or technical system.
+- Do not populate a technique storyboard with talking, pointing, shuttle throwing without a racket stroke, grip adjustment, racket-face placement, isolated wrist or forearm rotation, or held poses. If a reviewed technique has no reliable action episode, say so and preserve the gap.
+- Do not auto-promote a model-labeled partial demonstration. Automatic batch admission requires one high-confidence, high-purity, single continuous repetition with a full visible trajectory and at least four visible stage codes; otherwise preserve it only in the private review workspace.
+- Do not quote or reconstruct course transcripts or on-screen subtitles. Use reviewed topic indexes and original short summaries.
+- Present each continuous episode before its 7–9-frame stage storyboard. Keep the action boundary and every stage frame inside one repetition. Label a separate playback boundary when the clip retains 1–2 seconds after the action to show shuttle flight or landing; end that result segment before the next stroke. Do not concatenate stages from different repetitions or use stills from another technique.
 - Treat a keyframe as posture navigation and a short clip as process context. Never present one frame as the whole correct technique.
 - Use only an action-compatible, same-phase reference. If no reliable reference exists, return `no_reliable_same_phase_demonstration_frame`; do not borrow another phase.
 - Label model-located public frames as demonstration references, not official certification or independent proof that every visible detail is correct.

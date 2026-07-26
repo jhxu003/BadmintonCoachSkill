@@ -1,11 +1,20 @@
 from __future__ import annotations
 
 from dataclasses import replace
+from collections.abc import Callable
 from pathlib import Path
 
 from ..coach_media.catalog import build_source_catalog
 from ..coach_media.demonstrations import DemonstrationQuery, build_demonstration_plan
 from ..coach_media.ingestion import ensure_demonstration_media
+from ..coach_media.lesson_ingestion import ensure_video_lesson_media
+from ..coach_media.video_lessons import (
+    VideoLessonPackage,
+    VideoLessonQuery,
+    build_video_lesson_plan,
+    load_video_lessons,
+    replace_lesson_references,
+)
 from ..coach_registry import load_coach_knowledge
 from ..video_evidence.contracts import CoachReference
 from .analysis_runner import (
@@ -17,6 +26,10 @@ from .analysis_runner import (
 from .database import Database
 from .media_store import LocalMediaStore
 from .models import AnalysisJob
+
+
+LessonCatalogLoader = Callable[[str, Path], list[VideoLessonPackage]]
+LessonMaterializer = Callable[[VideoLessonPackage, Path], VideoLessonPackage]
 
 
 def _query_from_profile(job: AnalysisJob, profile: dict[str, object]) -> DemonstrationQuery:
@@ -31,6 +44,39 @@ def _query_from_profile(job: AnalysisJob, profile: dict[str, object]) -> Demonst
     )
 
 
+def _lesson_query_from_profile(
+    job: AnalysisJob, profile: dict[str, object]
+) -> VideoLessonQuery:
+    return VideoLessonQuery(
+        coach_id=job.coach_id,
+        action=str(profile.get("action", job.action_hint or "")),
+        training_goal=str(profile.get("training_goal", "")),
+        level=str(profile.get("level", "beginner")),
+        framework_id=str(profile.get("framework_id", "")),
+        limit=int(profile.get("limit", 2)),
+    )
+
+
+def _public_video_lesson(
+    lesson: VideoLessonPackage, analysis_id: str
+) -> dict[str, object]:
+    payload = lesson.to_dict()
+    payload["full_reference"] = _public_coach_reference(
+        lesson.full_reference, analysis_id
+    )
+    payload["stages"] = [
+        {
+            "stage_id": stage.stage_id,
+            "label": stage.label,
+            "phase": stage.phase,
+            "teaching_points": list(stage.teaching_points),
+            "reference": _public_coach_reference(stage.reference, analysis_id),
+        }
+        for stage in lesson.stages
+    ]
+    return payload
+
+
 def run_demonstration_job(
     *,
     database: Database,
@@ -40,6 +86,8 @@ def run_demonstration_job(
     catalog_loader: CatalogLoader = build_source_catalog,
     coach_media_root: Path | None = None,
     reference_materializer: ReferenceMaterializer = ensure_demonstration_media,
+    lesson_loader: LessonCatalogLoader = load_video_lessons,
+    lesson_materializer: LessonMaterializer = ensure_video_lesson_media,
 ) -> AnalysisJob:
     """Build a coach teaching demonstration without requiring learner media."""
     job = database.get_job(job_id)
@@ -52,6 +100,112 @@ def run_demonstration_job(
     job = claimed
     try:
         profile = database.get_player_profile(job.id)
+        if profile.get("mode") == "video_lesson":
+            query = _lesson_query_from_profile(job, profile)
+            knowledge = load_coach_knowledge(job.coach_id, project_root)
+            lessons = lesson_loader(job.coach_id, project_root)
+            plan = build_video_lesson_plan(query, knowledge, lessons)
+            selected_lessons = list(plan.pop("video_lessons"))
+
+            active = database.set_active_state(
+                job.id,
+                "matching_references",
+                55,
+                "Extracting continuous coach video lessons and ordered stage media.",
+            )
+            if active is None:
+                return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+
+            cache_root = coach_media_root or media_store.root.parent / "coach-media"
+            materialized_lessons: list[VideoLessonPackage] = []
+            flattened_references: list[CoachReference] = []
+            for lesson in selected_lessons:
+                try:
+                    materialized = lesson_materializer(lesson, cache_root)
+                except Exception:
+                    failure_limitations = tuple(
+                        dict.fromkeys(
+                            (*lesson.limitations, "source_acquisition_failed")
+                        )
+                    )
+                    materialized = replace_lesson_references(
+                        replace(lesson, limitations=failure_limitations),
+                        full_reference=replace(
+                            lesson.full_reference,
+                            availability="unavailable",
+                            media_key="",
+                            clip_media_key="",
+                            limitations=tuple(
+                                dict.fromkeys(
+                                    (
+                                        *lesson.full_reference.limitations,
+                                        "source_acquisition_failed",
+                                    )
+                                )
+                            ),
+                        ),
+                        stage_references={
+                            stage.stage_id: replace(
+                                stage.reference,
+                                availability="unavailable",
+                                media_key="",
+                                clip_media_key="",
+                                limitations=tuple(
+                                    dict.fromkeys(
+                                        (
+                                            *stage.reference.limitations,
+                                            "source_acquisition_failed",
+                                        )
+                                    )
+                                ),
+                            )
+                            for stage in lesson.stages
+                        },
+                    )
+                references = [
+                    materialized.full_reference,
+                    *(stage.reference for stage in materialized.stages),
+                ]
+                for reference in references:
+                    database.save_coach_reference(reference)
+                flattened_references.extend(references)
+                materialized_lessons.append(materialized)
+
+            stopped = _stop_if_media_was_deleted(database, media_store, job.id)
+            if stopped is not None:
+                return stopped
+            coach = knowledge["coach"]
+            report = {
+                "report_type": "coach_video_lesson",
+                "coach_id": job.coach_id,
+                "coach_name": str(coach.get("display_name", job.coach_id)),
+                "official_status": str(
+                    coach.get("official_status", "non-official research synthesis")
+                ),
+                "notice": str(coach.get("diagnosis_notice", "")),
+                **plan,
+                "video_lessons": [
+                    _public_video_lesson(lesson, job.id)
+                    for lesson in materialized_lessons
+                ],
+                "coach_references": [
+                    _public_coach_reference(reference, job.id)
+                    for reference in flattened_references
+                ],
+            }
+            if not materialized_lessons:
+                report["limitations"] = list(
+                    dict.fromkeys(
+                        (*report.get("limitations", []), "no_materialized_video_lesson")
+                    )
+                )
+            if not database.save_report_if_active(job.id, report):
+                return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+            completed = database.set_active_state(
+                job.id, "completed", 100, "Coach video lesson is ready."
+            )
+            return completed or database.get_job(job.id)
+
         query = _query_from_profile(job, profile)
         knowledge = load_coach_knowledge(job.coach_id, project_root)
         catalog = (

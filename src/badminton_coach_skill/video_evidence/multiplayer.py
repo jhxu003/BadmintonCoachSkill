@@ -86,6 +86,26 @@ class CourtCalibration:
     def to_dict(self) -> dict[str, dict[str, float]]:
         return {name: getattr(self, name).to_dict() for name in COURT_CORNER_NAMES}
 
+    def contains_image_point(self, x: float, y: float) -> bool:
+        """Return whether a point lies on the calibrated visible court surface.
+
+        This intentionally does not extend the court into the stands.  A
+        single-camera shuttle may be above the court in the image during a
+        high lift, but treating a high-confidence logo, scoreboard or crowd
+        peak as a ball is worse: callers should return insufficient evidence
+        for that moment rather than fabricate a rally sequence.
+        """
+        point = NormalizedPoint(x=float(x), y=float(y))
+        points = self.points
+        crosses = [
+            _cross(points[index], points[(index + 1) % 4], point)
+            for index in range(4)
+        ]
+        tolerance = 1e-8
+        return all(value >= -tolerance for value in crosses) or all(
+            value <= tolerance for value in crosses
+        )
+
 
 @dataclass(frozen=True)
 class ParticipantSelection:

@@ -1,0 +1,153 @@
+version: 1
+scope_boundary_zh: >-
+  路由只确定公开视频片段所讲的受控技术主题。普通单目画面不能证明精确触球、
+  拍面角度、握拍压力、力量大小、真实内旋、三维运动学或对手意图。
+routes:
+  - route_id: light-drop
+    priority: 120
+    pattern: 轻吊|轻放
+    action: light_drop
+    label_zh: 轻吊
+    family_id: overhead_variation
+    taxonomy_path: [stroke_families.drop, power_frameworks.overhead_variation]
+  - route_id: heavy-slice-drop
+    priority: 120
+    pattern: 重劈|重切
+    action: heavy_slice_drop
+    label_zh: 重劈吊球
+    family_id: overhead_variation
+    taxonomy_path: [stroke_families.drop, power_frameworks.overhead_variation]
+  - route_id: slice-drop
+    priority: 115
+    pattern: 劈吊|滑板吊|切吊|劈杀
+    action: slice_drop
+    label_zh: 劈吊／滑板吊球
+    family_id: overhead_variation
+    taxonomy_path: [stroke_families.drop, power_frameworks.overhead_variation]
+  - route_id: jump-smash
+    priority: 115
+    pattern: 跳杀|起跳杀球
+    action: jump_smash
+    label_zh: 跳杀
+    family_id: overhead
+    taxonomy_path: [stroke_families.smash, power_frameworks.stable_overhead_frame]
+  - route_id: smash-defense
+    priority: 110
+    pattern: 接杀|防重杀|杀球防守
+    action: smash_defense
+    label_zh: 接杀防守
+    family_id: defense
+    taxonomy_path: [stroke_families.drive, power_frameworks.compact_frontcourt]
+  - route_id: forehand-attack
+    priority: 105
+    pattern: 正手突击|突击球
+    action: forehand_attack
+    label_zh: 正手突击
+    family_id: overhead
+    taxonomy_path: [stroke_families.smash, power_frameworks.kinetic_chain_power]
+  - route_id: high-clear
+    priority: 100
+    pattern: 高远球|高远发力|后场高球
+    action: high_clear
+    label_zh: 后场高远球
+    family_id: overhead
+    taxonomy_path: [stroke_families.high_clear, power_frameworks.stable_overhead_frame]
+  - route_id: smash
+    priority: 95
+    pattern: 杀球|扣杀|重杀|点杀
+    action: smash
+    label_zh: 杀球
+    family_id: overhead
+    taxonomy_path: [stroke_families.smash, power_frameworks.stable_overhead_frame]
+  - route_id: drop
+    priority: 90
+    pattern: 吊球|吊对角|收吊
+    action: drop
+    label_zh: 吊球
+    family_id: overhead_variation
+    taxonomy_path: [stroke_families.drop, power_frameworks.overhead_variation]
+  - route_id: backhand
+    priority: 85
+    pattern: 反手|反拍
+    action: backhand
+    label_zh: 反手技术
+    family_id: backhand
+    taxonomy_path: [stroke_families.backhand, power_frameworks.late_arrival_recovery]
+  - route_id: forehand-drive
+    priority: 82
+    pattern: 正手抽球|正手平抽|正手挡|正手推球
+    action: forehand_drive
+    label_zh: 正手抽挡／推球
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [stroke_families.drive, power_frameworks.compact_frontcourt]
+  - route_id: backhand-drive
+    priority: 82
+    pattern: 反手抽球|反手平抽|反手挡|反手推球
+    action: backhand_drive
+    label_zh: 反手抽挡／推球
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [stroke_families.drive, power_frameworks.compact_frontcourt]
+  - route_id: drive
+    priority: 75
+    pattern: 平抽|抽球|抽挡|挡球|推球|封网|扑球
+    action: drive
+    label_zh: 平抽挡与快速交换
+    family_id: midcourt_fast_exchange
+    taxonomy_path: [stroke_families.drive, power_frameworks.compact_frontcourt]
+  - route_id: net
+    priority: 72
+    pattern: 网前|搓球|勾球|放网|挑球
+    action: net
+    label_zh: 网前技术
+    family_id: frontcourt
+    taxonomy_path: [stroke_families.net, power_frameworks.compact_frontcourt]
+  - route_id: serve-receive
+    priority: 70
+    pattern: 发球|接发|接发球
+    action: serve_receive
+    label_zh: 发接发
+    family_id: serve_receive
+    taxonomy_path: [stroke_families.serve_receive, match_transfer.first_two_shots]
+  - route_id: footwork
+    priority: 68
+    pattern: 步法|启动步|并步|交叉步|蹬跨|上网步|后退步|起跳步
+    action: footwork
+    label_zh: 羽毛球步法
+    family_id: footwork
+    taxonomy_path: [footwork_families.arrival, footwork_families.recovery_to_base]
+  - route_id: doubles
+    priority: 60
+    pattern: 双打|轮转|补位|搭档|连贯进攻
+    action: doubles
+    label_zh: 双打连贯与轮转
+    family_id: doubles_context
+    taxonomy_path: [stroke_families.doubles, match_transfer.drill_to_rally]
+  - route_id: defense
+    priority: 55
+    pattern: 防守|被动球|被动处理
+    action: defense
+    label_zh: 被动防守
+    family_id: defense
+    taxonomy_path: [power_frameworks.late_arrival_recovery]
+  - route_id: preparation
+    priority: 35
+    pattern: 握拍|架拍|引拍|拍面|准备姿势
+    action: racket_preparation
+    label_zh: 持拍与准备结构
+    family_id: preparation
+    taxonomy_path: [power_frameworks.stable_overhead_frame]
+  - route_id: equipment
+    priority: 20
+    pattern: 球拍|磅数|拉线|平衡点|挥重|中杆|装备
+    action: equipment
+    label_zh: 球拍与装备选择
+    family_id: equipment
+    taxonomy_path: [equipment_fit.controlled_comparison]
+topic_fallbacks:
+  high_clear: high-clear
+  smash: smash
+  drop: drop
+  drive: drive
+  footwork: footwork
+  serve_receive: serve-receive
+  doubles: doubles
