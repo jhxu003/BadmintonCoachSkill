@@ -9,6 +9,7 @@ from badminton_coach_skill.coach_media.video_lessons import (
     VideoLessonStage,
     load_video_lessons,
 )
+from badminton_coach_skill.coach_media.lesson_ingestion import ensure_video_lesson_media
 from badminton_coach_skill.video_evidence.contracts import CoachReference
 
 
@@ -86,3 +87,42 @@ def test_public_complete_lesson_obeys_seven_phase_contract() -> None:
     complete = [lesson for lesson in lessons if lesson.completeness == "complete_demonstration"]
     assert complete
     assert all(tuple(stage.phase for stage in lesson.stages) == PHASES for lesson in complete)
+
+
+def test_configured_staged_lesson_media_is_used_before_redownloading(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    lesson = _lesson(PHASES)
+    staged_root = tmp_path / "staged-lessons"
+    staged_media = staged_root / "private-media" / lesson.lesson_id
+    frames = staged_media / "frames"
+    frames.mkdir(parents=True)
+    action = staged_media / "action.mp4"
+    action.write_bytes(b"reviewed-action")
+    for index, stage in enumerate(lesson.stages, start=1):
+        (frames / f"stage-{index:02d}-{stage.stage_id}.jpg").write_bytes(
+            f"reviewed-{stage.stage_id}".encode()
+        )
+    monkeypatch.setenv("BADMINTON_VIDEO_LESSON_ROOT", str(staged_root))
+
+    extracted_windows: list[tuple[int, int]] = []
+
+    def unexpected_network(*_: object) -> None:
+        raise AssertionError("staged reviewed media should avoid public redownload")
+
+    def extract_staged_clip(_: Path, start_ms: int, end_ms: int, target: Path) -> None:
+        extracted_windows.append((start_ms, end_ms))
+        target.write_bytes(b"stage-clip")
+
+    materialized = ensure_video_lesson_media(
+        lesson,
+        tmp_path / "cache",
+        downloader=unexpected_network,
+        frame_extractor=unexpected_network,
+        clip_extractor=extract_staged_clip,
+    )
+
+    assert materialized.full_reference.availability == "cached"
+    assert all(stage.reference.availability == "cached" for stage in materialized.stages)
+    assert len(extracted_windows) == len(PHASES)
+    assert not (tmp_path / "cache" / ".downloads").exists()

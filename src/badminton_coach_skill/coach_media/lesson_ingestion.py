@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from pathlib import Path
+import shutil
 from typing import Callable
 from uuid import uuid4
 
@@ -17,6 +18,7 @@ from .ingestion import (
 from .video_lessons import (
     VideoLessonPackage,
     replace_lesson_references,
+    staged_video_lesson_root,
 )
 
 
@@ -58,6 +60,30 @@ def _full_image_key(lesson: VideoLessonPackage) -> Path:
     return _lesson_root(lesson) / f"full-{lesson.full_reference.timestamp_ms}.jpg"
 
 
+def _staged_lesson_media(
+    lesson: VideoLessonPackage,
+) -> tuple[Path, dict[str, Path]] | None:
+    """Locate a complete, deployment-private staged lesson without downloading.
+
+    A configured lesson root is an explicit operator-provided trust boundary;
+    it is never inferred from a source URL.  Require both its continuous clip
+    and every reviewed stage image before using it, otherwise the normal
+    public-source acquisition path remains in effect.
+    """
+    staged_root = staged_video_lesson_root(lesson.coach_id)
+    if staged_root is None:
+        return None
+    media_root = staged_root / "private-media" / lesson.lesson_id
+    full_clip = media_root / "action.mp4"
+    frames = {
+        stage.stage_id: media_root / "frames" / f"stage-{index:02d}-{stage.stage_id}.jpg"
+        for index, stage in enumerate(lesson.stages, start=1)
+    }
+    if not full_clip.is_file() or not all(path.is_file() for path in frames.values()):
+        return None
+    return full_clip, frames
+
+
 def _cached_reference(
     reference: CoachReference,
     image_key: Path,
@@ -73,6 +99,82 @@ def _cached_reference(
         clip_start_ms=start_ms,
         clip_end_ms=end_ms,
     )
+
+
+def _cached_lesson(
+    lesson: VideoLessonPackage,
+    *,
+    full_clip_key: Path,
+    full_image_key: Path,
+    stage_paths: dict[str, tuple[Path, Path]],
+) -> VideoLessonPackage:
+    stage_references = {
+        stage.stage_id: _cached_reference(
+            stage.reference,
+            stage_paths[stage.stage_id][0],
+            stage_paths[stage.stage_id][1],
+            int(stage.reference.window_start_ms or 0),
+            int(stage.reference.window_end_ms or 0),
+        )
+        for stage in lesson.stages
+    }
+    full_reference = _cached_reference(
+        lesson.full_reference,
+        full_image_key,
+        full_clip_key,
+        lesson.playback_start_ms,
+        lesson.playback_end_ms,
+    )
+    return replace_lesson_references(
+        lesson,
+        full_reference=full_reference,
+        stage_references=stage_references,
+    )
+
+
+def _prime_from_staged_lesson_media(
+    lesson: VideoLessonPackage,
+    cache_root: Path,
+    *,
+    full_clip_key: Path,
+    full_image_key: Path,
+    stage_paths: dict[str, tuple[Path, Path]],
+    clip_extractor: ExtractReferenceClip,
+) -> bool:
+    """Copy a reviewed private episode into cache and derive its stage clips.
+
+    Stage windows in the catalog are source-video timestamps.  The staged
+    action file begins at ``lesson.playback_start_ms``, so derive the local
+    offsets rather than treating the clipped file as a full source video.
+    """
+    staged = _staged_lesson_media(lesson)
+    if staged is None:
+        return False
+    staged_full_clip, staged_frames = staged
+    full_clip = cache_root / full_clip_key
+    if not full_clip.is_file():
+        shutil.copyfile(staged_full_clip, full_clip)
+    if not full_clip.is_file():
+        return False
+    for stage in lesson.stages:
+        image_key, clip_key = stage_paths[stage.stage_id]
+        image = cache_root / image_key
+        clip = cache_root / clip_key
+        if not image.is_file():
+            shutil.copyfile(staged_frames[stage.stage_id], image)
+        if not clip.is_file():
+            start_ms = max(
+                0,
+                int(stage.reference.window_start_ms or 0) - lesson.playback_start_ms,
+            )
+            end_ms = max(
+                start_ms + 1,
+                int(stage.reference.window_end_ms or 0) - lesson.playback_start_ms,
+            )
+            clip_extractor(full_clip, start_ms, end_ms, clip)
+        if not image.is_file() or not clip.is_file():
+            return False
+    return (cache_root / full_image_key).is_file()
 
 
 def ensure_video_lesson_media(
@@ -97,28 +199,31 @@ def ensure_video_lesson_media(
         (cache_root / image_key).is_file() and (cache_root / clip_key).is_file()
         for image_key, clip_key in stage_paths.values()
     )
-    if complete:
-        stage_references = {
-            stage.stage_id: _cached_reference(
-                stage.reference,
-                stage_paths[stage.stage_id][0],
-                stage_paths[stage.stage_id][1],
-                int(stage.reference.window_start_ms or 0),
-                int(stage.reference.window_end_ms or 0),
+    if not complete:
+        try:
+            _prime_from_staged_lesson_media(
+                lesson,
+                cache_root,
+                full_clip_key=full_clip_key,
+                full_image_key=full_image_key,
+                stage_paths=stage_paths,
+                clip_extractor=clip_extractor,
             )
-            for stage in lesson.stages
-        }
-        full_reference = _cached_reference(
-            lesson.full_reference,
-            full_image_key,
-            full_clip_key,
-            lesson.playback_start_ms,
-            lesson.playback_end_ms,
+        except Exception:
+            # A malformed optional staging tree must not make a public source
+            # unusable.  The normal acquisition path below retains its own
+            # bounded error handling and reports a clear limitation if needed.
+            pass
+        complete = full_clip.is_file() and full_image.is_file() and all(
+            (cache_root / image_key).is_file() and (cache_root / clip_key).is_file()
+            for image_key, clip_key in stage_paths.values()
         )
-        return replace_lesson_references(
+    if complete:
+        return _cached_lesson(
             lesson,
-            full_reference=full_reference,
-            stage_references=stage_references,
+            full_clip_key=full_clip_key,
+            full_image_key=full_image_key,
+            stage_paths=stage_paths,
         )
 
     download_dir = cache_root / ".downloads"

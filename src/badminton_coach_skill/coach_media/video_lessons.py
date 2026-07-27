@@ -48,6 +48,17 @@ _STAGED_LESSON_ROOT_ENV = {
 }
 
 
+def staged_video_lesson_root(coach_id: str) -> Path | None:
+    """Return the configured private lesson staging root, if one is installed.
+
+    The root is deployment-only configuration.  It can contain a reviewed
+    lesson index and, optionally, the already-extracted private lesson media.
+    """
+    environment_key = _STAGED_LESSON_ROOT_ENV.get(coach_id, "")
+    configured = os.environ.get(environment_key, "").strip()
+    return Path(configured).expanduser() if environment_key and configured else None
+
+
 def _validate_media_key_component(value: str, field: str) -> None:
     if not value or value in {".", ".."} or "/" in value or "\\" in value:
         raise ValueError(f"{field} must be a safe media-key component")
@@ -257,15 +268,11 @@ def _source_rows(root: Path, coach_id: str) -> dict[str, dict[str, str]]:
 
 
 def _lesson_paths(root: Path, coach_id: str) -> list[Path]:
-    staged_root_env = _STAGED_LESSON_ROOT_ENV.get(coach_id, "")
-    staged_root_value = os.environ.get(staged_root_env, "").strip()
-    if staged_root_env and staged_root_value:
-        staged_root = Path(staged_root_value).expanduser()
+    staged_root = staged_video_lesson_root(coach_id)
+    if staged_root is not None:
         index_path = staged_root / "video-lessons-index.yaml"
         if not index_path.is_file():
-            raise ValueError(
-                f"{staged_root_env} must contain video-lessons-index.yaml"
-            )
+            raise ValueError("configured video lesson root must contain video-lessons-index.yaml")
         index = yaml.safe_load(index_path.read_text(encoding="utf-8")) or {}
         if not isinstance(index, dict) or not isinstance(index.get("lessons"), list):
             raise ValueError("staged video lesson index must contain a lessons list")
