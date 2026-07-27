@@ -35,7 +35,6 @@ build/
 *.token
 .env
 .runtime/
-/tests/
 /scripts/
 /logs/
 /cache/

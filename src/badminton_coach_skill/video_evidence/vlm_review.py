@@ -53,9 +53,30 @@ class QwenLocalVisualReviewer:
             from transformers import AutoModelForImageTextToText, AutoProcessor
         except ImportError as error:
             raise RuntimeError("Transformers image-text runtime is unavailable") from error
-        self._processor = AutoProcessor.from_pretrained(self.model_path)
+        # Pin the checkpoint's original processor path.  Newer Transformers
+        # versions silently select a fast processor by default, which can
+        # change visual-token preprocessing and make the same reviewed frame
+        # yield different conservative gate results across deployments.
+        self._processor = AutoProcessor.from_pretrained(self.model_path, use_fast=False)
+        model_options: dict[str, object] = {
+            "device_map": "auto",
+            "low_cpu_mem_usage": True,
+        }
+        # Qwen-VL weights need not be materialized in float32 on a CUDA
+        # worker.  Keeping the model in BF16 (or FP16 on older cards) leaves
+        # room for pose inference and image-generation activations, while the
+        # review prompt and its conservative evidence policy stay unchanged.
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                model_options["dtype"] = (
+                    torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+                )
+        except ImportError:
+            pass
         self._model = AutoModelForImageTextToText.from_pretrained(
-            self.model_path, device_map="auto"
+            self.model_path, **model_options
         )
 
     def review(self, candidate: PhaseCandidate, image_path: Path, frame_id: str) -> VisualReview:

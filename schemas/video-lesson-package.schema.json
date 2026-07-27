@@ -93,5 +93,29 @@
     },
     "limitations": { "type": "array", "items": { "type": "string" } }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "completeness": { "const": "complete_demonstration" } },
+        "required": ["completeness"]
+      },
+      "then": {
+        "properties": {
+          "stages": {
+            "minItems": 7,
+            "allOf": [
+              { "contains": { "properties": { "phase": { "const": "preparation" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "start" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "arrival" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "top_elbow" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "contact_window" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "follow_through" } }, "required": ["phase"] } },
+              { "contains": { "properties": { "phase": { "const": "recovery" } }, "required": ["phase"] } }
+            ]
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }

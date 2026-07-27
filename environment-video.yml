@@ -19,6 +19,7 @@ dependencies:
       - lap>=0.5.12,<1.0
       - opencv-python-headless>=4.10,<5.0
       - pillow==12.3.0
+      - pytest>=8,<10
       - PyYAML==6.0.2
       - qwen-vl-utils==0.0.14
       - python-multipart>=0.0.12,<1.0

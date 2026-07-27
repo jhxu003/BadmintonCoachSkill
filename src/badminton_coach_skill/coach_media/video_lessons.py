@@ -40,6 +40,7 @@ _PHASE_ORDER = (
     "follow_through",
     "recovery",
 )
+_COMPLETE_DEMONSTRATION_PHASES = frozenset(_PHASE_ORDER)
 _STAGED_LESSON_ROOT_ENV = {
     "liu-hui": "BADMINTON_VIDEO_LESSON_ROOT",
     "li-yuxuan": "BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT",
@@ -170,8 +171,19 @@ class VideoLessonPackage:
             for stage in self.stages
         ):
             raise ValueError("lesson stage windows must stay inside the continuous episode")
-        if self.completeness == "complete_demonstration" and len(self.stages) < 4:
-            raise ValueError("complete demonstrations require at least four ordered stages")
+        if self.completeness == "complete_demonstration":
+            if len(self.stages) < len(_PHASE_ORDER):
+                raise ValueError(
+                    "complete demonstrations require all seven ordered action phases"
+                )
+            missing_phases = _COMPLETE_DEMONSTRATION_PHASES.difference(
+                stage.phase for stage in self.stages
+            )
+            if missing_phases:
+                raise ValueError(
+                    "complete demonstrations are missing required phases: "
+                    + ", ".join(sorted(missing_phases))
+                )
 
     @property
     def playback_start_ms(self) -> int:
