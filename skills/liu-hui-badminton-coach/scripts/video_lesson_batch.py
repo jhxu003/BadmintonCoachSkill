@@ -633,6 +633,17 @@ def command_prepare(args: argparse.Namespace) -> None:
     if args.temporal_pose_only and args.temporal_pose_root is None:
         raise ValueError("--temporal-pose-only requires --temporal-pose-root")
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    # A batch is self-describing: the gate/materialize steps must consume the
+    # exact manifest used for preparation rather than relying on a caller to
+    # copy it beside the generated candidates.  Refuse a conflicting existing
+    # snapshot so a resumed batch cannot silently cross source inventories.
+    batch_manifest = args.batch_root / "manifest.json"
+    if batch_manifest.is_file():
+        existing_manifest = json.loads(batch_manifest.read_text(encoding="utf-8"))
+        if existing_manifest != manifest:
+            raise RuntimeError("batch_manifest_conflicts_with_prepare_manifest")
+    else:
+        atomic_json(batch_manifest, manifest)
     routes = load_routes(args.routing)
     rows = selected_rows(manifest, args)
     source_cache = args.source_cache or args.batch_root / "sources"
