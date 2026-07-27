@@ -89,7 +89,7 @@ export interface CoachingIssue {
   issue: string;
   evidence: string[];
   correction_principle: string;
-  drills: Array<{ name: string; dosage: string }>;
+  drills: Array<{ drill_id?: string; name: string; dosage: string }>;
   retest_metrics: string[];
 }
 
@@ -185,6 +185,44 @@ export interface CoachDemonstrationReport {
   limitations: string[];
 }
 
+export interface TeachingSequenceItem {
+  rank: number;
+  issue_id: string;
+  issue: string;
+  correction_principle: string;
+  drills: Array<{ drill_id?: string; name: string; dosage: string }>;
+  retest_metrics: string[];
+}
+
+export interface StructuredDiagnosis {
+  coach_id: string;
+  coach_name: string;
+  primary_framework: string;
+  confidence: string;
+  issues: CoachingIssue[];
+  priority_order: string[];
+  training_plan: Array<{ issue_id: string; drill_id: string; drill_name: string; dosage: string }>;
+  retest_metrics: string[];
+  missing_evidence: string[];
+}
+
+export interface CoachingPlanReport {
+  report_type: "structured_coaching_plan";
+  coach_id: string;
+  coach_name: string;
+  official_status: string;
+  notice: string;
+  observation_mode: "structured_observation_from_human_or_video_agent";
+  query: CoachDemonstrationReport["query"];
+  diagnosis: StructuredDiagnosis;
+  teaching_sequence: TeachingSequenceItem[];
+  teaching_routes: TeachingRoute[];
+  video_lesson_status: "available" | "no_reliable_video_lesson_package";
+  video_lessons: VideoLessonPackage[];
+  coach_references: CoachReference[];
+  limitations: string[];
+}
+
 export interface SetupPlayer {
   track_id: string;
   bbox: { x: number; y: number; width: number; height: number };
@@ -276,6 +314,19 @@ export async function createDemonstration(payload: {
   });
 }
 
+export async function createCoachingPlan(payload: {
+  coach_id: string;
+  player_profile: Record<string, unknown>;
+  video_observation: Record<string, unknown>;
+  limit?: number;
+}): Promise<AnalysisJob> {
+  return request<AnalysisJob>("/api/coaching-plans", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function getAnalysis(job: AnalysisJob): Promise<AnalysisJob> {
   const updated = await authorisedRequest<AnalysisJob>(`/api/analyses/${job.analysis_id}`, job);
   return { ...updated, access_token: accessToken(job) };
@@ -288,6 +339,11 @@ export async function getReport(job: AnalysisJob): Promise<CoachingReport> {
 
 export async function getDemonstrationReport(job: AnalysisJob): Promise<CoachDemonstrationReport> {
   const response = await authorisedRequest<{ report: CoachDemonstrationReport }>(`/api/analyses/${job.analysis_id}/report`, job);
+  return response.report;
+}
+
+export async function getCoachingPlanReport(job: AnalysisJob): Promise<CoachingPlanReport> {
+  const response = await authorisedRequest<{ report: CoachingPlanReport }>(`/api/analyses/${job.analysis_id}/report`, job);
   return response.report;
 }
 

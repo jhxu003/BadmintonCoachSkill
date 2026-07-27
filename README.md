@@ -239,6 +239,31 @@ cd BadmintonCoachSkill
 python3 -m pip install -e .
 ```
 
+### 从结构化学员问题生成教学方案
+
+当人工标注或未来的视频 Agent 已经提供可见动作观察时，不需要重新上传或让 Skill 猜测原始视频。准备一个 JSON 文件：
+
+```json
+{
+  "coach_id": "liu-hui",
+  "player_profile": {"level": "beginner", "training_goal": "clear_to_baseline"},
+  "video_observation": {
+    "action": "high_clear",
+    "footwork_observations": {"arrival_timing": "late"},
+    "missing_observations": []
+  }
+}
+```
+
+然后运行：
+
+```bash
+badminton-coach-plan --input plan.json --project-root .
+# 或 python -m badminton_coach_skill.teaching_plan --input plan.json --project-root .
+```
+
+接口 `POST /api/coaching-plans` 接受相同的 `coach_id`、`player_profile` 与 `video_observation`。它返回教练体系、纠错顺序、练习、复测和已验证的连续课程；没有可靠连续示范时明确返回 `no_reliable_video_lesson_package`，不会以比赛、说话或手势画面代替正确动作。
+
 不需要学员视频，查询刘辉体系的高远球架拍示范：
 
 ```bash

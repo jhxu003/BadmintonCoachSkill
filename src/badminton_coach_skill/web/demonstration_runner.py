@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import replace
 from collections.abc import Callable
 from pathlib import Path
+from typing import Any
 
 from ..coach_media.catalog import build_source_catalog
 from ..coach_media.demonstrations import DemonstrationQuery, build_demonstration_plan
@@ -16,6 +17,7 @@ from ..coach_media.video_lessons import (
     replace_lesson_references,
 )
 from ..coach_registry import load_coach_knowledge
+from ..teaching_plan import generate_coaching_plan
 from ..video_evidence.contracts import CoachReference
 from .analysis_runner import (
     CatalogLoader,
@@ -77,6 +79,64 @@ def _public_video_lesson(
     return payload
 
 
+def _materialize_video_lessons(
+    *,
+    database: Database,
+    media_store: LocalMediaStore,
+    coach_media_root: Path | None,
+    lessons: list[VideoLessonPackage],
+    materializer: LessonMaterializer,
+) -> tuple[list[VideoLessonPackage], list[CoachReference]]:
+    """Cache only the selected continuous lessons and retain their provenance."""
+    cache_root = coach_media_root or media_store.root.parent / "coach-media"
+    materialized_lessons: list[VideoLessonPackage] = []
+    flattened_references: list[CoachReference] = []
+    for lesson in lessons:
+        try:
+            materialized = materializer(lesson, cache_root)
+        except Exception:
+            failure_limitations = tuple(
+                dict.fromkeys((*lesson.limitations, "source_acquisition_failed"))
+            )
+            materialized = replace_lesson_references(
+                replace(lesson, limitations=failure_limitations),
+                full_reference=replace(
+                    lesson.full_reference,
+                    availability="unavailable",
+                    media_key="",
+                    clip_media_key="",
+                    limitations=tuple(
+                        dict.fromkeys(
+                            (*lesson.full_reference.limitations, "source_acquisition_failed")
+                        )
+                    ),
+                ),
+                stage_references={
+                    stage.stage_id: replace(
+                        stage.reference,
+                        availability="unavailable",
+                        media_key="",
+                        clip_media_key="",
+                        limitations=tuple(
+                            dict.fromkeys(
+                                (*stage.reference.limitations, "source_acquisition_failed")
+                            )
+                        ),
+                    )
+                    for stage in lesson.stages
+                },
+            )
+        references = [
+            materialized.full_reference,
+            *(stage.reference for stage in materialized.stages),
+        ]
+        for reference in references:
+            database.save_coach_reference(reference)
+        flattened_references.extend(references)
+        materialized_lessons.append(materialized)
+    return materialized_lessons, flattened_references
+
+
 def run_demonstration_job(
     *,
     database: Database,
@@ -100,6 +160,66 @@ def run_demonstration_job(
     job = claimed
     try:
         profile = database.get_player_profile(job.id)
+        if profile.get("mode") == "structured_coaching_plan":
+            player_profile = profile.get("player_profile")
+            video_observation = profile.get("video_observation")
+            if not isinstance(player_profile, dict) or not isinstance(video_observation, dict):
+                raise ValueError(
+                    "Structured coaching plans require player_profile and video_observation objects"
+                )
+            plan = generate_coaching_plan(
+                coach_id=job.coach_id,
+                player_profile=player_profile,
+                video_observation=video_observation,
+                root=project_root,
+                limit=int(profile.get("limit", 2)),
+            )
+            selected_lessons = list(plan.pop("_video_lessons", ()))
+            if not all(isinstance(lesson, VideoLessonPackage) for lesson in selected_lessons):
+                raise RuntimeError("Structured coaching plan produced invalid video lessons")
+
+            active = database.set_active_state(
+                job.id,
+                "matching_references",
+                55,
+                "Binding verified continuous coach lessons to the teaching order.",
+            )
+            if active is None:
+                return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+            materialized_lessons, flattened_references = _materialize_video_lessons(
+                database=database,
+                media_store=media_store,
+                coach_media_root=coach_media_root,
+                lessons=selected_lessons,
+                materializer=lesson_materializer,
+            )
+            stopped = _stop_if_media_was_deleted(database, media_store, job.id)
+            if stopped is not None:
+                return stopped
+            report = {
+                **plan,
+                "video_lessons": [
+                    _public_video_lesson(lesson, job.id)
+                    for lesson in materialized_lessons
+                ],
+                "coach_references": [
+                    _public_coach_reference(reference, job.id)
+                    for reference in flattened_references
+                ],
+            }
+            if not materialized_lessons:
+                report["limitations"] = list(
+                    dict.fromkeys(
+                        (*report.get("limitations", []), "no_materialized_video_lesson")
+                    )
+                )
+            if not database.save_report_if_active(job.id, report):
+                return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+            completed = database.set_active_state(
+                job.id, "completed", 100, "Structured coaching plan is ready."
+            )
+            return completed or database.get_job(job.id)
+
         if profile.get("mode") == "video_lesson":
             query = _lesson_query_from_profile(job, profile)
             knowledge = load_coach_knowledge(job.coach_id, project_root)
@@ -116,60 +236,13 @@ def run_demonstration_job(
             if active is None:
                 return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
 
-            cache_root = coach_media_root or media_store.root.parent / "coach-media"
-            materialized_lessons: list[VideoLessonPackage] = []
-            flattened_references: list[CoachReference] = []
-            for lesson in selected_lessons:
-                try:
-                    materialized = lesson_materializer(lesson, cache_root)
-                except Exception:
-                    failure_limitations = tuple(
-                        dict.fromkeys(
-                            (*lesson.limitations, "source_acquisition_failed")
-                        )
-                    )
-                    materialized = replace_lesson_references(
-                        replace(lesson, limitations=failure_limitations),
-                        full_reference=replace(
-                            lesson.full_reference,
-                            availability="unavailable",
-                            media_key="",
-                            clip_media_key="",
-                            limitations=tuple(
-                                dict.fromkeys(
-                                    (
-                                        *lesson.full_reference.limitations,
-                                        "source_acquisition_failed",
-                                    )
-                                )
-                            ),
-                        ),
-                        stage_references={
-                            stage.stage_id: replace(
-                                stage.reference,
-                                availability="unavailable",
-                                media_key="",
-                                clip_media_key="",
-                                limitations=tuple(
-                                    dict.fromkeys(
-                                        (
-                                            *stage.reference.limitations,
-                                            "source_acquisition_failed",
-                                        )
-                                    )
-                                ),
-                            )
-                            for stage in lesson.stages
-                        },
-                    )
-                references = [
-                    materialized.full_reference,
-                    *(stage.reference for stage in materialized.stages),
-                ]
-                for reference in references:
-                    database.save_coach_reference(reference)
-                flattened_references.extend(references)
-                materialized_lessons.append(materialized)
+            materialized_lessons, flattened_references = _materialize_video_lessons(
+                database=database,
+                media_store=media_store,
+                coach_media_root=coach_media_root,
+                lessons=selected_lessons,
+                materializer=lesson_materializer,
+            )
 
             stopped = _stop_if_media_was_deleted(database, media_store, job.id)
             if stopped is not None:

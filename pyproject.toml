@@ -15,6 +15,9 @@ dependencies = [
   "uvicorn[standard]>=0.30,<1.0",
 ]
 
+[project.scripts]
+badminton-coach-plan = "badminton_coach_skill.teaching_plan:main"
+
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
 

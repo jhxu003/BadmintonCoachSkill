@@ -24,6 +24,7 @@ from .schemas import (
     AnalysisReportResponse,
     CoachDemonstrationRequest,
     MixedDoublesSetupRequest,
+    StructuredCoachingPlanRequest,
 )
 from .settings import Settings
 
@@ -200,6 +201,48 @@ def create_app(
                 failure_code=type(error).__name__,
             )
             raise HTTPException(status_code=503, detail="Demonstration worker is unavailable") from error
+        return _job_response(replace(database.get_job(job.id), access_token=job.access_token))
+
+    @app.post(
+        "/api/coaching-plans",
+        response_model=AnalysisJobResponse,
+        status_code=status.HTTP_202_ACCEPTED,
+    )
+    def create_structured_coaching_plan(
+        request: StructuredCoachingPlanRequest,
+    ) -> AnalysisJobResponse:
+        if request.coach_id not in set(available_coaches(runtime.project_root)):
+            raise HTTPException(status_code=422, detail="Unsupported coach_id")
+        action = str(request.video_observation.get("action", "")).strip()
+        if not action:
+            raise HTTPException(
+                status_code=422, detail="video_observation.action is required"
+            )
+        if action not in available_coach_actions(request.coach_id, runtime.project_root):
+            raise HTTPException(status_code=422, detail="Unsupported action for coach")
+        job = create_demonstration_job(
+            database,
+            request.coach_id,
+            action,
+            {
+                "mode": "structured_coaching_plan",
+                "player_profile": request.player_profile,
+                "video_observation": request.video_observation,
+                "limit": request.limit,
+            },
+            ttl=runtime.analysis_ttl,
+        )
+        try:
+            app.state.dispatcher.enqueue(job.id)
+        except Exception as error:
+            database.set_state(
+                job.id,
+                "failed",
+                2,
+                "Structured coaching plan worker is unavailable. Please try again later.",
+                failure_code=type(error).__name__,
+            )
+            raise HTTPException(status_code=503, detail="Coaching plan worker is unavailable") from error
         return _job_response(replace(database.get_job(job.id), access_token=job.access_token))
 
     @app.get("/api/analyses/{analysis_id}", response_model=AnalysisJobResponse)

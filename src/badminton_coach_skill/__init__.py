@@ -2,8 +2,8 @@
 
 from .issue_matcher import match_diagnosis
 from .rubric_loader import load_skill_knowledge
+from .teaching_plan import generate_coaching_plan
 
-__all__ = ["load_skill_knowledge", "match_diagnosis"]
 from .coach_media.demonstrations import DemonstrationQuery, build_demonstration_plan
 from .coach_registry import (
     available_coach_actions,
@@ -22,6 +22,7 @@ __all__ = [
     "load_coach_knowledge",
     "load_skill_knowledge",
     "match_diagnosis",
+    "generate_coaching_plan",
     "CoachReference",
     "FrameRef",
     "IssueEvidence",

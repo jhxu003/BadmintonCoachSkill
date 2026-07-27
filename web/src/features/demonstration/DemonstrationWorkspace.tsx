@@ -55,7 +55,7 @@ export function DemonstrationWorkspace({ job, report, onBack }: DemonstrationWor
   );
 }
 
-function VideoLessonCard({ job, lesson }: { job: AnalysisJob; lesson: VideoLessonPackage }) {
+export function VideoLessonCard({ job, lesson }: { job: AnalysisJob; lesson: VideoLessonPackage }) {
   const [selectedStageId, setSelectedStageId] = useState(lesson.stages[0]?.stage_id ?? "");
   const selectedStage = lesson.stages.find((stage) => stage.stage_id === selectedStageId) ?? lesson.stages[0];
   const full = lesson.full_reference;

@@ -44,3 +44,12 @@ class CoachDemonstrationRequest(BaseModel):
     level: str = "beginner"
     framework_id: str = ""
     limit: int = Field(default=2, ge=1, le=3)
+
+
+class StructuredCoachingPlanRequest(BaseModel):
+    """A bounded observation supplied by a human or upstream video agent."""
+
+    coach_id: str
+    player_profile: dict[str, Any]
+    video_observation: dict[str, Any]
+    limit: int = Field(default=2, ge=1, le=3)

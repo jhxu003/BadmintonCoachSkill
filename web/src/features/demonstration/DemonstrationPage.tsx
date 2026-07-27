@@ -6,6 +6,7 @@ import { createDemonstration, type AnalysisJob } from "../../api/client";
 interface DemonstrationPageProps {
   onCreated: (job: AnalysisJob) => void;
   onShowVideoAnalysis: () => void;
+  onShowCoachingPlan: () => void;
 }
 
 const actionOptions: Record<string, Array<{ value: string; label: string }>> = {
@@ -38,7 +39,7 @@ function trainingGoal(action: string): string {
   return "stable_rear_court";
 }
 
-export function DemonstrationPage({ onCreated, onShowVideoAnalysis }: DemonstrationPageProps) {
+export function DemonstrationPage({ onCreated, onShowVideoAnalysis, onShowCoachingPlan }: DemonstrationPageProps) {
   const [coach, setCoach] = useState("liu-hui");
   const [action, setAction] = useState(actionOptions["liu-hui"][0].value);
   const [level, setLevel] = useState("beginner");
@@ -74,6 +75,7 @@ export function DemonstrationPage({ onCreated, onShowVideoAnalysis }: Demonstrat
           <span><Film size={17} /> 完整片段保留动作连续性</span>
           <span><Images size={17} /> 阶段关键帧用于逐步导航</span>
         </div>
+        <button className="text-button" type="button" onClick={onShowCoachingPlan}>已有结构化学员问题？生成教学方案</button>
         <button className="text-button" type="button" onClick={onShowVideoAnalysis}>已有学员视频？进入视频分析</button>
       </section>
       <section className="upload-surface" aria-label="创建教练动作示范">
