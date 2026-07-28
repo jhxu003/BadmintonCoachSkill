@@ -187,6 +187,66 @@ def test_materialize_skips_existing_successful_package(tmp_path, monkeypatch):
     )
 
 
+def test_materialize_zero_candidate_video_completes_without_gate_jsonl(tmp_path):
+    module = load_batch_module()
+    video = {
+        "job_id": "no-candidates",
+        "source_id": "fixture",
+        "title": "fixture",
+        "duration_seconds": 0.0,
+    }
+    manifest = tmp_path / "manifest.json"
+    manifest.write_text(json.dumps({"videos": [video]}), encoding="utf-8")
+    root = tmp_path / "batch" / "videos" / video["job_id"]
+    root.mkdir(parents=True)
+    (root / "candidates.json").write_text(
+        json.dumps(
+            {
+                "candidate_count": 0,
+                "candidates": [],
+                "semantic_inventory": [
+                    {
+                        "techniques": [
+                            {
+                                "action": "footwork",
+                                "label_zh": "步法",
+                                "family_id": "footwork",
+                                "taxonomy_path": "stroke_families.footwork",
+                            }
+                        ]
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    module.command_materialize(
+        SimpleNamespace(
+            manifest=manifest,
+            batch_root=tmp_path / "batch",
+            start=0,
+            stop=None,
+            shard=0,
+            shards=1,
+            job_id=[],
+            ffmpeg=tmp_path / "unused-ffmpeg",
+            source_cache=None,
+            max_episodes_per_technique=8,
+            post_roll_seconds=1.5,
+            include_review_candidates=True,
+        )
+    )
+
+    status = json.loads((root / "status.json").read_text(encoding="utf-8"))
+    lesson = json.loads((root / "lesson-package.json").read_text(encoding="utf-8"))
+    assert status["stage"] == "materialize"
+    assert status["state"] == "succeeded"
+    assert status["episode_count"] == 0
+    assert (root / "gate-results.jsonl").read_text(encoding="utf-8") == ""
+    assert lesson["techniques"][0]["episodes"] == []
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [

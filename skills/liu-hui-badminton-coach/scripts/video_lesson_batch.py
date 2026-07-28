@@ -1348,6 +1348,12 @@ def command_gate(args: argparse.Namespace) -> None:
             ]
             atomic_jsonl(results_path, compacted)
         if len(existing) == len(document["candidates"]):
+            # Persist an explicit empty result set as well.  A zero-candidate
+            # source is a valid, fail-closed gate outcome, and downstream
+            # materialisation must be able to distinguish it from a gate that
+            # never ran or was interrupted before it wrote any results.
+            if not results_path.is_file():
+                atomic_jsonl(results_path, [])
             set_status(
                 root,
                 "gate",
@@ -2125,7 +2131,7 @@ def command_materialize(args: argparse.Namespace) -> None:
     for video in rows:
         root = video_root(args.batch_root, video)
         candidates_path, results_path = root / "candidates.json", root / "gate-results.jsonl"
-        if not candidates_path.is_file() or not results_path.is_file():
+        if not candidates_path.is_file():
             continue
         # Gate-complete videos may be materialized incrementally on a CPU
         # compute node while another GPU continues the rest of a large corpus.
@@ -2147,6 +2153,15 @@ def command_materialize(args: argparse.Namespace) -> None:
             continue
         try:
             document = json.loads(candidates_path.read_text(encoding="utf-8"))
+            # Older resumable gate runs correctly marked an empty candidate
+            # set as succeeded but did not write an empty JSONL.  Accept only
+            # that specific terminal outcome; a non-empty candidate set still
+            # requires its complete gate result file before clips can be
+            # generated.
+            if not results_path.is_file() and document.get("candidates"):
+                continue
+            if not results_path.is_file():
+                atomic_jsonl(results_path, [])
             candidates = {row["candidate_id"]: row for row in document["candidates"]}
             results = [json.loads(line) for line in results_path.read_text(encoding="utf-8").splitlines() if line.strip()]
             grouped: dict[str, list[dict[str, Any]]] = {}
@@ -2227,10 +2242,14 @@ def command_materialize(args: argparse.Namespace) -> None:
                     latest = prepared_duration if next_start is None else max(episode["action_end_seconds"], next_start - 0.25)
                     episode["clip_end_seconds"] = round(min(episode["action_end_seconds"] + args.post_roll_seconds, latest), 4)
                 episode["clip_duration_seconds"] = round(episode["clip_end_seconds"] - episode["clip_start_seconds"], 4)
-            source_cache = args.source_cache or args.batch_root / "sources"
-            source = Path(str(source_record.get("path") or source_cache / f"{video['job_id']}.mp4"))
-            if not source.is_file() or source.stat().st_size <= 0:
-                raise RuntimeError(f"prepared_source_missing:{source}")
+            source: Path | None = None
+            if ordered:
+                source_cache = args.source_cache or args.batch_root / "sources"
+                source = Path(
+                    str(source_record.get("path") or source_cache / f"{video['job_id']}.mp4")
+                )
+                if not source.is_file() or source.stat().st_size <= 0:
+                    raise RuntimeError(f"prepared_source_missing:{source}")
             packages: list[dict[str, Any]] = []
             route_by_action: dict[str, dict[str, Any]] = {}
             for unit in document["semantic_inventory"]:
@@ -2242,6 +2261,7 @@ def command_materialize(args: argparse.Namespace) -> None:
                 ]
                 package = {"action": action, "label_zh": route["label_zh"], "family_id": route["family_id"], "taxonomy_path": route["taxonomy_path"], "semantic_review_status": "model_candidate", "teaching_summary_zh": f"按公开视频标题、私有 ASR 内存路由和可见动作门控整理的{route['label_zh']}教学候选；进入正式 Skill 前必须人工复核。", "episodes": []}
                 for episode_index, episode in enumerate(action_episodes, start=1):
+                    assert source is not None
                     episode_id = f"{action}-episode-{episode_index:02d}"
                     episode_root = root / "episodes" / "_shared" / episode["candidate"]["candidate_id"]
                     clip = episode_root / "action.mp4"
