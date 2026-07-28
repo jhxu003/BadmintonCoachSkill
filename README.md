@@ -29,6 +29,11 @@
   <a href="#agent-integration">Agent 接入</a>
 </p>
 
+<p align="center">
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开公开 Demo</strong></a> ·
+  <a href="docs/github-pages-demo.md">了解 Pages 边界</a>
+</p>
+
 ---
 
 BadmintonCoachSkill 是羽毛球教学 Agent 的**教练知识层与证据层**。它可以独立解释一个动作、选择教学框架，并从已索引的教练公开视频时间点提取同阶段关键帧或短片；当未来接入学员观察时，再把可见动作、教练规则、公开来源、纠正练习和复测指标连接成可检查的诊断路径。
