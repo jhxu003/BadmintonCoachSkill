@@ -29,10 +29,8 @@ PHASES = [
     ("loading", "top_elbow", "引拍／加载"),
     ("acceleration", "top_elbow", "加速前段"),
     ("contact_neighborhood", "contact_window", "近似击球窗口"),
-    ("release", "contact_window", "释放"),
     ("follow_through", "follow_through", "随挥"),
     ("recovery", "recovery", "回收"),
-    ("ready_again", "recovery", "恢复稳定"),
 ]
 CLASSIFICATIONS = {
     "continuous_demonstration",
@@ -2106,7 +2104,7 @@ def render_video_preview(root: Path, video: dict[str, Any], inventory: list[dict
                 cards = "".join(f'<figure><img src="{html.escape(frame["image"])}"><figcaption><b>{frame["frame_index"]:02d} · {html.escape(frame["label_zh"])}</b><p>{html.escape(frame["teaching_point_zh"])}</p><small>{html.escape(frame["evidence_boundary_zh"])}</small></figcaption></figure>' for frame in episode["frames"])
                 review_label = (
                     "自动门控通过的完整示范候选，仍需抽样人工复核。"
-                    if episode["automatic_admission"]
+                    if episode.get("automatic_admission", False)
                     else "不完整示范的连续上下文，仅供人工核查；它不是教学阶段，不能发布到 Skill。"
                 )
                 timing = (

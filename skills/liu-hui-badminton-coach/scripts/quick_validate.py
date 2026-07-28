@@ -135,7 +135,7 @@ def validate_staged_lessons(repo: Path, lesson_root: Path) -> dict[str, int]:
         anchors = [stage["anchor_seconds"] for stage in lesson["stages"]]
         phase_positions = [PHASE_ORDER.index(phase) for phase in phases]
         if not (
-            7 <= len(phases) <= 9
+            len(phases) == 7
             and phases[0] == "preparation"
             and phases[-1] == "recovery"
             and phase_positions == sorted(phase_positions)

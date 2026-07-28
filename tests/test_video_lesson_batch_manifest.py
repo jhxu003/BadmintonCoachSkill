@@ -110,6 +110,53 @@ def reviewed_decision() -> dict[str, object]:
     }
 
 
+def test_materialized_action_packages_use_exactly_seven_core_stages():
+    module = load_batch_module()
+
+    assert [stage[0] for stage in module.PHASES] == [
+        "preparation",
+        "start",
+        "loading",
+        "acceleration",
+        "contact_neighborhood",
+        "follow_through",
+        "recovery",
+    ]
+
+
+def test_legacy_preview_defaults_missing_admission_to_fail_closed(tmp_path):
+    module = load_batch_module()
+    root = tmp_path / "legacy-video"
+    root.mkdir()
+    module.render_video_preview(
+        root,
+        {"title": "legacy fixture", "source_id": "source"},
+        [{"techniques": [{"action": "footwork"}]}],
+        [
+            {
+                "action": "footwork",
+                "label_zh": "步法",
+                "teaching_summary_zh": "fixture",
+                "episodes": [
+                    {
+                        "episode_id": "footwork-episode-01",
+                        "review_context_only": True,
+                        "model_action_start_seconds": 1.0,
+                        "model_action_end_seconds": 2.0,
+                        "clip_start_seconds": 1.0,
+                        "clip_end_seconds": 2.0,
+                        "clip": "clip.mp4",
+                        "frames": [],
+                    }
+                ],
+            }
+        ],
+    )
+
+    preview = (root / "preview.html").read_text(encoding="utf-8")
+    assert "不完整示范的连续上下文" in preview
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [
