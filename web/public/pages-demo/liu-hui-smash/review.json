@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1P34Y1V7QA",
+  "source_url": "https://www.bilibili.com/video/BV1p34y1V7qa/",
+  "action_start_seconds": 121.0,
+  "action_end_seconds": 124.5,
+  "context_start_seconds": 91.0,
+  "context_end_seconds": 151.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边语境由刘辉第一人称讲解下落阶段的重杀处理，并由前景紫衣教练亲自示范。",
+    "该动作未被标记为学员尝试或错误对比，连续覆盖起跳、挥拍、落地和恢复。"
+  ]
+}

@@ -24,6 +24,9 @@ LessonCompleteness = Literal[
     "concept_only",
 ]
 LessonReviewStatus = Literal["agent_reviewed", "model_candidate"]
+DemonstratorRole = Literal["coach", "learner", "unknown"]
+ExamplePolarity = Literal["correct", "incorrect", "corrective_attempt", "unknown"]
+ContextReviewStatus = Literal["agent_reviewed", "model_candidate", "not_reviewed"]
 
 _COMPLETENESS_PRIORITY: dict[LessonCompleteness, int] = {
     "complete_demonstration": 4,
@@ -41,11 +44,67 @@ _PHASE_ORDER = (
     "recovery",
 )
 _COMPLETE_DEMONSTRATION_PHASES = frozenset(_PHASE_ORDER)
+_MIN_CONTEXT_SIDE_MS = 20_000
 _STAGED_LESSON_ROOT_ENV = {
     "liu-hui": "BADMINTON_VIDEO_LESSON_ROOT",
     "li-yuxuan": "BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT",
     "zheng-siwei": "BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT",
 }
+
+
+def _has_publishable_context(
+    *,
+    demonstrator_role: str,
+    example_polarity: str,
+    context_review_status: str,
+    episode_start_ms: int,
+    episode_end_ms: int,
+    context_start_ms: int,
+    context_end_ms: int,
+    context_evidence: tuple[str, ...],
+) -> bool:
+    return bool(
+        demonstrator_role == "coach"
+        and example_polarity == "correct"
+        and context_review_status == "agent_reviewed"
+        and episode_start_ms - context_start_ms >= _MIN_CONTEXT_SIDE_MS
+        and context_end_ms - episode_end_ms >= _MIN_CONTEXT_SIDE_MS
+        and context_evidence
+    )
+
+
+def _publication_safe_completeness(
+    declared: str,
+    *,
+    demonstrator_role: str,
+    example_polarity: str,
+    context_review_status: str,
+    episode_start_ms: int,
+    episode_end_ms: int,
+    context_start_ms: int,
+    context_end_ms: int,
+    context_evidence: tuple[str, ...],
+) -> str:
+    """Downgrade legacy complete packages that lack role/polarity proof.
+
+    Historical staged catalogs predate the surrounding-context contract.  They
+    must remain loadable for review, but cannot remain learner-facing merely
+    because their visual motion gate once labeled them complete.
+    """
+    if declared != "complete_demonstration":
+        return declared
+    if _has_publishable_context(
+        demonstrator_role=demonstrator_role,
+        example_polarity=example_polarity,
+        context_review_status=context_review_status,
+        episode_start_ms=episode_start_ms,
+        episode_end_ms=episode_end_ms,
+        context_start_ms=context_start_ms,
+        context_end_ms=context_end_ms,
+        context_evidence=context_evidence,
+    ):
+        return declared
+    return "partial_demonstration"
 
 
 def staged_video_lesson_root(coach_id: str) -> Path | None:
@@ -124,6 +183,12 @@ class VideoLessonPackage:
     clip_start_ms: int | None = None
     clip_end_ms: int | None = None
     limitations: tuple[str, ...] = ()
+    demonstrator_role: DemonstratorRole = "unknown"
+    example_polarity: ExamplePolarity = "unknown"
+    context_review_status: ContextReviewStatus = "not_reviewed"
+    context_start_ms: int | None = None
+    context_end_ms: int | None = None
+    context_evidence: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not (
@@ -150,6 +215,23 @@ class VideoLessonPackage:
             raise ValueError(f"Unsupported lesson completeness: {self.completeness}")
         if self.review_status not in {"agent_reviewed", "model_candidate"}:
             raise ValueError(f"Unsupported lesson review status: {self.review_status}")
+        if self.demonstrator_role not in {"coach", "learner", "unknown"}:
+            raise ValueError(f"Unsupported demonstrator role: {self.demonstrator_role}")
+        if self.example_polarity not in {
+            "correct",
+            "incorrect",
+            "corrective_attempt",
+            "unknown",
+        }:
+            raise ValueError(f"Unsupported example polarity: {self.example_polarity}")
+        if self.context_review_status not in {
+            "agent_reviewed",
+            "model_candidate",
+            "not_reviewed",
+        }:
+            raise ValueError(
+                f"Unsupported context review status: {self.context_review_status}"
+            )
         if self.episode_start_ms < 0 or self.episode_end_ms <= self.episode_start_ms:
             raise ValueError("lesson episode must be positive and ordered")
         if self.playback_start_ms < 0 or self.playback_end_ms <= self.playback_start_ms:
@@ -195,6 +277,33 @@ class VideoLessonPackage:
                     "complete demonstrations are missing required phases: "
                     + ", ".join(sorted(missing_phases))
                 )
+            if self.review_status == "agent_reviewed":
+                if self.demonstrator_role != "coach":
+                    raise ValueError(
+                        "reviewed complete demonstrations require demonstrator_role=coach"
+                    )
+                if self.example_polarity != "correct":
+                    raise ValueError(
+                        "reviewed complete demonstrations require example_polarity=correct"
+                    )
+                if self.context_review_status != "agent_reviewed":
+                    raise ValueError(
+                        "reviewed complete demonstrations require agent-reviewed context"
+                    )
+                if not self.context_evidence:
+                    raise ValueError(
+                        "reviewed complete demonstrations require context evidence"
+                    )
+                if (
+                    self.episode_start_ms - self.review_context_start_ms
+                    < _MIN_CONTEXT_SIDE_MS
+                    or self.review_context_end_ms - self.episode_end_ms
+                    < _MIN_CONTEXT_SIDE_MS
+                ):
+                    raise ValueError(
+                        "review context must include at least 20 seconds before and "
+                        "after the complete demonstration"
+                    )
 
     @property
     def playback_start_ms(self) -> int:
@@ -203,6 +312,20 @@ class VideoLessonPackage:
     @property
     def playback_end_ms(self) -> int:
         return self.episode_end_ms if self.clip_end_ms is None else self.clip_end_ms
+
+    @property
+    def review_context_start_ms(self) -> int:
+        return (
+            self.episode_start_ms
+            if self.context_start_ms is None
+            else self.context_start_ms
+        )
+
+    @property
+    def review_context_end_ms(self) -> int:
+        return (
+            self.episode_end_ms if self.context_end_ms is None else self.context_end_ms
+        )
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -218,6 +341,12 @@ class VideoLessonPackage:
             "title": self.title,
             "completeness": self.completeness,
             "review_status": self.review_status,
+            "demonstrator_role": self.demonstrator_role,
+            "example_polarity": self.example_polarity,
+            "context_review_status": self.context_review_status,
+            "context_start_ms": self.review_context_start_ms,
+            "context_end_ms": self.review_context_end_ms,
+            "context_evidence": list(self.context_evidence),
             "teaching_summary": self.teaching_summary,
             "episode_start_ms": self.episode_start_ms,
             "episode_end_ms": self.episode_end_ms,
@@ -406,6 +535,45 @@ def load_video_lessons(coach_id: str, root: str | Path) -> list[VideoLessonPacka
             episode.get("clip_end_seconds", episode.get("end_seconds")),
             "episode.clip_end_seconds",
         )
+        context_start_ms = _milliseconds(
+            row.get("context_start_seconds", episode.get("start_seconds")),
+            "context_start_seconds",
+        )
+        context_end_ms = _milliseconds(
+            row.get("context_end_seconds", episode.get("end_seconds")),
+            "context_end_seconds",
+        )
+        demonstrator_role = str(row.get("demonstrator_role", "unknown"))
+        example_polarity = str(row.get("example_polarity", "unknown"))
+        context_review_status = str(row.get("context_review_status", "not_reviewed"))
+        context_evidence = tuple(str(item) for item in row.get("context_evidence", []))
+        declared_completeness = str(
+            row.get("completeness", "partial_demonstration")
+        )
+        completeness = _publication_safe_completeness(
+            declared_completeness,
+            demonstrator_role=demonstrator_role,
+            example_polarity=example_polarity,
+            context_review_status=context_review_status,
+            episode_start_ms=start_ms,
+            episode_end_ms=end_ms,
+            context_start_ms=context_start_ms,
+            context_end_ms=context_end_ms,
+            context_evidence=context_evidence,
+        )
+        limitations = tuple(str(item) for item in row.get("limitations", []))
+        if completeness != declared_completeness:
+            limitations = (*limitations, "role_or_polarity_context_not_verified")
+        publishable_context = _has_publishable_context(
+            demonstrator_role=demonstrator_role,
+            example_polarity=example_polarity,
+            context_review_status=context_review_status,
+            episode_start_ms=start_ms,
+            episode_end_ms=end_ms,
+            context_start_ms=context_start_ms,
+            context_end_ms=context_end_ms,
+            context_evidence=context_evidence,
+        )
         stages = tuple(
             _reference_from_stage(
                 coach_id=coach_id,
@@ -434,8 +602,12 @@ def load_video_lessons(coach_id: str, root: str | Path) -> list[VideoLessonPacka
             title=source["title"],
             window_start_ms=clip_start_ms,
             window_end_ms=clip_end_ms,
-            visible_facts=("continuous_coach_demonstration",),
-            limitations=tuple(str(item) for item in row.get("limitations", [])),
+            visible_facts=(
+                ("continuous_coach_demonstration",)
+                if publishable_context
+                else ("continuous_demonstration_role_or_polarity_unverified",)
+            ),
+            limitations=limitations,
             review_status=review_status,  # type: ignore[arg-type]
             teaching_use="Continuous source-video episode for the ordered lesson stages.",
         )
@@ -451,7 +623,7 @@ def load_video_lessons(coach_id: str, root: str | Path) -> list[VideoLessonPacka
                 source_id=source_id,
                 source_url=source["url"],
                 title=source["title"],
-                completeness=str(row.get("completeness", "partial_demonstration")),  # type: ignore[arg-type]
+                completeness=completeness,  # type: ignore[arg-type]
                 review_status=review_status,  # type: ignore[arg-type]
                 teaching_summary=str(row.get("teaching_summary", "")),
                 episode_start_ms=start_ms,
@@ -460,7 +632,13 @@ def load_video_lessons(coach_id: str, root: str | Path) -> list[VideoLessonPacka
                 stages=stages,
                 clip_start_ms=clip_start_ms,
                 clip_end_ms=clip_end_ms,
-                limitations=tuple(str(item) for item in row.get("limitations", [])),
+                limitations=limitations,
+                demonstrator_role=demonstrator_role,  # type: ignore[arg-type]
+                example_polarity=example_polarity,  # type: ignore[arg-type]
+                context_review_status=context_review_status,  # type: ignore[arg-type]
+                context_start_ms=context_start_ms,
+                context_end_ms=context_end_ms,
+                context_evidence=context_evidence,
             )
         )
     return sorted(lessons, key=lambda lesson: (lesson.source_id, lesson.episode_start_ms, lesson.lesson_id))
@@ -497,6 +675,10 @@ def select_video_lessons(
             and lesson.completeness == "complete_demonstration"
             and lesson.review_status == "agent_reviewed"
             and lesson.semantic_review_status == "agent_reviewed"
+            and lesson.demonstrator_role == "coach"
+            and lesson.example_polarity == "correct"
+            and lesson.context_review_status == "agent_reviewed"
+            and bool(lesson.context_evidence)
         )
     ]
     framework_source_ids = {

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1NWRRBTEDY",
+  "source_url": "https://www.bilibili.com/video/BV1NwrrBtEdY/",
+  "action_start_seconds": 173.75,
+  "action_end_seconds": 177.25,
+  "context_start_seconds": 143.0,
+  "context_end_seconds": 203.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边语境在学员纠正环节中明确转为教练看向镜头并亲自展示中国跳后场路线。",
+    "公开窗口的前景黑衣示范者为教练本人，动作不是学员的纠正中尝试。"
+  ]
+}

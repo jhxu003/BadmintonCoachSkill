@@ -18,13 +18,15 @@ GitHub Pages 部署的是一个**纯静态、公开安全的产品展示**，地
 |---|---|---:|---|
 | 高远球 | [BV1Ed4y1s7vj](https://www.bilibili.com/video/BV1Ed4y1s7vj/) | 120.00–126.50 秒 | `liu-hui-high-clear/` |
 | 杀球 | [BV1p34y1V7qa](https://www.bilibili.com/video/BV1p34y1V7qa/) | 121.00–124.50 秒 | `liu-hui-smash/` |
-| 吊球 | [BV1e4421S76x](https://www.bilibili.com/video/BV1e4421S76x/) | 132.00–135.50 秒 | `liu-hui-slice-drop/` |
+| 吊球 | [BV1e4421S76x](https://www.bilibili.com/video/BV1e4421S76x/) | 266.25–270.50 秒 | `liu-hui-slice-drop/` |
 | 后场步法 | [BV1NwrrBtEdY](https://www.bilibili.com/video/BV1NwrrBtEdY/) | 173.75–177.25 秒 | `liu-hui-backcourt-footwork/` |
-| 平抽挡 | [BV17t2wYxEF3](https://www.bilibili.com/video/BV17t2wYxEF3/) | 119.00–123.75 秒 | `liu-hui-drive/` |
-| 反手 | [BV1TT411r7Ft](https://www.bilibili.com/video/BV1TT411r7Ft/) | 287.25–290.00 秒 | `liu-hui-backhand/` |
-| 发接发 · 正手发高远球子课 | [BV1Xoe9zkEVT](https://www.bilibili.com/video/BV1Xoe9zkEVT/) | 1314.25–1317.50 秒 | `liu-hui-serve-receive/` |
+| 平抽挡 | [BV17t2wYxEF3](https://www.bilibili.com/video/BV17t2wYxEF3/) | 119.00–121.25 秒 | `liu-hui-drive/` |
+| 反手 | [BV1TT411r7Ft](https://www.bilibili.com/video/BV1TT411r7Ft/) | 287.50–289.50 秒 | `liu-hui-backhand/` |
+| 发接发 · 正手发高远球转拍与随摆纠正子课 | [BV1Xoe9zkEVT](https://www.bilibili.com/video/BV1Xoe9zkEVT/) | 1343.75–1346.75 秒 | `liu-hui-serve-receive/` |
 
-每个目录包含 1 段 H.264 连续动作片段、7 张来自同一动作的有序关键帧和来源说明。发接发案例明确限定为“正手发高远球”子课，不将发球素材冒充完整接发教学。
+每个目录包含 1 段 H.264 连续动作片段、7 张来自同一动作的有序关键帧、来源说明和 `review.json`。审核记录必须同时证明示范者是教练、课程语境将其作为正确示范，并给出动作前后各至少 20 秒的审核语境；缺少任一项时导出脚本会拒绝发布。
+
+吊球旧窗口属于教练模仿另一种打法的对比段，现已替换为教练讲清隐蔽性后亲自完成并确认结果的第一种滑板吊球。发接发旧窗口属于女学员正在被纠正的尝试，现已替换为黑衣教练的慢动作纠正示范；因为没有完整持球、放球和清楚触球，页面只将它称为“转拍与随摆纠正子课”，不冒充完整发球或接发教学。平抽挡旧窗口包含多次击球、但关键帧只解释第一拍，现已收紧为同一次短出拍的 2.25 秒窗口，并在下一拍前结束。
 
 这些文件仅用于带原平台归属的可视化展示，不构成发布任何其他来源视频、完整原片、私有 runtime 缓存、学员上传、模型输出、数据库、日志或令牌的授权。任何新增媒体都需要单独的所有者明确授权与来源审阅。
 

@@ -22,6 +22,7 @@ import yaml
 
 
 BATCH_VERSION = 1
+MIN_CONTEXT_SIDE_SECONDS = 20.0
 PHASES = [
     ("preparation", "preparation", "准备"),
     ("start", "start", "启动"),
@@ -834,6 +835,7 @@ def gate_prompt(candidate: dict[str, Any]) -> str:
         "continuous_demonstration requires a meaningful preparation/start, active movement path, finish, and recovery. partial_demonstration is a genuine execution with a major stage cut. "
         "Talking, pointing, posing, grip adjustment, racket-face placement, isolated wrist/forearm rotation, or a small racket wave while explaining is static_explanation. Throwing a shuttle by hand without executing the routed technique is not an action. "
         "Competition footage, a replay, or another player's rally is reject even when the stroke looks compatible: it is tactical context, not a coach demonstration. Conditioning, rehabilitation and equipment demonstrations are also not badminton technique demonstrations. "
+        "This visual gate does not certify who the demonstrator is or whether the surrounding lesson presents the repetition as correct, incorrect, or corrective. Those two decisions require a separate human context review before publication. "
         "If multiple repetitions are visible, action_repetitions counts all visible repetitions, but action_start_frame and action_end_frame must delimit only the single most complete repetition rather than the whole multi-repetition span. "
         f"Racket visibility required for admission: {str(racket_required).lower()}. Footwork may be admitted without a visible racket. "
         "Output exactly these twelve keys: classification, confidence, demonstration_purity, person_visibility, racket_visibility, action_repetitions, action_start_frame, action_end_frame, visible_stage_coverage, semantic_compatibility, observed_evidence, scope_limitations. "
@@ -1743,6 +1745,9 @@ def command_materialize(args: argparse.Namespace) -> None:
                             if admitted(episode["candidate"], episode["payload"])
                             else "required_human_review"
                         ),
+                        "demonstrator_role": "unknown",
+                        "example_polarity": "unknown",
+                        "context_review_status": "required_human_review",
                         "automatic_admission": admitted(
                             episode["candidate"], episode["payload"]
                         ),
@@ -1848,6 +1853,48 @@ def command_summarize(args: argparse.Namespace) -> None:
     print("SUMMARY", json.dumps({key: summary[key] for key in ("status", "video_count", "succeeded_video_count", "failed_video_count", "technique_count", "episode_count", "required_review_count")}, ensure_ascii=False))
 
 
+def publish_context_review(
+    decision: dict[str, Any], episode: dict[str, Any]
+) -> dict[str, Any]:
+    if decision.get("demonstrator_role") != "coach":
+        raise RuntimeError("decision_not_publishable:demonstrator_role_must_be_coach")
+    if decision.get("example_polarity") != "correct":
+        raise RuntimeError("decision_not_publishable:example_polarity_must_be_correct")
+    if decision.get("context_review_status") != "agent_reviewed":
+        raise RuntimeError("decision_not_publishable:context_must_be_agent_reviewed")
+    evidence = decision.get("context_evidence")
+    if not isinstance(evidence, list) or not evidence or any(
+        not isinstance(item, str) or not item.strip() for item in evidence
+    ):
+        raise RuntimeError("decision_not_publishable:context_evidence_required")
+    try:
+        context_start = float(decision["context_start_seconds"])
+        context_end = float(decision["context_end_seconds"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise RuntimeError(
+            "decision_not_publishable:invalid_context_boundary"
+        ) from exc
+    if context_start < 0 or context_end <= context_start:
+        raise RuntimeError("decision_not_publishable:invalid_context_boundary")
+    if (
+        float(episode["action_start_seconds"]) - context_start
+        < MIN_CONTEXT_SIDE_SECONDS
+        or context_end - float(episode["action_end_seconds"])
+        < MIN_CONTEXT_SIDE_SECONDS
+    ):
+        raise RuntimeError(
+            "decision_not_publishable:context_requires_20_seconds_each_side"
+        )
+    return {
+        "demonstrator_role": "coach",
+        "example_polarity": "correct",
+        "context_review_status": "agent_reviewed",
+        "context_start_seconds": context_start,
+        "context_end_seconds": context_end,
+        "context_evidence": [item.strip() for item in evidence],
+    }
+
+
 def command_publish(args: argparse.Namespace) -> None:
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     video_map = {row["job_id"]: row for row in manifest["videos"]}
@@ -1891,7 +1938,8 @@ def command_publish(args: argparse.Namespace) -> None:
                 "decision_not_publishable:"
                 f"{video['job_id']}:{technique['action']}:{episode['candidate_id']}"
             )
-        row = {"lesson_id": lesson_id, "source_id": video["source_id"], "lesson_topic": technique["label_zh"], "action": technique["action"], "family_id": technique["family_id"], "taxonomy_path": technique["taxonomy_path"], "semantic_review_status": "agent_reviewed", "completeness": "complete_demonstration" if complete else "partial_demonstration", "review_status": "agent_reviewed", "confidence": episode["confidence"], "teaching_summary": f"人工复核的完整{technique['label_zh']}连续示范；教学仅依据可见的二维动作路线。", "episode": {"start_seconds": episode["action_start_seconds"], "end_seconds": episode["action_end_seconds"], "clip_start_seconds": episode["clip_start_seconds"], "clip_end_seconds": episode["clip_end_seconds"]}, "stages": [{"stage_id": frame["stage_id"], "label": frame["label_zh"], "phase": frame["phase"], "start_seconds": frame["start_seconds"], "anchor_seconds": frame["anchor_seconds"], "end_seconds": frame["end_seconds"], "confidence": episode["confidence"], "teaching_use": frame["teaching_point_zh"], "teaching_points": [frame["teaching_point_zh"]], "visible_facts": ["ordered_public_coach_action_stage_visible"], "limitations": ["ordinary_monocular_video_visibility_boundary"]} for frame in episode["frames"]], "limitations": ["ordinary_monocular_video_does_not_prove_contact_racket_face_force_or_3d_kinematics"]}
+        context_review = publish_context_review(decision, episode)
+        row = {"lesson_id": lesson_id, "source_id": video["source_id"], "lesson_topic": technique["label_zh"], "action": technique["action"], "family_id": technique["family_id"], "taxonomy_path": technique["taxonomy_path"], "semantic_review_status": "agent_reviewed", "completeness": "complete_demonstration" if complete else "partial_demonstration", "review_status": "agent_reviewed", **context_review, "confidence": episode["confidence"], "teaching_summary": f"人工复核的完整{technique['label_zh']}连续示范；已确认示范者为教练且语境将该动作作为正确示范，教学仅依据可见的二维动作路线。", "episode": {"start_seconds": episode["action_start_seconds"], "end_seconds": episode["action_end_seconds"], "clip_start_seconds": episode["clip_start_seconds"], "clip_end_seconds": episode["clip_end_seconds"]}, "stages": [{"stage_id": frame["stage_id"], "label": frame["label_zh"], "phase": frame["phase"], "start_seconds": frame["start_seconds"], "anchor_seconds": frame["anchor_seconds"], "end_seconds": frame["end_seconds"], "confidence": episode["confidence"], "teaching_use": frame["teaching_point_zh"], "teaching_points": [frame["teaching_point_zh"]], "visible_facts": ["ordered_public_coach_action_stage_visible"], "limitations": ["ordinary_monocular_video_visibility_boundary"]} for frame in episode["frames"]], "limitations": ["ordinary_monocular_video_does_not_prove_contact_racket_face_force_or_3d_kinematics"]}
         families.setdefault(technique["family_id"], []).append(row)
         index.append({"lesson_id": lesson_id, "source_id": video["source_id"], "action": technique["action"], "family_id": technique["family_id"], "shard": f"video-lessons/{technique['family_id']}.yaml"})
     args.output.mkdir(parents=True, exist_ok=True)

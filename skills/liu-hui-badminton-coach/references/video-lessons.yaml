@@ -136,22 +136,22 @@ lessons:
       - return_to_tactical_base_not_shown
       - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
       - ordinary_monocular_video_no_calibrated_3d_kinematics
-  - lesson_id: lh-bv1a54y1t7pe-high-clear-stationary-swing-255600
+  - lesson_id: lh-bv1a54y1t7pe-overhead-racket-route-255600
     source_id: LH_BILI_SEASON_BV1A54Y1T7PE
-    lesson_topic: 原地高远球翻拍连续挥拍
+    lesson_topic: 头顶挥拍自然倒拍路线示范
     action: high_clear
     family_id: overhead
     taxonomy_path:
       - stroke_families.high_clear
       - power_frameworks.stable_overhead_frame
     semantic_review_status: agent_reviewed
-    completeness: complete_demonstration
+    completeness: partial_demonstration
     review_status: agent_reviewed
     confidence: high
     teaching_summary: >-
-      同一次原地高远球翻拍挥拍，连续覆盖可见准备、启动、举拍加载、
-      近似击球窗口、随挥和回收开始。它用于理解这一击的二维挥拍路线，
-      不代表完整后场到位、精确触球或回中心。
+      同一次原地头顶挥拍干挥，连续展示腰腹前送、球拍自然后倒、
+      向前挥动和回收开始。该片段只用于理解可见的二维球拍路线，
+      不再作为完整高远球、真实来球处理或精确触球的替代证据。
     episode:
       start_seconds: 255.60
       end_seconds: 258.75
@@ -261,6 +261,144 @@ lessons:
           - fully_settled_recovery_and_tactical_return_not_shown
     limitations:
       - stationary_demonstration_no_rear_court_approach
+      - dry_swing_without_a_visible_incoming_shuttle
       - fully_settled_recovery_and_tactical_return_not_shown
+      - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
+      - ordinary_monocular_video_no_calibrated_3d_kinematics
+  - lesson_id: lh-bv1ed4y1s7vj-high-clear-coach-demo-120000
+    source_id: LH_BILI_SEASON_BV1ED4Y1S7VJ
+    lesson_topic: 后场高远球完整连续示范
+    action: high_clear
+    family_id: overhead
+    taxonomy_path:
+      - stroke_families.high_clear
+      - power_frameworks.stable_overhead_frame
+    semantic_review_status: agent_reviewed
+    completeness: complete_demonstration
+    review_status: agent_reviewed
+    demonstrator_role: coach
+    example_polarity: correct
+    context_review_status: agent_reviewed
+    context_start_seconds: 90.00
+    context_end_seconds: 150.00
+    context_evidence:
+      - 周边课程语境由刘辉本人区分前点击球与高点击球，并进入慢动作正确示范。
+      - 该连续动作由教练独立完成，语境未将其标为学员尝试、错误动作或对比反例。
+    confidence: high
+    teaching_summary: >-
+      刘辉在高远球进阶课程中亲自完成的一次连续正确示范。动作边界覆盖准备、
+      启动、进入高位结构、近似击球窗口、随挥和恢复；播放边界额外保留结果段。
+      只依据画面教学二维动作顺序，不声称精确触球、拍面、力量或三维运动学。
+    episode:
+      start_seconds: 120.00
+      end_seconds: 125.00
+      clip_start_seconds: 120.00
+      clip_end_seconds: 126.50
+    stages:
+      - stage_id: prepare
+        label: 观察来球与准备
+        phase: preparation
+        start_seconds: 120.00
+        anchor_seconds: 120.00
+        end_seconds: 120.50
+        confidence: high
+        teaching_use: 从教练观察来球、稳定站姿和持拍侧初始位置开始理解这一次动作。
+        teaching_points:
+          - 不从挥拍最高点倒推动作，先看准备如何连接启动。
+        visible_facts:
+          - coach_full_body_and_racket_visible
+          - coach_is_in_a_pre_swing_observation_state
+        limitations:
+          - incoming_shuttle_depth_and_speed_unknown
+      - stage_id: start
+        label: 启动并转向来球
+        phase: start
+        start_seconds: 120.50
+        anchor_seconds: 120.75
+        end_seconds: 121.00
+        confidence: high
+        teaching_use: 观察身体和持拍侧如何由等待状态进入连续动作。
+        teaching_points:
+          - 把启动、身体朝向和后续举拍作为一条动作链观察。
+        visible_facts:
+          - coach_transitions_out_of_the_initial_stance
+          - racket_path_begins_before_overhead_loading
+        limitations:
+          - exact_reaction_time_and_ground_force_unknown
+      - stage_id: arrival
+        label: 建立高位动作空间
+        phase: arrival
+        start_seconds: 121.00
+        anchor_seconds: 121.375
+        end_seconds: 121.75
+        confidence: medium
+        teaching_use: 观察教练在原地示范中如何组织身体朝向和持拍侧空间。
+        teaching_points:
+          - 这是可见的到位结构，不等同于完整后场步法路线。
+        visible_facts:
+          - gaze_and_upper_body_orient_toward_the_overhead_action
+          - racket_and_hitting_arm_remain_visible
+        limitations:
+          - rear_court_approach_not_shown
+      - stage_id: load
+        label: 举拍加载
+        phase: top_elbow
+        start_seconds: 121.75
+        anchor_seconds: 122.375
+        end_seconds: 122.50
+        confidence: high
+        teaching_use: 结合前后连续画面观察持拍臂和球拍进入头顶区域的可见结构。
+        teaching_points:
+          - 不把单帧解释成精确肘角、拍面或真实内旋数据。
+        visible_facts:
+          - hitting_arm_and_racket_enter_the_overhead_loading_region
+        limitations:
+          - exact_joint_geometry_and_true_internal_rotation_unknown
+      - stage_id: contact-window
+        label: 近似击球窗口
+        phase: contact_window
+        start_seconds: 122.50
+        anchor_seconds: 123.125
+        end_seconds: 123.25
+        confidence: medium
+        teaching_use: 只标记球拍通过头顶预期击球区域的连续时间窗。
+        teaching_points:
+          - 用相邻阶段理解球拍路线，不声称识别了精确触球帧。
+        visible_facts:
+          - racket_sweeps_through_the_overhead_action_region
+        limitations:
+          - exact_contact_racket_face_force_and_shuttle_speed_unknown
+      - stage_id: follow
+        label: 随挥释放
+        phase: follow_through
+        start_seconds: 123.25
+        anchor_seconds: 123.625
+        end_seconds: 124.25
+        confidence: high
+        teaching_use: 观察球拍和身体通过近似击球窗口后仍连续向前释放。
+        teaching_points:
+          - 不在击球附近截断动作，继续看随挥如何衔接恢复。
+        visible_facts:
+          - racket_arm_continues_after_the_overhead_window
+          - torso_turns_through_the_visible_follow_through
+        limitations:
+          - force_and_deceleration_load_unknown
+      - stage_id: recover
+        label: 回收与重新稳定
+        phase: recovery
+        start_seconds: 124.25
+        anchor_seconds: 124.50
+        end_seconds: 125.00
+        confidence: high
+        teaching_use: 确认挥拍后身体与球拍开始回收并重新取得稳定。
+        teaching_points:
+          - 恢复属于同一次动作，不把随挥末端当成教学终点。
+        visible_facts:
+          - coach_transitions_from_follow_through_into_recovery
+          - stance_becomes_stable_again
+        limitations:
+          - full_tactical_return_to_base_not_shown
+    limitations:
+      - stationary_demonstration_without_full_rear_court_approach
       - exact_contact_racket_face_force_grip_pressure_and_true_rotation_unknown
       - ordinary_monocular_video_no_calibrated_3d_kinematics

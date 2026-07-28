@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV17T2WYXEF3",
+  "source_url": "https://www.bilibili.com/video/BV17t2wYxEF3/",
+  "action_start_seconds": 119.0,
+  "action_end_seconds": 121.25,
+  "context_start_seconds": 89.0,
+  "context_end_seconds": 149.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "刘辉在周边语境中第一人称要求喂球者配合，并亲自展示贴拍短发力的连续平抽挡；公开窗口收紧到其中第一拍。",
+    "窗口内的主示范者为教练，课程未将其作为错误动作或学员试做。"
+  ]
+}

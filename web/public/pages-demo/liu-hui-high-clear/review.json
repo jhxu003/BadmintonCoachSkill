@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1ED4Y1S7VJ",
+  "source_url": "https://www.bilibili.com/video/BV1Ed4y1s7vj/",
+  "action_start_seconds": 120.0,
+  "action_end_seconds": 126.5,
+  "context_start_seconds": 90.0,
+  "context_end_seconds": 150.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边课程语境由刘辉本人区分前点击球与高点击球，并进入慢动作正确示范。",
+    "公开窗口由教练独立完成，未被课程标为学员尝试、错误动作或对比反例。"
+  ]
+}

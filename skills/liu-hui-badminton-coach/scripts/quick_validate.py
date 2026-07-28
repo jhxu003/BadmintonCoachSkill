@@ -18,6 +18,8 @@ REQUIRED_SKILL_PHRASES = (
     "video-lesson-contract.md",
     "continuous pure-action episode",
     "full episode boundary",
+    "demonstrator_role=coach",
+    "example_polarity=correct",
 )
 FORBIDDEN_PUBLISHED_MARKERS = (
     "data/raw-private",
@@ -39,6 +41,7 @@ PHASE_ORDER = (
     "follow_through",
     "recovery",
 )
+MIN_CONTEXT_SIDE_SECONDS = 20.0
 
 
 def load_yaml(path: Path) -> Any:
@@ -104,12 +107,30 @@ def validate_staged_lessons(repo: Path, lesson_root: Path) -> dict[str, int]:
             raise ValueError(f"unreviewed package: {lesson['lesson_id']}")
         if lesson["completeness"] != "complete_demonstration":
             raise ValueError(f"non-complete lesson staged: {lesson['lesson_id']}")
+        if lesson.get("demonstrator_role") != "coach":
+            raise ValueError(f"non-coach demonstrator staged: {lesson['lesson_id']}")
+        if lesson.get("example_polarity") != "correct":
+            raise ValueError(f"non-correct example staged: {lesson['lesson_id']}")
+        if lesson.get("context_review_status") != "agent_reviewed":
+            raise ValueError(f"unreviewed lesson context: {lesson['lesson_id']}")
+        if not lesson.get("context_evidence"):
+            raise ValueError(f"missing context evidence: {lesson['lesson_id']}")
         episode = lesson["episode"]
         if not (
             episode["start_seconds"] <= episode["end_seconds"]
             <= episode["clip_end_seconds"]
         ):
             raise ValueError(f"invalid episode boundary: {lesson['lesson_id']}")
+        if (
+            episode["start_seconds"] - lesson["context_start_seconds"]
+            < MIN_CONTEXT_SIDE_SECONDS
+            or lesson["context_end_seconds"] - episode["end_seconds"]
+            < MIN_CONTEXT_SIDE_SECONDS
+        ):
+            raise ValueError(
+                "lesson context requires at least 20 seconds before and after: "
+                f"{lesson['lesson_id']}"
+            )
         phases = [stage["phase"] for stage in lesson["stages"]]
         anchors = [stage["anchor_seconds"] for stage in lesson["stages"]]
         phase_positions = [PHASE_ORDER.index(phase) for phase in phases]

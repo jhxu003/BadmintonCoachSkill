@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1TT411R7FT",
+  "source_url": "https://www.bilibili.com/video/BV1TT411r7Ft/",
+  "action_start_seconds": 287.5,
+  "action_end_seconds": 289.5,
+  "context_start_seconds": 257.0,
+  "context_end_seconds": 317.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "刘辉在反手被动球课程中解释快速转回与转着发力的区别，并由本人完成示范。",
+    "本窗口是教练所认可的动作讲解，不是学员尝试或故意错误对比。"
+  ]
+}

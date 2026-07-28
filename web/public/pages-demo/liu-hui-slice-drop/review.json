@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1E4421S76X",
+  "source_url": "https://www.bilibili.com/video/BV1e4421S76x/",
+  "action_start_seconds": 266.25,
+  "action_end_seconds": 270.5,
+  "context_start_seconds": 240.0,
+  "context_end_seconds": 300.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "刘辉先讲通过转身提高滑拍隐蔽性并让动作更像直线球，随后亲自示范第一种方法。",
+    "示范结束后教练确认动作结果，之后才切换到第二种方法；本窗口不含学员动作。"
+  ]
+}

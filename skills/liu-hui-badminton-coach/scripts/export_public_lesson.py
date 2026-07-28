@@ -10,6 +10,10 @@ import subprocess
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
+
+
+MIN_CONTEXT_SIDE_SECONDS = 20.0
 
 
 @dataclass(frozen=True)
@@ -55,6 +59,66 @@ def probe_duration(ffprobe: str, video: Path) -> float:
     return float(payload["format"]["duration"])
 
 
+def load_review_manifest(path: Path, start: float, end: float) -> dict[str, Any]:
+    if not path.is_file():
+        raise SystemExit(f"review manifest does not exist: {path}")
+    try:
+        review = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"invalid review manifest: {path}") from exc
+    if not isinstance(review, dict):
+        raise SystemExit("review manifest must be a JSON object")
+    if review.get("demonstrator_role") != "coach":
+        raise SystemExit("public export requires demonstrator_role=coach")
+    if review.get("example_polarity") != "correct":
+        raise SystemExit("public export requires example_polarity=correct")
+    if review.get("context_review_status") != "agent_reviewed":
+        raise SystemExit("public export requires context_review_status=agent_reviewed")
+    basis = review.get("review_basis")
+    if not isinstance(basis, list) or not basis or any(
+        not isinstance(item, str) or not item.strip() for item in basis
+    ):
+        raise SystemExit("public export requires a non-empty review_basis string list")
+    if not isinstance(review.get("source_id"), str) or not review["source_id"].strip():
+        raise SystemExit("public export requires source_id")
+    if not isinstance(review.get("source_url"), str) or not review["source_url"].startswith(
+        ("https://", "http://")
+    ):
+        raise SystemExit("public export requires an http(s) source_url")
+    try:
+        reviewed_start = float(review["action_start_seconds"])
+        reviewed_end = float(review["action_end_seconds"])
+        context_start = float(review["context_start_seconds"])
+        context_end = float(review["context_end_seconds"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise SystemExit("review manifest has invalid action/context boundaries") from exc
+    if context_start < 0 or reviewed_start < 0 or context_end <= context_start:
+        raise SystemExit("review manifest has invalid action/context boundaries")
+    if abs(reviewed_start - start) > 0.001 or abs(reviewed_end - end) > 0.001:
+        raise SystemExit("export boundaries must exactly match the reviewed action boundaries")
+    if (
+        start - context_start < MIN_CONTEXT_SIDE_SECONDS
+        or context_end - end < MIN_CONTEXT_SIDE_SECONDS
+    ):
+        raise SystemExit(
+            "review context must include at least 20 seconds before and after "
+            "the exported action"
+        )
+    return {
+        "version": 1,
+        "source_id": review["source_id"].strip(),
+        "source_url": review["source_url"],
+        "action_start_seconds": reviewed_start,
+        "action_end_seconds": reviewed_end,
+        "context_start_seconds": context_start,
+        "context_end_seconds": context_end,
+        "demonstrator_role": "coach",
+        "example_polarity": "correct",
+        "context_review_status": "agent_reviewed",
+        "review_basis": [item.strip() for item in basis],
+    }
+
+
 def export_lesson(args: argparse.Namespace) -> None:
     source = args.source.resolve()
     output = args.output.resolve()
@@ -72,6 +136,7 @@ def export_lesson(args: argparse.Namespace) -> None:
             raise SystemExit(
                 f"keyframe {item.filename} at {item.timestamp} is outside the clip window"
             )
+    review = load_review_manifest(args.review_manifest.resolve(), args.start, args.end)
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=f".{output.name}-", dir=output.parent) as raw:
@@ -132,6 +197,14 @@ def export_lesson(args: argparse.Namespace) -> None:
                 ]
             )
 
+        (temporary / "review.json").write_text(
+            json.dumps(review, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        existing_readme = output / "README.md"
+        if existing_readme.is_file():
+            shutil.copy2(existing_readme, temporary / "README.md")
+
         duration = probe_duration(args.ffprobe, clip)
         expected = args.end - args.start
         if abs(duration - expected) > 0.15:
@@ -149,6 +222,12 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--output", type=Path, required=True)
     result.add_argument("--start", type=float, required=True)
     result.add_argument("--end", type=float, required=True)
+    result.add_argument(
+        "--review-manifest",
+        type=Path,
+        required=True,
+        help="agent-reviewed JSON proving coach identity and correct-example polarity",
+    )
     result.add_argument(
         "--keyframe",
         action="append",

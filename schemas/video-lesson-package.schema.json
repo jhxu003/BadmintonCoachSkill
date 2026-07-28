@@ -37,6 +37,28 @@
       ]
     },
     "review_status": { "enum": ["agent_reviewed", "model_candidate"] },
+    "demonstrator_role": { "enum": ["coach", "learner", "unknown"] },
+    "example_polarity": {
+      "enum": ["correct", "incorrect", "corrective_attempt", "unknown"]
+    },
+    "context_review_status": {
+      "enum": ["agent_reviewed", "model_candidate", "not_reviewed"]
+    },
+    "context_start_seconds": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Start of reviewed lesson context; cross-field validation requires at least 20 seconds before the action."
+    },
+    "context_end_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "End of reviewed lesson context; cross-field validation requires at least 20 seconds after the action."
+    },
+    "context_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
     "confidence": { "enum": ["low", "medium", "high"] },
     "teaching_summary": { "type": "string" },
     "framework_ids": { "type": "array", "items": { "type": "string" } },
@@ -100,7 +122,18 @@
         "required": ["completeness"]
       },
       "then": {
+        "required": [
+          "demonstrator_role",
+          "example_polarity",
+          "context_review_status",
+          "context_start_seconds",
+          "context_end_seconds",
+          "context_evidence"
+        ],
         "properties": {
+          "demonstrator_role": { "const": "coach" },
+          "example_polarity": { "const": "correct" },
+          "context_review_status": { "const": "agent_reviewed" },
           "stages": {
             "minItems": 7,
             "allOf": [

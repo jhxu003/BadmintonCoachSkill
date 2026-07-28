@@ -37,6 +37,7 @@ interface LessonDemo {
     clip: string;
     keyframes: string[];
     clipDescription: string;
+    reviewStatus: string;
   };
   stages: Stage[];
   note: string;
@@ -59,6 +60,7 @@ function lessonMedia(folder: string, names: string[], description: string): Less
     clip: `pages-demo/${folder}/action.mp4`,
     keyframes: names.map((name) => `pages-demo/${folder}/keyframes/${name}`),
     clipDescription: description,
+    reviewStatus: "教练身份已确认 · 正确示范语境已确认",
   };
 }
 
@@ -143,7 +145,7 @@ const liuHuiLessons: LessonDemo[] = [
     media: lessonMedia(
       "liu-hui-slice-drop",
       ["01-preparation.jpg", "02-racket-ready.jpg", "03-loading.jpg", "04-forward-swing.jpg", "05-contact-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
-      "3.5 秒单次滑板吊球示范：保留高位准备、挥拍和恢复。",
+      "4.25 秒教练第一种滑板吊球示范：保留准备、挥拍、结果确认和恢复。",
     ),
     stages: [
       { name: "准备", time: "01", focus: "观察示范者在动作开始前的站位和球拍初始位置。", boundary: "静态准备帧不能证明与其他后场球完全一致。" },
@@ -154,7 +156,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "随挥", time: "06", focus: "观察球拍通过窗口后的释放和身体衔接。", boundary: "不能从单帧判断力量大小或减速负荷。" },
       { name: "恢复", time: "07", focus: "确认动作完成后重新取得稳定、可继续移动的状态。", boundary: "片段不包含完整回合，因此不推断战术意图。" },
     ],
-    note: "该片段是同一机位下的单次滑板吊球示范；页面不把可见挥拍路线包装成精确拍面或落点数据。",
+    note: "已替换旧的对比模仿段；当前片段是教练在讲清隐蔽性后亲自完成并确认结果的第一种滑板吊球示范。",
   },
   {
     id: "backcourt-footwork",
@@ -190,13 +192,13 @@ const liuHuiLessons: LessonDemo[] = [
   {
     id: "drive",
     actionLabel: "平抽挡",
-    focus: "连续平抽挡与短发力",
-    lessonTitle: "平抽挡：紧凑准备、快速出拍与连续回到准备",
+    focus: "平抽挡短发力",
+    lessonTitle: "平抽挡：紧凑准备、快速出拍与回到准备",
     lessonStatus: "complete",
     route: [
-      { title: "先保留连续交换", copy: "平抽挡的教学不能只截一张伸拍图；短片保留多次往返，看到每次回弹后的再准备。" },
-      { title: "关键帧聚焦一次短动作", copy: "七阶段帧解释其中一次紧凑出拍，连续片段则验证它不是孤立摆拍。" },
-      { title: "回弹决定下一拍", copy: "观察出拍后的收回和再次准备，避免把球拍留在身前当作动作结束。" },
+      { title: "只保留同一拍", copy: "连续短片从准备开始，到同一次紧凑出拍完成并重新准备为止，不混入后续击球。" },
+      { title: "关键帧解释完整过程", copy: "七阶段帧全部落在这一次动作内，用于导航准备、短引拍、出拍和收回。" },
+      { title: "回弹连接下一拍", copy: "观察出拍后的收回和再次准备，避免把球拍留在身前当作动作结束。" },
     ],
     source: {
       label: "查看原视频：什么是贴拍发力（Bilibili）",
@@ -205,7 +207,7 @@ const liuHuiLessons: LessonDemo[] = [
     media: lessonMedia(
       "liu-hui-drive",
       ["01-ready.jpg", "02-split-step.jpg", "03-short-backswing.jpg", "04-forward-swing.jpg", "05-contact-window.jpg", "06-rebound.jpg", "07-ready-again.jpg"],
-      "4.75 秒连续平抽挡：关键帧聚焦第一拍，短片保留后续快速交换。",
+      "2.25 秒单次平抽挡短出拍：连续覆盖准备、出拍、回弹和再次准备，并在下一拍前结束。",
     ),
     stages: [
       { name: "准备", time: "01", focus: "观察球拍处于能快速覆盖身前来球的位置。", boundary: "不从单帧判断握拍压力或预判方向。" },
@@ -216,7 +218,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "回弹／收拍", time: "06", focus: "观察出拍后如何及时回收，而不是让球拍停留在伸展末端。", boundary: "不能由二维画面推断真实制动负荷。" },
       { name: "再次准备", time: "07", focus: "确认第一拍结束后已能进入下一次快速交换。", boundary: "这一帧不单独证明完整对抗中的站位选择。" },
     ],
-    note: "连续短片包含多次同类快速交换；七阶段只解释其中同一次短出拍，不跨动作拼帧。",
+    note: "旧的多拍窗口已收紧；当前连续短片和七阶段都只对应同一次短出拍。",
   },
   {
     id: "backhand",
@@ -236,7 +238,7 @@ const liuHuiLessons: LessonDemo[] = [
     media: lessonMedia(
       "liu-hui-backhand",
       ["01-ready.jpg", "02-start.jpg", "03-loading.jpg", "04-reach.jpg", "05-contact-window.jpg", "06-release.jpg", "07-recovery.jpg"],
-      "2.75 秒反手被动球动作示范：保留启动、挥拍和恢复；不虚构球路。",
+      "2 秒反手被动球动作示范：关键帧收紧到启动、挥拍和恢复，不再把前后说话帧当成动作阶段。",
     ),
     stages: [
       { name: "准备", time: "01", focus: "从可见的站姿和持拍位置开始理解这次反手被动处理。", boundary: "不能从准备帧推断来球速度、落点或选择意图。" },
@@ -252,13 +254,13 @@ const liuHuiLessons: LessonDemo[] = [
   {
     id: "serve-receive",
     actionLabel: "发接发",
-    focus: "发接发 · 正手发高远球子课",
-    lessonTitle: "正手发高远球：准备、放球、前摆与恢复",
+    focus: "发接发 · 正手发高远球纠正子课",
+    lessonTitle: "正手发高远球：转拍与随摆纠正示范",
     lessonStatus: "complete",
     route: [
-      { title: "先固定这一课的范围", copy: "“发接发”是技术家族；本公开案例只展示正手发高远球，不冒充完整接发教学。" },
-      { title: "把持球与挥拍连起来", copy: "从站姿、持球、放球到球拍前摆连续观察，避免只模仿击球附近一帧。" },
-      { title: "发出后重新准备", copy: "球离开后仍要完成随挥和恢复，连接到下一拍，而不是停在发球动作里。" },
+      { title: "先指出被纠正的问题", copy: "周边课程先指出学员转拍过慢、手臂继续上抬和随摆次序不清，本片段只承担对应纠正教学。" },
+      { title: "只看教练的慢动作路线", copy: "七阶段全部来自黑衣教练同一次徒手挥拍，不混入前后的女学员尝试。" },
+      { title: "不冒充完整发球", copy: "片段没有完整持球、放球和清楚触球，因此只教学可见转拍与随摆路线。" },
     ],
     source: {
       label: "查看原视频：正手发高远球教学（Bilibili）",
@@ -266,19 +268,19 @@ const liuHuiLessons: LessonDemo[] = [
     },
     media: lessonMedia(
       "liu-hui-serve-receive",
-      ["01-stance.jpg", "02-set.jpg", "03-release.jpg", "04-forward-swing.jpg", "05-contact-window.jpg", "06-flight.jpg", "07-recovery.jpg"],
-      "3.25 秒单次正手发高远球：保留准备、放球、挥拍、球路结果和恢复。",
+      ["01-coach-ready.jpg", "02-rotation-start.jpg", "03-forward-path.jpg", "04-acceleration.jpg", "05-high-swing-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
+      "3 秒教练慢动作纠正示范：只展示可见转拍、前摆、随摆和回收，不冒充带球发球。",
     ),
     stages: [
-      { name: "站姿准备", time: "01", focus: "观察发球前的身体朝向、持拍手与持球手关系。", boundary: "不把二维站位当作精确场地测量。" },
-      { name: "持球／设定", time: "02", focus: "确认球与球拍在动作开始前的可见相对位置。", boundary: "不从画面判断握拍压力或法规尺度上的精确高度。" },
-      { name: "放球启动", time: "03", focus: "观察持球手释放与球拍开始前摆之间的连续衔接。", boundary: "普通视频不能给出精确放球时刻或球体三维轨迹。" },
-      { name: "球拍前摆", time: "04", focus: "看球拍怎样从准备位置向前通过预期击球区域。", boundary: "运动模糊下不估算拍头速度或精确拍面。" },
-      { name: "近似击球窗口", time: "05", focus: "定位球拍与球最接近的可见时间窗，并结合前后帧理解。", boundary: "不声称精确触球、拍面角度、力量或球速。" },
-      { name: "球路结果", time: "06", focus: "用连续片段观察球离开后的可见飞行方向，同时保持结论克制。", boundary: "未标定机位不能计算精确高度、速度或落点。" },
-      { name: "恢复", time: "07", focus: "观察发球动作结束后怎样重新组织身体与球拍，准备下一拍。", boundary: "本子课没有展示接发方完整技术，不能替代接发教学。" },
+      { name: "教练接管示范", time: "01", focus: "确认当前主示范者已经切换为黑衣教练，并从慢动作准备开始。", boundary: "角色确认来自周边课程语境，不根据衣着自动猜身份。" },
+      { name: "转拍启动", time: "02", focus: "观察教练所讲的转拍动作怎样先于后续随摆启动。", boundary: "“转拍”只描述画面和课程术语，不声称测得真实肩内旋。" },
+      { name: "低位前摆", time: "03", focus: "看持拍侧从低位向前通过的连续路线，不混入学员此前的慢转错误。", boundary: "徒手示范不包含放球、触球或法规高度证据。" },
+      { name: "加速通过", time: "04", focus: "结合相邻帧理解挥拍怎样连续通过身体前侧。", boundary: "运动模糊下不估算拍头速度、拍面或力量。" },
+      { name: "高位随摆窗口", time: "05", focus: "观察球拍通过后手臂继续进入高位随摆，而不是把手臂提前僵住。", boundary: "该帧不是触球帧，也不能证明球路结果。" },
+      { name: "随摆完成", time: "06", focus: "确认转拍之后仍有连续随摆动作，和学员此前被指出的次序问题区分开。", boundary: "普通单目画面不能量化关节旋转或减速负荷。" },
+      { name: "回收", time: "07", focus: "观察慢动作示范怎样结束并回到可继续讲解的稳定状态。", boundary: "该段没有完整发球和接发方，不能替代完整发接发课程。" },
     ],
-    note: "该案例属于“发接发”家族中的正手发高远球子课；接发球技术仍需独立、可靠来源。",
+    note: "旧页面误用了女学员正在被纠正的尝试；现已替换为教练慢动作纠正示范，并明确降窄为转拍与随摆子课。",
   },
 ];
 
@@ -415,7 +417,7 @@ export function PagesDemo() {
         <div className="pages-route-grid">{lesson.route.map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
         <div className="pages-motion-panel">
           <div className="pages-motion-copy"><p className="pages-eyebrow"><Layers3 size={14} /> Action package</p><h3>完整教学先保留过程，<br />再用关键帧解释过程。</h3><p>每一个阶段帧都来自同一次连续动作；一旦机位、可见性或连续性不够，系统就保留“证据不足”。</p><div className="pages-motion-labels"><span><Film size={15} /> 连续片段</span><span><Gauge size={15} /> 阶段导航</span></div></div>
-          {lesson.media ? <div className="pages-motion-media"><video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(lesson.media.keyframes[0])}><source src={publicAsset(lesson.media.clip)} type="video/mp4" /></video><p>{lesson.media.clipDescription}</p></div> : <div className="pages-court-visual" aria-hidden="true"><div className="pages-court-lines" /><div className="pages-player"><i /><b /><span /></div><div className="pages-path"><i /><i /><i /><i /><i /><i /><i /></div><div className="pages-flight" /></div>}
+          {lesson.media ? <div className="pages-motion-media"><video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(lesson.media.keyframes[0])}><source src={publicAsset(lesson.media.clip)} type="video/mp4" /></video><div className="pages-motion-caption"><span><ShieldCheck size={13} /> {lesson.media.reviewStatus}</span><p>{lesson.media.clipDescription}</p></div></div> : <div className="pages-court-visual" aria-hidden="true"><div className="pages-court-lines" /><div className="pages-player"><i /><b /><span /></div><div className="pages-path"><i /><i /><i /><i /><i /><i /><i /></div><div className="pages-flight" /></div>}
         </div>
 
         <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">Ordered stage navigation</p><h3>选择一个阶段，查看它在连续动作里的教学角色。</h3></div><span>不是孤立的标准姿势</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{lesson.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>{lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" />}<b>{item.time}</b><span>{item.name}</span></button>)}</div><article className={`pages-stage-detail ${stageAsset ? "has-media" : ""}`}>{stageAsset ? <div className="pages-stage-visual"><img src={publicAsset(stageAsset)} alt={`${coach.name}${lesson.focus}：${stage.name}关键帧`} /><b>{stage.time}</b></div> : <div className="pages-stage-number">{stage.time}</div>}<div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>证据边界：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>

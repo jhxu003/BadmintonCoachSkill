@@ -63,3 +63,78 @@ def test_prepare_rejects_a_conflicting_existing_batch_manifest(tmp_path, monkeyp
 
     with pytest.raises(RuntimeError, match="batch_manifest_conflicts_with_prepare_manifest"):
         module.command_prepare(prepare_args(manifest, batch_root))
+
+
+def reviewed_episode() -> dict[str, object]:
+    return {
+        "action_start_seconds": 30.0,
+        "action_end_seconds": 33.0,
+    }
+
+
+def reviewed_decision() -> dict[str, object]:
+    return {
+        "demonstrator_role": "coach",
+        "example_polarity": "correct",
+        "context_review_status": "agent_reviewed",
+        "context_start_seconds": 0.0,
+        "context_end_seconds": 63.0,
+        "context_evidence": ["surrounding lesson identifies the coach's accepted demonstration"],
+    }
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("demonstrator_role", "learner", "demonstrator_role_must_be_coach"),
+        ("example_polarity", "incorrect", "example_polarity_must_be_correct"),
+        ("context_review_status", "model_candidate", "context_must_be_agent_reviewed"),
+        ("context_evidence", [], "context_evidence_required"),
+    ],
+)
+def test_publish_context_review_fails_closed(field, value, message):
+    module = load_batch_module()
+    decision = reviewed_decision()
+    decision[field] = value
+
+    with pytest.raises(RuntimeError, match=message):
+        module.publish_context_review(decision, reviewed_episode())
+
+
+def test_publish_context_review_requires_20_seconds_before_action():
+    module = load_batch_module()
+    decision = reviewed_decision()
+    decision["context_start_seconds"] = 11.0
+
+    with pytest.raises(RuntimeError, match="context_requires_20_seconds_each_side"):
+        module.publish_context_review(decision, reviewed_episode())
+
+
+def test_publish_context_review_requires_20_seconds_after_action():
+    module = load_batch_module()
+    decision = reviewed_decision()
+    decision["context_end_seconds"] = 52.0
+
+    with pytest.raises(RuntimeError, match="context_requires_20_seconds_each_side"):
+        module.publish_context_review(decision, reviewed_episode())
+
+
+def test_publish_context_review_rejects_negative_context_boundary():
+    module = load_batch_module()
+    decision = reviewed_decision()
+    decision["context_start_seconds"] = -1.0
+
+    with pytest.raises(RuntimeError, match="invalid_context_boundary"):
+        module.publish_context_review(decision, reviewed_episode())
+
+
+def test_publish_context_review_normalizes_approved_evidence():
+    module = load_batch_module()
+    decision = reviewed_decision()
+    decision["context_evidence"] = ["  coach accepted this demonstration  "]
+
+    result = module.publish_context_review(decision, reviewed_episode())
+
+    assert result["demonstrator_role"] == "coach"
+    assert result["example_polarity"] == "correct"
+    assert result["context_evidence"] == ["coach accepted this demonstration"]

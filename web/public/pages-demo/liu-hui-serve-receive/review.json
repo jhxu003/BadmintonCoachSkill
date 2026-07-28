@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LH_BILI_SEASON_BV1XOE9ZKEVT",
+  "source_url": "https://www.bilibili.com/video/BV1Xoe9zkEVT/",
+  "action_start_seconds": 1343.75,
+  "action_end_seconds": 1346.75,
+  "context_start_seconds": 1318.0,
+  "context_end_seconds": 1378.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "教练先指出女学员转拍过慢、随摆和手臂路线的问题，随后亲自做慢动作纠正示范。",
+    "公开窗口只截取黑衣教练的徒手挥拍，不把紧随其后的学员重复或此前错误尝试混入。"
+  ]
+}

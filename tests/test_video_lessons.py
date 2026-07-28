@@ -2,11 +2,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import jsonschema
 import pytest
+import yaml
 
 from badminton_coach_skill.coach_media.video_lessons import (
     VideoLessonPackage,
     VideoLessonStage,
+    _publication_safe_completeness,
     load_video_lessons,
 )
 from badminton_coach_skill.coach_media.lesson_ingestion import ensure_video_lesson_media
@@ -25,7 +28,7 @@ PHASES = (
 
 
 def _stage(phase: str, index: int) -> VideoLessonStage:
-    anchor = 100 + index * 100
+    anchor = 20_100 + index * 100
     return VideoLessonStage(
         stage_id=f"stage-{index}",
         label=phase,
@@ -63,10 +66,16 @@ def _lesson(phases: tuple[str, ...]) -> VideoLessonPackage:
         completeness="complete_demonstration",
         review_status="agent_reviewed",
         teaching_summary="fixture",
-        episode_start_ms=0,
-        episode_end_ms=1000,
+        episode_start_ms=20_000,
+        episode_end_ms=21_000,
         full_reference=stages[0].reference,
         stages=stages,
+        demonstrator_role="coach",
+        example_polarity="correct",
+        context_review_status="agent_reviewed",
+        context_start_ms=0,
+        context_end_ms=41_000,
+        context_evidence=("reviewed lesson context identifies the coach's correct demonstration",),
     )
 
 
@@ -81,12 +90,109 @@ def test_complete_demonstration_accepts_seven_ordered_phases() -> None:
     assert tuple(stage.phase for stage in lesson.stages) == PHASES
 
 
+def test_reviewed_complete_demonstration_rejects_unknown_role() -> None:
+    lesson = _lesson(PHASES)
+    with pytest.raises(ValueError, match="demonstrator_role=coach"):
+        VideoLessonPackage(
+            **{
+                **lesson.__dict__,
+                "demonstrator_role": "unknown",
+            }
+        )
+
+
+def test_reviewed_complete_demonstration_rejects_wrong_example_polarity() -> None:
+    lesson = _lesson(PHASES)
+    with pytest.raises(ValueError, match="example_polarity=correct"):
+        VideoLessonPackage(
+            **{
+                **lesson.__dict__,
+                "example_polarity": "incorrect",
+            }
+        )
+
+
+def test_legacy_complete_package_is_quarantined_without_context_proof() -> None:
+    assert (
+        _publication_safe_completeness(
+            "complete_demonstration",
+            demonstrator_role="unknown",
+            example_polarity="unknown",
+            context_review_status="not_reviewed",
+            episode_start_ms=20_000,
+            episode_end_ms=23_000,
+            context_start_ms=0,
+            context_end_ms=43_000,
+            context_evidence=(),
+        )
+        == "partial_demonstration"
+    )
+
+
+def test_context_reviewed_coach_correct_package_stays_complete() -> None:
+    assert (
+        _publication_safe_completeness(
+            "complete_demonstration",
+            demonstrator_role="coach",
+            example_polarity="correct",
+            context_review_status="agent_reviewed",
+            episode_start_ms=20_000,
+            episode_end_ms=23_000,
+            context_start_ms=0,
+            context_end_ms=43_000,
+            context_evidence=("surrounding lesson accepts the coach demonstration",),
+        )
+        == "complete_demonstration"
+    )
+
+
+def test_short_context_package_is_quarantined() -> None:
+    assert (
+        _publication_safe_completeness(
+            "complete_demonstration",
+            demonstrator_role="coach",
+            example_polarity="correct",
+            context_review_status="agent_reviewed",
+            episode_start_ms=20_000,
+            episode_end_ms=23_000,
+            context_start_ms=1_000,
+            context_end_ms=43_000,
+            context_evidence=("surrounding lesson accepts the coach demonstration",),
+        )
+        == "partial_demonstration"
+    )
+
+
 def test_public_complete_lesson_obeys_seven_phase_contract() -> None:
     root = Path(__file__).resolve().parents[1]
     lessons = load_video_lessons("liu-hui", root)
     complete = [lesson for lesson in lessons if lesson.completeness == "complete_demonstration"]
     assert complete
     assert all(tuple(stage.phase for stage in lesson.stages) == PHASES for lesson in complete)
+    assert all(lesson.demonstrator_role == "coach" for lesson in complete)
+    assert all(lesson.example_polarity == "correct" for lesson in complete)
+    assert all(lesson.context_review_status == "agent_reviewed" for lesson in complete)
+
+
+def test_complete_lesson_schema_rejects_missing_role_review() -> None:
+    root = Path(__file__).resolve().parents[1]
+    schema = yaml.safe_load(
+        (root / "schemas/video-lesson-package.schema.json").read_text(encoding="utf-8")
+    )
+    payload = yaml.safe_load(
+        (
+            root
+            / "skills/liu-hui-badminton-coach/references/video-lessons.yaml"
+        ).read_text(encoding="utf-8")
+    )
+    complete = next(
+        lesson
+        for lesson in payload["lessons"]
+        if lesson["completeness"] == "complete_demonstration"
+    )
+    invalid = {key: value for key, value in complete.items() if key != "demonstrator_role"}
+    with pytest.raises(jsonschema.ValidationError):
+        jsonschema.validate(instance=invalid, schema=schema)
 
 
 def test_configured_staged_lesson_media_is_used_before_redownloading(
