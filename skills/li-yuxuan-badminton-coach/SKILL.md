@@ -14,7 +14,7 @@ Choose one mode:
 1. **Teaching demonstration**: Accept an action, learning level, and optional training goal. When a reviewed video lesson exists, first show its continuous coach-action episode and then its ordered nine-stage navigation with teaching text; a source video may teach several actions. Accept `phase` only for an explicitly targeted posture reference. Do not infer a learner fault.
 2. **Structured diagnosis**: Accept a player profile and structured observation, resolve the time budget and visible bottleneck, then return one correction, drill, and retest.
 
-Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed continuous lesson package exists.
+Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Read `references/public-demo-cases.yaml` when a public, directly inspectable example is acceptable. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed continuous lesson package exists.
 
 ## Required Inputs
 
@@ -33,7 +33,7 @@ When raw learner video is the only diagnostic input, request structured observat
 
 ## Reference Loading
 
-- In teaching-demonstration mode, read `references/video-lesson-contract.md`, the installed video-lesson index or catalog, and `references/frameworks.yaml`. Use the title plus reviewed ASR index to identify the lesson topic; use VLM only for strict action gating. An approved private staging root may be supplied at runtime through `BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
+- In teaching-demonstration mode, read `references/video-lesson-contract.md`, `references/public-demo-cases.yaml`, the installed video-lesson index or catalog, and `references/frameworks.yaml`. Public cases are the fail-closed inspectable subset; quarantined entries must never be selected. Use the title plus reviewed ASR index to identify the lesson topic; use VLM only for strict action gating. An approved private staging root may be supplied at runtime through `BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content. Read `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
 - In structured-diagnosis mode, always read `references/report-contract.md`, `references/corpus-provenance.md`, and `references/visual-evidence-contract.yaml`.
 - Read `references/frameworks.yaml` before choosing the primary route and `references/student-profiles.yaml` before giving a diagnosis progression path.
 - Read `references/stroke-taxonomy.yaml` for action-specific diagnostic order.

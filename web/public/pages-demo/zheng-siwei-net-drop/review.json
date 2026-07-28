@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV1BPN8EMEL5",
+  "source_url": "https://www.bilibili.com/video/BV1bpN8eMEL5",
+  "action_start_seconds": 180.25,
+  "action_end_seconds": 182.75,
+  "context_start_seconds": 155.0,
+  "context_end_seconds": 205.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "官方贴网吊球课程已经完成手法说明，随后由郑思维本人连续进行正确练习示范。",
+    "公开窗口隔离其中一次完整抛球、挥拍与回收，在下一次抛球动作开始前结束。"
+  ]
+}

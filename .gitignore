@@ -35,7 +35,8 @@ build/
 *.token
 .env
 .runtime/
-/scripts/
+/scripts/*
+!/scripts/export_public_lesson.py
 /logs/
 /cache/
 /caches/
@@ -50,7 +51,7 @@ web/*.tsbuildinfo
 web/vite.config.js
 web/vite.config.d.ts
 
-# Owner-approved public-media exceptions: seven reviewed Liu Hui Pages cases.
+# Owner-approved public-media exceptions: 16 reviewed Pages cases.
 # All other extracted coach media remains outside Git under .runtime/.
 !web/public/
 !web/public/pages-demo/
@@ -68,3 +69,21 @@ web/vite.config.d.ts
 !web/public/pages-demo/liu-hui-backhand/**
 !web/public/pages-demo/liu-hui-serve-receive/
 !web/public/pages-demo/liu-hui-serve-receive/**
+!web/public/pages-demo/li-yuxuan-high-clear/
+!web/public/pages-demo/li-yuxuan-high-clear/**
+!web/public/pages-demo/li-yuxuan-drive/
+!web/public/pages-demo/li-yuxuan-drive/**
+!web/public/pages-demo/li-yuxuan-net-lunge/
+!web/public/pages-demo/li-yuxuan-net-lunge/**
+!web/public/pages-demo/zheng-siwei-receive-cut-waist/
+!web/public/pages-demo/zheng-siwei-receive-cut-waist/**
+!web/public/pages-demo/zheng-siwei-left-receive-route/
+!web/public/pages-demo/zheng-siwei-left-receive-route/**
+!web/public/pages-demo/zheng-siwei-net-drop/
+!web/public/pages-demo/zheng-siwei-net-drop/**
+!web/public/pages-demo/zheng-siwei-rear-attack-footwork/
+!web/public/pages-demo/zheng-siwei-rear-attack-footwork/**
+!web/public/pages-demo/zheng-siwei-rear-pressure-retreat/
+!web/public/pages-demo/zheng-siwei-rear-pressure-retreat/**
+!web/public/pages-demo/zheng-siwei-backhand-low-transition/
+!web/public/pages-demo/zheng-siwei-backhand-low-transition/**

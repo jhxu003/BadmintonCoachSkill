@@ -3,15 +3,36 @@ from __future__ import annotations
 import importlib.util
 import json
 from pathlib import Path
+import re
 import sys
 
 import pytest
+import yaml
 
 
 SCRIPT = (
     Path(__file__).resolve().parents[1]
-    / "skills/liu-hui-badminton-coach/scripts/export_public_lesson.py"
+    / "scripts/export_public_lesson.py"
 )
+
+APPROVED_PUBLIC_CASES = {
+    "liu-hui-backcourt-footwork",
+    "liu-hui-backhand",
+    "liu-hui-drive",
+    "liu-hui-high-clear",
+    "liu-hui-serve-receive",
+    "liu-hui-slice-drop",
+    "liu-hui-smash",
+    "li-yuxuan-drive",
+    "li-yuxuan-high-clear",
+    "li-yuxuan-net-lunge",
+    "zheng-siwei-backhand-low-transition",
+    "zheng-siwei-left-receive-route",
+    "zheng-siwei-net-drop",
+    "zheng-siwei-rear-attack-footwork",
+    "zheng-siwei-rear-pressure-retreat",
+    "zheng-siwei-receive-cut-waist",
+}
 
 
 def load_export_module():
@@ -115,9 +136,10 @@ def test_public_export_writes_only_public_safe_review_fields(tmp_path: Path) -> 
 def test_all_public_lesson_assets_have_publishable_review_context() -> None:
     module = load_export_module()
     repo = Path(__file__).resolve().parents[1]
-    roots = sorted((repo / "web/public/pages-demo").glob("liu-hui-*"))
+    pages_root = repo / "web/public/pages-demo"
+    roots = sorted(path for path in pages_root.iterdir() if path.is_dir())
 
-    assert len(roots) == 7
+    assert {path.name for path in roots} == APPROVED_PUBLIC_CASES
     for lesson_root in roots:
         review_path = lesson_root / "review.json"
         payload = json.loads(review_path.read_text(encoding="utf-8"))
@@ -130,4 +152,49 @@ def test_all_public_lesson_assets_have_publishable_review_context() -> None:
         assert reviewed["demonstrator_role"] == "coach"
         assert reviewed["example_polarity"] == "correct"
         assert (lesson_root / "action.mp4").is_file()
+        assert len(list((lesson_root / "keyframes").glob("*.jpg"))) == 7
+        assert (lesson_root / "README.md").is_file()
+
+
+def test_pages_demo_references_exactly_the_approved_public_cases() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    pages_source = (repo / "web/src/features/pages/PagesDemo.tsx").read_text(
+        encoding="utf-8"
+    )
+    referenced_cases = set(
+        re.findall(r'lessonMedia\(\s*"([^"]+)"', pages_source)
+    )
+
+    assert referenced_cases == APPROVED_PUBLIC_CASES
+
+
+@pytest.mark.parametrize(
+    "manifest_relpath",
+    [
+        "skills/li-yuxuan-badminton-coach/references/public-demo-cases.yaml",
+        "skills/zheng-siwei-badminton-coach/references/public-demo-cases.yaml",
+    ],
+)
+def test_public_demo_manifests_match_published_reviews(manifest_relpath: str) -> None:
+    repo = Path(__file__).resolve().parents[1]
+    manifest = yaml.safe_load((repo / manifest_relpath).read_text(encoding="utf-8"))
+    assert manifest["publication_policy"]["stage_count"] == 7
+
+    for case in manifest["cases"]:
+        lesson_root = repo / case["public_asset_root"]
+        review = json.loads((lesson_root / "review.json").read_text(encoding="utf-8"))
+
+        assert lesson_root.name == case["case_id"]
+        assert review["source_id"] == case["source_id"]
+        assert review["source_url"] == case["source_url"]
+        assert review["action_start_seconds"] == pytest.approx(
+            case["action_start_seconds"]
+        )
+        assert review["action_end_seconds"] == pytest.approx(
+            case["action_end_seconds"]
+        )
+        assert review["demonstrator_role"] == "coach"
+        assert review["example_polarity"] == "correct"
+        assert review["context_review_status"] == "agent_reviewed"
+        assert len(case["stages"]) == 7
         assert len(list((lesson_root / "keyframes").glob("*.jpg"))) == 7

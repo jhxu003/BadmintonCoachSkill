@@ -1,0 +1,66 @@
+version: 1
+owner_approval_date: "2026-07-28"
+publication_policy:
+  source_tier: A
+  demonstrator_role: coach
+  example_polarity: correct
+  context_review_status: agent_reviewed
+  minimum_context_each_side_seconds: 20
+  stage_count: 7
+  original_video_committed: false
+cases:
+  - case_id: zheng-siwei-receive-cut-waist
+    source_id: ZSW_BILI_BV11O4ZEPEPT
+    source_url: https://www.bilibili.com/video/BV11o4ZePEPt
+    module: receive_opening_exchange
+    action_start_seconds: 45.75
+    action_end_seconds: 47.75
+    public_asset_root: web/public/pages-demo/zheng-siwei-receive-cut-waist
+    stages: [ready, read, start, lunge, contact_window, release, recovery]
+  - case_id: zheng-siwei-left-receive-route
+    source_id: ZSW_BILI_BV1SATTEWEBS
+    source_url: https://www.bilibili.com/video/BV1SAtTewEbs
+    module: receive_opening_exchange
+    action_start_seconds: 71.75
+    action_end_seconds: 76.25
+    public_asset_root: web/public/pages-demo/zheng-siwei-left-receive-route
+    stages: [ready, start, approach, loading, contact_window, follow_through, recovery]
+  - case_id: zheng-siwei-net-drop
+    source_id: ZSW_BILI_BV1BPN8EMEL5
+    source_url: https://www.bilibili.com/video/BV1bpN8eMEL5
+    module: frontcourt_pressure
+    action_start_seconds: 180.25
+    action_end_seconds: 182.75
+    public_asset_root: web/public/pages-demo/zheng-siwei-net-drop
+    stages: [ready, start, loading, acceleration, contact_window, follow_through, recovery]
+  - case_id: zheng-siwei-rear-attack-footwork
+    source_id: ZSW_BILI_BV1ILCNYVEHW
+    source_url: https://www.bilibili.com/video/BV1iLCnYvEhw
+    module: rear_attack
+    action_start_seconds: 162.5
+    action_end_seconds: 165.25
+    public_asset_root: web/public/pages-demo/zheng-siwei-rear-attack-footwork
+    stages: [ready, start, loading, acceleration, contact_window, landing, recovery]
+  - case_id: zheng-siwei-rear-pressure-retreat
+    source_id: ZSW_BILI_BV1AURDY3EPT
+    source_url: https://www.bilibili.com/video/BV1auRDY3Ept
+    module: defense_transition
+    action_start_seconds: 51.625
+    action_end_seconds: 55.5
+    public_asset_root: web/public/pages-demo/zheng-siwei-rear-pressure-retreat
+    stages: [ready, read, start, loading, contact_window, release, recovery]
+  - case_id: zheng-siwei-backhand-low-transition
+    source_id: ZSW_BILI_BV1FXIJBKEZC
+    source_url: https://www.bilibili.com/video/BV1fxijBKEZc
+    module: defense_transition
+    action_start_seconds: 81.05
+    action_end_seconds: 83.25
+    public_asset_root: web/public/pages-demo/zheng-siwei-backhand-low-transition
+    stages: [ready, start, lunge, loading, contact_window, follow_through, recovery]
+excluded_source_conditions:
+  - another_person_is_primary_demonstrator
+  - correct_and_incorrect_examples_are_not_separable
+  - match_replay_or_tactical_review
+  - action_is_partial_or_crosses_multiple_repetitions
+limitations:
+  - ordinary_monocular_video_does_not_prove_exact_contact_racket_face_grip_pressure_force_true_internal_rotation_fixed_pair_roles_opponent_intent_or_3d_kinematics

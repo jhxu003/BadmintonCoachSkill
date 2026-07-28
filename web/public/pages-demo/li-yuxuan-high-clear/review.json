@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LYX_BILI_BV1Z64Y1F7YS",
+  "source_url": "https://www.bilibili.com/video/BV1Z64y1F7Ys",
+  "action_start_seconds": 154.875,
+  "action_end_seconds": 157.25,
+  "context_start_seconds": 130.0,
+  "context_end_seconds": 180.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边课程先结束问题动作说明，再明确进入正确方法的连续重复示范。",
+    "公开窗口只保留李宇轩本人第一条完整高远球动作，并在下一次重复开始前结束。"
+  ]
+}

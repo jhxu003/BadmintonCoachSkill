@@ -1,0 +1,52 @@
+version: 1
+owner_approval_date: "2026-07-28"
+publication_policy:
+  demonstrator_role: coach
+  example_polarity: correct
+  context_review_status: agent_reviewed
+  minimum_context_each_side_seconds: 20
+  stage_count: 7
+  original_video_committed: false
+cases:
+  - case_id: li-yuxuan-high-clear
+    source_id: LYX_BILI_BV1Z64Y1F7YS
+    source_url: https://www.bilibili.com/video/BV1Z64y1F7Ys
+    action: high_clear
+    family_id: overhead
+    action_start_seconds: 154.875
+    action_end_seconds: 157.25
+    public_asset_root: web/public/pages-demo/li-yuxuan-high-clear
+    stages: [preparation, start, loading, acceleration, contact_window, follow_through, recovery]
+    teaching_scope: Visible high-clear preparation, swing route, follow-through, and recovery.
+  - case_id: li-yuxuan-drive
+    source_id: LYX_BILI_BV1BH411T7TR
+    source_url: https://www.bilibili.com/video/BV1Bh411T7TR
+    action: drive
+    family_id: midcourt_fast_exchange
+    action_start_seconds: 721.34
+    action_end_seconds: 722.94
+    public_asset_root: web/public/pages-demo/li-yuxuan-drive
+    stages: [preparation, start, stable_position, short_backswing, contact_window, release, recovery]
+    teaching_scope: One compact drive ending before the next hit.
+  - case_id: li-yuxuan-net-lunge
+    source_id: LYX_BILI_BV1MIBBZ5E9U
+    source_url: https://www.bilibili.com/video/BV1MibBz5E9U
+    action: front_footwork
+    family_id: footwork
+    action_start_seconds: 477.06
+    action_end_seconds: 480.1
+    public_asset_root: web/public/pages-demo/li-yuxuan-net-lunge
+    stages: [ready_center, start, front_arrival, lunge_loading, processing_window, release, recovery]
+    teaching_scope: Front-court approach, lunge, and recovery; not proof of exact lift mechanics.
+quarantined_candidates:
+  - source_id: LYX_BILI_BV1Z64Y1F7YS
+    action_start_seconds: 448.054
+    reason: surrounding_lesson_marks_problem_action_imitation
+  - source_id: LYX_BILI_BV1T87EZ4ELJ
+    action_start_seconds: 21.4
+    reason: action_does_not_finish_inside_window
+  - source_id: LYX_BILI_BV1AF411I7AS
+    action_start_seconds: 404.06
+    reason: window_crosses_multiple_feeds_or_repetitions
+limitations:
+  - ordinary_monocular_video_does_not_prove_exact_contact_racket_face_grip_pressure_force_true_internal_rotation_or_3d_kinematics

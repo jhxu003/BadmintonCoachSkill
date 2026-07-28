@@ -14,7 +14,7 @@ Choose one mode:
 1. **Teaching demonstration**: Accept a mixed-doubles module or action, level, and optional training goal. Treat one public coach video as a lesson container and, when an approved video-lesson index is installed, show one continuous action episode before its ordered stage frames. A requested `phase` narrows to a posture reference; it does not replace the complete teaching sequence. Do not require four learner tracks.
 2. **Structured pair diagnosis**: Require the learner/partner identities, court calibration, rally context, and bounded shuttle/contact candidates described below.
 
-Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Use `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
+Always read `references/video-lesson-contract.md` in teaching-demonstration mode. Read `references/public-demo-cases.yaml` when a public, directly inspectable example is acceptable. Use `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
 
 ## Required Inputs
 
@@ -34,7 +34,7 @@ If roles, court geometry, shuttle evidence, or the next shot are missing, reques
 
 ## Reference Loading
 
-- In teaching-demonstration mode, read `references/video-lesson-contract.md`, the installed video-lesson index or catalog, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`. An approved private staging root may be supplied through `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content.
+- In teaching-demonstration mode, read `references/video-lesson-contract.md`, `references/public-demo-cases.yaml`, the installed video-lesson index or catalog, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`. Public cases are the fail-closed inspectable subset and cannot be generalized into fixed pair roles or intent. An approved private staging root may be supplied through `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content.
 - In structured-pair-diagnosis mode, always read `references/report-contract.md`, `references/evidence-policy.md`, and `references/corpus-provenance.md`.
 - Read `references/frameworks.yaml` to select the module and route.
 - Read `references/mixed-doubles-rubric.yaml` and `references/drills.yaml` before producing a deterministic diagnosis.

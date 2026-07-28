@@ -284,6 +284,291 @@ const liuHuiLessons: LessonDemo[] = [
   },
 ];
 
+const liYuxuanLessons: LessonDemo[] = [
+  {
+    id: "high-clear",
+    actionLabel: "高远球",
+    focus: "后场高远球",
+    lessonTitle: "正确语境中的单次高远球：准备、挥拍与恢复",
+    lessonStatus: "complete",
+    route: [
+      { title: "先确认示范语境", copy: "课程已从问题动作说明切换到正确方法，不能把此前的错误模仿当成参考。" },
+      { title: "看完整的一次挥拍", copy: "从步下准备进入上举、加载、挥拍和随挥，七帧全部来自同一次重复。" },
+      { title: "恢复后才结束", copy: "动作包保留释放后的站稳与回收，并在下一次正确重复开始前结束。" },
+    ],
+    source: {
+      label: "查看原视频：高远球打不到位？转身挥拍老发不上力？（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1Z64y1F7Ys",
+    },
+    media: lessonMedia(
+      "li-yuxuan-high-clear",
+      ["01-preparation.jpg", "02-start.jpg", "03-loading.jpg", "04-acceleration.jpg", "05-contact-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
+      "2.375 秒正确高远球重复：从准备连续覆盖挥拍、随挥和恢复。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "观察身体与持拍侧怎样进入本次正确示范的稳定起点。", boundary: "准备帧不单独证明来球、距离或最终击球选择。" },
+      { name: "启动", time: "02", focus: "看脚下和身体朝向怎样开始组织头顶动作。", boundary: "不从二维画面测量精确启动时间或重心轨迹。" },
+      { name: "加载", time: "03", focus: "观察持拍侧上举和身体转入挥拍前段的连续关系。", boundary: "不声称精确关节角度、握拍压力或真实内旋。" },
+      { name: "加速", time: "04", focus: "把向上向前的挥拍过程连接到此前准备，而非模仿孤立定格。", boundary: "运动模糊下不估算拍头速度或力量。" },
+      { name: "近似击球窗口", time: "05", focus: "标记球拍经过预期高位击球区域的可见窗口。", boundary: "不声称精确触球、拍面角度、球速或落点。" },
+      { name: "随挥", time: "06", focus: "观察球拍与身体如何连续通过近似窗口并释放。", boundary: "不能从单帧量化减速负荷或发力比例。" },
+      { name: "恢复", time: "07", focus: "确认挥拍后重新取得可继续移动的稳定状态。", boundary: "该短片不代表所有来球下的唯一回位路线。" },
+    ],
+    note: "旧的 448 秒候选属于问题动作模仿，已明确隔离；当前页面只发布 154.875–157.250 秒的正确示范。",
+  },
+  {
+    id: "drive",
+    actionLabel: "平抽挡",
+    focus: "紧凑平抽挡",
+    lessonTitle: "同一次短出拍：准备、通过与再次可用",
+    lessonStatus: "complete",
+    route: [
+      { title: "先保持可响应准备", copy: "快速交换不是从大幅后摆开始，先看球拍与身体能否及时进入这一次出拍。" },
+      { title: "短路线连续通过", copy: "七阶段把启动、稳定支撑、短引拍和向前通过放在同一条时间线上。" },
+      { title: "下一拍之前结束", copy: "片段在同一次出拍完成并回收后结束，不借用下一拍补齐动作阶段。" },
+    ],
+    source: {
+      label: "查看原视频：抽球没力量、球总减速怎么办？（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1Bh411T7TR",
+    },
+    media: lessonMedia(
+      "li-yuxuan-drive",
+      ["01-ready.jpg", "02-start.jpg", "03-stable-position.jpg", "04-short-backswing.jpg", "05-contact-window.jpg", "06-release.jpg", "07-recovery.jpg"],
+      "1.6 秒单次紧凑平抽挡：没有混入下一次击球。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "观察球拍、躯干和支撑是否处于可快速响应的状态。", boundary: "不能由准备帧推断来球速度或预判方向。" },
+      { name: "启动", time: "02", focus: "看持拍侧怎样从准备进入本次短出拍。", boundary: "不量化真实反应时间或肌肉激活顺序。" },
+      { name: "稳定击球位", time: "03", focus: "观察原地快速交换中的可见支撑和身体朝向。", boundary: "这不是跨场到位距离或精确重心的测量。" },
+      { name: "短引拍", time: "04", focus: "看引拍怎样保持紧凑并连接后续向前动作。", boundary: "不把一条示范固化为所有来球的唯一引拍长度。" },
+      { name: "近似击球窗口", time: "05", focus: "定位球拍通过身前来球区域的连续窗口。", boundary: "不声称精确触球、拍面角度、球速或力量。" },
+      { name: "释放", time: "06", focus: "观察出拍后怎样自然通过，而不是停在伸展末端。", boundary: "普通视频不能量化制动负荷。" },
+      { name: "恢复", time: "07", focus: "确认球拍和身体已经回到可衔接下一拍的状态。", boundary: "不据此推断完整对抗中的最佳站位。" },
+    ],
+    note: "公开窗口只对应同一次短出拍；媒体和七帧在下一次击球开始前已经结束。",
+  },
+  {
+    id: "net-lunge",
+    actionLabel: "网前跨步",
+    focus: "网前上网跨步与回收",
+    lessonTitle: "从准备中心到网前，再回到可衔接状态",
+    lessonStatus: "complete",
+    route: [
+      { title: "先从准备中心启动", copy: "不要先伸手够球；先看脚下怎样把身体送向网前。" },
+      { title: "跨步与处理相连", copy: "到位、下沉和近似处理窗口是连续过程，不把最低点单独当成标准姿势。" },
+      { title: "处理后必须回收", copy: "片段保留网前动作后的站稳与退出，只教学可见移动路线。" },
+    ],
+    source: {
+      label: "查看原视频：挑球怎么轻松挑得又高又到位？（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1MibBz5E9U",
+    },
+    media: lessonMedia(
+      "li-yuxuan-net-lunge",
+      ["01-ready-center.jpg", "02-start.jpg", "03-front-arrival.jpg", "04-lunge-loading.jpg", "05-processing-window.jpg", "06-release.jpg", "07-recovery.jpg"],
+      "3.04 秒网前上网跨步：连续覆盖准备、到位、处理附近与回收。",
+    ),
+    stages: [
+      { name: "准备中心", time: "01", focus: "从稳定中心观察双脚、躯干与持拍侧的可启动状态。", boundary: "不把画面坐标当作标定后的场地坐标。" },
+      { name: "启动", time: "02", focus: "观察第一步怎样把身体送向网前。", boundary: "不能从单目画面测量精确步幅或地面受力。" },
+      { name: "前场到位", time: "03", focus: "看身体怎样接近可下沉、可处理来球的位置。", boundary: "不声称存在适用于所有来球的固定到位距离。" },
+      { name: "跨步加载", time: "04", focus: "观察跨步、下沉与持拍准备怎样连续发生。", boundary: "不推断精确关节角度、重心高度或伤病风险。" },
+      { name: "近似处理窗口", time: "05", focus: "标出球拍经过网前可见处理区域的窗口。", boundary: "不声称精确触球、拍面角度或具体挑球落点。" },
+      { name: "释放", time: "06", focus: "观察处理后的身体与球拍怎样离开最低点。", boundary: "不能由单帧判断力量、旋转或触球质量。" },
+      { name: "回收", time: "07", focus: "确认动作后重新站稳并准备衔接下一拍。", boundary: "短片只覆盖一次网前路线，不代表完整回合回位。" },
+    ],
+    note: "该案例只称为“网前上网跨步与回收”，不把可见移动路线冒充完整挑球手法。",
+  },
+];
+
+const zhengSiweiLessons: LessonDemo[] = [
+  {
+    id: "receive-cut-waist",
+    actionLabel: "接发切腰",
+    focus: "发球偏高时的接发处理",
+    lessonTitle: "读球、侧向启动、处理与回收",
+    lessonStatus: "complete",
+    route: [
+      { title: "先读发球高度", copy: "课程把这一动作放在对方发球偏高的条件下，不把它扩写为所有接发球的固定答案。" },
+      { title: "身体先进入路线", copy: "观察郑思维怎样从准备向侧前方移动，让球拍进入可处理区域。" },
+      { title: "处理后保持可用", copy: "动作包一直保留到回收，不在近似击球窗口处截断。" },
+    ],
+    source: {
+      label: "查看原视频：羽球思维第一期 · 接发球教学（Bilibili）",
+      href: "https://www.bilibili.com/video/BV11o4ZePEPt",
+    },
+    media: lessonMedia(
+      "zheng-siwei-receive-cut-waist",
+      ["01-ready.jpg", "02-read.jpg", "03-start.jpg", "04-lunge.jpg", "05-contact-window.jpg", "06-release.jpg", "07-recovery.jpg"],
+      "2 秒单次接发切腰示范：正面机位连续覆盖准备、侧向处理与回收。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "确认接发前的站姿、眼线和球拍可用位置。", boundary: "不从单帧推断发球意图或反应时间。" },
+      { name: "读球", time: "02", focus: "观察身体在动作发生前仍保持可向两侧响应。", boundary: "课程语境提供条件，画面本身不能证明对手意图。" },
+      { name: "启动", time: "03", focus: "看脚下与身体怎样开始进入侧前方路线。", boundary: "二维视频不能给出精确移动距离或重心轨迹。" },
+      { name: "跨步", time: "04", focus: "观察身体怎样接近身侧处理区域并保持平衡。", boundary: "不把该跨步固化为所有来球的唯一脚序。" },
+      { name: "近似击球窗口", time: "05", focus: "定位球拍经过球体附近的可见时间窗。", boundary: "不声称精确触球、拍面、切削角或球速。" },
+      { name: "释放", time: "06", focus: "观察处理后球拍和身体怎样继续通过。", boundary: "不能从普通画面判断真实力量或落点精度。" },
+      { name: "恢复", time: "07", focus: "确认动作后回到可继续覆盖下一拍的位置。", boundary: "本片段不证明完整双打第三拍归属。" },
+    ],
+    note: "该示范只适用于课程明确的较高发球条件；其他发球高度仍需重新选择路线。",
+  },
+  {
+    id: "left-receive-route",
+    actionLabel: "左半场接发",
+    focus: "左半场接发后的本侧衔接",
+    lessonTitle: "一次接发移动，保留到回到下一拍准备",
+    lessonStatus: "complete",
+    route: [
+      { title: "先建立本次分工", copy: "课程在此进入左半场接发套路，页面只复现这一条示范路线。" },
+      { title: "接发后继续向前", copy: "观察启动、接近来球和处理后的继续移动，不把击球当成终点。" },
+      { title: "角色规则不硬编码", copy: "来源标题中的性别表述不被推成所有搭档都必须遵守的固定角色规则。" },
+    ],
+    source: {
+      label: "查看原视频：男生在左半场的几种接发球套路（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1SAtTewEbs",
+    },
+    media: lessonMedia(
+      "zheng-siwei-left-receive-route",
+      ["01-ready.jpg", "02-start.jpg", "03-approach.jpg", "04-loading.jpg", "05-contact-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
+      "4.5 秒单次接发与衔接路线：从准备保留到重新可用。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "观察接发者面对发球方时的初始位置和可用方向。", boundary: "不从外观自动识别固定混双角色。" },
+      { name: "启动", time: "02", focus: "看身体怎样从等待状态开始响应来球。", boundary: "不量化反应时、地面受力或发球意图。" },
+      { name: "接近", time: "03", focus: "观察脚下怎样把身体送向身前处理区域。", boundary: "二维投影不能提供精确场地距离。" },
+      { name: "加载", time: "04", focus: "看下肢支撑与持拍侧怎样为处理建立空间。", boundary: "不声称精确关节几何或握拍变化。" },
+      { name: "近似击球窗口", time: "05", focus: "标出球拍经过来球附近的连续窗口。", boundary: "不声称精确触球、拍面角度、球速或落点。" },
+      { name: "继续移动", time: "06", focus: "观察接发后身体仍然向可衔接区域推进。", boundary: "不能从该片段判断搭档和对手的全部战术意图。" },
+      { name: "恢复", time: "07", focus: "确认本次路线结束时已经能准备下一拍。", boundary: "完整轮转仍需四人连续回合证据。" },
+    ],
+    note: "这是一条左半场接发实例，不是按性别固定前后场或两侧职责的通用规则。",
+  },
+  {
+    id: "net-drop",
+    actionLabel: "贴网吊球",
+    focus: "贴网吊球的连续手法路线",
+    lessonTitle: "隔离一次抛球示范，不跨入下一次重复",
+    lessonStatus: "complete",
+    route: [
+      { title: "先保留来球与准备", copy: "从抛球后的稳定准备开始，避免只截取球拍经过头顶的一瞬间。" },
+      { title: "用连续画面理解路线", copy: "加载、前挥、近似处理和随挥均来自同一次动作。" },
+      { title: "下一次抛球前结束", copy: "重复训练中的每一次都单独审核，页面没有把两次动作拼成一个故事板。" },
+    ],
+    source: {
+      label: "查看原视频：更简单学会贴网的吊球（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1bpN8eMEL5",
+    },
+    media: lessonMedia(
+      "zheng-siwei-net-drop",
+      ["01-ready.jpg", "02-start.jpg", "03-loading.jpg", "04-acceleration.jpg", "05-contact-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
+      "2.5 秒单次抛球示范：完整保留准备、挥拍与回收。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "观察球拍和身体怎样等待本次抛起的羽球。", boundary: "准备帧不能证明最终落点或切削选择。" },
+      { name: "启动", time: "02", focus: "看持拍侧怎样从准备进入头顶处理路线。", boundary: "不从二维视频推断肌肉发力顺序。" },
+      { name: "加载", time: "03", focus: "观察上举与可见加载怎样连接后续挥拍。", boundary: "不声称精确肘角、拍面角或真实内旋。" },
+      { name: "加速", time: "04", focus: "把球拍向前通过的过程放回完整动作中理解。", boundary: "运动模糊下不估算拍头速度或力量。" },
+      { name: "近似击球窗口", time: "05", focus: "标记球拍与羽球接近的可见时间窗。", boundary: "不声称精确触球、切削角、旋转或落点。" },
+      { name: "随挥", time: "06", focus: "观察球拍通过窗口后的释放路线。", boundary: "不能由单帧判断触球质量或减速负荷。" },
+      { name: "恢复", time: "07", focus: "确认动作结束并在下一次抛球前回到稳定状态。", boundary: "原地手法示范不代表完整后场步法。" },
+    ],
+    note: "该窗口只包含一次抛球练习；下一次重复从媒体与关键帧中同时排除。",
+  },
+  {
+    id: "rear-attack-footwork",
+    actionLabel: "后场突击步法",
+    focus: "正手区后场突击与恢复",
+    lessonTitle: "第一条喂球：启动、后移、腾空、落地与恢复",
+    lessonStatus: "complete",
+    route: [
+      { title: "从中间准备读球", copy: "先看脚下怎样响应喂球，再进入正手区后场路线。" },
+      { title: "移动和突击是一条链", copy: "后移、加载、腾空和近似击球窗口不能拆成互不相关的定格。" },
+      { title: "第二次喂球不混入", copy: "片段在第一条动作恢复后结束，后续重复另行审核。" },
+    ],
+    source: {
+      label: "查看原视频：正手区后场突击步伐（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1iLCnYvEhw",
+    },
+    media: lessonMedia(
+      "zheng-siwei-rear-attack-footwork",
+      ["01-ready.jpg", "02-start.jpg", "03-loading.jpg", "04-acceleration.jpg", "05-contact-window.jpg", "06-landing.jpg", "07-recovery.jpg"],
+      "2.75 秒第一条实战喂球：覆盖后移突击、落地和恢复。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "确认面对来球的初始站姿和可移动方向。", boundary: "不把画面坐标当作精确场地测量。" },
+      { name: "启动", time: "02", focus: "观察脚下怎样开始进入正手后场路线。", boundary: "不能测量真实反应时或地面反作用力。" },
+      { name: "后场加载", time: "03", focus: "看后移后的支撑、身体朝向和持拍侧怎样共同加载。", boundary: "不声称唯一正确脚序或精确关节角度。" },
+      { name: "加速／腾空", time: "04", focus: "观察身体与球拍如何继续进入突击动作。", boundary: "单目视频不能测量腾空高度、力量或三维位置。" },
+      { name: "近似击球窗口", time: "05", focus: "定位球拍经过头顶预期击球区的可见窗口。", boundary: "不声称精确触球、拍面、球速或落点。" },
+      { name: "落地", time: "06", focus: "观察腾空动作怎样连接到可继续移动的落地。", boundary: "不能量化落地冲击或伤病风险。" },
+      { name: "恢复", time: "07", focus: "确认第一条喂球后重新建立准备状态。", boundary: "短片不证明完整比赛中的最佳回位选择。" },
+    ],
+    note: "七帧与连续片段均来自第一条实战喂球，并在第二次喂球开始前结束。",
+  },
+  {
+    id: "rear-pressure-retreat",
+    actionLabel: "被压后场退步",
+    focus: "受压后的后场移动与处理",
+    lessonTitle: "问题对比之后，只发布正确退步路线",
+    lessonStatus: "complete",
+    route: [
+      { title: "先区分问题段", copy: "课程前段展示后仰和脚下缠结的问题，本案例不使用那些画面。" },
+      { title: "按可见顺序组织", copy: "读球、启动、压低身体、出步伐和处理被保留为同一条连续路线。" },
+      { title: "恢复仍属动作包", copy: "挥拍后继续观察落地与站稳，不把近似击球窗口当作结束。" },
+    ],
+    source: {
+      label: "查看原视频：被压后场来不及退怎么办？（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1auRDY3Ept",
+    },
+    media: lessonMedia(
+      "zheng-siwei-rear-pressure-retreat",
+      ["01-ready.jpg", "02-read.jpg", "03-start.jpg", "04-loading.jpg", "05-contact-window.jpg", "06-release.jpg", "07-recovery.jpg"],
+      "3.875 秒正确退步路线：已排除前段错误对比。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "观察身体面对来球时的稳定起点。", boundary: "不能由静态帧推断来球速度或对手意图。" },
+      { name: "读球", time: "02", focus: "看身体保持可响应，并准备进入后退路线。", boundary: "不声称测得真实视觉反应时间。" },
+      { name: "启动", time: "03", focus: "观察第一下后退响应怎样建立方向。", boundary: "不从二维画面量化步幅或重心。" },
+      { name: "压低与加载", time: "04", focus: "看身体降低、支撑和持拍侧如何为后续处理创造空间。", boundary: "不声称精确关节角度、受力或伤病阈值。" },
+      { name: "近似击球窗口", time: "05", focus: "标记后退中球拍经过预期处理区域的窗口。", boundary: "不声称精确触球、拍面角度、球速或力量。" },
+      { name: "释放", time: "06", focus: "观察挥拍通过窗口后怎样连接落地。", boundary: "不能由单帧判断出球质量或战术结果。" },
+      { name: "恢复", time: "07", focus: "确认处理后重新取得可继续移动的状态。", boundary: "本示范不代表所有被动后场球的唯一选择。" },
+    ],
+    note: "前段错误示范保持隔离；公开 Case 只来自随后明确组织的正确移动路线。",
+  },
+  {
+    id: "backhand-low-transition",
+    actionLabel: "反手低手位过渡",
+    focus: "反手底线低手位过渡",
+    lessonTitle: "固定机位中的单次移动、处理与回收",
+    lessonStatus: "complete",
+    route: [
+      { title: "镜头切换后再开始", copy: "片段从固定全身机位开始，避免把上一镜头的动作尾部误当作准备。" },
+      { title: "低手位处理要连贯", copy: "移动、跨步、低手位挥拍和随挥均来自同一次连续动作。" },
+      { title: "路线选择保留条件", copy: "本案例展示过渡对角的可见动作，不把它说成所有被动球的唯一答案。" },
+    ],
+    source: {
+      label: "查看原视频：反手底线低手位过渡对角（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1fxijBKEZc",
+    },
+    media: lessonMedia(
+      "zheng-siwei-backhand-low-transition",
+      ["01-ready.jpg", "02-start.jpg", "03-lunge.jpg", "04-loading.jpg", "05-contact-window.jpg", "06-follow-through.jpg", "07-recovery.jpg"],
+      "2.2 秒固定机位示范：从准备连续覆盖低手位处理与回收。",
+    ),
+    stages: [
+      { name: "准备", time: "01", focus: "确认固定机位下的稳定站姿和可移动方向。", boundary: "不由静态帧推断来球落点或选择意图。" },
+      { name: "启动", time: "02", focus: "观察脚下怎样开始进入反手低手位路线。", boundary: "二维视频不能量化反应时或精确移动距离。" },
+      { name: "跨步", time: "03", focus: "看身体怎样接近较低的处理区域并保持支撑。", boundary: "不声称唯一正确脚序或重心高度。" },
+      { name: "加载", time: "04", focus: "观察持拍侧与下肢支撑怎样连接低手位挥拍。", boundary: "不推断精确握拍、关节角度或肌肉发力。" },
+      { name: "近似击球窗口", time: "05", focus: "标出球拍与羽球接近的可见时间窗。", boundary: "不声称精确触球、拍面、旋转、球速或落点。" },
+      { name: "随挥", time: "06", focus: "观察处理后球拍和身体怎样继续通过。", boundary: "不能由单帧确认实际过渡效果。" },
+      { name: "恢复", time: "07", focus: "确认动作后重新取得可移动的稳定状态。", boundary: "路线选择仍需结合来球和回合上下文。" },
+    ],
+    note: "公开窗口从固定机位开始并在下一次剪辑前结束，没有把镜头切换两侧拼成一条动作。",
+  },
+];
+
 const coaches: CoachDemo[] = [
   {
     id: "liu-hui",
@@ -296,55 +581,15 @@ const coaches: CoachDemo[] = [
     id: "li-yuxuan",
     name: "李宇轩",
     role: "时间预算、到位与动作链衔接",
-    actions: ["高远球", "杀球", "吊球", "后场步法", "平抽挡", "反手", "发接发"],
-    lessons: [
-      {
-        id: "arrival-chain",
-        actionLabel: "高远球",
-        focus: "后场到位与高远球",
-        lessonTitle: "先处理时间与到位，再进入挥拍细节",
-        lessonStatus: "route",
-        route: [
-          { title: "来球信号", copy: "先把启动与第一步放在技术讨论之前，明确时间从哪里被消耗。" },
-          { title: "到位与调整", copy: "把转身、调整步与击球窗口视为一条连续链，而不是独立问题。" },
-          { title: "释放与退出", copy: "在稳定到位后，再讨论顶肘、架拍、释放与回位之间的取舍。" },
-        ],
-        stages: [
-          { name: "信号与启动", time: "01", focus: "从来球信号开始组织第一步。", boundary: "示例不替代实际视频的可见性审核。" },
-          { name: "到位与转身", time: "02", focus: "保证击球前有可用空间。", boundary: "不从静态展示判断精确距离。" },
-          { name: "击球窗口", time: "03", focus: "在可观察的窗口内组织架拍与释放。", boundary: "不推断精确触球。" },
-          { name: "退出与回位", time: "04", focus: "把动作结束连接到下一拍准备。", boundary: "需结合连续素材复核。" },
-        ],
-        note: "Pages 仅展示可公开的 Skill 路线。实际视频教学包只在素材满足连续性与阶段证据标准时才会发布到受保护服务。",
-      },
-    ],
+    actions: liYuxuanLessons.map((lesson) => lesson.actionLabel),
+    lessons: liYuxuanLessons,
   },
   {
     id: "zheng-siwei",
     name: "郑思维",
     role: "混双通道、衔接与轮转复盘",
-    actions: ["接发与第三拍", "前场压迫", "后场进攻", "轮转", "防守转换", "回位迁移"],
-    lessons: [
-      {
-        id: "mixed-doubles-context",
-        actionLabel: "接发与第三拍",
-        focus: "混双进攻衔接",
-        lessonTitle: "混双不是两个人的单人动作相加",
-        lessonStatus: "context",
-        route: [
-          { title: "确认四人", copy: "先由用户确认学员、搭档、对手和场地角，系统不根据外观猜身份。" },
-          { title: "检查两条通道", copy: "复盘前后连接、可达线路与下一拍归属，而不是给单帧贴战术意图。" },
-          { title: "保留不确定性", copy: "四人、边线或羽球不可见时，返回重拍指引，不编造轮转结论。" },
-        ],
-        stages: [
-          { name: "发球与开局", time: "01", focus: "建立回合开始时的角色与站位背景。", boundary: "不推断发球意图。" },
-          { name: "接发与交换", time: "02", focus: "检查下一拍是否已有角色准备。", boundary: "需要完整回合上下文。" },
-          { name: "前后连接", time: "03", focus: "观察两人是否保持可用通道。", boundary: "不把二维投影当作精确场地坐标。" },
-          { name: "转换与回位", time: "04", focus: "复核下一拍归属是否重新建立。", boundary: "缺少连续性时只给重拍建议。" },
-        ],
-        note: "该体系的公开展示只说明混双复盘方法。完整四人视频分析需要后端、受保护的上传媒体和用户确认步骤。",
-      },
-    ],
+    actions: zhengSiweiLessons.map((lesson) => lesson.actionLabel),
+    lessons: zhengSiweiLessons,
   },
 ];
 
@@ -386,7 +631,7 @@ export function PagesDemo() {
           <p className="pages-eyebrow"><Sparkles size={14} /> Evidence-grounded coaching intelligence</p>
           <h1>把一条教练视频，<br /><em>变成可复查的教学路线。</em></h1>
           <p className="pages-lede">这是 BadmintonCoachSkill 的公开展示版。选择教练体系与技术主题，查看连续动作如何被组织成阶段导航、教学要点与明确的证据边界。</p>
-          <div className="pages-hero-actions"><a className="pages-primary" href="#experience">浏览刘辉七项案例 <ArrowRight size={17} /></a><a className="pages-secondary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">查看源代码</a></div>
+          <div className="pages-hero-actions"><a className="pages-primary" href="#experience">浏览三套教练案例 <ArrowRight size={17} /></a><a className="pages-secondary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">查看源代码</a></div>
         </div>
         <aside className="pages-hero-card" aria-label="教学证据结构">
           <div className="pages-card-top"><span>Lesson container</span><span>public-safe demo</span></div>
@@ -427,7 +672,7 @@ export function PagesDemo() {
 
       <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">Evidence boundaries</p><h2>知道什么，也明确不知道什么。</h2></div><div className="pages-boundary-grid"><article><b>可以做</b><p>组织公开视频中的连续动作、阶段顺序、可见姿态事实、教学原则、练习和复测指标。</p></article><article><b>不能声称</b><p>精确触球、拍面角度、真实内旋、握拍压力、力量大小、标定三维运动学或对手意图。</p></article><article><b>证据不足时</b><p>不编造诊断；标记缺失阶段，说明需要怎样的机位、画面或重拍条件。</p></article></div></section>
 
-      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">Open source project</p><h2>查看 Skill、证据合同与完整部署方案。</h2><p>完整服务需要私有 runtime、GPU 后端和受令牌保护的媒体接口；GitHub Pages 只包含所有者明确允许公开的刘辉七项审核案例。</p></div><a className="pages-primary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">打开 GitHub <ExternalLink size={16} /></a></section>
+      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">Open source project</p><h2>查看 Skill、证据合同与完整部署方案。</h2><p>完整服务需要私有 runtime、GPU 后端和受令牌保护的媒体接口；GitHub Pages 只包含所有者明确允许且逐条审核的 16 个教练案例。</p></div><a className="pages-primary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">打开 GitHub <ExternalLink size={16} /></a></section>
 
       <footer className="pages-footer"><span>BadmintonCoachSkill · 非官方、非授权研究项目</span><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer"><GitBranch size={14} /> GitHub Repository</a></footer>
     </main>

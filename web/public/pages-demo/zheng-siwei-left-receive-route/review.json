@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV1SATTEWEBS",
+  "source_url": "https://www.bilibili.com/video/BV1SAtTewEbs",
+  "action_start_seconds": 71.75,
+  "action_end_seconds": 76.25,
+  "context_start_seconds": 45.0,
+  "context_end_seconds": 97.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "官方课程在该段进入左半场接发分工与衔接的第三类实例，并由郑思维本人完成。",
+    "窗口覆盖一次完整接发移动、处理与回到可衔接状态，结束后才恢复讲解。"
+  ]
+}

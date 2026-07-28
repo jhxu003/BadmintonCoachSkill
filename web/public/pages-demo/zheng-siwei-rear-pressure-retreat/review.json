@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV1AURDY3EPT",
+  "source_url": "https://www.bilibili.com/video/BV1auRDY3Ept",
+  "action_start_seconds": 51.625,
+  "action_end_seconds": 55.5,
+  "context_start_seconds": 25.0,
+  "context_end_seconds": 80.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "课程先分析后退受压问题，再进入按看球、启动、压低身体和出步伐组织的正确路线。",
+    "公开窗口是郑思维本人一条完整后退处理，从准备延续到挥拍后恢复。"
+  ]
+}

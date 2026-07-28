@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV1FXIJBKEZC",
+  "source_url": "https://www.bilibili.com/video/BV1fxijBKEZc",
+  "action_start_seconds": 81.05,
+  "action_end_seconds": 83.25,
+  "context_start_seconds": 55.0,
+  "context_end_seconds": 105.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "官方反手底线低手位过渡课程在该段以固定机位展示正确处理，郑思维本人为主示范者。",
+    "窗口从固定机位准备开始，连续覆盖移动、低手位处理和回收，并在镜头切换前结束。"
+  ]
+}

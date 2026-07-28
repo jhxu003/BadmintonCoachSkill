@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV1ILCNYVEHW",
+  "source_url": "https://www.bilibili.com/video/BV1iLCnYvEhw",
+  "action_start_seconds": 162.5,
+  "action_end_seconds": 165.25,
+  "context_start_seconds": 140.0,
+  "context_end_seconds": 190.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "官方正手区后场突击步伐课程进入实战演示段，由郑思维本人完成连续喂球练习。",
+    "公开窗口只截取第一条完整启动、后场移动、突击、落地与恢复，不混入第二次喂球。"
+  ]
+}

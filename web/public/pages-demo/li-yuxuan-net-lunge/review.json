@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LYX_BILI_BV1MIBBZ5E9U",
+  "source_url": "https://www.bilibili.com/video/BV1MibBz5E9U",
+  "action_start_seconds": 477.06,
+  "action_end_seconds": 480.1,
+  "context_start_seconds": 455.0,
+  "context_end_seconds": 502.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边课程明确切换到李宇轩本人完成一次示范，画面未混入学员尝试或错误模仿。",
+    "窗口连续覆盖准备、上网跨步、近似处理区域和回收，仅作为网前移动路线教学。"
+  ]
+}

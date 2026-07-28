@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "LYX_BILI_BV1BH411T7TR",
+  "source_url": "https://www.bilibili.com/video/BV1Bh411T7TR",
+  "action_start_seconds": 721.34,
+  "action_end_seconds": 722.94,
+  "context_start_seconds": 700.0,
+  "context_end_seconds": 744.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "周边课程持续讲解左右来球下的平抽挡路线，并由李宇轩本人进入动作示范。",
+    "窗口从稳定准备覆盖同一次紧凑出拍、释放与回收，没有混入下一次击球。"
+  ]
+}

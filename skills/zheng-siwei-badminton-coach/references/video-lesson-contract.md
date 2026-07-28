@@ -23,3 +23,10 @@ When an approved private staging root is installed through
 `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`, it must contain
 `video-lessons-index.yaml` and its `video-lessons/` shards. The path belongs to
 deployment configuration and must not be committed.
+
+For an explicitly owner-approved public sample, first verify that it is listed
+in `references/public-demo-cases.yaml`, then use the repository-wide
+`scripts/export_public_lesson.py`. Require a Tier A official source, Zheng
+Siwei as the primary demonstrator, correct-example context, at least 20 seconds
+of reviewed context on both sides, one uncut action repetition, and exactly
+seven ordered JPEGs.

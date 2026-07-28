@@ -15,3 +15,10 @@ Use the source video as the lesson container and one Li Yuxuan technique package
 11. If a reviewed topic has no reliable complete episode, retain the semantic gap privately and return `no_reliable_action_episode`; never substitute talking, a partial candidate, or another technique.
 
 Run the staged pipeline as `inventory`, `prepare`, `gate`, `materialize`, `summarize`, and `publish`. The pipeline must directly reuse restored private source videos when present, rather than re-downloading or copying the corpus. Keep sources, candidate frames, clips, ASR, model output, review decisions, databases, and logs in private ignored storage. A deployment may set `BADMINTON_LI_YUXUAN_VIDEO_LESSON_ROOT` to an approved private staging root; do not commit that absolute path.
+
+For an explicitly owner-approved public sample, first verify that it is listed
+in `references/public-demo-cases.yaml`, then use the repository-wide
+`scripts/export_public_lesson.py`. The exporter requires coach role, correct
+polarity, agent-reviewed context, at least 20 seconds of context on both sides,
+one continuous episode, and exactly seven ordered JPEGs. A quarantined
+candidate cannot be overridden merely because private media already exists.

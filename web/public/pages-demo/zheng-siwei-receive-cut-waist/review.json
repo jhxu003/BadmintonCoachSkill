@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source_id": "ZSW_BILI_BV11O4ZEPEPT",
+  "source_url": "https://www.bilibili.com/video/BV11o4ZePEPt",
+  "action_start_seconds": 45.75,
+  "action_end_seconds": 47.75,
+  "context_start_seconds": 20.0,
+  "context_end_seconds": 70.0,
+  "demonstrator_role": "coach",
+  "example_polarity": "correct",
+  "context_review_status": "agent_reviewed",
+  "review_basis": [
+    "官方课程在该段讲解对方发球偏高时的接发处理，并切换到郑思维本人正面示范。",
+    "窗口只包含一次从准备到侧向处理和回收的连续动作，未跨入后续重复。"
+  ]
+}
