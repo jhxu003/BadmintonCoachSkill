@@ -34,8 +34,17 @@ interface CoachDemo {
   lessonStatus: "complete" | "route" | "context";
   route: Array<{ title: string; copy: string }>;
   source?: { label: string; href: string };
+  media?: {
+    clip: string;
+    keyframes: string[];
+    clipDescription: string;
+  };
   stages: Stage[];
   note: string;
+}
+
+function publicAsset(path: string): string {
+  return `${import.meta.env.BASE_URL}${path}`;
 }
 
 const coaches: CoachDemo[] = [
@@ -45,7 +54,7 @@ const coaches: CoachDemo[] = [
     role: "动作框架、发力路线与训练选择",
     focus: "后场高远球",
     actions: ["高远球", "杀球", "吊球", "后场步法", "平抽挡", "反手", "发接发"],
-    lessonTitle: "从后场到回位的高远球教学包",
+    lessonTitle: "后场高远球：7 阶段连续示范",
     lessonStatus: "complete",
     route: [
       { title: "先到位", copy: "先建立启动、后退与支撑，避免在失衡状态里追求挥拍速度。" },
@@ -56,16 +65,29 @@ const coaches: CoachDemo[] = [
       label: "查看原视频：刘辉教练教你正手发高远球（Bilibili）",
       href: "https://www.bilibili.com/video/BV1ym411g74x/",
     },
+    media: {
+      clip: "pages-demo/liu-hui-high-clear/action.mp4",
+      keyframes: [
+        "pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/02-start.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/03-arrival.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/06-follow-through.jpg",
+        "pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg",
+      ],
+      clipDescription: "6.5 秒连续动作片段：保留完整挥拍及随后的结果段。",
+    },
     stages: [
-      { name: "启动与后退", time: "01", focus: "先识别来球方向，再以可控的启动和后退进入后场。", boundary: "静态阶段只用于定位，不能判断真实启动时机。" },
-      { name: "最后两步与制动", time: "02", focus: "在击球前取得稳定支撑，为上肢动作保留空间。", boundary: "不从单目画面推断精确重心、力量或地面反作用力。" },
-      { name: "侧身与引拍", time: "03", focus: "让身体和持拍侧逐步组织动作，不把手臂单独向后拉。", boundary: "可描述画面中的相对位置，不能声称真实关节旋转。" },
-      { name: "架拍", time: "04", focus: "在加速前建立适合自己的持拍侧准备结构。", boundary: "不能从普通视频确定握拍压力或拍面精确角度。" },
-      { name: "挥拍加速", time: "05", focus: "观察躯干、上肢与球拍路径的连续释放。", boundary: "这里是近似击球窗口，不宣称精确触球瞬间。" },
-      { name: "随挥与落地", time: "06", focus: "让释放自然延续到落地，避免在动作峰值突然刹停。", boundary: "不以单帧判断力量大小或伤病风险。" },
-      { name: "回位与下一拍", time: "07", focus: "完成出拍后恢复可移动状态，准备下一次来球。", boundary: "回位质量须结合连续片段，而非一张姿态图。" },
+      { name: "准备", time: "01", focus: "从稳定准备状态观察身体和持拍侧，随后才进入这一次动作。", boundary: "静态帧只用于导航，不能单独代表整套技术。" },
+      { name: "启动", time: "02", focus: "观察本次动作如何从准备状态开始；不要跳过启动直接模仿后段。", boundary: "普通单目画面不能确定精确启动时机或地面反作用力。" },
+      { name: "到位／加载", time: "03", focus: "观察身体如何建立这次挥拍所需的位置与加载条件。", boundary: "仅描述可见二维路线，不推断精确重心或关节角度。" },
+      { name: "引拍／高位结构", time: "04", focus: "观察持拍侧在连续画面中的引拍结构，而非孤立模仿定格。", boundary: "不能由普通视频声称真实内旋或精确关节几何。" },
+      { name: "近似击球窗口", time: "05", focus: "标记球拍经过预期击球区域的连续窗口，并连接到前后的挥拍过程。", boundary: "不声称精确触球、拍面角度、握拍压力或力量大小。" },
+      { name: "随挥／释放", time: "06", focus: "观察球拍和身体如何连续通过近似窗口，不把该窗口当作动作终点。", boundary: "不以单帧判断减速负荷或力量。" },
+      { name: "回收／恢复", time: "07", focus: "观察动作后是否重新取得稳定、可衔接下一拍的状态。", boundary: "该段不单独证明完整比赛回位路线。" },
     ],
-    note: "这是公开安全的课程结构示例。完整连续片段、阶段关键帧与其审核记录只在受保护的运行环境中按需提供。",
+    note: "这是经明确授权公开的单一 Pages case：7 张阶段帧与 1 段连续片段均对应同一来源、同一次审核动作。其他抽取媒体仍不发布。",
   },
   {
     id: "li-yuxuan",
@@ -122,6 +144,7 @@ export function PagesDemo() {
   const [stageIndex, setStageIndex] = useState(0);
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const stage = coach.stages[stageIndex] ?? coach.stages[0];
+  const stageAsset = coach.media?.keyframes[stageIndex];
 
   function selectCoach(nextCoach: CoachId): void {
     setCoachId(nextCoach);
@@ -169,17 +192,17 @@ export function PagesDemo() {
         <div className="pages-route-grid">{coach.route.map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
         <div className="pages-motion-panel">
           <div className="pages-motion-copy"><p className="pages-eyebrow"><Layers3 size={14} /> Action package</p><h3>完整教学先保留过程，<br />再用关键帧解释过程。</h3><p>真实课程中，每一个阶段帧都来自同一次连续动作；一旦机位、可见性或连续性不够，系统就保留“证据不足”。</p><div className="pages-motion-labels"><span><Film size={15} /> 连续片段</span><span><Gauge size={15} /> 阶段导航</span></div></div>
-          <div className="pages-court-visual" aria-hidden="true"><div className="pages-court-lines" /><div className="pages-player"><i /><b /><span /></div><div className="pages-path"><i /><i /><i /><i /><i /><i /><i /></div><div className="pages-flight" /></div>
+          {coach.media ? <div className="pages-motion-media"><video controls playsInline preload="metadata" poster={publicAsset(coach.media.keyframes[0])}><source src={publicAsset(coach.media.clip)} type="video/mp4" /></video><p>{coach.media.clipDescription}</p></div> : <div className="pages-court-visual" aria-hidden="true"><div className="pages-court-lines" /><div className="pages-player"><i /><b /><span /></div><div className="pages-path"><i /><i /><i /><i /><i /><i /><i /></div><div className="pages-flight" /></div>}
         </div>
 
-        <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">Ordered stage navigation</p><h3>选择一个阶段，查看它在连续动作里的教学角色。</h3></div><span>不是孤立的标准姿势</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{coach.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}><b>{item.time}</b><span>{item.name}</span></button>)}</div><article className="pages-stage-detail"><div className="pages-stage-number">{stage.time}</div><div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>证据边界：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>
+        <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">Ordered stage navigation</p><h3>选择一个阶段，查看它在连续动作里的教学角色。</h3></div><span>不是孤立的标准姿势</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{coach.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>{coach.media && <img src={publicAsset(coach.media.keyframes[index])} alt="" />}<b>{item.time}</b><span>{item.name}</span></button>)}</div><article className={`pages-stage-detail ${stageAsset ? "has-media" : ""}`}>{stageAsset ? <div className="pages-stage-visual"><img src={publicAsset(stageAsset)} alt={`刘辉后场高远球：${stage.name}关键帧`} /><b>{stage.time}</b></div> : <div className="pages-stage-number">{stage.time}</div>}<div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>证据边界：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>
 
         <div className="pages-case-footer"><p><ShieldCheck size={17} /> {coach.note}</p>{coach.source ? <a href={coach.source.href} target="_blank" rel="noreferrer">{coach.source.label} <ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</div>
       </section>
 
       <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">Evidence boundaries</p><h2>知道什么，也明确不知道什么。</h2></div><div className="pages-boundary-grid"><article><b>可以做</b><p>组织公开视频中的连续动作、阶段顺序、可见姿态事实、教学原则、练习和复测指标。</p></article><article><b>不能声称</b><p>精确触球、拍面角度、真实内旋、握拍压力、力量大小、标定三维运动学或对手意图。</p></article><article><b>证据不足时</b><p>不编造诊断；标记缺失阶段，说明需要怎样的机位、画面或重拍条件。</p></article></div></section>
 
-      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">Open source project</p><h2>查看 Skill、证据合同与完整部署方案。</h2><p>完整服务需要私有 runtime、GPU 后端和受令牌保护的媒体接口；这些内容不会进入 GitHub Pages。</p></div><a className="pages-primary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">打开 GitHub <ExternalLink size={16} /></a></section>
+      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">Open source project</p><h2>查看 Skill、证据合同与完整部署方案。</h2><p>完整服务需要私有 runtime、GPU 后端和受令牌保护的媒体接口；除本页明确归属的刘辉单一 case 外，这些内容不会进入 GitHub Pages。</p></div><a className="pages-primary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">打开 GitHub <ExternalLink size={16} /></a></section>
 
       <footer className="pages-footer"><span>BadmintonCoachSkill · 非官方、非授权研究项目</span><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer"><GitBranch size={14} /> GitHub Repository</a></footer>
     </main>

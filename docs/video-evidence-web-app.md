@@ -97,7 +97,7 @@ Both creation endpoints return a random access token exactly once. Send it as `X
 - Deleting an analysis immediately removes its private media and marks the job expired.
 - The application never exposes the original upload through a frame endpoint.
 - Coach reference media is downloaded only for a selected demonstration or matched diagnostic report, extracted to a cached image and short clip, and the temporary full source download is removed.
-- Git must not contain uploads, frames, model outputs, private caches, database files, logs, or access tokens.
+- Git must not contain uploads, frames, model outputs, private caches, database files, logs, or access tokens. The only exception is the owner-approved, source-attributed Liu Hui Pages demonstration asset set documented in [`github-pages-demo.md`](github-pages-demo.md); it contains no learner media or runtime cache.
 
 ## When A Video Is Not Usable
 

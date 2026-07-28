@@ -49,3 +49,10 @@ web/.vite/
 web/*.tsbuildinfo
 web/vite.config.js
 web/vite.config.d.ts
+
+# The only reviewed public-media exception: the Liu Hui high-clear Pages case.
+# All other extracted coach media remains outside Git under .runtime/.
+!web/public/
+!web/public/pages-demo/
+!web/public/pages-demo/liu-hui-high-clear/
+!web/public/pages-demo/liu-hui-high-clear/**
