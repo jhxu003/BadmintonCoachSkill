@@ -50,9 +50,21 @@ web/*.tsbuildinfo
 web/vite.config.js
 web/vite.config.d.ts
 
-# The only reviewed public-media exception: the Liu Hui high-clear Pages case.
+# Owner-approved public-media exceptions: seven reviewed Liu Hui Pages cases.
 # All other extracted coach media remains outside Git under .runtime/.
 !web/public/
 !web/public/pages-demo/
 !web/public/pages-demo/liu-hui-high-clear/
 !web/public/pages-demo/liu-hui-high-clear/**
+!web/public/pages-demo/liu-hui-smash/
+!web/public/pages-demo/liu-hui-smash/**
+!web/public/pages-demo/liu-hui-slice-drop/
+!web/public/pages-demo/liu-hui-slice-drop/**
+!web/public/pages-demo/liu-hui-backcourt-footwork/
+!web/public/pages-demo/liu-hui-backcourt-footwork/**
+!web/public/pages-demo/liu-hui-drive/
+!web/public/pages-demo/liu-hui-drive/**
+!web/public/pages-demo/liu-hui-backhand/
+!web/public/pages-demo/liu-hui-backhand/**
+!web/public/pages-demo/liu-hui-serve-receive/
+!web/public/pages-demo/liu-hui-serve-receive/**

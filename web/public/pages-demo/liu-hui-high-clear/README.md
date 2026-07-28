@@ -1,6 +1,6 @@
 # Liu Hui high-clear public Pages case
 
-This directory is the sole coach-media exception approved by the repository owner on 2026-07-28 for the GitHub Pages demonstration.
+This directory is one of seven coach-media exceptions approved by the repository owner on 2026-07-28 for the GitHub Pages demonstration.
 
 - Original public source: <https://www.bilibili.com/video/BV1Ed4y1s7vj/>
 - Source platform: Bilibili
@@ -10,4 +10,4 @@ This directory is the sole coach-media exception approved by the repository owne
 - `action.mp4`: 6.5-second continuous action package, from preparation through the completed swing and recovery.
 - `keyframes/01-preparation.jpg` through `07-recovery.jpg`: seven ordered navigation frames from that same reviewed action.
 
-The assets are a purpose-limited, source-attributed demonstration. They are not a general permission to publish any other coach media, original video, private runtime cache, learner upload, model output, database, log, or token.
+The assets are a purpose-limited, source-attributed demonstration. Together with the six sibling Liu Hui cases documented in `docs/github-pages-demo.md`, they are not a general permission to publish any other coach media, original video, private runtime cache, learner upload, model output, database, log, or token.

@@ -65,6 +65,8 @@ Load references by mode and action:
 
 Repository corpus files are optional diagnostic supplements. When this skill is used from the full repository, `data/corpus/video-asr-timestamp-review.yaml`, `data/corpus/video-visual-evidence-summary.yaml`, and `data/corpus/video-temporal-pose-summary.yaml` may be used to audit the condensed evidence. When those paths are unavailable in a standalone installation, continue with the bundled `references/multimodal-evidence-map.yaml`; do not fail or invent missing corpus details.
 
+For an explicitly owner-approved public lesson sample, use `scripts/export_public_lesson.py` to export one reviewed continuous episode as browser-safe H.264 plus exactly seven ordered JPEG stage frames. Supply absolute source timestamps, keep every frame inside the clip window, retain source attribution and the public window beside the assets, and keep the original video outside Git. Do not publish coach media merely because it exists in the private runtime; require explicit publication permission for each public asset set.
+
 ## Runtime Framework Surface
 
 The runtime framework library covers 67 selectable frameworks. Route diagnosis through these layers, using `references/full-corpus-synthesis.yaml` for the expanded corpus map:
