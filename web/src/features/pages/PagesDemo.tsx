@@ -53,8 +53,8 @@ const coaches: CoachDemo[] = [
       { title: "最后回位", copy: "把随挥、落地和下一拍准备放回同一条动作时间线上检查。" },
     ],
     source: {
-      label: "查看公开视频来源（Bilibili）",
-      href: "https://www.bilibili.com/video/BV15E411Q713/",
+      label: "查看原视频：刘辉教练教你正手发高远球（Bilibili）",
+      href: "https://www.bilibili.com/video/BV1ym411g74x/",
     },
     stages: [
       { name: "启动与后退", time: "01", focus: "先识别来球方向，再以可控的启动和后退进入后场。", boundary: "静态阶段只用于定位，不能判断真实启动时机。" },
