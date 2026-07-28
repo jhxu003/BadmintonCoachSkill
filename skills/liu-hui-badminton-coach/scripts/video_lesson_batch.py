@@ -74,6 +74,33 @@ LIMITATION_CODES = {
     "no_full_action",
     "person_or_racket_occluded",
 }
+CONTEXT_CLASSIFICATIONS = {
+    "coach_correct_demonstration",
+    "coach_incorrect_demonstration",
+    "learner_demonstration",
+    "other_demonstration",
+    "unclear",
+}
+CONTEXT_ROLES = {"coach", "learner", "other", "unclear"}
+EXAMPLE_POLARITIES = {"correct", "incorrect", "mixed", "unclear"}
+SUBJECT_CONTINUITIES = {"yes", "no", "unclear"}
+CONTEXT_EVIDENCE_CODES = {
+    "source_lesson_presenter_visible",
+    "same_presenter_executes_candidate",
+    "single_complete_demonstration_visible",
+    "normative_instruction_context_visible",
+    "learner_practice_visible",
+    "correction_or_contrast_visible",
+    "multiple_people_role_ambiguous",
+    "visual_context_insufficient",
+}
+CONTEXT_LIMITATION_CODES = {
+    "identity_not_proven_from_appearance",
+    "surrounding_context_ambiguous",
+    "demonstrator_occluded",
+    "example_polarity_not_visually_proven",
+    "source_boundary_insufficient",
+}
 REJECTING_EVIDENCE = {
     "isolated_racket_manipulation",
     "grip_or_racket_face_explanation",
@@ -642,7 +669,30 @@ def command_prepare(args: argparse.Namespace) -> None:
     if batch_manifest.is_file():
         existing_manifest = json.loads(batch_manifest.read_text(encoding="utf-8"))
         if existing_manifest != manifest:
-            raise RuntimeError("batch_manifest_conflicts_with_prepare_manifest")
+            # A resumed large batch may deliberately submit only the videos
+            # which are still missing candidates.  Permit that narrow form of
+            # parallel recovery only when every requested row is byte-for-byte
+            # identical to a row in the immutable full batch manifest.  A
+            # different row with the same ID, or any new ID, remains a hard
+            # conflict so candidate frames can never be paired with a changed
+            # source inventory by accident.
+            existing_videos = {
+                str(row.get("job_id", "")): row
+                for row in existing_manifest.get("videos", [])
+                if isinstance(row, dict)
+            }
+            requested_videos = manifest.get("videos", [])
+            subset_matches = (
+                isinstance(requested_videos, list)
+                and bool(requested_videos)
+                and all(
+                    isinstance(row, dict)
+                    and existing_videos.get(str(row.get("job_id", ""))) == row
+                    for row in requested_videos
+                )
+            )
+            if not subset_matches:
+                raise RuntimeError("batch_manifest_conflicts_with_prepare_manifest")
     else:
         atomic_json(batch_manifest, manifest)
     routes = load_routes(args.routing)
@@ -950,6 +1000,137 @@ def normalized_reject_payload() -> dict[str, Any]:
     }
 
 
+def context_review_prompt(video: dict[str, Any], episode: dict[str, Any], coach_name: str) -> str:
+    """Prompt a deliberately fail-closed context review around one action.
+
+    The visual action gate above establishes only a coherent movement.  This
+    separate pass is intentionally narrower: it may promote a candidate only
+    when the surrounding official lesson visibly establishes that the action
+    subject is the on-screen instructor and that the repetition is being used
+    as a normative example.  It must not use facial recognition, subtitle
+    transcription, spoken-audio reconstruction, or source-account ownership
+    alone as proof of identity or correctness.
+    """
+    return (
+        "Return exactly one minified JSON object and no markdown. The images are ordered stills: "
+        "context before one candidate action, the candidate action itself, then context after it. "
+        f"The public source is catalogued under the official coaching scope for {coach_name}; title: {video['title']!r}. "
+        "Do not identify a person from facial appearance and do not transcribe, quote, or reconstruct subtitles or audio. "
+        "Source ownership alone never proves that the moving person is the coach. Mark demonstrator_role=coach only when the "
+        "same visible on-screen lesson presenter demonstrably performs the candidate action; a learner, opponent, match player, "
+        "replay subject, or a person used as an example is not the coach. If this cannot be established visually, use unclear. "
+        "Mark example_polarity=correct only when the surrounding visible lesson context unambiguously presents this exact repetition "
+        "as the normative coach demonstration. A visibly contrasted, corrected, learner, or potentially wrong example must be "
+        "incorrect, mixed, or unclear. Never infer correctness merely because the motion looks plausible. "
+        "Do not claim exact shuttle contact, racket-face angle, grip pressure, force magnitude, true internal rotation, calibrated "
+        "3D biomechanics, or opponent intent. "
+        "Output exactly six keys: classification, demonstrator_role, example_polarity, action_subject_continuity, "
+        "context_evidence, context_limitations. "
+        "classification is coach_correct_demonstration, coach_incorrect_demonstration, learner_demonstration, other_demonstration, or unclear. "
+        "demonstrator_role is coach, learner, other, or unclear. example_polarity is correct, incorrect, mixed, or unclear. "
+        "action_subject_continuity is yes, no, or unclear and asks whether the visible action subject is continuous with the presenter. "
+        "context_evidence is a list drawn only from source_lesson_presenter_visible, same_presenter_executes_candidate, "
+        "single_complete_demonstration_visible, normative_instruction_context_visible, learner_practice_visible, "
+        "correction_or_contrast_visible, multiple_people_role_ambiguous, visual_context_insufficient. "
+        "context_limitations is a list drawn only from identity_not_proven_from_appearance, surrounding_context_ambiguous, "
+        "demonstrator_occluded, example_polarity_not_visually_proven, source_boundary_insufficient. "
+        "Consistency rule: coach_correct_demonstration requires coach, correct, yes, and all four of "
+        "source_lesson_presenter_visible, same_presenter_executes_candidate, single_complete_demonstration_visible, "
+        "normative_instruction_context_visible. Otherwise use another classification and fail closed."
+    )
+
+
+def normalized_context_reject(
+    *, limitation: str = "surrounding_context_ambiguous"
+) -> dict[str, Any]:
+    return {
+        "classification": "unclear",
+        "demonstrator_role": "unclear",
+        "example_polarity": "unclear",
+        "action_subject_continuity": "unclear",
+        "context_evidence": ["visual_context_insufficient"],
+        "context_limitations": [limitation],
+    }
+
+
+def parse_context_review(raw: str) -> tuple[dict[str, Any] | None, str | None]:
+    left, right = raw.find("{"), raw.rfind("}")
+    if left < 0 or right <= left:
+        return None, "json_object_not_found"
+    try:
+        payload = json.loads(raw[left : right + 1])
+    except json.JSONDecodeError as error:
+        return None, f"json_decode_error:{error.msg}"
+    required = {
+        "classification",
+        "demonstrator_role",
+        "example_polarity",
+        "action_subject_continuity",
+        "context_evidence",
+        "context_limitations",
+    }
+    if not isinstance(payload, dict) or set(payload) != required:
+        return None, "invalid_keys"
+    for key in ("context_evidence", "context_limitations"):
+        payload[key] = string_list(payload[key])
+    if (
+        payload["classification"] not in CONTEXT_CLASSIFICATIONS
+        or payload["demonstrator_role"] not in CONTEXT_ROLES
+        or payload["example_polarity"] not in EXAMPLE_POLARITIES
+        or payload["action_subject_continuity"] not in SUBJECT_CONTINUITIES
+        or not set(payload["context_evidence"]).issubset(CONTEXT_EVIDENCE_CODES)
+        or not set(payload["context_limitations"]).issubset(CONTEXT_LIMITATION_CODES)
+    ):
+        return None, "invalid_context_code"
+    if payload["classification"] == "coach_correct_demonstration":
+        required_evidence = {
+            "source_lesson_presenter_visible",
+            "same_presenter_executes_candidate",
+            "single_complete_demonstration_visible",
+            "normative_instruction_context_visible",
+        }
+        if (
+            payload["demonstrator_role"] != "coach"
+            or payload["example_polarity"] != "correct"
+            or payload["action_subject_continuity"] != "yes"
+            or not required_evidence.issubset(payload["context_evidence"])
+            or payload["context_limitations"]
+        ):
+            return normalized_context_reject(), None
+    return payload, None
+
+
+def context_admitted(
+    episode: dict[str, Any], payload: dict[str, Any] | None
+) -> bool:
+    """Whether a private agent review can be staged for publication review.
+
+    This is intentionally more restrictive than the action-only gate.  The
+    result still records a machine/agent review rather than claiming an
+    unperformed human verification, and can be independently audited from
+    the retained context-frame sheet and raw model output.
+    """
+    if not payload:
+        return False
+    required_evidence = {
+        "source_lesson_presenter_visible",
+        "same_presenter_executes_candidate",
+        "single_complete_demonstration_visible",
+        "normative_instruction_context_visible",
+    }
+    return (
+        episode.get("automatic_admission") is True
+        and episode.get("review_context_only") is not True
+        and episode.get("semantic_assignment_status") == "resolved"
+        and payload.get("classification") == "coach_correct_demonstration"
+        and payload.get("demonstrator_role") == "coach"
+        and payload.get("example_polarity") == "correct"
+        and payload.get("action_subject_continuity") == "yes"
+        and required_evidence.issubset(payload.get("context_evidence", []))
+        and not payload.get("context_limitations")
+    )
+
+
 def is_non_demonstration_route(route: dict[str, Any]) -> bool:
     """Whether a semantic route can never become a coach-action reference."""
     return (
@@ -1111,6 +1292,7 @@ def continuity_review_seed_kind(
 def command_gate(args: argparse.Namespace) -> None:
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     rows = selected_rows(manifest, args)
+    model_identity = str(args.model.resolve())
     pending_videos = [row for row in rows if (video_root(args.batch_root, row) / "candidates.json").is_file()]
     if not pending_videos:
         print("GATE_NOTHING_TO_DO")
@@ -1146,7 +1328,12 @@ def command_gate(args: argparse.Namespace) -> None:
                             row["payload"] = normalized_reject_payload()
                             row["parse_error"] = None
                             row["normalization_error"] = parse_error
-                    if candidate and row.get("payload") and not row.get("parse_error"):
+                    if (
+                        candidate
+                        and row.get("payload")
+                        and not row.get("parse_error")
+                        and row.get("model", model_identity) == model_identity
+                    ):
                         row["payload"] = normalize_gate_consistency(
                             dict(row["payload"])
                         )
@@ -1237,6 +1424,7 @@ def command_gate(args: argparse.Namespace) -> None:
                 parse_error = None
             result = {
                 "candidate_id": candidate["candidate_id"],
+                "model": model_identity,
                 "payload": payload,
                 "parse_error": parse_error,
                 "raw_output": raw,
@@ -1269,6 +1457,364 @@ def command_gate(args: argparse.Namespace) -> None:
                 bool(row.get("review_candidate")) for row in rows_done
             ),
         )
+
+
+def context_frame_plan(
+    root: Path,
+    episode: dict[str, Any],
+    duration: float,
+    frames_per_side: int,
+) -> tuple[float, float, list[tuple[str, float, Path]]] | None:
+    """Create an ordered before/action/after visual context plan.
+
+    The action frames are retained from materialisation, while both context
+    sides are extracted afresh at a deliberately sparse cadence.  The full
+    20-second boundary is a publication safety requirement, not an attempt to
+    make the model infer the lesson from every frame or from private audio.
+    """
+    action_start = float(episode["action_start_seconds"])
+    action_end = float(episode["action_end_seconds"])
+    context_start = max(0.0, action_start - MIN_CONTEXT_SIDE_SECONDS)
+    context_end = min(duration, action_end + MIN_CONTEXT_SIDE_SECONDS)
+    if (
+        action_start - context_start < MIN_CONTEXT_SIDE_SECONDS
+        or context_end - action_end < MIN_CONTEXT_SIDE_SECONDS
+    ):
+        return None
+    pre_times = sample_timestamps(context_start, action_start, frames_per_side)
+    post_times = sample_timestamps(action_end, context_end, frames_per_side)
+    episode_id = str(episode["episode_id"])
+    plan: list[tuple[str, float, Path]] = []
+    for index, timestamp in enumerate(pre_times, start=1):
+        plan.append(
+            (
+                f"before {index}",
+                timestamp,
+                root
+                / "context-frames"
+                / episode_id
+                / f"before-{index:02d}-{timestamp:.3f}.jpg",
+            )
+        )
+    for index, frame in enumerate(episode.get("frames", []), start=1):
+        image = root / str(frame["image"])
+        if image.is_file():
+            plan.append((f"candidate action stage {index}", float(frame["anchor_seconds"]), image))
+    for index, timestamp in enumerate(post_times, start=1):
+        plan.append(
+            (
+                f"after {index}",
+                timestamp,
+                root
+                / "context-frames"
+                / episode_id
+                / f"after-{index:02d}-{timestamp:.3f}.jpg",
+            )
+        )
+    if len(plan) < frames_per_side * 2 + 3:
+        return None
+    return context_start, context_end, plan
+
+
+def command_context_review(args: argparse.Namespace) -> None:
+    """Review action candidates in their 20-second before/after lesson context.
+
+    It is deliberately a private, resumable agent-review stage.  It does not
+    alter the action-only gate and it cannot promote an episode which lacks
+    an adequate context boundary, a resolved technique route, or one complete
+    action.  The generated JSONL can be fed to ``publish`` only for entries
+    whose fail-closed decision is ``approve``.
+    """
+    if args.frames_per_side < 2:
+        raise ValueError("--frames-per-side must be at least 2")
+    manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    rows = selected_rows(manifest, args)
+    model_identity = str(args.model.resolve())
+    jobs: list[
+        tuple[dict[str, Any], Path, dict[str, Any], dict[str, Any], float, Path]
+    ] = []
+    refreshed = 0
+    for video in rows:
+        root = video_root(args.batch_root, video)
+        lesson_path = root / "lesson-package.json"
+        source_record_path = root / "source.json"
+        if not lesson_path.is_file() or not source_record_path.is_file():
+            continue
+        lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+        source_record = json.loads(source_record_path.read_text(encoding="utf-8"))
+        source = Path(str(source_record.get("path", "")))
+        duration = float(source_record.get("duration_seconds", video["duration_seconds"]))
+        gate_path = root / "gate-results.jsonl"
+        gate_admitted_by_candidate: dict[str, bool] = {}
+        if gate_path.is_file():
+            for line in gate_path.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    gate = json.loads(line)
+                    gate_admitted_by_candidate[str(gate.get("candidate_id", ""))] = bool(
+                        gate.get("admitted")
+                    )
+        results_path = root / "context-review.jsonl"
+        existing: dict[tuple[str, str], dict[str, Any]] = {}
+        if results_path.is_file():
+            for line in results_path.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                result = json.loads(line)
+                key = (str(result.get("action", "")), str(result.get("episode_id", "")))
+                raw = str(result.get("raw_output", ""))
+                if result.get("synthetic_reject") is True:
+                    existing[key] = result
+                    continue
+                if "model" in result and result.get("model") != model_identity:
+                    continue
+                payload, parse_error = parse_context_review(raw)
+                if parse_error:
+                    payload = normalized_context_reject()
+                result["payload"] = payload
+                result["parse_error"] = parse_error
+                existing[key] = result
+        video_has_gpu_jobs = False
+        all_results: list[dict[str, Any]] = []
+        for technique in lesson.get("techniques", []):
+            action = str(technique["action"])
+            for episode in technique.get("episodes", []):
+                # The original Liu Hui 408-video batch predates the explicit
+                # ``automatic_admission`` / ``review_context_only`` fields.
+                # Recover their meaning only from the retained gate result;
+                # never infer it from a loose episode label or re-promote an
+                # old partial candidate.
+                if "automatic_admission" not in episode:
+                    episode["automatic_admission"] = gate_admitted_by_candidate.get(
+                        str(episode.get("candidate_id", "")), False
+                    )
+                episode.setdefault("review_context_only", False)
+                if not (
+                    episode.get("automatic_admission") is True
+                    and episode.get("review_context_only") is not True
+                    and episode.get("semantic_assignment_status") == "resolved"
+                ):
+                    continue
+                key = (action, str(episode["episode_id"]))
+                if key in existing:
+                    all_results.append(existing[key])
+                    refreshed += 1
+                    continue
+                plan = context_frame_plan(root, episode, duration, args.frames_per_side)
+                base = {
+                    "job_id": video["job_id"],
+                    "source_id": video["source_id"],
+                    "action": action,
+                    "episode_id": episode["episode_id"],
+                    "candidate_id": episode["candidate_id"],
+                }
+                if plan is None:
+                    payload = normalized_context_reject(
+                        limitation="source_boundary_insufficient"
+                    )
+                    all_results.append(
+                        {
+                            **base,
+                            "decision": "reject",
+                            "context_review_status": "rejected_agent_review",
+                            "context_start_seconds": max(
+                                0.0,
+                                float(episode["action_start_seconds"])
+                                - MIN_CONTEXT_SIDE_SECONDS,
+                            ),
+                            "context_end_seconds": min(
+                                duration,
+                                float(episode["action_end_seconds"])
+                                + MIN_CONTEXT_SIDE_SECONDS,
+                            ),
+                            "context_evidence": payload["context_evidence"],
+                            "payload": payload,
+                            "raw_output": "",
+                            "parse_error": "insufficient_20_second_context",
+                            "synthetic_reject": True,
+                        }
+                    )
+                    continue
+                context_start, context_end, frame_plan = plan
+                jobs.append((video, root, technique, episode, duration, source))
+                video_has_gpu_jobs = True
+                episode["_context_frame_plan"] = frame_plan
+                episode["_context_start"] = context_start
+                episode["_context_end"] = context_end
+        # Keep the per-video results path deterministic even before a GPU is
+        # available, so restarts cannot lose source-boundary rejections.
+        if all_results:
+            atomic_jsonl(results_path, all_results)
+        if not video_has_gpu_jobs:
+            if all_results:
+                set_status(root, "context_review", "succeeded", reviewed_count=len(all_results))
+            continue
+
+    if not jobs:
+        print("CONTEXT_REVIEW_NOTHING_TO_DO", refreshed, flush=True)
+        return
+
+    import torch
+    from transformers import AutoModelForImageTextToText, AutoProcessor
+
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA unavailable")
+    processor = AutoProcessor.from_pretrained(
+        args.model,
+        local_files_only=True,
+        use_fast=True,
+        min_pixels=4 * 28 * 28,
+        # Context review consumes 5 frames before + seven action stages + 5
+        # frames after.  Keeping it below the action gate's per-image token
+        # cap materially reduces the decoder peak without discarding the
+        # ordered visible context that makes the role/polarity review useful.
+        max_pixels=80 * 28 * 28,
+    )
+    model = AutoModelForImageTextToText.from_pretrained(
+        args.model,
+        local_files_only=True,
+        device_map="auto",
+        max_memory={
+            0: os.environ.get("BADMINTON_QWEN_GPU_MAX_MEMORY", "17GiB"),
+            "cpu": os.environ.get("BADMINTON_QWEN_CPU_MAX_MEMORY", "64GiB"),
+        },
+        torch_dtype=torch.bfloat16,
+        low_cpu_mem_usage=True,
+    )
+    model.eval()
+    reviewed_roots: set[Path] = set()
+    fresh_approved_count = 0
+    for number, (video, root, technique, episode, _duration, source) in enumerate(
+        jobs, start=1
+    ):
+        inference_seconds: float | None = None
+        plan = episode.pop("_context_frame_plan")
+        context_start = float(episode.pop("_context_start"))
+        context_end = float(episode.pop("_context_end"))
+        if not source.is_file() or source.stat().st_size <= 0:
+            payload = normalized_context_reject(
+                limitation="source_boundary_insufficient"
+            )
+            raw, parse_error = "", "prepared_source_missing"
+            paths: list[Path] = []
+        else:
+            paths = []
+            for _label, timestamp, path in plan:
+                if not path.is_file():
+                    extract_frame(source, args.ffmpeg, timestamp, path)
+                paths.append(path)
+            content: list[dict[str, str]] = []
+            for label, timestamp, path in plan:
+                content.extend(
+                    [
+                        {"type": "text", "text": f"{label}, {timestamp:.3f}s"},
+                        {"type": "image", "path": str(path)},
+                    ]
+                )
+            content.append(
+                {
+                    "type": "text",
+                    "text": context_review_prompt(video, episode, args.coach_name),
+                }
+            )
+            chat = processor.apply_chat_template(
+                [{"role": "user", "content": content}],
+                tokenize=False,
+                add_generation_prompt=True,
+            )
+            images = [Image.open(path).convert("RGB") for path in paths]
+            try:
+                inputs = processor(
+                    text=[chat], images=images, return_tensors="pt", padding=True
+                ).to(model.device)
+            finally:
+                for image in images:
+                    image.close()
+            torch.cuda.reset_peak_memory_stats()
+            started = time.perf_counter()
+            with torch.inference_mode():
+                generated = model.generate(
+                    **inputs, max_new_tokens=args.max_new_tokens, do_sample=False
+                )
+            inference_seconds = time.perf_counter() - started
+            input_length = inputs.input_ids.shape[1]
+            raw = processor.batch_decode(
+                generated[:, input_length:], skip_special_tokens=True
+            )[0].strip()
+            payload, parse_error = parse_context_review(raw)
+            if parse_error:
+                payload = normalized_context_reject()
+            del inputs, generated
+            torch.cuda.empty_cache()
+        approved = context_admitted(episode, payload)
+        result = {
+            "job_id": video["job_id"],
+            "source_id": video["source_id"],
+            "action": technique["action"],
+            "episode_id": episode["episode_id"],
+            "candidate_id": episode["candidate_id"],
+            "decision": "approve" if approved else "reject",
+            "demonstrator_role": payload["demonstrator_role"],
+            "example_polarity": payload["example_polarity"],
+            "context_review_status": (
+                "agent_reviewed" if approved else "rejected_agent_review"
+            ),
+            "context_start_seconds": context_start,
+            "context_end_seconds": context_end,
+            "context_evidence": payload["context_evidence"],
+            "payload": payload,
+            "model": model_identity,
+            "raw_output": raw,
+            "parse_error": parse_error,
+            "frame_count": len(paths),
+        }
+        if inference_seconds is not None:
+            result["inference_seconds"] = round(inference_seconds, 3)
+            result["peak_gpu_allocated_gib"] = round(
+                torch.cuda.max_memory_allocated() / 1024**3, 3
+            )
+        # Persist each completed review before advancing to the next episode.
+        # A shared GPU can be reclaimed at any point; keeping only an in-memory
+        # batch here would make an otherwise resumable corpus pass lose every
+        # completed context review since the last video-level flush.
+        with (root / "context-review.jsonl").open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(result, ensure_ascii=False) + "\n")
+        reviewed_roots.add(root)
+        fresh_approved_count += int(approved)
+        print(
+            "CONTEXT_REVIEW",
+            number,
+            len(jobs),
+            video["job_id"],
+            technique["action"],
+            episode["episode_id"],
+            result["decision"],
+            flush=True,
+        )
+    for root in reviewed_roots:
+        results_path = root / "context-review.jsonl"
+        latest: dict[tuple[str, str], dict[str, Any]] = {}
+        for line in results_path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                row = json.loads(line)
+                latest[(str(row.get("action", "")), str(row.get("episode_id", "")))] = row
+        all_rows = [
+            latest[key]
+            for key in sorted(latest)
+        ]
+        atomic_jsonl(results_path, all_rows)
+        set_status(
+            root,
+            "context_review",
+            "succeeded",
+            reviewed_count=len(all_rows),
+            approved_count=sum(row.get("decision") == "approve" for row in all_rows),
+        )
+    print(
+        "CONTEXT_REVIEW_COMPLETE",
+        len(jobs),
+        fresh_approved_count,
+        flush=True,
+    )
 
 
 def extend_action_window(
@@ -1770,10 +2316,54 @@ def command_summarize(args: argparse.Namespace) -> None:
     queue: list[dict[str, Any]] = []
     high_by_family: dict[str, list[dict[str, Any]]] = {}
     queued_candidates: set[str] = set()
+    total_candidate_count = 0
+    automatic_admitted_candidate_count = 0
+    context_reviewed_episode_count = 0
+    context_approved_episode_count = 0
+    context_rejected_episode_count = 0
+    context_pending_episode_count = 0
+    semantic_gap_count = 0
     for fallback_video_index, video in enumerate(manifest["videos"]):
         root = video_root(args.batch_root, video)
         status = json.loads((root / "status.json").read_text(encoding="utf-8")) if (root / "status.json").is_file() else {"state": "pending", "stage": "inventory"}
-        record = {"video_index": video.get("video_index", fallback_video_index), "job_id": video["job_id"], "source_id": video["source_id"], "title": video["title"], "state": status.get("state"), "stage": status.get("stage"), "preview": str((root / "preview.html").relative_to(args.batch_root)) if (root / "preview.html").is_file() else "", "technique_count": 0, "episode_count": 0}
+        record = {"video_index": video.get("video_index", fallback_video_index), "job_id": video["job_id"], "source_id": video["source_id"], "title": video["title"], "state": status.get("state"), "stage": status.get("stage"), "pipeline_complete": status.get("state") == "succeeded" and status.get("stage") in {"materialize", "context_review"}, "preview": str((root / "preview.html").relative_to(args.batch_root)) if (root / "preview.html").is_file() else "", "candidate_count": 0, "automatic_admitted_candidate_count": 0, "technique_count": 0, "episode_count": 0, "context_reviewed_episode_count": 0, "context_approved_episode_count": 0, "context_rejected_episode_count": 0, "context_pending_episode_count": 0, "semantic_gap_count": 0}
+        candidates_path = root / "candidates.json"
+        gate_path = root / "gate-results.jsonl"
+        if candidates_path.is_file():
+            record["candidate_count"] = int(
+                json.loads(candidates_path.read_text(encoding="utf-8")).get(
+                    "candidate_count", 0
+                )
+            )
+        automatic_admitted_ids: set[str] = set()
+        if gate_path.is_file():
+            gate_rows = [
+                json.loads(line)
+                for line in gate_path.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            ]
+            record["automatic_admitted_candidate_count"] = sum(
+                bool(row.get("admitted")) for row in gate_rows
+            )
+            automatic_admitted_ids = {
+                str(row.get("candidate_id", ""))
+                for row in gate_rows
+                if row.get("admitted") is True
+            }
+        total_candidate_count += record["candidate_count"]
+        automatic_admitted_candidate_count += record[
+            "automatic_admitted_candidate_count"
+        ]
+        context_results_path = root / "context-review.jsonl"
+        context_results = [
+            json.loads(line)
+            for line in context_results_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ] if context_results_path.is_file() else []
+        context_by_episode = {
+            (str(row.get("action", "")), str(row.get("episode_id", ""))): row
+            for row in context_results
+        }
         lesson_path = root / "lesson-package.json"
         if lesson_path.is_file():
             lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
@@ -1781,8 +2371,29 @@ def command_summarize(args: argparse.Namespace) -> None:
             record["episode_count"] = sum(len(row["episodes"]) for row in lesson["techniques"])
             for technique in lesson["techniques"]:
                 if not technique["episodes"]:
+                    record["semantic_gap_count"] += 1
+                    semantic_gap_count += 1
                     queue.append({"review_key": f"{video['job_id']}:{technique['action']}:semantic-gap", "job_id": video["job_id"], "source_id": video["source_id"], "action": technique["action"], "family_id": technique["family_id"], "reason": "no_reliable_action_episode", "tier": "required", "decision": "pending"})
                 for episode in technique["episodes"]:
+                    context_key = (technique["action"], episode["episode_id"])
+                    context = context_by_episode.get(context_key)
+                    context_eligible = (
+                        (
+                            episode.get("automatic_admission") is True
+                            or str(episode.get("candidate_id", ""))
+                            in automatic_admitted_ids
+                        )
+                        and episode.get("review_context_only") is not True
+                        and episode.get("semantic_assignment_status") == "resolved"
+                    )
+                    if context:
+                        record["context_reviewed_episode_count"] += 1
+                        if context.get("decision") == "approve":
+                            record["context_approved_episode_count"] += 1
+                        else:
+                            record["context_rejected_episode_count"] += 1
+                    elif context_eligible:
+                        record["context_pending_episode_count"] += 1
                     candidate_key = f"{video['job_id']}:{episode['candidate_id']}"
                     candidate_actions = episode.get("candidate_actions") or [
                         technique["action"]
@@ -1822,6 +2433,10 @@ def command_summarize(args: argparse.Namespace) -> None:
                     else:
                         item["reason"], item["tier"] = "ambiguous_or_partial_episode", "required"
                         queue.append(item)
+        context_reviewed_episode_count += record["context_reviewed_episode_count"]
+        context_approved_episode_count += record["context_approved_episode_count"]
+        context_rejected_episode_count += record["context_rejected_episode_count"]
+        context_pending_episode_count += record["context_pending_episode_count"]
         videos.append(record)
     for family, items in high_by_family.items():
         ordered = sorted(items, key=lambda row: hashlib.sha256(row["review_key"].encode()).hexdigest())
@@ -1830,7 +2445,7 @@ def command_summarize(args: argparse.Namespace) -> None:
             if index < sample_count:
                 item["tier"], item["reason"] = "required", "stratified_high_confidence_sample"
             queue.append(item)
-    summary = {"status": "complete" if all(row["state"] == "succeeded" for row in videos) else "incomplete", "video_count": len(videos), "succeeded_video_count": sum(row["state"] == "succeeded" for row in videos), "failed_video_count": sum(row["state"] == "failed" for row in videos), "technique_count": sum(row["technique_count"] for row in videos), "episode_count": sum(row["episode_count"] for row in videos), "required_review_count": sum(row["tier"] == "required" for row in queue), "sample_pool_count": sum(row["tier"] == "sample_pool" for row in queue), "videos": videos}
+    summary = {"status": "complete" if all(row["pipeline_complete"] for row in videos) else "incomplete", "video_count": len(videos), "succeeded_video_count": sum(row["pipeline_complete"] for row in videos), "failed_video_count": sum(row["state"] == "failed" for row in videos), "candidate_count": total_candidate_count, "automatic_admitted_candidate_count": automatic_admitted_candidate_count, "technique_count": sum(row["technique_count"] for row in videos), "episode_count": sum(row["episode_count"] for row in videos), "context_reviewed_episode_count": context_reviewed_episode_count, "context_approved_episode_count": context_approved_episode_count, "context_rejected_episode_count": context_rejected_episode_count, "context_pending_episode_count": context_pending_episode_count, "semantic_gap_count": semantic_gap_count, "required_review_count": sum(row["tier"] == "required" for row in queue), "sample_pool_count": sum(row["tier"] == "sample_pool" for row in queue), "videos": videos}
     atomic_json(args.batch_root / "summary.json", summary)
     with (args.batch_root / "review-queue.jsonl").open("w", encoding="utf-8") as handle:
         for item in queue:
@@ -1845,12 +2460,14 @@ def command_summarize(args: argparse.Namespace) -> None:
         card_rows.append(
             f'<article><h2>{row["video_index"]:03d} · {html.escape(row["title"])}</h2>'
             f'<p>{html.escape(row["source_id"])} · {row["state"]}/{row["stage"]} · '
-            f'技术 {row["technique_count"]} · 动作 {row["episode_count"]}</p>{link}</article>'
+            f'候选 {row["candidate_count"]} · 自动完整 {row["automatic_admitted_candidate_count"]} · '
+            f'技术 {row["technique_count"]} · 动作 {row["episode_count"]} · '
+            f'语境通过 {row["context_approved_episode_count"]}／待审 {row["context_pending_episode_count"]}</p>{link}</article>'
         )
     cards = "".join(card_rows)
-    page = f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>{summary["video_count"]} 条教练教学候选解析总览</title><style>body{{font:15px/1.5 system-ui;max-width:1200px;margin:24px auto;background:#f3f5f8}}header,article{{background:white;padding:16px;margin:12px;border-radius:12px;border:1px solid #d8dde6}}h2{{font-size:18px}}</style></head><body><header><h1>教练教学候选解析总览</h1><p>本批次 {summary["video_count"]} 条技术教学候选：成功 {summary["succeeded_video_count"]}；技术路由 {summary["technique_count"]}；可审核动作片段 {summary["episode_count"]}；必审 {summary["required_review_count"]}。只有人工确认后的连续示范才可接入 Skill。</p></header>{cards}</body></html>'
+    page = f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>{summary["video_count"]} 条教练教学候选解析总览</title><style>body{{font:15px/1.5 system-ui;max-width:1200px;margin:24px auto;background:#f3f5f8}}header,article{{background:white;padding:16px;margin:12px;border-radius:12px;border:1px solid #d8dde6}}h2{{font-size:18px}}</style></head><body><header><h1>教练教学候选解析总览</h1><p>本批次 {summary["video_count"]} 条技术教学候选：成功 {summary["succeeded_video_count"]}；视觉候选 {summary["candidate_count"]}；自动完整动作 {summary["automatic_admitted_candidate_count"]}；技术路由 {summary["technique_count"]}；动作片段 {summary["episode_count"]}；20 秒语境通过 {summary["context_approved_episode_count"]}、待审 {summary["context_pending_episode_count"]}；无可靠动作的语义缺口 {summary["semantic_gap_count"]}。只有通过教练身份和正确示范语境审核的连续示范才可接入 Skill。</p></header>{cards}</body></html>'
     (args.batch_root / "preview.html").write_text(page, encoding="utf-8")
-    print("SUMMARY", json.dumps({key: summary[key] for key in ("status", "video_count", "succeeded_video_count", "failed_video_count", "technique_count", "episode_count", "required_review_count")}, ensure_ascii=False))
+    print("SUMMARY", json.dumps({key: summary[key] for key in ("status", "video_count", "succeeded_video_count", "failed_video_count", "candidate_count", "automatic_admitted_candidate_count", "technique_count", "episode_count", "context_approved_episode_count", "context_pending_episode_count", "semantic_gap_count", "required_review_count")}, ensure_ascii=False))
 
 
 def publish_context_review(
@@ -2005,6 +2622,19 @@ def parser() -> argparse.ArgumentParser:
     gate.add_argument("--model", type=Path, required=True)
     gate.add_argument("--max-new-tokens", type=int, default=384)
     gate.set_defaults(func=command_gate)
+
+    context_review = commands.add_parser("context-review")
+    batch_arguments(context_review)
+    context_review.add_argument("--model", type=Path, required=True)
+    context_review.add_argument("--ffmpeg", type=Path, required=True)
+    context_review.add_argument(
+        "--coach-name",
+        required=True,
+        help="catalogue coach name used only to scope the official lesson source",
+    )
+    context_review.add_argument("--frames-per-side", type=int, default=3)
+    context_review.add_argument("--max-new-tokens", type=int, default=160)
+    context_review.set_defaults(func=command_context_review)
 
     refine = commands.add_parser("refine")
     batch_arguments(refine)
