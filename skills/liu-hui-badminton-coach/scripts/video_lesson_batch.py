@@ -2127,6 +2127,24 @@ def command_materialize(args: argparse.Namespace) -> None:
         candidates_path, results_path = root / "candidates.json", root / "gate-results.jsonl"
         if not candidates_path.is_file() or not results_path.is_file():
             continue
+        # Gate-complete videos may be materialized incrementally on a CPU
+        # compute node while another GPU continues the rest of a large corpus.
+        # A later all-video materialize pass must preserve that finished
+        # artifact rather than needlessly re-encoding its private clip and
+        # racing its status file.
+        existing_status_path = root / "status.json"
+        existing_status = (
+            json.loads(existing_status_path.read_text(encoding="utf-8"))
+            if existing_status_path.is_file()
+            else {}
+        )
+        if (
+            existing_status.get("state") == "succeeded"
+            and existing_status.get("stage") in {"materialize", "context_review"}
+            and (root / "lesson-package.json").is_file()
+        ):
+            print("MATERIALIZE_SKIP", video["job_id"], flush=True)
+            continue
         try:
             document = json.loads(candidates_path.read_text(encoding="utf-8"))
             candidates = {row["candidate_id"]: row for row in document["candidates"]}

@@ -157,6 +157,36 @@ def test_legacy_preview_defaults_missing_admission_to_fail_closed(tmp_path):
     assert "不完整示范的连续上下文" in preview
 
 
+def test_materialize_skips_existing_successful_package(tmp_path, monkeypatch):
+    module = load_batch_module()
+    video = {"job_id": "already-materialized", "source_id": "fixture", "title": "fixture"}
+    manifest = tmp_path / "manifest.json"
+    manifest.write_text(json.dumps({"videos": [video]}), encoding="utf-8")
+    root = tmp_path / "batch" / "videos" / video["job_id"]
+    root.mkdir(parents=True)
+    (root / "candidates.json").write_text(json.dumps({"candidates": []}), encoding="utf-8")
+    (root / "gate-results.jsonl").write_text("", encoding="utf-8")
+    (root / "lesson-package.json").write_text("{}", encoding="utf-8")
+    (root / "status.json").write_text(
+        json.dumps({"state": "succeeded", "stage": "materialize"}), encoding="utf-8"
+    )
+    monkeypatch.setattr(module, "set_status", lambda *_args, **_kwargs: pytest.fail("should skip"))
+
+    module.command_materialize(
+        SimpleNamespace(
+            manifest=manifest,
+            batch_root=tmp_path / "batch",
+            start=0,
+            stop=None,
+            shard=0,
+            shards=1,
+            job_id=[],
+            ffmpeg=tmp_path / "unused-ffmpeg",
+            include_review_candidates=True,
+        )
+    )
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [
