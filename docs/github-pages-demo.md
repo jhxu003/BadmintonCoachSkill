@@ -14,9 +14,9 @@ GitHub Pages 部署的是一个**纯静态、公开安全的产品展示**，地
 
 项目所有者于 2026-07-28 明确批准一个公开 Pages case。它是 Git 唯一跟踪的教练抽取媒体：
 
-- 原始公开来源：[Bilibili BV1ym411g74x](https://www.bilibili.com/video/BV1ym411g74x/)；
-- 已审核 lesson：`corpus-067-lh_bili_season_bv1ym411g74x-high_clear-candidate-011-atlas-v2`；
-- 已审核来源窗口：147.75–154.25 秒；
+- 原始公开来源：[Bilibili BV1Ed4y1s7vj](https://www.bilibili.com/video/BV1Ed4y1s7vj/)（刘辉教练教你怎么打高远球 · 进阶）；
+- 已审核 lesson：`corpus-001-lh_bili_season_bv1ed4y1s7vj-high_clear-candidate-004-atlas-v2`；
+- 已审核来源窗口：120.00–126.50 秒；
 - 发布文件：1 段 6.5 秒连续片段和 7 张有序关键帧，位于 `web/public/pages-demo/liu-hui-high-clear/`。
 
 这些文件仅用于带原平台归属的可视化展示，不构成发布任何其他来源视频、完整原片、私有 runtime 缓存、学员上传、模型输出、数据库、日志或令牌的授权。任何新增媒体都需要单独的所有者明确授权与来源审阅。
