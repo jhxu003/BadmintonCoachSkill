@@ -1645,8 +1645,20 @@ def command_context_review(args: argparse.Namespace) -> None:
         if all_results:
             atomic_jsonl(results_path, all_results)
         if not video_has_gpu_jobs:
-            if all_results:
-                set_status(root, "context_review", "succeeded", reviewed_count=len(all_results))
+            # A materialized video can quite legitimately have no complete,
+            # resolved, automatically-admitted episode.  That is a completed
+            # fail-closed outcome, not a pending context review: there is no
+            # candidate which this stage is allowed to promote.  Persist the
+            # terminal state so corpus summaries distinguish it from a video
+            # whose lesson package or source record is genuinely missing.
+            set_status(
+                root,
+                "context_review",
+                "succeeded",
+                reviewed_count=len(all_results),
+                reviewable_episode_count=len(all_results),
+                context_review_not_required=not bool(all_results),
+            )
             continue
 
     if not jobs:

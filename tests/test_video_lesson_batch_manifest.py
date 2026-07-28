@@ -322,3 +322,68 @@ def test_context_review_recovers_legacy_action_admission_from_gate(tmp_path):
     review = json.loads((root / "context-review.jsonl").read_text().splitlines()[0])
     assert review["candidate_id"] == "candidate-001"
     assert review["parse_error"] == "insufficient_20_second_context"
+
+
+def test_context_review_marks_video_without_eligible_episode_complete(tmp_path):
+    module = load_batch_module()
+    video = {
+        "job_id": "no-eligible-episode",
+        "source_id": "fixture-source",
+        "title": "fixture",
+        "duration_seconds": 100.0,
+    }
+    manifest = tmp_path / "manifest.json"
+    manifest.write_text(json.dumps({"videos": [video]}), encoding="utf-8")
+    root = tmp_path / "batch" / "videos" / video["job_id"]
+    root.mkdir(parents=True)
+    (root / "source.json").write_text(
+        json.dumps({"path": str(tmp_path / "unused.mp4"), "duration_seconds": 100.0}),
+        encoding="utf-8",
+    )
+    # This review-context-only episode deliberately cannot reach the VLM
+    # context stage, so it must be recorded as a completed, non-promotable
+    # outcome rather than leaving the corpus perpetually "incomplete".
+    (root / "lesson-package.json").write_text(
+        json.dumps(
+            {
+                "techniques": [
+                    {
+                        "action": "footwork",
+                        "episodes": [
+                            {
+                                "episode_id": "footwork-episode-01",
+                                "candidate_id": "candidate-001",
+                                "automatic_admission": False,
+                                "review_context_only": True,
+                                "semantic_assignment_status": "resolved",
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    module.command_context_review(
+        SimpleNamespace(
+            manifest=manifest,
+            batch_root=tmp_path / "batch",
+            start=0,
+            stop=None,
+            shard=0,
+            shards=1,
+            job_id=[],
+            frames_per_side=2,
+            model=tmp_path / "unused-model",
+            ffmpeg=tmp_path / "unused-ffmpeg",
+            coach_name="fixture",
+            max_new_tokens=1,
+        )
+    )
+
+    status = json.loads((root / "status.json").read_text(encoding="utf-8"))
+    assert status["stage"] == "context_review"
+    assert status["state"] == "succeeded"
+    assert status["reviewed_count"] == 0
+    assert status["context_review_not_required"] is True
