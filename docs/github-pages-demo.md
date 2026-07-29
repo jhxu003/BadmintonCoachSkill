@@ -16,7 +16,7 @@ GitHub Pages 部署的是一个**纯静态、公开安全的产品展示**，地
 
 三张教练卡片均使用对应教练本人影像：
 
-- 刘辉：由已审核公开案例 `liu-hui-backhand/keyframes/01-ready.jpg` 裁切为 `coach-portraits/liu-hui-reviewed-still.webp`；
+- 刘辉：由已审核公开案例 `liu-hui-high-clear/keyframes/04-top-elbow.jpg` 裁切为 `coach-portraits/liu-hui-reviewed-still.webp`；
 - 李宇轩：来自本人 Bilibili 账号 [李宇轩教练](https://space.bilibili.com/519050265) 的公开头像，发布为 `coach-portraits/li-yuxuan-bilibili-profile.webp`；
 - 郑思维：来自本人 Bilibili 账号 [郑思维](https://space.bilibili.com/383058245) 的公开头像，发布为 `coach-portraits/zheng-siwei-bilibili-profile.webp`。
 

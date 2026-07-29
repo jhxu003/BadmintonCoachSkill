@@ -795,7 +795,7 @@ const coachEnglish: Record<CoachId, { name: string; role: string }> = {
 const coachCover: Record<CoachId, { path: string; alt: string; source: string }> = {
   "liu-hui": {
     path: "pages-demo/coach-portraits/liu-hui-reviewed-still.webp",
-    alt: "刘辉教练在羽毛球场讲解技术",
+    alt: "刘辉教练演示高远球高位结构",
     source: "REVIEWED LESSON STILL",
   },
   "li-yuxuan": {
