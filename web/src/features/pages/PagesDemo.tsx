@@ -11,7 +11,6 @@ import {
   GitBranch,
   Github,
   Layers3,
-  Play,
   Search,
   ShieldCheck,
   Sparkles,
@@ -793,6 +792,12 @@ const coachEnglish: Record<CoachId, { name: string; role: string }> = {
   "zheng-siwei": { name: "Zheng Siwei", role: "Mixed doubles routes & next ball" },
 };
 
+const coachSystemCover: Record<CoachId, string> = {
+  "liu-hui": "pages-demo/brand/coach-system-liu-hui.webp",
+  "li-yuxuan": "pages-demo/brand/coach-system-li-yuxuan.webp",
+  "zheng-siwei": "pages-demo/brand/coach-system-zheng-siwei.webp",
+};
+
 const actionEnglish: Record<string, string> = {
   "高远球": "High clear",
   "杀球": "Smash",
@@ -881,7 +886,6 @@ export function PagesDemo() {
   const stage = lesson.stages[stageIndex] ?? lesson.stages[0];
   const stageAsset = lesson.media?.keyframes[stageIndex];
   const catalogCoach = catalog?.coaches.find((item) => item.coach_id === coach.id);
-  const featuredLesson = liuHuiLessons[0];
   const catalogFilteredVideos = useMemo(() => {
     if (!catalogCoach) return [];
     const query = catalogQuery.trim().toLocaleLowerCase();
@@ -952,14 +956,11 @@ export function PagesDemo() {
               <a className="pages-button secondary" href="#coaches">选择教练 <span>Choose a coach</span></a>
             </div>
           </div>
-          <figure className="pages-featured-video">
-            <video controls playsInline preload="metadata" poster={publicAsset(featuredLesson.media!.keyframes[0])} aria-describedby="featured-video-caption">
-              <source src={publicAsset(featuredLesson.media!.clip)} type="video/mp4" />
-              当前浏览器不支持视频播放。
-            </video>
-            <figcaption id="featured-video-caption">
-              <div><p>FEATURED LESSON</p><strong>刘辉 · 后场高远球</strong><span>Liu Hui · High clear</span></div>
-              <div className="pages-video-meta"><span><Play size={13} /> 6.5 秒连续示范</span><span>7 stages</span></div>
+          <figure className="pages-featured-art">
+            <img src={publicAsset("pages-demo/brand/hero-badminton-editorial.webp")} alt="羽毛球运动员完成头顶击球的原创品牌视觉" />
+            <figcaption>
+              <div><p>TECHNIQUE IN MOTION</p><strong>从完整动作开始</strong><span>Study the whole movement</span></div>
+              <div className="pages-art-meta"><span>Original editorial artwork</span><span>BadmintonCoachSkill</span></div>
             </figcaption>
           </figure>
         </section>
@@ -976,11 +977,11 @@ export function PagesDemo() {
           </div>
           <div className="pages-coach-grid" aria-label="选择教练体系">
             {coaches.map((item) => {
-              const cover = item.lessons[0]?.media?.keyframes[4] ?? item.lessons[0]?.media?.keyframes[0];
               const english = coachEnglish[item.id];
               return <button key={item.id} type="button" className={coachId === item.id ? "active" : ""} aria-pressed={coachId === item.id} onClick={() => selectCoach(item.id)}>
-                {cover && <img src={publicAsset(cover)} alt="" loading="lazy" />}
+                <img src={publicAsset(coachSystemCover[item.id])} alt="" loading="lazy" />
                 <span className="pages-coach-shade" aria-hidden="true" />
+                <span className="pages-coach-art-label">SYSTEM COVER</span>
                 <span className="pages-coach-content"><b>{item.name}</b><small>{english.name}</small><em>{item.role}</em><i>{english.role}</i></span>
                 <span className="pages-coach-count">{item.lessons.length} lessons</span>
               </button>;
