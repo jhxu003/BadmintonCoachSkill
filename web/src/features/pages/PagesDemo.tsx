@@ -708,7 +708,7 @@ export function PagesDemo() {
       <section id="top" className="pages-hero">
         <div>
           <p className="pages-eyebrow"><Sparkles size={14} /> WATCH · UNDERSTAND · PLAY</p>
-          <h1>看懂动作，<br /><em>打好每一拍。</em></h1>
+          <h1>Watch the move.<br /><em>Build your game.</em></h1>
           <p className="pages-lede">从教练的完整示范里，看清准备、挥拍、落地和下一拍。选一个想练的动作，直接开始。</p>
           <div className="pages-hero-actions"><a className="pages-primary" href="#experience">从一个动作开始 <ArrowRight size={17} /></a><a className="pages-secondary" href="#systems">挑一位教练</a></div>
         </div>
