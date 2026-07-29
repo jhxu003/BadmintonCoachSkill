@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -105,6 +106,113 @@ FAMILY_CATEGORY = {
     "equipment": "equipment",
     "conditioning": "conditioning",
 }
+
+
+@dataclass(frozen=True)
+class CoachSystemRoute:
+    system_id: str
+    system_name: str
+    topic_label: str
+    pattern: str
+    priority: int
+
+
+COACH_SYSTEM_ROUTES: dict[str, tuple[CoachSystemRoute, ...]] = {
+    "liu-hui": (
+        # Only title evidence is used here.  A specific named stroke wins over
+        # a generic word such as "发力"; the latter is a Liu Hui framework,
+        # not a reason to relabel every smash or high-clear lesson as power.
+        CoachSystemRoute("safety_equipment_and_load_selection", "安全、装备与负荷选择", "装备适配、伤痛或训练负荷", r"球拍.*(评测|测评|真假|对比|怎么选|选择|重量|平衡点|挥重|拉线|磅数|中杆|球线|型号|差价|品牌|打感|抗扭)|(?:平衡点|拉线|磅数|中杆|球线|3u|4u|5u|轻拍|重拍|护具|伤痛|伤病|疼痛|受伤|球鞋)", 320),
+        CoachSystemRoute("backhand_and_rear_corner_choice", "反手与后场角落选择", "反手与被动后场处理", r"反手|反拍", 310),
+        CoachSystemRoute("drop_slice_slide_variation", "吊球、劈吊与后场变化", "吊球、劈吊或滑板变化", r"轻吊|轻放|重劈|重切|劈吊|滑板|切吊|吊球|放网|勾球|劈杀|light drop|slice drop", 300),
+        CoachSystemRoute("drive_receive_and_front_exchange", "平抽挡、接杀与前场交换", "平抽挡、发接发或接杀防守", r"平抽|抽挡|抽球|推球|挡球|接杀|接发|接发球|发球|发小球|发高远球|正手过渡|被动过渡|drive|receive", 290),
+        CoachSystemRoute("footwork_arrival_recovery", "步法、到位与回收", "启动、步法、到位或回收", r"步法|步伐|启动步|并步|交叉步|蹬跨|上网步|后退步|移动|回位|中国跳|起跳步|懒腿|leg[ -]?lazy|footwork", 280),
+        CoachSystemRoute("overhead_power_chain", "头顶发力链与拍侧结构", "跨高远与杀球的发力链", r"(?:高远球.*杀球|杀球.*高远球).*(?:发力|动作|技巧|原理)", 314),
+        CoachSystemRoute("smash_variant_system", "杀球变体与进攻选择", "杀球、跳杀或突击", r"霸王杀|跳杀|重杀|点杀|杀球|扣杀|突击|smash", 270),
+        CoachSystemRoute("rear_court_base_and_high_clear", "后场基础与高远球", "高远球、击球点或头顶基础", r"拉高远|高远球|后场高球|甜区|击球点|头顶|侧身击球|侧身总侧|高球|high[ -]?clear|overhead", 260),
+        CoachSystemRoute("overhead_power_chain", "头顶发力链与拍侧结构", "框架、握拍与发力链", r"(?:左手|非持拍手).*(?:发力|作用|核心)", 315),
+        CoachSystemRoute("overhead_power_chain", "头顶发力链与拍侧结构", "框架、握拍与发力链", r"框架|架拍|拍面|发力|内旋|鞭打|挥速|球速|握拍|手指|手腕|顶髋|转髋|核心|大臂|小臂|卸力|放松|掉肘|后仰|立腕|挥拍僵硬|动作僵硬|苍蝇拍|power|whip|rotation", 250),
+        CoachSystemRoute("doubles_singles_tactics_and_match_transfer", "单双打战术与实战迁移", "单双打、球路与实战迁移", r"双打|单打|轮转|补位|战术|实战|连贯|球路|上场|match use", 240),
+        CoachSystemRoute("student_fit_and_diagnosis", "学员匹配、诊断与训练路径", "学习路径、训练或综合答疑", r"直播|问答|q&a|新手|初学|入门|训练计划|训练方法|球感|学习顺序|learning order|live teaching|怎么练|打不到球|稳定性|动作太丑", 230),
+    ),
+    "li-yuxuan": (
+        CoachSystemRoute("learner_fit", "学习路径与综合答疑", "直播、课程与学习路径", r"直播|问答|q&a", 330),
+        CoachSystemRoute("equipment_safety", "装备成熟度与负荷安全", "装备适配、热身或训练负荷", r"(?:球拍|拍子).*(评测|测评|怎么选|选择|磅数|平衡点|挥重|拉线|中杆|型号|碳素|旗舰)|(?:选|选择).*(?:球拍|拍子)|(?:球拍磅数|平衡点|挥重|拉线|中杆|球线|球鞋|开箱测评|准备活动|拉伸|受伤|伤痛|疼痛|减肥|保持水平|碳素|旗舰)", 320),
+        CoachSystemRoute("backhand_time_budget", "反手与时间预算", "反手处理与到位时间", r"反手|反拍", 310),
+        CoachSystemRoute("serve_receive", "发接发与双打前两拍", "发球、接发或开局衔接", r"接发|接发球|发球|短球|前三拍", 300),
+        CoachSystemRoute("match_transfer", "练习到实战的迁移", "对抗、防守、球路与实战迁移", r"杀球.*防守|防守.*杀球|接住.*进攻|被动过渡", 295),
+        CoachSystemRoute("drop_drive", "吊球、平抽挡与快速交换", "吊球、网前控制或平抽挡", r"吊球|劈吊|滑板|切吊|切球|勾球|放网|搓球|平抽|平高球|抽球|抽挡|挡球|推球|封网|扑球|快球|挑球|假动作|切推|网前技术", 290),
+        CoachSystemRoute("smash", "杀球与跳杀进阶", "杀球、跳杀或进攻", r"跳杀|起跳杀球|腾空杀球|杀球|扣杀|点杀|重杀|霸王杀|劈杀|杀得.*尖|杀的.*尖", 280),
+        CoachSystemRoute("high_clear", "高远球与头顶击球", "高远球、头顶与后场击球", r"高远球|后场高球|高远发力|头顶.*(球|击球)|high[ -]?clear", 270),
+        CoachSystemRoute("footwork", "启动、到位、落地与回收", "启动、步伐、到位或回收", r"步法|步伐|启动|后场步|上网步|前场步|弓箭步|蹬跨|后退步|移动|到位|回位|来不及|接不了球|半步|落地|压后场|后场两点", 260),
+        CoachSystemRoute("release", "准备、肘部与释放链", "握拍、架拍、肘部与发力释放", r"非持拍手|握法|握拍|架拍|引拍|掉肘|顶肘|摆肘|手腕|手指|内旋|转髋|发不上力|发力|力量|爆发|鞭打|挥拍", 250),
+        CoachSystemRoute("match_transfer", "练习到实战的迁移", "对抗、防守、球路与实战迁移", r"防守|接杀|单打|双打|混双|轮转|补位|战术|实战|比赛|对抗|套路|球路|意识|重复球|站位|压底线|反方向", 240),
+        CoachSystemRoute("learner_fit", "学习路径与综合答疑", "直播、课程与学习路径", r"直播|问答|q&a|网课|课程|新手|初学|入门|训练计划|基本功|一致性|问题.*解决|世纪大难题", 230),
+    ),
+    "zheng-siwei": (
+        CoachSystemRoute("defense_transition", "防守过渡与反击", "防守、过渡、卸力与反击", r"卸力.*挡网|挡卸力|卸力反击", 330),
+        CoachSystemRoute("defense_transition", "防守过渡与反击", "防守、过渡、卸力与反击", r"正手.*(?:中半场|下手位|后半场)|借力.*对角|泄力.*平快", 329),
+        CoachSystemRoute("pair_rotation_two_lanes", "双打轮转与两条通道", "混双轮转、后杀前封与下一拍", r"后杀前封|放网后.*站位", 328),
+        # The seven public Zheng Siwei modules are deliberately retained.
+        # Intermediate forehand/backhand and pressure-handling titles belong to
+        # defense transition rather than being hidden under a generic reset.
+        CoachSystemRoute("receive_opening_exchange", "接发与前两拍衔接", "接发、快推与前两拍衔接", r"接发|发接发|接发球|平抽|平快|抽挡|抽球|快推", 320),
+        CoachSystemRoute("frontcourt_pressure", "网前压迫与封网", "网前控球、扑抹与封网", r"网前|搓球|勾球|勾对角|扑抹|扑球|反手抹球|抹腰|挡网|放网|封网|贴网", 310),
+        CoachSystemRoute("defense_transition", "防守过渡与反击", "防守、过渡、卸力与反击", r"防守|接杀|泄力|卸力|被动球|反击|正手.*(?:中半场|下手位|后半场)|借力.*对角|反手底线|反手.*过渡|平高球|摆脱线路|被推压", 300),
+        CoachSystemRoute("pair_rotation_two_lanes", "双打轮转与两条通道", "混双轮转、后杀前封与下一拍", r"混双|双打|轮转|男生.*女生|女生.*男生|后杀前封|下一拍", 290),
+        CoachSystemRoute("rear_attack_continuity", "后场进攻与前后衔接", "后场进攻、到位与下一拍衔接", r"防偷后场|后场来不及退|后场突击步伐|后场步法|杀球|高远球|头顶|后场进攻|后场攻击|进攻方式|启动步|步伐|移动", 280),
+        CoachSystemRoute("serve_opening", "发球与开局设置", "发球开局设置", r"发球", 270),
+        CoachSystemRoute("reset_match_transfer", "重置、体能与比赛复盘", "体能、恢复与比赛复盘", r"体能|康复|热身|腰疼|膝盖|肩部|拉伸|训练日常|球路讲解|比赛|点评|评价|预测|q&a", 260),
+    ),
+}
+
+
+COACH_SYSTEM_FALLBACKS: dict[str, CoachSystemRoute] = {
+    "liu-hui": CoachSystemRoute("unresolved_title", "体系内待人工细分", "标题未能可靠指向一个刘辉体系模块", "", 0),
+    "li-yuxuan": CoachSystemRoute("unresolved_title", "体系内待人工细分", "标题未能可靠指向一个李宇轩体系模块", "", 0),
+    "zheng-siwei": CoachSystemRoute("unresolved_title", "体系内待人工细分", "标题未能可靠指向一个郑思维体系模块", "", 0),
+}
+
+
+COACH_SYSTEM_OUTSIDE_SCOPE: dict[str, CoachSystemRoute] = {
+    coach_id: CoachSystemRoute(
+        "outside_teaching_system",
+        "体系外：公告／生活／产品信息",
+        "标题不构成可路由的教学内容",
+        "",
+        0,
+    )
+    for coach_id in COACH_SYSTEM_ROUTES
+}
+
+
+def _is_outside_teaching_system(coach_id: str, title: str) -> bool:
+    """Recognise announcements/lifestyle posts without treating them as drills.
+
+    Product selection, injury prevention and course/stream Q&A remain in the
+    coach systems.  This small gate is intentionally conservative: it prevents
+    sales announcements and travel posts from contaminating a technical module,
+    but never attempts to infer a module from missing evidence.
+    """
+    normalized = title.lower()
+    if re.search(r"authorized.*seed|旅游|vlog|日常.*(?:分享|记录)|衣服.*(?:上架|拿下)|圣诞老人直播送|newest video is live|直播预告", normalized):
+        return True
+    if coach_id == "li-yuxuan" and re.search(r"(?:送|抽奖).*(?:球拍|礼物|东西)|(?:球拍|礼物|天斧\d+).*(?:怎么参加|抽奖)", normalized):
+        teaching_signal = r"教学|技术|战术|步法|步伐|发力|反手|杀球|吊球|抽球|接发|防守|网前|球路"
+        return not re.search(teaching_signal, normalized)
+    return False
+
+
+def route_coach_system(coach_id: str, title: str) -> tuple[CoachSystemRoute, str]:
+    normalized = title.lower()
+    if coach_id not in COACH_SYSTEM_ROUTES:
+        raise ValueError(f"unknown coach system: {coach_id}")
+    if _is_outside_teaching_system(coach_id, normalized):
+        return COACH_SYSTEM_OUTSIDE_SCOPE[coach_id], "title_outside_system"
+    for route in sorted(COACH_SYSTEM_ROUTES.get(coach_id, ()), key=lambda item: -item.priority):
+        if re.search(route.pattern, normalized, flags=re.IGNORECASE):
+            return route, "title_system_route"
+    return COACH_SYSTEM_FALLBACKS[coach_id], "title_system_fallback"
 
 
 def _as_strings(value: Any) -> list[str]:
@@ -280,7 +388,13 @@ def build_catalog(project_root: Path, batches: Iterable[Batch] = DEFAULT_BATCHES
 
 
 def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
-    """Return only the owner-approved fields suitable for a static public index."""
+    """Return title-routed coach-system metadata suitable for a static public index.
+
+    Candidate ASR/VLM semantic windows are deliberately excluded from public
+    category selection: they can locate a review interval, but they are not a
+    reliable video-level syllabus label.  Each source therefore has one primary
+    coach-system route based on its public title, or a transparent fallback.
+    """
     coaches: list[dict[str, Any]] = []
     for coach in catalog.get("coaches", []):
         if not isinstance(coach, dict):
@@ -292,35 +406,37 @@ def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
             url = str(video.get("url", "")).strip()
             if not url.startswith(("https://", "http://")):
                 raise ValueError(f"public catalogue video has no public URL: {video.get('source_id')}")
-            categories = [
-                {"id": item["id"], "name": item["name"]}
-                for item in video.get("categories", [])
-                if isinstance(item, dict) and item.get("id") in CATEGORY_NAMES
-            ]
-            if not categories:
-                raise ValueError(f"public catalogue video has no category: {video.get('source_id')}")
-            techniques = [
-                {"action": str(item.get("action", "")), "label_zh": str(item.get("label_zh", ""))}
-                for item in video.get("techniques", [])
-                if isinstance(item, dict) and str(item.get("label_zh", "")).strip()
-            ]
+            route, classification_status = route_coach_system(
+                str(coach.get("coach_id", "")), str(video.get("title", ""))
+            )
             videos.append(
                 {
                     "source_id": str(video.get("source_id", "")),
                     "title": str(video.get("title", "")),
                     "url": url,
                     "duration_seconds": video.get("duration_seconds"),
-                    "classification_status": str(video.get("evidence_status", "model_candidate")),
-                    "categories": categories,
-                    "techniques": techniques,
+                    "classification_status": classification_status,
+                    "categories": [{"id": route.system_id, "name": route.system_name}],
+                    "techniques": [{"action": route.system_id, "label_zh": route.topic_label}],
                 }
             )
+        category_names = {
+            item["categories"][0]["id"]: item["categories"][0]["name"]
+            for item in videos
+        }
+        category_counts = Counter(item["categories"][0]["id"] for item in videos)
         coaches.append(
             {
                 "coach_id": str(coach.get("coach_id", "")),
                 "coach_name": str(coach.get("coach_name", "")),
                 "video_count": len(videos),
-                "category_counts": coach.get("category_counts", []),
+                "category_counts": [
+                    {"id": category_id, "name": category_names[category_id], "video_count": count}
+                    for category_id, count in sorted(
+                        category_counts.items(),
+                        key=lambda item: (-item[1], item[0]),
+                    )
+                ],
                 "videos": videos,
             }
         )

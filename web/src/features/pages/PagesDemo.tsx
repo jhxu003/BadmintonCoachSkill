@@ -647,10 +647,9 @@ const statusCopy: Record<LessonStatus, string> = {
 };
 
 const catalogStatusCopy: Record<string, string> = {
-  agent_reviewed: "已审核分类",
-  model_candidate: "语义候选分类",
-  title_fallback: "标题规则分类",
-  title_fallback_non_instructional: "非教学内容识别",
+  title_system_route: "标题体系路由",
+  title_system_fallback: "综合内容待细分",
+  title_outside_system: "体系外来源（未强行归类）",
 };
 
 function formatDuration(seconds: number | null): string {
@@ -764,11 +763,11 @@ export function PagesDemo() {
       </section>
 
       <section id="catalog" className="pages-section pages-full-catalog">
-        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，按技术类型浏览。</h2><p>这是元数据目录：包含标题、时长、技术分类与原始平台链接。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
+        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，按教练体系浏览。</h2><p>每条视频只进入一个由公开标题直接支持的主体系；标题不足时保留待细分，公告、生活和产品推广也不会被硬塞进技术模块。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
         {!catalog && !catalogError && <div className="pages-catalog-state">正在载入公开视频目录…</div>}
         {catalogError && <div className="pages-catalog-state error">公开目录暂时无法载入；公开案例区不受影响，请稍后刷新重试。</div>}
         {catalogCoach && <div className="pages-catalog-shell">
-          <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · full source index</p><h3>{catalogCoach.video_count} 条来源视频</h3></div><p>分类状态用于索引，不等同于“已审核正确示范”或正式教学动作包。</p></div>
+          <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · coach-system index</p><h3>{catalogCoach.video_count} 条来源视频</h3></div><p>分类状态用于目录路由，不等同于“已审核正确示范”或正式教学动作包。</p></div>
           <div className="pages-catalog-filters" aria-label={`${catalogCoach.coach_name}技术类型筛选`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => { setCatalogCategory("all"); setCatalogLimit(48); }}>全部 · {catalogCoach.video_count}</button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => { setCatalogCategory(item.id); setCatalogLimit(48); }}>{item.name} · {item.video_count}</button>)}</div>
           <p className="pages-catalog-result-count">当前显示 {visibleCatalogVideos.length} / {catalogFilteredVideos.length} 条</p>
           <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title} <ExternalLink size={14} /></a></h3><p>{item.source_id} · {formatDuration(item.duration_seconds)} · <span>{catalogStatusCopy[item.classification_status] ?? "分类状态待说明"}</span></p></div><div className="pages-catalog-tags">{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}{item.techniques.map((technique) => <span className="technique" key={`${technique.action}-${technique.label_zh}`}>{technique.label_zh}</span>)}</div></article>)}</div>
