@@ -3,12 +3,16 @@ import {
   ArrowRight,
   BookOpenCheck,
   CheckCircle2,
+  ChevronLeft,
   ChevronRight,
   ExternalLink,
   Film,
   Gauge,
   GitBranch,
+  Github,
   Layers3,
+  Play,
+  Search,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
@@ -652,7 +656,7 @@ function formatDuration(seconds: number | null): string {
   return rounded >= 60 ? `${Math.floor(rounded / 60)} 分 ${String(rounded % 60).padStart(2, "0")} 秒` : `${rounded} 秒`;
 }
 
-export function PagesDemo() {
+function LegacyPagesDemo() {
   const [coachId, setCoachId] = useState<CoachId>("liu-hui");
   const [lessonIndex, setLessonIndex] = useState(0);
   const [stageIndex, setStageIndex] = useState(0);
@@ -778,5 +782,292 @@ export function PagesDemo() {
 
       <footer className="pages-footer"><span>BadmintonCoachSkill · 非官方羽毛球学习体验</span><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer"><GitBranch size={14} /> GitHub Repository</a></footer>
     </main>
+  );
+}
+
+const PUBLIC_PAGE_SIZE = 48;
+
+const coachEnglish: Record<CoachId, { name: string; role: string }> = {
+  "liu-hui": { name: "Liu Hui", role: "Rear-court structure & power" },
+  "li-yuxuan": { name: "Li Yuxuan", role: "Early arrival & fast exchange" },
+  "zheng-siwei": { name: "Zheng Siwei", role: "Mixed doubles routes & next ball" },
+};
+
+const actionEnglish: Record<string, string> = {
+  "高远球": "High clear",
+  "杀球": "Smash",
+  "吊球": "Slice drop",
+  "后场步法": "Rear-court footwork",
+  "平抽挡": "Drive exchange",
+  "反手": "Backhand",
+  "发接发": "Serve & return",
+  "网前跨步与回收": "Net lunge & recovery",
+  "接发切腰": "Return & cut to body",
+  "左半场接发衔接": "Left-side return route",
+  "贴网吊球": "Net drop",
+  "后场突击步法": "Rear-court attack footwork",
+  "被压后场退步": "Rear-court pressure retreat",
+  "反手低手位过渡": "Low backhand transition",
+};
+
+const systemEnglish: Record<string, string> = {
+  "后场头顶体系": "Rear-court overhead",
+  "步法与快速交换": "Footwork & fast exchange",
+  "反手与发接发纠正": "Backhand & serve / return",
+  "中前场快速交换": "Mid / front-court exchange",
+  "网前到位与回收": "Net arrival & recovery",
+  "接发与本侧衔接": "Return & side continuation",
+  "前后场处理": "Front / rear-court handling",
+  "反手低位过渡": "Low backhand transition",
+};
+
+const statusEnglish: Record<LessonStatus, string> = {
+  complete: "Full action lesson",
+  route: "Action route lesson",
+  context: "Tactical context lesson",
+};
+
+function englishAction(label: string): string {
+  return actionEnglish[label] ?? "Technique study";
+}
+
+function englishSystem(title: string): string {
+  return systemEnglish[title] ?? "Technique system";
+}
+
+function englishStage(name: string): string {
+  if (name.includes("教练接管")) return "Coach demonstration";
+  if (name.includes("再次准备")) return "Ready again";
+  if (name.includes("近似击球")) return "Contact window";
+  if (name.includes("转拍")) return "Racket rotation";
+  if (name.includes("短引拍")) return "Short backswing";
+  if (name.includes("引拍")) return "Set / raise";
+  if (name.includes("准备")) return "Ready";
+  if (name.includes("分腿")) return "Split / respond";
+  if (name.includes("启动")) return "Start";
+  if (name.includes("到位")) return "Arrive / load";
+  if (name.includes("接近")) return "Approach";
+  if (name.includes("第一步")) return "First step";
+  if (name.includes("加载") || name.includes("压低")) return "Load";
+  if (name.includes("起跳")) return "Take off";
+  if (name.includes("腾空")) return "Accelerate / lift";
+  if (name.includes("落地")) return "Land";
+  if (name.includes("跨步")) return "Lunge";
+  if (name.includes("伸展")) return "Extend";
+  if (name.includes("前摆") || name.includes("向前")) return "Forward path";
+  if (name.includes("加速")) return "Accelerate";
+  if (name.includes("随挥")) return "Follow-through";
+  if (name.includes("回弹")) return "Rebound";
+  if (name.includes("释放")) return "Release";
+  if (name.includes("读球")) return "Read";
+  if (name.includes("继续移动")) return "Continue";
+  if (name.includes("回收") || name.includes("恢复") || name.includes("退出")) return "Recover";
+  return "Action phase";
+}
+
+export function PagesDemo() {
+  const [coachId, setCoachId] = useState<CoachId>("liu-hui");
+  const [lessonIndex, setLessonIndex] = useState(0);
+  const [stageIndex, setStageIndex] = useState(0);
+  const [catalog, setCatalog] = useState<PublicCatalog | null>(null);
+  const [catalogError, setCatalogError] = useState(false);
+  const [catalogCategory, setCatalogCategory] = useState("all");
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [catalogPage, setCatalogPage] = useState(0);
+
+  const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
+  const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
+  const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
+  const stage = lesson.stages[stageIndex] ?? lesson.stages[0];
+  const stageAsset = lesson.media?.keyframes[stageIndex];
+  const catalogCoach = catalog?.coaches.find((item) => item.coach_id === coach.id);
+  const featuredLesson = liuHuiLessons[0];
+  const catalogFilteredVideos = useMemo(() => {
+    if (!catalogCoach) return [];
+    const query = catalogQuery.trim().toLocaleLowerCase();
+    return catalogCoach.videos.filter((item) => {
+      const categoryMatches = catalogCategory === "all" || item.categories.some((category) => category.id === catalogCategory);
+      return categoryMatches && (!query || item.title.toLocaleLowerCase().includes(query));
+    });
+  }, [catalogCategory, catalogCoach, catalogQuery]);
+  const catalogPageCount = Math.max(1, Math.ceil(catalogFilteredVideos.length / PUBLIC_PAGE_SIZE));
+  const activeCatalogPage = Math.min(catalogPage, catalogPageCount - 1);
+  const visibleCatalogVideos = catalogFilteredVideos.slice(activeCatalogPage * PUBLIC_PAGE_SIZE, (activeCatalogPage + 1) * PUBLIC_PAGE_SIZE);
+
+  useEffect(() => {
+    let mounted = true;
+    void fetch(publicAsset("pages-demo/catalog.json"))
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error("catalog_unavailable")))
+      .then((payload: PublicCatalog) => {
+        if (mounted && payload.schema_version === "public-coach-video-catalog/v1") setCatalog(payload);
+      })
+      .catch(() => {
+        if (mounted) setCatalogError(true);
+      });
+    return () => { mounted = false; };
+  }, []);
+
+  function selectCoach(nextCoach: CoachId): void {
+    setCoachId(nextCoach);
+    setLessonIndex(0);
+    setStageIndex(0);
+    setCatalogCategory("all");
+    setCatalogQuery("");
+    setCatalogPage(0);
+  }
+
+  function selectLesson(index: number): void {
+    setLessonIndex(index);
+    setStageIndex(0);
+  }
+
+  function updateCatalogCategory(nextCategory: string): void {
+    setCatalogCategory(nextCategory);
+    setCatalogPage(0);
+  }
+
+  return (
+    <>
+      <a className="pages-skip" href="#main-content">跳到主要内容 / Skip to main content</a>
+      <main id="main-content" className="pages-demo">
+        <header className="pages-nav">
+          <a className="pages-brand" href="#top" aria-label="BadmintonCoachSkill · 羽毛球动作课"><span aria-hidden="true" />BadmintonCoachSkill</a>
+          <nav aria-label="页面导航 / Site navigation">
+            <a href="#lessons">动作课 <span>Lessons</span></a>
+            <a href="#coaches">教练 <span>Coaches</span></a>
+            <a href="#catalog">技术库 <span>Library</span></a>
+            <a className="pages-github-link" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer" aria-label="在 GitHub 打开 BadmintonCoachSkill"><Github size={17} /></a>
+          </nav>
+        </header>
+
+        <section id="top" className="pages-hero" aria-labelledby="pages-title">
+          <div className="pages-hero-copy">
+            <p className="pages-kicker">BADMINTON ACTION STUDY</p>
+            <h1 id="pages-title">羽毛球<br />动作课</h1>
+            <p className="pages-title-en">Coach-led technique library</p>
+            <p className="pages-lede">选一个技术。先看同一次完整示范，再按动作阶段拆开练。</p>
+            <p className="pages-lede-en">Choose a technique. Watch one complete demonstration, then study it phase by phase.</p>
+            <div className="pages-hero-actions">
+              <a className="pages-button primary" href="#lessons">观看动作课 <span>Watch lesson</span><ArrowRight size={17} /></a>
+              <a className="pages-button secondary" href="#coaches">选择教练 <span>Choose a coach</span></a>
+            </div>
+          </div>
+          <figure className="pages-featured-video">
+            <video controls playsInline preload="metadata" poster={publicAsset(featuredLesson.media!.keyframes[0])} aria-describedby="featured-video-caption">
+              <source src={publicAsset(featuredLesson.media!.clip)} type="video/mp4" />
+              当前浏览器不支持视频播放。
+            </video>
+            <figcaption id="featured-video-caption">
+              <div><p>FEATURED LESSON</p><strong>刘辉 · 后场高远球</strong><span>Liu Hui · High clear</span></div>
+              <div className="pages-video-meta"><span><Play size={13} /> 6.5 秒连续示范</span><span>7 stages</span></div>
+            </figcaption>
+          </figure>
+        </section>
+
+        <div className="pages-fact-line" aria-label="公开内容规模">
+          <span><b>3</b> 位教练 <i>Coaches</i></span><span><b>16</b> 节审核动作课 <i>Reviewed lessons</i></span><span><b>873</b> 条来源视频 <i>Source videos</i></span>
+        </div>
+
+        <section id="coaches" className="pages-section pages-coach-section" aria-labelledby="coaches-heading">
+          <div className="pages-section-heading">
+            <p className="pages-kicker">01 / COACHES</p>
+            <h2 id="coaches-heading">从一位教练开始。</h2>
+            <p className="pages-heading-en">Start with the coaching lens you want to train with.</p>
+          </div>
+          <div className="pages-coach-grid" aria-label="选择教练体系">
+            {coaches.map((item) => {
+              const cover = item.lessons[0]?.media?.keyframes[4] ?? item.lessons[0]?.media?.keyframes[0];
+              const english = coachEnglish[item.id];
+              return <button key={item.id} type="button" className={coachId === item.id ? "active" : ""} aria-pressed={coachId === item.id} onClick={() => selectCoach(item.id)}>
+                {cover && <img src={publicAsset(cover)} alt="" loading="lazy" />}
+                <span className="pages-coach-shade" aria-hidden="true" />
+                <span className="pages-coach-content"><b>{item.name}</b><small>{english.name}</small><em>{item.role}</em><i>{english.role}</i></span>
+                <span className="pages-coach-count">{item.lessons.length} lessons</span>
+              </button>;
+            })}
+          </div>
+        </section>
+
+        <section id="lessons" className="pages-section pages-lessons" aria-labelledby="lessons-heading">
+          <div className="pages-section-heading pages-lessons-heading">
+            <p className="pages-kicker">02 / LESSONS</p>
+            <h2 id="lessons-heading">{coach.name}的动作课</h2>
+            <p className="pages-heading-en">{coachEnglish[coach.id].name}'s technique lessons</p>
+          </div>
+
+          <div className="pages-system-list" aria-label={`${coach.name}的技术体系`}>
+            {coach.systems.map((system) => <section key={system.title} className={system === activeSystem ? "active" : ""}>
+              <div><h3>{system.title}</h3><p>{englishSystem(system.title)}</p><small>{system.description}</small></div>
+              <div className="pages-lesson-chips">
+                {system.lessonIds.map((lessonId) => {
+                  const itemIndex = coach.lessons.findIndex((item) => item.id === lessonId);
+                  const item = coach.lessons[itemIndex];
+                  return item ? <button key={item.id} type="button" className={lessonIndex === itemIndex ? "active" : ""} aria-pressed={lessonIndex === itemIndex} onClick={() => selectLesson(itemIndex)}><span>{item.actionLabel}</span><small>{englishAction(item.actionLabel)}</small></button> : null;
+                })}
+              </div>
+            </section>)}
+          </div>
+
+          <article className="pages-lesson-viewer" aria-labelledby="lesson-title">
+            <header className="pages-lesson-title">
+              <div><p className="pages-kicker"><Film size={14} /> CURRENT LESSON</p><h3 id="lesson-title">{lesson.focus}</h3><p>{englishAction(lesson.actionLabel)} · {statusEnglish[lesson.lessonStatus]}</p></div>
+              <span>{statusCopy[lesson.lessonStatus]}</span>
+            </header>
+            <div className="pages-lesson-media-grid">
+              <figure className="pages-lesson-video">
+                {lesson.media && <video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(lesson.media.keyframes[0])} aria-describedby="lesson-video-caption"><source src={publicAsset(lesson.media.clip)} type="video/mp4" />当前浏览器不支持视频播放。</video>}
+                <figcaption id="lesson-video-caption"><span><ShieldCheck size={14} /> {lesson.media?.reviewStatus}</span><p>{lesson.media?.clipDescription}</p></figcaption>
+              </figure>
+              <div className="pages-stage-panel">
+                <div className="pages-stage-heading"><div><p className="pages-kicker">ACTION STRIP</p><h4>七阶段动作带</h4><span>Seven action stages</span></div><p>关键帧用于定位；请结合连续片段观看。</p></div>
+                <div className="pages-stage-rail" role="tablist" aria-label={`${lesson.focus}动作阶段`}>
+                  {lesson.stages.map((item, index) => <button key={`${item.time}-${item.name}`} id={`stage-tab-${index}`} type="button" role="tab" aria-selected={stageIndex === index} aria-controls="lesson-stage-detail" className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>
+                    {lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" loading={index > 1 ? "lazy" : "eager"} />}
+                    <span className="pages-stage-time">{item.time}</span><span className="pages-stage-name">{item.name}<small>{englishStage(item.name)}</small></span>
+                  </button>)}
+                </div>
+                <article id="lesson-stage-detail" className="pages-stage-detail" role="tabpanel" aria-labelledby={`stage-tab-${stageIndex}`} aria-live="polite">
+                  {stageAsset && <img src={publicAsset(stageAsset)} alt={`${coach.name} ${lesson.actionLabel} · ${stage.name}`} />}
+                  <div><p className="pages-kicker">{stage.time} / {englishStage(stage.name)}</p><h4>{stage.name}</h4><p>{stage.focus}</p><small><b>观看边界：</b>{stage.boundary}</small></div>
+                </article>
+              </div>
+            </div>
+            <div className="pages-study-route" aria-label="观看路线">
+              {lesson.route.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{item.title}</h4><p>{item.copy}</p></div></article>)}
+            </div>
+            <footer className="pages-lesson-footer"><p><ShieldCheck size={16} /> {lesson.note}</p>{lesson.source ? <a href={lesson.source.href} target="_blank" rel="noreferrer">{lesson.source.label}<ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</footer>
+          </article>
+        </section>
+
+        <section id="catalog" className="pages-section pages-catalog" aria-labelledby="catalog-heading">
+          <div className="pages-section-heading">
+            <p className="pages-kicker">03 / VIDEO LIBRARY</p>
+            <h2 id="catalog-heading">从教练体系里继续找。</h2>
+            <p className="pages-heading-en">Browse the original public videos behind each coaching system.</p>
+          </div>
+          {!catalog && !catalogError && <div className="pages-catalog-state">正在载入公开技术库 / Loading public video library…</div>}
+          {catalogError && <div className="pages-catalog-state error">公开技术库暂时无法载入；公开动作课仍可使用，请稍后刷新。</div>}
+          {catalog && <div className="pages-catalog-shell">
+            <div className="pages-library-note"><ShieldCheck size={17} /><p><b>16 节动作课</b>包含连续片段和阶段帧；下方目录仅提供原平台视频标题、分类和链接。</p></div>
+            <div className="pages-catalog-coaches" role="group" aria-label="技术库教练选择">
+              {catalog.coaches.map((item) => <button key={item.coach_id} type="button" className={coachId === item.coach_id ? "active" : ""} aria-pressed={coachId === item.coach_id} onClick={() => selectCoach(item.coach_id)}><b>{item.coach_name}</b><span>{item.video_count} 条来源视频</span></button>)}
+            </div>
+            {catalogCoach && <>
+              <div className="pages-catalog-tools">
+                <div><p className="pages-kicker">{catalogCoach.coach_name} / {coachEnglish[coach.id].name}</p><h3>{catalogCoach.video_count} 条原始公开视频</h3></div>
+                <label className="pages-search"><Search size={17} /><span className="pages-visually-hidden">搜索原始视频标题</span><input type="search" value={catalogQuery} onChange={(event) => { setCatalogQuery(event.target.value); setCatalogPage(0); }} placeholder="搜索原始视频标题" /></label>
+              </div>
+              <div className="pages-category-list" aria-label={`${catalogCoach.coach_name}体系模块`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => updateCatalogCategory("all")}>全部 <span>{catalogCoach.video_count}</span></button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => updateCatalogCategory(item.id)}>{item.name}<span>{item.video_count}</span></button>)}</div>
+              <p className="pages-catalog-count">显示 {visibleCatalogVideos.length} / {catalogFilteredVideos.length} 条 · 第 {activeCatalogPage + 1} / {catalogPageCount} 页</p>
+              <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h4><a href={item.url} target="_blank" rel="noreferrer">{item.title}<ExternalLink size={14} /></a></h4><p>原平台公开视频 · {formatDuration(item.duration_seconds)}</p></div><div>{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}</div></article>)}</div>
+              {catalogFilteredVideos.length === 0 && <div className="pages-catalog-empty">没有匹配的原始视频标题。请尝试更短的关键词或切换体系模块。</div>}
+              <div className="pages-pagination" aria-label="视频目录分页"><button type="button" onClick={() => setCatalogPage((page) => Math.max(0, page - 1))} disabled={activeCatalogPage === 0}><ChevronLeft size={17} />上一页</button><span>第 {activeCatalogPage + 1} 页，共 {catalogPageCount} 页</span><button type="button" onClick={() => setCatalogPage((page) => Math.min(catalogPageCount - 1, page + 1))} disabled={activeCatalogPage >= catalogPageCount - 1}>下一页<ChevronRight size={17} /></button></div>
+            </>}
+          </div>}
+        </section>
+
+        <footer className="pages-footer"><p>BadmintonCoachSkill · 公开教练动作课</p><p>关键帧用于定位，连续动作用于理解。</p></footer>
+      </main>
+    </>
   );
 }
