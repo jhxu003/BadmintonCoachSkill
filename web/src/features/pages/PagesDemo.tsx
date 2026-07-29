@@ -95,7 +95,7 @@ function lessonMedia(folder: string, names: string[], description: string): Less
     clip: `pages-demo/${folder}/action.mp4`,
     keyframes: names.map((name) => `pages-demo/${folder}/keyframes/${name}`),
     clipDescription: description,
-    reviewStatus: "教练身份已确认 · 正确示范语境已确认",
+    reviewStatus: "教练示范 · 连续动作片段",
   };
 }
 
@@ -129,7 +129,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "随挥／释放", time: "06", focus: "观察球拍和身体怎样连续通过近似窗口，不把该窗口当作动作终点。", boundary: "不以单帧判断减速负荷或力量。" },
       { name: "回收／恢复", time: "07", focus: "观察挥拍结束后怎样重新取得稳定、可衔接下一拍的状态。", boundary: "该段不单独证明完整比赛回位路线。" },
     ],
-    note: "7 张阶段帧与连续片段来自同一条已审核动作；页面只陈述画面可见的动作路线。",
+    note: "把七步连起来看，你会发现高远球不是从挥拍才开始。",
   },
   {
     id: "smash",
@@ -160,7 +160,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "随挥／落地", time: "06", focus: "观察挥拍释放如何连接到落地，而不是在击球附近突然结束。", boundary: "不能由画面推断落地冲击力或伤病风险。" },
       { name: "恢复", time: "07", focus: "确认落地后重新取得可衔接下一拍的姿态。", boundary: "本片段不证明完整比赛中的最佳回位路线。" },
     ],
-    note: "本案例选取同一次完整重杀，不混入下一次喂球；球速、精确触球和力量大小均不作推断。",
+    note: "重杀的重点不只在挥拍：准备、起跳、落地和下一拍，都值得一起练。",
   },
   {
     id: "slice-drop",
@@ -191,7 +191,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "随挥", time: "06", focus: "观察球拍通过窗口后的释放和身体衔接。", boundary: "不能从单帧判断力量大小或减速负荷。" },
       { name: "恢复", time: "07", focus: "确认动作完成后重新取得稳定、可继续移动的状态。", boundary: "片段不包含完整回合，因此不推断战术意图。" },
     ],
-    note: "已替换旧的对比模仿段；当前片段是教练在讲清隐蔽性后亲自完成并确认结果的第一种滑板吊球示范。",
+    note: "先把高位动作看完整，再去体会滑板吊球的变化和节奏。",
   },
   {
     id: "backcourt-footwork",
@@ -222,7 +222,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "落地", time: "06", focus: "观察身体怎样从腾空过渡到可继续移动的落地状态。", boundary: "画面不能量化冲击负荷或安全阈值。" },
       { name: "退出／恢复", time: "07", focus: "确认落地后继续退出后场并重新组织下一拍。", boundary: "本示范只覆盖一种后场路线，不代表全部后场步法。" },
     ],
-    note: "该案例具体展示“中国跳后场突击”，不是用一条路线冒充全部后场步法体系。",
+    note: "中国跳的价值，在于从启动到落地后，仍能继续衔接下一拍。",
   },
   {
     id: "drive",
@@ -253,7 +253,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "回弹／收拍", time: "06", focus: "观察出拍后如何及时回收，而不是让球拍停留在伸展末端。", boundary: "不能由二维画面推断真实制动负荷。" },
       { name: "再次准备", time: "07", focus: "确认第一拍结束后已能进入下一次快速交换。", boundary: "这一帧不单独证明完整对抗中的站位选择。" },
     ],
-    note: "旧的多拍窗口已收紧；当前连续短片和七阶段都只对应同一次短出拍。",
+    note: "快球练的不是大动作，而是短、快、收得回来的连续节奏。",
   },
   {
     id: "backhand",
@@ -284,7 +284,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "释放", time: "06", focus: "观察挥拍通过窗口后的身体与球拍释放。", boundary: "没有清楚球路时，不给出落点和效果判断。" },
       { name: "恢复", time: "07", focus: "确认动作结束后重新取得能够继续移动的状态。", boundary: "该示范不代表所有反手被动球的唯一处理方式。" },
     ],
-    note: "专门反手课程中的单次完整示范；由于球路证据不足，页面只教学可见动作路线。",
+    note: "反手被动球先争取时间和空间，再把挥拍送出去。",
   },
   {
     id: "serve-receive",
@@ -315,7 +315,7 @@ const liuHuiLessons: LessonDemo[] = [
       { name: "随摆完成", time: "06", focus: "确认转拍之后仍有连续随摆动作，和学员此前被指出的次序问题区分开。", boundary: "普通单目画面不能量化关节旋转或减速负荷。" },
       { name: "回收", time: "07", focus: "观察慢动作示范怎样结束并回到可继续讲解的稳定状态。", boundary: "该段没有完整发球和接发方，不能替代完整发接发课程。" },
     ],
-    note: "旧页面误用了女学员正在被纠正的尝试；现已替换为教练慢动作纠正示范，并明确降窄为转拍与随摆子课。",
+    note: "先把转拍和随摆的路线走顺，再把它带回完整的发接发。",
   },
 ];
 
@@ -349,7 +349,7 @@ const liYuxuanLessons: LessonDemo[] = [
       { name: "随挥", time: "06", focus: "观察球拍与身体如何连续通过近似窗口并释放。", boundary: "不能从单帧量化减速负荷或发力比例。" },
       { name: "恢复", time: "07", focus: "确认挥拍后重新取得可继续移动的稳定状态。", boundary: "该短片不代表所有来球下的唯一回位路线。" },
     ],
-    note: "旧的 448 秒候选属于问题动作模仿，已明确隔离；当前页面只发布 154.875–157.250 秒的正确示范。",
+    note: "高远球最值得反复看的，是准备、上举、通过和恢复之间的连续感。",
   },
   {
     id: "drive",
@@ -380,7 +380,7 @@ const liYuxuanLessons: LessonDemo[] = [
       { name: "释放", time: "06", focus: "观察出拍后怎样自然通过，而不是停在伸展末端。", boundary: "普通视频不能量化制动负荷。" },
       { name: "恢复", time: "07", focus: "确认球拍和身体已经回到可衔接下一拍的状态。", boundary: "不据此推断完整对抗中的最佳站位。" },
     ],
-    note: "公开窗口只对应同一次短出拍；媒体和七帧在下一次击球开始前已经结束。",
+    note: "交换越快，准备越重要：每次出拍后都要回到下一拍可用的位置。",
   },
   {
     id: "net-lunge",
@@ -411,7 +411,7 @@ const liYuxuanLessons: LessonDemo[] = [
       { name: "释放", time: "06", focus: "观察处理后的身体与球拍怎样离开最低点。", boundary: "不能由单帧判断力量、旋转或触球质量。" },
       { name: "回收", time: "07", focus: "确认动作后重新站稳并准备衔接下一拍。", boundary: "短片只覆盖一次网前路线，不代表完整回合回位。" },
     ],
-    note: "该案例只称为“网前上网跨步与回收”，不把可见移动路线冒充完整挑球手法。",
+    note: "上网不只是够到球；到最低点之后，能顺畅离开才是真正的连贯。",
   },
 ];
 
@@ -445,7 +445,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "释放", time: "06", focus: "观察处理后球拍和身体怎样继续通过。", boundary: "不能从普通画面判断真实力量或落点精度。" },
       { name: "恢复", time: "07", focus: "确认动作后回到可继续覆盖下一拍的位置。", boundary: "本片段不证明完整双打第三拍归属。" },
     ],
-    note: "该示范只适用于课程明确的较高发球条件；其他发球高度仍需重新选择路线。",
+    note: "接发时，先给自己留出可选择的路线，下一拍才会更主动。",
   },
   {
     id: "left-receive-route",
@@ -476,7 +476,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "继续移动", time: "06", focus: "观察接发后身体仍然向可衔接区域推进。", boundary: "不能从该片段判断搭档和对手的全部战术意图。" },
       { name: "恢复", time: "07", focus: "确认本次路线结束时已经能准备下一拍。", boundary: "完整轮转仍需四人连续回合证据。" },
     ],
-    note: "这是一条左半场接发实例，不是按性别固定前后场或两侧职责的通用规则。",
+    note: "好的接发不是一拍结束，而是让同侧的下一拍继续有路可走。",
   },
   {
     id: "net-drop",
@@ -507,7 +507,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "随挥", time: "06", focus: "观察球拍通过窗口后的释放路线。", boundary: "不能由单帧判断触球质量或减速负荷。" },
       { name: "恢复", time: "07", focus: "确认动作结束并在下一次抛球前回到稳定状态。", boundary: "原地手法示范不代表完整后场步法。" },
     ],
-    note: "该窗口只包含一次抛球练习；下一次重复从媒体与关键帧中同时排除。",
+    note: "发球的好开局，来自稳定的准备、清楚的抛球和从容的下一拍。",
   },
   {
     id: "rear-attack-footwork",
@@ -538,7 +538,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "落地", time: "06", focus: "观察腾空动作怎样连接到可继续移动的落地。", boundary: "不能量化落地冲击或伤病风险。" },
       { name: "恢复", time: "07", focus: "确认第一条喂球后重新建立准备状态。", boundary: "短片不证明完整比赛中的最佳回位选择。" },
     ],
-    note: "七帧与连续片段均来自第一条实战喂球，并在第二次喂球开始前结束。",
+    note: "后场突击练的是到位后的果断出拍，以及落地后不丢掉下一拍。",
   },
   {
     id: "rear-pressure-retreat",
@@ -569,7 +569,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "释放", time: "06", focus: "观察挥拍通过窗口后怎样连接落地。", boundary: "不能由单帧判断出球质量或战术结果。" },
       { name: "恢复", time: "07", focus: "确认处理后重新取得可继续移动的状态。", boundary: "本示范不代表所有被动后场球的唯一选择。" },
     ],
-    note: "前段错误示范保持隔离；公开 Case 只来自随后明确组织的正确移动路线。",
+    note: "被压后场时，先把退步和身体朝向组织好，击球才有空间。",
   },
   {
     id: "backhand-low-transition",
@@ -600,7 +600,7 @@ const zhengSiweiLessons: LessonDemo[] = [
       { name: "随挥", time: "06", focus: "观察处理后球拍和身体怎样继续通过。", boundary: "不能由单帧确认实际过渡效果。" },
       { name: "恢复", time: "07", focus: "确认动作后重新取得可移动的稳定状态。", boundary: "路线选择仍需结合来球和回合上下文。" },
     ],
-    note: "公开窗口从固定机位开始并在下一次剪辑前结束，没有把镜头切换两侧拼成一条动作。",
+    note: "反手低位处理不靠硬拧；先到位、再挥拍、最后回到能继续移动的位置。",
   },
 ];
 
@@ -608,7 +608,7 @@ const coaches: CoachDemo[] = [
   {
     id: "liu-hui",
     name: "刘辉",
-    role: "动作框架、发力路线与训练选择",
+    role: "把后场动作、发力和进阶路线讲明白",
     lessons: liuHuiLessons,
     systems: [
       { title: "后场头顶体系", description: "从到位、加载到挥拍释放，把高远、杀球和吊球放在同一条后场动作链里理解。", lessonIds: ["high-clear", "smash", "slice-drop"] },
@@ -619,7 +619,7 @@ const coaches: CoachDemo[] = [
   {
     id: "li-yuxuan",
     name: "李宇轩",
-    role: "时间预算、到位与动作链衔接",
+    role: "让你到位更早，出拍更快，实战更连贯",
     lessons: liYuxuanLessons,
     systems: [
       { title: "后场头顶体系", description: "把准备、加载、加速、随挥和恢复作为一条连续的后场高位动作链。", lessonIds: ["high-clear"] },
@@ -630,7 +630,7 @@ const coaches: CoachDemo[] = [
   {
     id: "zheng-siwei",
     name: "郑思维",
-    role: "混双通道、衔接与轮转复盘",
+    role: "读懂混双站位、抢网和下一拍的选择",
     lessons: zhengSiweiLessons,
     systems: [
       { title: "接发与本侧衔接", description: "接发切腰与左半场路线展示条件下的启动、处理与本侧延续。", lessonIds: ["receive-cut-waist", "left-receive-route"] },
@@ -641,15 +641,9 @@ const coaches: CoachDemo[] = [
 ];
 
 const statusCopy: Record<LessonStatus, string> = {
-  complete: "连续课程结构示例",
-  route: "Skill 教学路线示例",
-  context: "回合复盘方法示例",
-};
-
-const catalogStatusCopy: Record<string, string> = {
-  title_system_route: "标题体系路由",
-  title_system_fallback: "综合内容待细分",
-  title_outside_system: "体系外来源（未强行归类）",
+  complete: "完整动作示范",
+  route: "动作路线示范",
+  context: "实战思路示范",
 };
 
 function formatDuration(seconds: number | null): string {
@@ -708,41 +702,39 @@ export function PagesDemo() {
     <main className="pages-demo">
       <header className="pages-nav">
         <a className="pages-brand" href="#top" aria-label="BadmintonCoachSkill 首页"><span aria-hidden="true" />BadmintonCoach<span>Skill</span></a>
-        <nav aria-label="页面导航"><a href="#experience">体验</a><a href="#systems">教练体系</a><a href="#catalog">完整目录</a><a href="#boundaries">证据边界</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
+        <nav aria-label="页面导航"><a href="#experience">看动作</a><a href="#systems">选教练</a><a href="#catalog">找技术</a><a href="#boundaries">学习边界</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
       </header>
 
       <section id="top" className="pages-hero">
         <div>
-          <p className="pages-eyebrow"><Sparkles size={14} /> Evidence-grounded coaching intelligence</p>
-          <h1>把一条教练视频，<br /><em>变成可复查的教学路线。</em></h1>
-          <p className="pages-lede">这是 BadmintonCoachSkill 的公开展示版。选择教练体系与技术主题，查看连续动作如何被组织成阶段导航、教学要点与明确的证据边界。</p>
-          <div className="pages-hero-actions"><a className="pages-primary" href="#experience">浏览三套教练案例 <ArrowRight size={17} /></a><a className="pages-secondary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">查看源代码</a></div>
+          <p className="pages-eyebrow"><Sparkles size={14} /> WATCH · UNDERSTAND · PLAY</p>
+          <h1>别只存动作图。<br /><em>把这一拍，学明白。</em></h1>
+          <p className="pages-lede">从教练的完整示范里，看懂准备、挥拍、落地和下一拍。选一个你想练的动作，现在就开始。</p>
+          <div className="pages-hero-actions"><a className="pages-primary" href="#experience">从一个动作开始 <ArrowRight size={17} /></a><a className="pages-secondary" href="#systems">挑一位教练</a></div>
         </div>
-        <aside className="pages-hero-card" aria-label="教学证据结构">
-          <div className="pages-card-top"><span>Lesson container</span><span>public-safe demo</span></div>
-          <div className="pages-lesson-line"><b>01</b><span>连续动作片段</span><i /></div>
-          <div className="pages-lesson-line"><b>02</b><span>七阶段姿态导航</span><i /></div>
-          <div className="pages-lesson-line"><b>03</b><span>教学原则与练习</span><i /></div>
-          <div className="pages-lesson-line"><b>04</b><span>可见事实与不确定性</span><i /></div>
-          <p><ShieldCheck size={15} /> 关键帧用于解释，连续片段用于验证</p>
+        <aside className="pages-hero-card" aria-label="高远球动作课程预览">
+          <img src={publicAsset("pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg")} alt="刘辉教练高远球示范" />
+          <div className="pages-hero-card-shade" />
+          <div className="pages-card-top"><span>今日动作</span><span>06.5s 连续示范</span></div>
+          <div className="pages-hero-card-copy"><p>刘辉 · 后场高远球</p><h2>不是摆姿势。<br />是从准备到回收的一整拍。</h2><div><span>7 个关键阶段</span><span>完整动作视频</span></div></div>
         </aside>
       </section>
 
       <section className="pages-stat-row" aria-label="项目规模摘要">
-        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>公开分类视频目录</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
+        <div><b>3</b><span>位教练视角</span></div><div><b>16</b><span>节可直接体验的动作课</span></div><div><b>873</b><span>条公开视频，继续找想练的技术</span></div><div><b>7</b><span>步带你看完整动作</span></div>
       </section>
 
       <section id="systems" className="pages-section pages-systems">
-        <div className="pages-section-heading"><p className="pages-eyebrow">Coach systems</p><h2>一套教练知识，不是一张“标准姿势”图。</h2><p>不同教练体系解决不同的问题；页面不会把它们混成同一套万能动作。</p></div>
+        <div className="pages-section-heading"><p className="pages-eyebrow">CHOOSE YOUR COACH</p><h2>先选一个教练视角，<br />再练你真正需要的那一拍。</h2><p>有人帮你拆后场发力，有人让你更早到位，也有人带你读懂双打的下一拍。选最打动你的那个开始。</p></div>
         <div className="pages-coach-tabs" role="tablist" aria-label="选择教练体系">
           {coaches.map((item) => <button key={item.id} type="button" role="tab" aria-selected={coach.id === item.id} className={coach.id === item.id ? "active" : ""} onClick={() => selectCoach(item.id)}><span>{item.name}</span><small>{item.role}</small><ChevronRight size={16} /></button>)}
         </div>
       </section>
 
       <section id="experience" className="pages-section pages-case">
-        <div className="pages-case-heading"><div><p className="pages-eyebrow"><Film size={14} /> Interactive course case</p><h2>{coach.name} · {lesson.focus}</h2><p>{lesson.lessonTitle}</p></div><span className={`pages-status ${lesson.lessonStatus}`}>{statusCopy[lesson.lessonStatus]}</span></div>
+        <div className="pages-case-heading"><div><p className="pages-eyebrow"><Film size={14} /> PICK A MOVE · PRESS PLAY</p><h2>{coach.name} · {lesson.focus}</h2><p>{lesson.lessonTitle}</p></div><span className={`pages-status ${lesson.lessonStatus}`}>{statusCopy[lesson.lessonStatus]}</span></div>
         <div className="pages-taxonomy" aria-label={`${coach.name}技术体系分类`}>
-          <div className="pages-taxonomy-heading"><p className="pages-eyebrow">Technique systems</p><p>当前模块：<b>{activeSystem.title}</b>。先选体系模块，再进入其中的公开动作案例。</p></div>
+          <div className="pages-taxonomy-heading"><p className="pages-eyebrow">WHAT DO YOU WANT TO TRAIN?</p><p>你正在看：<b>{activeSystem.title}</b>。点选一个动作，直接进入完整示范。</p></div>
           <div className="pages-taxonomy-grid">
             {coach.systems.map((system) => <section key={system.title} className={system === activeSystem ? "active" : ""}><h3>{system.title}</h3><p>{system.description}</p><div role="tablist" aria-label={`${system.title}动作案例`}>{system.lessonIds.map((lessonId) => {
               const itemIndex = coach.lessons.findIndex((item) => item.id === lessonId);
@@ -753,40 +745,40 @@ export function PagesDemo() {
         </div>
         <div className="pages-route-grid">{lesson.route.map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
         <div className="pages-motion-panel">
-          <div className="pages-motion-copy"><p className="pages-eyebrow"><Layers3 size={14} /> Action package</p><h3>完整教学先保留过程，<br />再用关键帧解释过程。</h3><p>每一个阶段帧都来自同一次连续动作；一旦机位、可见性或连续性不够，系统就保留“证据不足”。</p><div className="pages-motion-labels"><span><Film size={15} /> 连续片段</span><span><Gauge size={15} /> 阶段导航</span></div></div>
+          <div className="pages-motion-copy"><p className="pages-eyebrow"><Layers3 size={14} /> WATCH THE WHOLE MOVE</p><h3>先看一遍完整动作。<br />再慢下来，找到每一步。</h3><p>别急着模仿一张定格。先把这次挥拍从开始看到结束，再回到你最想练的那个阶段。</p><div className="pages-motion-labels"><span><Film size={15} /> 完整动作片段</span><span><Gauge size={15} /> 7 步动作导航</span></div></div>
           {lesson.media ? <div className="pages-motion-media"><video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(lesson.media.keyframes[0])}><source src={publicAsset(lesson.media.clip)} type="video/mp4" /></video><div className="pages-motion-caption"><span><ShieldCheck size={13} /> {lesson.media.reviewStatus}</span><p>{lesson.media.clipDescription}</p></div></div> : <div className="pages-court-visual" aria-hidden="true"><div className="pages-court-lines" /><div className="pages-player"><i /><b /><span /></div><div className="pages-path"><i /><i /><i /><i /><i /><i /><i /></div><div className="pages-flight" /></div>}
         </div>
 
-        <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">Ordered stage navigation</p><h3>选择一个阶段，查看它在连续动作里的教学角色。</h3></div><span>不是孤立的标准姿势</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{lesson.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>{lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" />}<b>{item.time}</b><span>{item.name}</span></button>)}</div><article className={`pages-stage-detail ${stageAsset ? "has-media" : ""}`}>{stageAsset ? <div className="pages-stage-visual"><img src={publicAsset(stageAsset)} alt={`${coach.name}${lesson.focus}：${stage.name}关键帧`} /><b>{stage.time}</b></div> : <div className="pages-stage-number">{stage.time}</div>}<div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>证据边界：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>
+        <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">FIND YOUR FOCUS</p><h3>点一个阶段，找到今天最值得练的细节。</h3></div><span>每一张图，都回到同一次完整动作里</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{lesson.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>{lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" />}<b>{item.time}</b><span>{item.name}</span></button>)}</div><article className={`pages-stage-detail ${stageAsset ? "has-media" : ""}`}>{stageAsset ? <div className="pages-stage-visual"><img src={publicAsset(stageAsset)} alt={`${coach.name}${lesson.focus}：${stage.name}关键帧`} /><b>{stage.time}</b></div> : <div className="pages-stage-number">{stage.time}</div>}<div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>看图时记住：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>
 
         <div className="pages-case-footer"><p><ShieldCheck size={17} /> {lesson.note}</p>{lesson.source ? <a href={lesson.source.href} target="_blank" rel="noreferrer">{lesson.source.label} <ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</div>
       </section>
 
       <section id="catalog" className="pages-section pages-full-catalog">
-        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，先选教练，再进该教练的体系模块。</h2><p>目录层级是“教练 → 该教练的体系模块 → 来源视频”，不是一套混用的通用动作标签。标题不足时保留待细分，公告、生活和产品推广也不会被硬塞进技术模块。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
+        <div className="pages-section-heading"><p className="pages-eyebrow">FIND YOUR NEXT MOVE</p><h2>还想练什么？<br />从教练的体系里继续找。</h2><p>按教练、按方向筛选公开视频。找到想学的那一拍，随时回到原视频继续练。</p></div>
         {!catalog && !catalogError && <div className="pages-catalog-state">正在载入公开视频目录…</div>}
         {catalogError && <div className="pages-catalog-state error">公开目录暂时无法载入；公开案例区不受影响，请稍后刷新重试。</div>}
         {catalog && <div className="pages-catalog-coach-picker" aria-label="第一步：选择教练体系">
-          <div className="pages-catalog-step"><span>01</span><div><b>先选教练体系</b><small>三个体系彼此独立，不共用分类桶。</small></div></div>
+          <div className="pages-catalog-step"><span>01</span><div><b>先选一位教练</b><small>每位教练都有自己擅长的技术路线。</small></div></div>
           <div className="pages-catalog-coach-options" role="tablist" aria-label="公开视频目录教练体系">
             {catalog.coaches.map((item) => <button key={item.coach_id} type="button" role="tab" aria-selected={coach.id === item.coach_id} className={coach.id === item.coach_id ? "active" : ""} onClick={() => selectCoach(item.coach_id)}><b>{item.coach_name}</b><span>{item.video_count} 条来源视频</span><small>{item.category_counts.length} 个体系模块 <ChevronRight size={13} /></small></button>)}
           </div>
         </div>}
         {catalogCoach && <div className="pages-catalog-shell">
-          <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · coach-system index</p><h3>{catalogCoach.video_count} 条来源视频</h3></div><p>分类状态用于目录路由，不等同于“已审核正确示范”或正式教学动作包。</p></div>
-          <div className="pages-catalog-step system"><span>02</span><div><b>{catalogCoach.coach_name}的体系模块</b><small>选择一个模块后，只显示属于这个教练、这个模块的来源视频。</small></div></div>
+          <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · VIDEO LIBRARY</p><h3>{catalogCoach.video_count} 条公开视频</h3></div><p>选一个方向，找到你下一次上场最想用出来的技术。</p></div>
+          <div className="pages-catalog-step system"><span>02</span><div><b>再选你想练的方向</b><small>所有视频都来自 {catalogCoach.coach_name} 的这套体系。</small></div></div>
           <div className="pages-catalog-system-grid" aria-label={`${catalogCoach.coach_name}教练体系模块筛选`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => { setCatalogCategory("all"); setCatalogLimit(48); }}><b>全部体系模块</b><span>{catalogCoach.video_count} 条</span></button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => { setCatalogCategory(item.id); setCatalogLimit(48); }}><b>{item.name}</b><span>{item.video_count} 条</span></button>)}</div>
           <p className="pages-catalog-result-count">当前显示 {visibleCatalogVideos.length} / {catalogFilteredVideos.length} 条</p>
-          <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title} <ExternalLink size={14} /></a></h3><p>{item.source_id} · {formatDuration(item.duration_seconds)} · <span>{catalogStatusCopy[item.classification_status] ?? "分类状态待说明"}</span></p></div><div className="pages-catalog-tags">{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}{item.techniques.map((technique) => <span className="technique" key={`${technique.action}-${technique.label_zh}`}>{technique.label_zh}</span>)}</div></article>)}</div>
+          <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title} <ExternalLink size={14} /></a></h3><p>公开原视频 · {formatDuration(item.duration_seconds)} · <span>打开观看</span></p></div><div className="pages-catalog-tags">{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}{item.techniques.map((technique) => <span className="technique" key={`${technique.action}-${technique.label_zh}`}>{technique.label_zh}</span>)}</div></article>)}</div>
           {visibleCatalogVideos.length < catalogFilteredVideos.length && <button type="button" className="pages-catalog-more" onClick={() => setCatalogLimit((current) => current + 48)}>加载更多（剩余 {catalogFilteredVideos.length - visibleCatalogVideos.length} 条）</button>}
         </div>}
       </section>
 
-      <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">Evidence boundaries</p><h2>知道什么，也明确不知道什么。</h2></div><div className="pages-boundary-grid"><article><b>可以做</b><p>组织公开视频中的连续动作、阶段顺序、可见姿态事实、教学原则、练习和复测指标。</p></article><article><b>不能声称</b><p>精确触球、拍面角度、真实内旋、握拍压力、力量大小、标定三维运动学或对手意图。</p></article><article><b>证据不足时</b><p>不编造诊断；标记缺失阶段，说明需要怎样的机位、画面或重拍条件。</p></article></div></section>
+      <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">LEARN WITH HONESTY</p><h2>看得见的，才讲。<br />看不清的，不硬猜。</h2></div><div className="pages-boundary-grid"><article><b>看动作全程</b><p>准备、挥拍、落地和恢复，放在同一条时间线上看，练得更有方向。</p></article><article><b>不把猜测当结论</b><p>看不清的触球、拍面和力量，不装作看见；你只会得到靠谱的提示。</p></article><article><b>画面不够，就告诉你怎么补</b><p>少了关键角度或过程，会直接说明还差什么，而不是给你编一个答案。</p></article></div></section>
 
-      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">Open source project</p><h2>查看 Skill、证据合同与完整部署方案。</h2><p>完整服务需要私有 runtime、GPU 后端和受令牌保护的媒体接口；GitHub Pages 只包含所有者明确允许且逐条审核的 16 个教练案例。</p></div><a className="pages-primary" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">打开 GitHub <ExternalLink size={16} /></a></section>
+      <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">READY FOR THE NEXT RALLY?</p><h2>从看懂一拍开始，<br />把它打进你的下一回合。</h2><p>挑一个动作，跟着完整示范看一遍，再回到场上试出来。</p></div><a className="pages-primary" href="#experience">开始练动作 <ArrowRight size={16} /></a></section>
 
-      <footer className="pages-footer"><span>BadmintonCoachSkill · 非官方、非授权研究项目</span><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer"><GitBranch size={14} /> GitHub Repository</a></footer>
+      <footer className="pages-footer"><span>BadmintonCoachSkill · 非官方羽毛球学习体验</span><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer"><GitBranch size={14} /> GitHub Repository</a></footer>
     </main>
   );
 }
