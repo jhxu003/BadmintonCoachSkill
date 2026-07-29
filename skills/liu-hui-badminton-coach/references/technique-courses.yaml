@@ -1,0 +1,461 @@
+schema_version: technique-course/v1
+coach_id: liu-hui
+systems:
+  - system_id: liu-overhead-foundation
+    title_zh: 后场头顶基础链
+    title_en: Rear-court overhead foundation
+    description_zh: 先建立到位、高位结构和完整释放，再区分高远球与杀球的速度和落点任务。
+    principles:
+      - 动作从到位和准备开始，不从挥拍末段开始模仿。
+      - 高位窗口、持拍侧结构和随挥恢复必须放在同一次动作里看。
+      - 先获得可重复的动作链，再增加速度、起跳和变化。
+  - system_id: liu-overhead-variation
+    title_zh: 后场头顶变化
+    title_en: Rear-court overhead variation
+    description_zh: 在基础头顶动作可用后，再训练滑板吊球的准备相似性、节奏变化和线路控制。
+    principles:
+      - 变化建立在基础头顶准备可用的前提上。
+      - 用连续过程理解节奏，不把某张拍面定格当作完整技术。
+      - 每一种变化都要连到结果观察和下一拍恢复。
+courses:
+  - course_id: liu-hui-high-clear
+    coach_id: liu-hui
+    system_id: liu-overhead-foundation
+    technique_id: high-clear
+    variant: 后场基础高远球
+    family_id: overhead
+    action: high_clear
+    action_label_zh: 高远球
+    title_zh: 后场高远球：从到位到完整释放
+    title_en: High clear from arrival to full release
+    learning_goal_zh: 把准备、到位、高位结构、近似击球窗口、随挥和恢复连成一次可重复的后场高远球动作。
+    level: [beginner, intermediate]
+    prerequisites:
+      - 无疼痛完成低速头顶挥拍。
+      - 侧后方机位能同时看到头、躯干、持拍侧和双脚。
+    core_principles:
+      - principle_id: arrive-before-speed
+        title_zh: 先到位，再加速
+        cue_zh: 先看身体如何进入球下，再看持拍侧如何上举；来不及到位时不要用更大的手臂动作补偿。
+        evidence_boundary_zh: 本片段能展示一次可见动作顺序，不能证明所有来球下的最佳移动路线。
+      - principle_id: preserve-overhead-frame
+        title_zh: 保留高位结构
+        cue_zh: 把上举、引拍和向前通过看成连续路线，避免准备阶段过早塌缩。
+        evidence_boundary_zh: 二维画面只支持可见结构和先后关系，不提供精确关节角度。
+      - principle_id: finish-and-recover
+        title_zh: 释放之后回到下一拍
+        cue_zh: 球拍通过近似窗口后继续完成随挥，并重新取得可移动的稳定状态。
+        evidence_boundary_zh: 短片不包含完整回合，不能据此确定比赛中的唯一回位选择。
+    common_errors:
+      - rule_id: contact-point-behind
+        summary_zh: 可用高位窗口落在头部后侧。
+        correction_zh: 先调整到位和身体朝向，把训练目标恢复到前上方可用区域。
+      - rule_id: low-elbow
+        summary_zh: 加速前没有建立可见的高位持拍侧结构。
+        correction_zh: 低速练习上举与肘先行的顺序，再逐步增加挥拍速度。
+      - rule_id: collapsed-racket-structure
+        summary_zh: 准备阶段持拍侧过早塌缩。
+        correction_zh: 先用静态和慢速路线恢复稳定框架，再进入连续挥拍。
+      - rule_id: late-hip-rotation
+        summary_zh: 连续画面中躯干贡献晚于手臂启动。
+        correction_zh: 用慢速转体到挥拍练习重排可见先后；看不清躯干时不下结论。
+      - rule_id: short-follow-through
+        summary_zh: 球拍通过动作窗口后过早停止。
+        correction_zh: 先让挥拍自然完成，再检查动作结束时能否稳定恢复。
+    framework_ids:
+      - stable-overhead-frame
+      - high-clear-base-power-frame
+      - contact-window-frame
+    drill_ids:
+      - contact-window-freeze
+      - top-elbow-freeze
+      - complete-follow-through-line
+    retest_metrics:
+      - 10 次低速挥拍中至少 8 次能按准备、上举、通过、随挥、恢复的顺序连续完成。
+      - 侧后方录像中，至少 8 次保持可见高位结构且动作窗口不落到头部后侧。
+      - 目标喂球下至少 7 次完成后能在下一拍口令前恢复到可移动状态。
+    source:
+      source_id: LH_BILI_SEASON_BV1ED4Y1S7VJ
+      title: 刘辉教练教你怎么打高远球 进阶
+      url: https://www.bilibili.com/video/BV1Ed4y1s7vj/
+      action_start_seconds: 120.0
+      action_end_seconds: 126.5
+      context_start_seconds: 90.0
+      context_end_seconds: 150.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 周边课程语境由刘辉本人区分前点击球与高点击球，并进入慢动作正确示范。
+        - 公开窗口由教练独立完成，未被课程标为学员尝试、错误动作或对比反例。
+    media:
+      clip_path: pages-demo/liu-hui-high-clear/action.mp4
+      clip_description_zh: 6.5 秒连续动作片段，保留准备、完整挥拍和恢复。
+      stages:
+        - sequence: 1
+          stage_id: preparation
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 120.0
+          cue_zh: 从观察来球与身体朝向开始，不跳过准备直接模仿挥拍末段。
+          visible_evidence_zh: 示范者全身和球拍可见，身体尚未进入快速向前挥拍。
+          limitation_zh: 静态帧只用于定位准备状态，不能单独代表完整技术。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/liu-hui-high-clear/keyframes/02-start.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 120.75
+          cue_zh: 观察脚下和身体朝向如何把动作带入后场头顶路线。
+          visible_evidence_zh: 双脚、躯干和持拍侧开始出现连续位置变化。
+          limitation_zh: 普通视频不能测量地面受力或真实反应时间。
+        - sequence: 3
+          stage_id: arrival
+          stage_role: positioning
+          label_zh: 到位
+          image_path: pages-demo/liu-hui-high-clear/keyframes/03-arrival.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 121.375
+          cue_zh: 看眼线、身体朝向和支撑如何为高位动作留出空间。
+          visible_evidence_zh: 身体已经进入本次挥拍的支撑位置，持拍侧仍有继续上举空间。
+          limitation_zh: 只描述可见二维位置，不推断精确重心轨迹。
+        - sequence: 4
+          stage_id: top-elbow
+          stage_role: loading
+          label_zh: 高位结构
+          image_path: pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 122.375
+          cue_zh: 把持拍侧上举和引拍放回连续动作中观察，避免只摆一个定格。
+          visible_evidence_zh: 持拍侧处于头顶动作的高位准备区域，后续仍有向前通过空间。
+          limitation_zh: 不能由该帧声称真实内旋或精确关节几何。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 123.125
+          cue_zh: 用前后阶段共同定位球拍通过头顶预期击球区域的时间窗。
+          visible_evidence_zh: 球拍和持拍侧已从高位准备进入快速向前通过阶段。
+          limitation_zh: 不声称精确触球、拍面角度、握拍压力或力量大小。
+        - sequence: 6
+          stage_id: follow-through
+          stage_role: follow_through
+          label_zh: 随挥
+          image_path: pages-demo/liu-hui-high-clear/keyframes/06-follow-through.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 123.625
+          cue_zh: 观察球拍和身体如何连续通过近似窗口，不把窗口当作动作终点。
+          visible_evidence_zh: 持拍侧已经越过动作窗口并继续完成释放路线。
+          limitation_zh: 单帧不能量化减速负荷、拍头速度或力量。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 124.5
+          cue_zh: 确认挥拍结束后重新取得可衔接下一拍的状态。
+          visible_evidence_zh: 动作速度下降，身体和球拍进入稳定回收阶段。
+          limitation_zh: 本段不单独证明完整比赛回位路线。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 七帧用于动作导航，连续片段才是过程证据。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、真实内旋或三维运动学结论。
+
+  - course_id: liu-hui-smash
+    coach_id: liu-hui
+    system_id: liu-overhead-foundation
+    technique_id: smash
+    variant: 下落阶段重杀
+    family_id: overhead
+    action: smash
+    action_label_zh: 杀球
+    title_zh: 重杀：准备、起跳、落地与下一拍
+    title_en: Heavy smash with takeoff, landing and recovery
+    learning_goal_zh: 把来球下的准备、加载、起跳、挥拍、落地和恢复练成一个不会在动作窗口处中断的连续动作包。
+    level: [intermediate, advanced]
+    prerequisites:
+      - 能无痛完成落地与低强度跳跃。
+      - 原地头顶挥拍已能稳定完成随挥和恢复。
+    core_principles:
+      - principle_id: prepare-within-time-budget
+        title_zh: 准备不能吃掉挥拍时间
+        cue_zh: 来球下降时尽早完成任务大小合适的举拍和身体调整，为后续动作留出可用时间。
+        evidence_boundary_zh: 该片段展示一次示范顺序，个体准备是否过慢仍需学员连续录像。
+      - principle_id: connect-load-and-takeoff
+        title_zh: 加载与起跳是一条链
+        cue_zh: 把脚下支撑、身体朝向和持拍侧上举连起来看，不从腾空定格倒推动作。
+        evidence_boundary_zh: 单目画面不能测量起跳力、腾空高度或三维位置。
+      - principle_id: land-ready-for-next-shot
+        title_zh: 杀球在恢复后才结束
+        cue_zh: 随挥、落地和重新可移动属于同一个动作包，不能在球拍过顶处截断。
+        evidence_boundary_zh: 短片不证明实战中的唯一回位路线或下一拍意图。
+    common_errors:
+      - rule_id: slow-racket-preparation-consumes-window
+        summary_zh: 举拍和准备占用了本可用于挥拍的时间。
+        correction_zh: 缩短并提前准备，先练到在来球下降前进入可用状态。
+      - rule_id: jump-contact-window-missed
+        summary_zh: 起跳时序没有与可用高位窗口衔接。
+        correction_zh: 先降低跳跃强度，重测起跳、动作窗口和落地的连续关系。
+      - rule_id: jump-landing-recovery-unstable
+        summary_zh: 落地后不能及时恢复下一拍。
+        correction_zh: 把强度降到可稳定落地和退出的水平，再逐步增加速度。
+      - rule_id: short-follow-through
+        summary_zh: 动作窗口后随挥被提前截断。
+        correction_zh: 先完成自然释放与落地，再评价杀球速度。
+    framework_ids:
+      - simple-smash-sequence-frame
+      - static-lock-racket-frame
+    drill_ids:
+      - time-budget-racket-lift
+      - jump-contact-ladder
+      - jump-landing-recovery
+    retest_metrics:
+      - 10 次低强度重复中至少 8 次在起跳前完成持拍侧准备。
+      - 至少 8 次能从加载连续完成挥拍与落地，不在近似窗口后僵停。
+      - 至少 7 次落地后能在下一拍口令前重新取得稳定移动姿态。
+    source:
+      source_id: LH_BILI_SEASON_BV1P34Y1V7QA
+      title: 遁地炮杀球有多重？刘辉教练教你国际女双常用的重杀这样打 一亿来了
+      url: https://www.bilibili.com/video/BV1p34y1V7qa/
+      action_start_seconds: 121.0
+      action_end_seconds: 124.5
+      context_start_seconds: 91.0
+      context_end_seconds: 151.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 周边语境由刘辉第一人称讲解下落阶段的重杀处理，并由前景紫衣教练亲自示范。
+        - 该动作未被标记为学员尝试或错误对比，连续覆盖起跳、挥拍、落地和恢复。
+    media:
+      clip_path: pages-demo/liu-hui-smash/action.mp4
+      clip_description_zh: 3.5 秒单次重杀，连续覆盖准备、起跳、挥拍、落地和恢复。
+      stages:
+        - sequence: 1
+          stage_id: preparation
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/liu-hui-smash/keyframes/01-preparation.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 121.0
+          cue_zh: 确认来球方向下的站姿、眼线和持拍侧初始位置。
+          visible_evidence_zh: 全身和球拍可见，示范尚未进入腾空挥拍。
+          limitation_zh: 不能仅凭准备帧判断击球选择或力量。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动调整
+          image_path: pages-demo/liu-hui-smash/keyframes/02-start.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 121.625
+          cue_zh: 看脚下怎样把身体带入本次后场击球位置。
+          visible_evidence_zh: 支撑脚和躯干朝向开始改变，持拍侧进入上举路线。
+          limitation_zh: 二维画面不能给出精确移动距离或重心轨迹。
+        - sequence: 3
+          stage_id: loading
+          stage_role: positioning
+          label_zh: 到位与加载
+          image_path: pages-demo/liu-hui-smash/keyframes/03-loading.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 122.0
+          cue_zh: 把下肢加载、身体朝向和球拍上举放在同一条连续链中。
+          visible_evidence_zh: 身体进入起跳前支撑，持拍侧保持在高位动作路线。
+          limitation_zh: 不声称精确关节角度或肌肉发力顺序。
+        - sequence: 4
+          stage_id: takeoff
+          stage_role: loading
+          label_zh: 起跳
+          image_path: pages-demo/liu-hui-smash/keyframes/04-takeoff.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 122.375
+          cue_zh: 观察离地前后整体姿态如何继续进入高位挥拍。
+          visible_evidence_zh: 双脚支撑状态和身体高度发生变化，球拍继续向前上方运动。
+          limitation_zh: 单目视频不能测量起跳力、腾空高度或三维位置。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/liu-hui-smash/keyframes/05-contact-window.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 122.625
+          cue_zh: 用相邻阶段定位球拍通过头顶预期击球区域的可见窗口。
+          visible_evidence_zh: 持拍侧处于快速向前通过阶段，身体仍在腾空动作链中。
+          limitation_zh: 不声称精确触球时刻、拍面角度、球速或力量。
+        - sequence: 6
+          stage_id: landing
+          stage_role: follow_through
+          label_zh: 随挥与落地
+          image_path: pages-demo/liu-hui-smash/keyframes/06-landing.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 122.875
+          cue_zh: 观察挥拍释放怎样连接到落地，而不是在动作窗口后突然结束。
+          visible_evidence_zh: 球拍已越过动作窗口，身体进入下落和重新支撑阶段。
+          limitation_zh: 画面不能量化落地冲击力或安全阈值。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/liu-hui-smash/keyframes/07-recovery.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 123.75
+          cue_zh: 确认落地后重新取得可衔接下一拍的姿态。
+          visible_evidence_zh: 双脚重新支撑，身体和球拍进入稳定回收。
+          limitation_zh: 本片段不证明完整比赛中的最佳回位路线。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 该示范只支持可见动作顺序和连续性教学。
+      - 不从普通视频推断精确触球、拍面角度、力量大小、腾空高度、落地负荷或三维运动学。
+
+  - course_id: liu-hui-slice-drop
+    coach_id: liu-hui
+    system_id: liu-overhead-variation
+    technique_id: slice-drop
+    variant: 头顶区第一种滑板吊球
+    family_id: overhead_variation
+    action: drop
+    action_label_zh: 滑板吊球
+    title_zh: 滑板吊球：准备相似、节奏变化与回收
+    title_en: Slice drop with disguise, rhythm and recovery
+    learning_goal_zh: 在基础头顶准备不提前暴露的前提下，用连续挥拍节奏完成一次滑板吊球并稳定回收。
+    level: [intermediate, advanced]
+    prerequisites:
+      - 基础高远球准备和高位动作路线已经稳定。
+      - 能分别控制直线与斜线目标，不靠大幅手腕补偿。
+    core_principles:
+      - principle_id: keep-base-preparation
+        title_zh: 准备阶段保持头顶动作相似
+        cue_zh: 先保留与基础后场头顶球相近的上举路线，再在后段改变节奏和目标。
+        evidence_boundary_zh: 公开视频能展示可见准备相似性，不能证明对手是否被欺骗。
+      - principle_id: vary-late-not-early
+        title_zh: 变化放在后段
+        cue_zh: 用连续画面理解上举、前挥、动作窗口和释放的衔接，不提前摆出一个特殊定格。
+        evidence_boundary_zh: 运动模糊下不能可靠测量拍头三维路径或切削量。
+      - principle_id: recover-after-result
+        title_zh: 结果之后继续恢复
+        cue_zh: 吊球完成后继续随挥并重新取得可移动状态，不把变化窗口当作动作终点。
+        evidence_boundary_zh: 片段不包含完整回合，不能据此判断战术意图或最佳落点。
+    common_errors:
+      - rule_id: drop-too-slow
+        summary_zh: 球路过慢或过高，无法形成预期压力。
+        correction_zh: 先恢复可信的基础头顶准备和紧凑通过，再增加变化细节。
+      - rule_id: drop-early-reveal
+        summary_zh: 准备阶段过早暴露吊球变化。
+        correction_zh: 让前段动作更接近基础头顶路线，把变化推迟到后段。
+      - rule_id: drop-overcut-face
+        summary_zh: 过度追求切削，导致向前速度和控制下降。
+        correction_zh: 需要高速近侧面证据才讨论拍面细节；证据不足时先练稳定窗口和目标线。
+      - rule_id: contact-point-too-low
+        summary_zh: 到位或动作高度不足，压缩了可用变化空间。
+        correction_zh: 先恢复与目标变体相匹配的到位和高位窗口，再改变线路。
+    framework_ids:
+      - slice-drop-slide-frame
+      - contact-window-frame
+    drill_ids:
+      - drop-disguise-speed-ladder
+      - drop-face-window-check
+      - drop-variant-target-line
+    retest_metrics:
+      - 10 次慢速重复中至少 8 次在加载前保持与基础头顶球相近的可见准备。
+      - 直线和斜线目标各 10 次，至少各 7 次进入目标区域且动作后能稳定恢复。
+      - 高速近侧面画面不足时，不对拍面细节打分，只记录路线、节奏和结果。
+    source:
+      source_id: LH_BILI_SEASON_BV1E4421S76X
+      title: 头顶区滑板吊球教学！小师妹示范动作超帅！
+      url: https://www.bilibili.com/video/BV1e4421S76x/
+      action_start_seconds: 266.25
+      action_end_seconds: 270.5
+      context_start_seconds: 240.0
+      context_end_seconds: 300.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 刘辉先讲通过转身提高滑拍隐蔽性并让动作更像直线球，随后亲自示范第一种方法。
+        - 示范结束后教练确认动作结果，之后才切换到第二种方法；本窗口不含学员动作。
+    media:
+      clip_path: pages-demo/liu-hui-slice-drop/action.mp4
+      clip_description_zh: 4.25 秒第一种滑板吊球示范，保留准备、挥拍、结果确认和恢复。
+      stages:
+        - sequence: 1
+          stage_id: preparation
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/01-preparation.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 266.25
+          cue_zh: 观察动作开始前的站位、身体朝向和球拍初始位置。
+          visible_evidence_zh: 全身与球拍可见，尚未进入快速前挥。
+          limitation_zh: 准备帧不能证明与其他后场球完全一致。
+        - sequence: 2
+          stage_id: racket-ready
+          stage_role: initiation
+          label_zh: 球拍上举
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/02-racket-ready.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 266.75
+          cue_zh: 看持拍侧怎样进入头顶区域，为后续挥拍建立连续路线。
+          visible_evidence_zh: 球拍位置升高，身体开始进入头顶动作方向。
+          limitation_zh: 不从二维画面测量精确肘角或拍面角度。
+        - sequence: 3
+          stage_id: loading
+          stage_role: positioning
+          label_zh: 到位与加载
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/03-loading.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 267.125
+          cue_zh: 观察身体朝向、脚下支撑和持拍侧如何共同进入挥拍前段。
+          visible_evidence_zh: 支撑与持拍侧路线已经形成，仍未越过动作窗口。
+          limitation_zh: 不推断真实内旋、握拍压力或肌肉发力。
+        - sequence: 4
+          stage_id: forward-swing
+          stage_role: loading
+          label_zh: 前挥
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/04-forward-swing.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 267.5
+          cue_zh: 把球拍向前通过的过程与此前准备相连，不只看最终定格。
+          visible_evidence_zh: 持拍侧从高位准备进入向前通过阶段。
+          limitation_zh: 运动模糊下不声称拍头精确三维路径。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/05-contact-window.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 267.75
+          cue_zh: 用前后帧标出球拍经过预期击球区的连续窗口。
+          visible_evidence_zh: 球拍已经越过高位准备并接近本次动作的最快通过区域。
+          limitation_zh: 不声称精确触球、切削角度、拍面角度或落点。
+        - sequence: 6
+          stage_id: follow-through
+          stage_role: follow_through
+          label_zh: 随挥
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/06-follow-through.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 268.125
+          cue_zh: 观察球拍通过窗口后的释放和身体衔接。
+          visible_evidence_zh: 持拍侧继续越过身体前侧，动作没有在窗口处停止。
+          limitation_zh: 不能从单帧判断力量大小、减速负荷或球路旋转。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/liu-hui-slice-drop/keyframes/07-recovery.jpg
+          anchor_status: exact_export_timestamp
+          anchor_seconds: 269.25
+          cue_zh: 确认动作完成后重新取得稳定、可继续移动的状态。
+          visible_evidence_zh: 挥拍速度下降，双脚和球拍进入回收。
+          limitation_zh: 片段不包含完整回合，因此不推断对手意图。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 本课程展示一种已审核滑板吊球方法，不代表所有吊球变化。
+      - 普通单目视频不支持精确触球、切削量、拍面角度、握拍压力、力量大小、旋转或三维运动学结论。

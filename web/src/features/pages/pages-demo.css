@@ -213,6 +213,17 @@
 .pages-study-route article > span { color: var(--cork); font: 800 11px/1 ui-monospace, monospace; }
 .pages-study-route h4 { margin: 0; font-size: 13px; }
 .pages-study-route p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.pages-course-loop { border-top: 1px solid var(--line); background: #e8f0eb; }
+.pages-course-loop > header { display: flex; align-items: end; justify-content: space-between; gap: 18px; padding: 22px 28px 18px; }
+.pages-course-loop .pages-kicker { margin-bottom: 8px; }
+.pages-course-loop h4 { margin: 0; font-family: "Noto Serif CJK SC", "Songti SC", serif; font-size: 22px; letter-spacing: -.045em; }
+.pages-course-loop > header > span { max-width: 220px; color: var(--muted); font: 9px/1.5 ui-monospace, monospace; letter-spacing: .04em; text-align: right; text-transform: uppercase; }
+.pages-course-loop-grid { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 1px; border-top: 1px solid var(--line); background: var(--line); }
+.pages-course-loop-grid article { min-height: 160px; padding: 19px 22px; background: #f8faf7; }
+.pages-course-loop-grid article > b { display: block; margin-bottom: 12px; color: var(--court); font: 800 10px/1.2 ui-monospace, monospace; letter-spacing: .1em; }
+.pages-course-loop-grid p { margin: 0 0 12px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.pages-course-loop-grid p:last-child { margin-bottom: 0; }
+.pages-course-loop-grid strong { display: block; margin-bottom: 3px; color: var(--ink); font-size: 12px; }
 .pages-lesson-footer { display: flex; align-items: start; justify-content: space-between; gap: 25px; padding: 19px 30px; border-top: 1px solid var(--line); }
 .pages-lesson-footer p,.pages-lesson-footer a,.pages-lesson-footer > span { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
 .pages-lesson-footer p { display: flex; gap: 7px; max-width: 570px; }
@@ -253,7 +264,7 @@
 .pages-demo button:focus-visible,.pages-demo a:focus-visible,.pages-demo input:focus-visible { outline: 3px solid var(--cork); outline-offset: 3px; }
 
 @media (max-width: 960px) {
-  .pages-hero { grid-template-columns: 1fr; }.pages-featured-sequence,.pages-sequence-frame img { min-height: 470px; }.pages-lessons-heading { align-items: start; flex-direction: column; }.pages-system-list section { grid-template-columns: 1fr; }.pages-lesson-media-grid { grid-template-columns: 1fr; }.pages-lesson-video { min-height: 420px; }.pages-coach-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }.pages-coach-grid button { min-height: 300px; }.pages-coach-content b { font-size: 27px; }.pages-study-route { grid-template-columns: 1fr; }.pages-study-route article { padding: 17px 22px; }.pages-catalog-tools { align-items: start; flex-direction: column; }.pages-search { width: 100%; }
+  .pages-hero { grid-template-columns: 1fr; }.pages-featured-sequence,.pages-sequence-frame img { min-height: 470px; }.pages-lessons-heading { align-items: start; flex-direction: column; }.pages-system-list section { grid-template-columns: 1fr; }.pages-lesson-media-grid { grid-template-columns: 1fr; }.pages-lesson-video { min-height: 420px; }.pages-coach-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }.pages-coach-grid button { min-height: 300px; }.pages-coach-content b { font-size: 27px; }.pages-study-route { grid-template-columns: 1fr; }.pages-study-route article { padding: 17px 22px; }.pages-course-loop-grid { grid-template-columns: 1fr; }.pages-catalog-tools { align-items: start; flex-direction: column; }.pages-search { width: 100%; }
 }
 
 @media (max-width: 680px) {
@@ -262,7 +273,7 @@
   .pages-section { margin-top: 72px; }.pages-section-heading h2 { font-size: 42px; }.pages-coach-grid { grid-template-columns: 1fr; }.pages-coach-grid button { min-height: 260px; }.pages-coach-content { right: 18px; bottom: 18px; left: 18px; }.pages-coach-content em { max-width: 320px; }
   .pages-system-list { margin-top: 23px; }.pages-system-list section { gap: 17px; padding: 17px; }.pages-lesson-chips button { min-width: calc(50% - 4px); flex: 1; }.pages-lesson-title { padding: 22px 18px; }.pages-lesson-title h3 { font-size: 30px; }.pages-lesson-title > span { display: none; }.pages-lesson-video { min-height: 385px; grid-template-rows: 360px auto; }.pages-stage-panel { padding: 20px 16px; }.pages-stage-heading { align-items: start; flex-direction: column; }.pages-stage-heading > p { max-width: none; text-align: left; }
   .pages-stage-rail { display: flex; gap: 7px; padding-bottom: 5px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }.pages-stage-rail button { min-width: 82px; scroll-snap-align: start; }.pages-stage-rail img { aspect-ratio: 9 / 12; }.pages-stage-detail { grid-template-columns: 96px 1fr; min-height: 0; gap: 13px; padding: 10px; }.pages-stage-detail > img { height: 128px; }.pages-stage-detail h4 { font-size: 17px; }.pages-stage-detail div > p:not(.pages-kicker) { font-size: 12px; }.pages-stage-detail small { font-size: 9px; }
-  .pages-lesson-footer { align-items: start; flex-direction: column; padding: 17px 19px; }.pages-lesson-footer a { font-size: 10px; }.pages-catalog-shell { margin-top: 23px; padding: 18px 15px; }.pages-catalog-coaches { grid-template-columns: 1fr; }.pages-catalog-results article { grid-template-columns: 1fr; gap: 9px; }.pages-catalog-results article > div:last-child { justify-content: start; max-width: none; }.pages-pagination { gap: 9px; }.pages-pagination span { font-size: 10px; }.pages-pagination button { min-height: 44px; padding-inline: 9px; }.pages-footer { align-items: start; flex-direction: column; }
+  .pages-course-loop > header { align-items: start; flex-direction: column; padding: 19px; }.pages-course-loop h4 { font-size: 19px; }.pages-course-loop > header > span { max-width: none; text-align: left; }.pages-course-loop-grid article { min-height: 0; padding: 17px 19px; }.pages-lesson-footer { align-items: start; flex-direction: column; padding: 17px 19px; }.pages-lesson-footer a { font-size: 10px; }.pages-catalog-shell { margin-top: 23px; padding: 18px 15px; }.pages-catalog-coaches { grid-template-columns: 1fr; }.pages-catalog-results article { grid-template-columns: 1fr; gap: 9px; }.pages-catalog-results article > div:last-child { justify-content: start; max-width: none; }.pages-pagination { gap: 9px; }.pages-pagination span { font-size: 10px; }.pages-pagination button { min-height: 44px; padding-inline: 9px; }.pages-footer { align-items: start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

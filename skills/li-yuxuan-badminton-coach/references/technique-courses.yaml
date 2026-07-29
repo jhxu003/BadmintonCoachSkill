@@ -1,0 +1,451 @@
+schema_version: technique-course/v1
+coach_id: li-yuxuan
+systems:
+  - system_id: lyx-overhead-time-distance
+    title_zh: 后场时间与挥拍距离
+    title_en: Rear-court time and swing distance
+    description_zh: 先检查启动、到位、高位窗口和可用挥拍距离，再讨论力量与速度。
+    principles:
+      - 来不及到位时，手臂问题常常只是时间不足的结果。
+      - 高远球先恢复可用动作距离，再增加力量。
+      - 连续动作必须保留随挥和恢复，不能只看中间一帧。
+  - system_id: lyx-fast-exchange
+    title_zh: 中前场快速交换
+    title_en: Mid/front-court fast exchange
+    description_zh: 用任务大小合适的准备、紧凑出拍和及时回收，维持连续平抽挡节奏。
+    principles:
+      - 快速交换先保持球拍和身体可响应。
+      - 准备路线越大，越容易错过可用拦截窗口。
+      - 每次出拍后都要回到下一拍可用位置。
+  - system_id: lyx-frontcourt-response
+    title_zh: 网前第一响应与回收
+    title_en: Front-court first response and recovery
+    description_zh: 从来球提示开始组织第一步、跨步到位、可见处理区域和退出路线。
+    principles:
+      - 先启动身体，再用手去够球。
+      - 到位、下沉和处理是连续过程，不把最低点当作终点。
+      - 网前动作必须包含退出与下一拍准备。
+courses:
+  - course_id: li-yuxuan-high-clear
+    coach_id: li-yuxuan
+    system_id: lyx-overhead-time-distance
+    technique_id: high-clear
+    variant: 正确方法中的单次高远球
+    family_id: overhead
+    action: high_clear
+    action_label_zh: 高远球
+    title_zh: 高远球：先创造时间和挥拍距离
+    title_en: High clear with time and usable swing distance
+    learning_goal_zh: 从稳定准备进入上举、转入挥拍、通过和恢复，建立不靠持续紧张补偿的高远球路线。
+    level: [beginner, intermediate, advanced]
+    prerequisites:
+      - 能无痛完成慢速头顶挥拍。
+      - 录像能连续看到双脚、躯干、持拍侧和头顶动作区域。
+    core_principles:
+      - principle_id: create-time-before-force
+        title_zh: 先创造时间，再谈力量
+        cue_zh: 先检查启动和到位是否给挥拍留下空间；到位迟时不要直接增加手臂用力。
+        evidence_boundary_zh: 教练片段只提供正确动作参考，学员是否迟到需要自己的连续录像。
+      - principle_id: keep-usable-swing-distance
+        title_zh: 保留可用挥拍距离
+        cue_zh: 从上举到向前通过保持连续空间，避免动作在身体后侧被压缩。
+        evidence_boundary_zh: 二维画面只能支持可见路线，不能测量精确三维距离或关节角度。
+      - principle_id: release-without-early-tension
+        title_zh: 通过之后自然释放
+        cue_zh: 把挥拍和随挥连接起来，动作后重新取得可移动状态，而不是在中间突然僵住。
+        evidence_boundary_zh: 普通视频不能测量握拍压力、肌肉张力或力量分配。
+    common_errors:
+      - rule_id: lyx-short-swing-distance
+        summary_zh: 到位或身体位置压缩了可用挥拍路线。
+        correction_zh: 先恢复启动、到位和高位窗口，再增加挥拍速度。
+      - rule_id: lyx-late-trunk-turn
+        summary_zh: 连续画面中手臂先启动，躯干转入过晚。
+        correction_zh: 用慢速转入到释放练习重排可见顺序；机位不完整时不下结论。
+      - rule_id: lyx-contact-behind
+        summary_zh: 可用动作窗口落在头部后侧。
+        correction_zh: 先检查启动与到位，再把训练目标恢复到高位前方区域。
+    framework_ids:
+      - lyx-contact-distance-clear
+    drill_ids:
+      - lyx-high-contact-shadow
+      - lyx-relaxed-clear-distance
+      - lyx-turn-release-chain
+    retest_metrics:
+      - 10 次低速影子挥拍中至少 8 次保持可见的准备、上举、通过和恢复顺序。
+      - 目标喂球下至少 8 次保留可用挥拍距离，不在头部后侧被压缩。
+      - 5 轮距离阶梯中，每轮至少 4 球达到目标且没有可见的过早僵紧。
+    source:
+      source_id: LYX_BILI_BV1Z64Y1F7YS
+      title: 高远球打不到位？转身挥拍老发不上力？来看看你是不是跟他们一样有同样的问题。
+      url: https://www.bilibili.com/video/BV1Z64y1F7Ys
+      action_start_seconds: 154.875
+      action_end_seconds: 157.25
+      context_start_seconds: 130.0
+      context_end_seconds: 180.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 周边课程先结束问题动作说明，再明确进入正确方法的连续重复示范。
+        - 公开窗口只保留李宇轩本人第一条完整高远球动作，并在下一次重复开始前结束。
+    media:
+      clip_path: pages-demo/li-yuxuan-high-clear/action.mp4
+      clip_description_zh: 2.375 秒正确高远球重复，从准备连续覆盖挥拍、随挥和恢复。
+      stages:
+        - sequence: 1
+          stage_id: preparation
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/01-preparation.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察身体与持拍侧如何进入本次正确示范的稳定起点。
+          visible_evidence_zh: 全身和球拍可见，动作尚未进入快速向前阶段。
+          limitation_zh: 原始抽帧绝对时间未随公开资产保存；本帧按同一片段内顺序导航。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/02-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看脚下和身体朝向怎样开始组织头顶动作。
+          visible_evidence_zh: 身体和持拍侧相对准备帧开始发生连续变化。
+          limitation_zh: 不从二维画面测量精确启动时间或重心轨迹。
+        - sequence: 3
+          stage_id: loading
+          stage_role: positioning
+          label_zh: 到位与加载
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/03-loading.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察持拍侧上举和身体转入挥拍前段的连续关系。
+          visible_evidence_zh: 持拍侧进入高位准备区域，仍有向前通过空间。
+          limitation_zh: 不声称精确关节角度、握拍压力或真实内旋。
+        - sequence: 4
+          stage_id: acceleration
+          stage_role: loading
+          label_zh: 向前通过
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/04-acceleration.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 把向上向前的挥拍过程连接到此前准备，而非模仿孤立定格。
+          visible_evidence_zh: 球拍从高位准备进入向前通过阶段。
+          limitation_zh: 运动模糊下不估算拍头速度、力量或三维路径。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/05-contact-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 用前后阶段定位球拍经过预期高位击球区域的可见窗口。
+          visible_evidence_zh: 球拍处于本次动作的快速通过区域。
+          limitation_zh: 不声称精确触球、拍面角度、球速或落点。
+        - sequence: 6
+          stage_id: follow-through
+          stage_role: follow_through
+          label_zh: 随挥
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/06-follow-through.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察球拍与身体如何连续通过近似窗口并完成释放。
+          visible_evidence_zh: 持拍侧已越过动作窗口并继续移动。
+          limitation_zh: 不能从单帧量化减速负荷或发力比例。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/li-yuxuan-high-clear/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认挥拍后重新取得可继续移动的稳定状态。
+          visible_evidence_zh: 动作速度下降，身体和球拍进入回收阶段。
+          limitation_zh: 该短片不代表所有来球下的唯一回位路线。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 七帧均来自同一次正确方法重复，但其绝对抽帧时间未随公开包保存。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、真实内旋或三维运动学结论。
+
+  - course_id: li-yuxuan-drive
+    coach_id: li-yuxuan
+    system_id: lyx-fast-exchange
+    technique_id: drive
+    variant: 紧凑平抽挡
+    family_id: midcourt_fast_exchange
+    action: drive
+    action_label_zh: 平抽挡
+    title_zh: 平抽挡：短准备、早通过、快回收
+    title_en: Compact drive with early contact and fast recovery
+    learning_goal_zh: 用可快速响应的准备、紧凑出拍和及时回收完成一次不混入下一拍的平抽挡动作。
+    level: [beginner, intermediate, advanced]
+    prerequisites:
+      - 能在中速对抽中保持球拍始终可见。
+      - 身前与持拍侧无遮挡，能连续看到准备到回收。
+    core_principles:
+      - principle_id: stay-response-ready
+        title_zh: 先保持可响应准备
+        cue_zh: 球拍和身体先处于下一拍可用位置，不从大幅后摆开始快速交换。
+        evidence_boundary_zh: 该片段展示一次教练出拍，学员的准备是否过低仍需自己的连续画面。
+      - principle_id: compact-path-first
+        title_zh: 出拍路线匹配时间预算
+        cue_zh: 来球越快，准备和向前通过越要紧凑；先保证及时，再追求速度。
+        evidence_boundary_zh: 不把这一条示范固化为所有来球下的唯一引拍长度。
+      - principle_id: recover-racket-after-hit
+        title_zh: 出拍后立刻再次可用
+        cue_zh: 释放后让球拍和身体回到可响应下一拍的位置，而不是停在伸展末端。
+        evidence_boundary_zh: 短片不包含完整对抗，不能据此推断最佳双打站位。
+    common_errors:
+      - rule_id: lyx-low-ready-racket
+        summary_zh: 球拍起点低于快速响应所需位置。
+        correction_zh: 根据下一拍任务抬到可用高度，不追求过度固定的高举姿势。
+      - rule_id: lyx-large-drive-preparation
+        summary_zh: 平抽挡准备路线大，消耗了可用时间。
+        correction_zh: 缩短准备位移，先保留清楚目标和回收位置。
+      - rule_id: lyx-late-contact
+        summary_zh: 球拍通过身前来球区域时已经错过可用拦截窗口。
+        correction_zh: 按准备位置、第一响应、通过时序的顺序重新训练。
+    framework_ids:
+      - lyx-drive-compact-first
+    drill_ids:
+      - lyx-drive-compact-exchange
+      - lyx-receive-first-attack
+    retest_metrics:
+      - 4 轮 20 秒中，每轮至少 16 次保持球拍回到下一拍可用位置。
+      - 连续录像中至少 8/10 次没有出现大幅后摆或动作后停在伸展末端。
+      - 提高喂球速度前，目标走廊命中率达到 70% 且准备仍保持紧凑。
+    source:
+      source_id: LYX_BILI_BV1BH411T7TR
+      title: 打单打/双打/混双 抽球没力量，球总减速怎么办？抽球是换拍慢怎么办！【李宇轩教练】
+      url: https://www.bilibili.com/video/BV1Bh411T7TR
+      action_start_seconds: 721.34
+      action_end_seconds: 722.94
+      context_start_seconds: 700.0
+      context_end_seconds: 744.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 周边课程持续讲解左右来球下的平抽挡路线，并由李宇轩本人进入动作示范。
+        - 窗口从稳定准备覆盖同一次紧凑出拍、释放与回收，没有混入下一次击球。
+    media:
+      clip_path: pages-demo/li-yuxuan-drive/action.mp4
+      clip_description_zh: 1.6 秒单次紧凑平抽挡，窗口在下一次击球前结束。
+      stages:
+        - sequence: 1
+          stage_id: ready
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/li-yuxuan-drive/keyframes/01-ready.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察球拍、躯干和支撑是否处于可快速响应的状态。
+          visible_evidence_zh: 示范者上半身、支撑和球拍均可见，尚未向前通过。
+          limitation_zh: 准备帧不能证明来球速度、方向或预判。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/li-yuxuan-drive/keyframes/02-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看持拍侧怎样从准备进入本次短出拍。
+          visible_evidence_zh: 球拍和身体相对准备位置开始变化。
+          limitation_zh: 不量化真实反应时间或肌肉激活顺序。
+        - sequence: 3
+          stage_id: stable-position
+          stage_role: positioning
+          label_zh: 稳定击球位
+          image_path: pages-demo/li-yuxuan-drive/keyframes/03-stable-position.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察快速交换中的可见支撑和身体朝向。
+          visible_evidence_zh: 身体保持在一次短出拍可用的支撑位置。
+          limitation_zh: 这不是跨场到位距离或精确重心的测量。
+        - sequence: 4
+          stage_id: short-backswing
+          stage_role: loading
+          label_zh: 短引拍
+          image_path: pages-demo/li-yuxuan-drive/keyframes/04-short-backswing.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看引拍怎样保持紧凑并连接后续向前动作。
+          visible_evidence_zh: 球拍准备位移受控，没有出现大幅后摆。
+          limitation_zh: 不把该示范定义成所有来球下的固定引拍长度。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/li-yuxuan-drive/keyframes/05-contact-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 定位球拍通过身前来球区域的连续窗口。
+          visible_evidence_zh: 球拍已从短准备进入向前通过阶段。
+          limitation_zh: 不声称精确触球、拍面角度、球速或力量。
+        - sequence: 6
+          stage_id: release
+          stage_role: follow_through
+          label_zh: 释放
+          image_path: pages-demo/li-yuxuan-drive/keyframes/06-release.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察出拍后怎样自然通过，而不是停在伸展末端。
+          visible_evidence_zh: 持拍侧越过动作窗口并开始缩短动作幅度。
+          limitation_zh: 普通视频不能量化制动负荷或真实发力比例。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/li-yuxuan-drive/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认球拍和身体已经回到可衔接下一拍的状态。
+          visible_evidence_zh: 动作完成后球拍重新进入较紧凑的可用位置。
+          limitation_zh: 不据此推断完整对抗中的最佳站位。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 该短片只覆盖一次平抽挡，不包含来球全程和下一次交换。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小或三维运动学结论。
+
+  - course_id: li-yuxuan-net-lunge
+    coach_id: li-yuxuan
+    system_id: lyx-frontcourt-response
+    technique_id: net-lunge
+    variant: 网前上网跨步与回收
+    family_id: footwork
+    action: front_footwork
+    action_label_zh: 网前跨步
+    title_zh: 网前跨步：第一步、到位与退出
+    title_en: Net lunge from first response to exit
+    learning_goal_zh: 从准备中心按提示启动，完成前场到位、跨步处理附近和稳定回收，不用伸手够球替代脚下移动。
+    level: [beginner, intermediate, advanced]
+    prerequisites:
+      - 膝踝无痛，能完成低强度前跨步和退出。
+      - 录像能看到准备中心、双脚、球拍和网前路线。
+    core_principles:
+      - principle_id: move-before-reaching
+        title_zh: 先移动身体，再处理来球
+        cue_zh: 从来球提示开始组织第一步，让身体接近网前可处理区域，而不是先伸手够球。
+        evidence_boundary_zh: 教练片段提供路线参考，学员第一步是否晚仍需包含提示源的连续画面。
+      - principle_id: connect-arrival-and-lunge
+        title_zh: 到位、下沉和处理连续发生
+        cue_zh: 跨步不是一个孤立最低点；观察支撑、身体下降和持拍准备如何衔接。
+        evidence_boundary_zh: 二维画面不能提供精确步幅、重心高度或关节负荷。
+      - principle_id: leave-the-frontcourt
+        title_zh: 处理之后顺畅退出
+        cue_zh: 从最低点离开并重新站稳，确保动作结束时仍能覆盖下一拍。
+        evidence_boundary_zh: 一次短片不代表所有来球与站位下的唯一回收路线。
+    common_errors:
+      - rule_id: lyx-late-first-step
+        summary_zh: 第一响应开始过晚，网前可用时间已经缩短。
+        correction_zh: 用喂球者释放或对方动作作为提示，先练第一步按提示发生。
+      - rule_id: lyx-unstable-base
+        summary_zh: 准备中心不能支持稳定的第一响应。
+        correction_zh: 先找到可向多方向启动并能回收的支撑，再增加速度。
+      - rule_id: lyx-delayed-first-step
+        summary_zh: 提示出现后有可见停顿，第一步延后。
+        correction_zh: 把提示到第一步单独练习，稳定后再加入跨步和球拍处理。
+    framework_ids:
+      - lyx-frontcourt-first-response
+    drill_ids:
+      - lyx-split-start-call
+      - lyx-receive-first-attack
+    retest_metrics:
+      - 随机前后方向提示中至少 8/10 次第一步在提示后立即发生。
+      - 10 次前跨步中至少 8 次能在最低点后连续退出，不靠额外停顿重新站起。
+      - 只有在无膝踝疼痛且恢复稳定时，才增加喂球速度或方向随机性。
+    source:
+      source_id: LYX_BILI_BV1MIBBZ5E9U
+      title: 挑球怎么轻松挑得又高又到位？隐蔽性挑球和假动作挑球，把防守转为进攻！【李宇轩教练】
+      url: https://www.bilibili.com/video/BV1MibBz5E9U
+      action_start_seconds: 477.06
+      action_end_seconds: 480.1
+      context_start_seconds: 455.0
+      context_end_seconds: 502.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 周边课程明确切换到李宇轩本人完成一次示范，画面未混入学员尝试或错误模仿。
+        - 窗口连续覆盖准备、上网跨步、近似处理区域和回收，仅作为网前移动路线教学。
+    media:
+      clip_path: pages-demo/li-yuxuan-net-lunge/action.mp4
+      clip_description_zh: 3.04 秒网前上网跨步，连续覆盖准备、到位、处理附近和回收。
+      stages:
+        - sequence: 1
+          stage_id: ready-center
+          stage_role: preparation
+          label_zh: 准备中心
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/01-ready-center.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 从稳定中心观察双脚、躯干和持拍侧的可启动状态。
+          visible_evidence_zh: 全身和网前移动方向可见，双脚尚未进入跨步。
+          limitation_zh: 不把画面坐标当作标定后的场地坐标。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/02-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察第一步怎样把身体送向网前。
+          visible_evidence_zh: 双脚和身体朝向相对准备中心开始改变。
+          limitation_zh: 不能从单目画面测量精确步幅、反应时间或地面受力。
+        - sequence: 3
+          stage_id: front-arrival
+          stage_role: positioning
+          label_zh: 前场到位
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/03-front-arrival.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看身体怎样接近可下沉、可处理来球的位置。
+          visible_evidence_zh: 身体已经离开准备中心并接近前场处理区域。
+          limitation_zh: 不声称存在适用于所有来球的固定到位距离。
+        - sequence: 4
+          stage_id: lunge-loading
+          stage_role: loading
+          label_zh: 跨步加载
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/04-lunge-loading.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察跨步、下沉和持拍准备怎样连续发生。
+          visible_evidence_zh: 前脚支撑增大，身体高度下降，持拍侧保持可处理位置。
+          limitation_zh: 不推断精确关节角度、重心高度或伤病风险。
+        - sequence: 5
+          stage_id: processing-window
+          stage_role: action_window
+          label_zh: 近似处理窗口
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/05-processing-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 标出球拍经过网前可见处理区域的时间窗。
+          visible_evidence_zh: 身体处于跨步最低附近，球拍进入身前处理区域。
+          limitation_zh: 不声称精确触球、拍面角度或具体挑球落点。
+        - sequence: 6
+          stage_id: release
+          stage_role: follow_through
+          label_zh: 离开最低点
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/06-release.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察处理后的身体和球拍怎样离开最低点。
+          visible_evidence_zh: 身体开始从前跨步最低状态回升，球拍离开处理区域。
+          limitation_zh: 不能由单帧判断力量、旋转或触球质量。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 回收
+          image_path: pages-demo/li-yuxuan-net-lunge/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认动作后重新站稳并准备衔接下一拍。
+          visible_evidence_zh: 身体已经退出最低点，双脚和球拍回到较稳定状态。
+          limitation_zh: 短片只覆盖一次网前路线，不代表完整回合回位。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 该课程只将公开片段用作网前移动和回收路线，不用它证明完整挑球手法。
+      - 普通单目视频不支持精确触球、拍面角度、力量大小、地面受力、关节负荷或三维运动学结论。

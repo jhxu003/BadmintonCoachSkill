@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import techniqueCourseData from "../../data/technique-courses.public.json";
 import "./pages-demo.css";
 
 type CoachId = "liu-hui" | "li-yuxuan" | "zheng-siwei";
@@ -88,6 +89,54 @@ interface PublicCatalog {
   total_video_count: number;
   coaches: PublicCatalogCoach[];
 }
+
+interface TechniqueCourseStage {
+  sequence: number;
+  stage_id: string;
+  stage_role: string;
+  label_zh: string;
+  image_path: string;
+  anchor_status: "exact_export_timestamp" | "not_preserved";
+  anchor_seconds: number | null;
+  cue_zh: string;
+  visible_evidence_zh: string;
+  limitation_zh: string;
+}
+
+interface TechniqueCourse {
+  course_id: string;
+  coach_id: CoachId;
+  title_zh: string;
+  title_en: string;
+  action_label_zh: string;
+  learning_goal_zh: string;
+  prerequisites: string[];
+  core_principles: Array<{ principle_id: string; title_zh: string; cue_zh: string; evidence_boundary_zh: string }>;
+  common_errors: Array<{ rule_id: string; summary_zh: string; correction_zh: string }>;
+  framework_ids: string[];
+  retest_metrics: string[];
+  source: { title: string; url: string; action_start_seconds: number; action_end_seconds: number };
+  media: { clip_path: string; clip_description_zh: string; stages: TechniqueCourseStage[] };
+  resolved_drills: Array<{
+    drill_id: string;
+    name: string;
+    purpose?: string;
+    dosage?: string;
+    steps?: string[];
+    progression?: string;
+  }>;
+}
+
+interface TechniqueCourseCatalog {
+  schema_version: "public-technique-course/v1";
+  course_count: number;
+  coaches: Array<{ coach_id: CoachId; courses: TechniqueCourse[] }>;
+}
+
+const techniqueCourseCatalog = techniqueCourseData as TechniqueCourseCatalog;
+const techniqueCourseById = new Map(
+  techniqueCourseCatalog.coaches.flatMap((item) => item.courses).map((course) => [course.course_id, course]),
+);
 
 function publicAsset(path: string): string {
   return `${import.meta.env.BASE_URL}${path}`;
@@ -894,9 +943,36 @@ export function PagesDemo() {
 
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
+  const course = techniqueCourseById.get(`${coach.id}-${lesson.id}`);
   const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
-  const stage = lesson.stages[stageIndex] ?? lesson.stages[0];
-  const stageAsset = lesson.media?.keyframes[stageIndex];
+  const activeMedia = course
+    ? {
+        clip: course.media.clip_path,
+        keyframes: course.media.stages.map((item) => item.image_path),
+        clipDescription: course.media.clip_description_zh,
+        reviewStatus: "教练示范 · 知识与媒体已绑定",
+      }
+    : lesson.media;
+  const activeStages = course
+    ? course.media.stages.map((item) => ({
+        name: item.label_zh,
+        time: String(item.sequence).padStart(2, "0"),
+        focus: item.cue_zh,
+        boundary: item.limitation_zh,
+      }))
+    : lesson.stages;
+  const stage = activeStages[stageIndex] ?? activeStages[0];
+  const courseStage = course?.media.stages[stageIndex];
+  const stageAsset = activeMedia?.keyframes[stageIndex];
+  const activeRoute = course
+    ? course.core_principles.map((item) => ({ title: item.title_zh, copy: item.cue_zh }))
+    : lesson.route;
+  const activeSource = course
+    ? { label: `查看原视频：${course.source.title}（Bilibili）`, href: course.source.url }
+    : lesson.source;
+  const activeLessonTitle = course?.title_zh ?? lesson.focus;
+  const activeLessonEnglish = course?.title_en ?? `${englishAction(lesson.actionLabel)} · ${statusEnglish[lesson.lessonStatus]}`;
+  const activeNote = course?.learning_goal_zh ?? lesson.note;
   const catalogCoach = catalog?.coaches.find((item) => item.coach_id === coach.id);
   const catalogFilteredVideos = useMemo(() => {
     if (!catalogCoach) return [];
@@ -1035,32 +1111,40 @@ export function PagesDemo() {
 
           <article className="pages-lesson-viewer" aria-labelledby="lesson-title">
             <header className="pages-lesson-title">
-              <div><p className="pages-kicker"><Film size={14} /> CURRENT LESSON</p><h3 id="lesson-title">{lesson.focus}</h3><p>{englishAction(lesson.actionLabel)} · {statusEnglish[lesson.lessonStatus]}</p></div>
+              <div><p className="pages-kicker"><Film size={14} /> CURRENT LESSON</p><h3 id="lesson-title">{activeLessonTitle}</h3><p>{activeLessonEnglish}</p></div>
               <span>{statusCopy[lesson.lessonStatus]}</span>
             </header>
             <div className="pages-lesson-media-grid">
               <figure className="pages-lesson-video">
-                {lesson.media && <video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(lesson.media.keyframes[0])} aria-describedby="lesson-video-caption"><source src={publicAsset(lesson.media.clip)} type="video/mp4" />当前浏览器不支持视频播放。</video>}
-                <figcaption id="lesson-video-caption"><span><ShieldCheck size={14} /> {lesson.media?.reviewStatus}</span><p>{lesson.media?.clipDescription}</p></figcaption>
+                {activeMedia && <video key={lesson.id} controls playsInline preload="metadata" poster={publicAsset(activeMedia.keyframes[0])} aria-describedby="lesson-video-caption"><source src={publicAsset(activeMedia.clip)} type="video/mp4" />当前浏览器不支持视频播放。</video>}
+                <figcaption id="lesson-video-caption"><span><ShieldCheck size={14} /> {activeMedia?.reviewStatus}</span><p>{activeMedia?.clipDescription}</p></figcaption>
               </figure>
               <div className="pages-stage-panel">
                 <div className="pages-stage-heading"><div><p className="pages-kicker">ACTION STRIP</p><h4>七阶段动作带</h4><span>Seven action stages</span></div><p>关键帧用于定位；请结合连续片段观看。</p></div>
                 <div className="pages-stage-rail" role="tablist" aria-label={`${lesson.focus}动作阶段`}>
-                  {lesson.stages.map((item, index) => <button key={`${item.time}-${item.name}`} id={`stage-tab-${index}`} type="button" role="tab" aria-selected={stageIndex === index} aria-controls="lesson-stage-detail" className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>
-                    {lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" loading={index > 1 ? "lazy" : "eager"} />}
+                  {activeStages.map((item, index) => <button key={`${item.time}-${item.name}`} id={`stage-tab-${index}`} type="button" role="tab" aria-selected={stageIndex === index} aria-controls="lesson-stage-detail" className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>
+                    {activeMedia && <img src={publicAsset(activeMedia.keyframes[index])} alt="" loading={index > 1 ? "lazy" : "eager"} />}
                     <span className="pages-stage-time">{item.time}</span><span className="pages-stage-name">{item.name}<small>{englishStage(item.name)}</small></span>
                   </button>)}
                 </div>
                 <article id="lesson-stage-detail" className="pages-stage-detail" role="tabpanel" aria-labelledby={`stage-tab-${stageIndex}`} aria-live="polite">
                   {stageAsset && <img src={publicAsset(stageAsset)} alt={`${coach.name} ${lesson.actionLabel} · ${stage.name}`} />}
-                  <div><p className="pages-kicker">{stage.time} / {englishStage(stage.name)}</p><h4>{stage.name}</h4><p>{stage.focus}</p><small><b>观看边界：</b>{stage.boundary}</small></div>
+                  <div><p className="pages-kicker">{stage.time} / {englishStage(stage.name)}</p><h4>{stage.name}</h4><p>{stage.focus}</p>{courseStage && <small><b>画面可见：</b>{courseStage.visible_evidence_zh}</small>}<small><b>观看边界：</b>{stage.boundary}</small></div>
                 </article>
               </div>
             </div>
             <div className="pages-study-route" aria-label="观看路线">
-              {lesson.route.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{item.title}</h4><p>{item.copy}</p></div></article>)}
+              {activeRoute.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{item.title}</h4><p>{item.copy}</p></div></article>)}
             </div>
-            <footer className="pages-lesson-footer"><p><ShieldCheck size={16} /> {lesson.note}</p>{lesson.source ? <a href={lesson.source.href} target="_blank" rel="noreferrer">{lesson.source.label}<ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</footer>
+            {course && <section className="pages-course-loop" aria-label={`${course.action_label_zh}训练闭环`}>
+              <header><p className="pages-kicker">COACHING LOOP</p><h4>把示范变成能练、能复测的一课。</h4><span>System → common miss → drill → retest</span></header>
+              <div className="pages-course-loop-grid">
+                <article><b>常见卡点</b>{course.common_errors.slice(0, 2).map((item) => <p key={item.rule_id}><strong>{item.summary_zh}</strong>{item.correction_zh}</p>)}</article>
+                <article><b>怎么练</b>{course.resolved_drills.slice(0, 2).map((item) => <p key={item.drill_id}><strong>{item.name}</strong>{item.purpose ?? item.dosage ?? "按课程要求完成练习。"}</p>)}</article>
+                <article><b>怎么复测</b>{course.retest_metrics.slice(0, 2).map((item) => <p key={item}>{item}</p>)}</article>
+              </div>
+            </section>}
+            <footer className="pages-lesson-footer"><p><ShieldCheck size={16} /> {activeNote}</p>{activeSource ? <a href={activeSource.href} target="_blank" rel="noreferrer">{activeSource.label}<ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</footer>
           </article>
         </section>
 

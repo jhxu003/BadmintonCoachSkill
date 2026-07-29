@@ -1,0 +1,360 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CoachTechniqueCourseCatalog",
+  "type": "object",
+  "required": ["schema_version", "coach_id", "systems", "courses"],
+  "properties": {
+    "schema_version": { "const": "technique-course/v1" },
+    "coach_id": { "enum": ["liu-hui", "li-yuxuan", "zheng-siwei"] },
+    "systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/system" }
+    },
+    "courses": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/course" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "idList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    "system": {
+      "type": "object",
+      "required": [
+        "system_id",
+        "title_zh",
+        "title_en",
+        "description_zh",
+        "principles"
+      ],
+      "properties": {
+        "system_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "title_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "title_en": { "$ref": "#/$defs/nonEmptyString" },
+        "description_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "principles": { "$ref": "#/$defs/stringList" }
+      },
+      "additionalProperties": false
+    },
+    "principle": {
+      "type": "object",
+      "required": [
+        "principle_id",
+        "title_zh",
+        "cue_zh",
+        "evidence_boundary_zh"
+      ],
+      "properties": {
+        "principle_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "title_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "cue_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence_boundary_zh": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "commonError": {
+      "type": "object",
+      "required": ["rule_id", "summary_zh", "correction_zh"],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "summary_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "correction_zh": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "title",
+        "url",
+        "action_start_seconds",
+        "action_end_seconds",
+        "context_start_seconds",
+        "context_end_seconds",
+        "demonstrator_role",
+        "example_polarity",
+        "context_review_status",
+        "review_basis"
+      ],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/nonEmptyString" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "url": {
+          "type": "string",
+          "pattern": "^https://www\\.bilibili\\.com/video/BV"
+        },
+        "action_start_seconds": { "type": "number", "minimum": 0 },
+        "action_end_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "context_start_seconds": { "type": "number", "minimum": 0 },
+        "context_end_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "demonstrator_role": { "const": "coach" },
+        "example_polarity": { "const": "correct" },
+        "context_review_status": { "const": "agent_reviewed" },
+        "review_basis": { "$ref": "#/$defs/stringList" }
+      },
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "stage_id",
+        "stage_role",
+        "label_zh",
+        "image_path",
+        "anchor_status",
+        "anchor_seconds",
+        "cue_zh",
+        "visible_evidence_zh",
+        "limitation_zh"
+      ],
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 1, "maximum": 7 },
+        "stage_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "stage_role": {
+          "enum": [
+            "preparation",
+            "initiation",
+            "positioning",
+            "loading",
+            "action_window",
+            "follow_through",
+            "recovery"
+          ]
+        },
+        "label_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "image_path": {
+          "type": "string",
+          "pattern": "^pages-demo/[a-z0-9-]+/keyframes/[a-z0-9-]+\\.jpg$"
+        },
+        "anchor_status": {
+          "enum": ["exact_export_timestamp", "not_preserved"]
+        },
+        "anchor_seconds": { "type": ["number", "null"], "minimum": 0 },
+        "cue_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "visible_evidence_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "limitation_zh": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "anchor_status": { "const": "exact_export_timestamp" }
+            },
+            "required": ["anchor_status"]
+          },
+          "then": { "properties": { "anchor_seconds": { "type": "number" } } },
+          "else": { "properties": { "anchor_seconds": { "type": "null" } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "media": {
+      "type": "object",
+      "required": ["clip_path", "clip_description_zh", "stages"],
+      "properties": {
+        "clip_path": {
+          "type": "string",
+          "pattern": "^pages-demo/[a-z0-9-]+/action\\.mp4$"
+        },
+        "clip_description_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "stages": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "prefixItems": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 1 },
+                    "stage_role": { "const": "preparation" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 2 },
+                    "stage_role": { "const": "initiation" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 3 },
+                    "stage_role": { "const": "positioning" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 4 },
+                    "stage_role": { "const": "loading" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 5 },
+                    "stage_role": { "const": "action_window" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 6 },
+                    "stage_role": { "const": "follow_through" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/stage" },
+                {
+                  "properties": {
+                    "sequence": { "const": 7 },
+                    "stage_role": { "const": "recovery" }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "course": {
+      "type": "object",
+      "required": [
+        "course_id",
+        "coach_id",
+        "system_id",
+        "technique_id",
+        "variant",
+        "family_id",
+        "action",
+        "action_label_zh",
+        "title_zh",
+        "title_en",
+        "learning_goal_zh",
+        "level",
+        "prerequisites",
+        "core_principles",
+        "common_errors",
+        "framework_ids",
+        "drill_ids",
+        "retest_metrics",
+        "source",
+        "media",
+        "status",
+        "evidence_level",
+        "limitations"
+      ],
+      "properties": {
+        "course_id": {
+          "type": "string",
+          "pattern": "^(liu-hui|li-yuxuan|zheng-siwei)-[a-z0-9-]+$"
+        },
+        "coach_id": { "enum": ["liu-hui", "li-yuxuan", "zheng-siwei"] },
+        "system_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "technique_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "variant": { "$ref": "#/$defs/nonEmptyString" },
+        "family_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "action": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_]*$"
+        },
+        "action_label_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "title_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "title_en": { "$ref": "#/$defs/nonEmptyString" },
+        "learning_goal_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "level": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["beginner", "intermediate", "advanced", "competitive"] }
+        },
+        "prerequisites": { "$ref": "#/$defs/stringList" },
+        "core_principles": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/principle" }
+        },
+        "common_errors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/commonError" }
+        },
+        "framework_ids": { "$ref": "#/$defs/idList" },
+        "drill_ids": { "$ref": "#/$defs/idList" },
+        "retest_metrics": { "$ref": "#/$defs/stringList" },
+        "source": { "$ref": "#/$defs/source" },
+        "media": { "$ref": "#/$defs/media" },
+        "status": { "const": "teaching_ready" },
+        "evidence_level": { "const": "agent_reviewed_public_clip" },
+        "limitations": { "$ref": "#/$defs/stringList" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

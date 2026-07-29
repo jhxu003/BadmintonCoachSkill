@@ -1,0 +1,441 @@
+schema_version: technique-course/v1
+coach_id: zheng-siwei
+systems:
+  - system_id: zsw-opening-exchange-system
+    title_zh: 接发与下一次交换
+    title_en: Receive and next exchange
+    description_zh: 不把接发当作孤立一拍；每条接发路线都要同时说明下一球由谁覆盖、两人如何保持可用。
+    principles:
+      - 接发选择要和第二次交换的覆盖路线一起设计。
+      - 分工按下一拍线路确定，不按性别或固定前后身份硬编码。
+      - 接发后两人都要保持平衡和球拍可用。
+  - system_id: zsw-frontcourt-pressure-system
+    title_zh: 前场压力连续性
+    title_en: Front-court pressure continuity
+    description_zh: 网前处理不是终点；前场球员要继续覆盖可能的挡网和松球，后场搭档保留互补线路。
+    principles:
+      - 前场动作要连接下一次拦截准备。
+      - 球拍路线和脚下支撑都服务于下一球可用性。
+      - 单人示范只证明可见动作，不自动证明双打角色和战术意图。
+  - system_id: zsw-rear-attack-system
+    title_zh: 后场突击与退出
+    title_en: Rear attack and exit route
+    description_zh: 后场进攻要同时保留落地、退出、搭档接入和下一拍继续进攻的能力。
+    principles:
+      - 后移、加载、突击、落地和退出是一个动作包。
+      - 进攻质量要连同下一球可用性一起复测。
+      - 强度只有在稳定落地和角色恢复后才增加。
+courses:
+  - course_id: zheng-siwei-receive-cut-waist
+    coach_id: zheng-siwei
+    system_id: zsw-opening-exchange-system
+    technique_id: receive-cut-waist
+    variant: 发球偏高时的侧向接发处理
+    family_id: serve_receive
+    action: serve_receive
+    action_label_zh: 接发切腰
+    title_zh: 接发切腰：读球、进入路线、准备下一拍
+    title_en: Receive cut to body with a playable next exchange
+    learning_goal_zh: 在发球偏高的课程条件下，从可响应准备进入侧前方处理路线，并在动作后保持下一次交换可用。
+    level: [beginner, intermediate, competitive]
+    prerequisites:
+      - 能稳定完成基础接发站位与左右第一步。
+      - 训练前明确本次发球条件和接发后的下一球覆盖人。
+    core_principles:
+      - principle_id: read-condition-before-route
+        title_zh: 先确认发球条件，再选路线
+        cue_zh: 只有在课程设定的偏高发球条件下使用这条示范路线，不把它扩写成所有接发的固定答案。
+        evidence_boundary_zh: 条件来自周边课程语境；单个动作画面不能证明发球者意图。
+      - principle_id: move-body-into-receive-line
+        title_zh: 身体进入线路，球拍才有空间
+        cue_zh: 从准备向侧前方移动，让身体和球拍共同进入可处理区域，而不是原地伸手追球。
+        evidence_boundary_zh: 二维画面只支持可见路线，不提供精确场地距离或重心轨迹。
+      - principle_id: name-the-next-exchange
+        title_zh: 接发前就约定下一次交换
+        cue_zh: 接发路线要和搭档下一球覆盖同时训练；动作后两人都回到可用状态。
+        evidence_boundary_zh: 公开片段是单人示范，搭档分工属于课程知识，必须在双人训练中复测。
+    common_errors:
+      - rule_id: zsw-passive-receive-route
+        summary_zh: 接发后两人立即陷入被动，或没有人准备下一次交换。
+        correction_zh: 每条接发路线都同时命名第二次交换的覆盖人和目标线路。
+      - rule_id: zsw-opening-role-unclear
+        summary_zh: 两名搭档对下一球归属不清楚。
+        correction_zh: 用一个与线路绑定的短口令，在移动前完成分工。
+    framework_ids:
+      - zsw-receive-opening-exchange
+    drill_ids:
+      - zsw-receive-two-exchange
+      - zsw-role-call-random-feed
+    retest_metrics:
+      - 10 次接发中至少 7 次让一名已命名搭档在下一次交换前保持平衡和球拍可用。
+      - 随机发球方向训练中至少 9/10 次在移动前出现清楚的下一球线路口令。
+      - 只有在基础路线稳定后，才增加发球变化或对抗速度。
+    source:
+      source_id: ZSW_BILI_BV11O4ZEPEPT
+      title: 欢迎进入羽球思维第一期🏸接发球教学
+      url: https://www.bilibili.com/video/BV11o4ZePEPt
+      action_start_seconds: 45.75
+      action_end_seconds: 47.75
+      context_start_seconds: 20.0
+      context_end_seconds: 70.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 官方课程在该段讲解对方发球偏高时的接发处理，并切换到郑思维本人正面示范。
+        - 窗口只包含一次从准备到侧向处理和回收的连续动作，未跨入后续重复。
+    media:
+      clip_path: pages-demo/zheng-siwei-receive-cut-waist/action.mp4
+      clip_description_zh: 2 秒单次接发切腰示范，连续覆盖准备、侧向处理和回收。
+      stages:
+        - sequence: 1
+          stage_id: ready
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/01-ready.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认接发前的站姿、眼线和球拍可用位置。
+          visible_evidence_zh: 全身、球拍和正面移动方向可见，动作尚未启动。
+          limitation_zh: 单帧不能证明发球意图、来球速度或反应时间。
+        - sequence: 2
+          stage_id: read
+          stage_role: initiation
+          label_zh: 读球
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/02-read.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 保持可向两侧响应，再根据课程条件进入本次路线。
+          visible_evidence_zh: 身体仍保持双向可动，球拍处于身前可用区域。
+          limitation_zh: 课程语境提供条件，画面本身不能证明对手意图。
+        - sequence: 3
+          stage_id: start
+          stage_role: positioning
+          label_zh: 启动
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/03-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看脚下与身体怎样开始进入侧前方路线。
+          visible_evidence_zh: 双脚和躯干朝向相对准备状态开始改变。
+          limitation_zh: 二维视频不能给出精确移动距离或重心轨迹。
+        - sequence: 4
+          stage_id: lunge
+          stage_role: loading
+          label_zh: 侧前跨步
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/04-lunge.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察身体怎样接近身侧处理区域并保持可回收支撑。
+          visible_evidence_zh: 支撑扩大，身体和球拍共同进入侧前方区域。
+          limitation_zh: 不把该脚序固化为所有来球下的唯一答案。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/05-contact-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 定位球拍经过球体附近的可见时间窗，并与前后动作相连。
+          visible_evidence_zh: 球拍进入身侧来球区域，身体保持跨步支撑。
+          limitation_zh: 不声称精确触球、拍面、切削角、球速或落点。
+        - sequence: 6
+          stage_id: release
+          stage_role: follow_through
+          label_zh: 释放
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/06-release.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察处理后球拍和身体怎样继续通过并开始回收。
+          visible_evidence_zh: 球拍已经越过动作窗口，身体不再继续向外伸展。
+          limitation_zh: 不能从普通画面判断真实力量、旋转或落点精度。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/zheng-siwei-receive-cut-waist/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认动作后回到可继续覆盖下一拍的位置。
+          visible_evidence_zh: 身体离开最大跨步，球拍和双脚进入回收状态。
+          limitation_zh: 单人片段不证明完整双打第三拍归属。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 本课程将单人正确示范与双人开局框架绑定，但不会从画面硬推搭档角色。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、对手意图或三维运动学结论。
+
+  - course_id: zheng-siwei-net-drop
+    coach_id: zheng-siwei
+    system_id: zsw-frontcourt-pressure-system
+    technique_id: net-drop
+    variant: 贴网吊球单次抛球示范
+    family_id: overhead_variation
+    action: drop
+    action_label_zh: 贴网吊球
+    title_zh: 贴网吊球：一次连续动作与前场压力衔接
+    title_en: Tight net drop linked to front-court pressure
+    learning_goal_zh: 用同一次抛球示范理解准备、挥拍、近似处理窗口和回收，并把动作结果接到双打前场下一球准备。
+    level: [beginner, intermediate, competitive]
+    prerequisites:
+      - 能稳定完成无痛的低速头顶挥拍。
+      - 双打训练中已经明确前后场互补线路。
+    core_principles:
+      - principle_id: isolate-one-repetition
+        title_zh: 一次重复就是一个完整证据包
+        cue_zh: 从本次抛球后的准备开始，到下一次抛球前结束，不借用另一拍补齐阶段。
+        evidence_boundary_zh: 片段只证明这一次可见动作连续性，不自动代表比赛中的来球条件。
+      - principle_id: connect-route-to-recovery
+        title_zh: 动作窗口后继续回收
+        cue_zh: 把加载、向前通过、释放和回收连起来看，不把近似处理窗口当成终点。
+        evidence_boundary_zh: 普通视频不能测量球拍速度、力量、旋转或落点精度。
+      - principle_id: front-player-stays-connected
+        title_zh: 网前处理后继续参与下一球
+        cue_zh: 在双人练习中，前场球员完成处理后继续保持球拍可用，并覆盖松球或挡网线路。
+        evidence_boundary_zh: 公开媒体是单人手法示范；前场压力原则来自教练体系知识，需双人训练复测。
+    common_errors:
+      - rule_id: zsw-front-player-disconnected
+        summary_zh: 前场球员完成或观看搭档进攻后停止参与下一球。
+        correction_zh: 把球拍准备和站位与搭档进攻线路绑定，持续覆盖可能的松球。
+      - rule_id: zsw-slow-reset
+        summary_zh: 处理后没有在下一次对方动作前恢复角色可用状态。
+        correction_zh: 每次动作结束都口令确认下一角色，再进入下一次喂球。
+    framework_ids:
+      - zsw-frontcourt-pressure
+    drill_ids:
+      - zsw-front-back-three-ball
+      - zsw-hit-call-reset
+    retest_metrics:
+      - 单人抛球练习中至少 8/10 次完成准备、通过、随挥和回收的连续顺序。
+      - 双人三球模式中，前场球员至少 8/10 次在对方下一次动作前保持球拍可用。
+      - 每次练习结束前两人都能说出下一球互补线路，不出现同时停看。
+    source:
+      source_id: ZSW_BILI_BV1BPN8EMEL5
+      title: 羽球思维第四十期🏸更简单学会贴网的吊球
+      url: https://www.bilibili.com/video/BV1bpN8eMEL5
+      action_start_seconds: 180.25
+      action_end_seconds: 182.75
+      context_start_seconds: 155.0
+      context_end_seconds: 205.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 官方贴网吊球课程已经完成手法说明，随后由郑思维本人连续进行正确练习示范。
+        - 公开窗口隔离其中一次完整抛球、挥拍与回收，在下一次抛球动作开始前结束。
+    media:
+      clip_path: pages-demo/zheng-siwei-net-drop/action.mp4
+      clip_description_zh: 2.5 秒单次抛球示范，完整保留准备、挥拍和回收。
+      stages:
+        - sequence: 1
+          stage_id: ready
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/01-ready.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察球拍和身体怎样等待本次抛起的羽球。
+          visible_evidence_zh: 示范者全身、球拍和抛球区域可见，尚未进入向前挥拍。
+          limitation_zh: 准备帧不能证明最终落点、切削选择或战术目的。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/02-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看持拍侧怎样从准备进入头顶处理路线。
+          visible_evidence_zh: 球拍和身体相对准备状态开始连续变化。
+          limitation_zh: 不从二维视频推断肌肉发力顺序或真实内旋。
+        - sequence: 3
+          stage_id: loading
+          stage_role: positioning
+          label_zh: 到位与加载
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/03-loading.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察上举和可见支撑怎样连接后续挥拍。
+          visible_evidence_zh: 持拍侧进入高位准备，身体保持本次原地抛球示范的支撑。
+          limitation_zh: 不声称精确肘角、拍面角或关节旋转。
+        - sequence: 4
+          stage_id: acceleration
+          stage_role: loading
+          label_zh: 向前通过
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/04-acceleration.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 把球拍向前通过的过程放回完整动作中理解。
+          visible_evidence_zh: 球拍从高位准备进入更快的向前阶段。
+          limitation_zh: 运动模糊下不估算拍头速度、力量或三维路径。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/05-contact-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 用相邻阶段标记球拍与羽球接近的可见时间窗。
+          visible_evidence_zh: 球拍和羽球在画面中接近，动作保持连续。
+          limitation_zh: 不声称精确触球、切削角、旋转、拍面角度或落点。
+        - sequence: 6
+          stage_id: follow-through
+          stage_role: follow_through
+          label_zh: 随挥
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/06-follow-through.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察球拍通过窗口后的释放路线。
+          visible_evidence_zh: 球拍已越过动作窗口并继续完成动作。
+          limitation_zh: 单帧不能判断触球质量、力量或减速负荷。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/zheng-siwei-net-drop/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认动作在下一次抛球前回到稳定状态。
+          visible_evidence_zh: 挥拍速度下降，身体和球拍进入回收。
+          limitation_zh: 原地手法示范不代表完整后场步法或双打轮转。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 单人示范与双打前场压力原则是“媒体证据 + 体系知识”的绑定，不把后者伪装成画面直接结论。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、旋转、落点或三维运动学结论。
+
+  - course_id: zheng-siwei-rear-attack-footwork
+    coach_id: zheng-siwei
+    system_id: zsw-rear-attack-system
+    technique_id: rear-attack-footwork
+    variant: 正手区后场突击步法
+    family_id: footwork
+    action: rear_footwork
+    action_label_zh: 后场突击步法
+    title_zh: 后场突击：移动、落地和退出都算动作
+    title_en: Rear attack with landing and exit continuity
+    learning_goal_zh: 从中间准备进入正手后场，完成加载、突击、落地和恢复，并让进攻者与搭档仍能覆盖下一球。
+    level: [intermediate, competitive]
+    prerequisites:
+      - 膝踝无痛，能完成低强度后移和落地。
+      - 双人训练中已明确前场压迫与后场补位的互补线路。
+    core_principles:
+      - principle_id: connect-movement-and-attack
+        title_zh: 后移与突击是一条链
+        cue_zh: 从中间准备开始看第一步、后场支撑和持拍侧进入，不从腾空动作单独学习。
+        evidence_boundary_zh: 一次喂球示范不能代表所有来球下的唯一脚序。
+      - principle_id: attack-with-an-exit
+        title_zh: 进攻必须带退出路线
+        cue_zh: 突击后稳定落地并向已命名的下一球区域退出，避免强攻后自己失去可用性。
+        evidence_boundary_zh: 单目画面不能测量腾空高度、落地负荷或真实力量。
+      - principle_id: preserve-partner-access
+        title_zh: 退出路线要给搭档留空间
+        cue_zh: 后场进攻者覆盖一条后续线路，搭档保持互补压力，不让两人同时挤进同一路线。
+        evidence_boundary_zh: 公开片段是单人喂球示范，搭档接入必须在四人或双人情境中复测。
+    common_errors:
+      - rule_id: zsw-rear-attack-no-continuation
+        summary_zh: 后场进攻后，进攻者无法覆盖合理的下一次后场或中场球。
+        correction_zh: 根据预期回球命名落地后的第二球路线，再逐步增加进攻速度。
+      - rule_id: zsw-slow-reset
+        summary_zh: 落地和恢复没有在下一次对方动作前重建可用角色。
+        correction_zh: 每次突击后口令确认下一角色，稳定后再加入连续多球。
+    framework_ids:
+      - zsw-rear-attack-continuity
+    drill_ids:
+      - zsw-rear-attack-exit
+      - zsw-hit-call-reset
+    retest_metrics:
+      - 10 次两球模式中至少 7 次能在突击后到达已命名的第二个后场或中场喂球点。
+      - 至少 8/10 次落地后在下一次喂球前恢复平衡和球拍可用。
+      - 双人训练中至少 8/10 次没有与搭档同时占用同一条后续线路。
+    source:
+      source_id: ZSW_BILI_BV1ILCNYVEHW
+      title: 羽球思维第三十二期🏸正手区后场突击步伐
+      url: https://www.bilibili.com/video/BV1iLCnYvEhw
+      action_start_seconds: 162.5
+      action_end_seconds: 165.25
+      context_start_seconds: 140.0
+      context_end_seconds: 190.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 官方正手区后场突击步伐课程进入实战演示段，由郑思维本人完成连续喂球练习。
+        - 公开窗口只截取第一条完整启动、后场移动、突击、落地与恢复，不混入第二次喂球。
+    media:
+      clip_path: pages-demo/zheng-siwei-rear-attack-footwork/action.mp4
+      clip_description_zh: 2.75 秒第一条实战喂球，覆盖后移突击、落地和恢复。
+      stages:
+        - sequence: 1
+          stage_id: ready
+          stage_role: preparation
+          label_zh: 准备
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/01-ready.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认面对来球的初始站姿和可移动方向。
+          visible_evidence_zh: 全身、双脚、球拍和后场移动方向均可见。
+          limitation_zh: 不把画面坐标当作精确场地测量。
+        - sequence: 2
+          stage_id: start
+          stage_role: initiation
+          label_zh: 启动
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/02-start.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察脚下怎样开始进入正手后场路线。
+          visible_evidence_zh: 双脚和身体朝向相对准备状态开始改变。
+          limitation_zh: 不能测量真实反应时间、步幅或地面反作用力。
+        - sequence: 3
+          stage_id: loading
+          stage_role: positioning
+          label_zh: 后场到位
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/03-loading.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 看后移后的支撑、身体朝向和持拍侧怎样共同进入突击准备。
+          visible_evidence_zh: 示范者已离开中间准备区，身体和球拍进入后场动作位置。
+          limitation_zh: 不声称唯一正确脚序或精确关节角度。
+        - sequence: 4
+          stage_id: acceleration
+          stage_role: loading
+          label_zh: 加载与腾空
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/04-acceleration.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察身体与球拍如何从后场支撑继续进入突击动作。
+          visible_evidence_zh: 身体高度和支撑状态发生变化，持拍侧向高位通过。
+          limitation_zh: 单目视频不能测量腾空高度、力量或三维位置。
+        - sequence: 5
+          stage_id: contact-window
+          stage_role: action_window
+          label_zh: 近似击球窗口
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/05-contact-window.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 定位球拍经过头顶预期击球区域的可见窗口。
+          visible_evidence_zh: 球拍处于本次突击的快速通过区域，身体仍在动作链中。
+          limitation_zh: 不声称精确触球、拍面、球速、力量或落点。
+        - sequence: 6
+          stage_id: landing
+          stage_role: follow_through
+          label_zh: 随挥与落地
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/06-landing.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 观察腾空挥拍怎样连接到可继续移动的落地。
+          visible_evidence_zh: 球拍已越过动作窗口，双脚重新接近支撑地面。
+          limitation_zh: 不能量化落地冲击、伤病风险或恢复成本。
+        - sequence: 7
+          stage_id: recovery
+          stage_role: recovery
+          label_zh: 恢复
+          image_path: pages-demo/zheng-siwei-rear-attack-footwork/keyframes/07-recovery.jpg
+          anchor_status: not_preserved
+          anchor_seconds: null
+          cue_zh: 确认第一条喂球后重新建立可移动和可持拍的状态。
+          visible_evidence_zh: 落地已经完成，身体和球拍进入下一拍准备。
+          limitation_zh: 短片不证明完整比赛中的最佳回位或搭档分工。
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations:
+      - 单人示范只支持可见移动与恢复路线，双打搭档接入需要单独情境证据。
+      - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、腾空高度、对手意图或三维运动学结论。
