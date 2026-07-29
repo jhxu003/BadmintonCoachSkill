@@ -763,12 +763,19 @@ export function PagesDemo() {
       </section>
 
       <section id="catalog" className="pages-section pages-full-catalog">
-        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，按教练体系浏览。</h2><p>每条视频只进入一个由公开标题直接支持的主体系；标题不足时保留待细分，公告、生活和产品推广也不会被硬塞进技术模块。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
+        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，先选教练，再进该教练的体系模块。</h2><p>目录层级是“教练 → 该教练的体系模块 → 来源视频”，不是一套混用的通用动作标签。标题不足时保留待细分，公告、生活和产品推广也不会被硬塞进技术模块。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
         {!catalog && !catalogError && <div className="pages-catalog-state">正在载入公开视频目录…</div>}
         {catalogError && <div className="pages-catalog-state error">公开目录暂时无法载入；公开案例区不受影响，请稍后刷新重试。</div>}
+        {catalog && <div className="pages-catalog-coach-picker" aria-label="第一步：选择教练体系">
+          <div className="pages-catalog-step"><span>01</span><div><b>先选教练体系</b><small>三个体系彼此独立，不共用分类桶。</small></div></div>
+          <div className="pages-catalog-coach-options" role="tablist" aria-label="公开视频目录教练体系">
+            {catalog.coaches.map((item) => <button key={item.coach_id} type="button" role="tab" aria-selected={coach.id === item.coach_id} className={coach.id === item.coach_id ? "active" : ""} onClick={() => selectCoach(item.coach_id)}><b>{item.coach_name}</b><span>{item.video_count} 条来源视频</span><small>{item.category_counts.length} 个体系模块 <ChevronRight size={13} /></small></button>)}
+          </div>
+        </div>}
         {catalogCoach && <div className="pages-catalog-shell">
           <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · coach-system index</p><h3>{catalogCoach.video_count} 条来源视频</h3></div><p>分类状态用于目录路由，不等同于“已审核正确示范”或正式教学动作包。</p></div>
-          <div className="pages-catalog-filters" aria-label={`${catalogCoach.coach_name}技术类型筛选`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => { setCatalogCategory("all"); setCatalogLimit(48); }}>全部 · {catalogCoach.video_count}</button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => { setCatalogCategory(item.id); setCatalogLimit(48); }}>{item.name} · {item.video_count}</button>)}</div>
+          <div className="pages-catalog-step system"><span>02</span><div><b>{catalogCoach.coach_name}的体系模块</b><small>选择一个模块后，只显示属于这个教练、这个模块的来源视频。</small></div></div>
+          <div className="pages-catalog-system-grid" aria-label={`${catalogCoach.coach_name}教练体系模块筛选`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => { setCatalogCategory("all"); setCatalogLimit(48); }}><b>全部体系模块</b><span>{catalogCoach.video_count} 条</span></button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => { setCatalogCategory(item.id); setCatalogLimit(48); }}><b>{item.name}</b><span>{item.video_count} 条</span></button>)}</div>
           <p className="pages-catalog-result-count">当前显示 {visibleCatalogVideos.length} / {catalogFilteredVideos.length} 条</p>
           <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title} <ExternalLink size={14} /></a></h3><p>{item.source_id} · {formatDuration(item.duration_seconds)} · <span>{catalogStatusCopy[item.classification_status] ?? "分类状态待说明"}</span></p></div><div className="pages-catalog-tags">{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}{item.techniques.map((technique) => <span className="technique" key={`${technique.action}-${technique.label_zh}`}>{technique.label_zh}</span>)}</div></article>)}</div>
           {visibleCatalogVideos.length < catalogFilteredVideos.length && <button type="button" className="pages-catalog-more" onClick={() => setCatalogLimit((current) => current + 48)}>加载更多（剩余 {catalogFilteredVideos.length - visibleCatalogVideos.length} 条）</button>}
