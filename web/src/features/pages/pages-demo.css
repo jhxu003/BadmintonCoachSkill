@@ -212,7 +212,7 @@
 .pages-study-journey li { display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 19px 21px 22px; border-right: 1px solid #d8e6dc28; }.pages-study-journey li:last-child { border-right: 0; }
 .pages-study-journey li > span { color: #b9dec5; font: 800 11px/1 ui-monospace, monospace; }.pages-study-journey b { display: block; color: var(--white); font-size: 13px; }.pages-study-journey p { margin: 7px 0 0; color: #c5d4c9; font-size: 11px; line-height: 1.65; }
 
-.pages-lesson-viewer { margin-top: 20px; border-top: 5px solid var(--ink); background: var(--white); box-shadow: 0 20px 54px #16211d12; }
+.pages-lesson-viewer { margin-top: 20px; scroll-margin-top: 98px; border-top: 5px solid var(--ink); background: var(--white); box-shadow: 0 20px 54px #16211d12; }
 .pages-lesson-title { display: flex; align-items: start; justify-content: space-between; gap: 20px; padding: 30px 32px; border-bottom: 1px solid var(--line); }
 .pages-lesson-title .pages-kicker { margin-bottom: 9px; }
 .pages-lesson-title h3 { font-size: clamp(29px, 3.6vw, 46px); line-height: 1.15; }

@@ -1036,6 +1036,20 @@ export function PagesDemo() {
     setStageIndex(0);
   }
 
+  function openCourse(courseId: string): void {
+    const nextLessonIndex = coach.lessons.findIndex(
+      (lessonItem) => `${coach.id}-${lessonItem.id}` === courseId,
+    );
+    if (nextLessonIndex < 0) return;
+    selectLesson(nextLessonIndex);
+    window.requestAnimationFrame(() => {
+      document.getElementById("lesson-viewer")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  }
+
   function updateCatalogCategory(nextCategory: string): void {
     setCatalogCategory(nextCategory);
     setCatalogPage(0);
@@ -1135,13 +1149,13 @@ export function PagesDemo() {
 
           <section id="roadmap" className="pages-curriculum-map" aria-labelledby="curriculum-heading">
             <header>
-              <div><p className="pages-kicker">COACHING ROADMAP</p><h3 id="curriculum-heading">先从能看的完整动作开始。</h3></div>
+              <div><p className="pages-kicker">COACHING ROADMAP</p><h3 id="curriculum-heading">先从完整示范开始。</h3></div>
               <div className="pages-curriculum-controls" role="group" aria-label="课程路线范围">
-                <button type="button" className={curriculumScope === "ready" ? "active" : ""} aria-pressed={curriculumScope === "ready"} onClick={() => setCurriculumScope("ready")}>审核动作课 <span>{readyTechniqueCount}</span></button>
+                <button type="button" className={curriculumScope === "ready" ? "active" : ""} aria-pressed={curriculumScope === "ready"} onClick={() => setCurriculumScope("ready")}>可观看示范 <span>{readyTechniqueCount}</span></button>
                 <button type="button" className={curriculumScope === "all" ? "active" : ""} aria-pressed={curriculumScope === "all"} onClick={() => setCurriculumScope("all")}>完整训练路线 <span>{curriculumTechniques.length}</span></button>
               </div>
             </header>
-            <p className="pages-curriculum-intro">有影片标记的节点可看完整教练示范；其余节点提供对应体系、练习与复测，不借用无关画面。</p>
+            <p className="pages-curriculum-intro">带完整示范的技术可直接观看；其余节点提供对应体系、练习与复测，不借用无关画面。</p>
             <div className="pages-curriculum-grid">
               {visibleCurriculumTechniques.map((item) => {
                 const prerequisiteTitles = item.prerequisite_technique_ids.map((id) => curriculumTechniqueById.get(id)?.title_zh ?? id);
@@ -1156,8 +1170,8 @@ export function PagesDemo() {
                     {nextTitles.length > 0 && <span><small>下一步</small>{nextTitles.join(" · ")}</span>}
                   </div>
                   {lessonForCourse >= 0
-                    ? <button type="button" onClick={() => selectLesson(lessonForCourse)}>看审核动作课 <ArrowRight size={14} /></button>
-                    : <em>原则、练习与复测已就绪；尚无可展示的审核连续媒体。</em>}
+                    ? <button type="button" onClick={() => { if (courseId) openCourse(courseId); }}>打开完整示范 <ArrowRight size={14} /></button>
+                    : <em>原则、练习与复测已就绪；尚无可展示的连续示范。</em>}
                 </article>;
               })}
             </div>
@@ -1172,10 +1186,10 @@ export function PagesDemo() {
             </ol>
           </section>
 
-          <article className="pages-lesson-viewer" aria-labelledby="lesson-title">
+          <article id="lesson-viewer" className="pages-lesson-viewer" aria-labelledby="lesson-title">
             <header className="pages-lesson-title">
               <div><p className="pages-kicker"><Film size={14} /> CURRENT LESSON</p><h3 id="lesson-title">{activeLessonTitle}</h3><p>{activeLessonEnglish}</p></div>
-              <span>{course ? "已审核教练示范" : statusCopy[lesson.lessonStatus]}</span>
+              <span>{course ? "完整教练示范" : statusCopy[lesson.lessonStatus]}</span>
             </header>
             <div className="pages-lesson-media-grid">
               <figure className="pages-lesson-video">
