@@ -21,6 +21,7 @@ import "./pages-demo.css";
 
 type CoachId = "liu-hui" | "li-yuxuan" | "zheng-siwei";
 type LessonStatus = "complete" | "route" | "context";
+type CurriculumScope = "ready" | "all";
 
 interface Stage {
   name: string;
@@ -953,6 +954,7 @@ export function PagesDemo() {
   const [catalogCategory, setCatalogCategory] = useState("all");
   const [catalogQuery, setCatalogQuery] = useState("");
   const [catalogPage, setCatalogPage] = useState(0);
+  const [curriculumScope, setCurriculumScope] = useState<CurriculumScope>("ready");
 
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
@@ -960,6 +962,10 @@ export function PagesDemo() {
   const curriculumCoach = techniqueCourseCatalog.coaches.find((item) => item.coach_id === coach.id);
   const curriculumTechniques = curriculumCoach?.techniques ?? [];
   const curriculumTechniqueById = new Map(curriculumTechniques.map((item) => [item.technique_id, item]));
+  const readyTechniqueCount = curriculumTechniques.filter((item) => item.availability === "teaching_ready").length;
+  const visibleCurriculumTechniques = curriculumScope === "ready"
+    ? curriculumTechniques.filter((item) => item.availability === "teaching_ready")
+    : curriculumTechniques;
   const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
   const activeMedia = course
     ? {
@@ -1022,6 +1028,7 @@ export function PagesDemo() {
     setCatalogCategory("all");
     setCatalogQuery("");
     setCatalogPage(0);
+    setCurriculumScope("ready");
   }
 
   function selectLesson(index: number): void {
@@ -1043,6 +1050,7 @@ export function PagesDemo() {
           <nav aria-label="页面导航 / Site navigation">
             <a href="#lessons">动作课 <span>Lessons</span></a>
             <a href="#coaches">教练 <span>Coaches</span></a>
+            <a href="#roadmap">路线 <span>Roadmap</span></a>
             <a href="#catalog">技术库 <span>Library</span></a>
             <a className="pages-github-link" href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer" aria-label="在 GitHub 打开 BadmintonCoachSkill"><Github size={17} /></a>
           </nav>
@@ -1051,13 +1059,13 @@ export function PagesDemo() {
         <section id="top" className="pages-hero" aria-labelledby="pages-title">
           <div className="pages-hero-copy">
             <p className="pages-kicker">BADMINTON ACTION STUDY</p>
-            <h1 id="pages-title">羽毛球<br />动作课</h1>
-            <p className="pages-title-en">Coach-led technique library</p>
-            <p className="pages-lede">选一个技术。先看同一次完整示范，再按动作阶段拆开练。</p>
-            <p className="pages-lede-en">Choose a technique. Watch one complete demonstration, then study it phase by phase.</p>
+            <h1 id="pages-title">先看完整动作。<br />再开始练。</h1>
+            <p className="pages-title-en">Real coach demonstrations, made practical.</p>
+            <p className="pages-lede">每一节课都从同一次教练示范开始：准备、挥拍、落地和恢复都留在同一条时间线上。</p>
+            <p className="pages-lede-en">One complete move first. Then use the stages, drills, and retest to make it yours.</p>
             <div className="pages-hero-actions">
-              <a className="pages-button primary" href="#lessons">观看动作课 <span>Watch lesson</span><ArrowRight size={17} /></a>
-              <a className="pages-button secondary" href="#coaches">选择教练 <span>Choose a coach</span></a>
+              <a className="pages-button primary" href="#lessons">看第一节动作课 <span>Start with a full move</span><ArrowRight size={17} /></a>
+              <a className="pages-button secondary" href="#coaches">选择教练体系 <span>Choose a lens</span></a>
             </div>
           </div>
           <figure className="pages-featured-sequence" aria-labelledby="featured-sequence-caption">
@@ -1074,7 +1082,7 @@ export function PagesDemo() {
               <span><b>07</b> 恢复</span>
             </div>
             <figcaption>
-              <div id="featured-sequence-caption"><p>ONE REAL MOVE · THREE PHASES</p><strong>同一次高远球示范</strong><span>刘辉 · 准备、高位结构与恢复</span></div>
+              <div id="featured-sequence-caption"><p>ONE ACTION · FULL CONTEXT</p><strong>同一次高远球示范</strong><span>刘辉 · 准备、高位结构与恢复</span></div>
               <div className="pages-sequence-meta"><span>Reviewed lesson frames</span><span>01 → 04 → 07</span></div>
             </figcaption>
           </figure>
@@ -1087,8 +1095,8 @@ export function PagesDemo() {
         <section id="coaches" className="pages-section pages-coach-section" aria-labelledby="coaches-heading">
           <div className="pages-section-heading">
             <p className="pages-kicker">01 / COACHES</p>
-            <h2 id="coaches-heading">从一位教练开始。</h2>
-            <p className="pages-heading-en">Start with the coaching lens you want to train with.</p>
+            <h2 id="coaches-heading">先选你想跟着练的体系。</h2>
+            <p className="pages-heading-en">Each coach gives the same court a different, useful lens.</p>
           </div>
           <div className="pages-coach-grid" aria-label="选择教练体系">
             {coaches.map((item) => {
@@ -1125,13 +1133,17 @@ export function PagesDemo() {
             </section>)}
           </div>
 
-          <section className="pages-curriculum-map" aria-labelledby="curriculum-heading">
+          <section id="roadmap" className="pages-curriculum-map" aria-labelledby="curriculum-heading">
             <header>
-              <div><p className="pages-kicker">COACHING MAP</p><h3 id="curriculum-heading">从基础到回合，按路线练。</h3></div>
-              <p>带影片标记的节点可看完整教练示范；其余节点提供对应体系、练习与复测，不借用无关画面。</p>
+              <div><p className="pages-kicker">COACHING ROADMAP</p><h3 id="curriculum-heading">先从能看的完整动作开始。</h3></div>
+              <div className="pages-curriculum-controls" role="group" aria-label="课程路线范围">
+                <button type="button" className={curriculumScope === "ready" ? "active" : ""} aria-pressed={curriculumScope === "ready"} onClick={() => setCurriculumScope("ready")}>审核动作课 <span>{readyTechniqueCount}</span></button>
+                <button type="button" className={curriculumScope === "all" ? "active" : ""} aria-pressed={curriculumScope === "all"} onClick={() => setCurriculumScope("all")}>完整训练路线 <span>{curriculumTechniques.length}</span></button>
+              </div>
             </header>
+            <p className="pages-curriculum-intro">有影片标记的节点可看完整教练示范；其余节点提供对应体系、练习与复测，不借用无关画面。</p>
             <div className="pages-curriculum-grid">
-              {curriculumTechniques.map((item) => {
+              {visibleCurriculumTechniques.map((item) => {
                 const prerequisiteTitles = item.prerequisite_technique_ids.map((id) => curriculumTechniqueById.get(id)?.title_zh ?? id);
                 const nextTitles = item.next_technique_ids.map((id) => curriculumTechniqueById.get(id)?.title_zh ?? id);
                 const courseId = item.course_ids[0];
@@ -1151,10 +1163,19 @@ export function PagesDemo() {
             </div>
           </section>
 
+          <section className="pages-study-journey" aria-label="一节动作课的观看与练习顺序">
+            <header><p className="pages-kicker">HOW TO STUDY ONE MOVE</p><h3>一节动作课，按这个顺序走。</h3></header>
+            <ol>
+              <li><span>01</span><div><b>先看完整示范</b><p>先把同一次动作从开始看到结束，别急着停在某一张图。</p></div></li>
+              <li><span>02</span><div><b>再定位动作阶段</b><p>用七阶段找到今天要练的准备、通过或恢复位置。</p></div></li>
+              <li><span>03</span><div><b>最后带去练习</b><p>按教练的练法复测，确认动作在下一拍前仍然可用。</p></div></li>
+            </ol>
+          </section>
+
           <article className="pages-lesson-viewer" aria-labelledby="lesson-title">
             <header className="pages-lesson-title">
               <div><p className="pages-kicker"><Film size={14} /> CURRENT LESSON</p><h3 id="lesson-title">{activeLessonTitle}</h3><p>{activeLessonEnglish}</p></div>
-              <span>{statusCopy[lesson.lessonStatus]}</span>
+              <span>{course ? "已审核教练示范" : statusCopy[lesson.lessonStatus]}</span>
             </header>
             <div className="pages-lesson-media-grid">
               <figure className="pages-lesson-video">
@@ -1162,7 +1183,7 @@ export function PagesDemo() {
                 <figcaption id="lesson-video-caption"><span><ShieldCheck size={14} /> {activeMedia?.reviewStatus}</span><p>{activeMedia?.clipDescription}</p></figcaption>
               </figure>
               <div className="pages-stage-panel">
-                <div className="pages-stage-heading"><div><p className="pages-kicker">ACTION STRIP</p><h4>七阶段动作带</h4><span>Seven action stages</span></div><p>关键帧用于定位；请结合连续片段观看。</p></div>
+                <div className="pages-stage-heading"><div><p className="pages-kicker">ACTION STRIP</p><h4>按顺序定位动作</h4><span>Seven action stages</span></div><p>关键帧帮助定位；连续片段呈现整个过程。</p></div>
                 <div className="pages-stage-rail" role="tablist" aria-label={`${lesson.focus}动作阶段`}>
                   {activeStages.map((item, index) => <button key={`${item.time}-${item.name}`} id={`stage-tab-${index}`} type="button" role="tab" aria-selected={stageIndex === index} aria-controls="lesson-stage-detail" className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>
                     {activeMedia && <img src={publicAsset(activeMedia.keyframes[index])} alt="" loading={index > 1 ? "lazy" : "eager"} />}
@@ -1179,7 +1200,7 @@ export function PagesDemo() {
               {activeRoute.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h4>{item.title}</h4><p>{item.copy}</p></div></article>)}
             </div>
             {course && <section className="pages-course-loop" aria-label={`${course.action_label_zh}训练闭环`}>
-              <header><p className="pages-kicker">COACHING LOOP</p><h4>把示范变成能练、能复测的一课。</h4><span>System → common miss → drill → retest</span></header>
+              <header><p className="pages-kicker">COACHING LOOP</p><h4>把这节动作课带到球场。</h4><span>System → common miss → drill → retest</span></header>
               <div className="pages-course-loop-grid">
                 <article><b>常见卡点</b>{course.common_errors.slice(0, 2).map((item) => <p key={item.rule_id}><strong>{item.summary_zh}</strong>{item.correction_zh}</p>)}</article>
                 <article><b>怎么练</b>{course.resolved_drills.slice(0, 2).map((item) => <p key={item.drill_id}><strong>{item.name}</strong>{item.purpose ?? item.dosage ?? "按课程要求完成练习。"}</p>)}</article>

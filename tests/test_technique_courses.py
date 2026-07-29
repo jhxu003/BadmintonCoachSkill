@@ -95,4 +95,6 @@ def test_pages_demo_consumes_the_generated_course_artifact() -> None:
     assert "techniqueCourseById" in pages_source
     assert "pages-course-loop" in pages_source
     assert "pages-curriculum-map" in pages_source
+    assert "visibleCurriculumTechniques" in pages_source
+    assert "pages-study-journey" in pages_source
     assert "knowledge_only" in pages_source
