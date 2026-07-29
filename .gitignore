@@ -38,6 +38,9 @@ build/
 /scripts/*
 !/scripts/export_public_lesson.py
 !/scripts/build_private_coach_video_catalog.py
+!/scripts/build_private_coach_media_inventory.py
+!/scripts/validate_private_coach_media_inventory.py
+!/scripts/build_private_coach_media_preview.py
 /logs/
 /cache/
 /caches/

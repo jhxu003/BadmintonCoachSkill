@@ -137,8 +137,12 @@ def test_all_public_lesson_assets_have_publishable_review_context() -> None:
     module = load_export_module()
     repo = Path(__file__).resolve().parents[1]
     pages_root = repo / "web/public/pages-demo"
-    roots = sorted(path for path in pages_root.iterdir() if path.is_dir())
+    public_roots = sorted(path for path in pages_root.iterdir() if path.is_dir())
+    roots = [path for path in public_roots if (path / "review.json").is_file()]
 
+    assert {path.name for path in public_roots if path not in roots} == {
+        "coach-portraits"
+    }
     assert {path.name for path in roots} == APPROVED_PUBLIC_CASES
     for lesson_root in roots:
         review_path = lesson_root / "review.json"

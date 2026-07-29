@@ -228,6 +228,26 @@ TrackNet 输出的是热图峰值与带不确定性的触球候选窗口。它�
 | **明确过期状态** | 已过期任务和媒体返回 HTTP `410 Gone`，不会静默复用旧文件 |
 | **发布隔离** | Git 不包含上传媒体、私有参考帧缓存、数据库、日志、访问令牌或模型原始输出；唯一例外是经明确批准、逐条审核并带来源归属的三套教练 16 个 Pages 案例 |
 
+### 私有教练动作素材审阅
+
+已有批处理结果可以在计算节点整理为去重清单，并逐个解码验证短片和七阶段帧。输出始终位于 `.runtime/`，预览页按需加载当前页媒体，不会把私有素材复制进 Git。
+
+```bash
+python scripts/build_private_coach_media_inventory.py \
+  --project "$PWD" \
+  --output .runtime/full-corpus-processing-v1/media-inventory-v1
+
+python scripts/validate_private_coach_media_inventory.py \
+  --project "$PWD" \
+  --assets .runtime/full-corpus-processing-v1/media-inventory-v1/assets.jsonl \
+  --output .runtime/full-corpus-processing-v1/media-inventory-v1/validation.json \
+  --ffprobe "$(command -v ffprobe)"
+
+python scripts/build_private_coach_media_preview.py \
+  --inventory .runtime/full-corpus-processing-v1/media-inventory-v1 \
+  --output .runtime/full-corpus-processing-v1/media-inventory-v1/index.html
+```
+
 HTTP 接口、GPU / Celery 部署和全部环境变量见 [视频网页部署文档](docs/video-evidence-web-app.md)。
 
 <a id="quick-start"></a>
