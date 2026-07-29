@@ -43,12 +43,18 @@ interface LessonDemo {
   note: string;
 }
 
+interface TechniqueSystem {
+  title: string;
+  description: string;
+  lessonIds: string[];
+}
+
 interface CoachDemo {
   id: CoachId;
   name: string;
   role: string;
-  actions: string[];
   lessons: LessonDemo[];
+  systems: TechniqueSystem[];
 }
 
 function publicAsset(path: string): string {
@@ -574,22 +580,34 @@ const coaches: CoachDemo[] = [
     id: "liu-hui",
     name: "刘辉",
     role: "动作框架、发力路线与训练选择",
-    actions: liuHuiLessons.map((lesson) => lesson.actionLabel),
     lessons: liuHuiLessons,
+    systems: [
+      { title: "后场头顶体系", description: "从到位、加载到挥拍释放，把高远、杀球和吊球放在同一条后场动作链里理解。", lessonIds: ["high-clear", "smash", "slice-drop"] },
+      { title: "步法与快速交换", description: "后场进入、落地退出与平抽挡短动作，共同服务于下一拍可衔接性。", lessonIds: ["backcourt-footwork", "drive"] },
+      { title: "反手与发接发纠正", description: "针对被动处理和发接发中的可见次序问题，强调条件与动作边界。", lessonIds: ["backhand", "serve-receive"] },
+    ],
   },
   {
     id: "li-yuxuan",
     name: "李宇轩",
     role: "时间预算、到位与动作链衔接",
-    actions: liYuxuanLessons.map((lesson) => lesson.actionLabel),
     lessons: liYuxuanLessons,
+    systems: [
+      { title: "后场头顶体系", description: "把准备、加载、加速、随挥和恢复作为一条连续的后场高位动作链。", lessonIds: ["high-clear"] },
+      { title: "中前场快速交换", description: "以紧凑平抽挡为例，组织准备、短出拍和再次准备的时间预算。", lessonIds: ["drive"] },
+      { title: "网前到位与回收", description: "从中心启动、上网跨步到离开最低点，强调动作完成后的可继续移动性。", lessonIds: ["net-lunge"] },
+    ],
   },
   {
     id: "zheng-siwei",
     name: "郑思维",
     role: "混双通道、衔接与轮转复盘",
-    actions: zhengSiweiLessons.map((lesson) => lesson.actionLabel),
     lessons: zhengSiweiLessons,
+    systems: [
+      { title: "接发与本侧衔接", description: "接发切腰与左半场路线展示条件下的启动、处理与本侧延续。", lessonIds: ["receive-cut-waist", "left-receive-route"] },
+      { title: "前后场处理", description: "贴网吊球、后场突击和受压退步分别呈现前后场的可见动作路线。", lessonIds: ["net-drop", "rear-attack-footwork", "rear-pressure-retreat"] },
+      { title: "反手低位过渡", description: "在固定机位中组织低手位移动、处理与恢复，不把一次示范扩张为通用战术结论。", lessonIds: ["backhand-low-transition"] },
+    ],
   },
 ];
 
@@ -605,6 +623,7 @@ export function PagesDemo() {
   const [stageIndex, setStageIndex] = useState(0);
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
+  const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
   const stage = lesson.stages[stageIndex] ?? lesson.stages[0];
   const stageAsset = lesson.media?.keyframes[stageIndex];
 
@@ -644,7 +663,7 @@ export function PagesDemo() {
       </section>
 
       <section className="pages-stat-row" aria-label="项目规模摘要">
-        <div><b>3</b><span>教练体系</span></div><div><b>823</b><span>公开来源索引</span></div><div><b>5,496</b><span>教学时间窗</span></div><div><b>110</b><span>诊断规则</span></div>
+        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>已解析来源视频</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
       </section>
 
       <section id="systems" className="pages-section pages-systems">
@@ -656,8 +675,15 @@ export function PagesDemo() {
 
       <section id="experience" className="pages-section pages-case">
         <div className="pages-case-heading"><div><p className="pages-eyebrow"><Film size={14} /> Interactive course case</p><h2>{coach.name} · {lesson.focus}</h2><p>{lesson.lessonTitle}</p></div><span className={`pages-status ${lesson.lessonStatus}`}>{statusCopy[lesson.lessonStatus]}</span></div>
-        <div className="pages-action-list" role={coach.lessons.length > 1 ? "tablist" : undefined} aria-label="该体系覆盖的技术主题">
-          {coach.actions.map((action, index) => coach.lessons.length > 1 ? <button key={action} type="button" role="tab" aria-selected={lessonIndex === index} className={lessonIndex === index ? "selected" : ""} onClick={() => selectLesson(index)}>{action}</button> : <span className={index === 0 ? "selected" : ""} key={action}>{action}</span>)}
+        <div className="pages-taxonomy" aria-label={`${coach.name}技术体系分类`}>
+          <div className="pages-taxonomy-heading"><p className="pages-eyebrow">Technique systems</p><p>当前模块：<b>{activeSystem.title}</b>。先选体系模块，再进入其中的公开动作案例。</p></div>
+          <div className="pages-taxonomy-grid">
+            {coach.systems.map((system) => <section key={system.title} className={system === activeSystem ? "active" : ""}><h3>{system.title}</h3><p>{system.description}</p><div role="tablist" aria-label={`${system.title}动作案例`}>{system.lessonIds.map((lessonId) => {
+              const itemIndex = coach.lessons.findIndex((item) => item.id === lessonId);
+              const item = coach.lessons[itemIndex];
+              return item ? <button key={item.id} type="button" role="tab" aria-selected={lessonIndex === itemIndex} className={lessonIndex === itemIndex ? "selected" : ""} onClick={() => selectLesson(itemIndex)}>{item.actionLabel}</button> : null;
+            })}</div></section>)}
+          </div>
         </div>
         <div className="pages-route-grid">{lesson.route.map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
         <div className="pages-motion-panel">
