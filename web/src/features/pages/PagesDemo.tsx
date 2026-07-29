@@ -702,7 +702,7 @@ export function PagesDemo() {
     <main className="pages-demo">
       <header className="pages-nav">
         <a className="pages-brand" href="#top" aria-label="BadmintonCoachSkill 首页"><span aria-hidden="true" />BadmintonCoach<span>Skill</span></a>
-        <nav aria-label="页面导航"><a href="#experience">看动作</a><a href="#systems">选教练</a><a href="#catalog">找技术</a><a href="#boundaries">学习边界</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
+        <nav aria-label="页面导航"><a href="#experience">看动作</a><a href="#systems">选教练</a><a href="#catalog">找技术</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
       </header>
 
       <section id="top" className="pages-hero">
@@ -773,8 +773,6 @@ export function PagesDemo() {
           {visibleCatalogVideos.length < catalogFilteredVideos.length && <button type="button" className="pages-catalog-more" onClick={() => setCatalogLimit((current) => current + 48)}>加载更多（剩余 {catalogFilteredVideos.length - visibleCatalogVideos.length} 条）</button>}
         </div>}
       </section>
-
-      <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">LEARN WITH HONESTY</p><h2>看得见的，才讲。<br />看不清的，不硬猜。</h2></div><div className="pages-boundary-grid"><article><b>看动作全程</b><p>准备、挥拍、落地和恢复，放在同一条时间线上看，练得更有方向。</p></article><article><b>不把猜测当结论</b><p>看不清的触球、拍面和力量，不装作看见；你只会得到靠谱的提示。</p></article><article><b>画面不够，就告诉你怎么补</b><p>少了关键角度或过程，会直接说明还差什么，而不是给你编一个答案。</p></article></div></section>
 
       <section className="pages-cta"><BookOpenCheck size={28} /><div><p className="pages-eyebrow">READY FOR THE NEXT RALLY?</p><h2>从看懂一拍开始，<br />把它打进你的下一回合。</h2><p>挑一个动作，跟着完整示范看一遍，再回到场上试出来。</p></div><a className="pages-primary" href="#experience">开始练动作 <ArrowRight size={16} /></a></section>
 
