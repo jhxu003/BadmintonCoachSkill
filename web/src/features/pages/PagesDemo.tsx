@@ -663,7 +663,7 @@ export function PagesDemo() {
       </section>
 
       <section className="pages-stat-row" aria-label="项目规模摘要">
-        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>已解析来源视频</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
+        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>私有解析来源视频</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
       </section>
 
       <section id="systems" className="pages-section pages-systems">

@@ -37,6 +37,7 @@ build/
 .runtime/
 /scripts/*
 !/scripts/export_public_lesson.py
+!/scripts/build_private_coach_video_catalog.py
 /logs/
 /cache/
 /caches/
