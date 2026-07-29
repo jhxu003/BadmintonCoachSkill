@@ -1,6 +1,6 @@
 {
   "schema_version": "public-coach-video-catalog/v1",
-  "generated_at": "2026-07-29T03:28:27.280844+00:00",
+  "generated_at": "2026-07-29T04:09:11.196086+00:00",
   "publication_boundary": "metadata index only: no video, frames, clips, ASR, episode data, private paths, or model output",
   "total_video_count": 873,
   "coaches": [
@@ -12,12 +12,12 @@
         {
           "id": "smash_variant_system",
           "name": "杀球变体与进攻选择",
-          "video_count": 137
+          "video_count": 136
         },
         {
           "id": "overhead_power_chain",
           "name": "头顶发力链与拍侧结构",
-          "video_count": 110
+          "video_count": 111
         },
         {
           "id": "rear_court_base_and_high_clear",
@@ -27,12 +27,12 @@
         {
           "id": "drop_slice_slide_variation",
           "name": "吊球、劈吊与后场变化",
-          "video_count": 38
+          "video_count": 39
         },
         {
           "id": "drive_receive_and_front_exchange",
           "name": "平抽挡、接杀与前场交换",
-          "video_count": 18
+          "video_count": 19
         },
         {
           "id": "safety_equipment_and_load_selection",
@@ -47,7 +47,7 @@
         {
           "id": "student_fit_and_diagnosis",
           "name": "学员匹配、诊断与训练路径",
-          "video_count": 11
+          "video_count": 10
         },
         {
           "id": "backhand_and_rear_corner_choice",
@@ -58,11 +58,6 @@
           "id": "doubles_singles_tactics_and_match_transfer",
           "name": "单双打战术与实战迁移",
           "video_count": 3
-        },
-        {
-          "id": "outside_teaching_system",
-          "name": "体系外：公告／生活／产品信息",
-          "video_count": 1
         }
       ],
       "videos": [
@@ -106,26 +101,26 @@
         },
         {
           "source_id": "LH_BILI_LEARNING_ORDER",
-          "title": "Badminton learning order public clip",
+          "title": "业余学羽毛球涨球最快的方法？刘辉教练教你学习羽毛球的顺序应该是这样，不是步伐，不是体能",
           "url": "https://www.bilibili.com/video/BV1Yu411G7mr/",
           "duration_seconds": 166.115,
           "classification_status": "title_system_route",
           "categories": [
             {
-              "id": "student_fit_and_diagnosis",
-              "name": "学员匹配、诊断与训练路径"
+              "id": "footwork_arrival_recovery",
+              "name": "步法、到位与回收"
             }
           ],
           "techniques": [
             {
-              "action": "student_fit_and_diagnosis",
-              "label_zh": "学习路径、训练或综合答疑"
+              "action": "footwork_arrival_recovery",
+              "label_zh": "启动、步法、到位或回收"
             }
           ]
         },
         {
           "source_id": "LH_BILI_BIG_ARM_INTERNAL_ROTATION",
-          "title": "Big-arm stop and internal-rotation training",
+          "title": "发力时怎样让大臂停住？刘辉教练教你内旋动作原理和训练方法！好不好用自己试下就知道啦",
           "url": "https://www.bilibili.com/video/BV1a64y1P76h/",
           "duration_seconds": 205.728,
           "classification_status": "title_system_route",
@@ -144,7 +139,7 @@
         },
         {
           "source_id": "LH_BILI_LIVE_QA_20240202",
-          "title": "Dagi Badminton Liu Hui live teaching clip collection 20240202",
+          "title": "刘辉羽毛球直播2022-11-04：刘辉教练网课介绍",
           "url": "https://www.bilibili.com/video/BV1yM411L72x/",
           "duration_seconds": 136.362,
           "classification_status": "title_system_route",
@@ -163,7 +158,7 @@
         },
         {
           "source_id": "LH_BILI_INTERNAL_ROTATION_CUE",
-          "title": "Do not force internal rotation cue",
+          "title": "为什么说不能刻意做内旋？刘辉教练教你正确的内旋发力技巧！ 高手也可能做错 错过可亏大了",
           "url": "https://www.bilibili.com/video/BV11F411D7s4/",
           "duration_seconds": 257.091,
           "classification_status": "title_system_route",
@@ -182,7 +177,7 @@
         },
         {
           "source_id": "LH_BILI_MATCH_TRANSFER",
-          "title": "From learned technique to match use",
+          "title": "学会了动作实战却打不出来怎么办？刘辉教练教你学会到熟练动作的过程必不可少",
           "url": "https://www.bilibili.com/video/BV1QP411x7Vd/",
           "duration_seconds": 344.584,
           "classification_status": "title_system_route",
@@ -201,7 +196,7 @@
         },
         {
           "source_id": "LH_BILI_CONTACT_POINT_CLEAR",
-          "title": "High clear contact point public clip",
+          "title": "高远球改动作误区(二)击球点 刘辉教练教你正确改动作",
           "url": "https://www.bilibili.com/video/BV1NN411m7sh/",
           "duration_seconds": 364.692,
           "classification_status": "title_system_route",
@@ -220,7 +215,7 @@
         },
         {
           "source_id": "LH_BILI_CLEAR_CHANGE_ACTION",
-          "title": "High-clear action correction points",
+          "title": "高远球改动作为什么总是改不过来？刘辉教练教你高远球改动作你只需要知道这三点（一）",
           "url": "https://www.bilibili.com/video/BV1es4y1K7PV/",
           "duration_seconds": 235.96,
           "classification_status": "title_system_route",
@@ -239,7 +234,7 @@
         },
         {
           "source_id": "LH_BILI_CLEAR_FRAMEWORK",
-          "title": "High-clear action framework",
+          "title": "【干货】高远球如何改动作？刘辉教练教你发力上限更高的动作框架 不看又错过一个亿",
           "url": "https://www.bilibili.com/video/BV1G14y1r7Ls/",
           "duration_seconds": 530.901,
           "classification_status": "title_system_route",
@@ -258,7 +253,7 @@
         },
         {
           "source_id": "LH_BILI_LAZY_LEGS",
-          "title": "Leg-lazy correction set",
+          "title": "不看错过一个亿的刘辉教练腿懒三件套",
           "url": "https://www.bilibili.com/video/BV1sa4y137bZ/",
           "duration_seconds": 449.398,
           "classification_status": "title_system_route",
@@ -277,64 +272,64 @@
         },
         {
           "source_id": "LH_BILI_AUTH_CLIP",
-          "title": "Liu Hui authorized Bilibili clip seed",
+          "title": "刘辉教练告诉你为什么真正的高远球不怕吊球",
           "url": "https://www.bilibili.com/video/BV1iN4111712/",
           "duration_seconds": 234.706,
-          "classification_status": "title_outside_system",
+          "classification_status": "title_system_route",
           "categories": [
             {
-              "id": "outside_teaching_system",
-              "name": "体系外：公告／生活／产品信息"
+              "id": "drop_slice_slide_variation",
+              "name": "吊球、劈吊与后场变化"
             }
           ],
           "techniques": [
             {
-              "action": "outside_teaching_system",
-              "label_zh": "标题不构成可路由的教学内容"
+              "action": "drop_slice_slide_variation",
+              "label_zh": "吊球、劈吊或滑板变化"
             }
           ]
         },
         {
           "source_id": "LH_BILI_FRAMEWORK",
-          "title": "Overhead power framework public clip",
+          "title": "刘辉教练教你不学后悔一年的发力框架",
           "url": "https://www.bilibili.com/video/BV1Rs4y1a7EG/",
           "duration_seconds": 537.541,
           "classification_status": "title_system_route",
           "categories": [
             {
-              "id": "rear_court_base_and_high_clear",
-              "name": "后场基础与高远球"
+              "id": "overhead_power_chain",
+              "name": "头顶发力链与拍侧结构"
             }
           ],
           "techniques": [
             {
-              "action": "rear_court_base_and_high_clear",
-              "label_zh": "高远球、击球点或头顶基础"
+              "action": "overhead_power_chain",
+              "label_zh": "框架、握拍与发力链"
             }
           ]
         },
         {
           "source_id": "LH_BILI_BACKCOURT_STEAL_FOOTWORK",
-          "title": "Passive rear-court steal footwork discussion",
+          "title": "发球偷不到后场说明发力不到位刘辉讲如何正确发力",
           "url": "https://www.bilibili.com/video/BV1mQ4y147rw/",
           "duration_seconds": 152.874,
           "classification_status": "title_system_route",
           "categories": [
             {
-              "id": "footwork_arrival_recovery",
-              "name": "步法、到位与回收"
+              "id": "drive_receive_and_front_exchange",
+              "name": "平抽挡、接杀与前场交换"
             }
           ],
           "techniques": [
             {
-              "action": "footwork_arrival_recovery",
-              "label_zh": "启动、步法、到位或回收"
+              "action": "drive_receive_and_front_exchange",
+              "label_zh": "平抽挡、发接发或接杀防守"
             }
           ]
         },
         {
           "source_id": "LH_BILI_SIMPLE_SMASH_SEQUENCE",
-          "title": "Simple smash sequence",
+          "title": "最简单的杀球怎么杀？刘辉教练教你杀球发力技巧和学习顺序！一目了然，清晰易懂真的10分钟学会",
           "url": "https://www.bilibili.com/video/BV1yu4y1J7Ne/",
           "duration_seconds": 567.124,
           "classification_status": "title_system_route",
@@ -353,7 +348,7 @@
         },
         {
           "source_id": "LH_BILI_SLICE_DROP_SMASH",
-          "title": "Slice drop and smash teaching",
+          "title": "劈吊球教学来了！刘辉教练教你重劈，劈吊，劈杀，握拍动作和技巧",
           "url": "https://www.bilibili.com/video/BV14m4y1x7dH/",
           "duration_seconds": 690.051,
           "classification_status": "title_system_route",
@@ -372,28 +367,9 @@
         },
         {
           "source_id": "LH_BILI_SMASH_ELBOW",
-          "title": "Smash top-elbow teaching clip",
+          "title": "高远球能打到位但杀球依然压不住？一定是顶肘出了问题！羽毛球后场发力最高击球点在哪里？大力扣杀时正确顶肘方式是什么？击球点在身前是什么意思？一个视频让你学会！",
           "url": "https://www.bilibili.com/video/BV1VtjtzdEKs/",
           "duration_seconds": 440.296,
-          "classification_status": "title_system_route",
-          "categories": [
-            {
-              "id": "smash_variant_system",
-              "name": "杀球变体与进攻选择"
-            }
-          ],
-          "techniques": [
-            {
-              "action": "smash_variant_system",
-              "label_zh": "杀球、跳杀或突击"
-            }
-          ]
-        },
-        {
-          "source_id": "LH_BILI_WRIST_WHIP_ERROR",
-          "title": "Too much wrist whipping error",
-          "url": "https://www.bilibili.com/video/BV1eH4y1Y7si/",
-          "duration_seconds": 755.438,
           "classification_status": "title_system_route",
           "categories": [
             {
@@ -404,13 +380,32 @@
           "techniques": [
             {
               "action": "overhead_power_chain",
-              "label_zh": "框架、握拍与发力链"
+              "label_zh": "跨高远与杀球的发力链"
+            }
+          ]
+        },
+        {
+          "source_id": "LH_BILI_WRIST_WHIP_ERROR",
+          "title": "打球总是甩手腕怎么改？刘辉教练教你高远球正确的改动作方法！新手改发力动作必看！",
+          "url": "https://www.bilibili.com/video/BV1eH4y1Y7si/",
+          "duration_seconds": 755.438,
+          "classification_status": "title_system_route",
+          "categories": [
+            {
+              "id": "rear_court_base_and_high_clear",
+              "name": "后场基础与高远球"
+            }
+          ],
+          "techniques": [
+            {
+              "action": "rear_court_base_and_high_clear",
+              "label_zh": "高远球、击球点或头顶基础"
             }
           ]
         },
         {
           "source_id": "LH_BILI_CLEAR_HEIGHT",
-          "title": "Why high clear is not high enough",
+          "title": "高远球不够高怎么办？刘辉教练教你高远球提升高度的秘诀！",
           "url": "https://www.bilibili.com/video/BV1TK4y1B7XQ/",
           "duration_seconds": 142.43,
           "classification_status": "title_system_route",
@@ -5673,7 +5668,7 @@
         },
         {
           "source_id": "LH_BILI_SEASON_BV1TT411R7FT",
-          "title": "羽毛球反手保姆级教学！刘辉教练教你羽毛球反手被动球如何处理！",
+          "title": "羽毛球反手怎么打？保姆级教学来啦！刘辉教练教你羽毛球反手被动球如何处理！",
           "url": "https://www.bilibili.com/video/BV1TT411r7Ft/",
           "duration_seconds": 583.47,
           "classification_status": "title_system_route",

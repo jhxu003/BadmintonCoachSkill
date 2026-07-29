@@ -260,6 +260,24 @@ def test_public_metadata_catalog_keeps_only_safe_index_fields(tmp_path: Path) ->
     assert not forbidden_keys
 
 
+def test_public_metadata_catalog_prefers_official_bilibili_title_registry(tmp_path: Path) -> None:
+    module = load_module()
+    batch = tmp_path / "batch" / "videos" / "video-001"
+    batch.mkdir(parents=True)
+    (batch / "lesson-package.json").write_text(
+        json.dumps(package("internal import label", []), ensure_ascii=False), encoding="utf-8"
+    )
+    private_catalog = module.build_catalog(
+        tmp_path, (module.Batch("liu-hui", "刘辉", "batch"),)
+    )
+
+    exported = module.public_metadata_catalog(
+        private_catalog, title_overrides={"SOURCE_001": "B站原始标题：高远球教学"}
+    )
+
+    assert exported["coaches"][0]["videos"][0]["title"] == "B站原始标题：高远球教学"
+
+
 def test_committed_pages_catalog_is_complete_and_media_free() -> None:
     repo = Path(__file__).resolve().parents[1]
     exported = json.loads(
@@ -272,6 +290,27 @@ def test_committed_pages_catalog_is_complete_and_media_free() -> None:
         ("李宇轩", 382),
         ("郑思维", 83),
     ]
+
+    title_registry = json.loads(
+        (repo / "web/public/pages-demo/bilibili-title-registry.json").read_text(encoding="utf-8")
+    )
+    assert title_registry["schema_version"] == "public-bilibili-title-registry/v1"
+    assert title_registry["video_count"] == exported["total_video_count"]
+    assert set(title_registry) == {
+        "schema_version",
+        "retrieved_at",
+        "publication_boundary",
+        "video_count",
+        "videos",
+    }
+    assert all(set(item) == {"source_id", "bvid", "title"} for item in title_registry["videos"])
+    official_titles = {item["source_id"]: item["title"] for item in title_registry["videos"]}
+    assert len(official_titles) == title_registry["video_count"]
+    assert all(
+        official_titles[video["source_id"]] == video["title"]
+        for coach in exported["coaches"]
+        for video in coach["videos"]
+    )
 
     forbidden_keys: set[str] = set()
 

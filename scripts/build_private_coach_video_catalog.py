@@ -34,6 +34,8 @@ DEFAULT_BATCHES = (
     Batch("zheng-siwei", "郑思维", ".runtime/full-corpus-processing-v1/zheng-siwei-v1"),
 )
 
+DEFAULT_PUBLIC_TITLE_REGISTRY = Path("web/public/pages-demo/bilibili-title-registry.json")
+
 
 CATEGORIES = (
     ("overhead_attack", "后场头顶与进攻"),
@@ -126,7 +128,7 @@ COACH_SYSTEM_ROUTES: dict[str, tuple[CoachSystemRoute, ...]] = {
         CoachSystemRoute("backhand_and_rear_corner_choice", "反手与后场角落选择", "反手与被动后场处理", r"反手|反拍", 310),
         CoachSystemRoute("drop_slice_slide_variation", "吊球、劈吊与后场变化", "吊球、劈吊或滑板变化", r"轻吊|轻放|重劈|重切|劈吊|滑板|切吊|吊球|放网|勾球|劈杀|light drop|slice drop", 300),
         CoachSystemRoute("drive_receive_and_front_exchange", "平抽挡、接杀与前场交换", "平抽挡、发接发或接杀防守", r"平抽|抽挡|抽球|推球|挡球|接杀|接发|接发球|发球|发小球|发高远球|正手过渡|被动过渡|drive|receive", 290),
-        CoachSystemRoute("footwork_arrival_recovery", "步法、到位与回收", "启动、步法、到位或回收", r"步法|步伐|启动步|并步|交叉步|蹬跨|上网步|后退步|移动|回位|中国跳|起跳步|懒腿|leg[ -]?lazy|footwork", 280),
+        CoachSystemRoute("footwork_arrival_recovery", "步法、到位与回收", "启动、步法、到位或回收", r"步法|步伐|启动步|并步|交叉步|蹬跨|上网步|后退步|移动|回位|中国跳|起跳步|懒腿|腿懒|leg[ -]?lazy|footwork", 280),
         CoachSystemRoute("overhead_power_chain", "头顶发力链与拍侧结构", "跨高远与杀球的发力链", r"(?:高远球.*杀球|杀球.*高远球).*(?:发力|动作|技巧|原理)", 314),
         CoachSystemRoute("smash_variant_system", "杀球变体与进攻选择", "杀球、跳杀或突击", r"霸王杀|跳杀|重杀|点杀|杀球|扣杀|突击|smash", 270),
         CoachSystemRoute("rear_court_base_and_high_clear", "后场基础与高远球", "高远球、击球点或头顶基础", r"拉高远|高远球|后场高球|甜区|击球点|头顶|侧身击球|侧身总侧|高球|high[ -]?clear|overhead", 260),
@@ -387,7 +389,29 @@ def build_catalog(project_root: Path, batches: Iterable[Batch] = DEFAULT_BATCHES
     }
 
 
-def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
+def load_public_title_registry(path: Path) -> dict[str, str]:
+    """Read the public Bilibili title registry without accepting private fields."""
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"invalid public Bilibili title registry: {path}") from exc
+    if payload.get("schema_version") != "public-bilibili-title-registry/v1":
+        raise ValueError(f"unexpected public Bilibili title registry schema: {path}")
+    titles: dict[str, str] = {}
+    for item in payload.get("videos", []):
+        if not isinstance(item, dict):
+            raise ValueError(f"invalid public Bilibili title registry record: {item!r}")
+        source_id = str(item.get("source_id", "")).strip()
+        title = str(item.get("title", "")).strip()
+        if not source_id or not title or source_id in titles:
+            raise ValueError(f"invalid public Bilibili title registry record: {item!r}")
+        titles[source_id] = title
+    return titles
+
+
+def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[str, str] | None = None) -> dict[str, Any]:
     """Return title-routed coach-system metadata suitable for a static public index.
 
     Candidate ASR/VLM semantic windows are deliberately excluded from public
@@ -396,6 +420,7 @@ def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
     coach-system route based on its public title, or a transparent fallback.
     """
     coaches: list[dict[str, Any]] = []
+    official_titles = title_overrides or {}
     for coach in catalog.get("coaches", []):
         if not isinstance(coach, dict):
             raise ValueError("invalid private catalogue coach")
@@ -406,13 +431,13 @@ def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
             url = str(video.get("url", "")).strip()
             if not url.startswith(("https://", "http://")):
                 raise ValueError(f"public catalogue video has no public URL: {video.get('source_id')}")
-            route, classification_status = route_coach_system(
-                str(coach.get("coach_id", "")), str(video.get("title", ""))
-            )
+            source_id = str(video.get("source_id", ""))
+            title = official_titles.get(source_id, str(video.get("title", "")))
+            route, classification_status = route_coach_system(str(coach.get("coach_id", "")), title)
             videos.append(
                 {
-                    "source_id": str(video.get("source_id", "")),
-                    "title": str(video.get("title", "")),
+                    "source_id": source_id,
+                    "title": title,
                     "url": url,
                     "duration_seconds": video.get("duration_seconds"),
                     "classification_status": classification_status,
@@ -480,10 +505,10 @@ def write_catalog(catalog: dict[str, Any], output: Path) -> None:
     (output / "index.html").write_text(_render_html(catalog), encoding="utf-8")
 
 
-def write_public_metadata_catalog(catalog: dict[str, Any], output: Path) -> None:
+def write_public_metadata_catalog(catalog: dict[str, Any], output: Path, *, title_overrides: dict[str, str] | None = None) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
-        json.dumps(public_metadata_catalog(catalog), ensure_ascii=False, indent=2) + "\n",
+        json.dumps(public_metadata_catalog(catalog, title_overrides=title_overrides), ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
 
@@ -502,6 +527,12 @@ def parser() -> argparse.ArgumentParser:
         type=Path,
         help="owner-approved static JSON output; contains metadata only and no media",
     )
+    result.add_argument(
+        "--public-title-registry",
+        type=Path,
+        default=DEFAULT_PUBLIC_TITLE_REGISTRY,
+        help="public Bilibili title registry used only for the public metadata output",
+    )
     return result
 
 
@@ -515,7 +546,10 @@ def main() -> None:
         public_output = args.public_metadata_output
         if not public_output.is_absolute():
             public_output = root / public_output
-        write_public_metadata_catalog(catalog, public_output)
+        registry = args.public_title_registry
+        if not registry.is_absolute():
+            registry = root / registry
+        write_public_metadata_catalog(catalog, public_output, title_overrides=load_public_title_registry(registry))
         print(f"built public metadata catalogue -> {public_output}")
     print(f"built private catalogue: {catalog['total_video_count']} videos -> {output}")
     for coach in catalog["coaches"]:
