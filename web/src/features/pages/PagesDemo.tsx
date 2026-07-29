@@ -792,10 +792,22 @@ const coachEnglish: Record<CoachId, { name: string; role: string }> = {
   "zheng-siwei": { name: "Zheng Siwei", role: "Mixed doubles routes & next ball" },
 };
 
-const coachSystemCover: Record<CoachId, string> = {
-  "liu-hui": "pages-demo/brand/coach-system-liu-hui.webp",
-  "li-yuxuan": "pages-demo/brand/coach-system-li-yuxuan.webp",
-  "zheng-siwei": "pages-demo/brand/coach-system-zheng-siwei.webp",
+const coachCover: Record<CoachId, { path: string; alt: string; source: string }> = {
+  "liu-hui": {
+    path: "pages-demo/coach-portraits/liu-hui-reviewed-still.webp",
+    alt: "刘辉教练在羽毛球场讲解技术",
+    source: "REVIEWED LESSON STILL",
+  },
+  "li-yuxuan": {
+    path: "pages-demo/coach-portraits/li-yuxuan-bilibili-profile.webp",
+    alt: "李宇轩教练本人照片",
+    source: "OFFICIAL PROFILE",
+  },
+  "zheng-siwei": {
+    path: "pages-demo/coach-portraits/zheng-siwei-bilibili-profile.webp",
+    alt: "郑思维本人照片",
+    source: "OFFICIAL PROFILE",
+  },
 };
 
 const actionEnglish: Record<string, string> = {
@@ -956,11 +968,22 @@ export function PagesDemo() {
               <a className="pages-button secondary" href="#coaches">选择教练 <span>Choose a coach</span></a>
             </div>
           </div>
-          <figure className="pages-featured-art">
-            <img src={publicAsset("pages-demo/brand/hero-badminton-editorial.webp")} alt="羽毛球运动员完成头顶击球的原创品牌视觉" />
+          <figure className="pages-featured-sequence" aria-labelledby="featured-sequence-caption">
+            <div className="pages-sequence-frame">
+              <img src={publicAsset("pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg")} alt="刘辉教练高远球准备阶段" />
+              <span><b>01</b> 准备</span>
+            </div>
+            <div className="pages-sequence-frame focus">
+              <img src={publicAsset("pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg")} alt="刘辉教练高远球高位结构阶段" />
+              <span><b>04</b> 高位结构</span>
+            </div>
+            <div className="pages-sequence-frame">
+              <img src={publicAsset("pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg")} alt="刘辉教练高远球恢复阶段" />
+              <span><b>07</b> 恢复</span>
+            </div>
             <figcaption>
-              <div><p>TECHNIQUE IN MOTION</p><strong>从完整动作开始</strong><span>Study the whole movement</span></div>
-              <div className="pages-art-meta"><span>Original editorial artwork</span><span>BadmintonCoachSkill</span></div>
+              <div id="featured-sequence-caption"><p>ONE REAL MOVE · THREE PHASES</p><strong>同一次高远球示范</strong><span>刘辉 · 准备、高位结构与恢复</span></div>
+              <div className="pages-sequence-meta"><span>Reviewed lesson frames</span><span>01 → 04 → 07</span></div>
             </figcaption>
           </figure>
         </section>
@@ -978,10 +1001,11 @@ export function PagesDemo() {
           <div className="pages-coach-grid" aria-label="选择教练体系">
             {coaches.map((item) => {
               const english = coachEnglish[item.id];
+              const cover = coachCover[item.id];
               return <button key={item.id} type="button" className={coachId === item.id ? "active" : ""} aria-pressed={coachId === item.id} onClick={() => selectCoach(item.id)}>
-                <img src={publicAsset(coachSystemCover[item.id])} alt="" loading="lazy" />
+                <img src={publicAsset(cover.path)} alt={cover.alt} loading="lazy" />
                 <span className="pages-coach-shade" aria-hidden="true" />
-                <span className="pages-coach-art-label">SYSTEM COVER</span>
+                <span className="pages-coach-art-label">{cover.source}</span>
                 <span className="pages-coach-content"><b>{item.name}</b><small>{english.name}</small><em>{item.role}</em><i>{english.role}</i></span>
                 <span className="pages-coach-count">{item.lessons.length} lessons</span>
               </button>;

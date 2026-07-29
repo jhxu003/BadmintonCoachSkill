@@ -12,16 +12,15 @@ GitHub Pages 部署的是一个**纯静态、公开安全的产品展示**，地
 
 ## 浏览体验
 
-公开首页以一张原创羽毛球品牌视觉建立页面主题。访客可按教练体系选择 16 节动作课，再通过同一次动作的 7 个阶段帧定位准备、挥拍、近似击球窗口和恢复。阶段帧只用于定位和讲解，不表示页面掌握了未公开的逐帧时间码，也不会声称精确跳转或精确触球。
+公开首页直接使用刘辉高远球同一次审核示范的准备、高位结构和恢复帧建立页面主题，不绘制或生成球拍、羽球和动作轨迹。访客可按教练体系选择 16 节动作课，再通过同一次动作的 7 个阶段帧定位准备、挥拍、近似击球窗口和恢复。阶段帧只用于定位和讲解，不表示页面掌握了未公开的逐帧时间码，也不会声称精确跳转或精确触球。
 
-首页横幅和三张教练体系卡片使用以下四张生成式品牌视觉：
+三张教练卡片均使用对应教练本人影像：
 
-- `pages-demo/brand/hero-badminton-editorial.webp`
-- `pages-demo/brand/coach-system-liu-hui.webp`
-- `pages-demo/brand/coach-system-li-yuxuan.webp`
-- `pages-demo/brand/coach-system-zheng-siwei.webp`
+- 刘辉：由已审核公开案例 `liu-hui-backhand/keyframes/01-ready.jpg` 裁切为 `coach-portraits/liu-hui-reviewed-still.webp`；
+- 李宇轩：来自本人 Bilibili 账号 [李宇轩教练](https://space.bilibili.com/519050265) 的公开头像，发布为 `coach-portraits/li-yuxuan-bilibili-profile.webp`；
+- 郑思维：来自本人 Bilibili 账号 [郑思维](https://space.bilibili.com/383058245) 的公开头像，发布为 `coach-portraits/zheng-siwei-bilibili-profile.webp`。
 
-这些图片只承担封面、构图和体系区分作用，不是教学证据，也不描绘、识别或冒充刘辉、李宇轩、郑思维本人。真实教练示范只出现在下方经过审核的连续片段和阶段关键帧中。
+这些照片只承担教练导航和身份呈现作用；动作教学证据仍以经过审核的连续片段和阶段关键帧为准。
 
 下方技术库保留 873 条来源视频的原始标题、体系分类和原平台链接；它们是元数据目录，不等同于包含连续片段与阶段帧的 16 节公开动作课。页面只会在客户端按教练、体系模块和标题筛选，并分页显示结果。
 
