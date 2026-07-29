@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build a private, media-free technical catalogue for the three coach corpora.
+"""Build technical catalogues from the three coach corpora.
 
-The catalogue reads the existing lesson-package JSON files only.  It does not
-download, transcode, copy, or publish video, frames, ASR, or model outputs.
-Each video may belong to more than one technical family; a title fallback is
-kept visibly separate from the semantic inventory so uncertainty is not hidden.
+The default catalogue is private and retains richer routing provenance.  An
+explicit --public-metadata-output produces a much smaller safe subset: public
+title, original source link, duration, technical categories, and a visible
+classification status.  Neither path downloads, transcodes, copies, or emits
+video, frames, ASR, episodes, model output, or private runtime paths.
 """
 
 from __future__ import annotations
@@ -278,6 +279,63 @@ def build_catalog(project_root: Path, batches: Iterable[Batch] = DEFAULT_BATCHES
     }
 
 
+def public_metadata_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
+    """Return only the owner-approved fields suitable for a static public index."""
+    coaches: list[dict[str, Any]] = []
+    for coach in catalog.get("coaches", []):
+        if not isinstance(coach, dict):
+            raise ValueError("invalid private catalogue coach")
+        videos: list[dict[str, Any]] = []
+        for video in coach.get("videos", []):
+            if not isinstance(video, dict):
+                raise ValueError("invalid private catalogue video")
+            url = str(video.get("url", "")).strip()
+            if not url.startswith(("https://", "http://")):
+                raise ValueError(f"public catalogue video has no public URL: {video.get('source_id')}")
+            categories = [
+                {"id": item["id"], "name": item["name"]}
+                for item in video.get("categories", [])
+                if isinstance(item, dict) and item.get("id") in CATEGORY_NAMES
+            ]
+            if not categories:
+                raise ValueError(f"public catalogue video has no category: {video.get('source_id')}")
+            techniques = [
+                {"action": str(item.get("action", "")), "label_zh": str(item.get("label_zh", ""))}
+                for item in video.get("techniques", [])
+                if isinstance(item, dict) and str(item.get("label_zh", "")).strip()
+            ]
+            videos.append(
+                {
+                    "source_id": str(video.get("source_id", "")),
+                    "title": str(video.get("title", "")),
+                    "url": url,
+                    "duration_seconds": video.get("duration_seconds"),
+                    "classification_status": str(video.get("evidence_status", "model_candidate")),
+                    "categories": categories,
+                    "techniques": techniques,
+                }
+            )
+        coaches.append(
+            {
+                "coach_id": str(coach.get("coach_id", "")),
+                "coach_name": str(coach.get("coach_name", "")),
+                "video_count": len(videos),
+                "category_counts": coach.get("category_counts", []),
+                "videos": videos,
+            }
+        )
+    public_catalog = {
+        "schema_version": "public-coach-video-catalog/v1",
+        "generated_at": catalog.get("generated_at"),
+        "publication_boundary": "metadata index only: no video, frames, clips, ASR, episode data, private paths, or model output",
+        "total_video_count": sum(item["video_count"] for item in coaches),
+        "coaches": coaches,
+    }
+    if public_catalog["total_video_count"] != catalog.get("total_video_count"):
+        raise ValueError("public catalogue count differs from private catalogue")
+    return public_catalog
+
+
 def _render_html(catalog: dict[str, Any]) -> str:
     payload = json.dumps(catalog, ensure_ascii=False).replace("</", "<\\/")
     return f"""<!doctype html>
@@ -306,6 +364,14 @@ def write_catalog(catalog: dict[str, Any], output: Path) -> None:
     (output / "index.html").write_text(_render_html(catalog), encoding="utf-8")
 
 
+def write_public_metadata_catalog(catalog: dict[str, Any], output: Path) -> None:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        json.dumps(public_metadata_catalog(catalog), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(description=__doc__)
     result.add_argument("--root", type=Path, default=Path("."), help="project root")
@@ -314,6 +380,11 @@ def parser() -> argparse.ArgumentParser:
         type=Path,
         default=Path(".runtime/full-corpus-processing-v1/coach-video-catalog"),
         help="private output directory relative to --root",
+    )
+    result.add_argument(
+        "--public-metadata-output",
+        type=Path,
+        help="owner-approved static JSON output; contains metadata only and no media",
     )
     return result
 
@@ -324,6 +395,12 @@ def main() -> None:
     output = args.output if args.output.is_absolute() else root / args.output
     catalog = build_catalog(root)
     write_catalog(catalog, output)
+    if args.public_metadata_output:
+        public_output = args.public_metadata_output
+        if not public_output.is_absolute():
+            public_output = root / public_output
+        write_public_metadata_catalog(catalog, public_output)
+        print(f"built public metadata catalogue -> {public_output}")
     print(f"built private catalogue: {catalog['total_video_count']} videos -> {output}")
     for coach in catalog["coaches"]:
         print(f"{coach['coach_name']}: {coach['video_count']} videos; {len(coach['category_counts'])} categories")

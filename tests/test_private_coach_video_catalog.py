@@ -90,3 +90,113 @@ def test_build_catalog_writes_media_free_private_viewer(tmp_path: Path) -> None:
     ]
     assert "<video" not in html
     assert "episodes/" not in html
+
+
+def test_public_metadata_catalog_keeps_only_safe_index_fields(tmp_path: Path) -> None:
+    module = load_module()
+    batch = tmp_path / "batch" / "videos" / "video-001"
+    batch.mkdir(parents=True)
+    (batch / "lesson-package.json").write_text(
+        json.dumps(
+            package(
+                "后场杀球",
+                [{"action": "smash", "family_id": "overhead", "label_zh": "杀球"}],
+            ),
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    private_catalog = module.build_catalog(
+        tmp_path, (module.Batch("coach", "教练", "batch"),)
+    )
+    output = tmp_path / "public" / "catalog.json"
+    module.write_public_metadata_catalog(private_catalog, output)
+
+    exported = json.loads(output.read_text(encoding="utf-8"))
+    video = exported["coaches"][0]["videos"][0]
+    assert exported["schema_version"] == "public-coach-video-catalog/v1"
+    assert set(video) == {
+        "source_id",
+        "title",
+        "url",
+        "duration_seconds",
+        "classification_status",
+        "categories",
+        "techniques",
+    }
+    forbidden_keys: set[str] = set()
+
+    def collect_keys(value: object) -> None:
+        if isinstance(value, dict):
+            forbidden_keys.update(
+                key
+                for key in value
+                if key.lower()
+                in {
+                    "clip",
+                    "frames",
+                    "episode",
+                    "media",
+                    "asr",
+                    "raw_output",
+                    "source_batch",
+                    "taxonomy_paths",
+                    "semantic_bases",
+                    "window_ids",
+                }
+            )
+            for child in value.values():
+                collect_keys(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect_keys(child)
+
+    collect_keys(exported)
+    assert not forbidden_keys
+
+
+def test_committed_pages_catalog_is_complete_and_media_free() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    exported = json.loads(
+        (repo / "web/public/pages-demo/catalog.json").read_text(encoding="utf-8")
+    )
+    assert exported["schema_version"] == "public-coach-video-catalog/v1"
+    assert exported["total_video_count"] == 873
+    assert [(coach["coach_name"], coach["video_count"]) for coach in exported["coaches"]] == [
+        ("刘辉", 408),
+        ("李宇轩", 382),
+        ("郑思维", 83),
+    ]
+
+    forbidden_keys: set[str] = set()
+
+    def collect_keys(value: object) -> None:
+        if isinstance(value, dict):
+            forbidden_keys.update(
+                key
+                for key in value
+                if key.lower()
+                in {
+                    "clip",
+                    "frames",
+                    "episode",
+                    "media",
+                    "asr",
+                    "raw_output",
+                    "source_batch",
+                    "taxonomy_paths",
+                    "semantic_bases",
+                    "window_ids",
+                }
+            )
+            for child in value.values():
+                collect_keys(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect_keys(child)
+
+    collect_keys(exported)
+    assert not forbidden_keys
+    for coach in exported["coaches"]:
+        assert all(video["categories"] for video in coach["videos"])
+        assert all(video["url"].startswith(("https://", "http://")) for video in coach["videos"])

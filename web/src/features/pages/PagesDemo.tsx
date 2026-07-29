@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   BookOpenCheck,
@@ -55,6 +55,35 @@ interface CoachDemo {
   role: string;
   lessons: LessonDemo[];
   systems: TechniqueSystem[];
+}
+
+interface PublicCatalogCategory {
+  id: string;
+  name: string;
+}
+
+interface PublicCatalogVideo {
+  source_id: string;
+  title: string;
+  url: string;
+  duration_seconds: number | null;
+  classification_status: string;
+  categories: PublicCatalogCategory[];
+  techniques: Array<{ action: string; label_zh: string }>;
+}
+
+interface PublicCatalogCoach {
+  coach_id: CoachId;
+  coach_name: string;
+  video_count: number;
+  category_counts: Array<PublicCatalogCategory & { video_count: number }>;
+  videos: PublicCatalogVideo[];
+}
+
+interface PublicCatalog {
+  schema_version: string;
+  total_video_count: number;
+  coaches: PublicCatalogCoach[];
 }
 
 function publicAsset(path: string): string {
@@ -617,20 +646,58 @@ const statusCopy: Record<LessonStatus, string> = {
   context: "回合复盘方法示例",
 };
 
+const catalogStatusCopy: Record<string, string> = {
+  agent_reviewed: "已审核分类",
+  model_candidate: "语义候选分类",
+  title_fallback: "标题规则分类",
+  title_fallback_non_instructional: "非教学内容识别",
+};
+
+function formatDuration(seconds: number | null): string {
+  if (typeof seconds !== "number" || !Number.isFinite(seconds) || seconds <= 0) return "时长未知";
+  const rounded = Math.round(seconds);
+  return rounded >= 60 ? `${Math.floor(rounded / 60)} 分 ${String(rounded % 60).padStart(2, "0")} 秒` : `${rounded} 秒`;
+}
+
 export function PagesDemo() {
   const [coachId, setCoachId] = useState<CoachId>("liu-hui");
   const [lessonIndex, setLessonIndex] = useState(0);
   const [stageIndex, setStageIndex] = useState(0);
+  const [catalog, setCatalog] = useState<PublicCatalog | null>(null);
+  const [catalogError, setCatalogError] = useState(false);
+  const [catalogCategory, setCatalogCategory] = useState("all");
+  const [catalogLimit, setCatalogLimit] = useState(48);
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
   const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
   const stage = lesson.stages[stageIndex] ?? lesson.stages[0];
   const stageAsset = lesson.media?.keyframes[stageIndex];
+  const catalogCoach = catalog?.coaches.find((item) => item.coach_id === coach.id);
+  const catalogFilteredVideos = useMemo(() => {
+    if (!catalogCoach) return [];
+    return catalogCoach.videos.filter((item) => catalogCategory === "all" || item.categories.some((category) => category.id === catalogCategory));
+  }, [catalogCategory, catalogCoach]);
+  const visibleCatalogVideos = catalogFilteredVideos.slice(0, catalogLimit);
+
+  useEffect(() => {
+    let mounted = true;
+    void fetch(publicAsset("pages-demo/catalog.json"))
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error("catalog_unavailable")))
+      .then((payload: PublicCatalog) => {
+        if (mounted && payload.schema_version === "public-coach-video-catalog/v1") setCatalog(payload);
+      })
+      .catch(() => {
+        if (mounted) setCatalogError(true);
+      });
+    return () => { mounted = false; };
+  }, []);
 
   function selectCoach(nextCoach: CoachId): void {
     setCoachId(nextCoach);
     setLessonIndex(0);
     setStageIndex(0);
+    setCatalogCategory("all");
+    setCatalogLimit(48);
   }
 
   function selectLesson(index: number): void {
@@ -642,7 +709,7 @@ export function PagesDemo() {
     <main className="pages-demo">
       <header className="pages-nav">
         <a className="pages-brand" href="#top" aria-label="BadmintonCoachSkill 首页"><span aria-hidden="true" />BadmintonCoach<span>Skill</span></a>
-        <nav aria-label="页面导航"><a href="#experience">体验</a><a href="#systems">教练体系</a><a href="#boundaries">证据边界</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
+        <nav aria-label="页面导航"><a href="#experience">体验</a><a href="#systems">教练体系</a><a href="#catalog">完整目录</a><a href="#boundaries">证据边界</a><a href="https://github.com/jhxu003/BadmintonCoachSkill" target="_blank" rel="noreferrer">GitHub <ExternalLink size={13} /></a></nav>
       </header>
 
       <section id="top" className="pages-hero">
@@ -663,7 +730,7 @@ export function PagesDemo() {
       </section>
 
       <section className="pages-stat-row" aria-label="项目规模摘要">
-        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>私有解析来源视频</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
+        <div><b>3</b><span>教练体系</span></div><div><b>873</b><span>公开分类视频目录</span></div><div><b>16</b><span>公开审核案例</span></div><div><b>7</b><span>每例阶段导航</span></div>
       </section>
 
       <section id="systems" className="pages-section pages-systems">
@@ -694,6 +761,19 @@ export function PagesDemo() {
         <div className="pages-stage-section"><div className="pages-stage-heading"><div><p className="pages-eyebrow">Ordered stage navigation</p><h3>选择一个阶段，查看它在连续动作里的教学角色。</h3></div><span>不是孤立的标准姿势</span></div><div className="pages-stage-rail" role="tablist" aria-label="动作阶段">{lesson.stages.map((item, index) => <button key={item.name} type="button" role="tab" aria-selected={stageIndex === index} className={stageIndex === index ? "active" : ""} onClick={() => setStageIndex(index)}>{lesson.media && <img src={publicAsset(lesson.media.keyframes[index])} alt="" />}<b>{item.time}</b><span>{item.name}</span></button>)}</div><article className={`pages-stage-detail ${stageAsset ? "has-media" : ""}`}>{stageAsset ? <div className="pages-stage-visual"><img src={publicAsset(stageAsset)} alt={`${coach.name}${lesson.focus}：${stage.name}关键帧`} /><b>{stage.time}</b></div> : <div className="pages-stage-number">{stage.time}</div>}<div><p className="pages-eyebrow">{stage.name}</p><h3>{stage.focus}</h3><p><strong>证据边界：</strong>{stage.boundary}</p></div><CheckCircle2 aria-hidden="true" /></article></div>
 
         <div className="pages-case-footer"><p><ShieldCheck size={17} /> {lesson.note}</p>{lesson.source ? <a href={lesson.source.href} target="_blank" rel="noreferrer">{lesson.source.label} <ExternalLink size={15} /></a> : <span>此公开展示不包含媒体副本或未验证课程。</span>}</div>
+      </section>
+
+      <section id="catalog" className="pages-section pages-full-catalog">
+        <div className="pages-section-heading"><p className="pages-eyebrow">Public source index</p><h2>873 条来源视频，按技术类型浏览。</h2><p>这是元数据目录：包含标题、时长、技术分类与原始平台链接。它不包含视频副本、关键帧、短片、ASR 或私有分析产物。</p></div>
+        {!catalog && !catalogError && <div className="pages-catalog-state">正在载入公开视频目录…</div>}
+        {catalogError && <div className="pages-catalog-state error">公开目录暂时无法载入；公开案例区不受影响，请稍后刷新重试。</div>}
+        {catalogCoach && <div className="pages-catalog-shell">
+          <div className="pages-catalog-topline"><div><p className="pages-eyebrow">{catalogCoach.coach_name} · full source index</p><h3>{catalogCoach.video_count} 条来源视频</h3></div><p>分类状态用于索引，不等同于“已审核正确示范”或正式教学动作包。</p></div>
+          <div className="pages-catalog-filters" aria-label={`${catalogCoach.coach_name}技术类型筛选`}><button type="button" className={catalogCategory === "all" ? "active" : ""} aria-pressed={catalogCategory === "all"} onClick={() => { setCatalogCategory("all"); setCatalogLimit(48); }}>全部 · {catalogCoach.video_count}</button>{catalogCoach.category_counts.map((item) => <button key={item.id} type="button" className={catalogCategory === item.id ? "active" : ""} aria-pressed={catalogCategory === item.id} onClick={() => { setCatalogCategory(item.id); setCatalogLimit(48); }}>{item.name} · {item.video_count}</button>)}</div>
+          <p className="pages-catalog-result-count">当前显示 {visibleCatalogVideos.length} / {catalogFilteredVideos.length} 条</p>
+          <div className="pages-catalog-results">{visibleCatalogVideos.map((item) => <article key={item.source_id}><div><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title} <ExternalLink size={14} /></a></h3><p>{item.source_id} · {formatDuration(item.duration_seconds)} · <span>{catalogStatusCopy[item.classification_status] ?? "分类状态待说明"}</span></p></div><div className="pages-catalog-tags">{item.categories.map((category) => <span key={category.id}>{category.name}</span>)}{item.techniques.map((technique) => <span className="technique" key={`${technique.action}-${technique.label_zh}`}>{technique.label_zh}</span>)}</div></article>)}</div>
+          {visibleCatalogVideos.length < catalogFilteredVideos.length && <button type="button" className="pages-catalog-more" onClick={() => setCatalogLimit((current) => current + 48)}>加载更多（剩余 {catalogFilteredVideos.length - visibleCatalogVideos.length} 条）</button>}
+        </div>}
       </section>
 
       <section id="boundaries" className="pages-section pages-boundaries"><div className="pages-section-heading"><p className="pages-eyebrow">Evidence boundaries</p><h2>知道什么，也明确不知道什么。</h2></div><div className="pages-boundary-grid"><article><b>可以做</b><p>组织公开视频中的连续动作、阶段顺序、可见姿态事实、教学原则、练习和复测指标。</p></article><article><b>不能声称</b><p>精确触球、拍面角度、真实内旋、握拍压力、力量大小、标定三维运动学或对手意图。</p></article><article><b>证据不足时</b><p>不编造诊断；标记缺失阶段，说明需要怎样的机位、画面或重拍条件。</p></article></div></section>
