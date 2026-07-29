@@ -25,6 +25,175 @@ systems:
       - 先启动身体，再用手去够球。
       - 到位、下沉和处理是连续过程，不把最低点当作终点。
       - 网前动作必须包含退出与下一拍准备。
+  - system_id: lyx-overhead-progression
+    title_zh: 头顶动作进阶
+    title_en: Overhead progression
+    description_zh: 在时间、到位和可用挥拍距离稳定后，才引入杀球、起跳和吊球等速度或变化任务。
+    principles:
+      - 进阶不应用速度掩盖基础时间预算不足。
+      - 每次只提高一个条件，并保留完整随挥和恢复。
+  - system_id: lyx-serve-doubles-opening
+    title_zh: 发接发与双打前两拍
+    title_en: Serve/receive and the first two doubles shots
+    description_zh: 将发球、接发和搭档第一时间的角色选择一起练习，不把它们拆成互不相干的单拍。
+    principles:
+      - 发接发选择要适配个人可重复的动作，而不是照搬固定模板。
+      - 前两拍之后仍要保留可响应的站位和球拍高度。
+  - system_id: lyx-backhand-decision
+    title_zh: 反手时间预算与选择
+    title_en: Backhand time budget and choice
+    description_zh: 先尽早识别反手来球和可用处理空间，再做紧凑回复与恢复。
+    principles:
+      - 早选择比被动时加大手腕动作更可靠。
+      - 不能从普通视频虚构握拍压力、力量或精确拍面。
+  - system_id: lyx-rally-transfer
+    title_zh: 约束下的回合迁移
+    title_en: Constraint-led rally transfer
+    description_zh: 将技术放回目标、来球变化和回合压力中复测，并在每一级只增加一个变量。
+    principles:
+      - 先确认动作在练习条件下稳定，再提高速度或随机性。
+      - 记录可见结果与复测，不把单次成功当作稳定能力。
+techniques:
+  - technique_id: rear-court-time-budget
+    system_id: lyx-overhead-time-distance
+    title_zh: 后场启动、到位与时间预算
+    summary_zh: 从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。
+    applicable_actions: [后场步法, 头顶球]
+    level: foundation
+    framework_ids: [lyx-start-on-opponent-contact, lyx-rear-turn-confirm-step]
+    rule_ids: [lyx-late-start, lyx-rear-turn-error]
+    drill_ids: [lyx-split-start-call, lyx-rear-turn-freeze]
+    retest_metrics: [随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [high-clear]
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: high-clear
+    system_id: lyx-overhead-time-distance
+    title_zh: 高远球的时间与挥拍距离
+    summary_zh: 先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。
+    applicable_actions: [高远球]
+    level: foundation
+    framework_ids: [lyx-contact-distance-clear, lyx-relax-then-release]
+    rule_ids: [lyx-short-swing-distance, lyx-contact-behind]
+    drill_ids: [lyx-high-contact-shadow, lyx-relaxed-clear-distance]
+    retest_metrics: [目标喂球下保持可用挥拍距离并在处理后回到可移动状态。]
+    prerequisite_technique_ids: [rear-court-time-budget]
+    next_technique_ids: [smash-progression, overhead-variation]
+    course_ids: [li-yuxuan-high-clear]
+    availability: teaching_ready
+  - technique_id: smash-progression
+    system_id: lyx-overhead-progression
+    title_zh: 杀球速度进阶
+    summary_zh: 以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。
+    applicable_actions: [杀球, 起跳杀球]
+    level: developing
+    framework_ids: [lyx-smash-sequence-before-speed, lyx-jump-smash-prerequisite]
+    rule_ids: [lyx-arm-first-swing, lyx-unstable-landing]
+    drill_ids: [lyx-smash-five-phase, lyx-jump-land-reset]
+    retest_metrics: [提高速度前先连续完成五阶段挥拍和可用落地。]
+    prerequisite_technique_ids: [high-clear]
+    next_technique_ids: []
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: overhead-variation
+    system_id: lyx-overhead-progression
+    title_zh: 头顶吊球与变化控制
+    summary_zh: 在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。
+    applicable_actions: [吊球, 头顶变化]
+    level: developing
+    framework_ids: [lyx-overhead-variation-control, lyx-drop-height-and-feel]
+    rule_ids: [lyx-telegraphed-preparation, lyx-forced-cut]
+    drill_ids: [lyx-drop-target-contrast, lyx-turn-release-chain]
+    retest_metrics: [每一组只改变目标或节奏之一，并记录是否仍能稳定恢复。]
+    prerequisite_technique_ids: [high-clear]
+    next_technique_ids: []
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: drive
+    system_id: lyx-fast-exchange
+    title_zh: 平抽挡快速交换
+    summary_zh: 让球拍、身体和支撑保持可响应，以短准备和及时回收维持快速平抽挡。
+    applicable_actions: [平抽挡]
+    level: foundation
+    framework_ids: [lyx-drive-compact-first, lyx-racket-height-interception]
+    rule_ids: [lyx-large-drive-preparation, lyx-late-contact]
+    drill_ids: [lyx-drive-compact-exchange, lyx-receive-first-attack]
+    retest_metrics: [连续交换中大多数处理后球拍都回到下一拍可用位置。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [doubles-first-two-shots]
+    course_ids: [li-yuxuan-drive]
+    availability: teaching_ready
+  - technique_id: net-lunge
+    system_id: lyx-frontcourt-response
+    title_zh: 网前第一响应与跨步回收
+    summary_zh: 从来球提示启动，进入跨步和可见处理区域，再以稳定退出连接下一拍。
+    applicable_actions: [网前跨步, 网前球]
+    level: foundation
+    framework_ids: [lyx-frontcourt-first-response, lyx-foot-ground-response]
+    rule_ids: [lyx-late-first-step, lyx-no-recovery]
+    drill_ids: [lyx-split-start-call, lyx-rally-transfer-ladder]
+    retest_metrics: [低速到随机喂球中均能完成启动、跨步、处理和退出的连续顺序。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [doubles-first-two-shots]
+    course_ids: [li-yuxuan-net-lunge]
+    availability: teaching_ready
+  - technique_id: serve-opening
+    system_id: lyx-serve-doubles-opening
+    title_zh: 发球的个人适配与可重复性
+    summary_zh: 选择适合个人条件的发球高度与落点路线，并用重复性而不是照搬姿势来复测。
+    applicable_actions: [发球]
+    level: foundation
+    framework_ids: [lyx-serve-individual-fit, lyx-serve-height-placement]
+    rule_ids: [lyx-unstable-serve, lyx-grip-tension-serve]
+    drill_ids: [lyx-serve-repeatability-grid, lyx-equipment-comfort-log]
+    retest_metrics: [同一目标下记录发球高度、落点和重复性，而非从单帧判断力量。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [doubles-first-two-shots]
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: doubles-first-two-shots
+    system_id: lyx-serve-doubles-opening
+    title_zh: 双打前两拍的角色衔接
+    summary_zh: 将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。
+    applicable_actions: [双打, 发接发]
+    level: developing
+    framework_ids: [lyx-doubles-first-two-shot, lyx-racket-height-interception]
+    rule_ids: [lyx-role-conflict, lyx-passive-third-shot]
+    drill_ids: [lyx-doubles-two-shot-role, lyx-receive-first-attack]
+    retest_metrics: [随机开局练习中，每次都能在下一拍前说清覆盖责任。]
+    prerequisite_technique_ids: [drive, net-lunge, serve-opening]
+    next_technique_ids: [rally-transfer]
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: backhand-early-choice
+    system_id: lyx-backhand-decision
+    title_zh: 反手早选择与紧凑回复
+    summary_zh: 尽早识别反手来球并选择可用处理空间，避免被动时用更大动作或紧张补偿。
+    applicable_actions: [反手]
+    level: developing
+    framework_ids: [lyx-backhand-time-budget, lyx-backhand-compact-reply]
+    rule_ids: [lyx-delayed-first-step, lyx-forced-wrist]
+    drill_ids: [lyx-backhand-early-choice, lyx-split-start-call]
+    retest_metrics: [随机方向下能在被动处理前先完成可见选择与准备。]
+    prerequisite_technique_ids: []
+    next_technique_ids: []
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: rally-transfer
+    system_id: lyx-rally-transfer
+    title_zh: 目标与回合迁移
+    summary_zh: 将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。
+    applicable_actions: [比赛迁移]
+    level: transfer
+    framework_ids: [lyx-match-transfer-constraint, lyx-progression-one-variable]
+    rule_ids: [lyx-decision-breakdown, lyx-no-retest]
+    drill_ids: [lyx-rally-transfer-ladder, lyx-equipment-comfort-log]
+    retest_metrics: [每一级只增加一个变量，并保留目标命中和恢复记录。]
+    prerequisite_technique_ids: [doubles-first-two-shots]
+    next_technique_ids: []
+    course_ids: []
+    availability: knowledge_only
 courses:
   - course_id: li-yuxuan-high-clear
     coach_id: li-yuxuan

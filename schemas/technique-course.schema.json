@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CoachTechniqueCourseCatalog",
   "type": "object",
-  "required": ["schema_version", "coach_id", "systems", "courses"],
+  "required": ["schema_version", "coach_id", "systems", "techniques", "courses"],
   "properties": {
     "schema_version": { "const": "technique-course/v1" },
     "coach_id": { "enum": ["liu-hui", "li-yuxuan", "zheng-siwei"] },
@@ -10,6 +10,11 @@
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "#/$defs/system" }
+    },
+    "techniques": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/technique" }
     },
     "courses": {
       "type": "array",
@@ -27,6 +32,14 @@
     "idList": {
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    "optionalIdList": {
+      "type": "array",
       "uniqueItems": true,
       "items": {
         "type": "string",
@@ -52,6 +65,60 @@
         "description_zh": { "$ref": "#/$defs/nonEmptyString" },
         "principles": { "$ref": "#/$defs/stringList" }
       },
+      "additionalProperties": false
+    },
+    "technique": {
+      "type": "object",
+      "required": [
+        "technique_id",
+        "system_id",
+        "title_zh",
+        "summary_zh",
+        "applicable_actions",
+        "level",
+        "framework_ids",
+        "rule_ids",
+        "drill_ids",
+        "retest_metrics",
+        "prerequisite_technique_ids",
+        "next_technique_ids",
+        "course_ids",
+        "availability"
+      ],
+      "properties": {
+        "technique_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "system_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "title_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "summary_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "applicable_actions": { "$ref": "#/$defs/stringList" },
+        "level": {
+          "enum": ["foundation", "developing", "advanced", "transfer"]
+        },
+        "framework_ids": { "$ref": "#/$defs/idList" },
+        "rule_ids": { "$ref": "#/$defs/idList" },
+        "drill_ids": { "$ref": "#/$defs/idList" },
+        "retest_metrics": { "$ref": "#/$defs/stringList" },
+        "prerequisite_technique_ids": { "$ref": "#/$defs/optionalIdList" },
+        "next_technique_ids": { "$ref": "#/$defs/optionalIdList" },
+        "course_ids": { "$ref": "#/$defs/optionalIdList" },
+        "availability": { "enum": ["knowledge_only", "teaching_ready"] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "availability": { "const": "teaching_ready" } },
+            "required": ["availability"]
+          },
+          "then": { "properties": { "course_ids": { "$ref": "#/$defs/idList" } } },
+          "else": { "properties": { "course_ids": { "maxItems": 0 } } }
+        }
+      ],
       "additionalProperties": false
     },
     "principle": {

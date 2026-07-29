@@ -240,6 +240,86 @@ def _validate_course(
     _validate_review_manifest(root, course, errors)
 
 
+def _validate_technique_map(
+    catalog: dict[str, Any],
+    references: dict[str, dict[str, dict[str, Any]]],
+    errors: list[str],
+) -> None:
+    """Validate the coach's curriculum graph and its reviewed-course bindings."""
+    coach_id = str(catalog["coach_id"])
+    system_ids = {str(item["system_id"]) for item in catalog["systems"]}
+    techniques = catalog["techniques"]
+    technique_by_id = {str(item["technique_id"]): item for item in techniques}
+    if len(technique_by_id) != len(techniques):
+        errors.append(f"{coach_id}: duplicate technique_id")
+        return
+
+    course_by_id = {str(item["course_id"]): item for item in catalog["courses"]}
+    bound_course_ids: dict[str, str] = {}
+    for technique_id, technique in technique_by_id.items():
+        if technique["system_id"] not in system_ids:
+            errors.append(
+                f"{coach_id}:{technique_id}: unknown system_id={technique['system_id']}"
+            )
+        for field, reference_group in (
+            ("framework_ids", "frameworks"),
+            ("rule_ids", "rules"),
+            ("drill_ids", "drills"),
+        ):
+            for identifier in technique[field]:
+                if identifier not in references[reference_group]:
+                    errors.append(
+                        f"{coach_id}:{technique_id}: unresolved {field[:-1]}={identifier}"
+                    )
+        for field in ("prerequisite_technique_ids", "next_technique_ids"):
+            for related_id in technique[field]:
+                if related_id == technique_id:
+                    errors.append(f"{coach_id}:{technique_id}: cannot route to itself")
+                elif related_id not in technique_by_id:
+                    errors.append(
+                        f"{coach_id}:{technique_id}: unresolved curriculum route={related_id}"
+                    )
+        for next_id in technique["next_technique_ids"]:
+            target = technique_by_id.get(next_id)
+            if target and technique_id not in target["prerequisite_technique_ids"]:
+                errors.append(
+                    f"{coach_id}:{technique_id}: next route {next_id} is missing the reciprocal prerequisite"
+                )
+        for course_id in technique["course_ids"]:
+            course = course_by_id.get(course_id)
+            if course is None:
+                errors.append(
+                    f"{coach_id}:{technique_id}: unresolved course_id={course_id}"
+                )
+                continue
+            if course.get("technique_id") != technique_id:
+                errors.append(
+                    f"{coach_id}:{technique_id}: course {course_id} binds a different technique"
+                )
+            if course_id in bound_course_ids:
+                errors.append(
+                    f"{coach_id}: course {course_id} is bound by both {bound_course_ids[course_id]} and {technique_id}"
+                )
+            bound_course_ids[course_id] = technique_id
+        if technique["availability"] == "teaching_ready" and not technique["course_ids"]:
+            errors.append(f"{coach_id}:{technique_id}: teaching_ready node has no reviewed course")
+        if technique["availability"] == "knowledge_only" and technique["course_ids"]:
+            errors.append(f"{coach_id}:{technique_id}: knowledge_only node cannot expose media")
+        for text in _iter_strings(technique):
+            if any(marker in text for marker in _PRIVATE_MARKERS):
+                errors.append(f"{coach_id}:{technique_id}: private or absolute path marker leaked into map")
+                break
+
+    for course_id, course in course_by_id.items():
+        technique_id = str(course["technique_id"])
+        if technique_id not in technique_by_id:
+            errors.append(f"{coach_id}:{course_id}: course has no curriculum technique node")
+        elif bound_course_ids.get(course_id) != technique_id:
+            errors.append(
+                f"{coach_id}:{course_id}: reviewed course is not uniquely bound to its technique node"
+            )
+
+
 def load_and_validate_technique_courses(root: str | Path) -> list[dict[str, Any]]:
     project_root = Path(root).resolve()
     schema = json.loads(
@@ -284,6 +364,7 @@ def load_and_validate_technique_courses(root: str | Path) -> list[dict[str, Any]
                 titles,
                 errors,
             )
+        _validate_technique_map(catalog, references, errors)
         catalogs.append(catalog)
 
     if errors:
@@ -329,10 +410,33 @@ def build_public_technique_course_catalog(root: str | Path) -> dict[str, Any]:
                 }
                 course["resolved_drills"].append(public_drill)
             courses.append(course)
+        techniques: list[dict[str, Any]] = []
+        for raw_technique in catalog["techniques"]:
+            technique = deepcopy(raw_technique)
+            technique["resolved_frameworks"] = [
+                {
+                    "framework_id": identifier,
+                    "name": references["frameworks"][identifier]["name"],
+                    "summary": references["frameworks"][identifier]["summary"],
+                }
+                for identifier in technique["framework_ids"]
+            ]
+            technique["resolved_rules"] = [
+                {
+                    "rule_id": identifier,
+                    "issue": references["rules"][identifier].get("issue", identifier),
+                    "correction_principle": references["rules"][identifier].get(
+                        "correction_principle", "Use the linked drill and retest."
+                    ),
+                }
+                for identifier in technique["rule_ids"]
+            ]
+            techniques.append(technique)
         coaches.append(
             {
                 "coach_id": coach_id,
                 "systems": deepcopy(catalog["systems"]),
+                "techniques": techniques,
                 "courses": courses,
             }
         )

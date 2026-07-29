@@ -25,6 +25,140 @@ systems:
       - 后移、加载、突击、落地和退出是一个动作包。
       - 进攻质量要连同下一球可用性一起复测。
       - 强度只有在稳定落地和角色恢复后才增加。
+  - system_id: zsw-defense-transition-system
+    title_zh: 防守受压与过渡
+    title_en: Defense under pressure and transition
+    description_zh: 用看球、启动、压低、处理和恢复组织受压后的可用路线，并在获得时间后重新连接进攻或中性交换。
+    principles:
+      - 受压处理要保留下一次可用选择，而不是把身体停在最大伸展处。
+      - 普通单人视频只支持可见移动与恢复，不证明搭档意图或固定分工。
+techniques:
+  - technique_id: serve-third-shot-plan
+    system_id: zsw-opening-exchange-system
+    title_zh: 发球与第三拍计划
+    summary_zh: 在发球前先命名可能回球线路和第三拍覆盖人，让开局不靠事后追球补救。
+    applicable_actions: [发球, 双打发接发]
+    level: foundation
+    framework_ids: [zsw-serve-opening-plan, zsw-receive-opening-exchange]
+    rule_ids: [zsw-serve-without-third-shot-plan, zsw-opening-role-unclear]
+    drill_ids: [zsw-serve-return-third-shot, zsw-role-call-random-feed]
+    retest_metrics: [10 次开局中至少 8 次在回球前已有明确第三拍责任。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [receive-cut-waist, left-receive-route]
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: receive-cut-waist
+    system_id: zsw-opening-exchange-system
+    title_zh: 接发切腰与下一次交换
+    summary_zh: 在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。
+    applicable_actions: [接发切腰]
+    level: foundation
+    framework_ids: [zsw-receive-opening-exchange]
+    rule_ids: [zsw-passive-receive-route, zsw-opening-role-unclear]
+    drill_ids: [zsw-receive-two-exchange, zsw-role-call-random-feed]
+    retest_metrics: [接发后至少一名已命名搭档保持平衡和球拍可用。]
+    prerequisite_technique_ids: [serve-third-shot-plan]
+    next_technique_ids: []
+    course_ids: [zheng-siwei-receive-cut-waist]
+    availability: teaching_ready
+  - technique_id: left-receive-route
+    system_id: zsw-opening-exchange-system
+    title_zh: 左半场接发路线与衔接
+    summary_zh: 以一次完整接发移动、处理和回收理解左半场路线，同时在训练中明确下一球覆盖。
+    applicable_actions: [左半场接发]
+    level: developing
+    framework_ids: [zsw-receive-opening-exchange, zsw-pair-rotation-two-lanes]
+    rule_ids: [zsw-passive-receive-route, zsw-opening-role-unclear]
+    drill_ids: [zsw-receive-two-exchange, zsw-two-lane-rotation-call]
+    retest_metrics: [随机开局中每次接发前后均能说清下一条覆盖线路。]
+    prerequisite_technique_ids: [serve-third-shot-plan]
+    next_technique_ids: [reset-match-transfer]
+    course_ids: [zheng-siwei-left-receive-route]
+    availability: teaching_ready
+  - technique_id: net-drop
+    system_id: zsw-frontcourt-pressure-system
+    title_zh: 贴网吊球与前场压力连续性
+    summary_zh: 将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。
+    applicable_actions: [贴网吊球, 网前球]
+    level: developing
+    framework_ids: [zsw-frontcourt-pressure]
+    rule_ids: [zsw-front-player-disconnected, zsw-slow-reset]
+    drill_ids: [zsw-front-back-three-ball, zsw-hit-call-reset]
+    retest_metrics: [双人三球模式中前场球员在下一次动作前持续保持球拍可用。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [reset-match-transfer]
+    course_ids: [zheng-siwei-net-drop]
+    availability: teaching_ready
+  - technique_id: rear-attack-footwork
+    system_id: zsw-rear-attack-system
+    title_zh: 后场突击步法与退出
+    summary_zh: 将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。
+    applicable_actions: [后场突击步法]
+    level: developing
+    framework_ids: [zsw-rear-attack-continuity]
+    rule_ids: [zsw-rear-attack-no-continuation, zsw-slow-reset]
+    drill_ids: [zsw-rear-attack-exit, zsw-hit-call-reset]
+    retest_metrics: [后场处理后能在命名的下一次后场或中场喂球前恢复可用。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [reset-match-transfer]
+    course_ids: [zheng-siwei-rear-attack-footwork]
+    availability: teaching_ready
+  - technique_id: rear-pressure-retreat
+    system_id: zsw-defense-transition-system
+    title_zh: 被压后场的退后处理
+    summary_zh: 从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。
+    applicable_actions: [后场防守步法, 后退处理]
+    level: foundation
+    framework_ids: [zsw-defense-transition]
+    rule_ids: [zsw-defense-spacing-collapsed, zsw-no-transition-after-time-gained]
+    drill_ids: [zsw-defense-two-channel, zsw-defense-neutral-attack-ladder]
+    retest_metrics: [随机后场压力喂球中能在处理后回到下一拍可选择状态。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [backhand-low-transition]
+    course_ids: [zheng-siwei-rear-pressure-retreat]
+    availability: teaching_ready
+  - technique_id: backhand-low-transition
+    system_id: zsw-defense-transition-system
+    title_zh: 反手底线低手位过渡
+    summary_zh: 以移动、低手位处理和恢复连接反手受压过渡，不将片段外推为精确触球或固定战术意图。
+    applicable_actions: [反手底线低手位]
+    level: developing
+    framework_ids: [zsw-defense-transition, zsw-reset-match-transfer]
+    rule_ids: [zsw-defense-spacing-collapsed, zsw-no-transition-after-time-gained]
+    drill_ids: [zsw-defense-two-channel, zsw-hit-call-reset]
+    retest_metrics: [连续防守练习中低手位处理后能回到中性或下一拍可用状态。]
+    prerequisite_technique_ids: [rear-pressure-retreat]
+    next_technique_ids: []
+    course_ids: [zheng-siwei-backhand-low-transition]
+    availability: teaching_ready
+  - technique_id: pair-rotation-two-lanes
+    system_id: zsw-opening-exchange-system
+    title_zh: 双人两条覆盖线路
+    summary_zh: 用来球与下一拍线路组织轮转，不按性别或固定前后身份硬编码分工。
+    applicable_actions: [双打轮转]
+    level: advanced
+    framework_ids: [zsw-pair-rotation-two-lanes]
+    rule_ids: [zsw-same-lane-rotation-conflict, zsw-opening-role-unclear]
+    drill_ids: [zsw-two-lane-rotation-call, zsw-role-call-random-feed]
+    retest_metrics: [随机线路中两人都能说清互补覆盖而不同时进入同一条线。]
+    prerequisite_technique_ids: []
+    next_technique_ids: [reset-match-transfer]
+    course_ids: []
+    availability: knowledge_only
+  - technique_id: reset-match-transfer
+    system_id: zsw-defense-transition-system
+    title_zh: 重置与回合迁移
+    summary_zh: 在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。
+    applicable_actions: [双打重置, 比赛迁移]
+    level: transfer
+    framework_ids: [zsw-reset-match-transfer, zsw-pair-rotation-two-lanes]
+    rule_ids: [zsw-slow-reset, zsw-drill-to-rally-breakdown]
+    drill_ids: [zsw-hit-call-reset, zsw-rally-transfer-ladder]
+    retest_metrics: [每次练习结束都能明确下一球角色，并在增加一项回合变量后维持可用。]
+    prerequisite_technique_ids: [left-receive-route, net-drop, rear-attack-footwork, pair-rotation-two-lanes]
+    next_technique_ids: []
+    course_ids: []
+    availability: knowledge_only
 courses:
   - course_id: zheng-siwei-receive-cut-waist
     coach_id: zheng-siwei
@@ -439,3 +573,186 @@ courses:
     limitations:
       - 单人示范只支持可见移动与恢复路线，双打搭档接入需要单独情境证据。
       - 普通单目视频不支持精确触球、拍面角度、握拍压力、力量大小、腾空高度、对手意图或三维运动学结论。
+
+  - course_id: zheng-siwei-left-receive-route
+    coach_id: zheng-siwei
+    system_id: zsw-opening-exchange-system
+    technique_id: left-receive-route
+    variant: 左半场接发后的本侧衔接
+    family_id: serve_receive
+    action: serve_receive
+    action_label_zh: 左半场接发
+    title_zh: 左半场接发：处理后继续进入下一拍
+    title_en: Left-court receive route into the next exchange
+    learning_goal_zh: 将一次接发的准备、启动、接近、处理、继续移动和恢复连为完整路线；搭档覆盖须在双人练习中明确，而非由单人片段硬推。
+    level: [beginner, intermediate, competitive]
+    prerequisites: [训练前先明确本次接发条件与下一球覆盖人。]
+    core_principles:
+      - principle_id: route-with-owner
+        title_zh: 接发路线要有下一拍归属
+        cue_zh: 接发前后都说清本侧和搭档的下一球覆盖线路，不把角色按性别或固定位置硬编码。
+        evidence_boundary_zh: 片段只展示教练的单人路线，不能直接证明搭档分工或对手意图。
+      - principle_id: continue-after-window
+        title_zh: 处理后继续移动
+        cue_zh: 将接近、近似处理窗口和随后的继续移动连起来，不把接发当成一拍结束。
+        evidence_boundary_zh: 普通视频不能测量精确触球、拍面、球速或场地距离。
+    common_errors:
+      - rule_id: zsw-passive-receive-route
+        summary_zh: 接发后没有形成下一次主动交换。
+        correction_zh: 将接发路线与第二次交换的覆盖人一起口令化练习。
+      - rule_id: zsw-opening-role-unclear
+        summary_zh: 两人对下一拍归属不清楚。
+        correction_zh: 在发球前用与线路绑定的短口令明确互补覆盖。
+    framework_ids: [zsw-receive-opening-exchange, zsw-pair-rotation-two-lanes]
+    drill_ids: [zsw-receive-two-exchange, zsw-two-lane-rotation-call]
+    retest_metrics: [随机开局中至少 8/10 次在处理前后都能清楚说出下一条覆盖线路。]
+    source:
+      source_id: ZSW_BILI_BV1SATTEWEBS
+      title: 欢迎来到羽球思维第二期🏸男生在左半场的几种接发球套路
+      url: https://www.bilibili.com/video/BV1SAtTewEbs
+      action_start_seconds: 71.75
+      action_end_seconds: 76.25
+      context_start_seconds: 45.0
+      context_end_seconds: 97.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 官方课程在该段进入左半场接发分工与衔接的第三类实例，并由郑思维本人完成。
+        - 窗口覆盖一次完整接发移动、处理与回到可衔接状态，结束后才恢复讲解。
+    media:
+      clip_path: pages-demo/zheng-siwei-left-receive-route/action.mp4
+      clip_description_zh: 4.5 秒单次接发与衔接路线，连续覆盖准备、处理、继续移动和恢复。
+      stages:
+        - {sequence: 1, stage_id: ready, stage_role: preparation, label_zh: 准备, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/01-ready.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 确认接发者面对发球方时的初始位置和可用方向。, visible_evidence_zh: 教练处于可响应准备，尚未进入本次路线。, limitation_zh: 不从外观推断固定混双角色。}
+        - {sequence: 2, stage_id: start, stage_role: initiation, label_zh: 启动, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/02-start.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 看身体怎样从等待状态开始响应来球。, visible_evidence_zh: 双脚和躯干开始离开准备状态。, limitation_zh: 不量化反应时间、地面受力或发球意图。}
+        - {sequence: 3, stage_id: approach, stage_role: positioning, label_zh: 接近, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/03-approach.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察脚下怎样将身体送向身前处理区域。, visible_evidence_zh: 身体和球拍共同进入来球附近的可用区域。, limitation_zh: 二维投影不提供精确场地距离。}
+        - {sequence: 4, stage_id: loading, stage_role: loading, label_zh: 加载, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/04-loading.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 看支撑与持拍侧怎样为处理建立空间。, visible_evidence_zh: 下肢支撑扩大，球拍仍处于本次路线内。, limitation_zh: 不声称精确关节几何或握拍变化。}
+        - {sequence: 5, stage_id: contact-window, stage_role: action_window, label_zh: 近似处理窗口, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/05-contact-window.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 标记球拍经过来球附近的连续窗口。, visible_evidence_zh: 球拍处于本次接发的可见处理区域。, limitation_zh: 不声称精确触球、拍面、球速或落点。}
+        - {sequence: 6, stage_id: follow-through, stage_role: follow_through, label_zh: 继续移动, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/06-follow-through.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察接发后身体怎样继续进入可衔接区域。, visible_evidence_zh: 教练没有停在处理位置，身体继续向下一拍可用区移动。, limitation_zh: 不能从片段判断完整轮转或搭档战术。}
+        - {sequence: 7, stage_id: recovery, stage_role: recovery, label_zh: 恢复, image_path: pages-demo/zheng-siwei-left-receive-route/keyframes/07-recovery.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 确认本次路线结束时已经能准备下一拍。, visible_evidence_zh: 身体与球拍重新建立可用状态。, limitation_zh: 完整双人轮转需连续回合证据。}
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations: [来源标题中的性别表述不被推广为固定角色规则；页面只教学可见的接发路线和需复测的衔接原则。]
+
+  - course_id: zheng-siwei-rear-pressure-retreat
+    coach_id: zheng-siwei
+    system_id: zsw-defense-transition-system
+    technique_id: rear-pressure-retreat
+    variant: 被压后场时的正确退步路线
+    family_id: defense_transition
+    action: rear_defense
+    action_label_zh: 被压后场退步
+    title_zh: 被压后场：读球、后退处理与恢复
+    title_en: Rear-court pressure retreat from read to recovery
+    learning_goal_zh: 只使用已审核的正确退步路线，按读球、启动、压低加载、近似处理窗口、释放和恢复理解受压后场的完整动作包。
+    level: [beginner, intermediate, competitive]
+    prerequisites: [能在安全场地完成低速后退和稳定支撑；前段错误对比不作为示范。]
+    core_principles:
+      - principle_id: correct-route-only
+        title_zh: 问题对比后只看正确路线
+        cue_zh: 课程前段的后仰和脚下缠结问题不进入本课程；只从教练的正确退步准备开始学习。
+        evidence_boundary_zh: 片段不证明所有被压来球下的唯一脚序或最佳战术选择。
+      - principle_id: gain-time-then-transition
+        title_zh: 处理后重新获得选择
+        cue_zh: 在挥拍后继续观察释放与恢复，用得到的时间重建下一拍可用状态。
+        evidence_boundary_zh: 普通单目视频不能测量精确触球、拍面、力量或对手意图。
+    common_errors:
+      - rule_id: zsw-defense-spacing-collapsed
+        summary_zh: 受压后身体与可用处理空间一起塌缩。
+        correction_zh: 先用两通道防守练习恢复读球、后退和支撑的连续路线。
+      - rule_id: zsw-no-transition-after-time-gained
+        summary_zh: 获得时间后仍停在被动处理状态，没有重新组织下一拍。
+        correction_zh: 将处理后的恢复和中性或进攻过渡作为每次重复的完成条件。
+    framework_ids: [zsw-defense-transition]
+    drill_ids: [zsw-defense-two-channel, zsw-defense-neutral-attack-ladder]
+    retest_metrics: [随机后场压力喂球中至少 7/10 次能在处理后回到下一拍可选择状态。]
+    source:
+      source_id: ZSW_BILI_BV1AURDY3EPT
+      title: 羽球思维第五十四期🏸被压后场来不及退怎么办？
+      url: https://www.bilibili.com/video/BV1auRDY3Ept
+      action_start_seconds: 51.625
+      action_end_seconds: 55.5
+      context_start_seconds: 25.0
+      context_end_seconds: 80.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 课程先分析后退受压问题，再进入按看球、启动、压低身体和出步伐组织的正确路线。
+        - 公开窗口是郑思维本人一条完整后退处理，从准备延续到挥拍后恢复。
+    media:
+      clip_path: pages-demo/zheng-siwei-rear-pressure-retreat/action.mp4
+      clip_description_zh: 3.875 秒正确退步路线，已排除前段错误对比。
+      stages:
+        - {sequence: 1, stage_id: ready, stage_role: preparation, label_zh: 准备, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/01-ready.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 从面对来球的稳定起点开始看正确路线。, visible_evidence_zh: 教练处于可后退响应的准备状态。, limitation_zh: 不由静态帧推断来球速度或对手意图。}
+        - {sequence: 2, stage_id: read, stage_role: initiation, label_zh: 读球, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/02-read.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察身体仍保持可响应，并准备进入后退路线。, visible_evidence_zh: 身体和球拍保持在可调整状态。, limitation_zh: 不声称测得真实视觉反应时间。}
+        - {sequence: 3, stage_id: start, stage_role: positioning, label_zh: 启动, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/03-start.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 看第一下后退响应怎样建立方向。, visible_evidence_zh: 脚下和躯干开始进入后场路线。, limitation_zh: 不从二维画面量化步幅或重心。}
+        - {sequence: 4, stage_id: loading, stage_role: loading, label_zh: 压低与加载, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/04-loading.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察身体降低和支撑怎样为处理创造空间。, visible_evidence_zh: 下肢支撑和持拍侧共同进入后退处理位置。, limitation_zh: 不声称精确关节角度、受力或伤病阈值。}
+        - {sequence: 5, stage_id: contact-window, stage_role: action_window, label_zh: 近似处理窗口, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/05-contact-window.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 标记后退中球拍经过预期处理区域的窗口。, visible_evidence_zh: 球拍处于本次后退动作的可见通过区。, limitation_zh: 不声称精确触球、拍面、球速或力量。}
+        - {sequence: 6, stage_id: release, stage_role: follow_through, label_zh: 释放, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/06-release.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察挥拍通过窗口后怎样连接恢复。, visible_evidence_zh: 球拍已经越过处理窗口，身体开始离开最大后退姿态。, limitation_zh: 不能由单帧判断出球质量或战术结果。}
+        - {sequence: 7, stage_id: recovery, stage_role: recovery, label_zh: 恢复, image_path: pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/07-recovery.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 确认处理后重新取得可继续移动的状态。, visible_evidence_zh: 身体和球拍进入下一拍准备。, limitation_zh: 该路线不代表所有被动后场球的唯一选择。}
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations: [问题段被明确隔离；本课程只使用郑思维本人一条连续、正确的退步处理。]
+
+  - course_id: zheng-siwei-backhand-low-transition
+    coach_id: zheng-siwei
+    system_id: zsw-defense-transition-system
+    technique_id: backhand-low-transition
+    variant: 反手底线低手位过渡对角
+    family_id: defense_transition
+    action: backhand_transition
+    action_label_zh: 反手低手位过渡
+    title_zh: 反手低手位过渡：移动、处理与回收
+    title_en: Low backhand transition from movement to recovery
+    learning_goal_zh: 在固定全身机位中理解单次反手低手位移动、跨步、加载、近似处理窗口、随挥和回收，不将一次对角示范推广为所有来球的固定选择。
+    level: [beginner, intermediate, competitive]
+    prerequisites: [能在安全场地完成低速反手侧移动和跨步；训练中另行提供来球与线路条件。]
+    core_principles:
+      - principle_id: full-route-low-transition
+        title_zh: 低手位也要看完整路线
+        cue_zh: 从固定机位中的准备开始，将移动、跨步、低手位处理和恢复作为同一次动作看。
+        evidence_boundary_zh: 片段不证明来球落点、精确移动距离或唯一脚序。
+      - principle_id: preserve-choice-after-defense
+        title_zh: 处理后保留下一次选择
+        cue_zh: 低手位通过后继续恢复到可移动状态，再在有条件的练习中连接中性或进攻过渡。
+        evidence_boundary_zh: 普通单目视频不能证明精确触球、拍面、旋转、力量或战术意图。
+    common_errors:
+      - rule_id: zsw-defense-spacing-collapsed
+        summary_zh: 低手位处理时身体和可用空间同时被压缩。
+        correction_zh: 先恢复跨步支撑和可见处理路线，再增加来球速度或随机性。
+      - rule_id: zsw-no-transition-after-time-gained
+        summary_zh: 处理完成后没有回到可选择的过渡状态。
+        correction_zh: 把随挥后的回收与下一球口令加入每次练习。
+    framework_ids: [zsw-defense-transition, zsw-reset-match-transfer]
+    drill_ids: [zsw-defense-two-channel, zsw-hit-call-reset]
+    retest_metrics: [连续防守练习中至少 8/10 次低手位处理后回到中性或下一拍可用状态。]
+    source:
+      source_id: ZSW_BILI_BV1FXIJBKEZC
+      title: 羽球思维第九十二期 反手底线低手位过渡对角
+      url: https://www.bilibili.com/video/BV1fxijBKEZc
+      action_start_seconds: 81.05
+      action_end_seconds: 83.25
+      context_start_seconds: 55.0
+      context_end_seconds: 105.0
+      demonstrator_role: coach
+      example_polarity: correct
+      context_review_status: agent_reviewed
+      review_basis:
+        - 官方反手底线低手位过渡课程在该段以固定机位展示正确处理，郑思维本人为主示范者。
+        - 窗口从固定机位准备开始，连续覆盖移动、低手位处理和回收，并在镜头切换前结束。
+    media:
+      clip_path: pages-demo/zheng-siwei-backhand-low-transition/action.mp4
+      clip_description_zh: 2.2 秒固定机位示范，连续覆盖准备、低手位处理和回收。
+      stages:
+        - {sequence: 1, stage_id: ready, stage_role: preparation, label_zh: 准备, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/01-ready.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 确认固定机位中的稳定站姿和可移动方向。, visible_evidence_zh: 教练尚未进入本次低手位路线。, limitation_zh: 不从静态帧推断来球落点或选择意图。}
+        - {sequence: 2, stage_id: start, stage_role: initiation, label_zh: 启动, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/02-start.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察脚下怎样开始进入反手低手位路线。, visible_evidence_zh: 双脚和身体相对准备开始连续变化。, limitation_zh: 二维视频不量化反应时间或精确移动距离。}
+        - {sequence: 3, stage_id: lunge, stage_role: positioning, label_zh: 跨步, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/03-lunge.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 看身体怎样接近较低处理区域并保持支撑。, visible_evidence_zh: 支撑扩大，身体进入低手位附近。, limitation_zh: 不声称唯一正确脚序或重心高度。}
+        - {sequence: 4, stage_id: loading, stage_role: loading, label_zh: 加载, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/04-loading.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察持拍侧与下肢支撑怎样连接后续低手位挥拍。, visible_evidence_zh: 球拍和身体仍在同一次处理路线内。, limitation_zh: 不推断精确握拍、关节角度或肌肉发力。}
+        - {sequence: 5, stage_id: contact-window, stage_role: action_window, label_zh: 近似处理窗口, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/05-contact-window.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 标出球拍经过低手位来球区域的可见时间窗。, visible_evidence_zh: 球拍处于本次低手位处理的通过区。, limitation_zh: 不声称精确触球、拍面、旋转、球速或落点。}
+        - {sequence: 6, stage_id: follow-through, stage_role: follow_through, label_zh: 随挥, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/06-follow-through.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 观察处理后球拍和身体怎样继续通过。, visible_evidence_zh: 球拍已经越过动作窗口并开始回收。, limitation_zh: 不能由单帧确认实际过渡效果。}
+        - {sequence: 7, stage_id: recovery, stage_role: recovery, label_zh: 恢复, image_path: pages-demo/zheng-siwei-backhand-low-transition/keyframes/07-recovery.jpg, anchor_status: not_preserved, anchor_seconds: null, cue_zh: 确认动作后重新取得可移动的稳定状态。, visible_evidence_zh: 身体和球拍进入下一拍准备。, limitation_zh: 路线选择仍需结合来球和回合上下文。}
+    status: teaching_ready
+    evidence_level: agent_reviewed_public_clip
+    limitations: [该公开片段只保留郑思维本人固定机位下的一次正确动作；不声称精确触球或固定双打战术。]

@@ -127,10 +127,23 @@ interface TechniqueCourse {
   }>;
 }
 
+interface CurriculumTechnique {
+  technique_id: string;
+  system_id: string;
+  title_zh: string;
+  summary_zh: string;
+  applicable_actions: string[];
+  level: "foundation" | "developing" | "advanced" | "transfer";
+  prerequisite_technique_ids: string[];
+  next_technique_ids: string[];
+  course_ids: string[];
+  availability: "knowledge_only" | "teaching_ready";
+}
+
 interface TechniqueCourseCatalog {
   schema_version: "public-technique-course/v1";
   course_count: number;
-  coaches: Array<{ coach_id: CoachId; courses: TechniqueCourse[] }>;
+  coaches: Array<{ coach_id: CoachId; techniques: CurriculumTechnique[]; courses: TechniqueCourse[] }>;
 }
 
 const techniqueCourseCatalog = techniqueCourseData as TechniqueCourseCatalog;
@@ -944,6 +957,9 @@ export function PagesDemo() {
   const coach = useMemo(() => coaches.find((item) => item.id === coachId)!, [coachId]);
   const lesson = coach.lessons[lessonIndex] ?? coach.lessons[0];
   const course = techniqueCourseById.get(`${coach.id}-${lesson.id}`);
+  const curriculumCoach = techniqueCourseCatalog.coaches.find((item) => item.coach_id === coach.id);
+  const curriculumTechniques = curriculumCoach?.techniques ?? [];
+  const curriculumTechniqueById = new Map(curriculumTechniques.map((item) => [item.technique_id, item]));
   const activeSystem = coach.systems.find((system) => system.lessonIds.includes(lesson.id)) ?? coach.systems[0];
   const activeMedia = course
     ? {
@@ -1108,6 +1124,32 @@ export function PagesDemo() {
               </div>
             </section>)}
           </div>
+
+          <section className="pages-curriculum-map" aria-labelledby="curriculum-heading">
+            <header>
+              <div><p className="pages-kicker">COACHING MAP</p><h3 id="curriculum-heading">从基础到回合，按路线练。</h3></div>
+              <p>带影片标记的节点可看完整教练示范；其余节点提供对应体系、练习与复测，不借用无关画面。</p>
+            </header>
+            <div className="pages-curriculum-grid">
+              {curriculumTechniques.map((item) => {
+                const prerequisiteTitles = item.prerequisite_technique_ids.map((id) => curriculumTechniqueById.get(id)?.title_zh ?? id);
+                const nextTitles = item.next_technique_ids.map((id) => curriculumTechniqueById.get(id)?.title_zh ?? id);
+                const courseId = item.course_ids[0];
+                const lessonForCourse = courseId ? coach.lessons.findIndex((lessonItem) => `${coach.id}-${lessonItem.id}` === courseId) : -1;
+                return <article key={item.technique_id} data-availability={item.availability}>
+                  <div className="pages-curriculum-meta"><span>{item.level}</span><b>{item.availability === "teaching_ready" ? "完整示范" : "知识路线"}</b></div>
+                  <h4>{item.title_zh}</h4><p>{item.summary_zh}</p>
+                  <div className="pages-curriculum-route">
+                    {prerequisiteTitles.length > 0 && <span><small>先练</small>{prerequisiteTitles.join(" · ")}</span>}
+                    {nextTitles.length > 0 && <span><small>下一步</small>{nextTitles.join(" · ")}</span>}
+                  </div>
+                  {lessonForCourse >= 0
+                    ? <button type="button" onClick={() => selectLesson(lessonForCourse)}>看审核动作课 <ArrowRight size={14} /></button>
+                    : <em>原则、练习与复测已就绪；尚无可展示的审核连续媒体。</em>}
+                </article>;
+              })}
+            </div>
+          </section>
 
           <article className="pages-lesson-viewer" aria-labelledby="lesson-title">
             <header className="pages-lesson-title">

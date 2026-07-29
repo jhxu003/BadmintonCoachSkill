@@ -16,6 +16,8 @@ Choose one mode:
 
 Always read `references/technique-courses.yaml` and `references/video-lesson-contract.md` in teaching-demonstration mode. A `teaching_ready` course is the canonical binding between a mixed-doubles system principle, its framework/rules/drills/retests, and the exact reviewed public clip plus seven stage frames. Read `references/public-demo-cases.yaml` when a public, directly inspectable fallback example is acceptable. Use `references/demonstration-contract.md` only for an explicitly requested phase or when no reviewed video lesson package exists.
 
+Resolve the `techniques` curriculum map before selecting a pair route. Follow its prerequisite and next-node links, but keep pair roles conditional on training context. A `knowledge_only` node may provide its system, rules, drills, and retest without displaying another technique's media. Only `teaching_ready` nodes may expose the reviewed course IDs bound to their own continuous coach demonstration.
+
 ## Required Inputs
 
 For teaching demonstration, require `action`; accept `level`, `training_goal`, `framework_id`, or an optional `phase` when supplied. Do not request learner tracks or a rally video merely to explain a coaching module.
@@ -34,7 +36,7 @@ If roles, court geometry, shuttle evidence, or the next shot are missing, reques
 
 ## Reference Loading
 
-- In teaching-demonstration mode, read `references/technique-courses.yaml`, `references/video-lesson-contract.md`, `references/public-demo-cases.yaml`, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`. Use a matching `teaching_ready` course without mixing its source, clip, frames, system principle, rules, or drills with another package. Public cases are the fail-closed inspectable fallback subset and cannot be generalized into fixed pair roles or intent. An approved private staging root may be supplied through `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content.
+- In teaching-demonstration mode, read `references/technique-courses.yaml`, resolve its curriculum node, then read `references/video-lesson-contract.md`, `references/public-demo-cases.yaml`, `references/frameworks.yaml`, and `references/multimodal-evidence-map.yaml`. Use a matching `teaching_ready` course without mixing its source, clip, frames, system principle, rules, or drills with another package. For `knowledge_only`, teach the linked pair principle and practice route without selecting unrelated media. Public cases are the fail-closed inspectable fallback subset and cannot be generalized into fixed pair roles or intent. An approved private staging root may be supplied through `BADMINTON_ZHENG_SIWEI_VIDEO_LESSON_ROOT`; its absolute path must remain deployment configuration rather than Git content.
 - In structured-pair-diagnosis mode, always read `references/report-contract.md`, `references/evidence-policy.md`, and `references/corpus-provenance.md`.
 - Read `references/frameworks.yaml` to select the module and route.
 - Read `references/mixed-doubles-rubric.yaml` and `references/drills.yaml` before producing a deterministic diagnosis.

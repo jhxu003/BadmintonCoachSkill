@@ -1,6 +1,6 @@
 {
   "schema_version": "public-technique-course/v1",
-  "course_count": 9,
+  "course_count": 16,
   "coaches": [
     {
       "coach_id": "liu-hui",
@@ -25,6 +25,748 @@
             "变化建立在基础头顶准备可用的前提上。",
             "用连续过程理解节奏，不把某张拍面定格当作完整技术。",
             "每一种变化都要连到结果观察和下一拍恢复。"
+          ]
+        },
+        {
+          "system_id": "liu-movement-recovery",
+          "title_zh": "后场移动与恢复",
+          "title_en": "Rear-court movement and recovery",
+          "description_zh": "以从中间准备、后场进入、动作窗口、落地和退出为一条路线，先确保下一拍可用。",
+          "principles": [
+            "后场移动不从腾空姿态开始，也不在落地时结束。",
+            "路线要按来球、身体条件和下一拍要求调整，不固化唯一脚序。"
+          ]
+        },
+        {
+          "system_id": "liu-fast-exchange",
+          "title_zh": "快速交换与双打连续性",
+          "title_en": "Fast exchange and doubles continuity",
+          "description_zh": "用紧凑准备、短出拍和及时回收建立平抽挡与双打连续交换。",
+          "principles": [
+            "快速球先解决准备大小和可用间距，再谈更大力量。",
+            "每次处理后都要回到下一拍和搭档可用的位置。"
+          ]
+        },
+        {
+          "system_id": "liu-backhand-transition",
+          "title_zh": "反手被动过渡",
+          "title_en": "Passive backhand transition",
+          "description_zh": "先用移动和身体朝向争取反手处理空间，再组织紧凑的过渡与恢复。",
+          "principles": [
+            "反手被动球不是只靠手腕的孤立动作。",
+            "没有完整移动画面时，只教可见路线，不虚构球路结果。"
+          ]
+        },
+        {
+          "system_id": "liu-serve-opening",
+          "title_zh": "发球与开局准备",
+          "title_en": "Serve and opening readiness",
+          "description_zh": "用可重复的转拍、挥拍路线和下一拍准备组织发球开局，而不是只追求一张动作定格。",
+          "principles": [
+            "发球的挥拍路线和下一拍准备需要一起练习。",
+            "徒手示范只能解释路线，不能替代过网高度或落点复测。"
+          ]
+        },
+        {
+          "system_id": "liu-match-transfer",
+          "title_zh": "从练习到对抗",
+          "title_en": "Practice-to-rally transfer",
+          "description_zh": "把单项动作带回有来球、线路和恢复要求的练习，再决定是否能迁移到对抗。",
+          "principles": [
+            "单次动作成功不等于对抗中已经稳定可用。",
+            "每次进阶只改变一个条件，并保留可解释的复测指标。"
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "technique_id": "overhead-base-chain",
+          "system_id": "liu-overhead-foundation",
+          "title_zh": "后场头顶基础动作链",
+          "summary_zh": "先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+          "applicable_actions": [
+            "高远球",
+            "杀球",
+            "吊球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "stable-overhead-frame",
+            "contact-window-frame"
+          ],
+          "rule_ids": [
+            "contact-point-behind",
+            "low-elbow"
+          ],
+          "drill_ids": [
+            "rear-court-arrival-shadow",
+            "top-elbow-freeze"
+          ],
+          "retest_metrics": [
+            "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "high-clear"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "stable-overhead-frame",
+              "name": "Stable overhead frame",
+              "summary": "Build arrival, contact point, racket-side structure, and top-elbow sequence before speed."
+            },
+            {
+              "framework_id": "contact-window-frame",
+              "name": "Contact-window frame",
+              "summary": "Treat the hitting point as the gatekeeper for later power, angle, and variation work."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "contact-point-behind",
+              "issue": "Contact point is behind the head",
+              "correction_principle": "Move the training target to a front-high contact window before adding speed."
+            },
+            {
+              "rule_id": "low-elbow",
+              "issue": "Top elbow is not established before acceleration",
+              "correction_principle": "Build top-elbow frame and elbow-before-wrist sequence at slow speed."
+            }
+          ]
+        },
+        {
+          "technique_id": "high-clear",
+          "system_id": "liu-overhead-foundation",
+          "title_zh": "后场高远球",
+          "summary_zh": "用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
+          "applicable_actions": [
+            "高远球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "stable-overhead-frame",
+            "high-clear-base-power-frame"
+          ],
+          "rule_ids": [
+            "contact-point-behind",
+            "short-follow-through"
+          ],
+          "drill_ids": [
+            "contact-window-freeze",
+            "complete-follow-through-line"
+          ],
+          "retest_metrics": [
+            "目标喂球下完成后能回到下一拍可用状态。"
+          ],
+          "prerequisite_technique_ids": [
+            "overhead-base-chain"
+          ],
+          "next_technique_ids": [
+            "smash",
+            "slice-drop"
+          ],
+          "course_ids": [
+            "liu-hui-high-clear"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "stable-overhead-frame",
+              "name": "Stable overhead frame",
+              "summary": "Build arrival, contact point, racket-side structure, and top-elbow sequence before speed."
+            },
+            {
+              "framework_id": "high-clear-base-power-frame",
+              "name": "High-clear base power frame",
+              "summary": "Rebuild high-clear distance through contact window, frame, and simple release rather than more arm force."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "contact-point-behind",
+              "issue": "Contact point is behind the head",
+              "correction_principle": "Move the training target to a front-high contact window before adding speed."
+            },
+            {
+              "rule_id": "short-follow-through",
+              "issue": "Follow-through stops too early",
+              "correction_principle": "Let the swing finish naturally before judging power."
+            }
+          ]
+        },
+        {
+          "technique_id": "smash",
+          "system_id": "liu-overhead-foundation",
+          "title_zh": "后场杀球",
+          "summary_zh": "在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+          "applicable_actions": [
+            "杀球"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "heavy-smash-frame",
+            "simple-smash-sequence-frame"
+          ],
+          "rule_ids": [
+            "jump-contact-window-missed",
+            "jump-landing-recovery-unstable"
+          ],
+          "drill_ids": [
+            "jump-contact-ladder",
+            "jump-landing-recovery"
+          ],
+          "retest_metrics": [
+            "每次进攻处理后都能稳定落地并准备下一拍。"
+          ],
+          "prerequisite_technique_ids": [
+            "high-clear"
+          ],
+          "next_technique_ids": [
+            "jump-smash"
+          ],
+          "course_ids": [
+            "liu-hui-smash"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "heavy-smash-frame",
+              "name": "Heavy smash frame",
+              "summary": "Build a heavier smash through frame, body contribution, and complete release before chasing steep angle."
+            },
+            {
+              "framework_id": "simple-smash-sequence-frame",
+              "name": "Simple smash sequence frame",
+              "summary": "Start smash learning from a simple stable sequence before heavy, fast, jump, or Bawang variants."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "jump-contact-window-missed",
+              "issue": "Jump smash misses the contact window",
+              "correction_principle": "Retest takeoff timing and contact before adding more jump height or body force."
+            },
+            {
+              "rule_id": "jump-landing-recovery-unstable",
+              "issue": "Jump smash landing and recovery are unstable",
+              "correction_principle": "Keep jump-smash work below the player's recoverable intensity."
+            }
+          ]
+        },
+        {
+          "technique_id": "jump-smash",
+          "system_id": "liu-overhead-foundation",
+          "title_zh": "起跳杀球进阶",
+          "summary_zh": "只在基础杀球的动作窗口、落地和恢复稳定后，逐步增加起跳条件和速度。",
+          "applicable_actions": [
+            "起跳杀球"
+          ],
+          "level": "advanced",
+          "framework_ids": [
+            "jump-smash-airtime-frame",
+            "heavy-smash-frame"
+          ],
+          "rule_ids": [
+            "standing-frame-not-ready-for-jump",
+            "jump-landing-recovery-unstable"
+          ],
+          "drill_ids": [
+            "jump-contact-ladder",
+            "jump-landing-recovery"
+          ],
+          "retest_metrics": [
+            "增加起跳前先保持稳定落地与下一拍可用。"
+          ],
+          "prerequisite_technique_ids": [
+            "smash"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "jump-smash-airtime-frame",
+              "name": "Jump-smash airtime frame",
+              "summary": "Diagnose jump smash through takeoff timing, contact point, airtime feel, and landing recovery."
+            },
+            {
+              "framework_id": "heavy-smash-frame",
+              "name": "Heavy smash frame",
+              "summary": "Build a heavier smash through frame, body contribution, and complete release before chasing steep angle."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "standing-frame-not-ready-for-jump",
+              "issue": "Standing smash frame is not ready for jump progression",
+              "correction_principle": "Block jump-smash progression until compact standing frame and contact timing are repeatable."
+            },
+            {
+              "rule_id": "jump-landing-recovery-unstable",
+              "issue": "Jump smash landing and recovery are unstable",
+              "correction_principle": "Keep jump-smash work below the player's recoverable intensity."
+            }
+          ]
+        },
+        {
+          "technique_id": "slice-drop",
+          "system_id": "liu-overhead-variation",
+          "title_zh": "头顶区滑板吊球",
+          "summary_zh": "在基础头顶准备可用后，用连续动作理解节奏和线路变化，而不是照搬一张拍面定格。",
+          "applicable_actions": [
+            "滑板吊球"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "slice-drop-slide-frame",
+            "deceptive-drop-frame"
+          ],
+          "rule_ids": [
+            "drop-too-slow",
+            "drop-early-reveal"
+          ],
+          "drill_ids": [
+            "drop-disguise-speed-ladder",
+            "drop-face-window-check"
+          ],
+          "retest_metrics": [
+            "连续练习中完成变化后仍能恢复到下一拍准备。"
+          ],
+          "prerequisite_technique_ids": [
+            "high-clear"
+          ],
+          "next_technique_ids": [
+            "drop-variation-route"
+          ],
+          "course_ids": [
+            "liu-hui-slice-drop"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "slice-drop-slide-frame",
+              "name": "Slice-drop and slide-shot frame",
+              "summary": "Add slice, drop, slide, and cut-shot variation only when base overhead contact and disguise are usable."
+            },
+            {
+              "framework_id": "deceptive-drop-frame",
+              "name": "Deceptive drop frame",
+              "summary": "Build disguise and late decision from a credible overhead base before asking for deceptive drop details."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "drop-too-slow",
+              "issue": "Drop shot is too slow or too high",
+              "correction_principle": "Rebuild base overhead disguise and compact contact before adding slice detail."
+            },
+            {
+              "rule_id": "drop-early-reveal",
+              "issue": "Drop intention is revealed too early",
+              "correction_principle": "Keep the preparation close to the base overhead action, then vary contact late."
+            }
+          ]
+        },
+        {
+          "technique_id": "drop-variation-route",
+          "system_id": "liu-overhead-variation",
+          "title_zh": "吊球变化与线路选择",
+          "summary_zh": "将轻吊、重切和欺骗变化放在高位基础与结果观察之后逐一练习，不把变化当成基础的替代品。",
+          "applicable_actions": [
+            "吊球",
+            "切球"
+          ],
+          "level": "advanced",
+          "framework_ids": [
+            "light-drop-frame",
+            "heavy-slice-drop-frame"
+          ],
+          "rule_ids": [
+            "drop-overcut-face",
+            "drop-direction-mismatch"
+          ],
+          "drill_ids": [
+            "drop-variant-target-line",
+            "drop-face-window-check"
+          ],
+          "retest_metrics": [
+            "每次只改变一种线路或节奏条件并记录结果。"
+          ],
+          "prerequisite_technique_ids": [
+            "slice-drop"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "light-drop-frame",
+              "name": "Light drop frame",
+              "summary": "Diagnose light-drop quality through base overhead disguise, compact contact, and usable recovery rather than touch alone."
+            },
+            {
+              "framework_id": "heavy-slice-drop-frame",
+              "name": "Heavy slice-drop frame",
+              "summary": "For heavy slice or forceful drop, preserve base overhead frame and contact before adding cutting speed."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "drop-overcut-face",
+              "issue": "Racket face over-cuts the shuttle",
+              "correction_principle": "Stabilize the face and contact window before increasing slice amount."
+            },
+            {
+              "rule_id": "drop-direction-mismatch",
+              "issue": "Drop direction skill does not transfer across target lines",
+              "correction_principle": "Use the known direction as a reference, then rebuild the missing target line as a separate task."
+            }
+          ]
+        },
+        {
+          "technique_id": "rear-court-footwork",
+          "system_id": "liu-movement-recovery",
+          "title_zh": "后场突击步法与中国跳",
+          "summary_zh": "从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
+          "applicable_actions": [
+            "后场步法",
+            "中国跳"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "timestamp-china-jump-recovery",
+            "start-position-recovery-frame"
+          ],
+          "rule_ids": [
+            "late-arrival",
+            "slow-recovery"
+          ],
+          "drill_ids": [
+            "china-jump-short-contact",
+            "jump-landing-recovery"
+          ],
+          "retest_metrics": [
+            "后场进入后能在下一拍口令前完成稳定退出。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "passive-backhand"
+          ],
+          "course_ids": [
+            "liu-hui-backcourt-footwork"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "timestamp-china-jump-recovery",
+              "name": "China-jump recovery frame",
+              "summary": "Teach China jump as a no-foot-switch, half-side, quick-power and recovery solution rather than as a decorative jump shape."
+            },
+            {
+              "framework_id": "start-position-recovery-frame",
+              "name": "Start-position and recovery frame",
+              "summary": "Diagnose footwork through start, positioning, arrival, exit, and recovery rather than named steps alone."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "late-arrival",
+              "issue": "Rear-court arrival is late",
+              "correction_principle": "Fix arrival and balance before changing hand speed."
+            },
+            {
+              "rule_id": "slow-recovery",
+              "issue": "Recovery to base is slow",
+              "correction_principle": "Keep the first training target on balanced exit and return."
+            }
+          ]
+        },
+        {
+          "technique_id": "passive-backhand",
+          "system_id": "liu-backhand-transition",
+          "title_zh": "反手被动球处理",
+          "summary_zh": "用转身、进入、伸展处理和恢复争取可用过渡，不把动作缩成手腕发力。",
+          "applicable_actions": [
+            "反手被动球"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "backhand-passive-frame",
+            "backhand-corner-choice-frame"
+          ],
+          "rule_ids": [
+            "backhand-low-contact",
+            "swing-path-offline"
+          ],
+          "drill_ids": [
+            "backhand-contact-height-check",
+            "arm-path-reset"
+          ],
+          "retest_metrics": [
+            "连续录像中能从移动进入反手处理并回到可继续移动状态。"
+          ],
+          "prerequisite_technique_ids": [
+            "rear-court-footwork"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [
+            "liu-hui-backhand"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "backhand-passive-frame",
+              "name": "Backhand passive frame",
+              "summary": "Diagnose backhand through arrival, contact height, defensive choice, racket face, and recovery rather than wrist strength alone."
+            },
+            {
+              "framework_id": "backhand-corner-choice-frame",
+              "name": "Backhand-corner choice frame",
+              "summary": "Decide whether the problem is wrong rear-corner solution choice, late arrival, low contact, or backhand execution."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "backhand-low-contact",
+              "issue": "Backhand contact is too low or late",
+              "correction_principle": "Fix arrival and contact height before adding wrist-force cues."
+            },
+            {
+              "rule_id": "swing-path-offline",
+              "issue": "Swing path is offline for the intended shot",
+              "correction_principle": "Fix the movement line before increasing speed."
+            }
+          ]
+        },
+        {
+          "technique_id": "drive",
+          "system_id": "liu-fast-exchange",
+          "title_zh": "平抽挡快速交换",
+          "summary_zh": "以紧凑准备、短出拍和及时回弹维持快速交换，不让大幅后摆占用来球窗口。",
+          "applicable_actions": [
+            "平抽挡"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "push-drive-power-frame",
+            "standard-ready-racket-frame"
+          ],
+          "rule_ids": [
+            "drive-large-preparation",
+            "exchange-second-shot-not-ready"
+          ],
+          "drill_ids": [
+            "compact-drive-exchange",
+            "pressure-transfer-ladder"
+          ],
+          "retest_metrics": [
+            "连续交换中每次出拍后都能回到下一拍可用位置。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "doubles-continuity"
+          ],
+          "course_ids": [
+            "liu-hui-drive"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "push-drive-power-frame",
+              "name": "Push and drive power frame",
+              "summary": "For push, draw, and drive actions, prioritize compact preparation, face stability, and short release."
+            },
+            {
+              "framework_id": "standard-ready-racket-frame",
+              "name": "Standard ready-racket frame",
+              "summary": "Pick a usable preparation and racket set for the player before adding specialized Bawang, jump, or variation frames."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "drive-large-preparation",
+              "issue": "Drive or receive preparation is too large for the exchange",
+              "correction_principle": "Shorten preparation and retest two-shot continuity."
+            },
+            {
+              "rule_id": "exchange-second-shot-not-ready",
+              "issue": "Player is not ready for the second exchange shot",
+              "correction_principle": "Couple each compact contact with immediate next-shot readiness."
+            }
+          ]
+        },
+        {
+          "technique_id": "high-serve",
+          "system_id": "liu-serve-opening",
+          "title_zh": "正手高远球发球路线",
+          "summary_zh": "用转拍、手臂路线和完整释放组织正手高远球发球；徒手示范只作为动作路线参考。",
+          "applicable_actions": [
+            "正手高远球发球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "serve-high-clear-frame",
+            "wrist-position-frame"
+          ],
+          "rule_ids": [
+            "swing-path-offline",
+            "wrist-force-scattered"
+          ],
+          "drill_ids": [
+            "wrist-contact-segmentation",
+            "arm-path-reset"
+          ],
+          "retest_metrics": [
+            "在有球练习中另行记录发球过网与落点，而不从徒手片段推断。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "doubles-continuity"
+          ],
+          "course_ids": [
+            "liu-hui-serve-receive"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "serve-high-clear-frame",
+              "name": "High-serve and first-shot frame",
+              "summary": "Treat high serve quality as a first-shot control problem that still depends on grip, contact, trajectory, and next-shot readiness."
+            },
+            {
+              "framework_id": "wrist-position-frame",
+              "name": "Wrist-position frame",
+              "summary": "Decide when wrist position helps the intended power mode and when it becomes a premature hand cue."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "swing-path-offline",
+              "issue": "Swing path is offline for the intended shot",
+              "correction_principle": "Fix the movement line before increasing speed."
+            },
+            {
+              "rule_id": "wrist-force-scattered",
+              "issue": "Wrist force is scattered instead of concentrated near contact",
+              "correction_principle": "Segment the contact and follow-through first, then reconnect the wrist contribution into the chain."
+            }
+          ]
+        },
+        {
+          "technique_id": "doubles-continuity",
+          "system_id": "liu-fast-exchange",
+          "title_zh": "双打击球后的连续覆盖",
+          "summary_zh": "把平抽挡或发球后的球拍准备、搭档覆盖和下一次交换放回同一条训练路线。",
+          "applicable_actions": [
+            "双打",
+            "平抽挡",
+            "发接发"
+          ],
+          "level": "advanced",
+          "framework_ids": [
+            "doubles-rear-continuity-frame",
+            "doubles-fast-exchange-frame"
+          ],
+          "rule_ids": [
+            "doubles-watch-after-hit",
+            "exchange-second-shot-not-ready"
+          ],
+          "drill_ids": [
+            "doubles-after-shot-recovery",
+            "compact-drive-exchange"
+          ],
+          "retest_metrics": [
+            "双人练习中每次处理后都有一人保持下一拍可用。"
+          ],
+          "prerequisite_technique_ids": [
+            "drive",
+            "high-serve"
+          ],
+          "next_technique_ids": [
+            "match-transfer"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "doubles-rear-continuity-frame",
+              "name": "Doubles rear-court continuity frame",
+              "summary": "Couple rear-court shot quality to partner-aware recovery, next-shot readiness, and fast exchange pressure."
+            },
+            {
+              "framework_id": "doubles-fast-exchange-frame",
+              "name": "Doubles fast-exchange frame",
+              "summary": "In doubles fast exchange, pair compact racket action with role-aware recovery and partner coverage."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "doubles-watch-after-hit",
+              "issue": "Player watches after the hit instead of recovering to doubles position",
+              "correction_principle": "Link each shot to partner-aware recovery and next-shot readiness."
+            },
+            {
+              "rule_id": "exchange-second-shot-not-ready",
+              "issue": "Player is not ready for the second exchange shot",
+              "correction_principle": "Couple each compact contact with immediate next-shot readiness."
+            }
+          ]
+        },
+        {
+          "technique_id": "match-transfer",
+          "system_id": "liu-match-transfer",
+          "title_zh": "从单项练习迁移到对抗",
+          "summary_zh": "用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
+          "applicable_actions": [
+            "比赛迁移"
+          ],
+          "level": "transfer",
+          "framework_ids": [
+            "match-transfer-frame",
+            "learner-fit-sequence-frame"
+          ],
+          "rule_ids": [
+            "drill-form-rally-breakdown",
+            "tactical-context-missing"
+          ],
+          "drill_ids": [
+            "rally-context-retake",
+            "framework-a-b-selector"
+          ],
+          "retest_metrics": [
+            "在增加一个对抗条件后仍能说明动作、线路和恢复是否可用。"
+          ],
+          "prerequisite_technique_ids": [
+            "doubles-continuity"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "match-transfer-frame",
+              "name": "Match-transfer frame",
+              "summary": "Separate \"can do the movement\" from \"can use it in a rally\" and diagnose pressure, decision, recovery, and repeatability."
+            },
+            {
+              "framework_id": "learner-fit-sequence-frame",
+              "name": "Learner-fit learning sequence frame",
+              "summary": "Pick the learning order and current priority from the player's level, coordination, and match-transfer goal before isolated cues."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "drill-form-rally-breakdown",
+              "issue": "Technique works in drill form but breaks in rally pressure",
+              "correction_principle": "Progress from slow structure to controlled feed to rally-pressure retest."
+            },
+            {
+              "rule_id": "tactical-context-missing",
+              "issue": "Tactical advice is under-evidenced from the current clip",
+              "correction_principle": "Keep the report technical until rally context is visible."
+            }
           ]
         }
       ],
@@ -809,6 +1551,889 @@
               ]
             }
           ]
+        },
+        {
+          "course_id": "liu-hui-backcourt-footwork",
+          "coach_id": "liu-hui",
+          "system_id": "liu-movement-recovery",
+          "technique_id": "rear-court-footwork",
+          "variant": "中国跳后场突击步法",
+          "family_id": "rear_footwork",
+          "action": "rear_footwork",
+          "action_label_zh": "后场步法",
+          "title_zh": "后场突击步法：中国跳、落地与退出",
+          "title_en": "Rear-court attack footwork with China jump and recovery",
+          "learning_goal_zh": "从中间准备进入后场，连贯观察启动、加载、腾空动作窗口、落地与退出，而不是只模仿中国跳的单一姿势。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ],
+          "prerequisites": [
+            "能在无痛条件下完成低速后场移动与稳定落地。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "route-before-airtime",
+              "title_zh": "先看进入路线，再看腾空",
+              "cue_zh": "从中间准备、分腿和第一步开始看，让中国跳留在完整后场路线里。",
+              "evidence_boundary_zh": "片段不证明所有来球下的唯一脚序或精确场地距离。"
+            },
+            {
+              "principle_id": "land-to-next-shot",
+              "title_zh": "落地后继续退出",
+              "cue_zh": "腾空后把落地、身体恢复和下一拍准备连起来，不能把击球窗口当作结束。",
+              "evidence_boundary_zh": "普通视频不能测量起跳力、冲击负荷或三维身体角度。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "late-arrival",
+              "summary_zh": "后场到位过晚，只能赶着做最后一步。",
+              "correction_zh": "先用中间启动到后场平衡停住的练习恢复进入时间。"
+            },
+            {
+              "rule_id": "slow-recovery",
+              "summary_zh": "落地后没有及时退出，下一拍准备被拖慢。",
+              "correction_zh": "将落地后的退出和回中单独计入每次重复。"
+            }
+          ],
+          "framework_ids": [
+            "timestamp-china-jump-recovery",
+            "start-position-recovery-frame"
+          ],
+          "drill_ids": [
+            "china-jump-short-contact",
+            "jump-landing-recovery"
+          ],
+          "retest_metrics": [
+            "连续 10 次后场路线中至少 8 次在下一拍口令前完成稳定落地与退出。"
+          ],
+          "source": {
+            "source_id": "LH_BILI_SEASON_BV1NWRRBTEDY",
+            "title": "中国跳突击教学！羽毛球业余选手爆改26分钟！超多细节！架拍手法步法！",
+            "url": "https://www.bilibili.com/video/BV1NwrrBtEdY/",
+            "action_start_seconds": 173.75,
+            "action_end_seconds": 177.25,
+            "context_start_seconds": 143.0,
+            "context_end_seconds": 203.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "周边语境在学员纠正环节中明确转为教练看向镜头并亲自展示中国跳后场路线。",
+              "公开窗口的前景黑衣示范者为教练本人，动作不是学员的纠正中尝试。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/liu-hui-backcourt-footwork/action.mp4",
+            "clip_description_zh": "3.5 秒后场突击步法，连续覆盖中间启动、中国跳、落地和退出。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "中间准备",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/01-ready.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 173.75,
+                "cue_zh": "从面对场地的中间准备开始看本次后场路线。",
+                "visible_evidence_zh": "示范者处于可向后场启动的初始状态。",
+                "limitation_zh": "不把画面坐标当作精确场地坐标。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "split-step",
+                "stage_role": "initiation",
+                "label_zh": "分腿与启动",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/02-split-step.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 174.0,
+                "cue_zh": "观察脚下怎样建立第一次后场响应。",
+                "visible_evidence_zh": "双脚和身体已开始离开中间准备。",
+                "limitation_zh": "不能从普通视频测量反应时间或地面受力。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "first-step",
+                "stage_role": "positioning",
+                "label_zh": "第一进入步",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/03-first-step.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 174.5,
+                "cue_zh": "看身体朝向和脚步怎样共同进入后场。",
+                "visible_evidence_zh": "身体重心和脚步继续朝后场路线变化。",
+                "limitation_zh": "二维画面不提供精确步幅或重心高度。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "loading",
+                "stage_role": "loading",
+                "label_zh": "后场加载",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/04-loading.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 175.0,
+                "cue_zh": "关注腾空前最后调整和可见下肢加载。",
+                "visible_evidence_zh": "示范者已接近后场动作位置并建立支撑。",
+                "limitation_zh": "不将该路线断言为所有来球下的唯一答案。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "jump-strike-window",
+                "stage_role": "action_window",
+                "label_zh": "中国跳动作窗口",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/05-jump-strike-window.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 175.375,
+                "cue_zh": "将腾空姿态放回前后步法中理解其作用。",
+                "visible_evidence_zh": "身体处于腾空动作窗口，持拍侧随路线继续通过。",
+                "limitation_zh": "不声称精确触球、腾空高度或三维角度。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "landing",
+                "stage_role": "follow_through",
+                "label_zh": "落地",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/06-landing.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 175.625,
+                "cue_zh": "观察腾空如何连接到可继续移动的落地。",
+                "visible_evidence_zh": "双脚重新接近支撑，身体离开最大腾空姿态。",
+                "limitation_zh": "不能由画面量化冲击负荷或伤病风险。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "退出与恢复",
+                "image_path": "pages-demo/liu-hui-backcourt-footwork/keyframes/07-recovery.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 176.25,
+                "cue_zh": "确认落地后继续退出并重新组织下一拍。",
+                "visible_evidence_zh": "身体和球拍进入回收，路线没有停在落地。",
+                "limitation_zh": "本示范不代表完整后场步法库。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "七帧用于导航；连续片段才保留后场路线、腾空、落地和退出的过程。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "timestamp-china-jump-recovery",
+              "name": "China-jump recovery frame",
+              "summary": "Teach China jump as a no-foot-switch, half-side, quick-power and recovery solution rather than as a decorative jump shape."
+            },
+            {
+              "framework_id": "start-position-recovery-frame",
+              "name": "Start-position and recovery frame",
+              "summary": "Diagnose footwork through start, positioning, arrival, exit, and recovery rather than named steps alone."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "china-jump-short-contact",
+              "name": "China-jump short ground contact",
+              "target_issues": [
+                "foot-switch-cost",
+                "long-ground-contact",
+                "slow-recovery"
+              ],
+              "steps": [
+                "Start from half-side rear-court posture without switching feet.",
+                "Make a small hit-and-land rhythm where ground contact stays short.",
+                "Exit immediately into the next recovery step.",
+                "Count only reps where the no-foot-switch purpose and recovery route are preserved."
+              ],
+              "dosage": "5 sets of 6 controlled China-jump rhythm reps.",
+              "retest_metrics": [
+                "foot_switch changes from true to false",
+                "ground_contact changes from long_dragging to short_elastic",
+                "recovery changes from slow to connected_next_step"
+              ]
+            },
+            {
+              "drill_id": "jump-landing-recovery",
+              "name": "Jump landing recovery",
+              "target_issues": [
+                "jump-landing-recovery-unstable"
+              ],
+              "steps": [
+                "Jump at submaximal height.",
+                "Land balanced before the next movement.",
+                "Recover to base or partner-aware position.",
+                "Count only reps where landing and recovery are stable."
+              ],
+              "dosage": "4 sets of 6 controlled jump-smash exits.",
+              "retest_metrics": [
+                "landing_recovery changes from unstable to stable",
+                "recovery changes from slow to normal"
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "liu-hui-drive",
+          "coach_id": "liu-hui",
+          "system_id": "liu-fast-exchange",
+          "technique_id": "drive",
+          "variant": "贴拍短发力平抽挡",
+          "family_id": "drive",
+          "action": "drive",
+          "action_label_zh": "平抽挡",
+          "title_zh": "平抽挡：紧凑准备、短出拍与回弹",
+          "title_en": "Compact drive exchange with a ready rebound",
+          "learning_goal_zh": "在同一次动作内理解准备、短引拍、出拍、近似处理窗口、回弹和再次准备，避免用大后摆占用快速交换窗口。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ],
+          "prerequisites": [
+            "能在中前场保持球拍处于身体前方的可响应位置。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "compact-before-speed",
+              "title_zh": "快速交换先缩小准备",
+              "cue_zh": "把动作收在可快速响应的范围内，不让大幅后摆拖慢第一次出拍。",
+              "evidence_boundary_zh": "片段不测量真实反应时间、拍速或来球速度。"
+            },
+            {
+              "principle_id": "rebound-to-ready",
+              "title_zh": "出拍后回到下一拍",
+              "cue_zh": "在本次出拍后观察球拍怎样回弹并再次可用，而不是停在伸展末端。",
+              "evidence_boundary_zh": "单次示范不证明完整对抗中的站位或搭档分工。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "drive-large-preparation",
+              "summary_zh": "快速来球下仍使用过大的引拍准备。",
+              "correction_zh": "先用紧凑交换练习缩短准备路线，再逐步提高喂球速度。"
+            },
+            {
+              "rule_id": "exchange-second-shot-not-ready",
+              "summary_zh": "第一拍出手后球拍没有回到下一拍可用位置。",
+              "correction_zh": "每次出拍后都把回弹和再次准备作为完成标准。"
+            }
+          ],
+          "framework_ids": [
+            "push-drive-power-frame",
+            "standard-ready-racket-frame"
+          ],
+          "drill_ids": [
+            "compact-drive-exchange",
+            "pressure-transfer-ladder"
+          ],
+          "retest_metrics": [
+            "四轮连续交换中每轮至少 16 次能在出拍后回到下一拍可用位置。"
+          ],
+          "source": {
+            "source_id": "LH_BILI_SEASON_BV17T2WYXEF3",
+            "title": "什么是贴拍发力！羽毛球短发力到底怎么做到的！提速变速必备技能",
+            "url": "https://www.bilibili.com/video/BV17t2wYxEF3/",
+            "action_start_seconds": 119.0,
+            "action_end_seconds": 121.25,
+            "context_start_seconds": 89.0,
+            "context_end_seconds": 149.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "刘辉在周边语境中第一人称要求喂球者配合，并亲自展示贴拍短发力的连续平抽挡；公开窗口收紧到其中第一拍。",
+              "窗口内的主示范者为教练，课程未将其作为错误动作或学员试做。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/liu-hui-drive/action.mp4",
+            "clip_description_zh": "2.25 秒单次平抽挡，连续覆盖准备、短出拍、回弹和再次准备。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "准备",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/01-ready.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 119.0,
+                "cue_zh": "观察球拍怎样保持在身前可快速响应的位置。",
+                "visible_evidence_zh": "示范者尚未进入本次短出拍。",
+                "limitation_zh": "不从单帧判断预判方向或握拍压力。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "split-step",
+                "stage_role": "initiation",
+                "label_zh": "响应",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/02-split-step.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 119.5,
+                "cue_zh": "看脚下和上肢怎样共同响应来球。",
+                "visible_evidence_zh": "身体和球拍相对准备状态开始变化。",
+                "limitation_zh": "不能测量真实反应时间或地面受力。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "short-backswing",
+                "stage_role": "positioning",
+                "label_zh": "短引拍",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/03-short-backswing.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 119.75,
+                "cue_zh": "观察紧凑动作中的可见引拍范围。",
+                "visible_evidence_zh": "球拍进入本次短引拍位置，身体仍保持交换可用。",
+                "limitation_zh": "不把可见幅度固化为所有来球的固定长度。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "forward-swing",
+                "stage_role": "loading",
+                "label_zh": "向前出拍",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/04-forward-swing.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 119.875,
+                "cue_zh": "将短引拍与向前通过连起来看。",
+                "visible_evidence_zh": "球拍正从准备区域向身前动作窗口通过。",
+                "limitation_zh": "运动模糊下不估算精确拍头速度。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "contact-window",
+                "stage_role": "action_window",
+                "label_zh": "近似处理窗口",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/05-contact-window.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 120.0,
+                "cue_zh": "定位球拍经过身前来球区域的连续窗口。",
+                "visible_evidence_zh": "球拍处于本次短出拍的快速通过区。",
+                "limitation_zh": "不声称精确触球、拍面、球速或力量。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "rebound",
+                "stage_role": "follow_through",
+                "label_zh": "回弹收拍",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/06-rebound.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 120.375,
+                "cue_zh": "看出拍后如何及时回收，不把球拍留在外侧。",
+                "visible_evidence_zh": "球拍已经通过动作窗口并开始回弹。",
+                "limitation_zh": "不能由二维画面推断真实制动负荷。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "ready-again",
+                "stage_role": "recovery",
+                "label_zh": "再次准备",
+                "image_path": "pages-demo/liu-hui-drive/keyframes/07-ready-again.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 121.25,
+                "cue_zh": "确认本次动作结束时已能进入下一次快速交换。",
+                "visible_evidence_zh": "球拍和身体回到可继续响应的状态。",
+                "limitation_zh": "这一帧不证明完整对抗站位。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "该片段只绑定一次正确的教练示范，不把随后击球或其他人的动作混入。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "push-drive-power-frame",
+              "name": "Push and drive power frame",
+              "summary": "For push, draw, and drive actions, prioritize compact preparation, face stability, and short release."
+            },
+            {
+              "framework_id": "standard-ready-racket-frame",
+              "name": "Standard ready-racket frame",
+              "summary": "Pick a usable preparation and racket set for the player before adding specialized Bawang, jump, or variation frames."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "compact-drive-exchange",
+              "name": "Compact drive exchange",
+              "target_issues": [
+                "drive-large-preparation",
+                "exchange-second-shot-not-ready"
+              ],
+              "steps": [
+                "Start with racket ready in front of the body.",
+                "Exchange two flat feeds without backswing.",
+                "Reset the racket immediately after each contact.",
+                "Count only rallies where the second shot is ready."
+              ],
+              "dosage": "5 sets of 12 two-shot exchanges.",
+              "retest_metrics": [
+                "preparation_size changes from large to compact",
+                "second_shot_ready becomes true"
+              ]
+            },
+            {
+              "drill_id": "pressure-transfer-ladder",
+              "name": "Pressure transfer ladder",
+              "target_issues": [
+                "drill-form-rally-breakdown"
+              ],
+              "steps": [
+                "Perform the corrected movement slowly for clean structure.",
+                "Repeat with controlled feed and one recovery step.",
+                "Add an uncertain second shot.",
+                "Finish with a short rally retest that matches the original failure."
+              ],
+              "dosage": "3 rounds of slow, feed, two-shot, and rally-pressure phases.",
+              "retest_metrics": [
+                "drill_form_ok_rally_breaks becomes false",
+                "pressure_success_rate improves from the previous retest"
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "liu-hui-backhand",
+          "coach_id": "liu-hui",
+          "system_id": "liu-backhand-transition",
+          "technique_id": "passive-backhand",
+          "variant": "反手被动球的转身与过渡",
+          "family_id": "backhand",
+          "action": "backhand",
+          "action_label_zh": "反手",
+          "title_zh": "反手被动球：进入、伸展处理与恢复",
+          "title_en": "Passive backhand transition from entry to recovery",
+          "learning_goal_zh": "将转身、进入、持拍侧加载、可见处理窗口、释放和恢复放在同一条反手被动球路线中理解。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ],
+          "prerequisites": [
+            "能无痛完成低速转身和反手影子挥拍。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "move-before-hand",
+              "title_zh": "先争取空间，再组织手上动作",
+              "cue_zh": "先看脚下与身体朝向如何进入反手区域，避免把教学压缩成手腕动作。",
+              "evidence_boundary_zh": "片段只展示一次可见路线，不能证明所有被动来球的最佳选择。"
+            },
+            {
+              "principle_id": "release-and-recover",
+              "title_zh": "处理后继续恢复",
+              "cue_zh": "将伸展挥拍后的释放和回收连起来看，不能停在近似处理窗口。",
+              "evidence_boundary_zh": "普通视频不能判断精确触球、力量、拍面或球路结果。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "backhand-low-contact",
+              "summary_zh": "反手处理窗口被压低，动作只能在身体下方仓促完成。",
+              "correction_zh": "先用到位和反手处理高度检查恢复可用空间。"
+            },
+            {
+              "rule_id": "swing-path-offline",
+              "summary_zh": "挥拍路线与可用处理区域脱节。",
+              "correction_zh": "放慢转身到释放的连续路线，先恢复可见方向再增加速度。"
+            }
+          ],
+          "framework_ids": [
+            "backhand-passive-frame",
+            "backhand-corner-choice-frame"
+          ],
+          "drill_ids": [
+            "backhand-contact-height-check",
+            "arm-path-reset"
+          ],
+          "retest_metrics": [
+            "连续 10 次反手影子路线中至少 8 次从移动进入处理后仍能回到可继续移动状态。"
+          ],
+          "source": {
+            "source_id": "LH_BILI_SEASON_BV1TT411R7FT",
+            "title": "羽毛球反手怎么打？保姆级教学来啦！刘辉教练教你羽毛球反手被动球如何处理！",
+            "url": "https://www.bilibili.com/video/BV1TT411r7Ft/",
+            "action_start_seconds": 287.5,
+            "action_end_seconds": 289.5,
+            "context_start_seconds": 257.0,
+            "context_end_seconds": 317.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "刘辉在反手被动球课程中解释快速转回与转着发力的区别，并由本人完成示范。",
+              "本窗口是教练所认可的动作讲解，不是学员尝试或故意错误对比。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/liu-hui-backhand/action.mp4",
+            "clip_description_zh": "2 秒反手被动球示范，连续覆盖进入、伸展处理、释放和恢复。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "准备",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/01-ready.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 287.75,
+                "cue_zh": "从可向反手侧进入的准备开始看本次路线。",
+                "visible_evidence_zh": "示范者尚未进入伸展挥拍，身体与球拍可见。",
+                "limitation_zh": "不从单帧判断来球方向或预判。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "start",
+                "stage_role": "initiation",
+                "label_zh": "启动",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/02-start.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 287.875,
+                "cue_zh": "观察转身和第一步怎样启动反手处理。",
+                "visible_evidence_zh": "身体朝向和持拍侧相对准备开始连续变化。",
+                "limitation_zh": "不能测量精确启动时机或重心轨迹。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "loading",
+                "stage_role": "positioning",
+                "label_zh": "进入与加载",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/03-loading.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 288.125,
+                "cue_zh": "看身体怎样进入反手处理空间并组织持拍侧。",
+                "visible_evidence_zh": "支撑、躯干和持拍侧共同进入本次处理路线。",
+                "limitation_zh": "不声称精确关节角度或握拍压力。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "reach",
+                "stage_role": "loading",
+                "label_zh": "伸展挥拍",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/04-reach.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 288.375,
+                "cue_zh": "将伸展过程与前面的转身和进入连起来看。",
+                "visible_evidence_zh": "持拍侧向反手处理区域继续通过。",
+                "limitation_zh": "不推断真实内旋或肌肉发力顺序。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "contact-window",
+                "stage_role": "action_window",
+                "label_zh": "近似处理窗口",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/05-contact-window.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 288.625,
+                "cue_zh": "标记球拍经过反手来球区域的连续窗口。",
+                "visible_evidence_zh": "球拍处于本次挥拍的可见通过区。",
+                "limitation_zh": "不声称精确触球、拍面、力量或落点。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "release",
+                "stage_role": "follow_through",
+                "label_zh": "释放",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/06-release.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 288.875,
+                "cue_zh": "观察处理后球拍怎样继续通过并开始回收。",
+                "visible_evidence_zh": "球拍已经越过动作窗口，身体不再继续向外伸展。",
+                "limitation_zh": "不能从画面推断球速或旋转。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "恢复",
+                "image_path": "pages-demo/liu-hui-backhand/keyframes/07-recovery.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 289.125,
+                "cue_zh": "确认反手处理后重新取得可继续移动的状态。",
+                "visible_evidence_zh": "身体和球拍已进入回收路线。",
+                "limitation_zh": "短片不证明完整回合中的最佳回位。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "本课程展示教练的正确反手被动球路线，不把学员尝试或错误对比公开为动作示范。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "backhand-passive-frame",
+              "name": "Backhand passive frame",
+              "summary": "Diagnose backhand through arrival, contact height, defensive choice, racket face, and recovery rather than wrist strength alone."
+            },
+            {
+              "framework_id": "backhand-corner-choice-frame",
+              "name": "Backhand-corner choice frame",
+              "summary": "Decide whether the problem is wrong rear-corner solution choice, late arrival, low contact, or backhand execution."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "backhand-contact-height-check",
+              "name": "Backhand contact-height check",
+              "target_issues": [
+                "backhand-low-contact"
+              ],
+              "steps": [
+                "Feed to the backhand side at controlled speed.",
+                "Pause at the contact frame.",
+                "Mark whether contact is still at playable height.",
+                "Recover before the next feed."
+              ],
+              "dosage": "4 sets of 8 controlled feeds.",
+              "retest_metrics": [
+                "contact_point changes from low to playable_height"
+              ]
+            },
+            {
+              "drill_id": "arm-path-reset",
+              "name": "Arm-path reset",
+              "target_issues": [
+                "big-arm-dominant-swing",
+                "swing-path-offline"
+              ],
+              "steps": [
+                "Set the racket-side frame slowly.",
+                "Move from frame to elbow lead without pulling the whole arm early.",
+                "Swing through the intended contact line at low speed.",
+                "Finish naturally and check the path before adding speed."
+              ],
+              "dosage": "4 sets of 10 slow path reps.",
+              "retest_metrics": [
+                "arm_path changes from big_arm_pull to frame_to_release",
+                "swing_path changes from offline to through_contact"
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "liu-hui-serve-receive",
+          "coach_id": "liu-hui",
+          "system_id": "liu-serve-opening",
+          "technique_id": "high-serve",
+          "variant": "正手高远球发球的慢动作挥拍路线",
+          "family_id": "serve",
+          "action": "serve",
+          "action_label_zh": "正手高远球发球",
+          "title_zh": "正手高远球发球：转拍、前摆与完整释放",
+          "title_en": "Forehand high serve route: rotation, forward path, release",
+          "learning_goal_zh": "用教练的徒手慢动作示范理解转拍、前摆、通过和回收的连续路线；实际过网高度和落点必须在有球练习中复测。",
+          "level": [
+            "beginner",
+            "intermediate"
+          ],
+          "prerequisites": [
+            "能在无疼痛条件下完成低速正手挥拍；准备有球发球的落点复测。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "route-not-still-image",
+              "title_zh": "用连续路线理解转拍",
+              "cue_zh": "连接转拍开始、前摆、通过和随挥，不把一个徒手定格当作完整发球。",
+              "evidence_boundary_zh": "该示范没有可验证的飞行结果，不能从中断言过网高度、落点或球速。"
+            },
+            {
+              "principle_id": "finish-ready",
+              "title_zh": "完成后仍要可用",
+              "cue_zh": "随挥结束后回到下一拍准备，再在有球练习中加入发后第一步。",
+              "evidence_boundary_zh": "单人徒手画面不证明接发方反应、比赛策略或双打覆盖。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "swing-path-offline",
+              "summary_zh": "前摆路线与预期发球方向脱节。",
+              "correction_zh": "先用慢速徒手路线恢复转拍到释放的连续性，再加入羽球和目标区。"
+            },
+            {
+              "rule_id": "wrist-force-scattered",
+              "summary_zh": "动作试图用孤立手腕补偿完整路线不足。",
+              "correction_zh": "先建立转拍和手臂通过的连续路线，不把力量感当成唯一目标。"
+            }
+          ],
+          "framework_ids": [
+            "serve-high-clear-frame",
+            "wrist-position-frame"
+          ],
+          "drill_ids": [
+            "wrist-contact-segmentation",
+            "arm-path-reset"
+          ],
+          "retest_metrics": [
+            "有球练习另行记录 10 次发球的过网、落点和完成后的下一拍准备。"
+          ],
+          "source": {
+            "source_id": "LH_BILI_SEASON_BV1XOE9ZKEVT",
+            "title": "羽毛球正手发高远球教学！30分钟零基础加进阶！发球都发不好你还指望单打有多强？",
+            "url": "https://www.bilibili.com/video/BV1Xoe9zkEVT/",
+            "action_start_seconds": 1343.75,
+            "action_end_seconds": 1346.75,
+            "context_start_seconds": 1318.0,
+            "context_end_seconds": 1378.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "教练先指出女学员转拍过慢、随摆和手臂路线的问题，随后亲自做慢动作纠正示范。",
+              "公开窗口只截取黑衣教练的徒手挥拍，不把紧随其后的学员重复或此前错误尝试混入。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/liu-hui-serve-receive/action.mp4",
+            "clip_description_zh": "3 秒教练徒手慢动作示范，只解释转拍、前摆、随挥和回收的可见路线。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "coach-ready",
+                "stage_role": "preparation",
+                "label_zh": "教练准备",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/01-coach-ready.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1343.875,
+                "cue_zh": "确认画面已切换为教练本人慢动作示范。",
+                "visible_evidence_zh": "黑衣教练处于徒手挥拍开始前的稳定状态。",
+                "limitation_zh": "此帧不包含有球发球结果。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "rotation-start",
+                "stage_role": "initiation",
+                "label_zh": "转拍启动",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/02-rotation-start.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1344.25,
+                "cue_zh": "观察持拍侧怎样从准备进入转拍路线。",
+                "visible_evidence_zh": "教练的持拍侧相对准备位置开始连续变化。",
+                "limitation_zh": "不从普通视频量化手指压力或肌肉激活。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "forward-path",
+                "stage_role": "positioning",
+                "label_zh": "前摆路线",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/03-forward-path.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1344.625,
+                "cue_zh": "将身体与手臂的前摆路线放在同一连续过程看。",
+                "visible_evidence_zh": "持拍侧进入向前通过的可见路线。",
+                "limitation_zh": "徒手画面不能证明羽球位置或最终落点。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "acceleration",
+                "stage_role": "loading",
+                "label_zh": "加速前段",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/04-acceleration.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1345.0,
+                "cue_zh": "观察前摆如何继续进入本次高位挥拍动作。",
+                "visible_evidence_zh": "手臂和球拍沿既有路线继续通过。",
+                "limitation_zh": "不推断真实力量大小或拍头速度。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "high-swing-window",
+                "stage_role": "action_window",
+                "label_zh": "高位挥拍窗口",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/05-high-swing-window.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1345.375,
+                "cue_zh": "以连续画面定位本次徒手挥拍的最高通过窗口。",
+                "visible_evidence_zh": "球拍处于动作的高位通过区域。",
+                "limitation_zh": "不声称精确触球、拍面、过网高度或球速。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "follow-through",
+                "stage_role": "follow_through",
+                "label_zh": "随挥",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/06-follow-through.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1345.875,
+                "cue_zh": "看高位通过后怎样继续完成随挥。",
+                "visible_evidence_zh": "持拍侧已越过动作窗口，路线仍连续。",
+                "limitation_zh": "不能由徒手示范推断旋转或落点。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "回收",
+                "image_path": "pages-demo/liu-hui-serve-receive/keyframes/07-recovery.jpg",
+                "anchor_status": "exact_export_timestamp",
+                "anchor_seconds": 1346.5,
+                "cue_zh": "确认挥拍结束后回到可以开始下一拍的状态。",
+                "visible_evidence_zh": "教练已经完成本次慢动作并进入回收。",
+                "limitation_zh": "需要另行有球复测发后第一步。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "公开片段是教练徒手纠正示范；只可作为正确动作路线参考，不能作为发球过网或落点证据。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "serve-high-clear-frame",
+              "name": "High-serve and first-shot frame",
+              "summary": "Treat high serve quality as a first-shot control problem that still depends on grip, contact, trajectory, and next-shot readiness."
+            },
+            {
+              "framework_id": "wrist-position-frame",
+              "name": "Wrist-position frame",
+              "summary": "Decide when wrist position helps the intended power mode and when it becomes a premature hand cue."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "wrist-contact-segmentation",
+              "name": "Wrist contact segmentation",
+              "target_issues": [
+                "wrist-force-scattered",
+                "contact-point-too-forward",
+                "forced-follow-through"
+              ],
+              "steps": [
+                "Hit at slow speed and pause just before contact.",
+                "Check whether contact is high enough and not too far forward.",
+                "Release through contact and pause again after the force exits.",
+                "Reconnect the segmented movement into a smooth swing only after force feels concentrated."
+              ],
+              "dosage": "4 sets of 8 segmented reps plus 8 smooth retest reps.",
+              "retest_metrics": [
+                "contact_point changes from too_forward to high_slightly_back",
+                "force_release changes from scattered to concentrated_near_contact",
+                "follow_through changes from forced_stop to natural_release"
+              ]
+            },
+            {
+              "drill_id": "arm-path-reset",
+              "name": "Arm-path reset",
+              "target_issues": [
+                "big-arm-dominant-swing",
+                "swing-path-offline"
+              ],
+              "steps": [
+                "Set the racket-side frame slowly.",
+                "Move from frame to elbow lead without pulling the whole arm early.",
+                "Swing through the intended contact line at low speed.",
+                "Finish naturally and check the path before adding speed."
+              ],
+              "dosage": "4 sets of 10 slow path reps.",
+              "retest_metrics": [
+                "arm_path changes from big_arm_pull to frame_to_release",
+                "swing_path changes from offline to through_contact"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -846,6 +2471,614 @@
             "先启动身体，再用手去够球。",
             "到位、下沉和处理是连续过程，不把最低点当作终点。",
             "网前动作必须包含退出与下一拍准备。"
+          ]
+        },
+        {
+          "system_id": "lyx-overhead-progression",
+          "title_zh": "头顶动作进阶",
+          "title_en": "Overhead progression",
+          "description_zh": "在时间、到位和可用挥拍距离稳定后，才引入杀球、起跳和吊球等速度或变化任务。",
+          "principles": [
+            "进阶不应用速度掩盖基础时间预算不足。",
+            "每次只提高一个条件，并保留完整随挥和恢复。"
+          ]
+        },
+        {
+          "system_id": "lyx-serve-doubles-opening",
+          "title_zh": "发接发与双打前两拍",
+          "title_en": "Serve/receive and the first two doubles shots",
+          "description_zh": "将发球、接发和搭档第一时间的角色选择一起练习，不把它们拆成互不相干的单拍。",
+          "principles": [
+            "发接发选择要适配个人可重复的动作，而不是照搬固定模板。",
+            "前两拍之后仍要保留可响应的站位和球拍高度。"
+          ]
+        },
+        {
+          "system_id": "lyx-backhand-decision",
+          "title_zh": "反手时间预算与选择",
+          "title_en": "Backhand time budget and choice",
+          "description_zh": "先尽早识别反手来球和可用处理空间，再做紧凑回复与恢复。",
+          "principles": [
+            "早选择比被动时加大手腕动作更可靠。",
+            "不能从普通视频虚构握拍压力、力量或精确拍面。"
+          ]
+        },
+        {
+          "system_id": "lyx-rally-transfer",
+          "title_zh": "约束下的回合迁移",
+          "title_en": "Constraint-led rally transfer",
+          "description_zh": "将技术放回目标、来球变化和回合压力中复测，并在每一级只增加一个变量。",
+          "principles": [
+            "先确认动作在练习条件下稳定，再提高速度或随机性。",
+            "记录可见结果与复测，不把单次成功当作稳定能力。"
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "technique_id": "rear-court-time-budget",
+          "system_id": "lyx-overhead-time-distance",
+          "title_zh": "后场启动、到位与时间预算",
+          "summary_zh": "从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
+          "applicable_actions": [
+            "后场步法",
+            "头顶球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "lyx-start-on-opponent-contact",
+            "lyx-rear-turn-confirm-step"
+          ],
+          "rule_ids": [
+            "lyx-late-start",
+            "lyx-rear-turn-error"
+          ],
+          "drill_ids": [
+            "lyx-split-start-call",
+            "lyx-rear-turn-freeze"
+          ],
+          "retest_metrics": [
+            "随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "high-clear"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-start-on-opponent-contact",
+              "name": "Start-on-opponent-contact frame",
+              "summary": "Treat the opponent's contact as the start cue; rebuild first-step timing before blaming stamina or speed."
+            },
+            {
+              "framework_id": "lyx-rear-turn-confirm-step",
+              "name": "Rear-court turn and confirmation-step frame",
+              "summary": "Build the rear-court overhead from an early turn, retreat leg, adjustment or confirmation step, balanced contact, and an exit path."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-late-start",
+              "issue": "Movement begins after the opponent-contact cue",
+              "correction_principle": "Rehearse the response from the opponent-contact cue before changing arm mechanics."
+            },
+            {
+              "rule_id": "lyx-rear-turn-error",
+              "issue": "Rear-court turn sequence does not create a balanced hitting base",
+              "correction_principle": "Separate turn, retreat, adjustment, and contact base before adding speed."
+            }
+          ]
+        },
+        {
+          "technique_id": "high-clear",
+          "system_id": "lyx-overhead-time-distance",
+          "title_zh": "高远球的时间与挥拍距离",
+          "summary_zh": "先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+          "applicable_actions": [
+            "高远球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "lyx-contact-distance-clear",
+            "lyx-relax-then-release"
+          ],
+          "rule_ids": [
+            "lyx-short-swing-distance",
+            "lyx-contact-behind"
+          ],
+          "drill_ids": [
+            "lyx-high-contact-shadow",
+            "lyx-relaxed-clear-distance"
+          ],
+          "retest_metrics": [
+            "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+          ],
+          "prerequisite_technique_ids": [
+            "rear-court-time-budget"
+          ],
+          "next_technique_ids": [
+            "smash-progression",
+            "overhead-variation"
+          ],
+          "course_ids": [
+            "li-yuxuan-high-clear"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-contact-distance-clear",
+              "name": "High-clear contact-distance frame",
+              "summary": "For a short high clear, first inspect whether the player reaches a high usable contact and has enough swing distance before adding force."
+            },
+            {
+              "framework_id": "lyx-relax-then-release",
+              "name": "Relax-then-release frame",
+              "summary": "Preserve a relaxed pre-hit preparation and concentrate the release near contact instead of maintaining maximum tension through the whole swing."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-short-swing-distance",
+              "issue": "Arrival or contact position leaves too little usable swing distance",
+              "correction_principle": "Create time and contact distance before adding force."
+            },
+            {
+              "rule_id": "lyx-contact-behind",
+              "issue": "Overhead contact is visibly behind the usable head-and-trunk window",
+              "correction_principle": "Check start and arrival first, then restore a high usable contact window."
+            }
+          ]
+        },
+        {
+          "technique_id": "smash-progression",
+          "system_id": "lyx-overhead-progression",
+          "title_zh": "杀球速度进阶",
+          "summary_zh": "以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
+          "applicable_actions": [
+            "杀球",
+            "起跳杀球"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "lyx-smash-sequence-before-speed",
+            "lyx-jump-smash-prerequisite"
+          ],
+          "rule_ids": [
+            "lyx-arm-first-swing",
+            "lyx-unstable-landing"
+          ],
+          "drill_ids": [
+            "lyx-smash-five-phase",
+            "lyx-jump-land-reset"
+          ],
+          "retest_metrics": [
+            "提高速度前先连续完成五阶段挥拍和可用落地。"
+          ],
+          "prerequisite_technique_ids": [
+            "high-clear"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-smash-sequence-before-speed",
+              "name": "Smash sequence before speed frame",
+              "summary": "Build smash power through arrival, preparation, contact, release, and recovery in that order; a faster arm is not the first correction for an unstable sequence."
+            },
+            {
+              "framework_id": "lyx-jump-smash-prerequisite",
+              "name": "Jump-smash prerequisite frame",
+              "summary": "Add double-leg jump-smash only when preparation time, contact quality, landing control, and recovery are already reproducible."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-arm-first-swing",
+              "issue": "Arm acceleration visibly precedes usable lower-body and trunk contribution",
+              "correction_principle": "Reconnect a balanced turn to delayed arm release."
+            },
+            {
+              "rule_id": "lyx-unstable-landing",
+              "issue": "Landing cannot support the next recovery step",
+              "correction_principle": "Reduce jump demand and rebuild quiet, balanced landing before adding height or pace."
+            }
+          ]
+        },
+        {
+          "technique_id": "overhead-variation",
+          "system_id": "lyx-overhead-progression",
+          "title_zh": "头顶吊球与变化控制",
+          "summary_zh": "在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。",
+          "applicable_actions": [
+            "吊球",
+            "头顶变化"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "lyx-overhead-variation-control",
+            "lyx-drop-height-and-feel"
+          ],
+          "rule_ids": [
+            "lyx-telegraphed-preparation",
+            "lyx-forced-cut"
+          ],
+          "drill_ids": [
+            "lyx-drop-target-contrast",
+            "lyx-turn-release-chain"
+          ],
+          "retest_metrics": [
+            "每一组只改变目标或节奏之一，并记录是否仍能稳定恢复。"
+          ],
+          "prerequisite_technique_ids": [
+            "high-clear"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-overhead-variation-control",
+              "name": "Overhead variation control frame",
+              "summary": "Keep one recognisable preparation while differentiating clear, smash, and drop through timing, target, and controlled release."
+            },
+            {
+              "framework_id": "lyx-drop-height-and-feel",
+              "name": "Drop height-and-feel frame",
+              "summary": "Diagnose a drop by arrival, contact height, target intent, and release feel before prescribing a slice or deceptive variation."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-telegraphed-preparation",
+              "issue": "Preparation makes the intended overhead variation visible too early",
+              "correction_principle": "Stabilize shared preparation before adding a variation at contact."
+            },
+            {
+              "rule_id": "lyx-forced-cut",
+              "issue": "Cut or slice is forced instead of selected from a stable contact and target",
+              "correction_principle": "Select variation after contact height and target intent are stable."
+            }
+          ]
+        },
+        {
+          "technique_id": "drive",
+          "system_id": "lyx-fast-exchange",
+          "title_zh": "平抽挡快速交换",
+          "summary_zh": "让球拍、身体和支撑保持可响应，以短准备和及时回收维持快速平抽挡。",
+          "applicable_actions": [
+            "平抽挡"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "lyx-drive-compact-first",
+            "lyx-racket-height-interception"
+          ],
+          "rule_ids": [
+            "lyx-large-drive-preparation",
+            "lyx-late-contact"
+          ],
+          "drill_ids": [
+            "lyx-drive-compact-exchange",
+            "lyx-receive-first-attack"
+          ],
+          "retest_metrics": [
+            "连续交换中大多数处理后球拍都回到下一拍可用位置。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "doubles-first-two-shots"
+          ],
+          "course_ids": [
+            "li-yuxuan-drive"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-drive-compact-first",
+              "name": "Drive compactness frame",
+              "summary": "Under fast exchange, protect ready-racket height, compact preparation, body balance, and an attackable first response."
+            },
+            {
+              "framework_id": "lyx-racket-height-interception",
+              "name": "Racket-height interception frame",
+              "summary": "Adjust ready-racket height and body centre to the imminent interception task instead of using one fixed ready posture."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-large-drive-preparation",
+              "issue": "Preparation is too large for a fast flat exchange",
+              "correction_principle": "Reduce preparation travel while retaining a clear target and recovery position."
+            },
+            {
+              "rule_id": "lyx-late-contact",
+              "issue": "Fast-exchange contact is made after the useful interception window",
+              "correction_principle": "Rebuild ready-racket position, first response, and contact timing in that order."
+            }
+          ]
+        },
+        {
+          "technique_id": "net-lunge",
+          "system_id": "lyx-frontcourt-response",
+          "title_zh": "网前第一响应与跨步回收",
+          "summary_zh": "从来球提示启动，进入跨步和可见处理区域，再以稳定退出连接下一拍。",
+          "applicable_actions": [
+            "网前跨步",
+            "网前球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "lyx-frontcourt-first-response",
+            "lyx-foot-ground-response"
+          ],
+          "rule_ids": [
+            "lyx-late-first-step",
+            "lyx-no-recovery"
+          ],
+          "drill_ids": [
+            "lyx-split-start-call",
+            "lyx-rally-transfer-ladder"
+          ],
+          "retest_metrics": [
+            "低速到随机喂球中均能完成启动、跨步、处理和退出的连续顺序。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "doubles-first-two-shots"
+          ],
+          "course_ids": [
+            "li-yuxuan-net-lunge"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-frontcourt-first-response",
+              "name": "Front-court first-response frame",
+              "summary": "At the net and on receive, use a lower ready centre, racket preparation, and a first response that preserves the next shot."
+            },
+            {
+              "framework_id": "lyx-foot-ground-response",
+              "name": "Foot-ground response frame",
+              "summary": "Make the visible ground response and first step a prerequisite for court coverage rather than treating the legs as a generic fitness deficit."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-late-first-step",
+              "issue": "First response begins too late for front-court or receive interception",
+              "correction_principle": "Start from the cue and keep the ready position usable."
+            },
+            {
+              "rule_id": "lyx-no-recovery",
+              "issue": "Stroke finish does not reconnect to a recoverable base",
+              "correction_principle": "Pair every technical shot with its next position and next-step choice."
+            }
+          ]
+        },
+        {
+          "technique_id": "serve-opening",
+          "system_id": "lyx-serve-doubles-opening",
+          "title_zh": "发球的个人适配与可重复性",
+          "summary_zh": "选择适合个人条件的发球高度与落点路线，并用重复性而不是照搬姿势来复测。",
+          "applicable_actions": [
+            "发球"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "lyx-serve-individual-fit",
+            "lyx-serve-height-placement"
+          ],
+          "rule_ids": [
+            "lyx-unstable-serve",
+            "lyx-grip-tension-serve"
+          ],
+          "drill_ids": [
+            "lyx-serve-repeatability-grid",
+            "lyx-equipment-comfort-log"
+          ],
+          "retest_metrics": [
+            "同一目标下记录发球高度、落点和重复性，而非从单帧判断力量。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "doubles-first-two-shots"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-serve-individual-fit",
+              "name": "Serve individual-fit frame",
+              "summary": "Select doubles serve grip, height, and placement according to what the player can repeat and what the first-two-shot plan requires."
+            },
+            {
+              "framework_id": "lyx-serve-height-placement",
+              "name": "Serve height-and-placement frame",
+              "summary": "Treat height and placement as a repeatable pair tied to the intended opponent reply and partner coverage."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-unstable-serve",
+              "issue": "Chosen serve pattern is not repeatable enough for the intended first-two-shot plan",
+              "correction_principle": "Choose grip, height, and placement that the player can repeat before adding deception."
+            },
+            {
+              "rule_id": "lyx-grip-tension-serve",
+              "issue": "Serve grip is visibly over-tight and reduces placement repeatability",
+              "correction_principle": "Adjust only the visible setup and release feel; do not infer exact grip pressure."
+            }
+          ]
+        },
+        {
+          "technique_id": "doubles-first-two-shots",
+          "system_id": "lyx-serve-doubles-opening",
+          "title_zh": "双打前两拍的角色衔接",
+          "summary_zh": "将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。",
+          "applicable_actions": [
+            "双打",
+            "发接发"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "lyx-doubles-first-two-shot",
+            "lyx-racket-height-interception"
+          ],
+          "rule_ids": [
+            "lyx-role-conflict",
+            "lyx-passive-third-shot"
+          ],
+          "drill_ids": [
+            "lyx-doubles-two-shot-role",
+            "lyx-receive-first-attack"
+          ],
+          "retest_metrics": [
+            "随机开局练习中，每次都能在下一拍前说清覆盖责任。"
+          ],
+          "prerequisite_technique_ids": [
+            "drive",
+            "net-lunge",
+            "serve-opening"
+          ],
+          "next_technique_ids": [
+            "rally-transfer"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-doubles-first-two-shot",
+              "name": "Doubles first-two-shot frame",
+              "summary": "Diagnose serve and receive as a connected first-two-shot problem, including who attacks, who covers, and how the pair avoids passive transition."
+            },
+            {
+              "framework_id": "lyx-racket-height-interception",
+              "name": "Racket-height interception frame",
+              "summary": "Adjust ready-racket height and body centre to the imminent interception task instead of using one fixed ready posture."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-role-conflict",
+              "issue": "Doubles pair has no clear first-two-shot coverage role",
+              "correction_principle": "Define first striker, coverer, and recovery route before expanding tactics."
+            },
+            {
+              "rule_id": "lyx-passive-third-shot",
+              "issue": "Serve sequence does not create an active third-shot option",
+              "correction_principle": "Fit serve placement to a repeatable first response and next shot."
+            }
+          ]
+        },
+        {
+          "technique_id": "backhand-early-choice",
+          "system_id": "lyx-backhand-decision",
+          "title_zh": "反手早选择与紧凑回复",
+          "summary_zh": "尽早识别反手来球并选择可用处理空间，避免被动时用更大动作或紧张补偿。",
+          "applicable_actions": [
+            "反手"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "lyx-backhand-time-budget",
+            "lyx-backhand-compact-reply"
+          ],
+          "rule_ids": [
+            "lyx-delayed-first-step",
+            "lyx-forced-wrist"
+          ],
+          "drill_ids": [
+            "lyx-backhand-early-choice",
+            "lyx-split-start-call"
+          ],
+          "retest_metrics": [
+            "随机方向下能在被动处理前先完成可见选择与准备。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-backhand-time-budget",
+              "name": "Backhand time-budget frame",
+              "summary": "Treat the backhand as a time-and-space decision: arrive early enough to choose a controlled reply before demanding a large hand action."
+            },
+            {
+              "framework_id": "lyx-backhand-compact-reply",
+              "name": "Backhand compact-reply frame",
+              "summary": "Use a compact backhand reply when the time budget is limited, then expand variation only after the player arrives early enough to choose."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-delayed-first-step",
+              "issue": "First step is delayed after the movement cue",
+              "correction_principle": "Train response to the opponent-contact or feeder-release cue before changing the swing."
+            },
+            {
+              "rule_id": "lyx-forced-wrist",
+              "issue": "Wrist action is used to compensate for missing preparation, arrival, or contact",
+              "correction_principle": "Restore frame and path before refining release."
+            }
+          ]
+        },
+        {
+          "technique_id": "rally-transfer",
+          "system_id": "lyx-rally-transfer",
+          "title_zh": "目标与回合迁移",
+          "summary_zh": "将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+          "applicable_actions": [
+            "比赛迁移"
+          ],
+          "level": "transfer",
+          "framework_ids": [
+            "lyx-match-transfer-constraint",
+            "lyx-progression-one-variable"
+          ],
+          "rule_ids": [
+            "lyx-decision-breakdown",
+            "lyx-no-retest"
+          ],
+          "drill_ids": [
+            "lyx-rally-transfer-ladder",
+            "lyx-equipment-comfort-log"
+          ],
+          "retest_metrics": [
+            "每一级只增加一个变量，并保留目标命中和恢复记录。"
+          ],
+          "prerequisite_technique_ids": [
+            "doubles-first-two-shots"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "lyx-match-transfer-constraint",
+              "name": "Match-transfer constraint frame",
+              "summary": "Transfer a technical change into rallies by progressively adding target, time, recovery, and decision constraints."
+            },
+            {
+              "framework_id": "lyx-progression-one-variable",
+              "name": "One-variable progression frame",
+              "summary": "Change one bottleneck at a time and retest its visible effect before layering power, speed, variation, or match pressure."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "lyx-decision-breakdown",
+              "issue": "A technically available option is lost under rally decision pressure",
+              "correction_principle": "Add one decision or recovery constraint at a time."
+            },
+            {
+              "rule_id": "lyx-no-retest",
+              "issue": "Training change has no explicit observable retest condition",
+              "correction_principle": "Attach one observable retest before progressing the drill."
+            }
           ]
         }
       ],
@@ -1543,6 +3776,505 @@
             "进攻质量要连同下一球可用性一起复测。",
             "强度只有在稳定落地和角色恢复后才增加。"
           ]
+        },
+        {
+          "system_id": "zsw-defense-transition-system",
+          "title_zh": "防守受压与过渡",
+          "title_en": "Defense under pressure and transition",
+          "description_zh": "用看球、启动、压低、处理和恢复组织受压后的可用路线，并在获得时间后重新连接进攻或中性交换。",
+          "principles": [
+            "受压处理要保留下一次可用选择，而不是把身体停在最大伸展处。",
+            "普通单人视频只支持可见移动与恢复，不证明搭档意图或固定分工。"
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "technique_id": "serve-third-shot-plan",
+          "system_id": "zsw-opening-exchange-system",
+          "title_zh": "发球与第三拍计划",
+          "summary_zh": "在发球前先命名可能回球线路和第三拍覆盖人，让开局不靠事后追球补救。",
+          "applicable_actions": [
+            "发球",
+            "双打发接发"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "zsw-serve-opening-plan",
+            "zsw-receive-opening-exchange"
+          ],
+          "rule_ids": [
+            "zsw-serve-without-third-shot-plan",
+            "zsw-opening-role-unclear"
+          ],
+          "drill_ids": [
+            "zsw-serve-return-third-shot",
+            "zsw-role-call-random-feed"
+          ],
+          "retest_metrics": [
+            "10 次开局中至少 8 次在回球前已有明确第三拍责任。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "receive-cut-waist",
+            "left-receive-route"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-serve-opening-plan",
+              "name": "Serve plus third-shot plan",
+              "summary": "Connect serve placement, partner readiness, expected reply, and the serving side's third shot instead of scoring the serve in isolation."
+            },
+            {
+              "framework_id": "zsw-receive-opening-exchange",
+              "name": "Receive route plus next exchange",
+              "summary": "Judge a receive by whether it creates a playable second exchange for both partners, including rear-cover responses to a flick serve."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-serve-without-third-shot-plan",
+              "issue": "The serve is isolated from the pair's third-shot plan.",
+              "correction_principle": "Name the likely return lane and third-shot owner before serving."
+            },
+            {
+              "rule_id": "zsw-opening-role-unclear",
+              "issue": "The next-shot role is not agreed by the pair.",
+              "correction_principle": "Use one short call tied to the next-shot lane, not to player gender or a fixed front/back identity."
+            }
+          ]
+        },
+        {
+          "technique_id": "receive-cut-waist",
+          "system_id": "zsw-opening-exchange-system",
+          "title_zh": "接发切腰与下一次交换",
+          "summary_zh": "在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
+          "applicable_actions": [
+            "接发切腰"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "zsw-receive-opening-exchange"
+          ],
+          "rule_ids": [
+            "zsw-passive-receive-route",
+            "zsw-opening-role-unclear"
+          ],
+          "drill_ids": [
+            "zsw-receive-two-exchange",
+            "zsw-role-call-random-feed"
+          ],
+          "retest_metrics": [
+            "接发后至少一名已命名搭档保持平衡和球拍可用。"
+          ],
+          "prerequisite_technique_ids": [
+            "serve-third-shot-plan"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [
+            "zheng-siwei-receive-cut-waist"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-receive-opening-exchange",
+              "name": "Receive route plus next exchange",
+              "summary": "Judge a receive by whether it creates a playable second exchange for both partners, including rear-cover responses to a flick serve."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-passive-receive-route",
+              "issue": "The receive does not create an active next exchange.",
+              "correction_principle": "Choose a receive route together with its second-exchange owner."
+            },
+            {
+              "rule_id": "zsw-opening-role-unclear",
+              "issue": "The next-shot role is not agreed by the pair.",
+              "correction_principle": "Use one short call tied to the next-shot lane, not to player gender or a fixed front/back identity."
+            }
+          ]
+        },
+        {
+          "technique_id": "left-receive-route",
+          "system_id": "zsw-opening-exchange-system",
+          "title_zh": "左半场接发路线与衔接",
+          "summary_zh": "以一次完整接发移动、处理和回收理解左半场路线，同时在训练中明确下一球覆盖。",
+          "applicable_actions": [
+            "左半场接发"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "zsw-receive-opening-exchange",
+            "zsw-pair-rotation-two-lanes"
+          ],
+          "rule_ids": [
+            "zsw-passive-receive-route",
+            "zsw-opening-role-unclear"
+          ],
+          "drill_ids": [
+            "zsw-receive-two-exchange",
+            "zsw-two-lane-rotation-call"
+          ],
+          "retest_metrics": [
+            "随机开局中每次接发前后均能说清下一条覆盖线路。"
+          ],
+          "prerequisite_technique_ids": [
+            "serve-third-shot-plan"
+          ],
+          "next_technique_ids": [
+            "reset-match-transfer"
+          ],
+          "course_ids": [
+            "zheng-siwei-left-receive-route"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-receive-opening-exchange",
+              "name": "Receive route plus next exchange",
+              "summary": "Judge a receive by whether it creates a playable second exchange for both partners, including rear-cover responses to a flick serve."
+            },
+            {
+              "framework_id": "zsw-pair-rotation-two-lanes",
+              "name": "Pair rotation through two usable lanes",
+              "summary": "Resolve same-lane crowding and unclear next-shot ownership before prescribing faster movement or harder hitting."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-passive-receive-route",
+              "issue": "The receive does not create an active next exchange.",
+              "correction_principle": "Choose a receive route together with its second-exchange owner."
+            },
+            {
+              "rule_id": "zsw-opening-role-unclear",
+              "issue": "The next-shot role is not agreed by the pair.",
+              "correction_principle": "Use one short call tied to the next-shot lane, not to player gender or a fixed front/back identity."
+            }
+          ]
+        },
+        {
+          "technique_id": "net-drop",
+          "system_id": "zsw-frontcourt-pressure-system",
+          "title_zh": "贴网吊球与前场压力连续性",
+          "summary_zh": "将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
+          "applicable_actions": [
+            "贴网吊球",
+            "网前球"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "zsw-frontcourt-pressure"
+          ],
+          "rule_ids": [
+            "zsw-front-player-disconnected",
+            "zsw-slow-reset"
+          ],
+          "drill_ids": [
+            "zsw-front-back-three-ball",
+            "zsw-hit-call-reset"
+          ],
+          "retest_metrics": [
+            "双人三球模式中前场球员在下一次动作前持续保持球拍可用。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "reset-match-transfer"
+          ],
+          "course_ids": [
+            "zheng-siwei-net-drop"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-frontcourt-pressure",
+              "name": "Front-court pressure continuity",
+              "summary": "Keep the front player connected to shuttle height, reply lane, partner attack, and the next intercept rather than treating the net shot as a finish."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-front-player-disconnected",
+              "issue": "The front player stops participating while the partner attacks.",
+              "correction_principle": "Tie the front player's base and racket preparation to the partner's attack lane."
+            },
+            {
+              "rule_id": "zsw-slow-reset",
+              "issue": "Recovery does not restore a role-ready pair shape.",
+              "correction_principle": "Finish each shot at the next role, not at the previous contact."
+            }
+          ]
+        },
+        {
+          "technique_id": "rear-attack-footwork",
+          "system_id": "zsw-rear-attack-system",
+          "title_zh": "后场突击步法与退出",
+          "summary_zh": "将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。",
+          "applicable_actions": [
+            "后场突击步法"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "zsw-rear-attack-continuity"
+          ],
+          "rule_ids": [
+            "zsw-rear-attack-no-continuation",
+            "zsw-slow-reset"
+          ],
+          "drill_ids": [
+            "zsw-rear-attack-exit",
+            "zsw-hit-call-reset"
+          ],
+          "retest_metrics": [
+            "后场处理后能在命名的下一次后场或中场喂球前恢复可用。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "reset-match-transfer"
+          ],
+          "course_ids": [
+            "zheng-siwei-rear-attack-footwork"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-rear-attack-continuity",
+              "name": "Rear attack with an exit",
+              "summary": "Select a rear-court attack that preserves landing, recovery, partner access, and the next attacking ball."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-rear-attack-no-continuation",
+              "issue": "The rear attack removes the attacker's next-shot availability.",
+              "correction_principle": "Select attack and landing so the next ball remains playable."
+            },
+            {
+              "rule_id": "zsw-slow-reset",
+              "issue": "Recovery does not restore a role-ready pair shape.",
+              "correction_principle": "Finish each shot at the next role, not at the previous contact."
+            }
+          ]
+        },
+        {
+          "technique_id": "rear-pressure-retreat",
+          "system_id": "zsw-defense-transition-system",
+          "title_zh": "被压后场的退后处理",
+          "summary_zh": "从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
+          "applicable_actions": [
+            "后场防守步法",
+            "后退处理"
+          ],
+          "level": "foundation",
+          "framework_ids": [
+            "zsw-defense-transition"
+          ],
+          "rule_ids": [
+            "zsw-defense-spacing-collapsed",
+            "zsw-no-transition-after-time-gained"
+          ],
+          "drill_ids": [
+            "zsw-defense-two-channel",
+            "zsw-defense-neutral-attack-ladder"
+          ],
+          "retest_metrics": [
+            "随机后场压力喂球中能在处理后回到下一拍可选择状态。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "backhand-low-transition"
+          ],
+          "course_ids": [
+            "zheng-siwei-rear-pressure-retreat"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-defense-transition",
+              "name": "Defense to neutral or attack transition",
+              "summary": "Track whether the pair changes spacing and roles after creating time instead of remaining pinned in the previous defensive shape."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-defense-spacing-collapsed",
+              "issue": "Defensive spacing collapses the pair's coverage and counterattack options.",
+              "correction_principle": "Restore two reachable channels while keeping the middle seam explicitly owned."
+            },
+            {
+              "rule_id": "zsw-no-transition-after-time-gained",
+              "issue": "The pair stays in the old defensive shape after gaining time.",
+              "correction_principle": "Treat a time-gaining reply as a cue to rebuild lanes and next-shot ownership."
+            }
+          ]
+        },
+        {
+          "technique_id": "backhand-low-transition",
+          "system_id": "zsw-defense-transition-system",
+          "title_zh": "反手底线低手位过渡",
+          "summary_zh": "以移动、低手位处理和恢复连接反手受压过渡，不将片段外推为精确触球或固定战术意图。",
+          "applicable_actions": [
+            "反手底线低手位"
+          ],
+          "level": "developing",
+          "framework_ids": [
+            "zsw-defense-transition",
+            "zsw-reset-match-transfer"
+          ],
+          "rule_ids": [
+            "zsw-defense-spacing-collapsed",
+            "zsw-no-transition-after-time-gained"
+          ],
+          "drill_ids": [
+            "zsw-defense-two-channel",
+            "zsw-hit-call-reset"
+          ],
+          "retest_metrics": [
+            "连续防守练习中低手位处理后能回到中性或下一拍可用状态。"
+          ],
+          "prerequisite_technique_ids": [
+            "rear-pressure-retreat"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [
+            "zheng-siwei-backhand-low-transition"
+          ],
+          "availability": "teaching_ready",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-defense-transition",
+              "name": "Defense to neutral or attack transition",
+              "summary": "Track whether the pair changes spacing and roles after creating time instead of remaining pinned in the previous defensive shape."
+            },
+            {
+              "framework_id": "zsw-reset-match-transfer",
+              "name": "Reset and match-transfer frame",
+              "summary": "Require role-ready recovery and pressure retests so a clean drill pattern becomes usable in a rally."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-defense-spacing-collapsed",
+              "issue": "Defensive spacing collapses the pair's coverage and counterattack options.",
+              "correction_principle": "Restore two reachable channels while keeping the middle seam explicitly owned."
+            },
+            {
+              "rule_id": "zsw-no-transition-after-time-gained",
+              "issue": "The pair stays in the old defensive shape after gaining time.",
+              "correction_principle": "Treat a time-gaining reply as a cue to rebuild lanes and next-shot ownership."
+            }
+          ]
+        },
+        {
+          "technique_id": "pair-rotation-two-lanes",
+          "system_id": "zsw-opening-exchange-system",
+          "title_zh": "双人两条覆盖线路",
+          "summary_zh": "用来球与下一拍线路组织轮转，不按性别或固定前后身份硬编码分工。",
+          "applicable_actions": [
+            "双打轮转"
+          ],
+          "level": "advanced",
+          "framework_ids": [
+            "zsw-pair-rotation-two-lanes"
+          ],
+          "rule_ids": [
+            "zsw-same-lane-rotation-conflict",
+            "zsw-opening-role-unclear"
+          ],
+          "drill_ids": [
+            "zsw-two-lane-rotation-call",
+            "zsw-role-call-random-feed"
+          ],
+          "retest_metrics": [
+            "随机线路中两人都能说清互补覆盖而不同时进入同一条线。"
+          ],
+          "prerequisite_technique_ids": [],
+          "next_technique_ids": [
+            "reset-match-transfer"
+          ],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-pair-rotation-two-lanes",
+              "name": "Pair rotation through two usable lanes",
+              "summary": "Resolve same-lane crowding and unclear next-shot ownership before prescribing faster movement or harder hitting."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-same-lane-rotation-conflict",
+              "issue": "Both partners rotate into the same usable lane.",
+              "correction_principle": "Assign one exit lane and one pressure lane before adding speed."
+            },
+            {
+              "rule_id": "zsw-opening-role-unclear",
+              "issue": "The next-shot role is not agreed by the pair.",
+              "correction_principle": "Use one short call tied to the next-shot lane, not to player gender or a fixed front/back identity."
+            }
+          ]
+        },
+        {
+          "technique_id": "reset-match-transfer",
+          "system_id": "zsw-defense-transition-system",
+          "title_zh": "重置与回合迁移",
+          "summary_zh": "在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。",
+          "applicable_actions": [
+            "双打重置",
+            "比赛迁移"
+          ],
+          "level": "transfer",
+          "framework_ids": [
+            "zsw-reset-match-transfer",
+            "zsw-pair-rotation-two-lanes"
+          ],
+          "rule_ids": [
+            "zsw-slow-reset",
+            "zsw-drill-to-rally-breakdown"
+          ],
+          "drill_ids": [
+            "zsw-hit-call-reset",
+            "zsw-rally-transfer-ladder"
+          ],
+          "retest_metrics": [
+            "每次练习结束都能明确下一球角色，并在增加一项回合变量后维持可用。"
+          ],
+          "prerequisite_technique_ids": [
+            "left-receive-route",
+            "net-drop",
+            "rear-attack-footwork",
+            "pair-rotation-two-lanes"
+          ],
+          "next_technique_ids": [],
+          "course_ids": [],
+          "availability": "knowledge_only",
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-reset-match-transfer",
+              "name": "Reset and match-transfer frame",
+              "summary": "Require role-ready recovery and pressure retests so a clean drill pattern becomes usable in a rally."
+            },
+            {
+              "framework_id": "zsw-pair-rotation-two-lanes",
+              "name": "Pair rotation through two usable lanes",
+              "summary": "Resolve same-lane crowding and unclear next-shot ownership before prescribing faster movement or harder hitting."
+            }
+          ],
+          "resolved_rules": [
+            {
+              "rule_id": "zsw-slow-reset",
+              "issue": "Recovery does not restore a role-ready pair shape.",
+              "correction_principle": "Finish each shot at the next role, not at the previous contact."
+            },
+            {
+              "rule_id": "zsw-drill-to-rally-breakdown",
+              "issue": "The pair pattern works in a fixed drill but disappears under rally uncertainty.",
+              "correction_principle": "Add one uncertainty at a time while preserving the same pair decision."
+            }
+          ]
         }
       ],
       "courses": [
@@ -2187,6 +4919,651 @@
               "dosage": "6 sets of 6 two-ball attacks.",
               "retest_metrics": [
                 "Attacker reaches the named second rear/mid feed in at least 7 of 10 patterns."
+              ]
+            },
+            {
+              "drill_id": "zsw-hit-call-reset",
+              "name": "Hit-call-reset",
+              "target_issues": [
+                "zsw-slow-reset"
+              ],
+              "steps": [
+                "Player calls the intended next role immediately after contact.",
+                "Partner confirms or calls the complementary lane.",
+                "Both reach role-ready positions before the next feed.",
+                "Randomize feed timing after the movement is repeatable."
+              ],
+              "dosage": "4 sets of 10 connected feeds.",
+              "retest_metrics": [
+                "Both players reach named next roles before opponent contact in 8 of 10 patterns."
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "zheng-siwei-left-receive-route",
+          "coach_id": "zheng-siwei",
+          "system_id": "zsw-opening-exchange-system",
+          "technique_id": "left-receive-route",
+          "variant": "左半场接发后的本侧衔接",
+          "family_id": "serve_receive",
+          "action": "serve_receive",
+          "action_label_zh": "左半场接发",
+          "title_zh": "左半场接发：处理后继续进入下一拍",
+          "title_en": "Left-court receive route into the next exchange",
+          "learning_goal_zh": "将一次接发的准备、启动、接近、处理、继续移动和恢复连为完整路线；搭档覆盖须在双人练习中明确，而非由单人片段硬推。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "competitive"
+          ],
+          "prerequisites": [
+            "训练前先明确本次接发条件与下一球覆盖人。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "route-with-owner",
+              "title_zh": "接发路线要有下一拍归属",
+              "cue_zh": "接发前后都说清本侧和搭档的下一球覆盖线路，不把角色按性别或固定位置硬编码。",
+              "evidence_boundary_zh": "片段只展示教练的单人路线，不能直接证明搭档分工或对手意图。"
+            },
+            {
+              "principle_id": "continue-after-window",
+              "title_zh": "处理后继续移动",
+              "cue_zh": "将接近、近似处理窗口和随后的继续移动连起来，不把接发当成一拍结束。",
+              "evidence_boundary_zh": "普通视频不能测量精确触球、拍面、球速或场地距离。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "zsw-passive-receive-route",
+              "summary_zh": "接发后没有形成下一次主动交换。",
+              "correction_zh": "将接发路线与第二次交换的覆盖人一起口令化练习。"
+            },
+            {
+              "rule_id": "zsw-opening-role-unclear",
+              "summary_zh": "两人对下一拍归属不清楚。",
+              "correction_zh": "在发球前用与线路绑定的短口令明确互补覆盖。"
+            }
+          ],
+          "framework_ids": [
+            "zsw-receive-opening-exchange",
+            "zsw-pair-rotation-two-lanes"
+          ],
+          "drill_ids": [
+            "zsw-receive-two-exchange",
+            "zsw-two-lane-rotation-call"
+          ],
+          "retest_metrics": [
+            "随机开局中至少 8/10 次在处理前后都能清楚说出下一条覆盖线路。"
+          ],
+          "source": {
+            "source_id": "ZSW_BILI_BV1SATTEWEBS",
+            "title": "欢迎来到羽球思维第二期🏸男生在左半场的几种接发球套路",
+            "url": "https://www.bilibili.com/video/BV1SAtTewEbs",
+            "action_start_seconds": 71.75,
+            "action_end_seconds": 76.25,
+            "context_start_seconds": 45.0,
+            "context_end_seconds": 97.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "官方课程在该段进入左半场接发分工与衔接的第三类实例，并由郑思维本人完成。",
+              "窗口覆盖一次完整接发移动、处理与回到可衔接状态，结束后才恢复讲解。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/zheng-siwei-left-receive-route/action.mp4",
+            "clip_description_zh": "4.5 秒单次接发与衔接路线，连续覆盖准备、处理、继续移动和恢复。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "准备",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/01-ready.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "确认接发者面对发球方时的初始位置和可用方向。",
+                "visible_evidence_zh": "教练处于可响应准备，尚未进入本次路线。",
+                "limitation_zh": "不从外观推断固定混双角色。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "start",
+                "stage_role": "initiation",
+                "label_zh": "启动",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/02-start.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "看身体怎样从等待状态开始响应来球。",
+                "visible_evidence_zh": "双脚和躯干开始离开准备状态。",
+                "limitation_zh": "不量化反应时间、地面受力或发球意图。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "approach",
+                "stage_role": "positioning",
+                "label_zh": "接近",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/03-approach.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察脚下怎样将身体送向身前处理区域。",
+                "visible_evidence_zh": "身体和球拍共同进入来球附近的可用区域。",
+                "limitation_zh": "二维投影不提供精确场地距离。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "loading",
+                "stage_role": "loading",
+                "label_zh": "加载",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/04-loading.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "看支撑与持拍侧怎样为处理建立空间。",
+                "visible_evidence_zh": "下肢支撑扩大，球拍仍处于本次路线内。",
+                "limitation_zh": "不声称精确关节几何或握拍变化。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "contact-window",
+                "stage_role": "action_window",
+                "label_zh": "近似处理窗口",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/05-contact-window.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "标记球拍经过来球附近的连续窗口。",
+                "visible_evidence_zh": "球拍处于本次接发的可见处理区域。",
+                "limitation_zh": "不声称精确触球、拍面、球速或落点。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "follow-through",
+                "stage_role": "follow_through",
+                "label_zh": "继续移动",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/06-follow-through.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察接发后身体怎样继续进入可衔接区域。",
+                "visible_evidence_zh": "教练没有停在处理位置，身体继续向下一拍可用区移动。",
+                "limitation_zh": "不能从片段判断完整轮转或搭档战术。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "恢复",
+                "image_path": "pages-demo/zheng-siwei-left-receive-route/keyframes/07-recovery.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "确认本次路线结束时已经能准备下一拍。",
+                "visible_evidence_zh": "身体与球拍重新建立可用状态。",
+                "limitation_zh": "完整双人轮转需连续回合证据。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "来源标题中的性别表述不被推广为固定角色规则；页面只教学可见的接发路线和需复测的衔接原则。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-receive-opening-exchange",
+              "name": "Receive route plus next exchange",
+              "summary": "Judge a receive by whether it creates a playable second exchange for both partners, including rear-cover responses to a flick serve."
+            },
+            {
+              "framework_id": "zsw-pair-rotation-two-lanes",
+              "name": "Pair rotation through two usable lanes",
+              "summary": "Resolve same-lane crowding and unclear next-shot ownership before prescribing faster movement or harder hitting."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "zsw-receive-two-exchange",
+              "name": "Receive plus two-exchange route",
+              "target_issues": [
+                "zsw-passive-receive-route"
+              ],
+              "steps": [
+                "Choose one short-serve receive route and name the partner's next lane.",
+                "Play the receive and two following exchanges.",
+                "Count only repetitions where both players remain balanced and available.",
+                "Add one alternate serve direction after 70 percent success."
+              ],
+              "dosage": "6 sets of 8 receives.",
+              "retest_metrics": [
+                "At least 7 of 10 receives leave one named partner balanced and racket-ready for the next exchange."
+              ]
+            },
+            {
+              "drill_id": "zsw-two-lane-rotation-call",
+              "name": "Two-lane rotation call",
+              "target_issues": [
+                "zsw-same-lane-rotation-conflict"
+              ],
+              "steps": [
+                "Mark two usable exit lanes with floor-safe markers.",
+                "Name the next-shot owner before the first feed.",
+                "Learner and partner rotate through different lanes after contact.",
+                "Freeze after the second shot and verify one pressure lane plus one cover lane."
+              ],
+              "dosage": "5 sets of 8 two-shot rotations, then 10 randomized feeds.",
+              "retest_metrics": [
+                "Complete 8 of 10 two-shot rotations with two occupied lanes and one named next-shot owner."
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "zheng-siwei-rear-pressure-retreat",
+          "coach_id": "zheng-siwei",
+          "system_id": "zsw-defense-transition-system",
+          "technique_id": "rear-pressure-retreat",
+          "variant": "被压后场时的正确退步路线",
+          "family_id": "defense_transition",
+          "action": "rear_defense",
+          "action_label_zh": "被压后场退步",
+          "title_zh": "被压后场：读球、后退处理与恢复",
+          "title_en": "Rear-court pressure retreat from read to recovery",
+          "learning_goal_zh": "只使用已审核的正确退步路线，按读球、启动、压低加载、近似处理窗口、释放和恢复理解受压后场的完整动作包。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "competitive"
+          ],
+          "prerequisites": [
+            "能在安全场地完成低速后退和稳定支撑；前段错误对比不作为示范。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "correct-route-only",
+              "title_zh": "问题对比后只看正确路线",
+              "cue_zh": "课程前段的后仰和脚下缠结问题不进入本课程；只从教练的正确退步准备开始学习。",
+              "evidence_boundary_zh": "片段不证明所有被压来球下的唯一脚序或最佳战术选择。"
+            },
+            {
+              "principle_id": "gain-time-then-transition",
+              "title_zh": "处理后重新获得选择",
+              "cue_zh": "在挥拍后继续观察释放与恢复，用得到的时间重建下一拍可用状态。",
+              "evidence_boundary_zh": "普通单目视频不能测量精确触球、拍面、力量或对手意图。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "zsw-defense-spacing-collapsed",
+              "summary_zh": "受压后身体与可用处理空间一起塌缩。",
+              "correction_zh": "先用两通道防守练习恢复读球、后退和支撑的连续路线。"
+            },
+            {
+              "rule_id": "zsw-no-transition-after-time-gained",
+              "summary_zh": "获得时间后仍停在被动处理状态，没有重新组织下一拍。",
+              "correction_zh": "将处理后的恢复和中性或进攻过渡作为每次重复的完成条件。"
+            }
+          ],
+          "framework_ids": [
+            "zsw-defense-transition"
+          ],
+          "drill_ids": [
+            "zsw-defense-two-channel",
+            "zsw-defense-neutral-attack-ladder"
+          ],
+          "retest_metrics": [
+            "随机后场压力喂球中至少 7/10 次能在处理后回到下一拍可选择状态。"
+          ],
+          "source": {
+            "source_id": "ZSW_BILI_BV1AURDY3EPT",
+            "title": "羽球思维第五十四期🏸被压后场来不及退怎么办？",
+            "url": "https://www.bilibili.com/video/BV1auRDY3Ept",
+            "action_start_seconds": 51.625,
+            "action_end_seconds": 55.5,
+            "context_start_seconds": 25.0,
+            "context_end_seconds": 80.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "课程先分析后退受压问题，再进入按看球、启动、压低身体和出步伐组织的正确路线。",
+              "公开窗口是郑思维本人一条完整后退处理，从准备延续到挥拍后恢复。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/zheng-siwei-rear-pressure-retreat/action.mp4",
+            "clip_description_zh": "3.875 秒正确退步路线，已排除前段错误对比。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "准备",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/01-ready.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "从面对来球的稳定起点开始看正确路线。",
+                "visible_evidence_zh": "教练处于可后退响应的准备状态。",
+                "limitation_zh": "不由静态帧推断来球速度或对手意图。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "read",
+                "stage_role": "initiation",
+                "label_zh": "读球",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/02-read.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察身体仍保持可响应，并准备进入后退路线。",
+                "visible_evidence_zh": "身体和球拍保持在可调整状态。",
+                "limitation_zh": "不声称测得真实视觉反应时间。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "start",
+                "stage_role": "positioning",
+                "label_zh": "启动",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/03-start.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "看第一下后退响应怎样建立方向。",
+                "visible_evidence_zh": "脚下和躯干开始进入后场路线。",
+                "limitation_zh": "不从二维画面量化步幅或重心。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "loading",
+                "stage_role": "loading",
+                "label_zh": "压低与加载",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/04-loading.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察身体降低和支撑怎样为处理创造空间。",
+                "visible_evidence_zh": "下肢支撑和持拍侧共同进入后退处理位置。",
+                "limitation_zh": "不声称精确关节角度、受力或伤病阈值。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "contact-window",
+                "stage_role": "action_window",
+                "label_zh": "近似处理窗口",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/05-contact-window.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "标记后退中球拍经过预期处理区域的窗口。",
+                "visible_evidence_zh": "球拍处于本次后退动作的可见通过区。",
+                "limitation_zh": "不声称精确触球、拍面、球速或力量。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "release",
+                "stage_role": "follow_through",
+                "label_zh": "释放",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/06-release.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察挥拍通过窗口后怎样连接恢复。",
+                "visible_evidence_zh": "球拍已经越过处理窗口，身体开始离开最大后退姿态。",
+                "limitation_zh": "不能由单帧判断出球质量或战术结果。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "恢复",
+                "image_path": "pages-demo/zheng-siwei-rear-pressure-retreat/keyframes/07-recovery.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "确认处理后重新取得可继续移动的状态。",
+                "visible_evidence_zh": "身体和球拍进入下一拍准备。",
+                "limitation_zh": "该路线不代表所有被动后场球的唯一选择。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "问题段被明确隔离；本课程只使用郑思维本人一条连续、正确的退步处理。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-defense-transition",
+              "name": "Defense to neutral or attack transition",
+              "summary": "Track whether the pair changes spacing and roles after creating time instead of remaining pinned in the previous defensive shape."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "zsw-defense-two-channel",
+              "name": "Two-channel defense",
+              "target_issues": [
+                "zsw-defense-spacing-collapsed"
+              ],
+              "steps": [
+                "Mark two reachable defensive channels and the middle seam.",
+                "Feeder alternates body, straight, and cross attacks.",
+                "Each defender protects one channel and calls any seam takeover.",
+                "Count only replies that preserve access to the following ball."
+              ],
+              "dosage": "5 sets of 10 alternating attacks.",
+              "retest_metrics": [
+                "Pair covers 8 of 10 alternating attack directions without both entering one channel."
+              ]
+            },
+            {
+              "drill_id": "zsw-defense-neutral-attack-ladder",
+              "name": "Defense-neutral-attack ladder",
+              "target_issues": [
+                "zsw-no-transition-after-time-gained"
+              ],
+              "steps": [
+                "Begin with two defensive feeds.",
+                "Feeder then sends a ball that permits a time-gaining block, drive, or lift.",
+                "Pair rebuilds lanes before the next opponent contact.",
+                "Add one counterattack only after the neutral shape is stable."
+              ],
+              "dosage": "5 rounds of 6 four-ball patterns.",
+              "retest_metrics": [
+                "A visible shape change occurs before opponent contact on 7 of 10 time-gaining replies."
+              ]
+            }
+          ]
+        },
+        {
+          "course_id": "zheng-siwei-backhand-low-transition",
+          "coach_id": "zheng-siwei",
+          "system_id": "zsw-defense-transition-system",
+          "technique_id": "backhand-low-transition",
+          "variant": "反手底线低手位过渡对角",
+          "family_id": "defense_transition",
+          "action": "backhand_transition",
+          "action_label_zh": "反手低手位过渡",
+          "title_zh": "反手低手位过渡：移动、处理与回收",
+          "title_en": "Low backhand transition from movement to recovery",
+          "learning_goal_zh": "在固定全身机位中理解单次反手低手位移动、跨步、加载、近似处理窗口、随挥和回收，不将一次对角示范推广为所有来球的固定选择。",
+          "level": [
+            "beginner",
+            "intermediate",
+            "competitive"
+          ],
+          "prerequisites": [
+            "能在安全场地完成低速反手侧移动和跨步；训练中另行提供来球与线路条件。"
+          ],
+          "core_principles": [
+            {
+              "principle_id": "full-route-low-transition",
+              "title_zh": "低手位也要看完整路线",
+              "cue_zh": "从固定机位中的准备开始，将移动、跨步、低手位处理和恢复作为同一次动作看。",
+              "evidence_boundary_zh": "片段不证明来球落点、精确移动距离或唯一脚序。"
+            },
+            {
+              "principle_id": "preserve-choice-after-defense",
+              "title_zh": "处理后保留下一次选择",
+              "cue_zh": "低手位通过后继续恢复到可移动状态，再在有条件的练习中连接中性或进攻过渡。",
+              "evidence_boundary_zh": "普通单目视频不能证明精确触球、拍面、旋转、力量或战术意图。"
+            }
+          ],
+          "common_errors": [
+            {
+              "rule_id": "zsw-defense-spacing-collapsed",
+              "summary_zh": "低手位处理时身体和可用空间同时被压缩。",
+              "correction_zh": "先恢复跨步支撑和可见处理路线，再增加来球速度或随机性。"
+            },
+            {
+              "rule_id": "zsw-no-transition-after-time-gained",
+              "summary_zh": "处理完成后没有回到可选择的过渡状态。",
+              "correction_zh": "把随挥后的回收与下一球口令加入每次练习。"
+            }
+          ],
+          "framework_ids": [
+            "zsw-defense-transition",
+            "zsw-reset-match-transfer"
+          ],
+          "drill_ids": [
+            "zsw-defense-two-channel",
+            "zsw-hit-call-reset"
+          ],
+          "retest_metrics": [
+            "连续防守练习中至少 8/10 次低手位处理后回到中性或下一拍可用状态。"
+          ],
+          "source": {
+            "source_id": "ZSW_BILI_BV1FXIJBKEZC",
+            "title": "羽球思维第九十二期 反手底线低手位过渡对角",
+            "url": "https://www.bilibili.com/video/BV1fxijBKEZc",
+            "action_start_seconds": 81.05,
+            "action_end_seconds": 83.25,
+            "context_start_seconds": 55.0,
+            "context_end_seconds": 105.0,
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "context_review_status": "agent_reviewed",
+            "review_basis": [
+              "官方反手底线低手位过渡课程在该段以固定机位展示正确处理，郑思维本人为主示范者。",
+              "窗口从固定机位准备开始，连续覆盖移动、低手位处理和回收，并在镜头切换前结束。"
+            ]
+          },
+          "media": {
+            "clip_path": "pages-demo/zheng-siwei-backhand-low-transition/action.mp4",
+            "clip_description_zh": "2.2 秒固定机位示范，连续覆盖准备、低手位处理和回收。",
+            "stages": [
+              {
+                "sequence": 1,
+                "stage_id": "ready",
+                "stage_role": "preparation",
+                "label_zh": "准备",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/01-ready.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "确认固定机位中的稳定站姿和可移动方向。",
+                "visible_evidence_zh": "教练尚未进入本次低手位路线。",
+                "limitation_zh": "不从静态帧推断来球落点或选择意图。"
+              },
+              {
+                "sequence": 2,
+                "stage_id": "start",
+                "stage_role": "initiation",
+                "label_zh": "启动",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/02-start.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察脚下怎样开始进入反手低手位路线。",
+                "visible_evidence_zh": "双脚和身体相对准备开始连续变化。",
+                "limitation_zh": "二维视频不量化反应时间或精确移动距离。"
+              },
+              {
+                "sequence": 3,
+                "stage_id": "lunge",
+                "stage_role": "positioning",
+                "label_zh": "跨步",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/03-lunge.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "看身体怎样接近较低处理区域并保持支撑。",
+                "visible_evidence_zh": "支撑扩大，身体进入低手位附近。",
+                "limitation_zh": "不声称唯一正确脚序或重心高度。"
+              },
+              {
+                "sequence": 4,
+                "stage_id": "loading",
+                "stage_role": "loading",
+                "label_zh": "加载",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/04-loading.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察持拍侧与下肢支撑怎样连接后续低手位挥拍。",
+                "visible_evidence_zh": "球拍和身体仍在同一次处理路线内。",
+                "limitation_zh": "不推断精确握拍、关节角度或肌肉发力。"
+              },
+              {
+                "sequence": 5,
+                "stage_id": "contact-window",
+                "stage_role": "action_window",
+                "label_zh": "近似处理窗口",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/05-contact-window.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "标出球拍经过低手位来球区域的可见时间窗。",
+                "visible_evidence_zh": "球拍处于本次低手位处理的通过区。",
+                "limitation_zh": "不声称精确触球、拍面、旋转、球速或落点。"
+              },
+              {
+                "sequence": 6,
+                "stage_id": "follow-through",
+                "stage_role": "follow_through",
+                "label_zh": "随挥",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/06-follow-through.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "观察处理后球拍和身体怎样继续通过。",
+                "visible_evidence_zh": "球拍已经越过动作窗口并开始回收。",
+                "limitation_zh": "不能由单帧确认实际过渡效果。"
+              },
+              {
+                "sequence": 7,
+                "stage_id": "recovery",
+                "stage_role": "recovery",
+                "label_zh": "恢复",
+                "image_path": "pages-demo/zheng-siwei-backhand-low-transition/keyframes/07-recovery.jpg",
+                "anchor_status": "not_preserved",
+                "anchor_seconds": null,
+                "cue_zh": "确认动作后重新取得可移动的稳定状态。",
+                "visible_evidence_zh": "身体和球拍进入下一拍准备。",
+                "limitation_zh": "路线选择仍需结合来球和回合上下文。"
+              }
+            ]
+          },
+          "status": "teaching_ready",
+          "evidence_level": "agent_reviewed_public_clip",
+          "limitations": [
+            "该公开片段只保留郑思维本人固定机位下的一次正确动作；不声称精确触球或固定双打战术。"
+          ],
+          "resolved_frameworks": [
+            {
+              "framework_id": "zsw-defense-transition",
+              "name": "Defense to neutral or attack transition",
+              "summary": "Track whether the pair changes spacing and roles after creating time instead of remaining pinned in the previous defensive shape."
+            },
+            {
+              "framework_id": "zsw-reset-match-transfer",
+              "name": "Reset and match-transfer frame",
+              "summary": "Require role-ready recovery and pressure retests so a clean drill pattern becomes usable in a rally."
+            }
+          ],
+          "resolved_drills": [
+            {
+              "drill_id": "zsw-defense-two-channel",
+              "name": "Two-channel defense",
+              "target_issues": [
+                "zsw-defense-spacing-collapsed"
+              ],
+              "steps": [
+                "Mark two reachable defensive channels and the middle seam.",
+                "Feeder alternates body, straight, and cross attacks.",
+                "Each defender protects one channel and calls any seam takeover.",
+                "Count only replies that preserve access to the following ball."
+              ],
+              "dosage": "5 sets of 10 alternating attacks.",
+              "retest_metrics": [
+                "Pair covers 8 of 10 alternating attack directions without both entering one channel."
               ]
             },
             {
