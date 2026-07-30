@@ -34,18 +34,79 @@ BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏
 
 你可以先选教练，再选技术；看完整动作，也知道这节课之前要会什么、练完以后可以继续学什么。
 
+## 一次高远球，完整看完
+
+下面七张图来自刘辉教练的同一次高远球示范。先顺着动作看一遍，再打开连续短片和阶段讲解。
+
+<table>
+  <tr>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg" alt="刘辉高远球准备阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/02-start.jpg" alt="刘辉高远球启动阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/03-arrival.jpg" alt="刘辉高远球到位阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg" alt="刘辉高远球高位结构阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="刘辉高远球动作窗口" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/06-follow-through.jpg" alt="刘辉高远球随挥阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg" alt="刘辉高远球恢复阶段" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>01 准备</sub></td>
+    <td align="center"><sub>02 启动</sub></td>
+    <td align="center"><sub>03 到位</sub></td>
+    <td align="center"><sub>04 高位结构</sub></td>
+    <td align="center"><sub>05 动作窗口</sub></td>
+    <td align="center"><sub>06 随挥</sub></td>
+    <td align="center"><sub>07 恢复</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开这节高远球课</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/pages-demo/liu-hui-high-clear/action.mp4"><strong>播放连续动作短片</strong></a>
+</p>
+
 <a id="体验"></a>
 
-## 一节动作课，按这四步看
+## 一节课怎么用
 
-| 你会做什么 | 你会看到什么 |
-|---|---|
-| 选择教练与技术路线 | 先进入一位教练的完整教学体系，再选择你要学习的动作。 |
-| 观看连续示范 | 从准备一直看到落地和恢复，先建立对完整动作的认识。 |
-| 沿七阶段细看 | 用关键帧找到准备、启动、加载、挥拍、动作窗口、落地和恢复。 |
-| 回到场上练习 | 按课程给出的要点和练习方法训练，再用明确目标检查进步。 |
+<table>
+  <tr>
+    <td width="25%" valign="top"><strong>01 · 选体系</strong><br /><sub>先进入一位教练的学习路线，再选择动作。</sub></td>
+    <td width="25%" valign="top"><strong>02 · 看全程</strong><br /><sub>从准备看到落地和恢复，建立完整动作认识。</sub></td>
+    <td width="25%" valign="top"><strong>03 · 拆阶段</strong><br /><sub>用七张关键帧找到每个阶段的观察重点。</sub></td>
+    <td width="25%" valign="top"><strong>04 · 回场练</strong><br /><sub>按练习方法训练，再用明确目标检查进步。</sub></td>
+  </tr>
+</table>
 
-> **关键帧帮你看清位置，连续示范帮你理解动作。** 两者缺一不可。
+<a id="体系"></a>
+
+## 三位教练，三条学习路线
+
+<table>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/liu-hui-badminton-coach/SKILL.md"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="刘辉教练高远球示范" /></a><br />
+      <strong>刘辉 · 7 节动作课</strong><br />
+      <sub>动作框架、后场变化、步法与快速交换</sub>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/li-yuxuan-badminton-coach/SKILL.md"><img src="web/public/pages-demo/li-yuxuan-high-clear/keyframes/05-contact-window.jpg" alt="李宇轩教练高远球示范" /></a><br />
+      <strong>李宇轩 · 3 节动作课</strong><br />
+      <sub>时间与到位、挥拍距离、出拍后的回收</sub>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/zheng-siwei-badminton-coach/SKILL.md"><img src="web/public/pages-demo/zheng-siwei-receive-cut-waist/keyframes/05-contact-window.jpg" alt="郑思维教练接发示范" /></a><br />
+      <strong>郑思维 · 6 节动作课</strong><br />
+      <sub>接发衔接、前后场转换与下一拍准备</sub>
+    </td>
+  </tr>
+</table>
+
+| 教练体系 | 学习重点 | 适合从哪里开始 |
+|---|---|---|
+| [刘辉](skills/liu-hui-badminton-coach/SKILL.md) | 动作框架、发力路线、步法、变化与实战迁移之间如何选择 | 后场高远球、杀球、吊球、步法、平抽挡、反手、发接发 |
+| [李宇轩](skills/li-yuxuan-badminton-coach/SKILL.md) | 从读球、启动、到位到出拍，时间在哪一段不够用 | 高远球、后场移动、平抽挡、网前跨步与回收 |
+| [郑思维](skills/zheng-siwei-badminton-coach/SKILL.md) | 在双打连续交换中，处理这一拍后怎样让下一拍仍可用 | 接发、前场衔接、后场进攻、受压退步和反手过渡 |
 
 <a id="课程"></a>
 
@@ -93,16 +154,6 @@ BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏
 <p>
   <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开公开课程库 →</strong></a>
 </p>
-
-<a id="体系"></a>
-
-## 三个体系，三种学习重点
-
-| 教练体系 | 先解决什么 | 适合从哪里开始 |
-|---|---|---|
-| [刘辉](skills/liu-hui-badminton-coach/SKILL.md) | 动作框架、发力路线、步法、变化与实战迁移之间如何选择 | 后场高远球、杀球、吊球、步法、平抽挡、反手、发接发 |
-| [李宇轩](skills/li-yuxuan-badminton-coach/SKILL.md) | 从读球、启动、到位到出拍，时间在哪一段不够用 | 高远球、后场移动、平抽挡、网前跨步与回收 |
-| [郑思维](skills/zheng-siwei-badminton-coach/SKILL.md) | 在双打连续交换中，处理这一拍后怎样让下一拍仍可用 | 接发、前场衔接、后场进攻、受压退步和反手过渡 |
 
 ## 不只看这一节，也知道下一节练什么
 
