@@ -7,6 +7,12 @@
 <h1 align="center">BadmintonCoachSkill</h1>
 
 <p align="center">
+  <strong>简体中文</strong>
+  &nbsp;·&nbsp;
+  <a href="README_EN.md">English</a>
+</p>
+
+<p align="center">
   <strong>把完整动作过程，整理成可以跟着练的课程。</strong><br />
   三位教练的技术体系、连续示范、阶段讲解与下一步练习，放在同一条学习路线里。
 </p>
