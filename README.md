@@ -1,297 +1,147 @@
+<p align="center">
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/">
+    <img src="docs/assets/readme-hero.svg" alt="BadmintonCoachSkill：三位教练、七阶段动作过程和技术路线图" width="100%" />
+  </a>
+</p>
+
 <h1 align="center">BadmintonCoachSkill</h1>
 
 <p align="center">
-  <strong>把一段动作视频，变成可复查的教练证据链。</strong><br>
-  <sub>EVIDENCE-GROUNDED BADMINTON COACHING INTELLIGENCE</sub>
+  <strong>把完整动作过程，整理成可以跟着练的课程。</strong><br />
+  三位教练的技术体系、连续示范、阶段讲解与下一步练习，放在同一条学习路线里。
 </p>
 
 <p align="center">
-  先选择要学习的动作和阶段，无需先有学员视频。<br>
-  查看教练教学路线、公开视频关键帧与连续参考短片。
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>体验公开课程</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#课程"><strong>查看 16 节动作课</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#体系"><strong>浏览三个体系</strong></a>
+  &nbsp;·&nbsp;
+  <a href="docs/github-pages-demo.md">了解公开展示边界</a>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/教练体系-3-16352f" alt="3 套教练体系" />
-  <img src="https://img.shields.io/badge/公开来源索引-823-b8f238" alt="823 条公开来源索引" />
-  <img src="https://img.shields.io/badge/教学时间窗-5%2C496-35d0ba" alt="5,496 个教学时间窗" />
-  <img src="https://img.shields.io/badge/诊断规则-110-f0b429" alt="110 条诊断规则" />
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776ab" alt="Python 3.10+" />
-</p>
-
-<p align="center">
-  <a href="#experience">产品体验</a> ·
-  <a href="#deliverables">诊断结果</a> ·
-  <a href="#coaches">教练体系</a> ·
-  <a href="#evidence">证据规模</a> ·
-  <a href="#mixed-doubles">混双全回合</a> ·
-  <a href="#web-app">视频网页</a> ·
-  <a href="#quick-start">快速开始</a> ·
-  <a href="#agent-integration">Agent 接入</a>
-</p>
-
-<p align="center">
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开公开 Demo</strong></a> ·
-  <a href="docs/github-pages-demo.md">了解 Pages 边界</a>
-</p>
-
----
-
-BadmintonCoachSkill 是羽毛球教学 Agent 的**教练知识层与证据层**。它可以独立解释一个动作、选择教学框架，并从已索引的教练公开视频时间点提取同阶段关键帧或短片；当未来接入学员观察时，再把可见动作、教练规则、公开来源、纠正练习和复测指标连接成可检查的诊断路径。
-
-```mermaid
-flowchart LR
-    Q["选择教练、动作与阶段"] --> F["匹配教学框架"]
-    F --> S["定位公开来源与时间点"]
-    S --> M["提取关键帧与参考短片"]
-    M --> T["动作原则、练习与证据边界"]
-```
-
-> **三帧负责定位，七阶段负责理解，Skill 负责诊断。** 任何阶段只要机位、动作连续性或画面可见性不足，系统就保留“不知道”，并告诉学员该怎么重拍。
-
-<a id="experience"></a>
-
-## 01 · 一段视频，五步进入训练闭环
-
-<sub>PRODUCT EXPERIENCE</sub>
-
-```mermaid
-flowchart LR
-    U["01 上传动作视频"] --> T["02 定位单人动作轨迹"]
-    T --> P["03 查看三帧总览与七阶段动作包"]
-    P --> D["04 获得证据化 Skill 诊断"]
-    D --> R["05 训练一个瓶颈并按指标复测"]
-```
-
-| 步骤 | 学员看到什么 | 系统在做什么 |
-|---|---|---|
-| **01 / 上传** | 选择教练体系和动作类型，上传一段连续动作视频 | 流式写入私有存储，并创建带一次性访问令牌的分析任务 |
-| **02 / 定位** | 实时查看规范化、姿态分析和诊断进度 | 单人动作跟踪一名可见学员；混双先找四人、由用户确认学员/搭档并标注四个场地角 |
-| **03 / 复盘** | 三帧动作总览 + 从启动到回位的七阶段连续片段 | 单人动作的三帧只用于快速定位；混双以七个回合模块候选帧复盘，不把任一帧说成精确触球 |
-| **04 / 对照** | 优先问题、学员证据、同阶段教练参考、置信边界 | Qwen-VL 先过滤讲解、手势和无效画面，再由教练 Skill 匹配规则和公开来源 |
-| **05 / 训练** | 一次只改一个关键变量，获得训练剂量和复测指标 | 将诊断绑定到练习与下一次可观察、可比较的检查项 |
-
-<a id="deliverables"></a>
-
-## 02 · 一次分析，不只交付三张图
-
-<sub>DIAGNOSTIC DELIVERABLES</sub>
-
-三帧动作总览是导航，不是完整教学。真正的动作复盘沿一条连续时间线展开：
-
-```mermaid
-flowchart LR
-    P["01 启动与后退"] --> S["02 最后两步与制动"]
-    S --> A["03 引拍、侧身与起跳准备"]
-    A --> E["04 架拍"]
-    E --> C["05 腾空与击球附近"]
-    C --> F["06 随挥与落地"]
-    F --> R["07 回位"]
-```
-
-每个报告围绕五类结果组织：
-
-| 结果 | 用途 | 证据边界 |
-|---|---|---|
-| **三帧动作总览** | 快速定位动作前、动作峰值附近和动作后的关键画面 | 只作索引；不能替代连续动作判断 |
-| **七阶段私有动作包** | 按顺序播放启动、到位、挥拍、落地与回位，每段约 0.8 秒 | 阶段没有本地姿态支持时直接缺失，不借用邻近动作 |
-| **Skill 优先诊断** | 排序当前最影响表现的动作问题，并说明可见事实 | 仅使用通过语义门控的画面；证据不足时返回重拍建议 |
-| **同阶段教练对照** | 将学员片段与匹配的公开教练参考帧或片段并排查看 | 参考媒体只在诊断需要时进入部署私有缓存，并保留原平台时间点链接 |
-| **训练与复测** | 给出纠正目标、训练动作、剂量和下一次视频检查项 | 一次优先改变一个变量，避免把多个问题混成一句泛化建议 |
-
-例如，后场高远球打不远时，系统不会直接说“加大手腕发力”。它会先检查启动是否晚、最后两步是否失去节奏、身体是否及时转身、击球窗口是否落到头后、架拍是否来得及建立，再决定本次训练重点。
-
-<a id="coaches"></a>
-
-## 03 · 三套教练体系，三条诊断路径
-
-<sub>COACH SYSTEMS</sub>
-
-| 体系 | 更擅长回答 | 适合场景 | 证据规模 |
-|---|---|---|---:|
-| [**刘辉教练 Skill**](skills/liu-hui-badminton-coach/SKILL.md) | 这个学员该采用哪种动作框架、发力路线和训练选择？ | 学员适配、发力框架、步法、杀球变化、器材匹配与实战迁移 | 408 个已审视频 · 2,610 个教学时间窗 |
-| [**李宇轩教练 Skill**](skills/li-yuxuan-badminton-coach/SKILL.md) | 从来球信号到回位，时间预算在哪个阶段被消耗了？ | 高远球、后场步法、杀球、平抽挡、发接发、双打与训练递进 | 382 个已审视频 · 2,886 个教学时间窗 |
-| [**郑思维混双 Skill**](skills/zheng-siwei-badminton-coach/SKILL.md) | 两人是否保有两条可用通道、下一拍是否有明确归属？ | 混双接发、后场进攻连续性、前场压迫、轮转、防守转换与回位 | 21 条公开来源索引 · 6 个公开可审动作包 |
-
-李宇轩体系默认先处理时间与到位，再进入手臂、手腕或速度训练：
-
-```text
-对手击球 / 喂球信号
-  → 启动与第一步
-  → 到位、转身与调整步
-  → 击球窗口
-  → 顶肘与架拍
-  → 躯干带动与释放
-  → 落地、退出与回位
-```
-
-三套 Skill 都会根据学员基础、训练目标、移动能力、疼痛风险和可复测条件选择路径，而不是给所有人套用同一套标准动作。
-
-<a id="evidence"></a>
-
-## 04 · 证据规模，不等于模型自信
-
-<sub>EVIDENCE DASHBOARD</sub>
-
-<table>
+<table align="center">
   <tr>
-    <td align="center"><strong>3</strong><br><sub>教练体系</sub></td>
-    <td align="center"><strong>823</strong><br><sub>公开来源索引</sub></td>
-    <td align="center"><strong>5,496</strong><br><sub>教学时间窗</sub></td>
-    <td align="center"><strong>110</strong><br><sub>确定性诊断规则</sub></td>
+    <td align="center"><strong>03</strong><br /><sub>教练体系</sub></td>
+    <td align="center"><strong>16</strong><br /><sub>完整公开课程</sub></td>
+    <td align="center"><strong>31</strong><br /><sub>技术路线节点</sub></td>
+    <td align="center"><strong>873</strong><br /><sub>来源视频目录</sub></td>
   </tr>
 </table>
 
-| 体系 | 公开资料索引 | 已审视觉来源 | 教学时间窗 | 视觉时间点 | 时序序列 |
-|---|---:|---:|---:|---:|---:|
-| 刘辉 | 411 | 408 | 2,610 | 402 | 408 |
-| 李宇轩 | 391 | 382 | 2,886 | 369 | 611 |
-| 郑思维 | 21 | 2 | 0 | 2 | 0 |
+---
 
-| 知识层 | 刘辉 | 李宇轩 | 郑思维 | 合计 |
-|---|---:|---:|---:|---:|
-| 学员适配与技术框架 | 67 | 32 | 7 | 106 |
-| 确定性诊断规则 | 50 | 49 | 11 | 110 |
-| 针对性训练动作 | 30 | 17 | 11 | 58 |
-| 训练计划 | 8 | 3 | 3 | 14 |
+BadmintonCoachSkill 是一个以教练教学为中心的羽毛球知识库。它不把一张“好看”的定格图当成完整技术：每节已发布课程都把同一次正确示范的连续短片、七个动作阶段、技术原则、练习与复测连在一起。
 
-李宇轩体系另包含 **6,240 张结构化视觉审阅帧**和 **7,943 张密集时序 Pose 帧**。这些材料只聚合为公开安全的来源级证据；仓库不包含原视频、音频、完整转写、截图、Pose 坐标或模型原始输出。唯一媒体例外是经项目所有者明确批准、带原平台归属的 [三套教练 16 个 Pages 案例](docs/github-pages-demo.md#十六个公开媒体例外)：刘辉 7 个、李宇轩 3 个、郑思维 6 个，每项包含 7 张阶段帧和 1 段连续短片。
+现在先从教练 Skill 出发学习动作。未来如果接入学员的可靠动作观察，Skill 才会据此选择教学路线；它不会把不够清楚的视频画面包装成确定诊断。
 
-<a id="how-it-works"></a>
+<a id="体验"></a>
 
-## 05 · 先过证据门，再进入诊断
+## 从看示范，到练下一次
 
-<sub>HOW IT WORKS</sub>
-
-```mermaid
-flowchart LR
-    V["私有学员视频"] --> N["H.264 规范化"]
-    N --> Y["YOLO 单人姿态时序"]
-    Y --> K["候选关键帧与连续片段"]
-    K --> Q{"Qwen-VL 语义证据门"}
-    Q -->|"动作可见"| S["教练 Skill 规则匹配"]
-    Q -->|"讲解 / 静态手势 / 严重裁切"| I["证据不足 + 重拍指引"]
-    S --> C["同阶段公开教练参考"]
-    C --> O["诊断 + 训练 + 复测"]
-```
-
-证据层会明确区分四种来源状态：
-
-- `asr_timestamp_reviewed_public_safe`：已审教学主题和时间戳定位。
-- `visual_model_structured_candidate_public_safe`：单帧人物、球拍、姿态和可见性判断。
-- `temporal_pose_proxy_public_safe`：密集单目 Pose 的粗粒度二维变化与序列定位。
-- `insufficient_evidence`：当前机位、阶段或连续性不足，不生成确定性结论。
-
-普通单目视频不会被用于声称真实内旋、握拍压力、拍面角度、精确羽毛球接触、力量大小或标定三维运动学。涉及疼痛、伤病和训练负荷时，系统只提供保守边界，不替代医疗评估。
-
-<a id="mixed-doubles"></a>
-
-## 06 · 混双不是两个人的单人分析
-
-<sub>FULL-RALLY MIXED DOUBLES WORKSPACE</sub>
-
-郑思维体系只接受固定的全场或后斜方机位。系统先提出四名场内候选，**由用户确认学员、搭档与四个场地角**，再把画面中的脚点投影成受限的二维场地位置；它不会凭服装、性别、朝向或人脸猜身份。
-
-```mermaid
-flowchart LR
-    U["完整混双回合"] --> P["四人 ByteTrack 候选"]
-    P --> C["用户选四人角色 + 场地四角"]
-    C --> T["二维场地轨迹 + TrackNet 时序热图"]
-    T --> M["七个回合模块候选帧"]
-    M --> S["两通道 / 下一拍归属 Skill 诊断"]
-    S --> R["同阶段郑思维公开教学对照"]
-```
-
-| 回合模块 | 复盘问题 | 不能据此声称什么 |
-|---|---|---|
-| 发球与开局、接发与交换 | 第三拍与下一拍是否已有角色准备 | 发球意图或固定性别分工 |
-| 前场压迫、后场进攻 | 前后是否相连、进攻后是否仍可接下一拍 | 精确击球时刻、拍面角度或力量 |
-| 轮转、防守转换、回位迁移 | 是否短暂挤进同一通道、是否重新建立两条可达线路 | 对手战术意图或因果归因 |
-
-TrackNet 输出的是热图峰值与带不确定性的触球候选窗口。它为回合时序和复盘帧排序服务；“羽球精确触拍”仍然是明确禁止的结论。若四人、边线或羽球不可见，网页停在重拍指引，而不是编造轮转诊断。
-
-<a id="web-app"></a>
-
-## 07 · 可运行的视频证据网页
-
-<sub>VIDEO EVIDENCE WEB APP</sub>
-
-网页端提供从上传到删除的完整闭环：任务进度、三帧总览、七阶段动作包、优先纠正项、同阶段教练对照、训练剂量、复测指标和主动删除入口。
-
-### 私有媒体边界
-
-| 机制 | 行为 |
+| 你会做什么 | 你会看到什么 |
 |---|---|
-| **一次性访问令牌** | 创建任务时只返回一次；报告、学员帧、教练缓存媒体、删除请求和 WebSocket 都要求任务令牌 |
-| **私有响应** | 学员与教练媒体接口返回 `private, no-store`；原始上传视频不会通过关键帧接口暴露 |
-| **24 小时 TTL** | 上传、规范化视频、关键帧和中间媒体默认在 24 小时后清理；也可在页面立即删除 |
-| **按需教练缓存** | 只下载已匹配的公开来源，提取所需参考媒体后删除临时源文件 |
-| **明确过期状态** | 已过期任务和媒体返回 HTTP `410 Gone`，不会静默复用旧文件 |
-| **发布隔离** | Git 不包含上传媒体、私有参考帧缓存、数据库、日志、访问令牌或模型原始输出；唯一例外是经明确批准、逐条审核并带来源归属的三套教练 16 个 Pages 案例 |
+| 选择教练与技术路线 | 每位教练自己的动作组织方式、先修关系和下一步，不是混在一起的“通用标准动作”。 |
+| 打开一节完整动作课 | 同一次正确示范的连续短片；动作不会在球刚离拍、尚未完成时戛然而止。 |
+| 沿七阶段观察 | 准备、启动、加载、通过窗口、随挥、落地与恢复按顺序出现；关键帧用于定位，短片用于理解过程。 |
+| 跟着练并复测 | 每个节点附带技术原则、练习和可观察的下一次检查项。 |
 
-### 私有教练动作素材审阅
+> **关键帧帮你看清位置，连续示范帮你理解动作。** 两者缺一不可。
 
-已有批处理结果可以在计算节点整理为去重清单，并逐个解码验证短片和七阶段帧。输出始终位于 `.runtime/`，预览页按需加载当前页媒体，不会把私有素材复制进 Git。
+<a id="课程"></a>
 
-```bash
-python scripts/build_private_coach_media_inventory.py \
-  --project "$PWD" \
-  --output .runtime/full-corpus-processing-v1/media-inventory-v1
+## 16 节可直接体验的动作课
 
-python scripts/validate_private_coach_media_inventory.py \
-  --project "$PWD" \
-  --assets .runtime/full-corpus-processing-v1/media-inventory-v1/assets.jsonl \
-  --output .runtime/full-corpus-processing-v1/media-inventory-v1/validation.json \
-  --ffprobe "$(command -v ffprobe)"
+公开 Demo 已经包含 16 节逐条审核的课程。每节都有 1 段连续动作短片和 7 张有序阶段帧，共 112 张关键帧；点击课程后可以连续看完动作，再回到任一阶段阅读说明。
 
-python scripts/build_private_coach_media_preview.py \
-  --inventory .runtime/full-corpus-processing-v1/media-inventory-v1 \
-  --output .runtime/full-corpus-processing-v1/media-inventory-v1/index.html
-```
+<details open>
+<summary><strong>刘辉 · 7 节</strong>　从后场动作框架到快速交换</summary>
 
-HTTP 接口、GPU / Celery 部署和全部环境变量见 [视频网页部署文档](docs/video-evidence-web-app.md)。
+| 课程 | 这节课讲什么 |
+|---|---|
+| 后场高远球 | 从到位到完整释放 |
+| 重杀 | 准备、起跳、落地与下一拍 |
+| 滑板吊球 | 准备相似、节奏变化与回收 |
+| 后场突击步法 | 中国跳、落地与退出 |
+| 平抽挡 | 紧凑准备、短出拍与回弹 |
+| 反手被动球 | 进入、伸展处理与恢复 |
+| 正手高远球发球 | 转拍、前摆与完整释放 |
+</details>
 
-<a id="quick-start"></a>
+<details>
+<summary><strong>李宇轩 · 3 节</strong>　先解决时间与到位，再建立挥拍距离</summary>
 
-## 08 · 快速开始
+| 课程 | 这节课讲什么 |
+|---|---|
+| 高远球 | 先创造时间和挥拍距离 |
+| 平抽挡 | 短准备、早通过、快回收 |
+| 网前跨步 | 第一步、到位与退出 |
+</details>
 
-<sub>QUICK START</sub>
+<details>
+<summary><strong>郑思维 · 6 节</strong>　双打中把这一拍接到下一拍</summary>
 
-### 只运行教练 Skill
+| 课程 | 这节课讲什么 |
+|---|---|
+| 接发切腰 | 读球、进入路线、准备下一拍 |
+| 左半场接发 | 处理后继续进入下一拍 |
+| 贴网吊球 | 一次连续动作与前场压力衔接 |
+| 后场突击步法 | 移动、落地和退出都算动作 |
+| 被压后场退步 | 读球、后退处理与恢复 |
+| 反手低手位过渡 | 移动、处理与回收 |
+</details>
+
+<p>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开公开课程库 →</strong></a>
+</p>
+
+<a id="体系"></a>
+
+## 三个体系，三种学习重点
+
+| 教练 Skill | 先解决什么 | 适合从哪里开始 |
+|---|---|---|
+| [刘辉](skills/liu-hui-badminton-coach/SKILL.md) | 动作框架、发力路线、步法、变化与实战迁移之间如何选择 | 后场高远球、杀球、吊球、步法、平抽挡、反手、发接发 |
+| [李宇轩](skills/li-yuxuan-badminton-coach/SKILL.md) | 从读球、启动、到位到出拍，时间在哪一段不够用 | 高远球、后场移动、平抽挡、网前跨步与回收 |
+| [郑思维](skills/zheng-siwei-badminton-coach/SKILL.md) | 在双打连续交换中，处理这一拍后怎样让下一拍仍可用 | 接发、前场衔接、后场进攻、受压退步和反手过渡 |
+
+每套体系都有自己的技术路线图，共 31 个节点。路线不是把所有动作都强行配一段视频：
+
+| 节点状态 | 学习时会得到什么 |
+|---|---|
+| `teaching_ready` | 该技术自己的完整连续示范、七阶段帧、原则、练习与复测。 |
+| `knowledge_only` | 体系、规则、练习和复测；没有可靠同技术示范时，绝不拿别的动作、比赛画面或学员错误来凑。 |
+
+<a id="资料"></a>
+
+## 873 条来源，和 16 节课程不是一回事
+
+三位教练的公开来源视频都已按各自体系整理成可浏览目录，保留原始标题、技术分类和原平台链接。它们帮助我们建立技术地图，但并不自动等于“可以拿来教的一节课”。
+
+只有通过教练身份、正确示范语境、动作连续性与同一动作阶段审核的素材，才会成为上面的 16 节公开课程。这个区分让课程不会混入讲解镜头、错误示范、比赛片段或跨多次动作拼接的画面。
+
+- [查看公开来源目录数据](web/public/pages-demo/catalog.json)
+- [查看技术课程结构数据](web/src/data/technique-courses.public.json)
+- [查看公开媒体的来源与审核边界](docs/github-pages-demo.md#十六个公开媒体例外)
+
+<a id="边界"></a>
+
+## 看得见的才讲清楚
+
+这个项目有明确的证据边界：普通单目视频不能可靠给出精确触球、拍面角度、真实内旋、握拍压力、力量大小、三维运动学或对手意图。画面不足时，正确输出是“不知道”或建议补拍，而不是编造一个看似专业的答案。
+
+同样，三位教练的知识体系来自公开教学资料的独立整理，不代表教练本人逐条审阅、认可或授权个体诊断。
+
+<a id="本地使用"></a>
+
+## 本地试用 Skill
 
 ```bash
 git clone https://github.com/jhxu003/BadmintonCoachSkill.git
 cd BadmintonCoachSkill
 python3 -m pip install -e .
-```
 
-### 从结构化学员问题生成教学方案
-
-当人工标注或未来的视频 Agent 已经提供可见动作观察时，不需要重新上传或让 Skill 猜测原始视频。准备一个 JSON 文件：
-
-```json
-{
-  "coach_id": "liu-hui",
-  "player_profile": {"level": "beginner", "training_goal": "clear_to_baseline"},
-  "video_observation": {
-    "action": "high_clear",
-    "footwork_observations": {"arrival_timing": "late"},
-    "missing_observations": []
-  }
-}
-```
-
-然后运行：
-
-```bash
-badminton-coach-plan --input plan.json --project-root .
-# 或 python -m badminton_coach_skill.teaching_plan --input plan.json --project-root .
-```
-
-接口 `POST /api/coaching-plans` 接受相同的 `coach_id`、`player_profile` 与 `video_observation`。它返回教练体系、纠错顺序、练习、复测和已验证的连续课程；没有可靠连续示范时明确返回 `no_reliable_video_lesson_package`，不会以比赛、说话或手势画面代替正确动作。
-
-不需要学员视频，查询刘辉体系的高远球架拍示范：
-
-```bash
 python3 examples/run_coach_demonstration.py \
   --coach liu-hui \
   --action high_clear \
@@ -300,92 +150,12 @@ python3 examples/run_coach_demonstration.py \
   --training-goal racket_frame
 ```
 
-默认只返回教学框架、来源和时间点。需要实际下载公开视频并抽取私有关键帧/短片时，在计算节点或媒体 worker 上增加 `--materialize`；完整源视频会在抽取后删除。
+默认输出技术路线、教学原则和带原平台时间点的参考信息；不下载或提交媒体。部署运行时与完整 API 说明见 [视频网页文档](docs/video-evidence-web-app.md)，结构化输入与 Skill 接入说明见 [Video Agent Contract](docs/video-agent-contract.md)。
 
-示范报告区分 `agent_reviewed`、`model_candidate` 和 `timestamp_only`。已视觉复核的时间点优先展示；模型定位候选会明确标记“待复核”，不会包装成官方认证的标准动作。
+## 发布与隐私边界
 
-已有结构化学员观察时，再运行李宇轩体系的诊断示例：
-
-```bash
-python3 examples/run_usage_case.py \
-  --coach li-yuxuan \
-  --observation examples/observations/li_yuxuan_rear_clear_timing.json
-```
-
-切换到刘辉体系：
-
-```bash
-python3 examples/run_usage_case.py --coach liu-hui
-```
-
-更多结构化输入位于 [`examples/observations/`](examples/observations/)，字段约束见 [`schemas/video-observation.schema.json`](schemas/video-observation.schema.json)。
-
-### 在 GPU 主机运行视频网页
-
-要求 Python 3.10+、Node.js 20+、NVIDIA CUDA GPU 和 FFmpeg。
-
-```bash
-conda env create -f environment-video.yml
-conda activate badminton-video
-python -m pip install -e .
-npm --prefix web ci
-```
-
-启动 API：
-
-```bash
-export BADMINTON_PROJECT_ROOT="$PWD"
-export BADMINTON_RUNTIME_ROOT="$HOME/.cache/badminton-coach-runtime"
-export BADMINTON_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
-export BADMINTON_MULTIPLAYER_POSE_MODEL_PATH="/models/yolo11n-pose.pt"
-export BADMINTON_SHUTTLE_MODEL_PATH="/models/private-tracknet-model.ts"
-export BADMINTON_VLM_MODEL_PATH="/models/qwen-vl"
-uvicorn badminton_coach_skill.web.app:create_app --factory --host 0.0.0.0 --port 8000
-```
-
-另开终端启动网页：
-
-```bash
-npm --prefix web run dev -- --host 0.0.0.0
-```
-
-模型路径可以不设置，默认标识位于 [`configs/video-analysis.yaml`](configs/video-analysis.yaml)。`BADMINTON_SHUTTLE_MODEL_PATH` 必须指向部署环境中私有保存的 TorchScript 羽球热图模型；混双全场机位建议保留 `multiplayer.inference_size: 1280`，以减少远场小目标被漏检。离线服务器或共享 GPU 集群建议指向预下载的 YOLO、TrackNet 和 Qwen-VL，避免在处理上传视频时临时下载模型。
-
-<a id="agent-integration"></a>
-
-## 09 · 把 Skill 接到你的 Video Agent
-
-<sub>AGENT INTEGRATION</sub>
-
-```python
-from pathlib import Path
-
-from badminton_coach_skill.coach_registry import load_coach_knowledge
-from badminton_coach_skill.issue_matcher import match_diagnosis
-from badminton_coach_skill.report_compiler import compile_llm_context
-
-knowledge = load_coach_knowledge("li-yuxuan", Path("."))
-diagnosis = match_diagnosis(player_profile, video_observation, knowledge)
-llm_context = compile_llm_context(diagnosis)
-```
-
-将 `li-yuxuan` 改为 `liu-hui` 或 `zheng-siwei` 即可切换体系。郑思维体系要求 `action: mixed_doubles`、四名已确认轨迹与场地四角；视频 Agent 负责输出可观察的结构化事实，Skill 负责规则、优先级、练习、证据等级和复测指标，LLM 只负责把受约束的 `llm_context` 编排成面向学员的解释。
-
-- 输入契约：[Video Agent Contract](docs/video-agent-contract.md)
-- 标注规范：[Annotation Guide](docs/annotation-guide.md)
-- 诊断输出结构：[`schemas/diagnosis.schema.json`](schemas/diagnosis.schema.json)
-- 教练 Skill：[刘辉](skills/liu-hui-badminton-coach/SKILL.md) · [李宇轩](skills/li-yuxuan-badminton-coach/SKILL.md) · [郑思维](skills/zheng-siwei-badminton-coach/SKILL.md)
-
-<a id="scope"></a>
-
-## 10 · 项目边界
-
-<sub>SCOPE & BOUNDARIES</sub>
-
-这是基于公开教学资料构建的独立研究项目。三个 Skill 提供来源边界、诊断规则、训练建议与复测结构，但不代表教练本人审阅、认可或授权任何个体诊断。付费课程仅用于记录公开目录边界，不被下载、转写或用于技术内容提炼。
-
-仓库只发布可审查的代码、配置、Schema、示例和公开安全知识资产。完整法律与数据边界见 [`docs/legal-boundaries.md`](docs/legal-boundaries.md)。
+公开 GitHub Pages 只展示这 16 节经批准的课程媒体和 873 条来源的**元数据目录**。原始视频、学员上传、私有运行时缓存、模型权重、数据库、日志、令牌与模型原始输出均不进入仓库。更多细节见 [公开 Demo 说明](docs/github-pages-demo.md) 和 [法律与数据边界](docs/legal-boundaries.md)。
 
 <p align="center">
-  <strong>Explain the evidence. Train one bottleneck. Measure the next improvement.</strong>
+  <sub>完整动作 · 明确路线 · 可复测练习</sub>
 </p>

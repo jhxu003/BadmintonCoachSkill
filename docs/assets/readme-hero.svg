@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+  <title id="title">BadmintonCoachSkill 教练动作课程</title>
+  <desc id="desc">深蓝色球场图案上，三位教练体系与一条七阶段动作学习轨道。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071d2d"/>
+      <stop offset="0.55" stop-color="#0b3344"/>
+      <stop offset="1" stop-color="#123c4c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6be7dc"/>
+      <stop offset="0.55" stop-color="#d9ef7a"/>
+      <stop offset="1" stop-color="#f0c86a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.035"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#bg)"/>
+  <g fill="none" stroke="#8bdfe1" stroke-opacity="0.14" stroke-width="2">
+    <path d="M-80 114H788V672H-80"/>
+    <path d="M94 114V672M614 114V672M-80 393H788"/>
+    <path d="M58 245H650V541H58"/>
+    <path d="M354 114V672M58 393H650"/>
+    <circle cx="354" cy="393" r="132"/>
+    <path d="M880 82H1542M880 618H1542"/>
+  </g>
+  <g opacity="0.2" fill="#d9ef7a">
+    <circle cx="74" cy="68" r="2"/><circle cx="126" cy="68" r="2"/><circle cx="178" cy="68" r="2"/><circle cx="230" cy="68" r="2"/>
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="110" y="106" fill="#9be4e0" font-size="19" font-weight="700" letter-spacing="4">BADMINTON COACH SKILL</text>
+    <text x="110" y="178" fill="#ffffff" font-size="58" font-weight="750">THE ACTION,</text>
+    <text x="110" y="246" fill="#ffffff" font-size="49" font-weight="750">FROM START TO RECOVERY</text>
+    <text x="112" y="294" fill="#bcd6dc" font-size="22">Coach-led lessons built from one complete demonstration</text>
+
+    <g transform="translate(110 352)">
+      <rect width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="20" y="31" fill="#d9ef7a" font-size="14" font-weight="700" letter-spacing="1.8">03 SYSTEMS</text>
+      <text x="20" y="56" fill="#0c3341" font-size="20" font-weight="650">3 coaches</text>
+      <rect x="168" width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="188" y="31" fill="#6be7dc" font-size="14" font-weight="700" letter-spacing="1.8">16 LESSONS</text>
+      <text x="188" y="56" fill="#0c3341" font-size="20" font-weight="650">full lessons</text>
+      <rect x="336" width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="356" y="31" fill="#f0c86a" font-size="14" font-weight="700" letter-spacing="1.8">31 ROUTES</text>
+      <text x="356" y="56" fill="#0c3341" font-size="18" font-weight="650">learning routes</text>
+    </g>
+
+    <g transform="translate(900 136)">
+      <text x="0" y="0" fill="#9be4e0" font-size="16" font-weight="700" letter-spacing="3">ONE CONTINUOUS ACTION</text>
+      <text x="0" y="42" fill="#ffffff" font-size="30" font-weight="700">动作不是一张定格</text>
+      <text x="0" y="72" fill="#bcd6dc" font-size="17">沿同一次示范，顺着看准备、挥拍、落地与恢复。</text>
+
+      <path d="M30 178 C140 103 215 235 310 178 S470 117 610 191" fill="none" stroke="#6be7dc" stroke-opacity="0.22" stroke-width="28" filter="url(#glow)"/>
+      <path d="M30 178 C140 103 215 235 310 178 S470 117 610 191" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+
+      <g fill="#0c3341" stroke="#dff8a5" stroke-width="3">
+        <circle cx="30" cy="178" r="25"/><circle cx="126" cy="142" r="25"/><circle cx="222" cy="188" r="25"/><circle cx="318" cy="177" r="25"/><circle cx="414" cy="149" r="25"/><circle cx="510" cy="167" r="25"/><circle cx="610" cy="191" r="25"/>
+      </g>
+      <g fill="#ffffff" font-size="14" font-weight="750" text-anchor="middle">
+        <text x="30" y="183">01</text><text x="126" y="147">02</text><text x="222" y="193">03</text><text x="318" y="182">04</text><text x="414" y="154">05</text><text x="510" y="172">06</text><text x="610" y="196">07</text>
+      </g>
+      <g fill="#bcd6dc" font-size="14" text-anchor="middle">
+        <text x="30" y="235">Ready</text><text x="126" y="110">Start</text><text x="222" y="246">Load</text><text x="318" y="232">Swing</text><text x="414" y="116">Window</text><text x="510" y="231">Land</text><text x="610" y="248">Recover</text>
+      </g>
+
+      <g transform="translate(0 330)">
+        <rect width="650" height="124" rx="20" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.16"/>
+        <path d="M32 61H114M168 61H250M304 61H386M440 61H522" stroke="#6be7dc" stroke-width="2" stroke-opacity="0.55"/>
+        <g fill="#0c3341" font-size="16" font-weight="650">
+          <text x="28" y="33">Choose route</text><text x="164" y="33">Watch whole</text><text x="300" y="33">Read stages</text><text x="436" y="33">Practice again</text>
+        </g>
+        <g fill="#bcd6dc" font-size="14">
+          <text x="28" y="94">coach pathway</text><text x="164" y="94">one demonstration</text><text x="300" y="94">frames guide you</text><text x="436" y="94">retest with intent</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
