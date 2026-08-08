@@ -25,6 +25,18 @@ visual_review:
   model_path: Qwen/Qwen2.5-VL-3B-Instruct
   max_new_tokens: 256
   allowed_confidence: [low, medium, high]
+agent:
+  # Two local tiers run sequentially in the GPU worker: the routing tier is
+  # released before the larger observer is loaded.
+  router_provider: qwen_local
+  router_model_path: Qwen/Qwen2.5-VL-3B-Instruct
+  observer_provider: qwen_local
+  observer_model_path: Qwen/Qwen2.5-VL-7B-Instruct
+  route_confidence_threshold: 0.8
+  max_units: 5
+  # Bound visual tokens so routing/verification can share a single GPU.
+  router_max_samples: 12
+  observer_frames_per_phase: 1
 boundaries:
   prohibited_claims:
     - true_internal_rotation

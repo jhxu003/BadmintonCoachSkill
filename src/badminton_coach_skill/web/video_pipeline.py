@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import gc
 import json
 import os
 from pathlib import Path
@@ -9,7 +10,15 @@ from typing import Callable
 import yaml
 
 from ..video_evidence.contracts import FrameRef
-from ..video_evidence.ffmpeg import extract_frame, normalize_video
+from ..video_evidence.agent import (
+    ActionRoute,
+    ActionRouter,
+    DisabledActionRouter,
+    DisabledSegmentObserver,
+    SegmentObserver,
+    prefix_evidence,
+)
+from ..video_evidence.ffmpeg import extract_clip, extract_frame, normalize_video
 from ..video_evidence.multiplayer import ParticipantSelection
 from ..video_evidence.multiplayer_pipeline import (
     ImagePlayerTrackSample,
@@ -37,6 +46,8 @@ from ..video_evidence.shuttle import (
 )
 from ..video_evidence.vlm_review import (
     DisabledVisualReviewer,
+    QwenLocalActionRouter,
+    QwenLocalSegmentObserver,
     QwenLocalVisualReviewer,
     VisualReviewer,
 )
@@ -52,6 +63,14 @@ class VideoPipelineConfig:
     visual_review_provider: str
     visual_review_model_path: str
     visual_review_max_new_tokens: int
+    agent_router_provider: str = "disabled"
+    agent_router_model_path: str = ""
+    agent_observer_provider: str = "disabled"
+    agent_observer_model_path: str = ""
+    agent_route_confidence_threshold: float = 0.8
+    agent_max_units: int = 5
+    agent_router_max_samples: int = 12
+    agent_observer_frames_per_phase: int = 1
     multiplayer_pose_model_path: str = "yolo11n-pose.pt"
     multiplayer_inference_stride: int = 2
     multiplayer_inference_size: int = 640
@@ -70,12 +89,14 @@ def load_video_pipeline_config(path: Path) -> VideoPipelineConfig:
     multiplayer = payload.get("multiplayer", {})
     shuttle = payload.get("shuttle", {})
     visual_review = payload.get("visual_review", {})
+    agent = payload.get("agent", {})
     if (
         not isinstance(analysis, dict)
         or not isinstance(pose, dict)
         or not isinstance(multiplayer, dict)
         or not isinstance(shuttle, dict)
         or not isinstance(visual_review, dict)
+        or not isinstance(agent, dict)
     ):
         raise ValueError("Video analysis configuration sections must be mappings")
     return VideoPipelineConfig(
@@ -86,6 +107,18 @@ def load_video_pipeline_config(path: Path) -> VideoPipelineConfig:
         visual_review_provider=str(visual_review.get("provider", "disabled")),
         visual_review_model_path=str(visual_review.get("model_path", "")),
         visual_review_max_new_tokens=max(96, int(visual_review.get("max_new_tokens", 256))),
+        agent_router_provider=str(agent.get("router_provider", "disabled")),
+        agent_router_model_path=str(agent.get("router_model_path", "")),
+        agent_observer_provider=str(agent.get("observer_provider", "disabled")),
+        agent_observer_model_path=str(agent.get("observer_model_path", "")),
+        agent_route_confidence_threshold=max(
+            0.0, min(1.0, float(agent.get("route_confidence_threshold", 0.8)))
+        ),
+        agent_max_units=max(1, min(5, int(agent.get("max_units", 5)))),
+        agent_router_max_samples=max(4, min(16, int(agent.get("router_max_samples", 12)))),
+        agent_observer_frames_per_phase=max(
+            1, min(3, int(agent.get("observer_frames_per_phase", 1)))
+        ),
         multiplayer_pose_model_path=str(
             multiplayer.get("pose_model_path", pose.get("model_path", "yolo11n-pose.pt"))
         ),
@@ -115,6 +148,8 @@ class ConfiguredVideoPipeline:
         multiplayer_tracker: MultiPlayerTracker | None = None,
         shuttle_detector: ShuttleDetector | None = None,
         reviewer: VisualReviewer | None = None,
+        agent_router: ActionRouter | None = None,
+        agent_observer: SegmentObserver | None = None,
         normalizer: Callable[[Path, Path, int, int], object] = normalize_video,
         frame_extractor: Callable[[Path, int, Path], None] | None = None,
     ):
@@ -123,6 +158,8 @@ class ConfiguredVideoPipeline:
         self.multiplayer_tracker = multiplayer_tracker
         self.shuttle_detector = shuttle_detector
         self.reviewer = reviewer or DisabledVisualReviewer()
+        self.agent_router = agent_router or DisabledActionRouter()
+        self.agent_observer = agent_observer or DisabledSegmentObserver()
         self.normalizer = normalizer
         self.frame_extractor = frame_extractor or extract_frame
 
@@ -303,6 +340,74 @@ class ConfiguredVideoPipeline:
         kwargs["frame_extractor"] = self.frame_extractor
         return analyze_video(**kwargs)  # type: ignore[arg-type]
 
+    def route_agent(self, video_path: Path, output_dir: Path) -> tuple[ActionRoute, ...]:
+        """Run the low-memory local routing tier and release it before pose/7B."""
+        normalized, _ = self._normalized_video(video_path, output_dir)
+        try:
+            routes = self.agent_router.route(normalized, output_dir)
+        finally:
+            self.agent_router.close()
+        # The runner records and rejects low-confidence proposals explicitly;
+        # suppressing them here would make a retake outcome look like an empty
+        # video rather than an honest confidence boundary.
+        return tuple(route for route in routes if isinstance(route, ActionRoute))
+
+    def analyze_agent_route(
+        self,
+        video_path: Path,
+        output_dir: Path,
+        route: ActionRoute,
+        allowed_values: dict[str, tuple[str, ...]],
+    ) -> tuple[VideoEvidenceResult, dict[str, object]]:
+        """Analyze one routed unit without borrowing another action's peak."""
+        normalized, _ = self._normalized_video(video_path, output_dir)
+        relative_root = Path("agent-units") / route.unit_id
+        unit_root = output_dir / relative_root
+        context_video = unit_root / "private" / "context.mp4"
+        extract_clip(normalized, route.start_ms, route.end_ms, context_video)
+        raw_evidence = analyze_video(
+            video_path=context_video,
+            output_dir=unit_root,
+            action=route.action,
+            pose_estimator=self.pose_estimator,
+            reviewer=DisabledVisualReviewer(),
+            frame_extractor=self.frame_extractor,
+        )
+        evidence = prefix_evidence(raw_evidence, route.unit_id, relative_root)
+        image_paths: list[Path] = []
+        offsets = (0,)
+        if self.config.agent_observer_frames_per_phase == 3:
+            offsets = (-180, 0, 180)
+        elif self.config.agent_observer_frames_per_phase == 2:
+            offsets = (-140, 140)
+        for segment in raw_evidence.action_package:
+            for offset_ms in offsets:
+                timestamp_ms = max(segment.start_ms, min(segment.end_ms - 1, segment.anchor_ms + offset_ms))
+                image_path = unit_root / "private" / "observation" / f"{segment.phase}-{timestamp_ms}.jpg"
+                self.frame_extractor(context_video, timestamp_ms, image_path)
+                image_paths.append(image_path)
+        # ``analyze_video`` creates the YOLO model inside the pose adapter. It
+        # is now out of scope; release cached allocations before loading Qwen
+        # 7B so the tiers can run on a single modest GPU.
+        gc.collect()
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except ImportError:
+            pass
+        try:
+            observed = self.agent_observer.observe(
+                action=route.action,
+                image_paths=tuple(image_paths),
+                base_observation=dict(evidence.observation),
+                allowed_values=allowed_values,
+            )
+        finally:
+            self.agent_observer.close()
+        return evidence, observed
+
 
 def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline:
     config = load_video_pipeline_config(project_root / "configs" / "video-analysis.yaml")
@@ -318,6 +423,22 @@ def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline
         )
     else:
         reviewer = DisabledVisualReviewer()
+    if config.agent_router_provider == "qwen_local" and config.agent_router_model_path:
+        agent_router: ActionRouter = QwenLocalActionRouter(
+            os.environ.get("BADMINTON_AGENT_ROUTER_MODEL_PATH", config.agent_router_model_path),
+            max_new_tokens=config.visual_review_max_new_tokens,
+            maximum_samples=config.agent_router_max_samples,
+            maximum_units=config.agent_max_units,
+        )
+    else:
+        agent_router = DisabledActionRouter()
+    if config.agent_observer_provider == "qwen_local" and config.agent_observer_model_path:
+        agent_observer: SegmentObserver = QwenLocalSegmentObserver(
+            os.environ.get("BADMINTON_AGENT_OBSERVER_MODEL_PATH", config.agent_observer_model_path),
+            max_new_tokens=max(320, config.visual_review_max_new_tokens),
+        )
+    else:
+        agent_observer = DisabledSegmentObserver()
     multiplayer_tracker = UltralyticsMultiPlayerTracker(
         os.environ.get(
             "BADMINTON_MULTIPLAYER_POSE_MODEL_PATH",
@@ -381,4 +502,6 @@ def create_default_video_pipeline(project_root: Path) -> ConfiguredVideoPipeline
         multiplayer_tracker=multiplayer_tracker,
         shuttle_detector=shuttle_detector,
         reviewer=reviewer,
+        agent_router=agent_router,
+        agent_observer=agent_observer,
     )

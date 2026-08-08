@@ -2,9 +2,11 @@ export type JobState =
   | "uploaded"
   | "queued"
   | "normalizing"
+  | "segmenting"
   | "tracking"
   | "phase_candidates"
   | "visual_review"
+  | "observing"
   | "diagnosing"
   | "matching_references"
   | "needs_player_selection"
@@ -262,6 +264,41 @@ export interface CoachingPlanReport {
   limitations: string[];
 }
 
+export type AgentUnitStatus =
+  | "teaching_ready"
+  | "needs_retake"
+  | "unsupported_action"
+  | "requires_dedicated_setup";
+
+export interface AgentActionUnit {
+  segment_id: string;
+  action: string;
+  start_ms: number;
+  end_ms: number;
+  routing_confidence: number;
+  decision: "candidate" | "not_action" | "unclear";
+  status: AgentUnitStatus;
+  reasons: string[];
+  observation_confidence: "low" | "medium" | "high";
+  missing_observations: string[];
+  student_frames: FrameRef[];
+  action_package: ActionPackageSegment[];
+  action_package_missing_phases: string[];
+  coaching_plan: (Pick<CoachingPlanReport,
+    "coach_id" | "coach_name" | "official_status" | "notice" | "lesson_focus" | "selected_topic_unit" | "coach_lenses" | "video_lesson_status" | "limitations" | "video_lessons" | "coach_references"
+  >) | null;
+  retake_guidance_zh?: string;
+}
+
+export interface AgentVideoCoachingReport {
+  report_type: "agent_video_coaching_report";
+  status: "teaching_ready" | "needs_retake" | "no_action_detected";
+  action_units: AgentActionUnit[];
+  coach_references: CoachReference[];
+  limitations: string[];
+  retake_guidance_zh?: string | null;
+}
+
 export interface SetupPlayer {
   track_id: string;
   bbox: { x: number; y: number; width: number; height: number };
@@ -383,6 +420,11 @@ export async function getDemonstrationReport(job: AnalysisJob): Promise<CoachDem
 
 export async function getCoachingPlanReport(job: AnalysisJob): Promise<CoachingPlanReport> {
   const response = await authorisedRequest<{ report: CoachingPlanReport }>(`/api/analyses/${job.analysis_id}/report`, job);
+  return response.report;
+}
+
+export async function getAgentVideoCoachingReport(job: AnalysisJob): Promise<AgentVideoCoachingReport> {
+  const response = await authorisedRequest<{ report: AgentVideoCoachingReport }>(`/api/analyses/${job.analysis_id}/report`, job);
   return response.report;
 }
 

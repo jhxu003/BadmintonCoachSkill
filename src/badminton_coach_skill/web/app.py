@@ -29,6 +29,9 @@ from .schemas import (
 from .settings import Settings
 
 
+AGENT_ANALYSIS_MODE = "agent_video_coaching"
+
+
 def _job_response(job: AnalysisJob) -> AnalysisJobResponse:
     return AnalysisJobResponse(
         analysis_id=job.id,
@@ -104,17 +107,31 @@ def create_app(
     @app.post("/api/analyses", response_model=AnalysisJobResponse, status_code=status.HTTP_202_ACCEPTED)
     async def create_analysis(
         video: UploadFile = File(...),
-        coach_id: str = Form(...),
+        coach_id: str = Form("auto"),
         action_hint: str | None = Form(None),
         player_profile: str = Form("{}"),
+        analysis_mode: str = Form("manual"),
     ) -> AnalysisJobResponse:
-        if coach_id not in set(available_coaches(runtime.project_root)):
-            raise HTTPException(status_code=422, detail="Unsupported coach_id")
-        if coach_id == "zheng-siwei" and action_hint != "mixed_doubles":
-            raise HTTPException(
-                status_code=422,
-                detail="Zheng Siwei coaching currently requires action_hint=mixed_doubles",
-            )
+        if analysis_mode not in {"manual", AGENT_ANALYSIS_MODE}:
+            raise HTTPException(status_code=422, detail="Unsupported analysis_mode")
+        if analysis_mode == AGENT_ANALYSIS_MODE:
+            if coach_id not in {"", "auto"}:
+                raise HTTPException(
+                    status_code=422,
+                    detail="Learner-video Agent chooses a coaching lens automatically; use coach_id=auto",
+                )
+            coach_id = "auto"
+            # A client may retain its old form field while upgrading. Routing
+            # is deliberately video-first in Agent mode, never user-hinted.
+            action_hint = None
+        else:
+            if coach_id not in set(available_coaches(runtime.project_root)):
+                raise HTTPException(status_code=422, detail="Unsupported coach_id")
+            if coach_id == "zheng-siwei" and action_hint != "mixed_doubles":
+                raise HTTPException(
+                    status_code=422,
+                    detail="Zheng Siwei coaching currently requires action_hint=mixed_doubles",
+                )
         if not video.filename:
             raise HTTPException(status_code=422, detail="A video file is required")
         if not video.content_type or not video.content_type.startswith("video/"):
@@ -122,6 +139,8 @@ def create_app(
                 status_code=415, detail="Upload must use a video MIME type"
             )
         profile = _parse_player_profile(player_profile)
+        if analysis_mode == AGENT_ANALYSIS_MODE:
+            profile = {**profile, "analysis_mode": AGENT_ANALYSIS_MODE}
         job = create_analysis_job(
             database, coach_id, action_hint, profile, ttl=runtime.analysis_ttl
         )

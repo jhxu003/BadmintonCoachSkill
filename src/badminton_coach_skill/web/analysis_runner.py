@@ -9,8 +9,16 @@ from uuid import uuid4
 from ..coach_media.catalog import build_source_catalog
 from ..coach_media.ingestion import ensure_reference_image
 from ..coach_media.links import source_timestamp_url
-from ..coach_registry import load_coach_knowledge
+from ..coach_registry import available_coach_actions, available_coaches, load_coach_knowledge
 from ..issue_matcher import match_diagnosis
+from ..teaching_plan import generate_coaching_plan
+from ..video_evidence.agent import (
+    ActionRoute,
+    has_complete_action_package,
+    observation_value_whitelist,
+    select_eligible_routes,
+    validate_agent_observation,
+)
 from ..video_evidence.contracts import ActionPackageSegment, CoachReference, FrameRef
 from ..video_evidence.multiplayer import ParticipantSelection
 from ..video_evidence.multiplayer_pipeline import (
@@ -41,6 +49,18 @@ class VideoPipeline(Protocol):
         selection: ParticipantSelection,
     ) -> VideoEvidenceResult:
         """Analyze four confirmed player tracks plus shuttle heatmap candidates."""
+
+    def route_agent(self, video_path: Path, output_dir: Path) -> tuple[ActionRoute, ...]:
+        """Propose bounded learner action windows for Agent mode."""
+
+    def analyze_agent_route(
+        self,
+        video_path: Path,
+        output_dir: Path,
+        route: ActionRoute,
+        allowed_values: dict[str, tuple[str, ...]],
+    ) -> tuple[VideoEvidenceResult, dict[str, object]]:
+        """Return route-local phase evidence and bounded visual observations."""
 
 
 CatalogLoader = Callable[[str, Path], list[CoachReference]]
@@ -353,6 +373,330 @@ def _materialize_matched_references(
     return materialized
 
 
+AGENT_ANALYSIS_MODE = "agent_video_coaching"
+_AGENT_UNSUPPORTED_MULTI_PLAYER_ACTIONS = frozenset({"doubles", "match_transfer"})
+
+
+def _agent_retake_guidance(reasons: Iterable[str]) -> str:
+    reason_set = set(reasons)
+    if "multi_player_action_requires_confirmed_roles_and_court" in reason_set:
+        return "这段内容属于多人或回合判断，需要先确认球员角色与场地；当前自动教学不会猜测身份、意图或下一拍。"
+    if "no_supported_coach_skill_for_routed_action" in reason_set:
+        return "这段动作目前没有可绑定的教练 Skill。请改拍已有教学范围内的完整单项动作。"
+    if "action_package_incomplete" in reason_set:
+        return "请从准备、移动、挥拍、落地到回位连续重拍，确保全身和持拍侧始终清楚可见。"
+    return "当前片段证据不足，先用侧后方或侧面机位连续重拍：保留准备、移动、挥拍、落地和回位；看不清的部分不会被猜测。"
+
+
+def _public_agent_plan(plan: dict[str, object]) -> dict[str, object]:
+    """Project a deterministic plan into learner-facing, Chinese-first fields.
+
+    Raw structured observations, matcher traces, and VLM output are useful to
+    the worker but are intentionally not a browser contract.
+    """
+    return {
+        "coach_id": str(plan.get("coach_id", "")),
+        "coach_name": str(plan.get("coach_name", "")),
+        "official_status": str(plan.get("official_status", "")),
+        "notice": str(plan.get("notice", "")),
+        "lesson_focus": plan.get("lesson_focus"),
+        "selected_topic_unit": plan.get("selected_topic_unit"),
+        "coach_lenses": list(plan.get("coach_lenses", [])),
+        "video_lesson_status": str(plan.get("video_lesson_status", "no_reliable_video_lesson_package")),
+        "limitations": list(plan.get("limitations", [])),
+        "video_lessons": [],
+        "coach_references": [],
+    }
+
+
+def _agent_unit_payload(
+    *,
+    route: ActionRoute,
+    status: str,
+    reasons: Iterable[str],
+    observation_confidence: str = "low",
+    missing_observations: Iterable[str] = (),
+    frames: Iterable[FrameRef] = (),
+    action_package: Iterable[ActionPackageSegment] = (),
+    coaching_plan: dict[str, object] | None = None,
+    analysis_id: str,
+) -> dict[str, object]:
+    package = tuple(action_package)
+    reason_list = list(dict.fromkeys(str(item) for item in reasons))
+    payload = {
+        **route.to_dict(),
+        "status": status,
+        "reasons": reason_list,
+        "observation_confidence": observation_confidence,
+        "missing_observations": list(dict.fromkeys(str(item) for item in missing_observations)),
+        "student_frames": [_public_student_frame(frame) for frame in frames],
+        "action_package": [
+            _public_action_segment(segment, analysis_id) for segment in package
+        ],
+        "action_package_missing_phases": _missing_action_package_phases(package),
+        "coaching_plan": coaching_plan,
+    }
+    if status != "teaching_ready":
+        payload["retake_guidance_zh"] = _agent_retake_guidance(reason_list)
+    return payload
+
+
+def _run_agent_video_coaching_job(
+    *,
+    database: Database,
+    media_store: LocalMediaStore,
+    project_root: Path,
+    job: AnalysisJob,
+    pipeline: VideoPipeline,
+    video_path: Path,
+    coach_media_root: Path | None,
+) -> AnalysisJob:
+    """Run the fail-closed learner-video path after a job has been claimed."""
+    output_dir = media_store.job_dir(job.id)
+    stopped = _advance_active_job(
+        database, media_store, job.id, "segmenting", 18,
+        "Separating possible badminton actions in the uploaded video.",
+    )
+    if stopped is not None:
+        return stopped
+    route_agent = getattr(pipeline, "route_agent", None)
+    analyze_route = getattr(pipeline, "analyze_agent_route", None)
+    if not callable(route_agent) or not callable(analyze_route):
+        raise RuntimeError("Learner-video Agent pipeline is unavailable")
+    proposed_routes = tuple(route_agent(video_path, output_dir))
+    # Invalid adapter values cannot silently become worker input.
+    routes = tuple(route for route in proposed_routes if isinstance(route, ActionRoute))
+    eligible = select_eligible_routes(routes, minimum_confidence=0.8, maximum_units=5)
+    eligible_ids = {route.unit_id for route in eligible}
+    units: list[dict[str, object]] = []
+    knowledge_cache: dict[str, dict[str, object]] = {}
+    for route in routes:
+        if route.unit_id not in eligible_ids:
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="needs_retake",
+                    reasons=("routing_confidence_below_high",),
+                    analysis_id=job.id,
+                )
+            )
+
+    all_public_references: list[dict[str, object]] = []
+    for index, route in enumerate(eligible, start=1):
+        stopped = _advance_active_job(
+            database,
+            media_store,
+            job.id,
+            "tracking",
+            min(38 + index * 5, 58),
+            f"Extracting continuous evidence for action {index} of {len(eligible)}.",
+        )
+        if stopped is not None:
+            return stopped
+        if route.action in _AGENT_UNSUPPORTED_MULTI_PLAYER_ACTIONS:
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="requires_dedicated_setup",
+                    reasons=("multi_player_action_requires_confirmed_roles_and_court",),
+                    analysis_id=job.id,
+                )
+            )
+            continue
+
+        coach_ids = [
+            coach_id
+            for coach_id in available_coaches(project_root)
+            if route.action in available_coach_actions(coach_id, project_root)
+        ]
+        if not coach_ids:
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="unsupported_action",
+                    reasons=("no_supported_coach_skill_for_routed_action",),
+                    analysis_id=job.id,
+                )
+            )
+            continue
+        knowledge_sets: list[dict[str, object]] = []
+        for coach_id in coach_ids:
+            knowledge = knowledge_cache.get(coach_id)
+            if knowledge is None:
+                knowledge = load_coach_knowledge(coach_id, project_root)
+                knowledge_cache[coach_id] = knowledge
+            knowledge_sets.append(knowledge)
+        allowed_values = observation_value_whitelist(knowledge_sets, route.action)
+        evidence, raw_observation = analyze_route(
+            video_path, output_dir, route, allowed_values
+        )
+        if not isinstance(raw_observation, dict):
+            # A malformed local-model response is evidence failure, never an
+            # infrastructure reason to publish a diagnosis or revive a job.
+            raw_observation = {"confidence": "low"}
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
+        complete, missing_phases = has_complete_action_package(evidence)
+        if not complete:
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="needs_retake",
+                    reasons=("action_package_incomplete", *missing_phases),
+                    missing_observations=missing_phases,
+                    analysis_id=job.id,
+                )
+            )
+            continue
+
+        stopped = _advance_active_job(
+            database,
+            media_store,
+            job.id,
+            "observing",
+            min(62 + index * 3, 74),
+            "Verifying only visible, rule-backed movement observations.",
+        )
+        if stopped is not None:
+            return stopped
+        validation = validate_agent_observation(
+            action=route.action,
+            raw_observation=raw_observation,
+            base_observation=evidence.observation,
+            knowledge_sets=knowledge_sets,
+        )
+        if not validation.accepted:
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="needs_retake",
+                    reasons=validation.rejection_reasons,
+                    observation_confidence=validation.confidence,
+                    missing_observations=validation.observation.get("missing_observations", []),
+                    analysis_id=job.id,
+                )
+            )
+            continue
+
+        stopped = _advance_active_job(
+            database,
+            media_store,
+            job.id,
+            "diagnosing",
+            min(76 + index * 2, 84),
+            "Matching this verified segment to the compatible coaching Skills.",
+        )
+        if stopped is not None:
+            return stopped
+        plan = generate_coaching_plan(
+            coach_id="auto",
+            player_profile={
+                key: value
+                for key, value in database.get_player_profile(job.id).items()
+                if key != "analysis_mode"
+            },
+            video_observation=validation.observation,
+            root=project_root,
+        )
+        # A high model confidence alone is not a lesson. A deterministic Skill
+        # must confirm one learner-facing focus before media or drills appear.
+        if not isinstance(plan.get("lesson_focus"), dict):
+            units.append(
+                _agent_unit_payload(
+                    route=route,
+                    status="needs_retake",
+                    reasons=("no_confirmed_coaching_focus",),
+                    observation_confidence=validation.confidence,
+                    missing_observations=validation.observation.get("missing_observations", []),
+                    analysis_id=job.id,
+                )
+            )
+            continue
+
+        stopped = _advance_active_job(
+            database,
+            media_store,
+            job.id,
+            "matching_references",
+            min(86 + index * 2, 96),
+            "Binding only reviewed coach media from the same teaching topic.",
+        )
+        if stopped is not None:
+            return stopped
+        from .demonstration_runner import _materialize_video_lessons, _public_video_lesson
+        from ..coach_media.lesson_ingestion import ensure_video_lesson_media
+        from ..coach_media.video_lessons import VideoLessonPackage
+
+        selected_lessons = list(plan.pop("_video_lessons", ()))
+        if not all(isinstance(lesson, VideoLessonPackage) for lesson in selected_lessons):
+            raise RuntimeError("Agent coaching plan produced invalid video lessons")
+        lessons, references = _materialize_video_lessons(
+            database=database,
+            media_store=media_store,
+            coach_media_root=coach_media_root,
+            lessons=selected_lessons,
+            materializer=ensure_video_lesson_media,
+        )
+        student_frames = _persist_student_frames(database, media_store, job, evidence.frames)
+        action_package = _persist_action_package(
+            database, media_store, job, evidence.action_package
+        )
+        public_plan = _public_agent_plan(plan)
+        public_plan["video_lessons"] = [
+            _public_video_lesson(lesson, job.id) for lesson in lessons
+        ]
+        public_plan["coach_references"] = [
+            _public_coach_reference(reference, job.id) for reference in references
+        ]
+        all_public_references.extend(public_plan["coach_references"])
+        units.append(
+            _agent_unit_payload(
+                route=route,
+                status="teaching_ready",
+                reasons=(),
+                observation_confidence=validation.confidence,
+                missing_observations=validation.observation.get("missing_observations", []),
+                frames=student_frames,
+                action_package=action_package,
+                coaching_plan=public_plan,
+                analysis_id=job.id,
+            )
+        )
+        deleted = _stop_if_media_was_deleted(database, media_store, job.id)
+        if deleted is not None:
+            return deleted
+
+    units.sort(key=lambda item: (int(item.get("start_ms", 0)), str(item.get("segment_id", ""))))
+    if not units:
+        report_summary = "no_action_detected"
+        report_guidance = _agent_retake_guidance(("no_high_confidence_action_route",))
+    elif any(item.get("status") == "teaching_ready" for item in units):
+        report_summary = "teaching_ready"
+        report_guidance = None
+    else:
+        report_summary = "needs_retake"
+        report_guidance = _agent_retake_guidance(("no_confirmed_coaching_focus",))
+    report = {
+        "report_type": AGENT_ANALYSIS_MODE + "_report",
+        "status": report_summary,
+        "action_units": units,
+        "coach_references": list(
+            {str(reference.get("reference_id", index)): reference for index, reference in enumerate(all_public_references)}.values()
+        ),
+        "limitations": [
+            "local_vlm_routes_and_observes_only_bounded_visible_fields",
+            "ordinary_monocular_video_cannot_establish_exact_contact_racket_face_grip_force_or_3d_biomechanics",
+            "unconfirmed_segments_receive_retake_guidance_not_a_diagnosis",
+        ],
+        "retake_guidance_zh": report_guidance,
+    }
+    if not database.save_report_if_active(job.id, report):
+        return _stop_if_media_was_deleted(database, media_store, job.id) or database.get_job(job.id)
+    completed = database.set_active_state(job.id, "completed", 100, "Learner-video coaching report is ready.")
+    return completed or database.get_job(job.id)
+
+
 def run_analysis_job(
     *,
     database: Database,
@@ -378,6 +722,17 @@ def run_analysis_job(
         video_path = media_store.resolve_key(upload.media_key)
         if not video_path.is_file():
             raise FileNotFoundError("The uploaded video file is unavailable")
+        profile = database.get_player_profile(job.id)
+        if profile.get("analysis_mode") == AGENT_ANALYSIS_MODE:
+            return _run_agent_video_coaching_job(
+                database=database,
+                media_store=media_store,
+                project_root=project_root,
+                job=job,
+                pipeline=pipeline,
+                video_path=video_path,
+                coach_media_root=coach_media_root,
+            )
 
         stopped = _advance_active_job(
             database,
@@ -450,7 +805,6 @@ def run_analysis_job(
         )
         if stopped is not None:
             return stopped
-        profile = database.get_player_profile(job.id)
         knowledge = load_coach_knowledge(job.coach_id, project_root)
         catalog = (
             build_source_catalog(job.coach_id, project_root, knowledge=knowledge)

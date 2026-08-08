@@ -3,7 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
-from typing import Literal, Protocol
+from subprocess import CalledProcessError
+from typing import Any, Literal, Protocol
 
 from .phases import PhaseCandidate
 
@@ -178,3 +179,339 @@ class QwenLocalVisualReviewer:
             limitations=("visual_model_invalid_response", "still_frame_no_motion"),
             phase_assessment="unclear",
         )
+
+    def close(self) -> None:
+        """Release the model explicitly when a larger local tier is needed."""
+        self._model = None
+        self._processor = None
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except ImportError:
+            return None
+
+
+class _QwenLocalJsonModel:
+    """Small shared adapter for bounded multi-image JSON generation.
+
+    It is intentionally private: callers expose typed route/observation
+    contracts instead of propagating raw model output through the application.
+    """
+
+    def __init__(
+        self, model_path: str, max_new_tokens: int, *, max_image_pixels: int = 512 * 28 * 28
+    ) -> None:
+        self.model_path = model_path
+        self.max_new_tokens = max(96, max_new_tokens)
+        self.max_image_pixels = max(28 * 28, max_image_pixels)
+        self._processor: Any | None = None
+        self._model: Any | None = None
+
+    def _load(self) -> None:
+        if self._model is not None:
+            return
+        try:
+            from transformers import AutoModelForImageTextToText, AutoProcessor
+        except ImportError as error:
+            raise RuntimeError("Transformers image-text runtime is unavailable") from error
+        self._processor = AutoProcessor.from_pretrained(
+            self.model_path, use_fast=False, max_pixels=self.max_image_pixels
+        )
+        options: dict[str, object] = {"device_map": "auto", "low_cpu_mem_usage": True}
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                options["dtype"] = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+        except ImportError:
+            pass
+        self._model = AutoModelForImageTextToText.from_pretrained(self.model_path, **options)
+
+    def generate_json(self, image_paths: tuple[Path, ...], prompt: str) -> dict[str, object] | None:
+        if not image_paths:
+            return None
+        self._load()
+        assert self._model is not None and self._processor is not None
+        content = [{"type": "image", "path": str(path)} for path in image_paths]
+        content.append({"type": "text", "text": prompt})
+        messages = [{"role": "user", "content": content}]
+        text = self._processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = self._processor(
+            text=[text], images=[str(path) for path in image_paths], return_tensors="pt", padding=True
+        ).to(self._model.device)
+        generated = self._model.generate(**inputs, max_new_tokens=self.max_new_tokens, do_sample=False)
+        input_length = inputs.input_ids.shape[1]
+        raw = self._processor.batch_decode(generated[:, input_length:], skip_special_tokens=True)[0].strip()
+        start, end = raw.find("{"), raw.rfind("}")
+        if start < 0 or end <= start:
+            return None
+        try:
+            parsed = json.loads(raw[start : end + 1])
+        except json.JSONDecodeError:
+            return None
+        return parsed if isinstance(parsed, dict) else None
+
+    def close(self) -> None:
+        self._model = None
+        self._processor = None
+        try:
+            import gc
+            import torch
+
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except ImportError:
+            return None
+
+
+class QwenLocalActionRouter:
+    """3B local VLM action-router for conservative multi-action proposals."""
+
+    def __init__(
+        self,
+        model_path: str,
+        *,
+        max_new_tokens: int = 320,
+        maximum_samples: int = 24,
+        minimum_duration_ms: int = 1500,
+        maximum_units: int = 5,
+    ) -> None:
+        self._model = _QwenLocalJsonModel(model_path, max_new_tokens)
+        self.maximum_samples = max(4, maximum_samples)
+        self.minimum_duration_ms = max(800, minimum_duration_ms)
+        self.maximum_units = max(1, maximum_units)
+
+    @staticmethod
+    def _routing_contact_sheet(
+        image_paths: list[Path], timestamps_ms: list[int], route_dir: Path
+    ) -> tuple[Path, ...]:
+        """Give the router one ordered visual timeline instead of many images.
+
+        A small VLM is more reliable at comparing movement across a labelled
+        contact sheet than at retaining twelve separate image inputs.  The
+        sheet is private worker media; if Pillow cannot read any sampled
+        image, callers retain the original ordered-image fallback.
+        """
+        try:
+            from PIL import Image, ImageDraw
+
+            columns = 3
+            tile_width, tile_height, caption_height, gutter = 224, 126, 20, 4
+            rows = (len(image_paths) + columns - 1) // columns
+            canvas = Image.new(
+                "RGB",
+                (
+                    columns * tile_width + (columns + 1) * gutter,
+                    rows * (tile_height + caption_height) + (rows + 1) * gutter,
+                ),
+                "#101820",
+            )
+            draw = ImageDraw.Draw(canvas)
+            for index, (image_path, timestamp_ms) in enumerate(zip(image_paths, timestamps_ms)):
+                with Image.open(image_path) as image:
+                    frame = image.convert("RGB")
+                    frame.thumbnail((tile_width, tile_height))
+                    tile = Image.new("RGB", (tile_width, tile_height), "#05080b")
+                    x_offset = (tile_width - frame.width) // 2
+                    y_offset = (tile_height - frame.height) // 2
+                    tile.paste(frame, (x_offset, y_offset))
+                row, column = divmod(index, columns)
+                x = gutter + column * (tile_width + gutter)
+                y = gutter + row * (tile_height + caption_height + gutter)
+                canvas.paste(tile, (x, y))
+                draw.text((x + 4, y + tile_height + 2), f"{index + 1} · {timestamp_ms}ms", fill="#f4f7f9")
+            contact_sheet = route_dir / "timeline-contact-sheet.jpg"
+            contact_sheet.parent.mkdir(parents=True, exist_ok=True)
+            canvas.save(contact_sheet, quality=90, optimize=True)
+            return (contact_sheet,)
+        except (ImportError, OSError):
+            return tuple(image_paths)
+
+    def route(self, video_path: Path, output_dir: Path) -> tuple[object, ...]:
+        # Local import avoids a worker -> vlm -> agent import cycle.
+        from .agent import ActionRoute, ROUTABLE_ACTIONS
+        from .ffmpeg import extract_frame, probe_video
+
+        metadata = probe_video(video_path)
+        if metadata.duration_ms < self.minimum_duration_ms:
+            return ()
+        sample_count = min(self.maximum_samples, max(4, metadata.duration_ms // 1000 + 1))
+        route_dir = output_dir / "private" / "agent-routing"
+        image_paths: list[Path] = []
+        image_timestamps: list[int] = []
+        for index in range(sample_count):
+            # Container duration can extend a few milliseconds past the final
+            # decodable frame. Sampling each time bucket at its midpoint
+            # avoids treating that harmless tail discrepancy as a failed
+            # learner upload, while still covering the whole motion timeline.
+            timestamp_ms = min(
+                metadata.duration_ms - 1,
+                ((2 * index + 1) * metadata.duration_ms) // (2 * sample_count),
+            )
+            image_path = route_dir / f"sample-{timestamp_ms}.jpg"
+            try:
+                extract_frame(video_path, timestamp_ms, image_path)
+            except (CalledProcessError, OSError):
+                # A bad terminal seek or one corrupt decode must not turn a
+                # bounded router into an infrastructure failure.  Fewer than
+                # four surviving samples are too little temporal evidence and
+                # are rejected below.
+                continue
+            image_paths.append(image_path)
+            image_timestamps.append(timestamp_ms)
+        if len(image_paths) < 4:
+            return ()
+        sample_map = ", ".join(
+            f"{index + 1}={timestamp_ms}ms"
+            for index, timestamp_ms in enumerate(image_timestamps)
+        )
+        prompt = (
+            "Return ONLY one JSON object, with no prose or markdown. The contact sheet is a private "
+            "badminton video timeline read left-to-right then top-to-bottom. Choose one sustained "
+            "single-player athletic action, not talking, titles, static poses, or gestures. "
+            f"Samples: {sample_map}. Return {{\"action\":\"one_allowed_action\","
+            "\"start_sample\":integer,\"end_sample\":integer,\"confidence\":number}. "
+            "Sample indices are 1-based; choose a complete motion spanning at least three samples "
+            "(end_sample is at least start_sample plus 2). "
+            f"Allowed actions: {', '.join(sorted(ROUTABLE_ACTIONS))}. "
+            "If no supported sustained action is visible, return {\"action\":\"unknown\",\"confidence\":0.0}."
+        )
+        router_images = self._routing_contact_sheet(image_paths, image_timestamps, route_dir)
+        payload = self._model.generate_json(router_images, prompt) or {}
+        raw_units: object = payload.get("units", []) if isinstance(payload, dict) else []
+        # Smaller local Qwen checkpoints occasionally collapse a one-item
+        # ``units`` array into its object while retaining the complete route
+        # fields.  It is still only a *candidate*: normalize that bounded
+        # shape here and let the same action/time/confidence gates below make
+        # the acceptance decision.  Free text or partial objects remain
+        # rejected.
+        if (
+            isinstance(payload, dict)
+            and ("units" not in payload or not isinstance(raw_units, list))
+            and {"action", "confidence"}.issubset(payload)
+            and (
+                {"start_sample", "end_sample"}.issubset(payload)
+                or {"start_ms", "end_ms"}.issubset(payload)
+            )
+        ):
+            raw_units = [{**payload, "decision": str(payload.get("decision", "candidate"))}]
+        routes: list[ActionRoute] = []
+        if not isinstance(raw_units, list):
+            return ()
+        for raw in raw_units:
+            if not isinstance(raw, dict) or raw.get("decision") != "candidate":
+                continue
+            action = str(raw.get("action", ""))
+            if action not in ROUTABLE_ACTIONS:
+                continue
+            try:
+                confidence = float(raw.get("confidence", 0.0))
+            except (TypeError, ValueError):
+                continue
+            try:
+                start_sample = int(raw["start_sample"])
+                end_sample = int(raw["end_sample"])
+            except (KeyError, TypeError, ValueError):
+                start_sample = 0
+                end_sample = 0
+            if 1 <= start_sample + 2 <= end_sample <= len(image_timestamps):
+                start_ms = image_timestamps[start_sample - 1]
+                sample_spacing = max(
+                    500,
+                    image_timestamps[end_sample - 1] - image_timestamps[end_sample - 2],
+                )
+                end_ms = min(
+                    metadata.duration_ms,
+                    image_timestamps[end_sample - 1] + sample_spacing // 2,
+                )
+            else:
+                # Keep backward compatibility with an adapter that already
+                # provides scalar timestamps, but never coerce a model's
+                # arrays, bounding boxes, or partial coordinates into time.
+                try:
+                    start_ms = max(0, int(raw.get("start_ms", 0)))
+                    end_ms = min(metadata.duration_ms, int(raw.get("end_ms", 0)))
+                except (TypeError, ValueError):
+                    continue
+            if end_ms - start_ms < self.minimum_duration_ms or not 0.0 <= confidence <= 1.0:
+                continue
+            routes.append(
+                ActionRoute(
+                    unit_id=f"agent-{len(routes) + 1:02d}",
+                    action=action,
+                    start_ms=start_ms,
+                    end_ms=end_ms,
+                    confidence=confidence,
+                    reasons=("qwen_3b_temporal_route",),
+                )
+            )
+        accepted: list[ActionRoute] = []
+        for route in sorted(routes, key=lambda item: (-item.confidence, item.start_ms, item.action)):
+            if any(not (route.end_ms <= item.start_ms or route.start_ms >= item.end_ms) for item in accepted):
+                continue
+            accepted.append(route)
+            if len(accepted) == self.maximum_units:
+                break
+        return tuple(sorted(accepted, key=lambda item: item.start_ms))
+
+    def close(self) -> None:
+        self._model.close()
+
+
+class QwenLocalSegmentObserver:
+    """7B local VLM that fills only a caller-provided observation vocabulary."""
+
+    def __init__(self, model_path: str, *, max_new_tokens: int = 480) -> None:
+        self._model = _QwenLocalJsonModel(model_path, max_new_tokens)
+
+    def observe(
+        self,
+        *,
+        action: str,
+        image_paths: tuple[Path, ...],
+        base_observation: dict[str, object],
+        allowed_values: dict[str, tuple[str, ...]],
+    ) -> dict[str, object]:
+        vocabulary = {path: ["unknown", *values] for path, values in allowed_values.items()}
+        prompt = (
+            "Return ONLY one JSON object, with no prose or markdown. The seven ordered images show a "
+            f"continuous learner badminton {action} from preparation through recovery. Return exactly "
+            "these top-level keys: confidence, camera_view, observations. confidence is low, medium, or high; "
+            "camera_view is front, side, rear_side, or unknown. observations is a flat object whose keys and "
+            f"values must come only from this vocabulary: {json.dumps(vocabulary, ensure_ascii=False)}. "
+            "Choose at most one observation: the single clearest listed proxy across the complete sequence. "
+            "Return high only for that clear proxy; otherwise return low with an empty observations object. "
+            "Do not use medium. Omit every unclear or unlisted field rather than guessing. Do not diagnose or infer contact, racket "
+            "face, grip, force, internal rotation, 3D mechanics, opponent intent, tactics, equipment, or pain."
+        )
+        payload = self._model.generate_json(image_paths, prompt)
+        if not isinstance(payload, dict):
+            return {"confidence": "low"}
+        confidence = str(payload.get("confidence", "low"))
+        result: dict[str, object] = {
+            "confidence": confidence if confidence in {"low", "medium", "high"} else "low",
+            "camera_view": str(payload.get("camera_view", "unknown")),
+        }
+        observations = payload.get("observations", payload)
+        if not isinstance(observations, dict):
+            return result
+        for path, values in allowed_values.items():
+            candidate = observations.get(path)
+            if not isinstance(candidate, str) or candidate not in values:
+                continue
+            current: dict[str, object] = result
+            parts = path.split(".")
+            for part in parts[:-1]:
+                nested = current.get(part)
+                if not isinstance(nested, dict):
+                    nested = {}
+                    current[part] = nested
+                current = nested
+            current[parts[-1]] = candidate
+        return result
+
+    def close(self) -> None:
+        self._model.close()
