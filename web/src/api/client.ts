@@ -194,6 +194,39 @@ export interface TeachingSequenceItem {
   retest_metrics: string[];
 }
 
+export interface TopicTeachingUnit {
+  topic_id: string;
+  topic_name_zh: string;
+  learning_goal_zh: string;
+  knowledge_status: string;
+  media_status: "reviewed_media_available" | "reviewed_media_unavailable" | "knowledge_only_no_reviewed_media";
+  media_notice_zh: string;
+}
+
+export interface LessonFocusItem {
+  issue_id: string;
+  title_zh: string;
+  visible_evidence_zh: string[];
+  correction_zh: string;
+  drill: null | { drill_id: string; title_zh: string; dosage_zh: string };
+  retest_zh: string;
+  topic_unit: TopicTeachingUnit | null;
+}
+
+export interface LessonFocus {
+  now: LessonFocusItem;
+  next: LessonFocusItem[];
+}
+
+export interface CoachLens {
+  coach_id: string;
+  coach_name: string;
+  selected: boolean;
+  confidence: "high" | "medium" | "low";
+  first_issue_id: string | null;
+  reason_zh: string;
+}
+
 export interface StructuredDiagnosis {
   coach_id: string;
   coach_name: string;
@@ -216,6 +249,12 @@ export interface CoachingPlanReport {
   query: CoachDemonstrationReport["query"];
   diagnosis: StructuredDiagnosis;
   teaching_sequence: TeachingSequenceItem[];
+  lesson_focus: LessonFocus | null;
+  retake_guidance_zh?: string | null;
+  selected_topic_unit?: TopicTeachingUnit | null;
+  requested_coach_id: string;
+  recommendation_mode: "auto_recommended_teaching_lens" | "explicit_coach_selection";
+  coach_lenses: CoachLens[];
   teaching_routes: TeachingRoute[];
   video_lesson_status: "available" | "no_reliable_video_lesson_package";
   video_lessons: VideoLessonPackage[];
@@ -315,7 +354,7 @@ export async function createDemonstration(payload: {
 }
 
 export async function createCoachingPlan(payload: {
-  coach_id: string;
+  coach_id: "auto" | string;
   player_profile: Record<string, unknown>;
   video_observation: Record<string, unknown>;
   limit?: number;

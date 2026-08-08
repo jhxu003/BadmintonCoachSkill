@@ -211,14 +211,21 @@ def create_app(
     def create_structured_coaching_plan(
         request: StructuredCoachingPlanRequest,
     ) -> AnalysisJobResponse:
-        if request.coach_id not in set(available_coaches(runtime.project_root)):
+        configured_coaches = set(available_coaches(runtime.project_root))
+        if request.coach_id != "auto" and request.coach_id not in configured_coaches:
             raise HTTPException(status_code=422, detail="Unsupported coach_id")
         action = str(request.video_observation.get("action", "")).strip()
         if not action:
             raise HTTPException(
                 status_code=422, detail="video_observation.action is required"
             )
-        if action not in available_coach_actions(request.coach_id, runtime.project_root):
+        if request.coach_id == "auto":
+            if not any(
+                action in available_coach_actions(coach_id, runtime.project_root)
+                for coach_id in configured_coaches
+            ):
+                raise HTTPException(status_code=422, detail="Unsupported action for all coaches")
+        elif action not in available_coach_actions(request.coach_id, runtime.project_root):
             raise HTTPException(status_code=422, detail="Unsupported action for coach")
         job = create_demonstration_job(
             database,

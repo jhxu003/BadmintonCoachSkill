@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
-import { getCoachingPlanReport, getDemonstrationReport, getReport, type AnalysisJob, type CoachDemonstrationReport, type CoachingPlanReport, type CoachingReport } from "./api/client";
-import { CoachingPlanPage } from "./features/coaching-plan/CoachingPlanPage";
+import { createCoachingPlan, getCoachingPlanReport, getDemonstrationReport, getReport, type AnalysisJob, type CoachDemonstrationReport, type CoachingPlanReport, type CoachingReport } from "./api/client";
+import { CoachingPlanPage, type CoachingPlanDraft } from "./features/coaching-plan/CoachingPlanPage";
 import { CoachingPlanWorkspace } from "./features/coaching-plan/CoachingPlanWorkspace";
 import { DemonstrationPage } from "./features/demonstration/DemonstrationPage";
 import { DemonstrationWorkspace } from "./features/demonstration/DemonstrationWorkspace";
@@ -20,6 +20,7 @@ export function App() {
   const [report, setReport] = useState<CoachingReport | null>(null);
   const [demonstrationReport, setDemonstrationReport] = useState<CoachDemonstrationReport | null>(null);
   const [coachingPlanReport, setCoachingPlanReport] = useState<CoachingPlanReport | null>(null);
+  const [coachingDraft, setCoachingDraft] = useState<CoachingPlanDraft | null>(null);
 
   const loadReport = useCallback(async () => {
     if (!job) return;
@@ -37,12 +38,22 @@ export function App() {
 
   function createdVideo(createdJob: AnalysisJob): void { setMode("video"); setJob(createdJob); setScreen("progress"); }
   function createdDemonstration(createdJob: AnalysisJob): void { setMode("demonstration"); setJob(createdJob); setScreen("progress"); }
-  function createdCoachingPlan(createdJob: AnalysisJob): void { setMode("coaching-plan"); setJob(createdJob); setScreen("progress"); }
+  function createdCoachingPlan(createdJob: AnalysisJob, draft: CoachingPlanDraft): void { setMode("coaching-plan"); setCoachingDraft(draft); setJob(createdJob); setScreen("progress"); }
+  async function switchCoachingLens(coachId: string): Promise<void> {
+    if (!coachingDraft) throw new Error("当前结构化观察已不可用，请返回重新提交。");
+    const draft = { ...coachingDraft, coach_id: coachId };
+    const createdJob = await createCoachingPlan(draft);
+    setCoachingDraft(draft);
+    setCoachingPlanReport(null);
+    setMode("coaching-plan");
+    setJob(createdJob);
+    setScreen("progress");
+  }
   function setupSubmitted(updatedJob: AnalysisJob): void { setJob(updatedJob); setScreen("progress"); }
-  function reset(target: "demonstration" | "coaching-plan" | "upload" = "demonstration"): void { setJob(null); setReport(null); setDemonstrationReport(null); setCoachingPlanReport(null); setMode(target === "upload" ? "video" : target === "coaching-plan" ? "coaching-plan" : "demonstration"); setScreen(target); }
+  function reset(target: "demonstration" | "coaching-plan" | "upload" = "demonstration"): void { setJob(null); setReport(null); setDemonstrationReport(null); setCoachingPlanReport(null); setCoachingDraft(null); setMode(target === "upload" ? "video" : target === "coaching-plan" ? "coaching-plan" : "demonstration"); setScreen(target); }
 
   if (screen === "demonstration-workspace" && job && demonstrationReport) return <DemonstrationWorkspace job={job} report={demonstrationReport} onBack={() => reset("demonstration")} />;
-  if (screen === "coaching-plan-workspace" && job && coachingPlanReport) return <CoachingPlanWorkspace job={job} report={coachingPlanReport} onBack={() => reset("coaching-plan")} />;
+  if (screen === "coaching-plan-workspace" && job && coachingPlanReport) return <CoachingPlanWorkspace job={job} report={coachingPlanReport} onBack={() => reset("coaching-plan")} onSwitchCoach={switchCoachingLens} />;
   if (screen === "workspace" && job && report) return <EvidenceWorkspace job={job} report={report} onBack={() => reset("upload")} onDeleted={() => reset("upload")} />;
   if (screen === "setup" && job) return <PlayerSetupPage job={job} onSubmitted={setupSubmitted} onBack={() => reset("upload")} />;
   if (screen === "progress" && job) return <AnalysisProgress job={job} variant={mode} onComplete={() => void loadReport()} onNeedsSetup={() => setScreen("setup")} onExpired={() => reset(mode === "video" ? "upload" : mode === "coaching-plan" ? "coaching-plan" : "demonstration")} />;

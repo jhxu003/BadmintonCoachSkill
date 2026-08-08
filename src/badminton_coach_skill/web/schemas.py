@@ -49,7 +49,9 @@ class CoachDemonstrationRequest(BaseModel):
 class StructuredCoachingPlanRequest(BaseModel):
     """A bounded observation supplied by a human or upstream video agent."""
 
-    coach_id: str
+    # ``auto`` asks for a recommended teaching lens. It does not enable raw
+    # learner-video diagnosis; the bounded observation remains mandatory.
+    coach_id: str = "auto"
     player_profile: dict[str, Any]
     video_observation: dict[str, Any]
     limit: int = Field(default=2, ge=1, le=3)
