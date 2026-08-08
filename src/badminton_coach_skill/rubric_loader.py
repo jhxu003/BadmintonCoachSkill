@@ -39,6 +39,17 @@ def _load_optional_json_mapping(path: Path) -> dict[str, Any]:
     return data
 
 
+def _load_optional_topic_units(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or data.get("schema_version") != "coach-topic-teaching-unit/v1":
+        raise ValueError(f"{path} has an unsupported topic teaching-unit schema")
+    if not isinstance(data.get("units"), list):
+        raise ValueError(f"{path} must contain a units list")
+    return data
+
+
 def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
     """Load the skill's deterministic knowledge files."""
     root = Path(reference_dir)
@@ -58,4 +69,5 @@ def load_skill_knowledge(reference_dir: str | Path) -> dict[str, Any]:
         # system.  They stay distinct from the evidence map because they do
         # not certify clips, frames, or deterministic rules.
         "source_topic_index": _load_optional_json_mapping(root / "source-topic-index.json"),
+        "topic_teaching_units": _load_optional_topic_units(root / "topic-teaching-units.json"),
     }

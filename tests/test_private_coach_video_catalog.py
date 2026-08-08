@@ -453,6 +453,10 @@ def test_committed_skill_source_topic_indexes_match_public_catalog_and_stay_safe
             item["source_id"] for item in coach["videos"]
         }
         assert all(set(item) == {"source_id", "title", "url", "classification_status", "system", "topics"} for item in index["sources"])
+        assert all(
+            all(set(topic) == {"id", "name", "system_id"} for topic in item["topics"])
+            for item in index["sources"]
+        )
         serialized = json.dumps(index, ensure_ascii=False)
         assert ".runtime" not in serialized
         assert "data/raw-private" not in serialized

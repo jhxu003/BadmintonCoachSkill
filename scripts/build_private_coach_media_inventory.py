@@ -47,6 +47,32 @@ def approved_for_teaching(episode: dict[str, Any]) -> bool:
     )
 
 
+def context_review_required(episode: dict[str, Any]) -> bool:
+    """Whether the context model is expected to produce a decision.
+
+    This exactly mirrors the fail-closed review eligibility used by the batch
+    command when ``--include-review-candidates`` is enabled.  A candidate
+    which failed only the action gate (while otherwise being a resolved,
+    ordinary candidate) has no remaining path to promotion, so it must not
+    appear as an indefinitely pending model review in the inventory.
+    """
+    return (
+        episode.get("automatic_admission") is True
+        or episode.get("review_context_only") is True
+        or episode.get("semantic_assignment_status") != "resolved"
+    )
+
+
+def action_gate_rejection_reasons(episode: dict[str, Any]) -> list[str]:
+    """Return terminal reasons for candidates that cannot enter context review."""
+    if context_review_required(episode):
+        return []
+    # The only remaining path is a complete, resolved candidate which the
+    # strict action gate did not automatically admit.  Do not call this an
+    # agent/context rejection: no context model result exists for it.
+    return ["action_gate_not_automatic_admission"]
+
+
 def quality_rank(row: dict[str, Any]) -> tuple[int, int, int, int, float]:
     return (
         int(row["teaching_approved"]),
@@ -200,6 +226,21 @@ def build_inventory(project: Path) -> tuple[dict[str, Any], list[dict[str, Any]]
                 primary_decision = approved_decisions[0] if approved_decisions else (
                     decisions[0] if decisions else {}
                 )
+                reviewed_rejection_reasons = list(
+                    primary_decision.get("context_rejection_reasons", [])
+                    if isinstance(primary_decision.get("context_rejection_reasons", []), list)
+                    else []
+                )
+                gate_rejection_reasons = action_gate_rejection_reasons(episode)
+                terminal_state = (
+                    "teaching_ready"
+                    if approved_decisions
+                    else "reviewed_rejected"
+                    if primary_decision.get("decision") == "reject"
+                    else "action_gate_rejected"
+                    if gate_rejection_reasons
+                    else "pending_context_review"
+                )
                 action_start = float(episode.get("action_start_seconds") or 0.0)
                 action_end = float(episode.get("action_end_seconds") or action_start)
                 asset_id = f"{directory}:{job_id}:{candidate_id}"
@@ -248,6 +289,7 @@ def build_inventory(project: Path) -> tuple[dict[str, Any], list[dict[str, Any]]
                                 "context_start_seconds",
                                 "context_end_seconds",
                                 "context_evidence",
+                                "context_rejection_reasons",
                             )
                         }
                         for decision in decisions
@@ -262,6 +304,12 @@ def build_inventory(project: Path) -> tuple[dict[str, Any], list[dict[str, Any]]
                     "artifact_role": episode.get("artifact_role", "teaching_candidate"),
                     "review_context_only": bool(episode.get("review_context_only", False)),
                     "teaching_approved": bool(approved_decisions),
+                    "review_terminal_state": terminal_state,
+                    "review_rejection_reasons": (
+                        reviewed_rejection_reasons
+                        if terminal_state == "reviewed_rejected"
+                        else gate_rejection_reasons
+                    ),
                     "score": episode.get("score"),
                     "scope_limitations": episode.get("scope_limitations", []),
                     "action_start_seconds": action_start,
@@ -318,6 +366,18 @@ def build_inventory(project: Path) -> tuple[dict[str, Any], list[dict[str, Any]]
             row["state"] = "duplicate_existing" if row["assets_complete"] else "duplicate_missing"
         elif row["teaching_approved"]:
             row["state"] = "ready_existing" if row["assets_complete"] else "ready_to_materialize"
+        elif row["review_terminal_state"] == "reviewed_rejected":
+            row["state"] = (
+                "reviewed_rejected_existing"
+                if row["assets_complete"]
+                else "reviewed_rejected_missing"
+            )
+        elif row["review_terminal_state"] == "action_gate_rejected":
+            row["state"] = (
+                "action_gate_rejected_existing"
+                if row["assets_complete"]
+                else "action_gate_rejected_missing"
+            )
         else:
             row["state"] = "candidate_existing" if row["assets_complete"] else "candidate_to_materialize"
 
@@ -333,6 +393,10 @@ def build_inventory(project: Path) -> tuple[dict[str, Any], list[dict[str, Any]]
             state = "candidate_existing"
         elif any(row["state"] == "candidate_to_materialize" for row in canonical_rows):
             state = "candidate_to_materialize"
+        elif any(row["state"].startswith("reviewed_rejected") for row in canonical_rows):
+            state = "reviewed_rejected"
+        elif any(row["state"].startswith("action_gate_rejected") for row in canonical_rows):
+            state = "action_gate_rejected"
         else:
             state = "no_reliable_episode"
         source["state"] = state

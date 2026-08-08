@@ -1129,6 +1129,72 @@ def context_admitted(
     )
 
 
+def context_review_eligibility(
+    episode: dict[str, Any], *, include_review_candidates: bool
+) -> tuple[bool, list[str]]:
+    """Return whether an episode needs context review and its known limits.
+
+    Older Li Yuxuan and Zheng Siwei passes intentionally materialised strong
+    partial candidates as ``review_context_only``.  The old context stage
+    silently skipped all of them because it only accepted already-admitted
+    lessons.  They still need a role/polarity audit so the corpus has a
+    terminal, source-bound record.  This helper never relaxes publication:
+    the returned limitations are carried into the decision and
+    :func:`context_admitted` remains the only promotion gate.
+    """
+    automatic = episode.get("automatic_admission") is True
+    review_only = episode.get("review_context_only") is True
+    resolved = episode.get("semantic_assignment_status") == "resolved"
+    if automatic and not review_only and resolved:
+        return True, []
+    if not include_review_candidates:
+        return False, []
+
+    reasons: list[str] = []
+    if not automatic:
+        reasons.append("action_gate_not_automatic_admission")
+    if review_only:
+        reasons.append("review_context_only")
+    if not resolved:
+        reasons.append("semantic_assignment_unresolved")
+    return True, reasons
+
+
+def context_rejection_reasons(
+    episode: dict[str, Any], payload: dict[str, Any] | None
+) -> list[str]:
+    """Explain why a context-reviewed candidate cannot become a lesson."""
+    reasons: list[str] = []
+    if episode.get("automatic_admission") is not True:
+        reasons.append("action_gate_not_automatic_admission")
+    if episode.get("review_context_only") is True:
+        reasons.append("review_context_only")
+    if episode.get("semantic_assignment_status") != "resolved":
+        reasons.append("semantic_assignment_unresolved")
+    if not payload:
+        reasons.append("context_payload_missing")
+        return reasons
+    if payload.get("classification") != "coach_correct_demonstration":
+        reasons.append("context_not_coach_correct_demonstration")
+    if payload.get("demonstrator_role") != "coach":
+        reasons.append("demonstrator_role_not_coach")
+    if payload.get("example_polarity") != "correct":
+        reasons.append("example_not_confirmed_correct")
+    if payload.get("action_subject_continuity") != "yes":
+        reasons.append("action_subject_continuity_not_confirmed")
+    required_evidence = {
+        "source_lesson_presenter_visible",
+        "same_presenter_executes_candidate",
+        "single_complete_demonstration_visible",
+        "normative_instruction_context_visible",
+    }
+    if not required_evidence.issubset(payload.get("context_evidence", [])):
+        reasons.append("required_context_evidence_missing")
+    if payload.get("context_limitations"):
+        reasons.append("context_limitations_present")
+    return list(dict.fromkeys(reasons))
+
+
 def is_non_demonstration_route(route: dict[str, Any]) -> bool:
     """Whether a semantic route can never become a coach-action reference."""
     return (
@@ -1535,7 +1601,15 @@ def command_context_review(args: argparse.Namespace) -> None:
     rows = selected_rows(manifest, args)
     model_identity = str(args.model.resolve())
     jobs: list[
-        tuple[dict[str, Any], Path, dict[str, Any], dict[str, Any], float, Path]
+        tuple[
+            dict[str, Any],
+            Path,
+            dict[str, Any],
+            dict[str, Any],
+            float,
+            Path,
+            list[str],
+        ]
     ] = []
     refreshed = 0
     for video in rows:
@@ -1592,11 +1666,13 @@ def command_context_review(args: argparse.Namespace) -> None:
                         str(episode.get("candidate_id", "")), False
                     )
                 episode.setdefault("review_context_only", False)
-                if not (
-                    episode.get("automatic_admission") is True
-                    and episode.get("review_context_only") is not True
-                    and episode.get("semantic_assignment_status") == "resolved"
-                ):
+                reviewable, eligibility_rejections = context_review_eligibility(
+                    episode,
+                    include_review_candidates=bool(
+                        getattr(args, "include_review_candidates", False)
+                    ),
+                )
+                if not reviewable:
                     continue
                 key = (action, str(episode["episode_id"]))
                 if key in existing:
@@ -1610,6 +1686,12 @@ def command_context_review(args: argparse.Namespace) -> None:
                     "action": action,
                     "episode_id": episode["episode_id"],
                     "candidate_id": episode["candidate_id"],
+                    "candidate_review_mode": (
+                        "teaching_candidate"
+                        if not eligibility_rejections
+                        else "audit_review_candidate"
+                    ),
+                    "pre_context_rejection_reasons": eligibility_rejections,
                 }
                 if plan is None:
                     payload = normalized_context_reject(
@@ -1631,6 +1713,15 @@ def command_context_review(args: argparse.Namespace) -> None:
                                 + MIN_CONTEXT_SIDE_SECONDS,
                             ),
                             "context_evidence": payload["context_evidence"],
+                            "context_rejection_reasons": list(
+                                dict.fromkeys(
+                                    eligibility_rejections
+                                    + context_rejection_reasons(episode, payload)
+                                    + ["insufficient_20_second_context"]
+                                )
+                            ),
+                            "demonstrator_role": payload["demonstrator_role"],
+                            "example_polarity": payload["example_polarity"],
                             "payload": payload,
                             "raw_output": "",
                             "parse_error": "insufficient_20_second_context",
@@ -1639,7 +1730,17 @@ def command_context_review(args: argparse.Namespace) -> None:
                     )
                     continue
                 context_start, context_end, frame_plan = plan
-                jobs.append((video, root, technique, episode, duration, source))
+                jobs.append(
+                    (
+                        video,
+                        root,
+                        technique,
+                        episode,
+                        duration,
+                        source,
+                        eligibility_rejections,
+                    )
+                )
                 video_has_gpu_jobs = True
                 episode["_context_frame_plan"] = frame_plan
                 episode["_context_start"] = context_start
@@ -1699,7 +1800,15 @@ def command_context_review(args: argparse.Namespace) -> None:
     model.eval()
     reviewed_roots: set[Path] = set()
     fresh_approved_count = 0
-    for number, (video, root, technique, episode, _duration, source) in enumerate(
+    for number, (
+        video,
+        root,
+        technique,
+        episode,
+        _duration,
+        source,
+        eligibility_rejections,
+    ) in enumerate(
         jobs, start=1
     ):
         inference_seconds: float | None = None
@@ -1762,6 +1871,15 @@ def command_context_review(args: argparse.Namespace) -> None:
             del inputs, generated
             torch.cuda.empty_cache()
         approved = context_admitted(episode, payload)
+        rejection_reasons = (
+            []
+            if approved
+            else list(
+                dict.fromkeys(
+                    eligibility_rejections + context_rejection_reasons(episode, payload)
+                )
+            )
+        )
         result = {
             "job_id": video["job_id"],
             "source_id": video["source_id"],
@@ -1777,6 +1895,15 @@ def command_context_review(args: argparse.Namespace) -> None:
             "context_start_seconds": context_start,
             "context_end_seconds": context_end,
             "context_evidence": payload["context_evidence"],
+            "candidate_review_mode": (
+                "teaching_candidate"
+                if episode.get("automatic_admission") is True
+                and episode.get("review_context_only") is not True
+                and episode.get("semantic_assignment_status") == "resolved"
+                else "audit_review_candidate"
+            ),
+            "pre_context_rejection_reasons": eligibility_rejections,
+            "context_rejection_reasons": rejection_reasons,
             "payload": payload,
             "model": model_identity,
             "raw_output": raw,
@@ -2682,6 +2809,11 @@ def parser() -> argparse.ArgumentParser:
     )
     context_review.add_argument("--frames-per-side", type=int, default=3)
     context_review.add_argument("--max-new-tokens", type=int, default=160)
+    context_review.add_argument(
+        "--include-review-candidates",
+        action="store_true",
+        help="audit strong review-only candidates without relaxing the teaching-ready gate",
+    )
     context_review.set_defaults(func=command_context_review)
 
     refine = commands.add_parser("refine")

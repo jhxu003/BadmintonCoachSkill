@@ -1,0 +1,1585 @@
+{
+  "schema_version": "coach-topic-teaching-unit/v1",
+  "coach_id": "li-yuxuan",
+  "unit_count": 31,
+  "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
+  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
+  "systems": [],
+  "units": [
+    {
+      "topic_id": "equipment_safety-title-fallback",
+      "topic_name_zh": "装备成熟度与负荷安全（标题未细化）",
+      "coach_system_id": "equipment_safety",
+      "source_ids": [
+        "LYX_BILI_BV14QMJZMEBF"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“装备成熟度与负荷安全（标题未细化）”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "footwork-title-fallback",
+      "topic_name_zh": "启动、到位、落地与回收（标题未细化）",
+      "coach_system_id": "footwork",
+      "source_ids": [
+        "LYX_BILI_BV1QY411778G"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-time-budget",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“启动、到位、落地与回收（标题未细化）”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
+      "framework_ids": [
+        "lyx-start-on-opponent-contact",
+        "lyx-rear-turn-confirm-step"
+      ],
+      "rule_ids": [
+        "lyx-late-start",
+        "lyx-rear-turn-error"
+      ],
+      "drill_ids": [
+        "lyx-split-start-call",
+        "lyx-rear-turn-freeze"
+      ],
+      "retest_metrics": [
+        "随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ]
+    },
+    {
+      "topic_id": "learner_fit-title-fallback",
+      "topic_name_zh": "学习路径与综合答疑（标题未细化）",
+      "coach_system_id": "learner_fit",
+      "source_ids": [
+        "LYX_BILI_BV1EV411I7ZS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“学习路径与综合答疑（标题未细化）”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-backhand",
+      "topic_name_zh": "反手早选择与紧凑回复",
+      "coach_system_id": "backhand_time_budget",
+      "source_ids": [
+        "LYX_BILI_BV11Q4Y1X7PJ",
+        "LYX_BILI_BV13N411G7SS",
+        "LYX_BILI_BV14N4Y1N7RW",
+        "LYX_BILI_BV1CK4Y1G7VL",
+        "LYX_BILI_BV1DJBNBCEJS",
+        "LYX_BILI_BV1EG3MZ3EYD",
+        "LYX_BILI_BV1F7CPEXEFQ",
+        "LYX_BILI_BV1LJR2BTEN5",
+        "LYX_BILI_BV1NP4Y127HW",
+        "LYX_BILI_BV1NT4Y1O7WQ",
+        "LYX_BILI_BV1PUD1BGE3V",
+        "LYX_BILI_BV1RA4Y1U7PU",
+        "LYX_BILI_BV1T34Y1772E",
+        "LYX_BILI_BV1VT4Y1A7KZ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "backhand-early-choice",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“反手早选择与紧凑回复”学习：尽早识别反手来球并选择可用处理空间，避免被动时用更大动作或紧张补偿。",
+      "framework_ids": [
+        "lyx-backhand-time-budget",
+        "lyx-backhand-compact-reply"
+      ],
+      "rule_ids": [
+        "lyx-delayed-first-step",
+        "lyx-forced-wrist"
+      ],
+      "drill_ids": [
+        "lyx-backhand-early-choice",
+        "lyx-split-start-call"
+      ],
+      "retest_metrics": [
+        "随机方向下能在被动处理前先完成可见选择与准备。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-basic-smash",
+      "topic_name_zh": "杀球基础与进攻动作",
+      "coach_system_id": "smash",
+      "source_ids": [
+        "LYX_BILI_BV12P4Y1Y7HS",
+        "LYX_BILI_BV14N4Y1N7RW",
+        "LYX_BILI_BV1A8411A7BB",
+        "LYX_BILI_BV1BI4Y1G7RU",
+        "LYX_BILI_BV1CK4Y1G7VL",
+        "LYX_BILI_BV1FH4Y1L7AT",
+        "LYX_BILI_BV1HIKDYZEJT",
+        "LYX_BILI_BV1HV41117WQ",
+        "LYX_BILI_BV1IN4Y1Q7NW",
+        "LYX_BILI_BV1MA41177BE",
+        "LYX_BILI_BV1NA41147KZ",
+        "LYX_BILI_BV1PK411N7PS",
+        "LYX_BILI_BV1QK4Y157P6",
+        "LYX_BILI_BV1SWCWZAEXP",
+        "LYX_BILI_BV1UH411O75P",
+        "LYX_BILI_BV1VT4Y1A7KZ",
+        "LYX_BILI_BV1WK411K7KW",
+        "LYX_BILI_BV1XIBYZQE1H",
+        "LYX_BILI_BV1XQFWBAEZL",
+        "LYX_BILI_BV1XVMNZTEE3",
+        "LYX_BILI_BV1YP4Y1V7JN",
+        "LYX_BILI_BV1YT4Y1Q7ZW",
+        "LYX_BILI_BV1Z94Y1Q74K",
+        "LYX_BILI_BV1Z9SZYDEBN"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash-progression",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“杀球基础与进攻动作”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
+      "framework_ids": [
+        "lyx-smash-sequence-before-speed",
+        "lyx-jump-smash-prerequisite"
+      ],
+      "rule_ids": [
+        "lyx-arm-first-swing",
+        "lyx-unstable-landing"
+      ],
+      "drill_ids": [
+        "lyx-smash-five-phase",
+        "lyx-jump-land-reset"
+      ],
+      "retest_metrics": [
+        "提高速度前先连续完成五阶段挥拍和可用落地。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-defense-transition",
+      "topic_name_zh": "防守、接杀与被动过渡",
+      "coach_system_id": "match_transfer",
+      "source_ids": [
+        "LYX_BILI_BV13PYZYYEXZ",
+        "LYX_BILI_BV1A64Y1Q72N",
+        "LYX_BILI_BV1BH411F7YA",
+        "LYX_BILI_BV1BI4Y1G7RU",
+        "LYX_BILI_BV1BV4Y1D7JQ",
+        "LYX_BILI_BV1DVG766ETN",
+        "LYX_BILI_BV1FE421C7EI",
+        "LYX_BILI_BV1IDUJBFELZ",
+        "LYX_BILI_BV1KD4Y1B7NW",
+        "LYX_BILI_BV1NT4Y1O7WQ",
+        "LYX_BILI_BV1SWCWZAEXP",
+        "LYX_BILI_BV1T54Y187OR",
+        "LYX_BILI_BV1UH411O75P",
+        "LYX_BILI_BV1ZC4Y1N7FJ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“防守、接杀与被动过渡”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-doubles-roles",
+      "topic_name_zh": "双打轮转与前两拍分工",
+      "coach_system_id": "match_transfer",
+      "source_ids": [
+        "LYX_BILI_BV12JSVZXEBL",
+        "LYX_BILI_BV12P4Y1Y7HS",
+        "LYX_BILI_BV13PYZYYEXZ",
+        "LYX_BILI_BV1624Y1V7DC",
+        "LYX_BILI_BV18GWPZMER4",
+        "LYX_BILI_BV18W411S7ES",
+        "LYX_BILI_BV1AF411I7AS",
+        "LYX_BILI_BV1B64Y1H7MW",
+        "LYX_BILI_BV1BH411F7YA",
+        "LYX_BILI_BV1BH411T7TR",
+        "LYX_BILI_BV1CA411J7BJ",
+        "LYX_BILI_BV1DYIUBVEPA",
+        "LYX_BILI_BV1E94Y1P7WT",
+        "LYX_BILI_BV1FMMPY9EAO",
+        "LYX_BILI_BV1GY4Y1P7B2",
+        "LYX_BILI_BV1H5411L7QQ",
+        "LYX_BILI_BV1IDUJBFELZ",
+        "LYX_BILI_BV1IR4Y1S71B",
+        "LYX_BILI_BV1KS2YBDEUF",
+        "LYX_BILI_BV1MQJ2ZGEQR",
+        "LYX_BILI_BV1QJHPZCENS",
+        "LYX_BILI_BV1SH411X7AF",
+        "LYX_BILI_BV1T54Y187OR",
+        "LYX_BILI_BV1ZC4Y1N7FJ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“双打轮转与前两拍分工”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-drive",
+      "topic_name_zh": "平抽挡与快速交换",
+      "coach_system_id": "drop_drive",
+      "source_ids": [
+        "LYX_BILI_BV128FWYTEGO",
+        "LYX_BILI_BV1BH411T7TR",
+        "LYX_BILI_BV1DV411U7PV",
+        "LYX_BILI_BV1F7CPEXEFQ",
+        "LYX_BILI_BV1JX4Y1A7WI",
+        "LYX_BILI_BV1K4ARE9EVM",
+        "LYX_BILI_BV1MS4Y187PC",
+        "LYX_BILI_BV1PUD1BGE3V",
+        "LYX_BILI_BV1XQFWBAEZL",
+        "LYX_BILI_BV1Z94Y1Q74K"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "drive",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "li-yuxuan-drive"
+      ],
+      "learning_goal_zh": "围绕“平抽挡与快速交换”学习：让球拍、身体和支撑保持可响应，以短准备和及时回收维持快速平抽挡。",
+      "framework_ids": [
+        "lyx-drive-compact-first",
+        "lyx-racket-height-interception"
+      ],
+      "rule_ids": [
+        "lyx-large-drive-preparation",
+        "lyx-late-contact"
+      ],
+      "drill_ids": [
+        "lyx-drive-compact-exchange",
+        "lyx-receive-first-attack"
+      ],
+      "retest_metrics": [
+        "连续交换中大多数处理后球拍都回到下一拍可用位置。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ]
+    },
+    {
+      "topic_id": "lyx-drop-variation",
+      "topic_name_zh": "吊球与头顶变化",
+      "coach_system_id": "drop_drive",
+      "source_ids": [
+        "LYX_BILI_BV111421O7KK",
+        "LYX_BILI_BV17YTCZNEFQ",
+        "LYX_BILI_BV1A8411A7BB",
+        "LYX_BILI_BV1CR421G7M6",
+        "LYX_BILI_BV1DQ4Y1E7KR",
+        "LYX_BILI_BV1F7CPEXEFQ",
+        "LYX_BILI_BV1GRINB4EDG",
+        "LYX_BILI_BV1GX4Y187CR",
+        "LYX_BILI_BV1IQ4Y1Q7JA",
+        "LYX_BILI_BV1J64Y1O7SN",
+        "LYX_BILI_BV1JR4Y1C7KT",
+        "LYX_BILI_BV1K4ARE9EVM",
+        "LYX_BILI_BV1MIBBZ5E9U",
+        "LYX_BILI_BV1NA4Y1Z7GA",
+        "LYX_BILI_BV1PUD1BGE3V",
+        "LYX_BILI_BV1Q34Y1D7MD",
+        "LYX_BILI_BV1RP4Y1X7WW",
+        "LYX_BILI_BV1RROWYHE65",
+        "LYX_BILI_BV1RY4Y1S7ZV",
+        "LYX_BILI_BV1US4Y1E715",
+        "LYX_BILI_BV1WG411K79D",
+        "LYX_BILI_BV1XIBYZQE1H",
+        "LYX_BILI_BV1Z34WZJEQT"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-variation",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“吊球与头顶变化”学习：在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。",
+      "framework_ids": [
+        "lyx-overhead-variation-control",
+        "lyx-drop-height-and-feel"
+      ],
+      "rule_ids": [
+        "lyx-telegraphed-preparation",
+        "lyx-forced-cut"
+      ],
+      "drill_ids": [
+        "lyx-drop-target-contrast",
+        "lyx-turn-release-chain"
+      ],
+      "retest_metrics": [
+        "每一组只改变目标或节奏之一，并记录是否仍能稳定恢复。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-elbow-release",
+      "topic_name_zh": "顶肘、摆肘与挥拍释放",
+      "coach_system_id": "release",
+      "source_ids": [
+        "LYX_BILI_BV1EME8ZQEGG",
+        "LYX_BILI_BV1EUR9BYE2P",
+        "LYX_BILI_BV1HZ4Y1M7WB",
+        "LYX_BILI_BV1XH4Y1S7VZ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“顶肘、摆肘与挥拍释放”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-equipment",
+      "topic_name_zh": "球拍选择与装备适配",
+      "coach_system_id": "equipment_safety",
+      "source_ids": [
+        "LYX_BILI_BV1RZ9YBCELY",
+        "LYX_BILI_BV1SL4Y1J77Z"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“球拍选择与装备适配”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-finger-wrist",
+      "topic_name_zh": "手指、手腕与发力时机",
+      "coach_system_id": "release",
+      "source_ids": [
+        "LYX_BILI_BV17ZAXZEEAK",
+        "LYX_BILI_BV1DJUIY1EGB"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“手指、手腕与发力时机”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-front-lunge",
+      "topic_name_zh": "网前跨步与第一响应",
+      "coach_system_id": "footwork",
+      "source_ids": [
+        "LYX_BILI_BV17A4Y1J7KV",
+        "LYX_BILI_BV1JD5OZ1EMN",
+        "LYX_BILI_BV1UX4Y1C7UP"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-time-budget",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“网前跨步与第一响应”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
+      "framework_ids": [
+        "lyx-start-on-opponent-contact",
+        "lyx-rear-turn-confirm-step"
+      ],
+      "rule_ids": [
+        "lyx-late-start",
+        "lyx-rear-turn-error"
+      ],
+      "drill_ids": [
+        "lyx-split-start-call",
+        "lyx-rear-turn-freeze"
+      ],
+      "retest_metrics": [
+        "随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ]
+    },
+    {
+      "topic_id": "lyx-high-clear",
+      "topic_name_zh": "高远球与头顶击球",
+      "coach_system_id": "high_clear",
+      "source_ids": [
+        "LYX_BILI_BV13C4Y1T7SN",
+        "LYX_BILI_BV17N411E7CK",
+        "LYX_BILI_BV1CK4Y1G7VL",
+        "LYX_BILI_BV1DJBNBCEJS",
+        "LYX_BILI_BV1HZ4Y1M7WB",
+        "LYX_BILI_BV1KNRUY1EN6",
+        "LYX_BILI_BV1Q34Y1D7MD",
+        "LYX_BILI_BV1Z64Y1F7YS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "li-yuxuan-high-clear"
+      ],
+      "learning_goal_zh": "围绕“高远球与头顶击球”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-high-clear-distance",
+      "topic_name_zh": "高远球距离与后场到位",
+      "coach_system_id": "high_clear",
+      "source_ids": [
+        "LYX_BILI_BV13C4Y1T7SN",
+        "LYX_BILI_BV1Z64Y1F7YS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "li-yuxuan-high-clear"
+      ],
+      "learning_goal_zh": "围绕“高远球距离与后场到位”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-hip-release",
+      "topic_name_zh": "转髋、内旋与身体带动",
+      "coach_system_id": "release",
+      "source_ids": [
+        "LYX_BILI_BV128FWYTEGO",
+        "LYX_BILI_BV12T4Y1E7L4",
+        "LYX_BILI_BV1754Y1U7F6",
+        "LYX_BILI_BV17ZAXZEEAK",
+        "LYX_BILI_BV1AG411J7KB",
+        "LYX_BILI_BV1BH411T7TR",
+        "LYX_BILI_BV1DJBNBCEJS",
+        "LYX_BILI_BV1DJUIY1EGB",
+        "LYX_BILI_BV1FF4Y1Q7TD",
+        "LYX_BILI_BV1FH4Y1L7AT",
+        "LYX_BILI_BV1G6421U7OM",
+        "LYX_BILI_BV1HIKDYZEJT",
+        "LYX_BILI_BV1HV41117WQ",
+        "LYX_BILI_BV1MB421I7PF",
+        "LYX_BILI_BV1MY4Y197AV",
+        "LYX_BILI_BV1NP4Y127HW",
+        "LYX_BILI_BV1QK4Y157P6",
+        "LYX_BILI_BV1RROWYHE65",
+        "LYX_BILI_BV1RT421V7MS",
+        "LYX_BILI_BV1TI4Y1N7WA",
+        "LYX_BILI_BV1VT4Y1A7KZ",
+        "LYX_BILI_BV1XQFWBAEZL",
+        "LYX_BILI_BV1XVMNZTEE3",
+        "LYX_BILI_BV1YGNJEQEUZ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“转髋、内旋与身体带动”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-jump-smash",
+      "topic_name_zh": "跳杀与腾空进攻",
+      "coach_system_id": "smash",
+      "source_ids": [
+        "LYX_BILI_BV12P4Y1Y7HS",
+        "LYX_BILI_BV1HIKDYZEJT",
+        "LYX_BILI_BV1WK411K7KW",
+        "LYX_BILI_BV1Z9SZYDEBN"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash-progression",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“跳杀与腾空进攻”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
+      "framework_ids": [
+        "lyx-smash-sequence-before-speed",
+        "lyx-jump-smash-prerequisite"
+      ],
+      "rule_ids": [
+        "lyx-arm-first-swing",
+        "lyx-unstable-landing"
+      ],
+      "drill_ids": [
+        "lyx-smash-five-phase",
+        "lyx-jump-land-reset"
+      ],
+      "retest_metrics": [
+        "提高速度前先连续完成五阶段挥拍和可用落地。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-live-qa",
+      "topic_name_zh": "学习路径与技术答疑",
+      "coach_system_id": "learner_fit",
+      "source_ids": [
+        "LYX_BILI_BV11MHPZQEKR",
+        "LYX_BILI_BV11RPMELEHV",
+        "LYX_BILI_BV11S421M7WR",
+        "LYX_BILI_BV123SVY2EMI",
+        "LYX_BILI_BV12B4Y1V72D",
+        "LYX_BILI_BV12CZPYGE7M",
+        "LYX_BILI_BV12K411S7KU",
+        "LYX_BILI_BV12K4Y1W7MF",
+        "LYX_BILI_BV12M411V7FE",
+        "LYX_BILI_BV12Z421N7Q8",
+        "LYX_BILI_BV134421S7LF",
+        "LYX_BILI_BV13F421Z7JN",
+        "LYX_BILI_BV13N7YZZEKN",
+        "LYX_BILI_BV13WTOZUEJY",
+        "LYX_BILI_BV141421T7NJ",
+        "LYX_BILI_BV1494Y137SE",
+        "LYX_BILI_BV14KZ6Y5EYK",
+        "LYX_BILI_BV14Z421I7UQ",
+        "LYX_BILI_BV1584Y1X7IM",
+        "LYX_BILI_BV15K411V7M2",
+        "LYX_BILI_BV1624Y1V7DC",
+        "LYX_BILI_BV165BZYAE7U",
+        "LYX_BILI_BV16JMWZMEVI",
+        "LYX_BILI_BV16X4Y1Q7SH",
+        "LYX_BILI_BV17JWSEAE7S",
+        "LYX_BILI_BV17YSMY8EUN",
+        "LYX_BILI_BV18B4Y1R7HK",
+        "LYX_BILI_BV18I421V7YB",
+        "LYX_BILI_BV18P4Y1M7CW",
+        "LYX_BILI_BV18Q9OYPEFX",
+        "LYX_BILI_BV18S411A7PJ",
+        "LYX_BILI_BV18S421W7UW",
+        "LYX_BILI_BV18S4Y147FU",
+        "LYX_BILI_BV18Y411Y7PG",
+        "LYX_BILI_BV19C411E7ML",
+        "LYX_BILI_BV19G41167BZ",
+        "LYX_BILI_BV19K4Y1Q7A3",
+        "LYX_BILI_BV19P9YYOERZ",
+        "LYX_BILI_BV1A6BSZPE4C",
+        "LYX_BILI_BV1AE4CE9ECC",
+        "LYX_BILI_BV1AFTNZXECC",
+        "LYX_BILI_BV1AWKAYTE6F",
+        "LYX_BILI_BV1AYNZZZEMZ",
+        "LYX_BILI_BV1AZ42187TB",
+        "LYX_BILI_BV1B5GEZTEKG",
+        "LYX_BILI_BV1BC411B7CF",
+        "LYX_BILI_BV1BNWKEJEXE",
+        "LYX_BILI_BV1BOPCZKEYI",
+        "LYX_BILI_BV1BQQXY9ECI",
+        "LYX_BILI_BV1BS411C7WV",
+        "LYX_BILI_BV1BTOQYBEAU",
+        "LYX_BILI_BV1BZPPEGEVV",
+        "LYX_BILI_BV1CAU7Y1EVW",
+        "LYX_BILI_BV1CQ43EHEFT",
+        "LYX_BILI_BV1CRTNZHEAU",
+        "LYX_BILI_BV1CT4Y1P7HS",
+        "LYX_BILI_BV1CVPBZHE8T",
+        "LYX_BILI_BV1CY4Y1F7WL",
+        "LYX_BILI_BV1DFTEZGEAF",
+        "LYX_BILI_BV1DO4Y1Z7HF",
+        "LYX_BILI_BV1DTA6ZMENN",
+        "LYX_BILI_BV1DW421R7AE",
+        "LYX_BILI_BV1DX4Y1X7HM",
+        "LYX_BILI_BV1E14Y1U73X",
+        "LYX_BILI_BV1EFUMYLEDX",
+        "LYX_BILI_BV1ENJGZXEZN",
+        "LYX_BILI_BV1ER421U7NK",
+        "LYX_BILI_BV1EWLPZAEPC",
+        "LYX_BILI_BV1FHJBZYENI",
+        "LYX_BILI_BV1FSOIYDEQ6",
+        "LYX_BILI_BV1FUUAZUE84",
+        "LYX_BILI_BV1FY4Y1Z7CK",
+        "LYX_BILI_BV1G24Y1G7GP",
+        "LYX_BILI_BV1GEDLYYEGR",
+        "LYX_BILI_BV1GJ4M157A1",
+        "LYX_BILI_BV1GJ4M1U7VZ",
+        "LYX_BILI_BV1GKTHZZE6D",
+        "LYX_BILI_BV1GNLAZPEEN",
+        "LYX_BILI_BV1GR421T74V",
+        "LYX_BILI_BV1GS421P7KC",
+        "LYX_BILI_BV1GTS1EAEBE",
+        "LYX_BILI_BV1GV411A7HV",
+        "LYX_BILI_BV1GVEGZXEWE",
+        "LYX_BILI_BV1GW4M1Z7SU",
+        "LYX_BILI_BV1GX4Y1J7TO",
+        "LYX_BILI_BV1HA4M1L7ZF",
+        "LYX_BILI_BV1HN26YREBN",
+        "LYX_BILI_BV1HTKEEKECL",
+        "LYX_BILI_BV1HX4Y1E7BR",
+        "LYX_BILI_BV1HZ421A7XA",
+        "LYX_BILI_BV1IFGC6LEA9",
+        "LYX_BILI_BV1IN4Y117VD",
+        "LYX_BILI_BV1IP4Y1S7FY",
+        "LYX_BILI_BV1IQ4Y1Q7JA",
+        "LYX_BILI_BV1IR421K7G9",
+        "LYX_BILI_BV1J2421Z7CB",
+        "LYX_BILI_BV1J24Y1R7MA",
+        "LYX_BILI_BV1JG2NYPEN3",
+        "LYX_BILI_BV1JM4M1Y7GT",
+        "LYX_BILI_BV1JR4Y1C7KT",
+        "LYX_BILI_BV1JX4GEZELQ",
+        "LYX_BILI_BV1K7421F76T",
+        "LYX_BILI_BV1KB421J7TG",
+        "LYX_BILI_BV1KPRVYJENP",
+        "LYX_BILI_BV1KV4Y1H7JE",
+        "LYX_BILI_BV1KX4Y1M7RC",
+        "LYX_BILI_BV1KXFCE4ELM",
+        "LYX_BILI_BV1LH4Y1M7WN",
+        "LYX_BILI_BV1LQEMZZE5Y",
+        "LYX_BILI_BV1LS421O74S",
+        "LYX_BILI_BV1LU4Y1J7HZ",
+        "LYX_BILI_BV1M5411W7DS",
+        "LYX_BILI_BV1MB4Y1Z7H3",
+        "LYX_BILI_BV1ME4M1R7T3",
+        "LYX_BILI_BV1MR421A7IE",
+        "LYX_BILI_BV1MW16YUEB1",
+        "LYX_BILI_BV1MZEZZZEWO",
+        "LYX_BILI_BV1N94Y1Q728",
+        "LYX_BILI_BV1NA41147KZ",
+        "LYX_BILI_BV1NM4Y1Q7XW",
+        "LYX_BILI_BV1NMRVYSEN8",
+        "LYX_BILI_BV1NN411U7JV",
+        "LYX_BILI_BV1NPDEYHEUN",
+        "LYX_BILI_BV1NPVYZ9EME",
+        "LYX_BILI_BV1NR421T7GW",
+        "LYX_BILI_BV1NT421Z7QN",
+        "LYX_BILI_BV1NVAXEDEZW",
+        "LYX_BILI_BV1NY411975C",
+        "LYX_BILI_BV1NY411Q7UE",
+        "LYX_BILI_BV1NY4Y1972S",
+        "LYX_BILI_BV1O1ZDY4EWR",
+        "LYX_BILI_BV1O8B8YEEKC",
+        "LYX_BILI_BV1OUDKYFEXQ",
+        "LYX_BILI_BV1PB421777A",
+        "LYX_BILI_BV1PCDKYBEVM",
+        "LYX_BILI_BV1PLBYZPE7Z",
+        "LYX_BILI_BV1PRKSZ5EEZ",
+        "LYX_BILI_BV1PRYYYNEJ8",
+        "LYX_BILI_BV1PX4Y1C7DB",
+        "LYX_BILI_BV1QAKSZKEUH",
+        "LYX_BILI_BV1QD421H7QC",
+        "LYX_BILI_BV1QFREYKEC2",
+        "LYX_BILI_BV1QH4QEOE2D",
+        "LYX_BILI_BV1QK3QZBESI",
+        "LYX_BILI_BV1QND7YMEZV",
+        "LYX_BILI_BV1QNOUYZEUK",
+        "LYX_BILI_BV1QQRKYOE6B",
+        "LYX_BILI_BV1QSNJZEE26",
+        "LYX_BILI_BV1QTBWY8E9H",
+        "LYX_BILI_BV1QTLZZHEHM",
+        "LYX_BILI_BV1RA4Y1U7PU",
+        "LYX_BILI_BV1RARZY1EKW",
+        "LYX_BILI_BV1RCT8ZKEAJ",
+        "LYX_BILI_BV1RIMTYEENJ",
+        "LYX_BILI_BV1RZHSZKEZL",
+        "LYX_BILI_BV1S3QWY5EAF",
+        "LYX_BILI_BV1SA411Y7RX",
+        "LYX_BILI_BV1SI421Y7J5",
+        "LYX_BILI_BV1SMRVYSEIJ",
+        "LYX_BILI_BV1SNFRY2EOA",
+        "LYX_BILI_BV1SVJLZTEEG",
+        "LYX_BILI_BV1SYE3ZDE4Z",
+        "LYX_BILI_BV1SZ4Y1P71X",
+        "LYX_BILI_BV1TCGNZ3EGK",
+        "LYX_BILI_BV1TDBVZTE7A",
+        "LYX_BILI_BV1THMRYDEXC",
+        "LYX_BILI_BV1TM421N7SK",
+        "LYX_BILI_BV1TSPZEZECF",
+        "LYX_BILI_BV1TWTJE9E9M",
+        "LYX_BILI_BV1TX4Y1X78F",
+        "LYX_BILI_BV1TY411V76H",
+        "LYX_BILI_BV1UE421C7EP",
+        "LYX_BILI_BV1UJAJZTEUY",
+        "LYX_BILI_BV1UMC6EXEZB",
+        "LYX_BILI_BV1URNHZMELX",
+        "LYX_BILI_BV1UUDXYJEP8",
+        "LYX_BILI_BV1UV4Y157QR",
+        "LYX_BILI_BV1V1421O71I",
+        "LYX_BILI_BV1V6MAZ9EMX",
+        "LYX_BILI_BV1VB7B6KE4R",
+        "LYX_BILI_BV1VF421R758",
+        "LYX_BILI_BV1VJ411S7NJ",
+        "LYX_BILI_BV1VKQDYAEVN",
+        "LYX_BILI_BV1VPXUEGEWS",
+        "LYX_BILI_BV1VVC6ENECZ",
+        "LYX_BILI_BV1VW421W7ZA",
+        "LYX_BILI_BV1VX4Y1C7A8",
+        "LYX_BILI_BV1VX4Y1H7VB",
+        "LYX_BILI_BV1WG411K79D",
+        "LYX_BILI_BV1WG4Y1Q7SD",
+        "LYX_BILI_BV1WK411K7KW",
+        "LYX_BILI_BV1WLJRZ8EBP",
+        "LYX_BILI_BV1WS4Y1Y7E7",
+        "LYX_BILI_BV1WXAJEPE6N",
+        "LYX_BILI_BV1WYUHZEEVJ",
+        "LYX_BILI_BV1XB4Y1O7GU",
+        "LYX_BILI_BV1XC41187KC",
+        "LYX_BILI_BV1XJ411M7U6",
+        "LYX_BILI_BV1XPFYYXECT",
+        "LYX_BILI_BV1XPPJEEELE",
+        "LYX_BILI_BV1XSRTYYEOT",
+        "LYX_BILI_BV1XX4Y1Z7NU",
+        "LYX_BILI_BV1XXNDEDEDJ",
+        "LYX_BILI_BV1XZ421N7RE",
+        "LYX_BILI_BV1YDCGENEJ6",
+        "LYX_BILI_BV1YH4Y177HT",
+        "LYX_BILI_BV1YJRWYQEXT",
+        "LYX_BILI_BV1YQQZYSENN",
+        "LYX_BILI_BV1YVXQZBETG",
+        "LYX_BILI_BV1YZ4Y1N7GI",
+        "LYX_BILI_BV1Z8411W7VU",
+        "LYX_BILI_BV1ZA411D7EC",
+        "LYX_BILI_BV1ZBEZZREVJ",
+        "LYX_BILI_BV1ZD4Y1W7AZ",
+        "LYX_BILI_BV1ZF421B7ZD",
+        "LYX_BILI_BV1ZM4M1U74K",
+        "LYX_BILI_BV1ZN411P72Y",
+        "LYX_BILI_BV1ZPXMEXEMM",
+        "LYX_BILI_BV1ZT4Y1R7WP",
+        "LYX_BILI_BV1ZV411F71A",
+        "LYX_BILI_BV1ZZ421M72S"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“学习路径与技术答疑”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-load-safety",
+      "topic_name_zh": "热身、伤痛与训练负荷",
+      "coach_system_id": "equipment_safety",
+      "source_ids": [
+        "LYX_BILI_BV1IQ4Y1Q7JA",
+        "LYX_BILI_BV1JS4Y157V1"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“热身、伤痛与训练负荷”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-net-control",
+      "topic_name_zh": "网前控球与处理",
+      "coach_system_id": "drop_drive",
+      "source_ids": [
+        "LYX_BILI_BV1624Y1V7DC",
+        "LYX_BILI_BV16P4Y1P7IX",
+        "LYX_BILI_BV18W411S7ES",
+        "LYX_BILI_BV1AB9VBQEIY",
+        "LYX_BILI_BV1AF411I7AS",
+        "LYX_BILI_BV1BG41177EF",
+        "LYX_BILI_BV1CA411J7BJ",
+        "LYX_BILI_BV1CZ4Y1M7HO",
+        "LYX_BILI_BV1ED4Y1H7N5",
+        "LYX_BILI_BV1EN4Y1G7TR",
+        "LYX_BILI_BV1GY4Y127MB",
+        "LYX_BILI_BV1GY4Y1P7B2",
+        "LYX_BILI_BV1K4ARE9EVM",
+        "LYX_BILI_BV1KS2YBDEUF",
+        "LYX_BILI_BV1MIBBZ5E9U",
+        "LYX_BILI_BV1MQJ2ZGEQR",
+        "LYX_BILI_BV1MS4Y187PC",
+        "LYX_BILI_BV1NT4Y1O7WQ",
+        "LYX_BILI_BV1Q22WYQEHN",
+        "LYX_BILI_BV1TUEY6WE8U",
+        "LYX_BILI_BV1VZ4Y1K7D5",
+        "LYX_BILI_BV1Z9SZYDEBN",
+        "LYX_BILI_BV1ZW421X75R"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-variation",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“网前控球与处理”学习：在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。",
+      "framework_ids": [
+        "lyx-overhead-variation-control",
+        "lyx-drop-height-and-feel"
+      ],
+      "rule_ids": [
+        "lyx-telegraphed-preparation",
+        "lyx-forced-cut"
+      ],
+      "drill_ids": [
+        "lyx-drop-target-contrast",
+        "lyx-turn-release-chain"
+      ],
+      "retest_metrics": [
+        "每一组只改变目标或节奏之一，并记录是否仍能稳定恢复。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-point-heavy-smash",
+      "topic_name_zh": "点杀、重杀与杀球加速",
+      "coach_system_id": "smash",
+      "source_ids": [
+        "LYX_BILI_BV1AHWEECEVB",
+        "LYX_BILI_BV1IN4Y1Q7NW",
+        "LYX_BILI_BV1PGO3Y9ERG",
+        "LYX_BILI_BV1Z94Y1Q74K"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash-progression",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“点杀、重杀与杀球加速”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
+      "framework_ids": [
+        "lyx-smash-sequence-before-speed",
+        "lyx-jump-smash-prerequisite"
+      ],
+      "rule_ids": [
+        "lyx-arm-first-swing",
+        "lyx-unstable-landing"
+      ],
+      "drill_ids": [
+        "lyx-smash-five-phase",
+        "lyx-jump-land-reset"
+      ],
+      "retest_metrics": [
+        "提高速度前先连续完成五阶段挥拍和可用落地。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-racket-preparation",
+      "topic_name_zh": "握拍、架拍与引拍",
+      "coach_system_id": "release",
+      "source_ids": [
+        "LYX_BILI_BV17N411G7BH",
+        "LYX_BILI_BV1A8411A7BB",
+        "LYX_BILI_BV1ATD3BHE3J",
+        "LYX_BILI_BV1GW4M1K7GD",
+        "LYX_BILI_BV1MB421I7PF",
+        "LYX_BILI_BV1T34Y1772E"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“握拍、架拍与引拍”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
+      "framework_ids": [
+        "lyx-contact-distance-clear",
+        "lyx-relax-then-release"
+      ],
+      "rule_ids": [
+        "lyx-short-swing-distance",
+        "lyx-contact-behind"
+      ],
+      "drill_ids": [
+        "lyx-high-contact-shadow",
+        "lyx-relaxed-clear-distance"
+      ],
+      "retest_metrics": [
+        "目标喂球下保持可用挥拍距离并在处理后回到可移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork-title-fallback",
+        "lyx-front-lunge",
+        "lyx-rear-start",
+        "lyx-rear-turn"
+      ],
+      "next_topic_ids": [
+        "lyx-basic-smash",
+        "lyx-drop-variation",
+        "lyx-jump-smash",
+        "lyx-net-control",
+        "lyx-point-heavy-smash",
+        "lyx-slice-smash"
+      ]
+    },
+    {
+      "topic_id": "lyx-rally-transfer",
+      "topic_name_zh": "实战对抗与球路迁移",
+      "coach_system_id": "match_transfer",
+      "source_ids": [
+        "LYX_BILI_BV12R4Y1P7YD",
+        "LYX_BILI_BV16P4Y1P7IX",
+        "LYX_BILI_BV18GWPZMER4",
+        "LYX_BILI_BV18W411S7ES",
+        "LYX_BILI_BV1AF411I7AS",
+        "LYX_BILI_BV1B64Y1H7MW",
+        "LYX_BILI_BV1BY4Y1979N",
+        "LYX_BILI_BV1CA411J7BJ",
+        "LYX_BILI_BV1DH411D7XQ",
+        "LYX_BILI_BV1DYIUBVEPA",
+        "LYX_BILI_BV1E94Y1P7WT",
+        "LYX_BILI_BV1GY4Y127MB",
+        "LYX_BILI_BV1IR4Y1S71B",
+        "LYX_BILI_BV1J64Y1O7SN",
+        "LYX_BILI_BV1KA411Q763",
+        "LYX_BILI_BV1KS2YBDEUF",
+        "LYX_BILI_BV1N1421F7RY",
+        "LYX_BILI_BV1N94Y127Z9",
+        "LYX_BILI_BV1NP4Y1M7KF",
+        "LYX_BILI_BV1T87EZ4ELJ",
+        "LYX_BILI_BV1TW411W7WD",
+        "LYX_BILI_BV1XRVKZYE3X",
+        "LYX_BILI_BV1YM4Y1171R",
+        "LYX_BILI_BV1ZC4Y1N7FJ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rally-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“实战对抗与球路迁移”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
+      "framework_ids": [
+        "lyx-match-transfer-constraint",
+        "lyx-progression-one-variable"
+      ],
+      "rule_ids": [
+        "lyx-decision-breakdown",
+        "lyx-no-retest"
+      ],
+      "drill_ids": [
+        "lyx-rally-transfer-ladder",
+        "lyx-equipment-comfort-log"
+      ],
+      "retest_metrics": [
+        "每一级只增加一个变量，并保留目标命中和恢复记录。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "lyx-rear-start",
+      "topic_name_zh": "后场启动与第一步",
+      "coach_system_id": "footwork",
+      "source_ids": [
+        "LYX_BILI_BV17A4Y1J7KV",
+        "LYX_BILI_BV1DV411U7FZ",
+        "LYX_BILI_BV1EDYQBLEED",
+        "LYX_BILI_BV1FK4Y1D7DD",
+        "LYX_BILI_BV1NJTUEYEMP",
+        "LYX_BILI_BV1UMPNZNE3J",
+        "LYX_BILI_BV1UT4Y1U7X9",
+        "LYX_BILI_BV1X24Y1B7V2"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-time-budget",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“后场启动与第一步”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
+      "framework_ids": [
+        "lyx-start-on-opponent-contact",
+        "lyx-rear-turn-confirm-step"
+      ],
+      "rule_ids": [
+        "lyx-late-start",
+        "lyx-rear-turn-error"
+      ],
+      "drill_ids": [
+        "lyx-split-start-call",
+        "lyx-rear-turn-freeze"
+      ],
+      "retest_metrics": [
+        "随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ]
+    },
+    {
+      "topic_id": "lyx-rear-turn",
+      "topic_name_zh": "后场转身与确认步",
+      "coach_system_id": "footwork",
+      "source_ids": [
+        "LYX_BILI_BV13UZDBOEEY",
+        "LYX_BILI_BV1HZ4Y1M7WB",
+        "LYX_BILI_BV1N94Y127Z9",
+        "LYX_BILI_BV1NA41147KZ",
+        "LYX_BILI_BV1NJTUEYEMP",
+        "LYX_BILI_BV1QK4Y157P6",
+        "LYX_BILI_BV1RT421V7MS",
+        "LYX_BILI_BV1XVMNZTEE3",
+        "LYX_BILI_BV1YM4Y1171R",
+        "LYX_BILI_BV1Z64Y1F7YS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-time-budget",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“后场转身与确认步”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
+      "framework_ids": [
+        "lyx-start-on-opponent-contact",
+        "lyx-rear-turn-confirm-step"
+      ],
+      "rule_ids": [
+        "lyx-late-start",
+        "lyx-rear-turn-error"
+      ],
+      "drill_ids": [
+        "lyx-split-start-call",
+        "lyx-rear-turn-freeze"
+      ],
+      "retest_metrics": [
+        "随机提示下先完成启动和确认步，再进入低速头顶影子挥拍。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ]
+    },
+    {
+      "topic_id": "lyx-receive",
+      "topic_name_zh": "接发与前两拍衔接",
+      "coach_system_id": "serve_receive",
+      "source_ids": [
+        "LYX_BILI_BV12JSVZXEBL",
+        "LYX_BILI_BV1GY4Y1P7B2",
+        "LYX_BILI_BV1H5411L7QQ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "doubles-first-two-shots",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“接发与前两拍衔接”学习：将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。",
+      "framework_ids": [
+        "lyx-doubles-first-two-shot",
+        "lyx-racket-height-interception"
+      ],
+      "rule_ids": [
+        "lyx-role-conflict",
+        "lyx-passive-third-shot"
+      ],
+      "drill_ids": [
+        "lyx-doubles-two-shot-role",
+        "lyx-receive-first-attack"
+      ],
+      "retest_metrics": [
+        "随机开局练习中，每次都能在下一拍前说清覆盖责任。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-drive",
+        "lyx-recovery"
+      ],
+      "next_topic_ids": [
+        "equipment_safety-title-fallback",
+        "learner_fit-title-fallback",
+        "lyx-defense-transition",
+        "lyx-doubles-roles",
+        "lyx-equipment",
+        "lyx-live-qa",
+        "lyx-load-safety",
+        "lyx-rally-transfer"
+      ]
+    },
+    {
+      "topic_id": "lyx-recovery",
+      "topic_name_zh": "落地、回位与移动衔接",
+      "coach_system_id": "footwork",
+      "source_ids": [
+        "LYX_BILI_BV128FWYTEGO",
+        "LYX_BILI_BV155411H7RY",
+        "LYX_BILI_BV1794Y177DP",
+        "LYX_BILI_BV17A4Y1J7KV",
+        "LYX_BILI_BV17N411E7CK",
+        "LYX_BILI_BV1A8IYYZEK6",
+        "LYX_BILI_BV1BV4Y1D7JQ",
+        "LYX_BILI_BV1DV411U7FZ",
+        "LYX_BILI_BV1EDYQBLEED",
+        "LYX_BILI_BV1FMMP6KEDF",
+        "LYX_BILI_BV1G6421U7OM",
+        "LYX_BILI_BV1GX4Y187CR",
+        "LYX_BILI_BV1J64Y1O7SN",
+        "LYX_BILI_BV1JHVMZYE2C",
+        "LYX_BILI_BV1LS4Y1R7B1",
+        "LYX_BILI_BV1M5411W7DS",
+        "LYX_BILI_BV1MIBBZ5E9U",
+        "LYX_BILI_BV1NJTUEYEMP",
+        "LYX_BILI_BV1UT4Y1U7X9",
+        "LYX_BILI_BV1UX4Y1C7UP",
+        "LYX_BILI_BV1ZI4Y1G7LP",
+        "LYX_BILI_BV1ZTPAZVEM2"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "net-lunge",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "li-yuxuan-net-lunge"
+      ],
+      "learning_goal_zh": "围绕“落地、回位与移动衔接”学习：从来球提示启动，进入跨步和可见处理区域，再以稳定退出连接下一拍。",
+      "framework_ids": [
+        "lyx-frontcourt-first-response",
+        "lyx-foot-ground-response"
+      ],
+      "rule_ids": [
+        "lyx-late-first-step",
+        "lyx-no-recovery"
+      ],
+      "drill_ids": [
+        "lyx-split-start-call",
+        "lyx-rally-transfer-ladder"
+      ],
+      "retest_metrics": [
+        "低速到随机喂球中均能完成启动、跨步、处理和退出的连续顺序。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "lyx-receive",
+        "lyx-serve"
+      ]
+    },
+    {
+      "topic_id": "lyx-serve",
+      "topic_name_zh": "发球稳定性与个人适配",
+      "coach_system_id": "serve_receive",
+      "source_ids": [
+        "LYX_BILI_BV1SH411X7AF",
+        "LYX_BILI_BV1YT411T78Y"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "doubles-first-two-shots",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“发球稳定性与个人适配”学习：将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。",
+      "framework_ids": [
+        "lyx-doubles-first-two-shot",
+        "lyx-racket-height-interception"
+      ],
+      "rule_ids": [
+        "lyx-role-conflict",
+        "lyx-passive-third-shot"
+      ],
+      "drill_ids": [
+        "lyx-doubles-two-shot-role",
+        "lyx-receive-first-attack"
+      ],
+      "retest_metrics": [
+        "随机开局练习中，每次都能在下一拍前说清覆盖责任。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-drive",
+        "lyx-recovery"
+      ],
+      "next_topic_ids": [
+        "equipment_safety-title-fallback",
+        "learner_fit-title-fallback",
+        "lyx-defense-transition",
+        "lyx-doubles-roles",
+        "lyx-equipment",
+        "lyx-live-qa",
+        "lyx-load-safety",
+        "lyx-rally-transfer"
+      ]
+    },
+    {
+      "topic_id": "lyx-slice-smash",
+      "topic_name_zh": "劈杀与角度进攻",
+      "coach_system_id": "smash",
+      "source_ids": [
+        "LYX_BILI_BV1HG9HYYEAS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash-progression",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“劈杀与角度进攻”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
+      "framework_ids": [
+        "lyx-smash-sequence-before-speed",
+        "lyx-jump-smash-prerequisite"
+      ],
+      "rule_ids": [
+        "lyx-arm-first-swing",
+        "lyx-unstable-landing"
+      ],
+      "drill_ids": [
+        "lyx-smash-five-phase",
+        "lyx-jump-land-reset"
+      ],
+      "retest_metrics": [
+        "提高速度前先连续完成五阶段挥拍和可用落地。"
+      ],
+      "prerequisite_topic_ids": [
+        "lyx-elbow-release",
+        "lyx-finger-wrist",
+        "lyx-high-clear",
+        "lyx-high-clear-distance",
+        "lyx-hip-release",
+        "lyx-racket-preparation"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "outside-teaching-system",
+      "topic_name_zh": "体系外：公告、生活或产品信息",
+      "coach_system_id": "outside_teaching_system",
+      "source_ids": [
+        "LYX_BILI_BV12W411R7ND",
+        "LYX_BILI_BV15K411Z7E9",
+        "LYX_BILI_BV1UR4Y1S7LB",
+        "LYX_BILI_BV1VV411578J",
+        "LYX_BILI_BV1XFN46LESH",
+        "LYX_BILI_BV1YB4Y1H7TL"
+      ],
+      "knowledge_status": "source_context_only",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "该来源标题可用于定位主题，但尚无可复用的体系内教学单元。",
+      "framework_ids": [],
+      "rule_ids": [],
+      "drill_ids": [],
+      "retest_metrics": [],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "unresolved_title-title-fallback",
+      "topic_name_zh": "体系内待人工细分（标题未细化）",
+      "coach_system_id": "unresolved_title",
+      "source_ids": [
+        "LYX_BILI_BV1KX4Y1G7L4",
+        "LYX_BILI_BV1SK4Y1S7NB"
+      ],
+      "knowledge_status": "source_context_only",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "该来源标题可用于定位主题，但尚无可复用的体系内教学单元。",
+      "framework_ids": [],
+      "rule_ids": [],
+      "drill_ids": [],
+      "retest_metrics": [],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": []
+    }
+  ]
+}

@@ -617,7 +617,11 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
                     "classification_status": classification_status,
                     "categories": [{"id": primary_system.system_id, "name": primary_system.system_name}],
                     "techniques": [
-                        {"action": topic.topic_id, "label_zh": topic.topic_name}
+                        {
+                            "action": topic.topic_id,
+                            "label_zh": topic.topic_name,
+                            "system_id": topic.system_id,
+                        }
                         for topic in topics
                     ],
                 }
@@ -712,7 +716,11 @@ def build_skill_source_topic_indexes(public_catalog: dict[str, Any]) -> dict[str
                     "classification_status": str(video.get("classification_status", "")),
                     "system": {"id": str(system.get("id", "")), "name": str(system.get("name", ""))},
                     "topics": [
-                        {"id": str(topic.get("action", "")), "name": str(topic.get("label_zh", ""))}
+                        {
+                            "id": str(topic.get("action", "")),
+                            "name": str(topic.get("label_zh", "")),
+                            "system_id": str(topic.get("system_id", system.get("id", ""))),
+                        }
                         for topic in topics
                         if isinstance(topic, dict)
                     ],

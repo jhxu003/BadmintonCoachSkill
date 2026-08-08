@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from badminton_coach_skill.coach_registry import load_coach_knowledge
+from badminton_coach_skill.coach_registry import find_topic_teaching_units, load_coach_knowledge
 from badminton_coach_skill.issue_matcher import match_diagnosis
 
 
@@ -31,6 +31,17 @@ def test_each_coach_converts_structured_observation_to_teaching(
     assert source_topic_index["coach_id"] == coach_id
     assert source_topic_index["source_count"] > 0
     assert source_topic_index["sources"]
+    topic_units = knowledge["topic_teaching_units"]
+    assert topic_units["coach_id"] == coach_id
+    assert topic_units["unit_count"] > 0
+    assert all(unit["source_ids"] for unit in topic_units["units"])
+    first_unit = topic_units["units"][0]
+    assert find_topic_teaching_units(
+        coach_id,
+        ROOT,
+        topic_id=first_unit["topic_id"],
+        source_id=first_unit["source_ids"][0],
+    ) == [first_unit]
     diagnosis = match_diagnosis(
         payload["player_profile"],
         payload["video_observation"],

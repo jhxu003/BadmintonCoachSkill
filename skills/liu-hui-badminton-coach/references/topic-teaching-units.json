@@ -1,0 +1,1816 @@
+{
+  "schema_version": "coach-topic-teaching-unit/v1",
+  "coach_id": "liu-hui",
+  "unit_count": 33,
+  "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
+  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
+  "systems": [],
+  "units": [
+    {
+      "topic_id": "footwork_arrival_recovery-title-fallback",
+      "topic_name_zh": "步法、到位与回收（标题未细化）",
+      "coach_system_id": "footwork_arrival_recovery",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1HQ4Y1X7LK",
+        "LH_BILI_SEASON_BV1HZ421E7XR",
+        "LH_BILI_SEASON_BV1SS4Y1W7PG",
+        "LH_BILI_SEASON_BV1UH4Y1H7KJ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-footwork",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“步法、到位与回收（标题未细化）”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
+      "framework_ids": [
+        "timestamp-china-jump-recovery",
+        "start-position-recovery-frame"
+      ],
+      "rule_ids": [
+        "late-arrival",
+        "slow-recovery"
+      ],
+      "drill_ids": [
+        "china-jump-short-contact",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "后场进入后能在下一拍口令前完成稳定退出。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-backhand"
+      ]
+    },
+    {
+      "topic_id": "liu-backhand",
+      "topic_name_zh": "反手与后场角落处理",
+      "coach_system_id": "backhand_and_rear_corner_choice",
+      "source_ids": [
+        "LH_BILI_SEASON_BV13CTMZGE3U",
+        "LH_BILI_SEASON_BV1AM4Y1B7ZV",
+        "LH_BILI_SEASON_BV1DH5UZFEUS",
+        "LH_BILI_SEASON_BV1RA4Y1Q75Z",
+        "LH_BILI_SEASON_BV1RX421M7RQ",
+        "LH_BILI_SEASON_BV1TT411R7FT",
+        "LH_BILI_SEASON_BV1WA4Y1P7IG",
+        "LH_BILI_SEASON_BV1XCD8YNENF"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "passive-backhand",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-backhand"
+      ],
+      "learning_goal_zh": "围绕“反手与后场角落处理”学习：用转身、进入、伸展处理和恢复争取可用过渡，不把动作缩成手腕发力。",
+      "framework_ids": [
+        "backhand-passive-frame",
+        "backhand-corner-choice-frame"
+      ],
+      "rule_ids": [
+        "backhand-low-contact",
+        "swing-path-offline"
+      ],
+      "drill_ids": [
+        "backhand-contact-height-check",
+        "arm-path-reset"
+      ],
+      "retest_metrics": [
+        "连续录像中能从移动进入反手处理并回到可继续移动状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "footwork_arrival_recovery-title-fallback",
+        "liu-rear-footwork",
+        "liu-recovery"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-basic-smash",
+      "topic_name_zh": "基础杀球动作链",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_FAV_BV1HRC5ZYESG",
+        "LH_BILI_FAV_BV1WM4Y1H7GY",
+        "LH_BILI_FAV_BV1YS1AYKE54",
+        "LH_BILI_SEASON_BV11NWMEBEQK",
+        "LH_BILI_SEASON_BV12Z4Y1N7B4",
+        "LH_BILI_SEASON_BV14M4Y1376B",
+        "LH_BILI_SEASON_BV15K411Y7CX",
+        "LH_BILI_SEASON_BV15LBPZKEH1",
+        "LH_BILI_SEASON_BV16G411B7FC",
+        "LH_BILI_SEASON_BV17K4Y1J7FQ",
+        "LH_BILI_SEASON_BV17TJHZME18",
+        "LH_BILI_SEASON_BV18A27B7EHJ",
+        "LH_BILI_SEASON_BV18KQWYMEX7",
+        "LH_BILI_SEASON_BV18NXAY5E9R",
+        "LH_BILI_SEASON_BV18ZPSZFE6V",
+        "LH_BILI_SEASON_BV19H4Y1J7G5",
+        "LH_BILI_SEASON_BV1A5ZGYQESP",
+        "LH_BILI_SEASON_BV1A6421Z7LE",
+        "LH_BILI_SEASON_BV1A7PVECE1G",
+        "LH_BILI_SEASON_BV1A7PVECEO8",
+        "LH_BILI_SEASON_BV1A8411R7VG",
+        "LH_BILI_SEASON_BV1AG411X7FR",
+        "LH_BILI_SEASON_BV1AI421D7NS",
+        "LH_BILI_SEASON_BV1AV4Y1F7GN",
+        "LH_BILI_SEASON_BV1BPRJY5ENI",
+        "LH_BILI_SEASON_BV1BQBFYWEPU",
+        "LH_BILI_SEASON_BV1BS421X7HA",
+        "LH_BILI_SEASON_BV1BY411Y7QH",
+        "LH_BILI_SEASON_BV1C2XCBXE62",
+        "LH_BILI_SEASON_BV1CD421V7QW",
+        "LH_BILI_SEASON_BV1CGNNZFEZ3",
+        "LH_BILI_SEASON_BV1CKMQZSEEF",
+        "LH_BILI_SEASON_BV1CPWTZOEVT",
+        "LH_BILI_SEASON_BV1CRFTZBEK7",
+        "LH_BILI_SEASON_BV1CW4M1E7PB",
+        "LH_BILI_SEASON_BV1CXSNY2EKP",
+        "LH_BILI_SEASON_BV1DH4Y1H7VW",
+        "LH_BILI_SEASON_BV1DKC2EEEQL",
+        "LH_BILI_SEASON_BV1DKNZZRENF",
+        "LH_BILI_SEASON_BV1EADQYPEJO",
+        "LH_BILI_SEASON_BV1EM4M1A7OF",
+        "LH_BILI_SEASON_BV1ET411R76M",
+        "LH_BILI_SEASON_BV1G8CFYVEKE",
+        "LH_BILI_SEASON_BV1G8V8ZHE29",
+        "LH_BILI_SEASON_BV1GI421Y7RP",
+        "LH_BILI_SEASON_BV1HXYBBQEXF",
+        "LH_BILI_SEASON_BV1HZPSZFEGW",
+        "LH_BILI_SEASON_BV1JBZBYFE9T",
+        "LH_BILI_SEASON_BV1JK4Y147EC",
+        "LH_BILI_SEASON_BV1JSS1BNESV",
+        "LH_BILI_SEASON_BV1K6421G7YB",
+        "LH_BILI_SEASON_BV1KHEWZ1EFG",
+        "LH_BILI_SEASON_BV1KK4Y147FQ",
+        "LH_BILI_SEASON_BV1KVDZY1EWG",
+        "LH_BILI_SEASON_BV1KZ421I7CJ",
+        "LH_BILI_SEASON_BV1MEKEBJENE",
+        "LH_BILI_SEASON_BV1MK4Y1L763",
+        "LH_BILI_SEASON_BV1MMYPBRE8F",
+        "LH_BILI_SEASON_BV1MS4Y1T7VR",
+        "LH_BILI_SEASON_BV1MW41117F1",
+        "LH_BILI_SEASON_BV1N8SXBAE4M",
+        "LH_BILI_SEASON_BV1NGNNZTEMA",
+        "LH_BILI_SEASON_BV1NI421K7VR",
+        "LH_BILI_SEASON_BV1NQ4Y157JT",
+        "LH_BILI_SEASON_BV1NWRRBTEDY",
+        "LH_BILI_SEASON_BV1P34Y1V7QA",
+        "LH_BILI_SEASON_BV1RACHESEPM",
+        "LH_BILI_SEASON_BV1RP421D7OM",
+        "LH_BILI_SEASON_BV1RURKYWE8X",
+        "LH_BILI_SEASON_BV1S6P9ZNEZJ",
+        "LH_BILI_SEASON_BV1SC411L7UR",
+        "LH_BILI_SEASON_BV1SEBRZPE2K",
+        "LH_BILI_SEASON_BV1SK4Y1X71W",
+        "LH_BILI_SEASON_BV1SNZCYHEON",
+        "LH_BILI_SEASON_BV1SS4Y1V7TB",
+        "LH_BILI_SEASON_BV1SV4Y167CT",
+        "LH_BILI_SEASON_BV1T394YFEIY",
+        "LH_BILI_SEASON_BV1TQFXECEHY",
+        "LH_BILI_SEASON_BV1TV4Y1K73X",
+        "LH_BILI_SEASON_BV1U7AOEBEW7",
+        "LH_BILI_SEASON_BV1UO4Y1X71B",
+        "LH_BILI_SEASON_BV1UP421D7NG",
+        "LH_BILI_SEASON_BV1V6ZABTEKT",
+        "LH_BILI_SEASON_BV1VFXYB1EJD",
+        "LH_BILI_SEASON_BV1VJY7ZUEQN",
+        "LH_BILI_SEASON_BV1VM421M7CO",
+        "LH_BILI_SEASON_BV1VM4Y1Y7AS",
+        "LH_BILI_SEASON_BV1VP411Y7FR",
+        "LH_BILI_SEASON_BV1VX4Y1A71T",
+        "LH_BILI_SEASON_BV1VXTFESENW",
+        "LH_BILI_SEASON_BV1WM411M7UF",
+        "LH_BILI_SEASON_BV1WM4M1173Q",
+        "LH_BILI_SEASON_BV1WS4Y1A7ND",
+        "LH_BILI_SEASON_BV1X9QBBBETX",
+        "LH_BILI_SEASON_BV1XMAAZFE6E",
+        "LH_BILI_SEASON_BV1YV4Y1N7GX",
+        "LH_BILI_SEASON_BV1Z54Y1A74Y",
+        "LH_BILI_SEASON_BV1ZIK6ZRE3X",
+        "LH_BILI_SEASON_BV1ZZ421Y7YT",
+        "LH_BILI_SIMPLE_SMASH_SEQUENCE"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-smash"
+      ],
+      "learning_goal_zh": "围绕“基础杀球动作链”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-bawang-smash",
+      "topic_name_zh": "刘氏霸王杀",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1AU411V7J2",
+        "LH_BILI_SEASON_BV1BI4Y1Q7EH",
+        "LH_BILI_SEASON_BV1CY411D7GL",
+        "LH_BILI_SEASON_BV1JBZBYFE9T",
+        "LH_BILI_SEASON_BV1JK4Y147EC",
+        "LH_BILI_SEASON_BV1NF421X7JG",
+        "LH_BILI_SEASON_BV1PCP9ZAEFY",
+        "LH_BILI_SEASON_BV1S6P9ZNEZJ",
+        "LH_BILI_SEASON_BV1TT411R7UU",
+        "LH_BILI_SEASON_BV1V6ZABTEUE"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“刘氏霸王杀”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-contact-window",
+      "topic_name_zh": "击球点与甜区",
+      "coach_system_id": "rear_court_base_and_high_clear",
+      "source_ids": [
+        "LH_BILI_CONTACT_POINT_CLEAR",
+        "LH_BILI_SEASON_BV19C4Y1S7Z2",
+        "LH_BILI_SEASON_BV1BM4Y1274P",
+        "LH_BILI_SEASON_BV1DW4Y1A7FX",
+        "LH_BILI_SEASON_BV1ET411R76M",
+        "LH_BILI_SEASON_BV1GO4Y1V7NS",
+        "LH_BILI_SEASON_BV1KESEB1EW9",
+        "LH_BILI_SEASON_BV1TE4Y1C7QN",
+        "LH_BILI_SEASON_BV1Z54Y1A74Y",
+        "LH_BILI_SEASON_BV1ZX2WYDESV",
+        "LH_BILI_SMASH_ELBOW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“击球点与甜区”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "high-clear-base-power-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "short-follow-through"
+      ],
+      "drill_ids": [
+        "contact-window-freeze",
+        "complete-follow-through-line"
+      ],
+      "retest_metrics": [
+        "目标喂球下完成后能回到下一拍可用状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-grip-finger",
+        "liu-hip-trunk",
+        "liu-internal-rotation",
+        "liu-racket-preparation",
+        "liu-top-elbow",
+        "liu-wrist-whip",
+        "overhead_power_chain-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-basic-smash",
+        "liu-bawang-smash",
+        "liu-heavy-smash",
+        "liu-jump-smash",
+        "liu-light-drop",
+        "liu-point-fast-smash",
+        "liu-slice-smash",
+        "liu-slide-drop"
+      ]
+    },
+    {
+      "topic_id": "liu-doubles-continuity",
+      "topic_name_zh": "双打轮转与连续覆盖",
+      "coach_system_id": "doubles_singles_tactics_and_match_transfer",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1A7PVECEO8",
+        "LH_BILI_SEASON_BV1CPWTZOEVT"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "doubles-continuity",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“双打轮转与连续覆盖”学习：把平抽挡或发球后的球拍准备、搭档覆盖和下一次交换放回同一条训练路线。",
+      "framework_ids": [
+        "doubles-rear-continuity-frame",
+        "doubles-fast-exchange-frame"
+      ],
+      "rule_ids": [
+        "doubles-watch-after-hit",
+        "exchange-second-shot-not-ready"
+      ],
+      "drill_ids": [
+        "doubles-after-shot-recovery",
+        "compact-drive-exchange"
+      ],
+      "retest_metrics": [
+        "双人练习中每次处理后都有一人保持下一拍可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-drive-exchange",
+        "liu-receive-defense",
+        "liu-serve-receive"
+      ],
+      "next_topic_ids": [
+        "liu-equipment-selection",
+        "liu-learning-order",
+        "liu-load-and-pain",
+        "student_fit_and_diagnosis-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-drive-exchange",
+      "topic_name_zh": "平抽挡与快速交换",
+      "coach_system_id": "drive_receive_and_front_exchange",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1B9CRYFETR",
+        "LH_BILI_SEASON_BV1FAFOE7EXF",
+        "LH_BILI_SEASON_BV1IKE3ZXEMG",
+        "LH_BILI_SEASON_BV1N8ZCBFEIB",
+        "LH_BILI_SEASON_BV1R2421W7DX",
+        "LH_BILI_SEASON_BV1SZC8EQEVS",
+        "LH_BILI_SEASON_BV1TVHVZPEUU",
+        "LH_BILI_SEASON_BV1UD421E7UK",
+        "LH_BILI_SEASON_BV1V6ZABTEKT",
+        "LH_BILI_SEASON_BV1YR5EZBEV9"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "drive",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“平抽挡与快速交换”学习：以紧凑准备、短出拍和及时回弹维持快速交换，不让大幅后摆占用来球窗口。",
+      "framework_ids": [
+        "push-drive-power-frame",
+        "standard-ready-racket-frame"
+      ],
+      "rule_ids": [
+        "drive-large-preparation",
+        "exchange-second-shot-not-ready"
+      ],
+      "drill_ids": [
+        "compact-drive-exchange",
+        "pressure-transfer-ladder"
+      ],
+      "retest_metrics": [
+        "连续交换中每次出拍后都能回到下一拍可用位置。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ]
+    },
+    {
+      "topic_id": "liu-equipment-selection",
+      "topic_name_zh": "球拍参数与装备适配",
+      "coach_system_id": "safety_equipment_and_load_selection",
+      "source_ids": [
+        "LH_BILI_FAV_BV16PTZZCEW6",
+        "LH_BILI_SEASON_BV11KMPY2ESB",
+        "LH_BILI_SEASON_BV1ER421W7WE",
+        "LH_BILI_SEASON_BV1G8CFYVEKE",
+        "LH_BILI_SEASON_BV1GW411N772",
+        "LH_BILI_SEASON_BV1JT421K7GY",
+        "LH_BILI_SEASON_BV1JU411B7KH",
+        "LH_BILI_SEASON_BV1KS421W7CJ",
+        "LH_BILI_SEASON_BV1P2GAZQEHJ",
+        "LH_BILI_SEASON_BV1QDR3YBECN",
+        "LH_BILI_SEASON_BV1QE411B73P",
+        "LH_BILI_SEASON_BV1UK4Y1N7BG",
+        "LH_BILI_SEASON_BV1VEJRZIEXT",
+        "LH_BILI_SEASON_BV1Z4421S776"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“球拍参数与装备适配”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
+      "framework_ids": [
+        "match-transfer-frame",
+        "learner-fit-sequence-frame"
+      ],
+      "rule_ids": [
+        "drill-form-rally-breakdown",
+        "tactical-context-missing"
+      ],
+      "drill_ids": [
+        "rally-context-retake",
+        "framework-a-b-selector"
+      ],
+      "retest_metrics": [
+        "在增加一个对抗条件后仍能说明动作、线路和恢复是否可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-grip-finger",
+      "topic_name_zh": "握拍与手指控制",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_SEASON_BV136C5ZJEUE",
+        "LH_BILI_SEASON_BV16P411S7RQ",
+        "LH_BILI_SEASON_BV18ZPSZFE6V",
+        "LH_BILI_SEASON_BV19WQPYYEY9",
+        "LH_BILI_SEASON_BV1BBCBYZEDR",
+        "LH_BILI_SEASON_BV1BPRJY5ENI",
+        "LH_BILI_SEASON_BV1GEYRB7ESA",
+        "LH_BILI_SEASON_BV1GKPCEMEXM",
+        "LH_BILI_SEASON_BV1K34Y1G7FV",
+        "LH_BILI_SEASON_BV1KC2UY8ELQ",
+        "LH_BILI_SEASON_BV1MF41197YH",
+        "LH_BILI_SEASON_BV1NGNNZFEBD",
+        "LH_BILI_SEASON_BV1UG4Y1K7QY",
+        "LH_BILI_SEASON_BV1WX4Y197QK",
+        "LH_BILI_SEASON_BV1XRYWY8EDW",
+        "LH_BILI_SEASON_BV1ZH4Y1F7Q1",
+        "LH_BILI_SEASON_BV1ZX4Y1D7AE"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“握拍与手指控制”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-heavy-slice-drop",
+      "topic_name_zh": "重劈、重切与劈吊",
+      "coach_system_id": "drop_slice_slide_variation",
+      "source_ids": [
+        "LH_BILI_SEASON_BV16WZEYQETA",
+        "LH_BILI_SEASON_BV1BFMNYNEN5",
+        "LH_BILI_SEASON_BV1DBYRBCEQF",
+        "LH_BILI_SEASON_BV1IF411K7R2",
+        "LH_BILI_SEASON_BV1LFQXB8EQV",
+        "LH_BILI_SEASON_BV1QS42197DD",
+        "LH_BILI_SEASON_BV1RX4Y1B7U1",
+        "LH_BILI_SEASON_BV1S1VKBSEAB",
+        "LH_BILI_SEASON_BV1SC42ZPEXC",
+        "LH_BILI_SEASON_BV1UULEZ4E9M",
+        "LH_BILI_SEASON_BV1VFESZRECD",
+        "LH_BILI_SEASON_BV1XCD8YNENF",
+        "LH_BILI_SLICE_DROP_SMASH"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "drop-variation-route",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“重劈、重切与劈吊”学习：将轻吊、重切和欺骗变化放在高位基础与结果观察之后逐一练习，不把变化当成基础的替代品。",
+      "framework_ids": [
+        "light-drop-frame",
+        "heavy-slice-drop-frame"
+      ],
+      "rule_ids": [
+        "drop-overcut-face",
+        "drop-direction-mismatch"
+      ],
+      "drill_ids": [
+        "drop-variant-target-line",
+        "drop-face-window-check"
+      ],
+      "retest_metrics": [
+        "每次只改变一种线路或节奏条件并记录结果。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-light-drop",
+        "liu-slide-drop"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-heavy-smash",
+      "topic_name_zh": "重杀与下压",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_FAV_BV15PBRB6EDK",
+        "LH_BILI_FAV_BV1WM4Y1H7GY",
+        "LH_BILI_SEASON_BV14M4Y1376B",
+        "LH_BILI_SEASON_BV15K411Y7CX",
+        "LH_BILI_SEASON_BV18A27B7EHJ",
+        "LH_BILI_SEASON_BV18TMUB4E8D",
+        "LH_BILI_SEASON_BV19H4Y1J7G5",
+        "LH_BILI_SEASON_BV1A7PVECEO8",
+        "LH_BILI_SEASON_BV1AG411X7FR",
+        "LH_BILI_SEASON_BV1AYKWBJEUV",
+        "LH_BILI_SEASON_BV1BQBFYWEPU",
+        "LH_BILI_SEASON_BV1BS421X7HA",
+        "LH_BILI_SEASON_BV1C2XCBXE62",
+        "LH_BILI_SEASON_BV1CKMQZSEEF",
+        "LH_BILI_SEASON_BV1CXSNY2EKP",
+        "LH_BILI_SEASON_BV1HXYBBQEXF",
+        "LH_BILI_SEASON_BV1K4JGZYEOX",
+        "LH_BILI_SEASON_BV1KESEB1EW9",
+        "LH_BILI_SEASON_BV1KZ421I7CJ",
+        "LH_BILI_SEASON_BV1MMYPBRE8F",
+        "LH_BILI_SEASON_BV1MW41117F1",
+        "LH_BILI_SEASON_BV1N8SXBAE4M",
+        "LH_BILI_SEASON_BV1NQ4Y157JT",
+        "LH_BILI_SEASON_BV1P34Y1V7QA",
+        "LH_BILI_SEASON_BV1QB4Y1Z73X",
+        "LH_BILI_SEASON_BV1RACHESEPM",
+        "LH_BILI_SEASON_BV1RMMDBYERR",
+        "LH_BILI_SEASON_BV1RP421D7OM",
+        "LH_BILI_SEASON_BV1RURKYWE8X",
+        "LH_BILI_SEASON_BV1S642137XA",
+        "LH_BILI_SEASON_BV1SS4Y1V7TB",
+        "LH_BILI_SEASON_BV1UO4Y1X71B",
+        "LH_BILI_SEASON_BV1UP421D7NG",
+        "LH_BILI_SEASON_BV1UPJGZKELR",
+        "LH_BILI_SEASON_BV1VM4Y1Y7AS",
+        "LH_BILI_SEASON_BV1VX4Y1A71T",
+        "LH_BILI_SEASON_BV1VXTFESENW",
+        "LH_BILI_SEASON_BV1WM4M1173Q",
+        "LH_BILI_SEASON_BV1ZIK6ZRE3X",
+        "LH_BILI_SEASON_BV1ZZ421Y7YT",
+        "LH_BILI_SMASH_ELBOW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-smash"
+      ],
+      "learning_goal_zh": "围绕“重杀与下压”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-high-clear-base",
+      "topic_name_zh": "高远球基础动作",
+      "coach_system_id": "rear_court_base_and_high_clear",
+      "source_ids": [
+        "LH_BILI_AUTH_CLIP",
+        "LH_BILI_CLEAR_CHANGE_ACTION",
+        "LH_BILI_CLEAR_FRAMEWORK",
+        "LH_BILI_CLEAR_HEIGHT",
+        "LH_BILI_CONTACT_POINT_CLEAR",
+        "LH_BILI_FAV_BV11KRJBREVH",
+        "LH_BILI_SEASON_BV13A4Y1Q7CB",
+        "LH_BILI_SEASON_BV13CTMZGE3U",
+        "LH_BILI_SEASON_BV14M7SZLEMB",
+        "LH_BILI_SEASON_BV15J421U7XQ",
+        "LH_BILI_SEASON_BV16G411B7FC",
+        "LH_BILI_SEASON_BV19C4Y1S7Z2",
+        "LH_BILI_SEASON_BV19G4Y1S75F",
+        "LH_BILI_SEASON_BV1A54Y1T7PE",
+        "LH_BILI_SEASON_BV1AM4Y1B7ZV",
+        "LH_BILI_SEASON_BV1AVYRB1EET",
+        "LH_BILI_SEASON_BV1BY411Y7QH",
+        "LH_BILI_SEASON_BV1DFQXBBESP",
+        "LH_BILI_SEASON_BV1ED4Y1S7VJ",
+        "LH_BILI_SEASON_BV1EO4Y1P76B",
+        "LH_BILI_SEASON_BV1EZU3YDEYS",
+        "LH_BILI_SEASON_BV1FJDZY6EMY",
+        "LH_BILI_SEASON_BV1G6421U77H",
+        "LH_BILI_SEASON_BV1G8CFYVEKE",
+        "LH_BILI_SEASON_BV1GKPCEMEXM",
+        "LH_BILI_SEASON_BV1H64Y1N7IZ",
+        "LH_BILI_SEASON_BV1HBYRBCECE",
+        "LH_BILI_SEASON_BV1HQ4Y177QA",
+        "LH_BILI_SEASON_BV1I3RPYJE6V",
+        "LH_BILI_SEASON_BV1IC411M7JF",
+        "LH_BILI_SEASON_BV1ID4Y1H7YF",
+        "LH_BILI_SEASON_BV1IN411X78R",
+        "LH_BILI_SEASON_BV1JI4Y1R7ZJ",
+        "LH_BILI_SEASON_BV1JP411Y7J8",
+        "LH_BILI_SEASON_BV1KFTBZEEDC",
+        "LH_BILI_SEASON_BV1KXBEYIEBJ",
+        "LH_BILI_SEASON_BV1MH1PY5EQQ",
+        "LH_BILI_SEASON_BV1MK4Y1L763",
+        "LH_BILI_SEASON_BV1MS421X7SN",
+        "LH_BILI_SEASON_BV1MS4Y1T7VR",
+        "LH_BILI_SEASON_BV1NIX9YYEYG",
+        "LH_BILI_SEASON_BV1NKU2ZMEAI",
+        "LH_BILI_SEASON_BV1OC4Y1I7BK",
+        "LH_BILI_SEASON_BV1PD421J7TP",
+        "LH_BILI_SEASON_BV1RMMDBYERR",
+        "LH_BILI_SEASON_BV1SC42ZPEXC",
+        "LH_BILI_SEASON_BV1TC4Y1C77U",
+        "LH_BILI_SEASON_BV1TDRUYTE46",
+        "LH_BILI_SEASON_BV1UQ4Y1H7GG",
+        "LH_BILI_SEASON_BV1VJY7ZUEQN",
+        "LH_BILI_SEASON_BV1VX4Y1J7MA",
+        "LH_BILI_SEASON_BV1WA4Y1P7IG",
+        "LH_BILI_SEASON_BV1WI421Q7AX",
+        "LH_BILI_SEASON_BV1WKSTY7E8W",
+        "LH_BILI_SEASON_BV1WZQRBLET2",
+        "LH_BILI_SEASON_BV1XJ411W7YZ",
+        "LH_BILI_SEASON_BV1XOE9ZKEVT",
+        "LH_BILI_SEASON_BV1YF421F7RT",
+        "LH_BILI_SEASON_BV1YM411G74X",
+        "LH_BILI_WRIST_WHIP_ERROR"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-high-clear"
+      ],
+      "learning_goal_zh": "围绕“高远球基础动作”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "high-clear-base-power-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "short-follow-through"
+      ],
+      "drill_ids": [
+        "contact-window-freeze",
+        "complete-follow-through-line"
+      ],
+      "retest_metrics": [
+        "目标喂球下完成后能回到下一拍可用状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-grip-finger",
+        "liu-hip-trunk",
+        "liu-internal-rotation",
+        "liu-racket-preparation",
+        "liu-top-elbow",
+        "liu-wrist-whip",
+        "overhead_power_chain-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-basic-smash",
+        "liu-bawang-smash",
+        "liu-heavy-smash",
+        "liu-jump-smash",
+        "liu-light-drop",
+        "liu-point-fast-smash",
+        "liu-slice-smash",
+        "liu-slide-drop"
+      ]
+    },
+    {
+      "topic_id": "liu-high-clear-height",
+      "topic_name_zh": "高远球高度与到底线",
+      "coach_system_id": "rear_court_base_and_high_clear",
+      "source_ids": [
+        "LH_BILI_CLEAR_CHANGE_ACTION",
+        "LH_BILI_CLEAR_FRAMEWORK",
+        "LH_BILI_CLEAR_HEIGHT",
+        "LH_BILI_SEASON_BV13CTMZGE3U",
+        "LH_BILI_SEASON_BV14M7SZLEMB",
+        "LH_BILI_SEASON_BV1CS42197QO",
+        "LH_BILI_SEASON_BV1G6421U77H",
+        "LH_BILI_SEASON_BV1IC411M7JF",
+        "LH_BILI_SEASON_BV1IN411X78R",
+        "LH_BILI_SEASON_BV1MS4Y1T7VR",
+        "LH_BILI_SEASON_BV1NKU2ZMEAI",
+        "LH_BILI_SEASON_BV1PD421J7TP",
+        "LH_BILI_SEASON_BV1RMMDBYERR",
+        "LH_BILI_SEASON_BV1UQ4Y1H7GG",
+        "LH_BILI_SEASON_BV1WI421Q7AX",
+        "LH_BILI_SEASON_BV1XJ411W7YZ",
+        "LH_BILI_SEASON_BV1YF421F7RT",
+        "LH_BILI_SMASH_ELBOW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“高远球高度与到底线”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "high-clear-base-power-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "short-follow-through"
+      ],
+      "drill_ids": [
+        "contact-window-freeze",
+        "complete-follow-through-line"
+      ],
+      "retest_metrics": [
+        "目标喂球下完成后能回到下一拍可用状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-grip-finger",
+        "liu-hip-trunk",
+        "liu-internal-rotation",
+        "liu-racket-preparation",
+        "liu-top-elbow",
+        "liu-wrist-whip",
+        "overhead_power_chain-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-basic-smash",
+        "liu-bawang-smash",
+        "liu-heavy-smash",
+        "liu-jump-smash",
+        "liu-light-drop",
+        "liu-point-fast-smash",
+        "liu-slice-smash",
+        "liu-slide-drop"
+      ]
+    },
+    {
+      "topic_id": "liu-hip-trunk",
+      "topic_name_zh": "转髋与躯干带动",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_FAV_BV1HRC5ZYESG",
+        "LH_BILI_SEASON_BV1CM42157US",
+        "LH_BILI_SEASON_BV1HBYRBCECE"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“转髋与躯干带动”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-internal-rotation",
+      "topic_name_zh": "内旋与手臂释放",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_BIG_ARM_INTERNAL_ROTATION",
+        "LH_BILI_INTERNAL_ROTATION_CUE",
+        "LH_BILI_SEASON_BV15D6MBEEMK",
+        "LH_BILI_SEASON_BV19C4Y1S7Z2",
+        "LH_BILI_SEASON_BV19V4Y1K7VY",
+        "LH_BILI_SEASON_BV19X2RYFEBU",
+        "LH_BILI_SEASON_BV1AZ421U7KK",
+        "LH_BILI_SEASON_BV1DG4Y1Y74Q",
+        "LH_BILI_SEASON_BV1H8411276F",
+        "LH_BILI_SEASON_BV1K7421F7WD",
+        "LH_BILI_SEASON_BV1KC2UY8ELQ",
+        "LH_BILI_SEASON_BV1PX4Y1S7GL",
+        "LH_BILI_SEASON_BV1UHQLYBEW5"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“内旋与手臂释放”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-jump-smash",
+      "topic_name_zh": "跳杀与起跳落地",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_SEASON_BV11NWMEBEQK",
+        "LH_BILI_SEASON_BV11Y411H74P",
+        "LH_BILI_SEASON_BV136C5ZJEUE",
+        "LH_BILI_SEASON_BV1784Y1S7PF",
+        "LH_BILI_SEASON_BV18GRMBRE6K",
+        "LH_BILI_SEASON_BV18NXAY5E9R",
+        "LH_BILI_SEASON_BV18TMUB4E8D",
+        "LH_BILI_SEASON_BV1AYEOZEEWJ",
+        "LH_BILI_SEASON_BV1BI421H7B5",
+        "LH_BILI_SEASON_BV1BMCJBPEAV",
+        "LH_BILI_SEASON_BV1C2XCBXE62",
+        "LH_BILI_SEASON_BV1DW4Y1A7FX",
+        "LH_BILI_SEASON_BV1EJSIZYEEZ",
+        "LH_BILI_SEASON_BV1FCBAZLEJJ",
+        "LH_BILI_SEASON_BV1GGOJBBEQD",
+        "LH_BILI_SEASON_BV1HZPSZFEGW",
+        "LH_BILI_SEASON_BV1IZ421B7X8",
+        "LH_BILI_SEASON_BV1JGJHZ5EWL",
+        "LH_BILI_SEASON_BV1KNWSZEEV5",
+        "LH_BILI_SEASON_BV1LB5QZXEDZ",
+        "LH_BILI_SEASON_BV1LCAAZYEJM",
+        "LH_BILI_SEASON_BV1LKGR6JEC4",
+        "LH_BILI_SEASON_BV1LNZZY3EDV",
+        "LH_BILI_SEASON_BV1NWQAY1E5M",
+        "LH_BILI_SEASON_BV1QM4Y127MS",
+        "LH_BILI_SEASON_BV1QY6QBDEBT",
+        "LH_BILI_SEASON_BV1REED6WE1V",
+        "LH_BILI_SEASON_BV1RX4Y197AQ",
+        "LH_BILI_SEASON_BV1SEBRZPE2K",
+        "LH_BILI_SEASON_BV1TGWEZFENF",
+        "LH_BILI_SEASON_BV1TKI1YBEUL",
+        "LH_BILI_SEASON_BV1TQFXECEHY",
+        "LH_BILI_SEASON_BV1U7AOEBEW7",
+        "LH_BILI_SEASON_BV1VM4Y1Y7AS",
+        "LH_BILI_SEASON_BV1VP411Y7FR",
+        "LH_BILI_SEASON_BV1WEZOYVEBN",
+        "LH_BILI_SEASON_BV1X4SFBKEAP",
+        "LH_BILI_SEASON_BV1Y4421F7KV",
+        "LH_BILI_SEASON_BV1YINBEZEEP",
+        "LH_BILI_SEASON_BV1ZBWEZEELW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“跳杀与起跳落地”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-learning-order",
+      "topic_name_zh": "学习顺序与训练路径",
+      "coach_system_id": "student_fit_and_diagnosis",
+      "source_ids": [
+        "LH_BILI_FAV_BV16PTZZCEW6",
+        "LH_BILI_FAV_BV1SRQDYZEA3",
+        "LH_BILI_LEARNING_ORDER",
+        "LH_BILI_LIVE_QA_20240202",
+        "LH_BILI_SEASON_BV11W4M167UI",
+        "LH_BILI_SEASON_BV13A4Y1Q7CB",
+        "LH_BILI_SEASON_BV15K411Y7CX",
+        "LH_BILI_SEASON_BV17V4Y1A7CU",
+        "LH_BILI_SEASON_BV19G4Y1S75F",
+        "LH_BILI_SEASON_BV19X2RYFEBU",
+        "LH_BILI_SEASON_BV1AM4Y1B7ZV",
+        "LH_BILI_SEASON_BV1AYKWBJEUV",
+        "LH_BILI_SEASON_BV1CGNNZFEZ3",
+        "LH_BILI_SEASON_BV1DG7WZYEYM",
+        "LH_BILI_SEASON_BV1JI4Y1R7ZJ",
+        "LH_BILI_SEASON_BV1KM41147M1",
+        "LH_BILI_SEASON_BV1REED6WE1V",
+        "LH_BILI_SEASON_BV1TV411N7N6",
+        "LH_BILI_SEASON_BV1V6ZABTEUE",
+        "LH_BILI_SEASON_BV1VEJRZIEXT",
+        "LH_BILI_SEASON_BV1X9QBBBETX",
+        "LH_BILI_SIMPLE_SMASH_SEQUENCE",
+        "LH_BILI_WRIST_WHIP_ERROR"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“学习顺序与训练路径”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
+      "framework_ids": [
+        "match-transfer-frame",
+        "learner-fit-sequence-frame"
+      ],
+      "rule_ids": [
+        "drill-form-rally-breakdown",
+        "tactical-context-missing"
+      ],
+      "drill_ids": [
+        "rally-context-retake",
+        "framework-a-b-selector"
+      ],
+      "retest_metrics": [
+        "在增加一个对抗条件后仍能说明动作、线路和恢复是否可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-light-drop",
+      "topic_name_zh": "轻吊与头顶吊球",
+      "coach_system_id": "drop_slice_slide_variation",
+      "source_ids": [
+        "LH_BILI_AUTH_CLIP",
+        "LH_BILI_SEASON_BV12G6EBFEFZ",
+        "LH_BILI_SEASON_BV13F5EZDEN4",
+        "LH_BILI_SEASON_BV14EBTBOEXK",
+        "LH_BILI_SEASON_BV16G411B7FC",
+        "LH_BILI_SEASON_BV16WZEYQETA",
+        "LH_BILI_SEASON_BV1BFMNYNEN5",
+        "LH_BILI_SEASON_BV1CJ411N7ZV",
+        "LH_BILI_SEASON_BV1E4421S76X",
+        "LH_BILI_SEASON_BV1EM4M1A7OF",
+        "LH_BILI_SEASON_BV1FLNNZSER5",
+        "LH_BILI_SEASON_BV1HZ4Y1A7XQ",
+        "LH_BILI_SEASON_BV1IF411K7R2",
+        "LH_BILI_SEASON_BV1LZAAE7EGY",
+        "LH_BILI_SEASON_BV1PCQPYJERM",
+        "LH_BILI_SEASON_BV1Q2D8YEECG",
+        "LH_BILI_SEASON_BV1QC4Y1R7JP",
+        "LH_BILI_SEASON_BV1QZ421U7C6",
+        "LH_BILI_SEASON_BV1UCPREVEJE",
+        "LH_BILI_SEASON_BV1VWIEBHE2X",
+        "LH_BILI_SEASON_BV1W14QZHETA",
+        "LH_BILI_SEASON_BV1XACMYBEO7",
+        "LH_BILI_SEASON_BV1XDLEZQERY",
+        "LH_BILI_SLICE_DROP_SMASH"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "slice-drop",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-slice-drop"
+      ],
+      "learning_goal_zh": "围绕“轻吊与头顶吊球”学习：在基础头顶准备可用后，用连续动作理解节奏和线路变化，而不是照搬一张拍面定格。",
+      "framework_ids": [
+        "slice-drop-slide-frame",
+        "deceptive-drop-frame"
+      ],
+      "rule_ids": [
+        "drop-too-slow",
+        "drop-early-reveal"
+      ],
+      "drill_ids": [
+        "drop-disguise-speed-ladder",
+        "drop-face-window-check"
+      ],
+      "retest_metrics": [
+        "连续练习中完成变化后仍能恢复到下一拍准备。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-heavy-slice-drop"
+      ]
+    },
+    {
+      "topic_id": "liu-load-and-pain",
+      "topic_name_zh": "伤痛、负荷与安全",
+      "coach_system_id": "safety_equipment_and_load_selection",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1CV4Y1O7H3",
+        "LH_BILI_SEASON_BV1ML411Q7QA",
+        "LH_BILI_SEASON_BV1TM411H7LP"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“伤痛、负荷与安全”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
+      "framework_ids": [
+        "match-transfer-frame",
+        "learner-fit-sequence-frame"
+      ],
+      "rule_ids": [
+        "drill-form-rally-breakdown",
+        "tactical-context-missing"
+      ],
+      "drill_ids": [
+        "rally-context-retake",
+        "framework-a-b-selector"
+      ],
+      "retest_metrics": [
+        "在增加一个对抗条件后仍能说明动作、线路和恢复是否可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-match-transfer",
+      "topic_name_zh": "实战迁移与回合连贯",
+      "coach_system_id": "doubles_singles_tactics_and_match_transfer",
+      "source_ids": [
+        "LH_BILI_MATCH_TRANSFER",
+        "LH_BILI_SEASON_BV15CM2Y1EUI",
+        "LH_BILI_SEASON_BV1A5ZGYQESP",
+        "LH_BILI_SEASON_BV1C14Y1R73R",
+        "LH_BILI_SEASON_BV1CADQYGEIS",
+        "LH_BILI_SEASON_BV1CJDQYUEGC",
+        "LH_BILI_SEASON_BV1FB4Y1Z7CD",
+        "LH_BILI_SEASON_BV1FC4Y1I7KZ",
+        "LH_BILI_SEASON_BV1I8411Z7KU",
+        "LH_BILI_SEASON_BV1P94Y1I7GM",
+        "LH_BILI_SEASON_BV1PX4Y147UG",
+        "LH_BILI_SEASON_BV1S1VKBSEAB",
+        "LH_BILI_SEASON_BV1SJ4M1X7X9",
+        "LH_BILI_SEASON_BV1TM4Y1B7Z8",
+        "LH_BILI_SEASON_BV1UCPREVEJE",
+        "LH_BILI_SEASON_BV1XH4Y1C7WB",
+        "LH_BILI_SEASON_BV1XMAAZFE6E",
+        "LH_BILI_SEASON_BV1XOE9ZKEVT",
+        "LH_BILI_SEASON_BV1YV4Y1N7GX"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "doubles-continuity",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“实战迁移与回合连贯”学习：把平抽挡或发球后的球拍准备、搭档覆盖和下一次交换放回同一条训练路线。",
+      "framework_ids": [
+        "doubles-rear-continuity-frame",
+        "doubles-fast-exchange-frame"
+      ],
+      "rule_ids": [
+        "doubles-watch-after-hit",
+        "exchange-second-shot-not-ready"
+      ],
+      "drill_ids": [
+        "doubles-after-shot-recovery",
+        "compact-drive-exchange"
+      ],
+      "retest_metrics": [
+        "双人练习中每次处理后都有一人保持下一拍可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-drive-exchange",
+        "liu-receive-defense",
+        "liu-serve-receive"
+      ],
+      "next_topic_ids": [
+        "liu-equipment-selection",
+        "liu-learning-order",
+        "liu-load-and-pain",
+        "student_fit_and_diagnosis-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-point-fast-smash",
+      "topic_name_zh": "点杀、快杀与挥速",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_FAV_BV15PBRB6EDK",
+        "LH_BILI_FAV_BV1PMARZSEPC",
+        "LH_BILI_SEASON_BV11C411N7CW",
+        "LH_BILI_SEASON_BV13U411S7AM",
+        "LH_BILI_SEASON_BV14M4Y1376B",
+        "LH_BILI_SEASON_BV15D4Y1P7EX",
+        "LH_BILI_SEASON_BV15E411Q713",
+        "LH_BILI_SEASON_BV17L411K79K",
+        "LH_BILI_SEASON_BV19D4Y1L7UC",
+        "LH_BILI_SEASON_BV1A7PVECE1G",
+        "LH_BILI_SEASON_BV1B9CRYFETR",
+        "LH_BILI_SEASON_BV1EADQYPEJO",
+        "LH_BILI_SEASON_BV1EM4M1A7OF",
+        "LH_BILI_SEASON_BV1EO4Y1P76B",
+        "LH_BILI_SEASON_BV1F38GZSEYL",
+        "LH_BILI_SEASON_BV1GGOJBBEQD",
+        "LH_BILI_SEASON_BV1GJ411K7OQ",
+        "LH_BILI_SEASON_BV1GTCDYZE69",
+        "LH_BILI_SEASON_BV1H64Y1N7IZ",
+        "LH_BILI_SEASON_BV1JSCSBUEER",
+        "LH_BILI_SEASON_BV1MB421N77F",
+        "LH_BILI_SEASON_BV1Q2D8YEECG",
+        "LH_BILI_SEASON_BV1REED6WE1V",
+        "LH_BILI_SEASON_BV1SNZCYHEON",
+        "LH_BILI_SEASON_BV1T394YFEIY",
+        "LH_BILI_SEASON_BV1Z22WBQEWD",
+        "LH_BILI_SEASON_BV1ZD421G7X9",
+        "LH_BILI_SEASON_BV1ZZ421Y7YT"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“点杀、快杀与挥速”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-racket-preparation",
+      "topic_name_zh": "架拍、引拍与高位结构",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_CLEAR_FRAMEWORK",
+        "LH_BILI_FAV_BV15PBRB6EDK",
+        "LH_BILI_FRAMEWORK",
+        "LH_BILI_SEASON_BV11C411S7GQ",
+        "LH_BILI_SEASON_BV12Z4Y1N7B4",
+        "LH_BILI_SEASON_BV13A4Y1Q7CB",
+        "LH_BILI_SEASON_BV15CM2Y1EUI",
+        "LH_BILI_SEASON_BV15E411Q713",
+        "LH_BILI_SEASON_BV18TMUB4E8D",
+        "LH_BILI_SEASON_BV19N411A7PY",
+        "LH_BILI_SEASON_BV1AYKWBJEUV",
+        "LH_BILI_SEASON_BV1BI4Y1Q7EH",
+        "LH_BILI_SEASON_BV1BS411K7T6",
+        "LH_BILI_SEASON_BV1CRFTZBEK7",
+        "LH_BILI_SEASON_BV1DFQXBBESP",
+        "LH_BILI_SEASON_BV1GGOJBBEQD",
+        "LH_BILI_SEASON_BV1GJ411K7OQ",
+        "LH_BILI_SEASON_BV1GZFTZOEFU",
+        "LH_BILI_SEASON_BV1H8411C7P2",
+        "LH_BILI_SEASON_BV1JBZBYFE9T",
+        "LH_BILI_SEASON_BV1JE4M1D7X2",
+        "LH_BILI_SEASON_BV1JG4Y157NR",
+        "LH_BILI_SEASON_BV1JSCSBUEER",
+        "LH_BILI_SEASON_BV1JSS1BNESV",
+        "LH_BILI_SEASON_BV1LB5QZXEDZ",
+        "LH_BILI_SEASON_BV1N8SXBAE4M",
+        "LH_BILI_SEASON_BV1NF421X7JG",
+        "LH_BILI_SEASON_BV1NN411A7VA",
+        "LH_BILI_SEASON_BV1NWRRBTEDY",
+        "LH_BILI_SEASON_BV1OW4M1R7X8",
+        "LH_BILI_SEASON_BV1S642137XA",
+        "LH_BILI_SEASON_BV1S6P9ZNEZJ",
+        "LH_BILI_SEASON_BV1TC4Y1C77U",
+        "LH_BILI_SEASON_BV1UULEZ4E9M",
+        "LH_BILI_SEASON_BV1V6ZABTEKT",
+        "LH_BILI_SEASON_BV1V6ZABTEUE",
+        "LH_BILI_SEASON_BV1XDLEZQERY",
+        "LH_BILI_SEASON_BV1XH4Y1R7GC",
+        "LH_BILI_SEASON_BV1XMAAZFE6E",
+        "LH_BILI_SEASON_BV1XS421T74Y",
+        "LH_BILI_SEASON_BV1Z22WBQEWD",
+        "LH_BILI_SEASON_BV1ZBWEZEELW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“架拍、引拍与高位结构”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-rear-footwork",
+      "topic_name_zh": "后场步法、启动与中国跳",
+      "coach_system_id": "footwork_arrival_recovery",
+      "source_ids": [
+        "LH_BILI_BACKCOURT_STEAL_FOOTWORK",
+        "LH_BILI_SEASON_BV1CPWTZOEVT",
+        "LH_BILI_SEASON_BV1MEKEBJENE",
+        "LH_BILI_SEASON_BV1NWRRBTEDY",
+        "LH_BILI_SEASON_BV1UQTGE5ENW"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-footwork",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-backcourt-footwork"
+      ],
+      "learning_goal_zh": "围绕“后场步法、启动与中国跳”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
+      "framework_ids": [
+        "timestamp-china-jump-recovery",
+        "start-position-recovery-frame"
+      ],
+      "rule_ids": [
+        "late-arrival",
+        "slow-recovery"
+      ],
+      "drill_ids": [
+        "china-jump-short-contact",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "后场进入后能在下一拍口令前完成稳定退出。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-backhand"
+      ]
+    },
+    {
+      "topic_id": "liu-receive-defense",
+      "topic_name_zh": "接杀与防守过渡",
+      "coach_system_id": "drive_receive_and_front_exchange",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1BCKOZ6EOB",
+        "LH_BILI_SEASON_BV1FB4Y1Z7CD",
+        "LH_BILI_SEASON_BV1QB4Y1Z73X"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "drive",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“接杀与防守过渡”学习：以紧凑准备、短出拍和及时回弹维持快速交换，不让大幅后摆占用来球窗口。",
+      "framework_ids": [
+        "push-drive-power-frame",
+        "standard-ready-racket-frame"
+      ],
+      "rule_ids": [
+        "drive-large-preparation",
+        "exchange-second-shot-not-ready"
+      ],
+      "drill_ids": [
+        "compact-drive-exchange",
+        "pressure-transfer-ladder"
+      ],
+      "retest_metrics": [
+        "连续交换中每次出拍后都能回到下一拍可用位置。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ]
+    },
+    {
+      "topic_id": "liu-recovery",
+      "topic_name_zh": "回位、恢复与腿部弹性",
+      "coach_system_id": "footwork_arrival_recovery",
+      "source_ids": [
+        "LH_BILI_LAZY_LEGS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-court-footwork",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“回位、恢复与腿部弹性”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
+      "framework_ids": [
+        "timestamp-china-jump-recovery",
+        "start-position-recovery-frame"
+      ],
+      "rule_ids": [
+        "late-arrival",
+        "slow-recovery"
+      ],
+      "drill_ids": [
+        "china-jump-short-contact",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "后场进入后能在下一拍口令前完成稳定退出。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-backhand"
+      ]
+    },
+    {
+      "topic_id": "liu-serve-receive",
+      "topic_name_zh": "发球、接发与开局",
+      "coach_system_id": "drive_receive_and_front_exchange",
+      "source_ids": [
+        "LH_BILI_BACKCOURT_STEAL_FOOTWORK",
+        "LH_BILI_SEASON_BV14E421M7YE",
+        "LH_BILI_SEASON_BV14M7SZLEMB",
+        "LH_BILI_SEASON_BV1RD421N7IC",
+        "LH_BILI_SEASON_BV1UQ4Y1H7GG",
+        "LH_BILI_SEASON_BV1XOE9ZKEVT",
+        "LH_BILI_SEASON_BV1YM411G74X"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-serve",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-serve-receive"
+      ],
+      "learning_goal_zh": "围绕“发球、接发与开局”学习：用转拍、手臂路线和完整释放组织正手高远球发球；徒手示范只作为动作路线参考。",
+      "framework_ids": [
+        "serve-high-clear-frame",
+        "wrist-position-frame"
+      ],
+      "rule_ids": [
+        "swing-path-offline",
+        "wrist-force-scattered"
+      ],
+      "drill_ids": [
+        "wrist-contact-segmentation",
+        "arm-path-reset"
+      ],
+      "retest_metrics": [
+        "在有球练习中另行记录发球过网与落点，而不从徒手片段推断。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ]
+    },
+    {
+      "topic_id": "liu-slice-smash",
+      "topic_name_zh": "劈杀与切杀",
+      "coach_system_id": "smash_variant_system",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1BCKOZ6EOB",
+        "LH_BILI_SEASON_BV1C14Y1R73R",
+        "LH_BILI_SEASON_BV1GI421Y7RP",
+        "LH_BILI_SEASON_BV1H64Y1N7IZ",
+        "LH_BILI_SEASON_BV1MEKEBJENE",
+        "LH_BILI_SEASON_BV1QZ421U7C6",
+        "LH_BILI_SEASON_BV1SJ4M1X7X9",
+        "LH_BILI_SEASON_BV1UQTGE5ENW",
+        "LH_BILI_SLICE_DROP_SMASH"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "smash",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“劈杀与切杀”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
+      "framework_ids": [
+        "heavy-smash-frame",
+        "simple-smash-sequence-frame"
+      ],
+      "rule_ids": [
+        "jump-contact-window-missed",
+        "jump-landing-recovery-unstable"
+      ],
+      "drill_ids": [
+        "jump-contact-ladder",
+        "jump-landing-recovery"
+      ],
+      "retest_metrics": [
+        "每次进攻处理后都能稳定落地并准备下一拍。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-slide-drop",
+      "topic_name_zh": "滑板吊球",
+      "coach_system_id": "drop_slice_slide_variation",
+      "source_ids": [
+        "LH_BILI_SEASON_BV13F5EZDEN4",
+        "LH_BILI_SEASON_BV14EBTBOEXK",
+        "LH_BILI_SEASON_BV16WZEYQETA",
+        "LH_BILI_SEASON_BV1E4421S76X",
+        "LH_BILI_SEASON_BV1FLNNZSER5",
+        "LH_BILI_SEASON_BV1LZAAE7EGY",
+        "LH_BILI_SEASON_BV1PCQPYJERM",
+        "LH_BILI_SEASON_BV1Q2D8YEECG",
+        "LH_BILI_SEASON_BV1VWIEBHE2X",
+        "LH_BILI_SEASON_BV1W14QZHETA",
+        "LH_BILI_SEASON_BV1XACMYBEO7",
+        "LH_BILI_SEASON_BV1XCD8YNENF",
+        "LH_BILI_SEASON_BV1XDLEZQERY"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "slice-drop",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "liu-hui-slice-drop"
+      ],
+      "learning_goal_zh": "围绕“滑板吊球”学习：在基础头顶准备可用后，用连续动作理解节奏和线路变化，而不是照搬一张拍面定格。",
+      "framework_ids": [
+        "slice-drop-slide-frame",
+        "deceptive-drop-frame"
+      ],
+      "rule_ids": [
+        "drop-too-slow",
+        "drop-early-reveal"
+      ],
+      "drill_ids": [
+        "drop-disguise-speed-ladder",
+        "drop-face-window-check"
+      ],
+      "retest_metrics": [
+        "连续练习中完成变化后仍能恢复到下一拍准备。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-heavy-slice-drop"
+      ]
+    },
+    {
+      "topic_id": "liu-top-elbow",
+      "topic_name_zh": "顶肘与肘部路线",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_BIG_ARM_INTERNAL_ROTATION",
+        "LH_BILI_SEASON_BV16H4Y1E7YC",
+        "LH_BILI_SEASON_BV1JSCSBUEER",
+        "LH_BILI_SEASON_BV1SZC8EQEVS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“顶肘与肘部路线”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "liu-wrist-whip",
+      "topic_name_zh": "手腕、鞭打与放松",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_FAV_BV1PMARZSEPC",
+        "LH_BILI_SEASON_BV11C411N7CW",
+        "LH_BILI_SEASON_BV11H4Y137LF",
+        "LH_BILI_SEASON_BV13U411S7AM",
+        "LH_BILI_SEASON_BV158QHY5ELA",
+        "LH_BILI_SEASON_BV15P411M7GG",
+        "LH_BILI_SEASON_BV17TJHZME18",
+        "LH_BILI_SEASON_BV1884Y1H7MI",
+        "LH_BILI_SEASON_BV18ZPSZFE6V",
+        "LH_BILI_SEASON_BV1A8411R7VG",
+        "LH_BILI_SEASON_BV1AV4Y1F7GN",
+        "LH_BILI_SEASON_BV1BF6SYTEGZ",
+        "LH_BILI_SEASON_BV1CV4Y1O7H3",
+        "LH_BILI_SEASON_BV1CY411B7MJ",
+        "LH_BILI_SEASON_BV1DH5UZFEUS",
+        "LH_BILI_SEASON_BV1DKC2EEEQL",
+        "LH_BILI_SEASON_BV1ECSBEAEMR",
+        "LH_BILI_SEASON_BV1EU4Y117LB",
+        "LH_BILI_SEASON_BV1FLNNZSER5",
+        "LH_BILI_SEASON_BV1G8V8ZHE29",
+        "LH_BILI_SEASON_BV1KFTBZEEDC",
+        "LH_BILI_SEASON_BV1LF411O7JH",
+        "LH_BILI_SEASON_BV1MB421N77F",
+        "LH_BILI_SEASON_BV1MS4Y157M3",
+        "LH_BILI_SEASON_BV1NGNNZTEMA",
+        "LH_BILI_SEASON_BV1NKU2ZMEAI",
+        "LH_BILI_SEASON_BV1SWQOY5ENV",
+        "LH_BILI_SEASON_BV1TDRUYTE46",
+        "LH_BILI_SEASON_BV1TH411E7LG",
+        "LH_BILI_SEASON_BV1TV411N7N6",
+        "LH_BILI_SEASON_BV1UB42187DY",
+        "LH_BILI_SEASON_BV1VM421M7CO",
+        "LH_BILI_SEASON_BV1WA4Y1P7IG",
+        "LH_BILI_SEASON_BV1WG4JEDETK",
+        "LH_BILI_SEASON_BV1WI421Q7AX",
+        "LH_BILI_SEASON_BV1WKSTY7E8W",
+        "LH_BILI_SEASON_BV1WM4M167JX",
+        "LH_BILI_SEASON_BV1WZQRBLET2",
+        "LH_BILI_SEASON_BV1XE41167TB",
+        "LH_BILI_SEASON_BV1XS421T74Y",
+        "LH_BILI_SEASON_BV1ZX4Y1D7AE",
+        "LH_BILI_WRIST_WHIP_ERROR"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“手腕、鞭打与放松”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "overhead_power_chain-title-fallback",
+      "topic_name_zh": "头顶发力链与拍侧结构（标题未细化）",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_SEASON_BV15X4Y1M7OR",
+        "LH_BILI_SEASON_BV1764Y1A79D",
+        "LH_BILI_SEASON_BV17T2WYXEF3",
+        "LH_BILI_SEASON_BV19W4Y1Q7X4",
+        "LH_BILI_SEASON_BV1AOHHZWEU7",
+        "LH_BILI_SEASON_BV1AZ421F7XP",
+        "LH_BILI_SEASON_BV1B99TYTEXV",
+        "LH_BILI_SEASON_BV1E24Y1E75Q",
+        "LH_BILI_SEASON_BV1E76UY9EEB",
+        "LH_BILI_SEASON_BV1EG4Y1F7L9",
+        "LH_BILI_SEASON_BV1EZ421I7PX",
+        "LH_BILI_SEASON_BV1F54Y1W7NR",
+        "LH_BILI_SEASON_BV1FA4Y1N7P7",
+        "LH_BILI_SEASON_BV1JC411J7NI",
+        "LH_BILI_SEASON_BV1KQKEB5E5P",
+        "LH_BILI_SEASON_BV1MM411D7JI",
+        "LH_BILI_SEASON_BV1MM411D7VQ",
+        "LH_BILI_SEASON_BV1MM411M77U",
+        "LH_BILI_SEASON_BV1N54Y1U7M6",
+        "LH_BILI_SEASON_BV1O2ERZ5EEW",
+        "LH_BILI_SEASON_BV1P4DGYRE8B",
+        "LH_BILI_SEASON_BV1Q4JRZ3EPS",
+        "LH_BILI_SEASON_BV1QG4Y127V9",
+        "LH_BILI_SEASON_BV1RO4Y157AG",
+        "LH_BILI_SEASON_BV1SATTZFE1C",
+        "LH_BILI_SEASON_BV1SU411U7FD",
+        "LH_BILI_SEASON_BV1UM4Y1C7T7",
+        "LH_BILI_SEASON_BV1UN411T72O",
+        "LH_BILI_SEASON_BV1VPDNYJEPU",
+        "LH_BILI_SEASON_BV1XM4Y1B73W",
+        "LH_BILI_SEASON_BV1YZ421Y7AA",
+        "LH_BILI_SEASON_BV1ZI4Y1H7HE",
+        "LH_BILI_SEASON_BV1ZT4Y1W7EF"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“头顶发力链与拍侧结构（标题未细化）”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "contact-window-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "low-elbow"
+      ],
+      "drill_ids": [
+        "rear-court-arrival-shadow",
+        "top-elbow-freeze"
+      ],
+      "retest_metrics": [
+        "低速影子挥拍中能连续完成准备、上举、通过和恢复。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
+    },
+    {
+      "topic_id": "rear_court_base_and_high_clear-title-fallback",
+      "topic_name_zh": "后场基础与高远球（标题未细化）",
+      "coach_system_id": "rear_court_base_and_high_clear",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1DI421S7L3",
+        "LH_BILI_SEASON_BV1JJ4M1B7WM",
+        "LH_BILI_SEASON_BV1MZ421T7LR",
+        "LH_BILI_SEASON_BV1O24Y1F7HS",
+        "LH_BILI_SEASON_BV1X24Y1372D",
+        "LH_BILI_SEASON_BV1ZY421I7NU"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "high-clear",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“后场基础与高远球（标题未细化）”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "high-clear-base-power-frame"
+      ],
+      "rule_ids": [
+        "contact-point-behind",
+        "short-follow-through"
+      ],
+      "drill_ids": [
+        "contact-window-freeze",
+        "complete-follow-through-line"
+      ],
+      "retest_metrics": [
+        "目标喂球下完成后能回到下一拍可用状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-grip-finger",
+        "liu-hip-trunk",
+        "liu-internal-rotation",
+        "liu-racket-preparation",
+        "liu-top-elbow",
+        "liu-wrist-whip",
+        "overhead_power_chain-title-fallback"
+      ],
+      "next_topic_ids": [
+        "liu-basic-smash",
+        "liu-bawang-smash",
+        "liu-heavy-smash",
+        "liu-jump-smash",
+        "liu-light-drop",
+        "liu-point-fast-smash",
+        "liu-slice-smash",
+        "liu-slide-drop"
+      ]
+    },
+    {
+      "topic_id": "student_fit_and_diagnosis-title-fallback",
+      "topic_name_zh": "学员匹配、诊断与训练路径（标题未细化）",
+      "coach_system_id": "student_fit_and_diagnosis",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1DP411S7ZW",
+        "LH_BILI_SEASON_BV1IM4Y1Y7A7",
+        "LH_BILI_SEASON_BV1LV4Y1E7OA",
+        "LH_BILI_SEASON_BV1QM4Y127VU",
+        "LH_BILI_SEASON_BV1TL411V7I1",
+        "LH_BILI_SEASON_BV1UG4Y1M7B9",
+        "LH_BILI_SEASON_BV1XR421T7Z3"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“学员匹配、诊断与训练路径（标题未细化）”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
+      "framework_ids": [
+        "match-transfer-frame",
+        "learner-fit-sequence-frame"
+      ],
+      "rule_ids": [
+        "drill-form-rally-breakdown",
+        "tactical-context-missing"
+      ],
+      "drill_ids": [
+        "rally-context-retake",
+        "framework-a-b-selector"
+      ],
+      "retest_metrics": [
+        "在增加一个对抗条件后仍能说明动作、线路和恢复是否可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-doubles-continuity",
+        "liu-match-transfer"
+      ],
+      "next_topic_ids": []
+    }
+  ]
+}

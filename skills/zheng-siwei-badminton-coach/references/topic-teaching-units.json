@@ -1,0 +1,703 @@
+{
+  "schema_version": "coach-topic-teaching-unit/v1",
+  "coach_id": "zheng-siwei",
+  "unit_count": 18,
+  "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
+  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
+  "systems": [],
+  "units": [
+    {
+      "topic_id": "frontcourt_pressure-title-fallback",
+      "topic_name_zh": "网前压迫与封网（标题未细化）",
+      "coach_system_id": "frontcourt_pressure",
+      "source_ids": [
+        "ZSW_BILI_BV1BGTVZTEAR",
+        "ZSW_BILI_BV1JDYMZXEAR",
+        "ZSW_BILI_BV1QCRGBOECE"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "net-drop",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“网前压迫与封网（标题未细化）”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
+      "framework_ids": [
+        "zsw-frontcourt-pressure"
+      ],
+      "rule_ids": [
+        "zsw-front-player-disconnected",
+        "zsw-slow-reset"
+      ],
+      "drill_ids": [
+        "zsw-front-back-three-ball",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "双人三球模式中前场球员在下一次动作前持续保持球拍可用。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-backhand-low-transition",
+      "topic_name_zh": "反手底线低手位过渡",
+      "coach_system_id": "defense_transition",
+      "source_ids": [
+        "ZSW_BILI_BV1FXIJBKEZC",
+        "ZSW_BILI_BV1S8Q3YCE5E",
+        "ZSW_BILI_BV1TZHUZIEZQ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "backhand-low-transition",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "zheng-siwei-backhand-low-transition"
+      ],
+      "learning_goal_zh": "围绕“反手底线低手位过渡”学习：以移动、低手位处理和恢复连接反手受压过渡，不将片段外推为精确触球或固定战术意图。",
+      "framework_ids": [
+        "zsw-defense-transition",
+        "zsw-reset-match-transfer"
+      ],
+      "rule_ids": [
+        "zsw-defense-spacing-collapsed",
+        "zsw-no-transition-after-time-gained"
+      ],
+      "drill_ids": [
+        "zsw-defense-two-channel",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "连续防守练习中低手位处理后能回到中性或下一拍可用状态。"
+      ],
+      "prerequisite_topic_ids": [
+        "zsw-flat-defense",
+        "zsw-hook-diagonal",
+        "zsw-midcourt-transition",
+        "zsw-unload-counter"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "zsw-backhand-net",
+      "topic_name_zh": "反手网前搓、抹与处理",
+      "coach_system_id": "frontcourt_pressure",
+      "source_ids": [
+        "ZSW_BILI_BV1CR7R6TESH",
+        "ZSW_BILI_BV1IA5EZPESH",
+        "ZSW_BILI_BV1SY2MBREBF",
+        "ZSW_BILI_BV1Z56VBCE9U"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "net-drop",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“反手网前搓、抹与处理”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
+      "framework_ids": [
+        "zsw-frontcourt-pressure"
+      ],
+      "rule_ids": [
+        "zsw-front-player-disconnected",
+        "zsw-slow-reset"
+      ],
+      "drill_ids": [
+        "zsw-front-back-three-ball",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "双人三球模式中前场球员在下一次动作前持续保持球拍可用。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-cut-waist-receive",
+      "topic_name_zh": "接发切腰与下一拍",
+      "coach_system_id": "receive_opening_exchange",
+      "source_ids": [
+        "ZSW_BILI_BV1EVN2ZZEEO"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "receive-cut-waist",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“接发切腰与下一拍”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
+      "framework_ids": [
+        "zsw-receive-opening-exchange"
+      ],
+      "rule_ids": [
+        "zsw-passive-receive-route",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-receive-two-exchange",
+        "zsw-role-call-random-feed"
+      ],
+      "retest_metrics": [
+        "接发后至少一名已命名搭档保持平衡和球拍可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "zsw-serve-opening"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "zsw-flat-defense",
+      "topic_name_zh": "平快球泄力与防守过渡",
+      "coach_system_id": "defense_transition",
+      "source_ids": [
+        "ZSW_BILI_BV1ACL9ZJE4Z",
+        "ZSW_BILI_BV1BEXSY3EFD",
+        "ZSW_BILI_BV1BORRBSEC5",
+        "ZSW_BILI_BV1EYQFBHEFY",
+        "ZSW_BILI_BV1KKBPZ3EYK",
+        "ZSW_BILI_BV1PGNVZ5E4K",
+        "ZSW_BILI_BV1PURDBDEBM",
+        "ZSW_BILI_BV1PYPDZGEUA",
+        "ZSW_BILI_BV1TZHUZIEZQ",
+        "ZSW_BILI_BV1UMHBZJENP",
+        "ZSW_BILI_BV1USRPYTE6N",
+        "ZSW_BILI_BV1WXDEYJEUH",
+        "ZSW_BILI_BV1X6CTBNEPM",
+        "ZSW_BILI_BV1XG9GYAEZA",
+        "ZSW_BILI_BV1YQM6ZZETC"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-pressure-retreat",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“平快球泄力与防守过渡”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
+      "framework_ids": [
+        "zsw-defense-transition"
+      ],
+      "rule_ids": [
+        "zsw-defense-spacing-collapsed",
+        "zsw-no-transition-after-time-gained"
+      ],
+      "drill_ids": [
+        "zsw-defense-two-channel",
+        "zsw-defense-neutral-attack-ladder"
+      ],
+      "retest_metrics": [
+        "随机后场压力喂球中能在处理后回到下一拍可选择状态。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-backhand-low-transition"
+      ]
+    },
+    {
+      "topic_id": "zsw-front-back-rotation",
+      "topic_name_zh": "后杀前封与前后轮转",
+      "coach_system_id": "pair_rotation_two_lanes",
+      "source_ids": [
+        "ZSW_BILI_BV12XMRBHEXY",
+        "ZSW_BILI_BV1CR7R6TESH",
+        "ZSW_BILI_BV1DKWJZZEJ6",
+        "ZSW_BILI_BV1JCKPENEIW",
+        "ZSW_BILI_BV1MXDHBCEIG",
+        "ZSW_BILI_BV1N8JBZVEXB",
+        "ZSW_BILI_BV1NV7NZ1EZX",
+        "ZSW_BILI_BV1OQMWBQESP",
+        "ZSW_BILI_BV1PCSIBAEEC",
+        "ZSW_BILI_BV1ULVDZOER2",
+        "ZSW_BILI_BV1ZKBNZLEHR"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "pair-rotation-two-lanes",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“后杀前封与前后轮转”学习：用来球与下一拍线路组织轮转，不按性别或固定前后身份硬编码分工。",
+      "framework_ids": [
+        "zsw-pair-rotation-two-lanes"
+      ],
+      "rule_ids": [
+        "zsw-same-lane-rotation-conflict",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-two-lane-rotation-call",
+        "zsw-role-call-random-feed"
+      ],
+      "retest_metrics": [
+        "随机线路中两人都能说清互补覆盖而不同时进入同一条线。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-hook-diagonal",
+      "topic_name_zh": "正手中半场勾对角",
+      "coach_system_id": "defense_transition",
+      "source_ids": [
+        "ZSW_BILI_BV1YRNE6REPC"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-pressure-retreat",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“正手中半场勾对角”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
+      "framework_ids": [
+        "zsw-defense-transition"
+      ],
+      "rule_ids": [
+        "zsw-defense-spacing-collapsed",
+        "zsw-no-transition-after-time-gained"
+      ],
+      "drill_ids": [
+        "zsw-defense-two-channel",
+        "zsw-defense-neutral-attack-ladder"
+      ],
+      "retest_metrics": [
+        "随机后场压力喂球中能在处理后回到下一拍可选择状态。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-backhand-low-transition"
+      ]
+    },
+    {
+      "topic_id": "zsw-left-receive",
+      "topic_name_zh": "左半场接发路线",
+      "coach_system_id": "receive_opening_exchange",
+      "source_ids": [
+        "ZSW_BILI_BV1SATTEWEBS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "left-receive-route",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "zheng-siwei-left-receive-route"
+      ],
+      "learning_goal_zh": "围绕“左半场接发路线”学习：以一次完整接发移动、处理和回收理解左半场路线，同时在训练中明确下一球覆盖。",
+      "framework_ids": [
+        "zsw-receive-opening-exchange",
+        "zsw-pair-rotation-two-lanes"
+      ],
+      "rule_ids": [
+        "zsw-passive-receive-route",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-receive-two-exchange",
+        "zsw-two-lane-rotation-call"
+      ],
+      "retest_metrics": [
+        "随机开局中每次接发前后均能说清下一条覆盖线路。"
+      ],
+      "prerequisite_topic_ids": [
+        "zsw-serve-opening"
+      ],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-match-review",
+      "topic_name_zh": "比赛球路与复盘",
+      "coach_system_id": "reset_match_transfer",
+      "source_ids": [
+        "ZSW_BILI_BV1AH5Y6ME92",
+        "ZSW_BILI_BV1CT9TBDEBU",
+        "ZSW_BILI_BV1HHDOY5EVA",
+        "ZSW_BILI_BV1KBGY6ZEEI",
+        "ZSW_BILI_BV1KFVTZPET1",
+        "ZSW_BILI_BV1PRPSZKEHI",
+        "ZSW_BILI_BV1RRLF6VEM7",
+        "ZSW_BILI_BV1T3V46OEYT",
+        "ZSW_BILI_BV1X6O5B6EQZ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "reset-match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“比赛球路与复盘”学习：在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。",
+      "framework_ids": [
+        "zsw-reset-match-transfer",
+        "zsw-pair-rotation-two-lanes"
+      ],
+      "rule_ids": [
+        "zsw-slow-reset",
+        "zsw-drill-to-rally-breakdown"
+      ],
+      "drill_ids": [
+        "zsw-hit-call-reset",
+        "zsw-rally-transfer-ladder"
+      ],
+      "retest_metrics": [
+        "每次练习结束都能明确下一球角色，并在增加一项回合变量后维持可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "frontcourt_pressure-title-fallback",
+        "zsw-backhand-net",
+        "zsw-front-back-rotation",
+        "zsw-left-receive",
+        "zsw-net-pressure",
+        "zsw-rear-attack",
+        "zsw-rear-attack-footwork"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "zsw-midcourt-drive",
+      "topic_name_zh": "中半场平抽与快推",
+      "coach_system_id": "receive_opening_exchange",
+      "source_ids": [
+        "ZSW_BILI_BV1ABGT6PEDB",
+        "ZSW_BILI_BV1ANPTETEXE",
+        "ZSW_BILI_BV1BPXAZSEZV",
+        "ZSW_BILI_BV1DKWJZZEJ6",
+        "ZSW_BILI_BV1KKBPZ3EYK",
+        "ZSW_BILI_BV1LYR8YOEFR",
+        "ZSW_BILI_BV1U26RBYE7P",
+        "ZSW_BILI_BV1X5U7B2ENY",
+        "ZSW_BILI_BV1XG9GYAEZA",
+        "ZSW_BILI_BV1YLABZ1EE8"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "receive-cut-waist",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“中半场平抽与快推”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
+      "framework_ids": [
+        "zsw-receive-opening-exchange"
+      ],
+      "rule_ids": [
+        "zsw-passive-receive-route",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-receive-two-exchange",
+        "zsw-role-call-random-feed"
+      ],
+      "retest_metrics": [
+        "接发后至少一名已命名搭档保持平衡和球拍可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "zsw-serve-opening"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "zsw-midcourt-transition",
+      "topic_name_zh": "正手中半场过渡与借力",
+      "coach_system_id": "defense_transition",
+      "source_ids": [
+        "ZSW_BILI_BV1A8ZMBGEBS",
+        "ZSW_BILI_BV1ABGT6PEDB",
+        "ZSW_BILI_BV1FUZWYZEQ4",
+        "ZSW_BILI_BV1PYPDZGEUA",
+        "ZSW_BILI_BV1YLABZ1EE8",
+        "ZSW_BILI_BV1YRNE6REPC"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-pressure-retreat",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“正手中半场过渡与借力”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
+      "framework_ids": [
+        "zsw-defense-transition"
+      ],
+      "rule_ids": [
+        "zsw-defense-spacing-collapsed",
+        "zsw-no-transition-after-time-gained"
+      ],
+      "drill_ids": [
+        "zsw-defense-two-channel",
+        "zsw-defense-neutral-attack-ladder"
+      ],
+      "retest_metrics": [
+        "随机后场压力喂球中能在处理后回到下一拍可选择状态。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-backhand-low-transition"
+      ]
+    },
+    {
+      "topic_id": "zsw-net-pressure",
+      "topic_name_zh": "网前扑、抹、封与贴网",
+      "coach_system_id": "frontcourt_pressure",
+      "source_ids": [
+        "ZSW_BILI_BV12XMRBHEXY",
+        "ZSW_BILI_BV1A6CUZVENX",
+        "ZSW_BILI_BV1BPN8EMEL5",
+        "ZSW_BILI_BV1BQHFZMEFO",
+        "ZSW_BILI_BV1CR7R6TESH",
+        "ZSW_BILI_BV1EQVEZQEAC",
+        "ZSW_BILI_BV1IA5EZPESH",
+        "ZSW_BILI_BV1PURDBDEBM",
+        "ZSW_BILI_BV1UPZEB1END",
+        "ZSW_BILI_BV1WTQDB3E6X",
+        "ZSW_BILI_BV1Z56VBCE9U"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "net-drop",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "zheng-siwei-net-drop"
+      ],
+      "learning_goal_zh": "围绕“网前扑、抹、封与贴网”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
+      "framework_ids": [
+        "zsw-frontcourt-pressure"
+      ],
+      "rule_ids": [
+        "zsw-front-player-disconnected",
+        "zsw-slow-reset"
+      ],
+      "drill_ids": [
+        "zsw-front-back-three-ball",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "双人三球模式中前场球员在下一次动作前持续保持球拍可用。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-rear-attack",
+      "topic_name_zh": "后场进攻与杀球连续性",
+      "coach_system_id": "rear_attack_continuity",
+      "source_ids": [
+        "ZSW_BILI_BV115ETZHESJ",
+        "ZSW_BILI_BV1CUDDY6EJU",
+        "ZSW_BILI_BV1N8JBZVEXB",
+        "ZSW_BILI_BV1VE1DYME52",
+        "ZSW_BILI_BV1WTQDB3E6X",
+        "ZSW_BILI_BV1YEXDYTECD",
+        "ZSW_BILI_BV1ZKBNZLEHR"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-attack-footwork",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“后场进攻与杀球连续性”学习：将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。",
+      "framework_ids": [
+        "zsw-rear-attack-continuity"
+      ],
+      "rule_ids": [
+        "zsw-rear-attack-no-continuation",
+        "zsw-slow-reset"
+      ],
+      "drill_ids": [
+        "zsw-rear-attack-exit",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "后场处理后能在命名的下一次后场或中场喂球前恢复可用。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-rear-attack-footwork",
+      "topic_name_zh": "后场突击步法与退出",
+      "coach_system_id": "rear_attack_continuity",
+      "source_ids": [
+        "ZSW_BILI_BV1AURDY3EPT",
+        "ZSW_BILI_BV1ILCNYVEHW",
+        "ZSW_BILI_BV1J6BCEIEAG",
+        "ZSW_BILI_BV1SXE6Z4ETF",
+        "ZSW_BILI_BV1YCZYYEENB"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-attack-footwork",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "zheng-siwei-rear-attack-footwork"
+      ],
+      "learning_goal_zh": "围绕“后场突击步法与退出”学习：将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。",
+      "framework_ids": [
+        "zsw-rear-attack-continuity"
+      ],
+      "rule_ids": [
+        "zsw-rear-attack-no-continuation",
+        "zsw-slow-reset"
+      ],
+      "drill_ids": [
+        "zsw-rear-attack-exit",
+        "zsw-hit-call-reset"
+      ],
+      "retest_metrics": [
+        "后场处理后能在命名的下一次后场或中场喂球前恢复可用。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-match-review",
+        "zsw-warmup-load"
+      ]
+    },
+    {
+      "topic_id": "zsw-receive-opening",
+      "topic_name_zh": "接发与前两拍衔接",
+      "coach_system_id": "receive_opening_exchange",
+      "source_ids": [
+        "ZSW_BILI_BV11O4ZEPEPT",
+        "ZSW_BILI_BV1BPXAZSEZV",
+        "ZSW_BILI_BV1DKWJZZEJ6",
+        "ZSW_BILI_BV1EVN2ZZEEO",
+        "ZSW_BILI_BV1JCKPENEIW",
+        "ZSW_BILI_BV1MM4FZEEZG",
+        "ZSW_BILI_BV1OQMWBQESP",
+        "ZSW_BILI_BV1PCSIBAEEC",
+        "ZSW_BILI_BV1RA7G6DEJA",
+        "ZSW_BILI_BV1SATTEWEBS",
+        "ZSW_BILI_BV1ULVDZOER2",
+        "ZSW_BILI_BV1UV8VZ3EPT",
+        "ZSW_BILI_BV1UXVVBQEEZ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "receive-cut-waist",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "zheng-siwei-receive-cut-waist"
+      ],
+      "learning_goal_zh": "围绕“接发与前两拍衔接”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
+      "framework_ids": [
+        "zsw-receive-opening-exchange"
+      ],
+      "rule_ids": [
+        "zsw-passive-receive-route",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-receive-two-exchange",
+        "zsw-role-call-random-feed"
+      ],
+      "retest_metrics": [
+        "接发后至少一名已命名搭档保持平衡和球拍可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "zsw-serve-opening"
+      ],
+      "next_topic_ids": []
+    },
+    {
+      "topic_id": "zsw-serve-opening",
+      "topic_name_zh": "发球与第三拍计划",
+      "coach_system_id": "serve_opening",
+      "source_ids": [
+        "ZSW_BILI_BV1L5YZBNEWJ"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "serve-third-shot-plan",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“发球与第三拍计划”学习：在发球前先命名可能回球线路和第三拍覆盖人，让开局不靠事后追球补救。",
+      "framework_ids": [
+        "zsw-serve-opening-plan",
+        "zsw-receive-opening-exchange"
+      ],
+      "rule_ids": [
+        "zsw-serve-without-third-shot-plan",
+        "zsw-opening-role-unclear"
+      ],
+      "drill_ids": [
+        "zsw-serve-return-third-shot",
+        "zsw-role-call-random-feed"
+      ],
+      "retest_metrics": [
+        "10 次开局中至少 8 次在回球前已有明确第三拍责任。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-cut-waist-receive",
+        "zsw-left-receive",
+        "zsw-midcourt-drive",
+        "zsw-receive-opening"
+      ]
+    },
+    {
+      "topic_id": "zsw-unload-counter",
+      "topic_name_zh": "卸力挡网与防守反击",
+      "coach_system_id": "defense_transition",
+      "source_ids": [
+        "ZSW_BILI_BV1KKBPZ3EYK",
+        "ZSW_BILI_BV1PURDBDEBM"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "rear-pressure-retreat",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“卸力挡网与防守反击”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
+      "framework_ids": [
+        "zsw-defense-transition"
+      ],
+      "rule_ids": [
+        "zsw-defense-spacing-collapsed",
+        "zsw-no-transition-after-time-gained"
+      ],
+      "drill_ids": [
+        "zsw-defense-two-channel",
+        "zsw-defense-neutral-attack-ladder"
+      ],
+      "retest_metrics": [
+        "随机后场压力喂球中能在处理后回到下一拍可选择状态。"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "zsw-backhand-low-transition"
+      ]
+    },
+    {
+      "topic_id": "zsw-warmup-load",
+      "topic_name_zh": "热身、康复与训练负荷",
+      "coach_system_id": "reset_match_transfer",
+      "source_ids": [
+        "ZSW_BILI_BV11BS1ZNEEF",
+        "ZSW_BILI_BV18ITS6GEXU",
+        "ZSW_BILI_BV18NEC6WEXZ",
+        "ZSW_BILI_BV1DBXBB6ETN",
+        "ZSW_BILI_BV1DZ98B1ESN",
+        "ZSW_BILI_BV1W8HHZCEAP",
+        "ZSW_BILI_BV1ZZ57ZQEPA"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "reset-match-transfer",
+      "media_status": "no_reliable_topic_bound_media",
+      "reviewed_course_ids": [],
+      "learning_goal_zh": "围绕“热身、康复与训练负荷”学习：在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。",
+      "framework_ids": [
+        "zsw-reset-match-transfer",
+        "zsw-pair-rotation-two-lanes"
+      ],
+      "rule_ids": [
+        "zsw-slow-reset",
+        "zsw-drill-to-rally-breakdown"
+      ],
+      "drill_ids": [
+        "zsw-hit-call-reset",
+        "zsw-rally-transfer-ladder"
+      ],
+      "retest_metrics": [
+        "每次练习结束都能明确下一球角色，并在增加一项回合变量后维持可用。"
+      ],
+      "prerequisite_topic_ids": [
+        "frontcourt_pressure-title-fallback",
+        "zsw-backhand-net",
+        "zsw-front-back-rotation",
+        "zsw-left-receive",
+        "zsw-net-pressure",
+        "zsw-rear-attack",
+        "zsw-rear-attack-footwork"
+      ],
+      "next_topic_ids": []
+    }
+  ]
+}

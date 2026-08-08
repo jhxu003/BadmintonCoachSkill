@@ -38,7 +38,7 @@
 
 BadmintonCoachSkill turns public coaching material from three coaches into lessons that are easy to browse and practice. Each published lesson keeps one continuous demonstration together with seven ordered phases, technique cues, drills, and a measurable retest goal.
 
-All 873 source videos have completed batch processing and title-only source routing into 82 coach-specific topics. GitHub Pages currently showcases 16 curated public lessons; those lessons are the public entry point, not the full processing output.
+All 873 source videos have completed batch processing and title-only source routing into 82 coach-specific topics. Each topic now resolves to a bounded knowledge unit—frameworks, common-error rules, drills, retests, and exact source IDs—while its media remains unavailable until a same-source, same-topic context audit passes. GitHub Pages currently showcases 16 curated public lessons; those lessons are the public entry point, not the full processing output.
 
 ## One high clear, from preparation to recovery
 
@@ -163,7 +163,7 @@ The public course page currently contains 16 curated lessons. Every lesson inclu
 
 ## Know what to practice next
 
-The three coaching systems currently contain 31 connected curriculum nodes. Each node defines prerequisites, movement principles, drills, retest targets, and the next route. The wider source library is additionally indexed into 82 title-routed topics (33 Liu Hui, 31 Li Yuxuan, and 18 Zheng Siwei) so a named variation, situation, or question can lead back to the right coaching system without pretending it is already a reviewed media lesson.
+The three coaching systems currently contain 31 connected curriculum nodes. Each node defines prerequisites, movement principles, drills, retest targets, and the next route. The wider source library is additionally organized into 82 source-linked teaching units (33 Liu Hui, 31 Li Yuxuan, and 18 Zheng Siwei): a named variation, situation, or question resolves to its own system route, sources, practice route, and retest. A topic unit cannot borrow media from another source or technique; it becomes video-ready only after exact private review.
 
 | Current content | How to use it |
 |---|---|
@@ -223,6 +223,7 @@ By default, the command returns a learning route, teaching principles, and times
 - [Public technique-course data](web/src/data/technique-courses.public.json)
 - [Public source catalog](web/public/pages-demo/catalog.json)
 - [Coach Skill source-topic indexes](skills/liu-hui-badminton-coach/references/source-topic-index.json)
+- [Coach Skill topic teaching units](skills/liu-hui-badminton-coach/references/topic-teaching-units.json)
 - [Video web application deployment](docs/video-evidence-web-app.md)
 - [Video Agent contract](docs/video-agent-contract.md)
 - [GitHub Pages and public media scope](docs/github-pages-demo.md)

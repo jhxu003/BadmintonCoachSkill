@@ -20,6 +20,8 @@ Resolve the `techniques` curriculum map before selecting a pair route. Follow it
 
 When a user names a source topic, asks for expanded corpus coverage, or needs a source to support a route, read `references/source-topic-index.json`. It is a public-title retrieval map for the full indexed corpus: use it to resolve the coach system and one or more named subtopics before loading the relevant rubric/framework. A title route is not clip, frame, biomechanical, or deterministic-rule evidence; it cannot promote a source to `teaching_ready` or authorize unrelated media.
 
+Then read `references/topic-teaching-units.json` for the matched subtopic. It binds every indexed topic to an existing framework/rule/drill/retest route and its exact source IDs. These units remain `knowledge_only` until a private, same-source and same-topic context audit binds an approved continuous coach demonstration; never borrow a parent technique's media for a narrower topic.
+
 ## Required Inputs
 
 For teaching demonstration, require `action`; accept `level`, `training_goal`, `framework_id`, or an optional `phase` when supplied. Do not request learner tracks or a rally video merely to explain a coaching module.

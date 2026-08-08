@@ -124,6 +124,40 @@ def test_materialized_action_packages_use_exactly_seven_core_stages():
     ]
 
 
+def test_context_audit_includes_review_only_candidates_without_promoting_them():
+    module = load_batch_module()
+    episode = {
+        "automatic_admission": False,
+        "review_context_only": True,
+        "semantic_assignment_status": "resolved",
+    }
+
+    assert module.context_review_eligibility(
+        episode, include_review_candidates=False
+    ) == (False, [])
+    eligible, reasons = module.context_review_eligibility(
+        episode, include_review_candidates=True
+    )
+    assert eligible
+    assert reasons == ["action_gate_not_automatic_admission", "review_context_only"]
+    assert not module.context_admitted(
+        episode,
+        {
+            "classification": "coach_correct_demonstration",
+            "demonstrator_role": "coach",
+            "example_polarity": "correct",
+            "action_subject_continuity": "yes",
+            "context_evidence": [
+                "source_lesson_presenter_visible",
+                "same_presenter_executes_candidate",
+                "single_complete_demonstration_visible",
+                "normative_instruction_context_visible",
+            ],
+            "context_limitations": [],
+        },
+    )
+
+
 def test_legacy_preview_defaults_missing_admission_to_fail_closed(tmp_path):
     module = load_batch_module()
     root = tmp_path / "legacy-video"

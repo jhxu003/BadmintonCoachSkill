@@ -18,15 +18,18 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -42,7 +45,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -58,7 +62,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -74,7 +79,8 @@
       "topics": [
         {
           "id": "lyx-front-lunge",
-          "name": "网前跨步与第一响应"
+          "name": "网前跨步与第一响应",
+          "system_id": "footwork"
         }
       ]
     },
@@ -90,11 +96,13 @@
       "topics": [
         {
           "id": "lyx-finger-wrist",
-          "name": "手指、手腕与发力时机"
+          "name": "手指、手腕与发力时机",
+          "system_id": "release"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -110,7 +118,8 @@
       "topics": [
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         }
       ]
     },
@@ -126,7 +135,8 @@
       "topics": [
         {
           "id": "equipment_safety-title-fallback",
-          "name": "装备成熟度与负荷安全（标题未细化）"
+          "name": "装备成熟度与负荷安全（标题未细化）",
+          "system_id": "equipment_safety"
         }
       ]
     },
@@ -142,15 +152,18 @@
       "topics": [
         {
           "id": "lyx-jump-smash",
-          "name": "跳杀与腾空进攻"
+          "name": "跳杀与腾空进攻",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -166,15 +179,18 @@
       "topics": [
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -190,15 +206,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -214,7 +233,8 @@
       "topics": [
         {
           "id": "lyx-elbow-release",
-          "name": "顶肘、摆肘与挥拍释放"
+          "name": "顶肘、摆肘与挥拍释放",
+          "system_id": "release"
         }
       ]
     },
@@ -230,7 +250,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -246,7 +267,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -262,7 +284,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -278,7 +301,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -294,7 +318,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -310,7 +335,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -326,7 +352,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -342,7 +369,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -358,7 +386,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -374,7 +403,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -390,7 +420,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -406,7 +437,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -422,7 +454,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -438,7 +471,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -454,7 +488,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -470,7 +505,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -486,7 +522,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -502,7 +539,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -518,7 +556,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -534,7 +573,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -550,7 +590,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -566,7 +607,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -582,7 +624,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -598,7 +641,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -614,7 +658,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -630,7 +675,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -646,7 +692,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -662,7 +709,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -678,7 +726,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -694,7 +743,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -710,7 +760,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -726,7 +777,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -742,7 +794,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -758,7 +811,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -774,7 +828,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -790,7 +845,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -806,7 +862,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -822,7 +879,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -838,7 +896,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -854,7 +913,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -870,7 +930,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -886,7 +947,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -902,7 +964,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -918,7 +981,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -934,7 +998,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -950,7 +1015,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -966,7 +1032,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -982,7 +1049,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -998,7 +1066,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1014,7 +1083,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1030,7 +1100,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1046,7 +1117,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1062,7 +1134,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1078,7 +1151,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1094,7 +1168,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1110,7 +1185,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1126,7 +1202,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1142,7 +1219,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1158,7 +1236,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1174,7 +1253,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1190,7 +1270,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1206,7 +1287,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1222,7 +1304,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1238,7 +1321,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1254,7 +1338,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1270,7 +1355,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1286,7 +1372,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1302,7 +1389,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1318,7 +1406,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1334,7 +1423,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1350,7 +1440,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1366,7 +1457,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1382,7 +1474,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1398,7 +1491,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1414,7 +1508,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1430,7 +1525,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1446,7 +1542,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1462,7 +1559,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1478,7 +1576,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1494,7 +1593,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1510,7 +1610,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1526,7 +1627,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1542,7 +1644,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1558,7 +1661,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1574,7 +1678,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1590,7 +1695,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1606,7 +1712,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1622,7 +1729,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1638,7 +1746,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1654,7 +1763,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1670,7 +1780,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1686,7 +1797,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1702,7 +1814,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1718,7 +1831,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1734,7 +1848,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1750,7 +1865,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1766,7 +1882,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1782,7 +1899,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1798,7 +1916,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1814,7 +1933,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1830,7 +1950,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1846,7 +1967,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1862,7 +1984,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1878,7 +2001,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1894,7 +2018,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1910,7 +2035,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1926,7 +2052,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1942,7 +2069,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1958,7 +2086,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1974,7 +2103,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -1990,7 +2120,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2006,7 +2137,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2022,7 +2154,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2038,7 +2171,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2054,7 +2188,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2070,7 +2205,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2086,7 +2222,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2102,7 +2239,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2118,7 +2256,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2134,7 +2273,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2150,7 +2290,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2166,7 +2307,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2182,7 +2324,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2198,7 +2341,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2214,7 +2358,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2230,7 +2375,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2246,7 +2392,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2262,7 +2409,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2278,7 +2426,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2294,7 +2443,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2310,7 +2460,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2326,7 +2477,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2342,7 +2494,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2358,7 +2511,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2374,7 +2528,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2390,7 +2545,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2406,7 +2562,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2422,7 +2579,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2438,7 +2596,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2454,7 +2613,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2470,7 +2630,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2486,7 +2647,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2502,7 +2664,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2518,7 +2681,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2534,7 +2698,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2550,7 +2715,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2566,7 +2732,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2582,7 +2749,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2598,7 +2766,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2614,7 +2783,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2630,7 +2800,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2646,7 +2817,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2662,7 +2834,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2678,7 +2851,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2694,7 +2868,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2710,7 +2885,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2726,7 +2902,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2742,7 +2919,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2758,7 +2936,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2774,7 +2953,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2790,7 +2970,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2806,7 +2987,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2822,7 +3004,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2838,7 +3021,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2854,7 +3038,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2870,7 +3055,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2886,7 +3072,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2902,7 +3089,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2918,7 +3106,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2934,7 +3123,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2950,7 +3140,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2966,7 +3157,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2982,7 +3174,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -2998,7 +3191,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3014,7 +3208,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3030,7 +3225,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3046,7 +3242,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3062,7 +3259,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3078,7 +3276,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3094,7 +3293,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3110,7 +3310,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3126,7 +3327,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3142,7 +3344,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3158,7 +3361,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3174,7 +3378,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3190,7 +3395,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3206,7 +3412,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3222,7 +3429,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3238,7 +3446,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3254,7 +3463,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3270,7 +3480,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3286,7 +3497,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3302,7 +3514,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3318,7 +3531,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3334,7 +3548,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3350,7 +3565,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3366,7 +3582,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3382,7 +3599,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3398,7 +3616,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3414,7 +3633,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3430,7 +3650,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3446,7 +3667,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3462,7 +3684,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3478,7 +3701,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3494,7 +3718,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3510,7 +3735,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3526,7 +3752,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3542,7 +3769,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3558,7 +3786,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3574,11 +3803,13 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -3594,11 +3825,13 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3614,7 +3847,8 @@
       "topics": [
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         }
       ]
     },
@@ -3630,11 +3864,13 @@
       "topics": [
         {
           "id": "lyx-receive",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "serve_receive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3650,7 +3886,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3666,7 +3903,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3682,7 +3920,8 @@
       "topics": [
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -3698,7 +3937,8 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3714,7 +3954,8 @@
       "topics": [
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         }
       ]
     },
@@ -3730,7 +3971,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3746,11 +3988,13 @@
       "topics": [
         {
           "id": "lyx-finger-wrist",
-          "name": "手指、手腕与发力时机"
+          "name": "手指、手腕与发力时机",
+          "system_id": "release"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -3766,7 +4010,8 @@
       "topics": [
         {
           "id": "footwork-title-fallback",
-          "name": "启动、到位、落地与回收（标题未细化）"
+          "name": "启动、到位、落地与回收（标题未细化）",
+          "system_id": "footwork"
         }
       ]
     },
@@ -3782,11 +4027,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3802,15 +4049,18 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3826,7 +4076,8 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -3842,15 +4093,18 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3866,7 +4120,8 @@
       "topics": [
         {
           "id": "learner_fit-title-fallback",
-          "name": "学习路径与综合答疑（标题未细化）"
+          "name": "学习路径与综合答疑（标题未细化）",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -3882,11 +4137,13 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -3902,7 +4159,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -3918,7 +4176,8 @@
       "topics": [
         {
           "id": "unresolved_title-title-fallback",
-          "name": "体系内待人工细分（标题未细化）"
+          "name": "体系内待人工细分（标题未细化）",
+          "system_id": "unresolved_title"
         }
       ]
     },
@@ -3934,7 +4193,8 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -3950,15 +4210,18 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-jump-smash",
-          "name": "跳杀与腾空进攻"
+          "name": "跳杀与腾空进攻",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -3974,11 +4237,13 @@
       "topics": [
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -3994,15 +4259,18 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4018,7 +4286,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4034,11 +4303,13 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -4054,7 +4325,8 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4070,11 +4342,13 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4090,7 +4364,8 @@
       "topics": [
         {
           "id": "unresolved_title-title-fallback",
-          "name": "体系内待人工细分（标题未细化）"
+          "name": "体系内待人工细分（标题未细化）",
+          "system_id": "unresolved_title"
         }
       ]
     },
@@ -4106,7 +4381,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4122,7 +4398,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4138,7 +4415,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4154,15 +4432,18 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4178,11 +4459,13 @@
       "topics": [
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4198,11 +4481,13 @@
       "topics": [
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4218,11 +4503,13 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4238,11 +4525,13 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4258,15 +4547,18 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4282,7 +4574,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -4298,7 +4591,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4314,11 +4608,13 @@
       "topics": [
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4334,11 +4630,13 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4354,15 +4652,18 @@
       "topics": [
         {
           "id": "lyx-receive",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "serve_receive"
         },
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4378,7 +4679,8 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4394,11 +4696,13 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4414,7 +4718,8 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4430,11 +4735,13 @@
       "topics": [
         {
           "id": "lyx-receive",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "serve_receive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4450,15 +4757,18 @@
       "topics": [
         {
           "id": "lyx-jump-smash",
-          "name": "跳杀与腾空进攻"
+          "name": "跳杀与腾空进攻",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -4474,15 +4784,18 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4498,11 +4811,13 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -4518,11 +4833,13 @@
       "topics": [
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -4538,7 +4855,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -4554,7 +4872,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -4570,11 +4889,13 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4590,15 +4911,18 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4614,7 +4938,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4630,7 +4955,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4646,7 +4972,8 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4662,11 +4989,13 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4682,7 +5011,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4698,7 +5028,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4714,7 +5045,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -4730,7 +5062,8 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -4746,7 +5079,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4762,7 +5096,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4778,15 +5113,18 @@
       "topics": [
         {
           "id": "lyx-jump-smash",
-          "name": "跳杀与腾空进攻"
+          "name": "跳杀与腾空进攻",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4802,11 +5140,13 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4822,11 +5162,13 @@
       "topics": [
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4842,7 +5184,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -4858,7 +5201,8 @@
       "topics": [
         {
           "id": "lyx-point-heavy-smash",
-          "name": "点杀、重杀与杀球加速"
+          "name": "点杀、重杀与杀球加速",
+          "system_id": "smash"
         }
       ]
     },
@@ -4874,7 +5218,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4890,7 +5235,8 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -4906,7 +5252,8 @@
       "topics": [
         {
           "id": "lyx-racket-preparation",
-          "name": "握拍、架拍与引拍"
+          "name": "握拍、架拍与引拍",
+          "system_id": "release"
         }
       ]
     },
@@ -4922,7 +5269,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4938,7 +5286,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -4954,11 +5303,13 @@
       "topics": [
         {
           "id": "lyx-front-lunge",
-          "name": "网前跨步与第一响应"
+          "name": "网前跨步与第一响应",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -4974,15 +5325,18 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -4998,15 +5352,18 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         },
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5022,15 +5379,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -5046,7 +5406,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -5062,7 +5423,8 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -5078,11 +5440,13 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -5098,11 +5462,13 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5118,7 +5484,8 @@
       "topics": [
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5134,7 +5501,8 @@
       "topics": [
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5150,7 +5518,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -5166,7 +5535,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5182,7 +5552,8 @@
       "topics": [
         {
           "id": "lyx-serve",
-          "name": "发球稳定性与个人适配"
+          "name": "发球稳定性与个人适配",
+          "system_id": "serve_receive"
         }
       ]
     },
@@ -5198,7 +5569,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5214,15 +5586,18 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5238,7 +5613,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5254,7 +5630,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -5270,7 +5647,8 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5286,7 +5664,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5302,15 +5681,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -5326,15 +5708,18 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-load-safety",
-          "name": "热身、伤痛与训练负荷"
+          "name": "热身、伤痛与训练负荷",
+          "system_id": "equipment_safety"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5350,7 +5735,8 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -5366,15 +5752,18 @@
       "topics": [
         {
           "id": "lyx-point-heavy-smash",
-          "name": "点杀、重杀与杀球加速"
+          "name": "点杀、重杀与杀球加速",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5390,15 +5779,18 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5414,15 +5806,18 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5438,7 +5833,8 @@
       "topics": [
         {
           "id": "lyx-elbow-release",
-          "name": "顶肘、摆肘与挥拍释放"
+          "name": "顶肘、摆肘与挥拍释放",
+          "system_id": "release"
         }
       ]
     },
@@ -5454,7 +5850,8 @@
       "topics": [
         {
           "id": "lyx-elbow-release",
-          "name": "顶肘、摆肘与挥拍释放"
+          "name": "顶肘、摆肘与挥拍释放",
+          "system_id": "release"
         }
       ]
     },
@@ -5470,11 +5867,13 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5490,7 +5889,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5506,11 +5906,13 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5526,7 +5928,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5542,7 +5945,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5558,7 +5962,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5574,7 +5979,8 @@
       "topics": [
         {
           "id": "lyx-load-safety",
-          "name": "热身、伤痛与训练负荷"
+          "name": "热身、伤痛与训练负荷",
+          "system_id": "equipment_safety"
         }
       ]
     },
@@ -5590,11 +5996,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5610,7 +6018,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5626,7 +6035,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5642,7 +6052,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5658,11 +6069,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5678,15 +6091,18 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5702,7 +6118,8 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -5718,15 +6135,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5742,11 +6162,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -5762,7 +6184,8 @@
       "topics": [
         {
           "id": "lyx-slice-smash",
-          "name": "劈杀与角度进攻"
+          "name": "劈杀与角度进攻",
+          "system_id": "smash"
         }
       ]
     },
@@ -5778,7 +6201,8 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -5794,15 +6218,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5818,15 +6245,18 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5842,11 +6272,13 @@
       "topics": [
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -5862,11 +6294,13 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5882,7 +6316,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -5898,7 +6333,8 @@
       "topics": [
         {
           "id": "lyx-equipment",
-          "name": "球拍选择与装备适配"
+          "name": "球拍选择与装备适配",
+          "system_id": "equipment_safety"
         }
       ]
     },
@@ -5914,15 +6350,18 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5938,7 +6377,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -5954,7 +6394,8 @@
       "topics": [
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5970,11 +6411,13 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -5990,7 +6433,8 @@
       "topics": [
         {
           "id": "lyx-equipment",
-          "name": "球拍选择与装备适配"
+          "name": "球拍选择与装备适配",
+          "system_id": "equipment_safety"
         }
       ]
     },
@@ -6006,11 +6450,13 @@
       "topics": [
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6026,7 +6472,8 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -6042,11 +6489,13 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6062,7 +6511,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6078,7 +6528,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6094,11 +6545,13 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6114,7 +6567,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6130,11 +6584,13 @@
       "topics": [
         {
           "id": "lyx-serve",
-          "name": "发球稳定性与个人适配"
+          "name": "发球稳定性与个人适配",
+          "system_id": "serve_receive"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6150,7 +6606,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6166,7 +6623,8 @@
       "topics": [
         {
           "id": "lyx-net-control",
-          "name": "网前控球与处理"
+          "name": "网前控球与处理",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6182,7 +6640,8 @@
       "topics": [
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -6198,11 +6657,13 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -6218,7 +6679,8 @@
       "topics": [
         {
           "id": "lyx-live-qa",
-          "name": "学习路径与技术答疑"
+          "name": "学习路径与技术答疑",
+          "system_id": "learner_fit"
         }
       ]
     },
@@ -6234,11 +6696,13 @@
       "topics": [
         {
           "id": "lyx-high-clear-distance",
-          "name": "高远球距离与后场到位"
+          "name": "高远球距离与后场到位",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         }
       ]
     },
@@ -6254,15 +6718,18 @@
       "topics": [
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-elbow-release",
-          "name": "顶肘、摆肘与挥拍释放"
+          "name": "顶肘、摆肘与挥拍释放",
+          "system_id": "release"
         }
       ]
     },
@@ -6278,15 +6745,18 @@
       "topics": [
         {
           "id": "lyx-rear-start",
-          "name": "后场启动与第一步"
+          "name": "后场启动与第一步",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-front-lunge",
-          "name": "网前跨步与第一响应"
+          "name": "网前跨步与第一响应",
+          "system_id": "footwork"
         },
         {
           "id": "lyx-recovery",
-          "name": "落地、回位与移动衔接"
+          "name": "落地、回位与移动衔接",
+          "system_id": "footwork"
         }
       ]
     },
@@ -6302,11 +6772,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         }
       ]
     },
@@ -6322,15 +6794,18 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-hip-release",
-          "name": "转髋、内旋与身体带动"
+          "name": "转髋、内旋与身体带动",
+          "system_id": "release"
         },
         {
           "id": "lyx-drive",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6346,7 +6821,8 @@
       "topics": [
         {
           "id": "outside-teaching-system",
-          "name": "体系外：公告、生活或产品信息"
+          "name": "体系外：公告、生活或产品信息",
+          "system_id": "outside_teaching_system"
         }
       ]
     },
@@ -6362,7 +6838,8 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6378,7 +6855,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6394,7 +6872,8 @@
       "topics": [
         {
           "id": "lyx-drop-variation",
-          "name": "吊球与头顶变化"
+          "name": "吊球与头顶变化",
+          "system_id": "drop_drive"
         }
       ]
     },
@@ -6410,11 +6889,13 @@
       "topics": [
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-rally-transfer",
-          "name": "实战对抗与球路迁移"
+          "name": "实战对抗与球路迁移",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6430,11 +6911,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6450,7 +6933,8 @@
       "topics": [
         {
           "id": "lyx-point-heavy-smash",
-          "name": "点杀、重杀与杀球加速"
+          "name": "点杀、重杀与杀球加速",
+          "system_id": "smash"
         }
       ]
     },
@@ -6466,7 +6950,8 @@
       "topics": [
         {
           "id": "lyx-backhand",
-          "name": "反手早选择与紧凑回复"
+          "name": "反手早选择与紧凑回复",
+          "system_id": "backhand_time_budget"
         }
       ]
     },
@@ -6482,11 +6967,13 @@
       "topics": [
         {
           "id": "lyx-point-heavy-smash",
-          "name": "点杀、重杀与杀球加速"
+          "name": "点杀、重杀与杀球加速",
+          "system_id": "smash"
         },
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         }
       ]
     },
@@ -6502,15 +6989,18 @@
       "topics": [
         {
           "id": "lyx-high-clear-distance",
-          "name": "高远球距离与后场到位"
+          "name": "高远球距离与后场到位",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-high-clear",
-          "name": "高远球与头顶击球"
+          "name": "高远球与头顶击球",
+          "system_id": "high_clear"
         },
         {
           "id": "lyx-rear-turn",
-          "name": "后场转身与确认步"
+          "name": "后场转身与确认步",
+          "system_id": "footwork"
         }
       ]
     },
@@ -6526,7 +7016,8 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6542,11 +7033,13 @@
       "topics": [
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         },
         {
           "id": "lyx-doubles-roles",
-          "name": "双打轮转与前两拍分工"
+          "name": "双打轮转与前两拍分工",
+          "system_id": "match_transfer"
         }
       ]
     },
@@ -6562,11 +7055,13 @@
       "topics": [
         {
           "id": "lyx-basic-smash",
-          "name": "杀球基础与进攻动作"
+          "name": "杀球基础与进攻动作",
+          "system_id": "smash"
         },
         {
           "id": "lyx-defense-transition",
-          "name": "防守、接杀与被动过渡"
+          "name": "防守、接杀与被动过渡",
+          "system_id": "match_transfer"
         }
       ]
     }

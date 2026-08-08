@@ -53,3 +53,32 @@ def available_coach_actions(coach_id: str, root: str | Path) -> list[str]:
             if action
         }
     )
+
+
+def find_topic_teaching_units(
+    coach_id: str,
+    root: str | Path,
+    *,
+    topic_id: str | None = None,
+    source_id: str | None = None,
+) -> list[dict[str, Any]]:
+    """Retrieve knowledge-only topic units without selecting any media.
+
+    A caller may use a public title route to find a detailed coach-system
+    unit.  Media remains absent until the private audit binds an exact
+    reviewed source/topic asset, so this helper cannot cause cross-topic clip
+    substitution.
+    """
+    if not topic_id and not source_id:
+        raise ValueError("topic_id or source_id is required")
+    units = load_coach_knowledge(coach_id, root).get("topic_teaching_units", {})
+    if not isinstance(units, dict):
+        return []
+    results = [
+        dict(unit)
+        for unit in units.get("units", [])
+        if isinstance(unit, dict)
+        and (not topic_id or unit.get("topic_id") == topic_id)
+        and (not source_id or source_id in unit.get("source_ids", []))
+    ]
+    return sorted(results, key=lambda unit: str(unit.get("topic_id", "")))

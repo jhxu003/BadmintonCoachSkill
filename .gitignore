@@ -41,6 +41,8 @@ build/
 !/scripts/build_private_coach_media_inventory.py
 !/scripts/validate_private_coach_media_inventory.py
 !/scripts/build_private_coach_media_preview.py
+!/scripts/build_coach_topic_teaching_units.py
+!/scripts/build_private_coach_skill_evidence_audit.py
 /logs/
 /cache/
 /caches/

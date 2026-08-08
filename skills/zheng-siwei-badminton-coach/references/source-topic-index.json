@@ -18,7 +18,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -34,7 +35,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -50,7 +52,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -66,7 +69,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -82,7 +86,8 @@
       "topics": [
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -98,7 +103,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack-footwork",
-          "name": "后场突击步法与退出"
+          "name": "后场突击步法与退出",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -114,11 +120,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-left-receive",
-          "name": "左半场接发路线"
+          "name": "左半场接发路线",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -134,7 +142,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -150,7 +159,8 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -166,7 +176,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -182,7 +193,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -198,11 +210,13 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -218,11 +232,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -238,11 +254,13 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -258,7 +276,8 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -274,7 +293,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -290,7 +310,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -306,7 +327,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -322,7 +344,8 @@
       "topics": [
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -338,7 +361,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -354,15 +378,18 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-unload-counter",
-          "name": "卸力挡网与防守反击"
+          "name": "卸力挡网与防守反击",
+          "system_id": "defense_transition"
         },
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -378,7 +405,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -394,15 +422,18 @@
       "topics": [
         {
           "id": "zsw-backhand-net",
-          "name": "反手网前搓、抹与处理"
+          "name": "反手网前搓、抹与处理",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -418,7 +449,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -434,7 +466,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -450,7 +483,8 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -466,7 +500,8 @@
       "topics": [
         {
           "id": "zsw-warmup-load",
-          "name": "热身、康复与训练负荷"
+          "name": "热身、康复与训练负荷",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -482,11 +517,13 @@
       "topics": [
         {
           "id": "zsw-hook-diagonal",
-          "name": "正手中半场勾对角"
+          "name": "正手中半场勾对角",
+          "system_id": "defense_transition"
         },
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -502,7 +539,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -518,7 +556,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -534,7 +573,8 @@
       "topics": [
         {
           "id": "frontcourt_pressure-title-fallback",
-          "name": "网前压迫与封网（标题未细化）"
+          "name": "网前压迫与封网（标题未细化）",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -550,7 +590,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -566,11 +607,13 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         },
         {
           "id": "zsw-backhand-low-transition",
-          "name": "反手底线低手位过渡"
+          "name": "反手底线低手位过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -586,7 +629,8 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -602,11 +646,13 @@
       "topics": [
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         },
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -622,7 +668,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -638,15 +685,18 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-unload-counter",
-          "name": "卸力挡网与防守反击"
+          "name": "卸力挡网与防守反击",
+          "system_id": "defense_transition"
         },
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -662,11 +712,13 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         },
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -682,7 +734,8 @@
       "topics": [
         {
           "id": "frontcourt_pressure-title-fallback",
-          "name": "网前压迫与封网（标题未细化）"
+          "name": "网前压迫与封网（标题未细化）",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -698,7 +751,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack-footwork",
-          "name": "后场突击步法与退出"
+          "name": "后场突击步法与退出",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -714,7 +768,8 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -730,7 +785,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack-footwork",
-          "name": "后场突击步法与退出"
+          "name": "后场突击步法与退出",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -746,7 +802,8 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -762,7 +819,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -778,7 +836,8 @@
       "topics": [
         {
           "id": "frontcourt_pressure-title-fallback",
-          "name": "网前压迫与封网（标题未细化）"
+          "name": "网前压迫与封网（标题未细化）",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -794,11 +853,13 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -814,7 +875,8 @@
       "topics": [
         {
           "id": "zsw-backhand-low-transition",
-          "name": "反手底线低手位过渡"
+          "name": "反手底线低手位过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -830,7 +892,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -846,7 +909,8 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -862,11 +926,13 @@
       "topics": [
         {
           "id": "zsw-backhand-net",
-          "name": "反手网前搓、抹与处理"
+          "name": "反手网前搓、抹与处理",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -882,7 +948,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -898,11 +965,13 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -918,7 +987,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -934,7 +1004,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -950,7 +1021,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack-footwork",
-          "name": "后场突击步法与退出"
+          "name": "后场突击步法与退出",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -966,11 +1038,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -986,7 +1060,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-transition",
-          "name": "正手中半场过渡与借力"
+          "name": "正手中半场过渡与借力",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -1002,7 +1077,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -1018,7 +1094,8 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -1034,11 +1111,13 @@
       "topics": [
         {
           "id": "zsw-backhand-net",
-          "name": "反手网前搓、抹与处理"
+          "name": "反手网前搓、抹与处理",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -1054,7 +1133,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack-footwork",
-          "name": "后场突击步法与退出"
+          "name": "后场突击步法与退出",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -1070,7 +1150,8 @@
       "topics": [
         {
           "id": "zsw-backhand-low-transition",
-          "name": "反手底线低手位过渡"
+          "name": "反手底线低手位过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -1086,15 +1167,18 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -1110,11 +1194,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -1130,7 +1216,8 @@
       "topics": [
         {
           "id": "zsw-serve-opening",
-          "name": "发球与第三拍计划"
+          "name": "发球与第三拍计划",
+          "system_id": "serve_opening"
         }
       ]
     },
@@ -1146,11 +1233,13 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -1166,11 +1255,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1186,7 +1277,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -1202,11 +1294,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         }
       ]
     },
@@ -1222,7 +1316,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1238,7 +1333,8 @@
       "topics": [
         {
           "id": "zsw-backhand-net",
-          "name": "反手网前搓、抹与处理"
+          "name": "反手网前搓、抹与处理",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -1254,7 +1350,8 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1270,11 +1367,13 @@
       "topics": [
         {
           "id": "zsw-front-back-rotation",
-          "name": "后杀前封与前后轮转"
+          "name": "后杀前封与前后轮转",
+          "system_id": "pair_rotation_two_lanes"
         },
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -1290,11 +1389,13 @@
       "topics": [
         {
           "id": "zsw-receive-opening",
-          "name": "接发与前两拍衔接"
+          "name": "接发与前两拍衔接",
+          "system_id": "receive_opening_exchange"
         },
         {
           "id": "zsw-cut-waist-receive",
-          "name": "接发切腰与下一拍"
+          "name": "接发切腰与下一拍",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1310,7 +1411,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -1326,7 +1428,8 @@
       "topics": [
         {
           "id": "zsw-rear-attack",
-          "name": "后场进攻与杀球连续性"
+          "name": "后场进攻与杀球连续性",
+          "system_id": "rear_attack_continuity"
         }
       ]
     },
@@ -1342,7 +1445,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1358,7 +1462,8 @@
       "topics": [
         {
           "id": "zsw-midcourt-drive",
-          "name": "中半场平抽与快推"
+          "name": "中半场平抽与快推",
+          "system_id": "receive_opening_exchange"
         }
       ]
     },
@@ -1374,7 +1479,8 @@
       "topics": [
         {
           "id": "zsw-flat-defense",
-          "name": "平快球泄力与防守过渡"
+          "name": "平快球泄力与防守过渡",
+          "system_id": "defense_transition"
         }
       ]
     },
@@ -1390,7 +1496,8 @@
       "topics": [
         {
           "id": "zsw-net-pressure",
-          "name": "网前扑、抹、封与贴网"
+          "name": "网前扑、抹、封与贴网",
+          "system_id": "frontcourt_pressure"
         }
       ]
     },
@@ -1406,7 +1513,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -1422,7 +1530,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     },
@@ -1438,7 +1547,8 @@
       "topics": [
         {
           "id": "zsw-match-review",
-          "name": "比赛球路与复盘"
+          "name": "比赛球路与复盘",
+          "system_id": "reset_match_transfer"
         }
       ]
     }

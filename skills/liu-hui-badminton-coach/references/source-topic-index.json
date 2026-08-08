@@ -18,7 +18,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -34,15 +35,18 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -58,7 +62,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -74,11 +79,13 @@
       "topics": [
         {
           "id": "liu-top-elbow",
-          "name": "顶肘与肘部路线"
+          "name": "顶肘与肘部路线",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -94,7 +101,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -110,7 +118,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -126,7 +135,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -142,11 +152,13 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -162,11 +174,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -182,15 +196,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -206,7 +223,8 @@
       "topics": [
         {
           "id": "liu-recovery",
-          "name": "回位、恢复与腿部弹性"
+          "name": "回位、恢复与腿部弹性",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -222,11 +240,13 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -242,7 +262,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -258,11 +279,13 @@
       "topics": [
         {
           "id": "liu-rear-footwork",
-          "name": "后场步法、启动与中国跳"
+          "name": "后场步法、启动与中国跳",
+          "system_id": "footwork_arrival_recovery"
         },
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -278,11 +301,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -298,15 +323,18 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -322,15 +350,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -346,15 +377,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -370,11 +404,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -390,7 +426,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -406,7 +443,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -422,7 +460,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -438,7 +477,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -454,11 +494,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -474,11 +516,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -494,7 +538,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -510,7 +555,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -526,11 +572,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -546,7 +594,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -562,7 +611,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -578,15 +628,18 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -602,11 +655,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -622,7 +677,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -638,11 +694,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -658,7 +716,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -674,7 +733,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -690,15 +750,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -714,15 +777,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -738,15 +804,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -762,7 +831,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -778,11 +848,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -798,11 +870,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -818,11 +892,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -838,11 +914,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -858,7 +936,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -874,7 +953,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -890,11 +970,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -910,7 +992,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -926,7 +1009,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -942,11 +1026,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -962,7 +1048,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -978,15 +1065,18 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-rear-footwork",
-          "name": "后场步法、启动与中国跳"
+          "name": "后场步法、启动与中国跳",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -1002,15 +1092,18 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-rear-footwork",
-          "name": "后场步法、启动与中国跳"
+          "name": "后场步法、启动与中国跳",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -1026,7 +1119,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -1042,7 +1136,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -1058,7 +1153,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1074,15 +1170,18 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1098,11 +1197,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -1118,15 +1219,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -1142,11 +1246,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1162,7 +1268,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -1178,7 +1285,8 @@
       "topics": [
         {
           "id": "liu-load-and-pain",
-          "name": "伤痛、负荷与安全"
+          "name": "伤痛、负荷与安全",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -1194,7 +1302,8 @@
       "topics": [
         {
           "id": "liu-top-elbow",
-          "name": "顶肘与肘部路线"
+          "name": "顶肘与肘部路线",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1210,7 +1319,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1226,7 +1336,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1242,7 +1353,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -1258,7 +1370,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -1274,7 +1387,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1290,7 +1404,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -1306,7 +1421,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -1322,15 +1438,18 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1346,7 +1465,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1362,7 +1482,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1378,7 +1499,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1394,7 +1516,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1410,7 +1533,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1426,7 +1550,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1442,7 +1567,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1458,7 +1584,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1474,11 +1601,13 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1494,11 +1623,13 @@
       "topics": [
         {
           "id": "liu-receive-defense",
-          "name": "接杀与防守过渡"
+          "name": "接杀与防守过渡",
+          "system_id": "drive_receive_and_front_exchange"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -1514,7 +1645,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1530,7 +1662,8 @@
       "topics": [
         {
           "id": "footwork_arrival_recovery-title-fallback",
-          "name": "步法、到位与回收（标题未细化）"
+          "name": "步法、到位与回收（标题未细化）",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -1546,7 +1679,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1562,7 +1696,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1578,7 +1713,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -1594,7 +1730,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1610,7 +1747,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -1626,11 +1764,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -1646,7 +1786,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1662,7 +1803,8 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1678,7 +1820,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1694,7 +1837,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1710,7 +1854,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1726,15 +1871,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1750,7 +1898,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -1766,7 +1915,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1782,7 +1932,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1798,7 +1949,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1814,11 +1966,13 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1834,7 +1988,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1850,11 +2005,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1870,7 +2027,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1886,11 +2044,13 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1906,7 +2066,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1922,7 +2083,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -1938,7 +2100,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -1954,7 +2117,8 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1970,11 +2134,13 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -1990,7 +2156,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2006,11 +2173,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2026,7 +2195,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2042,7 +2212,8 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2058,11 +2229,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2078,7 +2251,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2094,7 +2268,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2110,7 +2285,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2126,7 +2302,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2142,7 +2319,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2158,7 +2336,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2174,7 +2353,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2190,7 +2370,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2206,7 +2387,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2222,7 +2404,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2238,7 +2421,8 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2254,7 +2438,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2270,11 +2455,13 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2290,7 +2477,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2306,7 +2494,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2322,15 +2511,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -2346,7 +2538,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2362,7 +2555,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2378,7 +2572,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2394,7 +2589,8 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2410,11 +2606,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -2430,7 +2628,8 @@
       "topics": [
         {
           "id": "liu-load-and-pain",
-          "name": "伤痛、负荷与安全"
+          "name": "伤痛、负荷与安全",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -2446,7 +2645,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2462,7 +2662,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2478,7 +2679,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2494,7 +2696,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2510,7 +2713,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2526,7 +2730,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2542,15 +2747,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2566,7 +2774,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2582,7 +2791,8 @@
       "topics": [
         {
           "id": "footwork_arrival_recovery-title-fallback",
-          "name": "步法、到位与回收（标题未细化）"
+          "name": "步法、到位与回收（标题未细化）",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -2598,15 +2808,18 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -2622,7 +2835,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2638,7 +2852,8 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -2654,7 +2869,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2670,7 +2886,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2686,7 +2903,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2702,7 +2920,8 @@
       "topics": [
         {
           "id": "footwork_arrival_recovery-title-fallback",
-          "name": "步法、到位与回收（标题未细化）"
+          "name": "步法、到位与回收（标题未细化）",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -2718,7 +2937,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2734,7 +2954,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2750,11 +2971,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2770,11 +2993,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2790,7 +3015,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -2806,7 +3032,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -2822,7 +3049,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2838,11 +3066,13 @@
       "topics": [
         {
           "id": "liu-load-and-pain",
-          "name": "伤痛、负荷与安全"
+          "name": "伤痛、负荷与安全",
+          "system_id": "safety_equipment_and_load_selection"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -2858,15 +3088,18 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -2882,7 +3115,8 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -2898,11 +3132,13 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -2918,7 +3154,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -2934,7 +3171,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -2950,7 +3188,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -2966,15 +3205,18 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-rear-footwork",
-          "name": "后场步法、启动与中国跳"
+          "name": "后场步法、启动与中国跳",
+          "system_id": "footwork_arrival_recovery"
         },
         {
           "id": "liu-doubles-continuity",
-          "name": "双打轮转与连续覆盖"
+          "name": "双打轮转与连续覆盖",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -2990,11 +3232,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3010,7 +3254,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3026,7 +3271,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3042,7 +3288,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3058,11 +3305,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -3078,7 +3327,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -3094,11 +3344,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3114,7 +3366,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3130,7 +3383,8 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3146,11 +3400,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3166,11 +3422,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3186,7 +3444,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3202,7 +3461,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3218,11 +3478,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3238,7 +3500,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3254,11 +3517,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3274,11 +3539,13 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -3294,11 +3561,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3314,15 +3583,18 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3338,15 +3610,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3362,7 +3637,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3378,11 +3654,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3398,15 +3676,18 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -3422,15 +3703,18 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -3446,11 +3730,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3466,7 +3752,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3482,7 +3769,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3498,7 +3786,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3514,15 +3803,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3538,11 +3830,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3558,7 +3852,8 @@
       "topics": [
         {
           "id": "student_fit_and_diagnosis-title-fallback",
-          "name": "学员匹配、诊断与训练路径（标题未细化）"
+          "name": "学员匹配、诊断与训练路径（标题未细化）",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -3574,11 +3869,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3594,7 +3891,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3610,7 +3908,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3626,11 +3925,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3646,7 +3947,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3662,7 +3964,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -3678,7 +3981,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3694,7 +3998,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3710,11 +4015,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3730,11 +4037,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3750,7 +4059,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3766,11 +4076,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3786,7 +4098,8 @@
       "topics": [
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -3802,15 +4115,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3826,11 +4142,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -3846,7 +4164,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -3862,7 +4181,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3878,15 +4198,18 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3902,11 +4225,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3922,11 +4247,13 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -3942,7 +4269,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3958,7 +4286,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -3974,11 +4303,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -3994,7 +4325,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4010,7 +4342,8 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -4026,7 +4359,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4042,7 +4376,8 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         }
       ]
     },
@@ -4058,11 +4393,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4078,7 +4415,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4094,7 +4432,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4110,11 +4449,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4130,11 +4471,13 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4150,15 +4493,18 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4174,7 +4520,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4190,11 +4537,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4210,11 +4559,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4230,11 +4581,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4250,11 +4603,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4270,7 +4625,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4286,11 +4642,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4306,7 +4664,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4322,11 +4681,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4342,11 +4703,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4362,15 +4725,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-doubles-continuity",
-          "name": "双打轮转与连续覆盖"
+          "name": "双打轮转与连续覆盖",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -4386,11 +4752,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4406,11 +4774,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4426,11 +4796,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4446,7 +4818,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4462,11 +4835,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4482,11 +4857,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4502,7 +4879,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4518,11 +4896,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4538,11 +4918,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4558,11 +4940,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4578,11 +4962,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -4598,7 +4984,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -4614,11 +5001,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4634,11 +5023,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -4654,7 +5045,8 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -4670,7 +5062,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4686,7 +5079,8 @@
       "topics": [
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -4702,15 +5096,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -4726,7 +5123,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -4742,7 +5140,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -4758,11 +5157,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4778,7 +5179,8 @@
       "topics": [
         {
           "id": "liu-hip-trunk",
-          "name": "转髋与躯干带动"
+          "name": "转髋与躯干带动",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4794,11 +5196,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4814,11 +5218,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -4834,7 +5240,8 @@
       "topics": [
         {
           "id": "footwork_arrival_recovery-title-fallback",
-          "name": "步法、到位与回收（标题未细化）"
+          "name": "步法、到位与回收（标题未细化）",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -4850,7 +5257,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4866,7 +5274,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -4882,7 +5291,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4898,15 +5308,18 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -4922,11 +5335,13 @@
       "topics": [
         {
           "id": "liu-hip-trunk",
-          "name": "转髋与躯干带动"
+          "name": "转髋与躯干带动",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4942,11 +5357,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4962,11 +5379,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -4982,7 +5401,8 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -4998,7 +5418,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5014,7 +5435,8 @@
       "topics": [
         {
           "id": "rear_court_base_and_high_clear-title-fallback",
-          "name": "后场基础与高远球（标题未细化）"
+          "name": "后场基础与高远球（标题未细化）",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -5030,15 +5452,18 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -5054,7 +5479,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5070,11 +5496,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5090,7 +5518,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5106,7 +5535,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5122,11 +5552,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5142,11 +5574,13 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5162,7 +5596,8 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -5178,11 +5613,13 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5198,11 +5635,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-receive-defense",
-          "name": "接杀与防守过渡"
+          "name": "接杀与防守过渡",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -5218,11 +5657,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5238,11 +5679,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5258,11 +5701,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5278,7 +5723,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5294,15 +5740,18 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5318,11 +5767,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5338,7 +5789,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5354,7 +5806,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5370,7 +5823,8 @@
       "topics": [
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -5386,11 +5840,13 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5406,7 +5862,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5422,7 +5879,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5438,11 +5896,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5458,7 +5918,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5474,11 +5935,13 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -5494,7 +5957,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5510,7 +5974,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5526,7 +5991,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5542,7 +6008,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5558,11 +6025,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5578,11 +6047,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5598,7 +6069,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5614,7 +6086,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5630,7 +6103,8 @@
       "topics": [
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5646,7 +6120,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -5662,7 +6137,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -5678,7 +6154,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -5694,7 +6171,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -5710,7 +6188,8 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -5726,7 +6205,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5742,11 +6222,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5762,11 +6244,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5782,7 +6266,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -5798,7 +6283,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5814,11 +6300,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5834,11 +6322,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5854,11 +6344,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5874,11 +6366,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -5894,7 +6388,8 @@
       "topics": [
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -5910,11 +6405,13 @@
       "topics": [
         {
           "id": "liu-slice-smash",
-          "name": "劈杀与切杀"
+          "name": "劈杀与切杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-rear-footwork",
-          "name": "后场步法、启动与中国跳"
+          "name": "后场步法、启动与中国跳",
+          "system_id": "footwork_arrival_recovery"
         }
       ]
     },
@@ -5930,15 +6427,18 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -5954,7 +6454,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -5970,7 +6471,8 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -5986,11 +6488,13 @@
       "topics": [
         {
           "id": "liu-top-elbow",
-          "name": "顶肘与肘部路线"
+          "name": "顶肘与肘部路线",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -6006,7 +6510,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -6022,7 +6527,8 @@
       "topics": [
         {
           "id": "liu-drive-exchange",
-          "name": "平抽挡与快速交换"
+          "name": "平抽挡与快速交换",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -6038,11 +6544,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6058,15 +6566,18 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6082,15 +6593,18 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6106,11 +6620,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6126,11 +6642,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6146,11 +6664,13 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6166,7 +6686,8 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6182,7 +6703,8 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6198,7 +6720,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -6214,11 +6737,13 @@
       "topics": [
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-match-transfer",
-          "name": "实战迁移与回合连贯"
+          "name": "实战迁移与回合连贯",
+          "system_id": "doubles_singles_tactics_and_match_transfer"
         }
       ]
     },
@@ -6234,7 +6759,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6250,7 +6776,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6266,7 +6793,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6282,7 +6810,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6298,7 +6827,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6314,11 +6844,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6334,15 +6866,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6358,7 +6893,8 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6374,7 +6910,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6390,11 +6927,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6410,7 +6949,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6426,11 +6966,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6446,11 +6988,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6466,7 +7010,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6482,11 +7027,13 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6502,11 +7049,13 @@
       "topics": [
         {
           "id": "liu-slide-drop",
-          "name": "滑板吊球"
+          "name": "滑板吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6522,7 +7071,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6538,7 +7088,8 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6554,7 +7105,8 @@
       "topics": [
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -6570,7 +7122,8 @@
       "topics": [
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6586,11 +7139,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -6606,11 +7161,13 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6626,15 +7183,18 @@
       "topics": [
         {
           "id": "liu-point-fast-smash",
-          "name": "点杀、快杀与挥速"
+          "name": "点杀、快杀与挥速",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-top-elbow",
-          "name": "顶肘与肘部路线"
+          "name": "顶肘与肘部路线",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6650,7 +7210,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6666,15 +7227,18 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6690,7 +7254,8 @@
       "topics": [
         {
           "id": "liu-heavy-slice-drop",
-          "name": "重劈、重切与劈吊"
+          "name": "重劈、重切与劈吊",
+          "system_id": "drop_slice_slide_variation"
         }
       ]
     },
@@ -6706,7 +7271,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -6722,7 +7288,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6738,11 +7305,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6758,7 +7327,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6774,11 +7344,13 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-contact-window",
-          "name": "击球点与甜区"
+          "name": "击球点与甜区",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -6794,7 +7366,8 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6810,11 +7383,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6830,11 +7405,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6850,7 +7427,8 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6866,15 +7444,18 @@
       "topics": [
         {
           "id": "liu-jump-smash",
-          "name": "跳杀与起跳落地"
+          "name": "跳杀与起跳落地",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -6890,7 +7471,8 @@
       "topics": [
         {
           "id": "overhead_power_chain-title-fallback",
-          "name": "头顶发力链与拍侧结构（标题未细化）"
+          "name": "头顶发力链与拍侧结构（标题未细化）",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6906,7 +7488,8 @@
       "topics": [
         {
           "id": "liu-serve-receive",
-          "name": "发球、接发与开局"
+          "name": "发球、接发与开局",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -6922,11 +7505,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-receive-defense",
-          "name": "接杀与防守过渡"
+          "name": "接杀与防守过渡",
+          "system_id": "drive_receive_and_front_exchange"
         }
       ]
     },
@@ -6942,15 +7527,18 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -6966,7 +7554,8 @@
       "topics": [
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6982,7 +7571,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -6998,7 +7588,8 @@
       "topics": [
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -7014,11 +7605,13 @@
       "topics": [
         {
           "id": "liu-heavy-smash",
-          "name": "重杀与下压"
+          "name": "重杀与下压",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -7034,7 +7627,8 @@
       "topics": [
         {
           "id": "liu-equipment-selection",
-          "name": "球拍参数与装备适配"
+          "name": "球拍参数与装备适配",
+          "system_id": "safety_equipment_and_load_selection"
         }
       ]
     },
@@ -7050,7 +7644,8 @@
       "topics": [
         {
           "id": "liu-internal-rotation",
-          "name": "内旋与手臂释放"
+          "name": "内旋与手臂释放",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -7066,15 +7661,18 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -7090,7 +7688,8 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -7106,15 +7705,18 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -7130,11 +7732,13 @@
       "topics": [
         {
           "id": "liu-bawang-smash",
-          "name": "刘氏霸王杀"
+          "name": "刘氏霸王杀",
+          "system_id": "smash_variant_system"
         },
         {
           "id": "liu-racket-preparation",
-          "name": "架拍、引拍与高位结构"
+          "name": "架拍、引拍与高位结构",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -7150,15 +7754,18 @@
       "topics": [
         {
           "id": "liu-light-drop",
-          "name": "轻吊与头顶吊球"
+          "name": "轻吊与头顶吊球",
+          "system_id": "drop_slice_slide_variation"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-basic-smash",
-          "name": "基础杀球动作链"
+          "name": "基础杀球动作链",
+          "system_id": "smash_variant_system"
         }
       ]
     },
@@ -7174,11 +7781,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7194,7 +7803,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7210,11 +7820,13 @@
       "topics": [
         {
           "id": "liu-hip-trunk",
-          "name": "转髋与躯干带动"
+          "name": "转髋与躯干带动",
+          "system_id": "overhead_power_chain"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7230,11 +7842,13 @@
       "topics": [
         {
           "id": "liu-learning-order",
-          "name": "学习顺序与训练路径"
+          "name": "学习顺序与训练路径",
+          "system_id": "student_fit_and_diagnosis"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7250,7 +7864,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7266,7 +7881,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7282,7 +7898,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7298,7 +7915,8 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7314,11 +7932,13 @@
       "topics": [
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-grip-finger",
-          "name": "握拍与手指控制"
+          "name": "握拍与手指控制",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -7334,11 +7954,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7354,15 +7976,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-backhand",
-          "name": "反手与后场角落处理"
+          "name": "反手与后场角落处理",
+          "system_id": "backhand_and_rear_corner_choice"
         }
       ]
     },
@@ -7378,11 +8003,13 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         }
       ]
     },
@@ -7398,15 +8025,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     },
@@ -7422,15 +8052,18 @@
       "topics": [
         {
           "id": "liu-high-clear-height",
-          "name": "高远球高度与到底线"
+          "name": "高远球高度与到底线",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-high-clear-base",
-          "name": "高远球基础动作"
+          "name": "高远球基础动作",
+          "system_id": "rear_court_base_and_high_clear"
         },
         {
           "id": "liu-wrist-whip",
-          "name": "手腕、鞭打与放松"
+          "name": "手腕、鞭打与放松",
+          "system_id": "overhead_power_chain"
         }
       ]
     }
