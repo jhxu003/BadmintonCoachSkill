@@ -1,0 +1,1446 @@
+{
+  "schema_version": "coach-skill-source-topic-index/v1",
+  "coach_id": "zheng-siwei",
+  "coach_name": "郑思维",
+  "source_count": 83,
+  "publication_boundary": "public source titles and title-routed retrieval topics only; not clip, frame, ASR, biomechanical, or rule evidence",
+  "usage_boundary": "resolve a matching source topic before choosing a curriculum route; a title route cannot promote a source to teaching_ready or substitute unrelated course media",
+  "sources": [
+    {
+      "source_id": "ZSW_BILI_BV1ZZ57ZQEPA",
+      "title": "1条弹力带&2个动作💪🏻带你预防肩部伤病",
+      "url": "https://www.bilibili.com/video/BV1zZ57zqEPA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV11BS1ZNEEF",
+      "title": "备战全运会💪体能训练大暴汗，一个字爽！！",
+      "url": "https://www.bilibili.com/video/BV11Bs1znEEF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1W8HHZCEAP",
+      "title": "备战全运🏸沉浸式感受我的训练日常",
+      "url": "https://www.bilibili.com/video/BV1W8hHzcEAp",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1WXDEYJEUH",
+      "title": "如何通过一条弹力带提升羽毛球防守实力？",
+      "url": "https://www.bilibili.com/video/BV1WxdeYJEuH",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1NV7NZ1EZX",
+      "title": "欢迎来到羽球思维 第62期基础课 混双 改善反手技术",
+      "url": "https://www.bilibili.com/video/BV1nv7Nz1EZX",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "pair_rotation_two_lanes",
+        "name": "双打轮转与两条通道"
+      },
+      "topics": [
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1J6BCEIEAG",
+      "title": "欢迎来到羽球思维第三期🏸防偷后场教学",
+      "url": "https://www.bilibili.com/video/BV1J6bceiEag",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack-footwork",
+          "name": "后场突击步法与退出"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1SATTEWEBS",
+      "title": "欢迎来到羽球思维第二期🏸男生在左半场的几种接发球套路",
+      "url": "https://www.bilibili.com/video/BV1SAtTewEbs",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-left-receive",
+          "name": "左半场接发路线"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1VE1DYME52",
+      "title": "欢迎来到羽球思维第八期🏸几种后场进攻方式",
+      "url": "https://www.bilibili.com/video/BV1vE1dYME52",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV11O4ZEPEPT",
+      "title": "欢迎进入羽球思维第一期🏸接发球教学",
+      "url": "https://www.bilibili.com/video/BV11o4ZePEPt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1X6O5B6EQZ",
+      "title": "羽球思维107期 球路讲解-2024宁波亚锦赛",
+      "url": "https://www.bilibili.com/video/BV1X6o5B6EQZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1AH5Y6ME92",
+      "title": "羽球思维110期 球路讲解-2024巴黎奥运会",
+      "url": "https://www.bilibili.com/video/BV1AH5Y6ME92",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ABGT6PEDB",
+      "title": "羽球思维111期 正确的正手中半场抽球发力模式",
+      "url": "https://www.bilibili.com/video/BV1aBGt6PEdB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        },
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1JCKPENEIW",
+      "title": "羽球思维四十三期🏸双打实用的接发球方法",
+      "url": "https://www.bilibili.com/video/BV1JcKPenEiW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1XG9GYAEZA",
+      "title": "羽球思维四十六期🏸如何泄力平快球",
+      "url": "https://www.bilibili.com/video/BV1Xg9GYAEZa",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        },
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1A6CUZVENX",
+      "title": "羽球思维第101期 如何打好网前扑球",
+      "url": "https://www.bilibili.com/video/BV1a6cUzVEnX",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1DBXBB6ETN",
+      "title": "羽球思维第103期 膝盖疼的讲解与康复",
+      "url": "https://www.bilibili.com/video/BV1dbXbB6ETN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1CT9TBDEBU",
+      "title": "羽球思维第104期 球路讲解-2022东京世锦赛",
+      "url": "https://www.bilibili.com/video/BV1ct9TBdEbU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1EYQFBHEFY",
+      "title": "羽球思维第105期 如何在防守时应对平高球",
+      "url": "https://www.bilibili.com/video/BV1eYQFBHEFY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1MXDHBCEIG",
+      "title": "羽球思维第106期 混双中男生起球后女生如何应对",
+      "url": "https://www.bilibili.com/video/BV1MXdhBCEiG",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "pair_rotation_two_lanes",
+        "name": "双打轮转与两条通道"
+      },
+      "topics": [
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1DZ98B1ESN",
+      "title": "羽球思维第108期 打球时 腰疼的康复与预防",
+      "url": "https://www.bilibili.com/video/BV1dz98B1ESN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1PURDBDEBM",
+      "title": "羽球思维第109期 双打卸力挡网反击",
+      "url": "https://www.bilibili.com/video/BV1puRDBDEBm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        },
+        {
+          "id": "zsw-unload-counter",
+          "name": "卸力挡网与防守反击"
+        },
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1T3V46OEYT",
+      "title": "羽球思维第112期 球路讲解-2026泰国公开赛",
+      "url": "https://www.bilibili.com/video/BV1T3V46oEyT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1CR7R6TESH",
+      "title": "羽球思维第113期 双打反手搓球的正确方式",
+      "url": "https://www.bilibili.com/video/BV1Cr7r6TESH",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-net",
+          "name": "反手网前搓、抹与处理"
+        },
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV18NEC6WEXZ",
+      "title": "羽球思维第114期 在办公椅上 进行的运动热身方式",
+      "url": "https://www.bilibili.com/video/BV18nEC6WExZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1RRLF6VEM7",
+      "title": "羽球思维第115期 球路讲解2018南京世锦赛 第一局16：13处",
+      "url": "https://www.bilibili.com/video/BV1rrLf6VEM7",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1RA7G6DEJA",
+      "title": "羽球思维第116期  接发球后如回连贯扑压",
+      "url": "https://www.bilibili.com/video/BV1ra7G6DEja",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV18ITS6GEXU",
+      "title": "羽球思维第117期  打球前的高效运动热身方式",
+      "url": "https://www.bilibili.com/video/BV18iTs6gExU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-warmup-load",
+          "name": "热身、康复与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1YRNE6REPC",
+      "title": "羽球思维第118期 如何做好正手中半场勾对角",
+      "url": "https://www.bilibili.com/video/BV1YrNE6REpc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-hook-diagonal",
+          "name": "正手中半场勾对角"
+        },
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1KBGY6ZEEI",
+      "title": "羽球思维第119期 球路讲解 2023全英公开赛 第三局08：05处",
+      "url": "https://www.bilibili.com/video/BV1kbgY6ZEei",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV115ETZHESJ",
+      "title": "羽球思维第60期 杀球 如何杀的更尖",
+      "url": "https://www.bilibili.com/video/BV115EtzHESJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BGTVZTEAR",
+      "title": "羽球思维第63期 如何打好反手勾球",
+      "url": "https://www.bilibili.com/video/BV1BGTVzTEAR",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "frontcourt_pressure-title-fallback",
+          "name": "网前压迫与封网（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1UMHBZJENP",
+      "title": "羽球思维第75期 防守如何顶到后场",
+      "url": "https://www.bilibili.com/video/BV1UMhBzJEnp",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1TZHUZIEZQ",
+      "title": "羽球思维第七十一期🏸被推压反手底线如何处理",
+      "url": "https://www.bilibili.com/video/BV1TzhuziEzQ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        },
+        {
+          "id": "zsw-backhand-low-transition",
+          "name": "反手底线低手位过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BQHFZMEFO",
+      "title": "羽球思维第七十七期 如何处理对方放网",
+      "url": "https://www.bilibili.com/video/BV1BQHfzMEfo",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ZKBNZLEHR",
+      "title": "羽球思维第七十三期🏸后场进攻下一拍无法连贯？",
+      "url": "https://www.bilibili.com/video/BV1ZkbnzLEhR",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "pair_rotation_two_lanes",
+        "name": "双打轮转与两条通道"
+      },
+      "topics": [
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        },
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1PGNVZ5E4K",
+      "title": "羽球思维第七十九期 对方防守很好 我们如何应对",
+      "url": "https://www.bilibili.com/video/BV1pGnVz5E4k",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1KKBPZ3EYK",
+      "title": "羽球思维第七十二期🏸平抽挡卸力反击",
+      "url": "https://www.bilibili.com/video/BV1kkbPz3EyK",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        },
+        {
+          "id": "zsw-unload-counter",
+          "name": "卸力挡网与防守反击"
+        },
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1PYPDZGEUA",
+      "title": "羽球思维第七十八期 正手后半场被动球处理",
+      "url": "https://www.bilibili.com/video/BV1PypdzgEuA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        },
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1JDYMZXEAR",
+      "title": "羽球思维第七十六期 如何做好正手抹腰球",
+      "url": "https://www.bilibili.com/video/BV1jdYMzXEar",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "frontcourt_pressure-title-fallback",
+          "name": "网前压迫与封网（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1SXE6Z4ETF",
+      "title": "羽球思维第七十四期 改善被推正手底线后的步伐与击球",
+      "url": "https://www.bilibili.com/video/BV1sxe6z4ETF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack-footwork",
+          "name": "后场突击步法与退出"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1UV8VZ3EPT",
+      "title": "羽球思维第七十期 右场区接发推完直线后如何处理",
+      "url": "https://www.bilibili.com/video/BV1uv8vz3EPt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ILCNYVEHW",
+      "title": "羽球思维第三十二期🏸正手区后场突击步伐",
+      "url": "https://www.bilibili.com/video/BV1iLCnYvEhw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack-footwork",
+          "name": "后场突击步法与退出"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1UXVVBQEEZ",
+      "title": "羽球思维第九十一期  右半区接发真推底线",
+      "url": "https://www.bilibili.com/video/BV1uXvvBqEEZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1U26RBYE7P",
+      "title": "羽球思维第九十七期 正确的反手抽球发力",
+      "url": "https://www.bilibili.com/video/BV1U26rBYE7p",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1QCRGBOECE",
+      "title": "羽球思维第九十三期 如何打好正手勾球",
+      "url": "https://www.bilibili.com/video/BV1qcrgBoEcE",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "frontcourt_pressure-title-fallback",
+          "name": "网前压迫与封网（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1YLABZ1EE8",
+      "title": "羽球思维第九十九期 如何提升正手中半场抽球力度",
+      "url": "https://www.bilibili.com/video/BV1yLAbz1EE8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        },
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1FXIJBKEZC",
+      "title": "羽球思维第九十二期 反手底线低手位过渡对角",
+      "url": "https://www.bilibili.com/video/BV1fxijBKEZc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-low-transition",
+          "name": "反手底线低手位过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1A8ZMBGEBS",
+      "title": "羽球思维第九十五期 如何做好借力打对角",
+      "url": "https://www.bilibili.com/video/BV1a8zMBGEBS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1UPZEB1END",
+      "title": "羽球思维第九十八期 如何提升中半场挡网质量",
+      "url": "https://www.bilibili.com/video/BV1uPZEB1END",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1Z56VBCE9U",
+      "title": "羽球思维第九十六期 如何打好网前反手搓球",
+      "url": "https://www.bilibili.com/video/BV1Z56vBcE9u",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-net",
+          "name": "反手网前搓、抹与处理"
+        },
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BORRBSEC5",
+      "title": "羽球思维第九十四期 如何打好停顿平高球",
+      "url": "https://www.bilibili.com/video/BV1BorrBSEc5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1WTQDB3E6X",
+      "title": "羽球思维第九十期 如何提升头顶封网",
+      "url": "https://www.bilibili.com/video/BV1WTqDB3E6X",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        },
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BEXSY3EFD",
+      "title": "羽球思维第五十一期🏸如何防守分对角",
+      "url": "https://www.bilibili.com/video/BV1BeXsY3Efd",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ACL9ZJE4Z",
+      "title": "羽球思维第五十七期🏸几种防守摆脱线路",
+      "url": "https://www.bilibili.com/video/BV1AcL9zjE4Z",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1YCZYYEENB",
+      "title": "羽球思维第五十三期🏸启动步怎么练？",
+      "url": "https://www.bilibili.com/video/BV1YcZYYeENb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack-footwork",
+          "name": "后场突击步法与退出"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ULVDZOER2",
+      "title": "羽球思维第五十九期🏸双打接发后更有效快速的轮转",
+      "url": "https://www.bilibili.com/video/BV1uLVdzoEr2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1FUZWYZEQ4",
+      "title": "羽球思维第五十二期🏸正手下手位分对角",
+      "url": "https://www.bilibili.com/video/BV1FuZwYZEQ4",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-transition",
+          "name": "正手中半场过渡与借力"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1CUDDY6EJU",
+      "title": "羽球思维第五十五期🏸如何提升杀球球速？",
+      "url": "https://www.bilibili.com/video/BV1cuddY6EjU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1EQVEZQEAC",
+      "title": "羽球思维第五十八期🏸怎么打好网前扑抹球",
+      "url": "https://www.bilibili.com/video/BV1EQVEzqEac",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1IA5EZPESH",
+      "title": "羽球思维第五十六期🏸反手网前推弹对角底线",
+      "url": "https://www.bilibili.com/video/BV1iA5EzPESh",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-net",
+          "name": "反手网前搓、抹与处理"
+        },
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1AURDY3EPT",
+      "title": "羽球思维第五十四期🏸被压后场来不及退怎么办？",
+      "url": "https://www.bilibili.com/video/BV1auRDY3Ept",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack-footwork",
+          "name": "后场突击步法与退出"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1S8Q3YCE5E",
+      "title": "羽球思维第五十期🏸如何打好反手过渡对角",
+      "url": "https://www.bilibili.com/video/BV1s8Q3YCE5E",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-low-transition",
+          "name": "反手底线低手位过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1DKWJZZEJ6",
+      "title": "羽球思维第八十一期 双打发接发快推中路",
+      "url": "https://www.bilibili.com/video/BV1dkWJzZEJ6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1PCSIBAEEC",
+      "title": "羽球思维第八十七期 混双发接发技巧",
+      "url": "https://www.bilibili.com/video/BV1PcSiBAEEc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1L5YZBNEWJ",
+      "title": "羽球思维第八十三期 左半区发球被推反拍",
+      "url": "https://www.bilibili.com/video/BV1L5yZBNEWJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_opening",
+        "name": "发球与开局设置"
+      },
+      "topics": [
+        {
+          "id": "zsw-serve-opening",
+          "name": "发球与第三拍计划"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV12XMRBHEXY",
+      "title": "羽球思维第八十九期 混双男生右半场放网后 快速形成后杀前封站位",
+      "url": "https://www.bilibili.com/video/BV12XmRBHEXY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BPXAZSEZV",
+      "title": "羽球思维第八十二期 被发接发快推中路怎么破",
+      "url": "https://www.bilibili.com/video/BV1BpxAzsEzv",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1X6CTBNEPM",
+      "title": "羽球思维第八十五期 左半区防守变线反击",
+      "url": "https://www.bilibili.com/video/BV1X6CTBnEpm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1OQMWBQESP",
+      "title": "羽球思维第八十八期 混双发接发技巧二#羽毛球",
+      "url": "https://www.bilibili.com/video/BV1oqmwBQEsP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1X5U7B2ENY",
+      "title": "羽球思维第八十六期 如何提升抽挡能力",
+      "url": "https://www.bilibili.com/video/BV1x5U7B2Eny",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1SY2MBREBF",
+      "title": "羽球思维第八十四期🏸如何做好反手抹球",
+      "url": "https://www.bilibili.com/video/BV1SY2MBREbF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-backhand-net",
+          "name": "反手网前搓、抹与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1MM4FZEEZG",
+      "title": "羽球思维第八十期 如何处理右场区2号位接发球",
+      "url": "https://www.bilibili.com/video/BV1mm4FzeEZg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1N8JBZVEXB",
+      "title": "羽球思维第六十一期 男生杀球 女生如何轮转",
+      "url": "https://www.bilibili.com/video/BV1n8jbzVEXB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "pair_rotation_two_lanes",
+        "name": "双打轮转与两条通道"
+      },
+      "topics": [
+        {
+          "id": "zsw-front-back-rotation",
+          "name": "后杀前封与前后轮转"
+        },
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1EVN2ZZEEO",
+      "title": "羽球思维第六十五期🏸右半区如何接发中腰球",
+      "url": "https://www.bilibili.com/video/BV1EVN2zZEEo",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-receive-opening",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "zsw-cut-waist-receive",
+          "name": "接发切腰与下一拍"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1YQM6ZZETC",
+      "title": "羽球思维第六十四期🏸正确的防守动作",
+      "url": "https://www.bilibili.com/video/BV1yqM6zZEtc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1YEXDYTECD",
+      "title": "羽球思维第四十七期🏸高质量的高远球怎么打",
+      "url": "https://www.bilibili.com/video/BV1YeXDYTEcd",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "rear_attack_continuity",
+        "name": "后场进攻与前后衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-rear-attack",
+          "name": "后场进攻与杀球连续性"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1LYR8YOEFR",
+      "title": "羽球思维第四十九期🏸如何改善反手抽球",
+      "url": "https://www.bilibili.com/video/BV1LyR8YoEfr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1ANPTETEXE",
+      "title": "羽球思维第四十五期🏸平快球怎么封",
+      "url": "https://www.bilibili.com/video/BV1ANPTetExe",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "receive_opening_exchange",
+        "name": "接发与前两拍衔接"
+      },
+      "topics": [
+        {
+          "id": "zsw-midcourt-drive",
+          "name": "中半场平抽与快推"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1USRPYTE6N",
+      "title": "羽球思维第四十八期🏸如何做好接杀防守",
+      "url": "https://www.bilibili.com/video/BV1usRpYtE6n",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "defense_transition",
+        "name": "防守过渡与反击"
+      },
+      "topics": [
+        {
+          "id": "zsw-flat-defense",
+          "name": "平快球泄力与防守过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1BPN8EMEL5",
+      "title": "羽球思维第四十期🏸更简单学会贴网的吊球",
+      "url": "https://www.bilibili.com/video/BV1bpN8eMEL5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "frontcourt_pressure",
+        "name": "网前压迫与封网"
+      },
+      "topics": [
+        {
+          "id": "zsw-net-pressure",
+          "name": "网前扑、抹、封与贴网"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1KFVTZPET1",
+      "title": "羽球思维说系列🎬2025苏杯点评",
+      "url": "https://www.bilibili.com/video/BV1kFVtzPEt1",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1HHDOY5EVA",
+      "title": "羽球思维说系列🎬亚锦赛评价&苏杯预测",
+      "url": "https://www.bilibili.com/video/BV1HhdoY5EVA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    },
+    {
+      "source_id": "ZSW_BILI_BV1PRPSZKEHI",
+      "title": "郑思维邀请蔡侑玎参加比赛？思维的教学日记第100期Q&A!",
+      "url": "https://www.bilibili.com/video/BV1prPszKEHi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "reset_match_transfer",
+        "name": "重置、体能与比赛复盘"
+      },
+      "topics": [
+        {
+          "id": "zsw-match-review",
+          "name": "比赛球路与复盘"
+        }
+      ]
+    }
+  ]
+}

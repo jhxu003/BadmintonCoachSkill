@@ -29,7 +29,7 @@
   <tr>
     <td align="center"><strong>03</strong><br /><sub>教练体系</sub></td>
     <td align="center"><strong>873</strong><br /><sub>已完成来源解析</sub></td>
-    <td align="center"><strong>31</strong><br /><sub>技术路线节点</sub></td>
+    <td align="center"><strong>82</strong><br /><sub>来源绑定细分主题</sub></td>
     <td align="center"><strong>16</strong><br /><sub>公开精选课程</sub></td>
   </tr>
 </table>
@@ -38,7 +38,7 @@
 
 BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏览和练习的动作课程。每节课都把同一次示范的连续短片、七个动作阶段、技术要点、练习方法和复测目标放在一起。
 
-三位教练共 873 条来源视频已经完成批量解析。当前 Pages 先公开展示其中 16 节精选课程；这 16 节是公开入口，不是全部处理结果。
+三位教练共 873 条来源视频已经完成批量解析，并按公开原始标题路由到 82 个教练体系内的细分主题。当前 Pages 先公开展示其中 16 节精选课程；这 16 节是公开入口，不是全部处理结果。
 
 ## 一次高远球，完整看完
 
@@ -163,7 +163,7 @@ BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏
 
 ## 不只看这一节，也知道下一节练什么
 
-三个体系已经整理出 31 个相互衔接的技术节点。每个节点都会标明先修内容、动作原则、练习方法、复测目标和下一步路线。
+三个体系已经整理出 31 个相互衔接的技术节点。每个节点都会标明先修内容、动作原则、练习方法、复测目标和下一步路线。更大的来源库另外整理为 82 个基于标题的细分主题（刘辉 33、李宇轩 31、郑思维 18），让具体打法、场景或问题能回到对应教练体系；这层只负责来源检索，不能把未审核素材说成完整课程。
 
 | 当前内容 | 可以怎么用 |
 |---|---|
@@ -174,7 +174,7 @@ BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏
 
 ## 继续探索更多内容
 
-项目已经完成 873 条来源视频的批量解析与体系分类：刘辉 408 条、李宇轩 382 条、郑思维 83 条。课程页保留它们的原始标题与原平台链接，方便继续查找讲解、答疑和训练内容。
+项目已经完成 873 条来源视频的批量解析与来源绑定主题路由：刘辉 408 条、33 个主题；李宇轩 382 条、31 个主题；郑思维 83 条、18 个主题。课程页保留它们的原始标题与原平台链接，方便继续查找讲解、答疑和训练内容。
 
 页面把内容分成两个入口：**16 节公开精选课**可以直接观看连续示范，**873 条来源视频库**可以按教练和技术继续探索。
 
@@ -228,6 +228,7 @@ python3 examples/run_coach_demonstration.py \
 
 - [技术课程结构数据](web/src/data/technique-courses.public.json)
 - [公开视频目录数据](web/public/pages-demo/catalog.json)
+- [教练 Skill 来源主题索引](skills/liu-hui-badminton-coach/references/source-topic-index.json)
 - [视频网页部署文档](docs/video-evidence-web-app.md)
 - [Video Agent 接入契约](docs/video-agent-contract.md)
 - [公开 Demo 与媒体范围](docs/github-pages-demo.md)

@@ -278,6 +278,88 @@ def test_public_metadata_catalog_prefers_official_bilibili_title_registry(tmp_pa
     assert exported["coaches"][0]["videos"][0]["title"] == "B站原始标题：高远球教学"
 
 
+def test_public_topic_index_keeps_parent_system_and_narrow_title_topics() -> None:
+    module = load_module()
+    catalog = {
+        "total_video_count": 3,
+        "coaches": [
+            {
+                "coach_id": "liu-hui",
+                "coach_name": "刘辉",
+                "videos": [
+                    {
+                        "source_id": "LH_001",
+                        "title": "internal label",
+                        "url": "https://example.invalid/liu",
+                        "duration_seconds": 60,
+                    }
+                ],
+            },
+            {
+                "coach_id": "li-yuxuan",
+                "coach_name": "李宇轩",
+                "videos": [
+                    {
+                        "source_id": "LYX_001",
+                        "title": "internal label",
+                        "url": "https://example.invalid/li",
+                        "duration_seconds": 60,
+                    }
+                ],
+            },
+            {
+                "coach_id": "zheng-siwei",
+                "coach_name": "郑思维",
+                "videos": [
+                    {
+                        "source_id": "ZSW_001",
+                        "title": "internal label",
+                        "url": "https://example.invalid/zheng",
+                        "duration_seconds": 60,
+                    }
+                ],
+            },
+        ],
+    }
+    exported = module.public_metadata_catalog(
+        catalog,
+        title_overrides={
+            "LH_001": "高远球改动作：击球点、顶肘与完整释放",
+            "LYX_001": "场地太大接不了球：什么时候用并步和交叉步？",
+            "ZSW_001": "羽球思维第116期 接发球后如何回连贯扑压",
+        },
+    )
+
+    liu, li, zheng = exported["coaches"]
+    assert liu["videos"][0]["categories"] == [
+        {"id": "rear_court_base_and_high_clear", "name": "后场基础与高远球"}
+    ]
+    assert [item["action"] for item in liu["videos"][0]["techniques"]] == [
+        "liu-contact-window",
+        "liu-top-elbow",
+        "liu-high-clear-base",
+    ]
+    assert li["videos"][0]["categories"] == [
+        {"id": "footwork", "name": "启动、到位、落地与回收"}
+    ]
+    assert [item["action"] for item in li["videos"][0]["techniques"]] == ["lyx-rear-start"]
+    assert zheng["videos"][0]["categories"] == [
+        {"id": "receive_opening_exchange", "name": "接发与前两拍衔接"}
+    ]
+    assert zheng["videos"][0]["techniques"][0]["action"] == "zsw-receive-opening"
+    assert all(coach["topic_count"] >= 1 for coach in exported["coaches"])
+
+    indexes = module.build_skill_source_topic_indexes(exported)
+    assert set(indexes) == {"liu-hui", "li-yuxuan", "zheng-siwei"}
+    source = indexes["liu-hui"]["sources"][0]
+    assert set(source) == {"source_id", "title", "url", "classification_status", "system", "topics"}
+    assert source["topics"][0]["id"] == "liu-contact-window"
+    serialized = json.dumps(indexes, ensure_ascii=False)
+    assert "duration_seconds" not in serialized
+    assert ".runtime" not in serialized
+    assert "raw_output" not in serialized
+
+
 def test_committed_pages_catalog_is_complete_and_media_free() -> None:
     repo = Path(__file__).resolve().parents[1]
     exported = json.loads(
@@ -345,7 +427,34 @@ def test_committed_pages_catalog_is_complete_and_media_free() -> None:
         assert all(len(video["categories"]) == 1 for video in coach["videos"])
         assert all(
             video["classification_status"]
-            in {"title_system_route", "title_system_fallback", "title_outside_system"}
+            in {"title_topic_route", "title_topic_fallback", "title_outside_system"}
             for video in coach["videos"]
         )
         assert all(video["url"].startswith(("https://", "http://")) for video in coach["videos"])
+
+
+def test_committed_skill_source_topic_indexes_match_public_catalog_and_stay_safe() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    catalog = json.loads(
+        (repo / "web/public/pages-demo/catalog.json").read_text(encoding="utf-8")
+    )
+    expected = {item["coach_id"]: item for item in catalog["coaches"]}
+    relative_paths = {
+        "liu-hui": "skills/liu-hui-badminton-coach/references/source-topic-index.json",
+        "li-yuxuan": "skills/li-yuxuan-badminton-coach/references/source-topic-index.json",
+        "zheng-siwei": "skills/zheng-siwei-badminton-coach/references/source-topic-index.json",
+    }
+    for coach_id, relative_path in relative_paths.items():
+        index = json.loads((repo / relative_path).read_text(encoding="utf-8"))
+        coach = expected[coach_id]
+        assert index["schema_version"] == "coach-skill-source-topic-index/v1"
+        assert index["source_count"] == coach["video_count"]
+        assert {item["source_id"] for item in index["sources"]} == {
+            item["source_id"] for item in coach["videos"]
+        }
+        assert all(set(item) == {"source_id", "title", "url", "classification_status", "system", "topics"} for item in index["sources"])
+        serialized = json.dumps(index, ensure_ascii=False)
+        assert ".runtime" not in serialized
+        assert "data/raw-private" not in serialized
+        assert "raw_output" not in serialized
+        assert "episodes" not in serialized

@@ -26,10 +26,15 @@ def test_each_coach_converts_structured_observation_to_teaching(
     payload = json.loads(
         (ROOT / "examples" / "observations" / observation_name).read_text(encoding="utf-8")
     )
+    knowledge = load_coach_knowledge(coach_id, ROOT)
+    source_topic_index = knowledge["source_topic_index"]
+    assert source_topic_index["coach_id"] == coach_id
+    assert source_topic_index["source_count"] > 0
+    assert source_topic_index["sources"]
     diagnosis = match_diagnosis(
         payload["player_profile"],
         payload["video_observation"],
-        load_coach_knowledge(coach_id, ROOT),
+        knowledge,
     )
     assert expected_issue in diagnosis["priority_order"]
     assert diagnosis["training_plan"]

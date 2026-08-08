@@ -18,6 +18,8 @@ Always read `references/technique-courses.yaml` and `references/video-lesson-con
 
 Resolve the `techniques` curriculum map before selecting a pair route. Follow its prerequisite and next-node links, but keep pair roles conditional on training context. A `knowledge_only` node may provide its system, rules, drills, and retest without displaying another technique's media. Only `teaching_ready` nodes may expose the reviewed course IDs bound to their own continuous coach demonstration.
 
+When a user names a source topic, asks for expanded corpus coverage, or needs a source to support a route, read `references/source-topic-index.json`. It is a public-title retrieval map for the full indexed corpus: use it to resolve the coach system and one or more named subtopics before loading the relevant rubric/framework. A title route is not clip, frame, biomechanical, or deterministic-rule evidence; it cannot promote a source to `teaching_ready` or authorize unrelated media.
+
 ## Required Inputs
 
 For teaching demonstration, require `action`; accept `level`, `training_goal`, `framework_id`, or an optional `phase` when supplied. Do not request learner tracks or a rally video merely to explain a coaching module.

@@ -1,0 +1,6574 @@
+{
+  "schema_version": "coach-skill-source-topic-index/v1",
+  "coach_id": "li-yuxuan",
+  "coach_name": "李宇轩",
+  "source_count": 382,
+  "publication_boundary": "public source titles and title-routed retrieval topics only; not clip, frame, ASR, biomechanical, or rule evidence",
+  "usage_boundary": "resolve a matching source topic before choosing a curriculum route; a title route cannot promote a source to teaching_ready or substitute unrelated course media",
+  "sources": [
+    {
+      "source_id": "LYX_BILI_BV1ZC4Y1N7FJ",
+      "title": "#秘诀教学【怎么单打接杀挡斜线如：李宗伟，桃田，林丹，李梓佳】和【 双打混双中场球挡斜线】防守斜线的秘诀！「李宇轩教练」",
+      "url": "https://www.bilibili.com/video/BV1zC4y1n7FJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YGNJEQEUZ",
+      "title": "10分钟学会让对手反应不过来的快速球/变速球/爆发力球【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1YGNjeqEUz",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UR4Y1S7LB",
+      "title": "12月25日准备当圣诞老人直播送30样东西！！记得要点赞，转发，评论，关注我才能参加哦！明天不见不散",
+      "url": "https://www.bilibili.com/video/BV1ur4y1S7Lb",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JD5OZ1EMN",
+      "title": "3步学会顶尖球员【弓箭步】专门接又低又远的球【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1JD5oz1EMN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-front-lunge",
+          "name": "网前跨步与第一响应"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17ZAXZEEAK",
+      "title": "99%球员做错了击球时手指抓紧时机！导致发不上力，切拍，打歪！来学发力的秘诀【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV17zaxzeEak",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-finger-wrist",
+          "name": "手指、手腕与发力时机"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ATD3BHE3J",
+      "title": "9字握法是使不上劲的！一个特反人类的动作！一定要看完！【李宇轩】",
+      "url": "https://www.bilibili.com/video/BV1AtD3BhE3j",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV14QMJZMEBF",
+      "title": "T1100+M40碳素，对标YY/李宁旗舰，你觉得宇冠这把拍子该卖多少钱？#宇冠寒光#宇冠发布会",
+      "url": "https://www.bilibili.com/video/BV14qMJzMEbf",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "equipment_safety",
+        "name": "装备成熟度与负荷安全"
+      },
+      "topics": [
+        {
+          "id": "equipment_safety-title-fallback",
+          "name": "装备成熟度与负荷安全（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Z9SZYDEBN",
+      "title": "【单打与双打龙卷风搓球区别】和【双腿起跳杀球】赶紧学上来！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Z9SZYdEBn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-jump-smash",
+          "name": "跳杀与腾空进攻"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DJBNBCEJS",
+      "title": "【反手高远球】的正确发力方法和借力方法！转换重心是关键！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1dJBnBCEjs",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1A8411A7BB",
+      "title": "【打羽毛球的20个大难题&解答系列】大部分时间架拍高是很难发上力的，很不合理！不管杀球，吊球，高远等都一样！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1a8411a7BB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EME8ZQEGG",
+      "title": "【掉肘】导致发不上力怎么改？5个原因和解决方案！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1emE8zqEgG",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-elbow-release",
+          "name": "顶肘、摆肘与挥拍释放"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XFN46LESH",
+      "title": "【李宇轩教练】Newest video is live, come join the crowd!",
+      "url": "https://www.bilibili.com/video/BV1XfN46LESH",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Z34WZJEQT",
+      "title": "【正手滑板吊直线】5个关键点做的细化，快，隐蔽！特别省力的得分手段【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Z34WzjEQT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TUEY6WE8U",
+      "title": "【正手被动勾球】为什么你们的勾球又高，又远，甚至还总出界下网呢，到底如何调整",
+      "url": "https://www.bilibili.com/video/BV1tUEY6WE8u",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SA411Y7RX",
+      "title": "【直播回放】李教练来了 2023年3月1日21点场",
+      "url": "https://www.bilibili.com/video/BV1SA411y7rx",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DO4Y1Z7HF",
+      "title": "【直播回放】李教练来了 2023年3月5日21点场",
+      "url": "https://www.bilibili.com/video/BV1do4y1z7Hf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1G24Y1G7GP",
+      "title": "【直播回放】李教练来了 2023年3月8日21点场",
+      "url": "https://www.bilibili.com/video/BV1g24y1g7Gp",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MB4Y1Z7H3",
+      "title": "【直播回放】聊技术和战术 2023年10月15日21点场",
+      "url": "https://www.bilibili.com/video/BV1mB4y1Z7h3",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XB4Y1O7GU",
+      "title": "【直播回放】聊技术和战术 2023年10月18日21点场",
+      "url": "https://www.bilibili.com/video/BV1xB4y1o7Gu",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18B4Y1R7HK",
+      "title": "【直播回放】聊技术和战术 2023年10月25日21点场",
+      "url": "https://www.bilibili.com/video/BV18B4y1R7Hk",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1584Y1X7IM",
+      "title": "【直播回放】聊技术和战术 2023年10月29日21点场",
+      "url": "https://www.bilibili.com/video/BV1584y1X7iM",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18P4Y1M7CW",
+      "title": "【直播回放】聊技术和战术 2023年10月8日21点场",
+      "url": "https://www.bilibili.com/video/BV18p4y1M7cw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1494Y137SE",
+      "title": "【直播回放】聊技术和战术 2023年11月12日21点场",
+      "url": "https://www.bilibili.com/video/BV1494y137SE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZV411F71A",
+      "title": "【直播回放】聊技术和战术 2023年11月15日21点场",
+      "url": "https://www.bilibili.com/video/BV1Zv411F71a",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LU4Y1J7HZ",
+      "title": "【直播回放】聊技术和战术 2023年11月19日21点场",
+      "url": "https://www.bilibili.com/video/BV1Lu4y1j7HZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YZ4Y1N7GI",
+      "title": "【直播回放】聊技术和战术 2023年11月1日21点场",
+      "url": "https://www.bilibili.com/video/BV1Yz4y1N7gi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IN4Y117VD",
+      "title": "【直播回放】聊技术和战术 2023年11月22日21点场",
+      "url": "https://www.bilibili.com/video/BV1iN4y117vd",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SZ4Y1P71X",
+      "title": "【直播回放】聊技术和战术 2023年11月8日21点场",
+      "url": "https://www.bilibili.com/video/BV1sz4y1P71X",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12B4Y1V72D",
+      "title": "【直播回放】聊技术和战术 2023年12月20日22点场",
+      "url": "https://www.bilibili.com/video/BV12b4y1V72D",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV19G41167BZ",
+      "title": "【直播回放】聊技术和战术 2023年12月27日22点场",
+      "url": "https://www.bilibili.com/video/BV19G41167bz",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BC411B7CF",
+      "title": "【直播回放】聊技术和战术 2023年12月6日21点场",
+      "url": "https://www.bilibili.com/video/BV1bc411B7CF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UV4Y157QR",
+      "title": "【直播回放】聊技术和战术 2023年3月22日21点场",
+      "url": "https://www.bilibili.com/video/BV1uv4y157QR",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1E14Y1U73X",
+      "title": "【直播回放】聊技术和战术 2023年6月21日21点场",
+      "url": "https://www.bilibili.com/video/BV1e14y1U73X",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VJ411S7NJ",
+      "title": "【直播回放】聊技术和战术 2023年6月25日21点场",
+      "url": "https://www.bilibili.com/video/BV1Vj411S7nj",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LH4Y1M7WN",
+      "title": "【直播回放】聊技术和战术 2023年6月28日21点场",
+      "url": "https://www.bilibili.com/video/BV1Lh4y1M7WN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NN411U7JV",
+      "title": "【直播回放】聊技术和战术 2023年7月12日21点场",
+      "url": "https://www.bilibili.com/video/BV1NN411U7JV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1N94Y1Q728",
+      "title": "【直播回放】聊技术和战术 2023年7月19日21点场",
+      "url": "https://www.bilibili.com/video/BV1N94y1q728",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XJ411M7U6",
+      "title": "【直播回放】聊技术和战术 2023年7月2日21点场",
+      "url": "https://www.bilibili.com/video/BV1Xj411m7u6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YH4Y177HT",
+      "title": "【直播回放】聊技术和战术 2023年7月5日21点场",
+      "url": "https://www.bilibili.com/video/BV1yh4y177Ht",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KV4Y1H7JE",
+      "title": "【直播回放】聊技术和战术 2023年7月9日21点场",
+      "url": "https://www.bilibili.com/video/BV1KV4y1h7jE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZN411P72Y",
+      "title": "【直播回放】聊技术和战术 2023年9月10日21点场",
+      "url": "https://www.bilibili.com/video/BV1zN411p72y",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12K4Y1W7MF",
+      "title": "【直播回放】聊技术和战术 2023年9月17日21点场",
+      "url": "https://www.bilibili.com/video/BV12k4y1w7mF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GV411A7HV",
+      "title": "【直播回放】聊技术和战术 2023年9月20日21点场",
+      "url": "https://www.bilibili.com/video/BV1GV411A7HV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BS411C7WV",
+      "title": "【直播回放】聊技术和战术 2024年07月07日22点场",
+      "url": "https://www.bilibili.com/video/BV1BS411c7wV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SI421Y7J5",
+      "title": "【直播回放】聊技术和战术 2024年07月10日22点场",
+      "url": "https://www.bilibili.com/video/BV1Si421Y7j5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DX4Y1X7HM",
+      "title": "【直播回放】聊技术和战术 2024年07月14日22点场",
+      "url": "https://www.bilibili.com/video/BV1Dx4y1x7HM",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TX4Y1X78F",
+      "title": "【直播回放】聊技术和战术 2024年07月17日22点场",
+      "url": "https://www.bilibili.com/video/BV1tx4y1x78F",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1J2421Z7CB",
+      "title": "【直播回放】聊技术和战术 2024年07月21日21点场",
+      "url": "https://www.bilibili.com/video/BV1J2421Z7Cb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XZ421N7RE",
+      "title": "【直播回放】聊技术和战术 2024年07月24日22点场",
+      "url": "https://www.bilibili.com/video/BV1xZ421N7rE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV141421T7NJ",
+      "title": "【直播回放】聊技术和战术 2024年07月28日22点场",
+      "url": "https://www.bilibili.com/video/BV141421t7nJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PB421777A",
+      "title": "【直播回放】聊技术和战术 2024年08月04日22点场",
+      "url": "https://www.bilibili.com/video/BV1Pb421777a",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV14Z421I7UQ",
+      "title": "【直播回放】聊技术和战术 2024年08月07日22点场",
+      "url": "https://www.bilibili.com/video/BV14z421i7uq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV134421S7LF",
+      "title": "【直播回放】聊技术和战术 2024年08月11日22点场",
+      "url": "https://www.bilibili.com/video/BV134421S7Lf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IR421K7G9",
+      "title": "【直播回放】聊技术和战术 2024年08月14日22点场",
+      "url": "https://www.bilibili.com/video/BV1ir421K7G9",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ME4M1R7T3",
+      "title": "【直播回放】聊技术和战术 2024年08月18日22点场",
+      "url": "https://www.bilibili.com/video/BV1mE4m1R7t3",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12Z421N7Q8",
+      "title": "【直播回放】聊技术和战术 2024年08月21日22点场",
+      "url": "https://www.bilibili.com/video/BV12Z421N7Q8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KB421J7TG",
+      "title": "【直播回放】聊技术和战术 2024年08月21日22点场",
+      "url": "https://www.bilibili.com/video/BV1kb421J7tg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GR421T74V",
+      "title": "【直播回放】聊技术和战术 2024年08月25日22点场",
+      "url": "https://www.bilibili.com/video/BV1gr421T74v",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NT421Z7QN",
+      "title": "【直播回放】聊技术和战术 2024年08月28日22点场",
+      "url": "https://www.bilibili.com/video/BV1NT421z7qn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UE421C7EP",
+      "title": "【直播回放】聊技术和战术 2024年09月01日22点场",
+      "url": "https://www.bilibili.com/video/BV1UE421c7ep",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BZPPEGEVV",
+      "title": "【直播回放】聊技术和战术 2024年09月04日22点场",
+      "url": "https://www.bilibili.com/video/BV1bzpPeGEVv",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TSPZEZECF",
+      "title": "【直播回放】聊技术和战术 2024年09月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1TspzezEcF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AE4CE9ECC",
+      "title": "【直播回放】聊技术和战术 2024年09月11日22点场",
+      "url": "https://www.bilibili.com/video/BV1Ae4Ce9ECc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QH4QEOE2D",
+      "title": "【直播回放】聊技术和战术 2024年09月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1Qh4QeoE2d",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TWTJE9E9M",
+      "title": "【直播回放】聊技术和战术 2024年09月18日22点场",
+      "url": "https://www.bilibili.com/video/BV1twtje9E9M",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GTS1EAEBE",
+      "title": "【直播回放】聊技术和战术 2024年09月23日00点场",
+      "url": "https://www.bilibili.com/video/BV1gTs1eAEBe",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VPXUEGEWS",
+      "title": "【直播回放】聊技术和战术 2024年09月25日22点场",
+      "url": "https://www.bilibili.com/video/BV1VpxuegEWs",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZPXMEXEMM",
+      "title": "【直播回放】聊技术和战术 2024年09月29日22点场",
+      "url": "https://www.bilibili.com/video/BV1ZpxmeXEmm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CQ43EHEFT",
+      "title": "【直播回放】聊技术和战术 2024年10月02日22点场",
+      "url": "https://www.bilibili.com/video/BV1Cq43ehEFT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JX4GEZELQ",
+      "title": "【直播回放】聊技术和战术 2024年10月02日22点场",
+      "url": "https://www.bilibili.com/video/BV1Jx4GeZELQ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MW16YUEB1",
+      "title": "【直播回放】聊技术和战术 2024年10月06日22点场",
+      "url": "https://www.bilibili.com/video/BV1MW16YUEb1",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JG2NYPEN3",
+      "title": "【直播回放】聊技术和战术 2024年10月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1jG2NYPEN3",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HN26YREBN",
+      "title": "【直播回放】聊技术和战术 2024年10月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1hN26YREBN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RIMTYEENJ",
+      "title": "【直播回放】聊技术和战术 2024年10月16日22点场",
+      "url": "https://www.bilibili.com/video/BV1rimTYEENj",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PRYYYNEJ8",
+      "title": "【直播回放】聊技术和战术 2024年10月20日22点场",
+      "url": "https://www.bilibili.com/video/BV1pRyYYnEj8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV123SVY2EMI",
+      "title": "【直播回放】聊技术和战术 2024年10月30日22点场",
+      "url": "https://www.bilibili.com/video/BV123SVY2Emi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17YSMY8EUN",
+      "title": "【直播回放】聊技术和战术 2024年11月03日22点场",
+      "url": "https://www.bilibili.com/video/BV17YSmY8Eun",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GEDLYYEGR",
+      "title": "【直播回放】聊技术和战术 2024年11月06日22点场",
+      "url": "https://www.bilibili.com/video/BV1GeDLYYEGR",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1THMRYDEXC",
+      "title": "【直播回放】聊技术和战术 2024年11月10日22点场",
+      "url": "https://www.bilibili.com/video/BV1tHmrYdExC",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EFUMYLEDX",
+      "title": "【直播回放】聊技术和战术 2024年11月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1efUMYLEDx",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CAU7Y1EVW",
+      "title": "【直播回放】聊技术和战术 2024年11月17日22点场",
+      "url": "https://www.bilibili.com/video/BV1cAU7Y1EVw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1O8B8YEEKC",
+      "title": "【直播回放】聊技术和战术 2024年11月24日22点场",
+      "url": "https://www.bilibili.com/video/BV1o8B8YEEkc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV165BZYAE7U",
+      "title": "【直播回放】聊技术和战术 2024年11月27日22点场",
+      "url": "https://www.bilibili.com/video/BV165BZYAE7U",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BQQXY9ECI",
+      "title": "【直播回放】聊技术和战术 2024年12月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1bQqxY9Eci",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VKQDYAEVN",
+      "title": "【直播回放】聊技术和战术 2024年12月11日22点场",
+      "url": "https://www.bilibili.com/video/BV1VKqDYaEVn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QTBWY8E9H",
+      "title": "【直播回放】聊技术和战术 2024年12月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1QTBwY8E9H",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AWKAYTE6F",
+      "title": "【直播回放】聊技术和战术 2024年12月18日22点场",
+      "url": "https://www.bilibili.com/video/BV1AwkAYtE6f",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV15K411V7M2",
+      "title": "【直播回放】聊技术和战术 2024年1月10日22点场",
+      "url": "https://www.bilibili.com/video/BV15K411v7m2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZT4Y1R7WP",
+      "title": "【直播回放】聊技术和战术 2024年1月14日22点场",
+      "url": "https://www.bilibili.com/video/BV1zt4y1R7wP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV19K4Y1Q7A3",
+      "title": "【直播回放】聊技术和战术 2024年1月17日22点场",
+      "url": "https://www.bilibili.com/video/BV19K4y1q7A3",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HA4M1L7ZF",
+      "title": "【直播回放】聊技术和战术 2024年1月31日22点场",
+      "url": "https://www.bilibili.com/video/BV1HA4m1L7Zf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12K411S7KU",
+      "title": "【直播回放】聊技术和战术 2024年1月3日22点场",
+      "url": "https://www.bilibili.com/video/BV12K411s7kU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CT4Y1P7HS",
+      "title": "【直播回放】聊技术和战术 2024年1月7日22点场",
+      "url": "https://www.bilibili.com/video/BV1cT4y1p7hS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VX4Y1C7A8",
+      "title": "【直播回放】聊技术和战术 2024年2月25日22点场",
+      "url": "https://www.bilibili.com/video/BV1vx4y1C7a8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PX4Y1C7DB",
+      "title": "【直播回放】聊技术和战术 2024年2月28日22点场",
+      "url": "https://www.bilibili.com/video/BV1Px4y1C7dB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XC41187KC",
+      "title": "【直播回放】聊技术和战术 2024年3月10日22点场",
+      "url": "https://www.bilibili.com/video/BV1XC41187kC",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV16X4Y1Q7SH",
+      "title": "【直播回放】聊技术和战术 2024年3月13日22点场",
+      "url": "https://www.bilibili.com/video/BV16x4y1Q7sh",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GW4M1Z7SU",
+      "title": "【直播回放】聊技术和战术 2024年3月1日22点场",
+      "url": "https://www.bilibili.com/video/BV1Gw4m1Z7su",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13F421Z7JN",
+      "title": "【直播回放】聊技术和战术 2024年3月20日22点场",
+      "url": "https://www.bilibili.com/video/BV13f421Z7jN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TM421N7SK",
+      "title": "【直播回放】聊技术和战术 2024年3月27日22点场",
+      "url": "https://www.bilibili.com/video/BV1Tm421n7SK",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HX4Y1E7BR",
+      "title": "【直播回放】聊技术和战术 2024年3月31日22点场",
+      "url": "https://www.bilibili.com/video/BV1hx4y1e7Br",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VW421W7ZA",
+      "title": "【直播回放】聊技术和战术 2024年3月3日22点场",
+      "url": "https://www.bilibili.com/video/BV1VW421w7za",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18S421W7UW",
+      "title": "【直播回放】聊技术和战术 2024年3月6日22点场",
+      "url": "https://www.bilibili.com/video/BV18S421w7Uw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QD421H7QC",
+      "title": "【直播回放】聊技术和战术 2024年4月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1qD421H7qc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XX4Y1Z7NU",
+      "title": "【直播回放】聊技术和战术 2024年4月24日22点场",
+      "url": "https://www.bilibili.com/video/BV1Xx4y1z7NU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ER421U7NK",
+      "title": "【直播回放】聊技术和战术 2024年4月28日22点场",
+      "url": "https://www.bilibili.com/video/BV1Er421u7nk",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NR421T7GW",
+      "title": "【直播回放】聊技术和战术 2024年4月3日22点场",
+      "url": "https://www.bilibili.com/video/BV1nr421t7GW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GJ4M157A1",
+      "title": "【直播回放】聊技术和战术 2024年4月3日23点场",
+      "url": "https://www.bilibili.com/video/BV1gJ4m157a1",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1V1421O71I",
+      "title": "【直播回放】聊技术和战术 2024年4月7日22点场",
+      "url": "https://www.bilibili.com/video/BV1V1421o71i",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JM4M1Y7GT",
+      "title": "【直播回放】聊技术和战术 2024年5月12日22点场",
+      "url": "https://www.bilibili.com/video/BV1JM4m1y7GT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GS421P7KC",
+      "title": "【直播回放】聊技术和战术 2024年5月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1Gs421P7Kc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VF421R758",
+      "title": "【直播回放】聊技术和战术 2024年5月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1vf421R758",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VX4Y1H7VB",
+      "title": "【直播回放】聊技术和战术 2024年5月22日22点场",
+      "url": "https://www.bilibili.com/video/BV1vx4y1H7vB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HZ421A7XA",
+      "title": "【直播回放】聊技术和战术 2024年5月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1hz421a7xa",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1K7421F76T",
+      "title": "【直播回放】聊技术和战术 2024年5月29日22点场",
+      "url": "https://www.bilibili.com/video/BV1K7421f76t",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV19C411E7ML",
+      "title": "【直播回放】聊技术和战术 2024年5月8日22点场",
+      "url": "https://www.bilibili.com/video/BV19C411E7mL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV11S421M7WR",
+      "title": "【直播回放】聊技术和战术 2024年6月12日22点场",
+      "url": "https://www.bilibili.com/video/BV11s421M7Wr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AZ42187TB",
+      "title": "【直播回放】聊技术和战术 2024年6月16日22点场",
+      "url": "https://www.bilibili.com/video/BV1az42187tb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GJ4M1U7VZ",
+      "title": "【直播回放】聊技术和战术 2024年6月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1gJ4m1u7VZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18S411A7PJ",
+      "title": "【直播回放】聊技术和战术 2024年6月23日22点场",
+      "url": "https://www.bilibili.com/video/BV18S411A7pJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NY411Q7UE",
+      "title": "【直播回放】聊技术和战术 2024年6月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1ny411q7Ue",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZF421B7ZD",
+      "title": "【直播回放】聊技术和战术 2024年6月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1zf421B7Zd",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZZ421M72S",
+      "title": "【直播回放】聊技术和战术 2024年6月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1ZZ421M72s",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18I421V7YB",
+      "title": "【直播回放】聊技术和战术 2024年6月2日22点场",
+      "url": "https://www.bilibili.com/video/BV18i421v7yB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LS421O74S",
+      "title": "【直播回放】聊技术和战术 2024年6月30日21点场",
+      "url": "https://www.bilibili.com/video/BV1LS421o74S",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GX4Y1J7TO",
+      "title": "【直播回放】聊技术和战术 2024年6月5日22点场",
+      "url": "https://www.bilibili.com/video/BV1gx4y1J7to",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MR421A7IE",
+      "title": "【直播回放】聊技术和战术 2024年6月5日22点场",
+      "url": "https://www.bilibili.com/video/BV1Mr421A7iE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZM4M1U74K",
+      "title": "【直播回放】聊技术和战术 2024年6月9日22点场",
+      "url": "https://www.bilibili.com/video/BV1ZM4m1U74K",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QQRKYOE6B",
+      "title": "【直播回放】聊技术和战术 2025年01月05日22点场",
+      "url": "https://www.bilibili.com/video/BV1qQrKYoE6B",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NMRVYSEN8",
+      "title": "【直播回放】聊技术和战术 2025年01月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1NMrvYSEN8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QFREYKEC2",
+      "title": "【直播回放】聊技术和战术 2025年01月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1qFreYKEC2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SMRVYSEIJ",
+      "title": "【直播回放】聊技术和战术 2025年01月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1sMrvYSEiJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YDCGENEJ6",
+      "title": "【直播回放】聊技术和战术 2025年01月12日22点场",
+      "url": "https://www.bilibili.com/video/BV1YDcGenEj6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UMC6EXEZB",
+      "title": "【直播回放】聊技术和战术 2025年01月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1UMc6eXEzb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VVC6ENECZ",
+      "title": "【直播回放】聊技术和战术 2025年01月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1vvc6eNECZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BNWKEJEXE",
+      "title": "【直播回放】聊技术和战术 2025年01月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1BnwkejEXE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XPFYYXECT",
+      "title": "【直播回放】聊技术和战术 2025年01月22日22点场",
+      "url": "https://www.bilibili.com/video/BV1xPfYYxECt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SNFRY2EOA",
+      "title": "【直播回放】聊技术和战术 2025年01月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1snfrY2EoA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KXFCE4ELM",
+      "title": "【直播回放】聊技术和战术 2025年02月02日22点场",
+      "url": "https://www.bilibili.com/video/BV1KXFCe4ELM",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV11RPMELEHV",
+      "title": "【直播回放】聊技术和战术 2025年02月05日22点场",
+      "url": "https://www.bilibili.com/video/BV11RPmeLEhv",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XXNDEDEDJ",
+      "title": "【直播回放】聊技术和战术 2025年02月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1xxNDedEDj",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HTKEEKECL",
+      "title": "【直播回放】聊技术和战术 2025年02月12日22点场",
+      "url": "https://www.bilibili.com/video/BV1hTKEekEcL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17JWSEAE7S",
+      "title": "【直播回放】聊技术和战术 2025年02月16日22点场",
+      "url": "https://www.bilibili.com/video/BV17jwSeAE7s",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WXAJEPE6N",
+      "title": "【直播回放】聊技术和战术 2025年02月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1WXAjepE6n",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NVAXEDEZW",
+      "title": "【直播回放】聊技术和战术 2025年02月23日22点场",
+      "url": "https://www.bilibili.com/video/BV1NVAXedEZw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XPPJEEELE",
+      "title": "【直播回放】聊技术和战术 2025年02月26日22点场",
+      "url": "https://www.bilibili.com/video/BV1xpPJeeELE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV19P9YYOERZ",
+      "title": "【直播回放】聊技术和战术 2025年03月02日22点场",
+      "url": "https://www.bilibili.com/video/BV19P9YYoErZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18Q9OYPEFX",
+      "title": "【直播回放】聊技术和战术 2025年03月05日22点场",
+      "url": "https://www.bilibili.com/video/BV18q9oYpEfx",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YJRWYQEXT",
+      "title": "【直播回放】聊技术和战术 2025年03月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1yjRWYQEXT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KPRVYJENP",
+      "title": "【直播回放】聊技术和战术 2025年03月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1kpRvYjENP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1S3QWY5EAF",
+      "title": "【直播回放】聊技术和战术 2025年03月12日22点场",
+      "url": "https://www.bilibili.com/video/BV1s3QWY5EAF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YQQZYSENN",
+      "title": "【直播回放】聊技术和战术 2025年03月19日22点场",
+      "url": "https://www.bilibili.com/video/BV1YqQZYsEnN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BTOQYBEAU",
+      "title": "【直播回放】聊技术和战术 2025年03月23日22点场",
+      "url": "https://www.bilibili.com/video/BV1btoqYBEaU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FSOIYDEQ6",
+      "title": "【直播回放】聊技术和战术 2025年03月26日20点场",
+      "url": "https://www.bilibili.com/video/BV1fsoiYDEQ6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12CZPYGE7M",
+      "title": "【直播回放】聊技术和战术 2025年03月26日22点场",
+      "url": "https://www.bilibili.com/video/BV12CZPYGE7m",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV14KZ6Y5EYK",
+      "title": "【直播回放】聊技术和战术 2025年03月30日22点场",
+      "url": "https://www.bilibili.com/video/BV14KZ6Y5Eyk",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1O1ZDY4EWR",
+      "title": "【直播回放】聊技术和战术 2025年04月03日22点场",
+      "url": "https://www.bilibili.com/video/BV1o1ZDY4EWr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RARZY1EKW",
+      "title": "【直播回放】聊技术和战术 2025年04月06日22点场",
+      "url": "https://www.bilibili.com/video/BV1RARzY1EKW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1OUDKYFEXQ",
+      "title": "【直播回放】聊技术和战术 2025年04月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1oUdKYfEXq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UUDXYJEP8",
+      "title": "【直播回放】聊技术和战术 2025年04月11日22点场",
+      "url": "https://www.bilibili.com/video/BV1uUdXYjEP8",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NPDEYHEUN",
+      "title": "【直播回放】聊技术和战术 2025年04月12日23点场",
+      "url": "https://www.bilibili.com/video/BV1NpdeYHEun",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PCDKYBEVM",
+      "title": "【直播回放】聊技术和战术 2025年04月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1pcdkYBEvm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QNOUYZEUK",
+      "title": "【直播回放】聊技术和战术 2025年04月16日22点场",
+      "url": "https://www.bilibili.com/video/BV1qnouYzEUk",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EWLPZAEPC",
+      "title": "【直播回放】聊技术和战术 2025年04月20日22点场",
+      "url": "https://www.bilibili.com/video/BV1EwLPzaEPC",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GNLAZPEEN",
+      "title": "【直播回放】聊技术和战术 2025年04月23日22点场",
+      "url": "https://www.bilibili.com/video/BV1GNLazPEen",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QTLZZHEHM",
+      "title": "【直播回放】聊技术和战术 2025年04月27日22点场",
+      "url": "https://www.bilibili.com/video/BV1qtLzzhEhm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NPVYZ9EME",
+      "title": "【直播回放】聊技术和战术 2025年05月07日22点场",
+      "url": "https://www.bilibili.com/video/BV1NpVYz9Eme",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GVEGZXEWE",
+      "title": "【直播回放】聊技术和战术 2025年05月11日22点场",
+      "url": "https://www.bilibili.com/video/BV1GvEGzXEWE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZBEZZREVJ",
+      "title": "【直播回放】聊技术和战术 2025年05月14日22点场",
+      "url": "https://www.bilibili.com/video/BV1zbEzzrEvj",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LQEMZZE5Y",
+      "title": "【直播回放】聊技术和战术 2025年05月18日22点场",
+      "url": "https://www.bilibili.com/video/BV1LQEmzZE5y",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SVJLZTEEG",
+      "title": "【直播回放】聊技术和战术 2025年05月21日22点场",
+      "url": "https://www.bilibili.com/video/BV1SVJLztEeg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ENJGZXEZN",
+      "title": "【直播回放】聊技术和战术 2025年05月25日21点场",
+      "url": "https://www.bilibili.com/video/BV1ENjGzxEzN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FHJBZYENI",
+      "title": "【直播回放】聊技术和战术 2025年05月28日22点场",
+      "url": "https://www.bilibili.com/video/BV1fhjBzYENi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13N7YZZEKN",
+      "title": "【直播回放】聊技术和战术 2025年06月01日22点场",
+      "url": "https://www.bilibili.com/video/BV13N7yzzEkn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CRTNZHEAU",
+      "title": "【直播回放】聊技术和战术 2025年06月04日22点场",
+      "url": "https://www.bilibili.com/video/BV1crTnzhEau",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DFTEZGEAF",
+      "title": "【直播回放】聊技术和战术 2025年06月04日22点场",
+      "url": "https://www.bilibili.com/video/BV1DfTEzgEAF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13WTOZUEJY",
+      "title": "【直播回放】聊技术和战术 2025年06月08日22点场",
+      "url": "https://www.bilibili.com/video/BV13WTozUEjY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV16JMWZMEVI",
+      "title": "【直播回放】聊技术和战术 2025年06月11日22点场",
+      "url": "https://www.bilibili.com/video/BV16jMWzMEVi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1V6MAZ9EMX",
+      "title": "【直播回放】聊技术和战术 2025年06月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1v6Maz9Emx",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QSNJZEE26",
+      "title": "【直播回放】聊技术和战术 2025年06月18日22点场",
+      "url": "https://www.bilibili.com/video/BV1qSNJzEE26",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PRKSZ5EEZ",
+      "title": "【直播回放】聊技术和战术 2025年06月22日22点场",
+      "url": "https://www.bilibili.com/video/BV1PRKsz5EeZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QAKSZKEUH",
+      "title": "【直播回放】聊技术和战术 2025年06月25日22点场",
+      "url": "https://www.bilibili.com/video/BV1qaKSzKEUH",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QK3QZBESI",
+      "title": "【直播回放】聊技术和战术 2025年07月06日22点场",
+      "url": "https://www.bilibili.com/video/BV1Qk3qzBEsi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TCGNZ3EGK",
+      "title": "【直播回放】聊技术和战术 2025年07月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1TcGNz3EgK",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FUUAZUE84",
+      "title": "【直播回放】聊技术和战术 2025年07月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1fUuAzUE84",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WYUHZEEVJ",
+      "title": "【直播回放】聊技术和战术 2025年07月16日22点场",
+      "url": "https://www.bilibili.com/video/BV1wYuhzeEVJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1B5GEZTEKG",
+      "title": "【直播回放】聊技术和战术 2025年07月20日22点场",
+      "url": "https://www.bilibili.com/video/BV1B5gezTEkg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV11MHPZQEKR",
+      "title": "【直播回放】聊技术和战术 2025年08月01日22点场",
+      "url": "https://www.bilibili.com/video/BV11mhpzqEKr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AFTNZXECC",
+      "title": "【直播回放】聊技术和战术 2025年08月06日22点场",
+      "url": "https://www.bilibili.com/video/BV1aftNzxECc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GKTHZZE6D",
+      "title": "【直播回放】聊技术和战术 2025年08月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1gKthzZE6D",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RCT8ZKEAJ",
+      "title": "【直播回放】聊技术和战术 2025年08月09日22点场",
+      "url": "https://www.bilibili.com/video/BV1rCt8zkEaJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PLBYZPE7Z",
+      "title": "【直播回放】聊技术和战术 2025年08月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1pLbYzpE7Z",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TDBVZTE7A",
+      "title": "【直播回放】聊技术和战术 2025年08月13日22点场",
+      "url": "https://www.bilibili.com/video/BV1TDbvzTE7a",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1A6BSZPE4C",
+      "title": "【直播回放】聊技术和战术 2025年08月15日22点场",
+      "url": "https://www.bilibili.com/video/BV1A6bszPE4C",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SYE3ZDE4Z",
+      "title": "【直播回放】聊技术和战术 2025年08月20日22点场",
+      "url": "https://www.bilibili.com/video/BV1Sye3zDE4z",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MZEZZZEWO",
+      "title": "【直播回放】聊技术和战术 2025年08月23日22点场",
+      "url": "https://www.bilibili.com/video/BV1mzezzZEwo",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UJAJZTEUY",
+      "title": "【直播回放】聊技术和战术 2025年08月31日22点场",
+      "url": "https://www.bilibili.com/video/BV1UjajztEUY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DTA6ZMENN",
+      "title": "【直播回放】聊技术和战术 2025年09月03日22点场",
+      "url": "https://www.bilibili.com/video/BV1dta6zMEnN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BOPCZKEYI",
+      "title": "【直播回放】聊技术和战术 2025年09月14日22点场",
+      "url": "https://www.bilibili.com/video/BV1BopczkEYi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CVPBZHE8T",
+      "title": "【直播回放】聊技术和战术 2025年09月17日22点场",
+      "url": "https://www.bilibili.com/video/BV1CvpbzhE8T",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WLJRZ8EBP",
+      "title": "【直播回放】聊技术和战术 2025年09月21日22点场",
+      "url": "https://www.bilibili.com/video/BV1WLJRz8EbP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1URNHZMELX",
+      "title": "【直播回放】聊技术和战术 2025年09月24日22点场",
+      "url": "https://www.bilibili.com/video/BV1uRnHzmELX",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AYNZZZEMZ",
+      "title": "【直播回放】聊技术和战术 2025年09月28日22点场",
+      "url": "https://www.bilibili.com/video/BV1AYnZzzEMz",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RZHSZKEZL",
+      "title": "【直播回放】聊技术和战术 2025年10月01日22点场",
+      "url": "https://www.bilibili.com/video/BV1RZHszKEZL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YVXQZBETG",
+      "title": "【直播回放】聊技术和战术 2025年10月08日22点场",
+      "url": "https://www.bilibili.com/video/BV1yVxqzbEtg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1J24Y1R7MA",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月21日20点场",
+      "url": "https://www.bilibili.com/video/BV1j24y1r7ma",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KX4Y1M7RC",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月22日21点场",
+      "url": "https://www.bilibili.com/video/BV1kx4y1M7rc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Z8411W7VU",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月22日23点场",
+      "url": "https://www.bilibili.com/video/BV1z8411w7vU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZA411D7EC",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月23日21点场",
+      "url": "https://www.bilibili.com/video/BV1zA411d7EC",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NY411975C",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月24日21点场",
+      "url": "https://www.bilibili.com/video/BV1NY411975C",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NY4Y1972S",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月25日21点场",
+      "url": "https://www.bilibili.com/video/BV1Ny4y1972S",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18S4Y147FU",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月26日21点场",
+      "url": "https://www.bilibili.com/video/BV18s4y147fU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WG4Y1Q7SD",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月26日21点场",
+      "url": "https://www.bilibili.com/video/BV1WG4y1Q7SD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZD4Y1W7AZ",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月27日21点场",
+      "url": "https://www.bilibili.com/video/BV1Zd4y1W7az",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12M411V7FE",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年1月29日20点场",
+      "url": "https://www.bilibili.com/video/BV12M411v7fE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NM4Y1Q7XW",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年2月11日21点场",
+      "url": "https://www.bilibili.com/video/BV1NM4y1Q7XW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TY411V76H",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年2月15日21点场",
+      "url": "https://www.bilibili.com/video/BV1TY411v76H",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18Y411Y7PG",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年2月19日21点场",
+      "url": "https://www.bilibili.com/video/BV18Y411Y7pG",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CY4Y1F7WL",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年2月22日21点场",
+      "url": "https://www.bilibili.com/video/BV1cy4y1f7WL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WS4Y1Y7E7",
+      "title": "【直播回放】聊技术聊战术聊故事 2023年2月9日21点场",
+      "url": "https://www.bilibili.com/video/BV1Ws4y1Y7E7",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EDYQBLEED",
+      "title": "【移动中启动】解决步伐卡顿，很多小碎步，启动时机不对的秘诀！专业球员的启动，细化顺畅【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1eDyQBLEed",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV16P4Y1P7IX",
+      "title": "一个套路教你网前封网一个都不漏，不是能力，是深深的套路，让对方每个球打到你手上",
+      "url": "https://www.bilibili.com/video/BV16p4y1p7iX",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KNRUY1EN6",
+      "title": "一招 解决头顶接不到球 和 总把球打出界的问题！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1KnruY1En6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12JSVZXEBL",
+      "title": "一招解决 双打混双【接发】没有主动权，没法压球限制对手，出球没速度的问题！接发再也不会没有威胁力【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV12JsvzXEBL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_receive",
+        "name": "发接发与双打前两拍"
+      },
+      "topics": [
+        {
+          "id": "lyx-receive",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1T87EZ4ELJ",
+      "title": "一直被对手压底线怎么办？越打越被动！学学如何用软压/轻杀限制对手打底线球，并且反压【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1T87Ez4ELj",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IFGC6LEA9",
+      "title": "一致性极强的技术",
+      "url": "https://www.bilibili.com/video/BV1iFGC6LEA9",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DV411U7PV",
+      "title": "不会接平高球？太难受？太被动？今天教你们几招，再也不怕平高球！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1dV411u7pV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FE421C7EI",
+      "title": "不要再当捡球师了！3步学好被动过渡球，再也不怕别人推正手底线！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1FE421c7ei",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GW4M1K7GD",
+      "title": "为什么不用非持拍手就没法打好球？！到底有什么用处？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Gw4m1k7gD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VB7B6KE4R",
+      "title": "为什么你们打球没有一致性？即便学过但用不上也没有欺骗性。今天教会你们顶级球员的一致性【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1VB7B6kE4R",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DJUIY1EGB",
+      "title": "为什么你们打球没有爆发力？手指发力/集中发力/鞭打发力全都做错了？放松抓紧方法就没做对【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1DJUiY1Egb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-finger-wrist",
+          "name": "手指、手腕与发力时机"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QY411778G",
+      "title": "为什么做了启动反而接不到球！！启动感觉是个多余动作，并没帮上忙【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1qY411778G",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "footwork-title-fallback",
+          "name": "启动、到位、落地与回收（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BI4Y1G7RU",
+      "title": "为什么别人杀球你防得很困难？你防守对吗？怎么感觉你反应过来了但就是总慢一步？答案是什么？！！",
+      "url": "https://www.bilibili.com/video/BV1Bi4y1g7RU",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1624Y1V7DC",
+      "title": "为什么双打/混双封网是总打漏球，打不上力，压不下去？怎么加强一致性？（20个难题系列）【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1624y1v7DC",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FK4Y1D7DD",
+      "title": "为什么学了羽毛球启动，学了还反应不过来呢。总是接不了球？今天和你们分享秘诀",
+      "url": "https://www.bilibili.com/video/BV1fK4y1d7DD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1J64Y1O7SN",
+      "title": "为什么学了羽毛球步伐，但实战时还是接不到劈吊？我哪里做错了？秘诀是什么？（李宇轩教练）",
+      "url": "https://www.bilibili.com/video/BV1J64y1o7sn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EV411I7ZS",
+      "title": "为什么怎么跑都接不到球？问题出在哪里呢？ 解决方案是什么？",
+      "url": "https://www.bilibili.com/video/BV1Ev411i7ZS",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "learner_fit-title-fallback",
+          "name": "学习路径与综合答疑（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MQJ2ZGEQR",
+      "title": "为什么打双打和混双网前封网总漏球，打不着球，即便提前预判了还是挥空拍？秘诀到底是什么【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1mqJ2zGEQr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ED4Y1H7N5",
+      "title": "为什么挑球总是挑不远，挑不高，而且还得网球肘？！被动时完全没法挑起来！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1eD4y1H7N5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SK4Y1S7NB",
+      "title": "今天带你们学新“技术”，猜猜是什么！！是最近特别对人在问的哦",
+      "url": "https://www.bilibili.com/video/BV1SK4y1S7Nb",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "unresolved_title",
+        "name": "体系内待人工细分"
+      },
+      "topics": [
+        {
+          "id": "unresolved_title-title-fallback",
+          "name": "体系内待人工细分（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YP4Y1V7JN",
+      "title": "介绍你们个技术!! 想学吗？等我发了杀球教学，后期给这一个技术做的完整的教学视频！",
+      "url": "https://www.bilibili.com/video/BV1Yp4y1v7jN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WK411K7KW",
+      "title": "会了前面我教的方法，学双腿起跳杀球就会特别简单了。完整版等网课",
+      "url": "https://www.bilibili.com/video/BV1wK411K7Kw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-jump-smash",
+          "name": "跳杀与腾空进攻"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MB421I7PF",
+      "title": "侧身展肩架拍慢，动作来不及做导致没办法发力怎么解决？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Mb421i7pf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1K4ARE9EVM",
+      "title": "切推假动作技术！把你的网前技术加强，多一个假动作，多一写威胁力！一推就得分【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1k4ARe9Evm",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1N1421F7RY",
+      "title": "到底什么重复球？用处是什么，怎么更完美的利用重复球得分呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1N1421f7Ry",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1G6421U7OM",
+      "title": "到底哪些步伐训练最有效，最适合你呢？哪些步伐训练可以提高速度和爆发力【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1g6421u7oM",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KD4Y1B7NW",
+      "title": "到底怎么选球拍？该用进攻还是防守拍子？为什么有些球员用不同拍子？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Kd4y1B7Nw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1B64Y1H7MW",
+      "title": "到底要怎么打球时看对方的站位，然后打去反方向让对方每一个球都很被动呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1B64y1h7mw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KX4Y1G7L4",
+      "title": "前几天球员问我一个很好的问题，今天和你们分享",
+      "url": "https://www.bilibili.com/video/BV1kX4y1g7L4",
+      "classification_status": "title_topic_fallback",
+      "system": {
+        "id": "unresolved_title",
+        "name": "体系内待人工细分"
+      },
+      "topics": [
+        {
+          "id": "unresolved_title-title-fallback",
+          "name": "体系内待人工细分（标题未细化）"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LS4Y1R7B1",
+      "title": "动作姿势很丑，打球很僵硬，移动不协调，身体不协调 ，有救吗？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Ls4y1r7b1",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EN4Y1G7TR",
+      "title": "勾球怎么勾个过了中间线才过网的球？勾球不是打过去，是带过去的？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1eN4y1G7tr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Q22WYQEHN",
+      "title": "勾球的秘诀！如何像顶尖球员打个贴网，快速，隐蔽的勾球？关键就是“公鸡” 对，没错，🐓 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1q22WYQEhN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AF411I7AS",
+      "title": "单打双打混双 网前怎么勾对角？为什么很多人勾的又远又高？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1AF411i7AS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YM4Y1171R",
+      "title": "单打快速得分套路，在两三招内让对方满地找球！转身球套路",
+      "url": "https://www.bilibili.com/video/BV1yM4y1171R",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1N94Y127Z9",
+      "title": "单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置",
+      "url": "https://www.bilibili.com/video/BV1n94y127z9",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DYIUBVEPA",
+      "title": "单打球员不会打双打怎么办？到底怎么学双打套路？一招教会你搞明白双打套路【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1DyiUBVEpA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1E94Y1P7WT",
+      "title": "单打，双打与混双 的打远网套路！教你们怎么抓对手出球 同时反攻！！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1E94y1p7wt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18W411S7ES",
+      "title": "单打，双打，混双有欺骗性的挑球！从被动立传主动！来学顶尖球员的秘密武器（反攻技术）！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV18w411S7eS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YB4Y1H7TL",
+      "title": "又要送好几支尤尼克斯天斧99，几支天斧88pro!!来看怎么参加！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Yb4y1h7tL",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RP4Y1X7WW",
+      "title": "又隐蔽又有威胁力的吊球！一吊就让人满地找球！",
+      "url": "https://www.bilibili.com/video/BV1Rp4y1x7WW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17N411E7CK",
+      "title": "又高又远又边的头顶球总接不到，对不上节奏，步伐跑不到位，怎么办？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV17N411e7cK",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13PYZYYEXZ",
+      "title": "双打/混双总抢球，漏球，跑错位，怎么解决？不管防守或进攻，都可以完美配合【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV13PyZYYEXZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GY4Y1P7B2",
+      "title": "双打前三拍上架啦！！！！教你们怎么打双打时懂得封网，那网前抓的死死的",
+      "url": "https://www.bilibili.com/video/BV1Gy4y1p7b2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_receive",
+        "name": "发接发与双打前两拍"
+      },
+      "topics": [
+        {
+          "id": "lyx-receive",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QJHPZCENS",
+      "title": "双打和混双【轮转/跑位】到底怎么做？目的是什么？来学学顶尖球员的秘诀【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1qjHPzCENS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IR4Y1S71B",
+      "title": "双打和混双杀不死对方怎么办？该怎么去得分呢？有什么好套路呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1iR4y1s71B",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FMMPY9EAO",
+      "title": "双打必须的技术！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1FMmpY9Eao",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1H5411L7QQ",
+      "title": "双打接发教学。如何一直保持主动，就算对方发的再好的球，都可以下压，可以一拍限制对方回球，如何打不同的高水平技术等",
+      "url": "https://www.bilibili.com/video/BV1h5411L7qq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_receive",
+        "name": "发接发与双打前两拍"
+      },
+      "topics": [
+        {
+          "id": "lyx-receive",
+          "name": "接发与前两拍衔接"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HIKDYZEJT",
+      "title": "双腿起跳杀球的学习秘诀！学了轻松正确发力，当个大炮，一杀就得分！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1hikDYzEjt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-jump-smash",
+          "name": "跳杀与腾空进攻"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1F7CPEXEFQ",
+      "title": "反手假动作平抽！学顶尖球员用的有速度，又隐蔽，又有威胁力的平抽球，双打/混双绝招【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1f7cpeXEfQ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NP4Y127HW",
+      "title": "反手完整版上架啦！11月8号！让你们把反手打的和陶菲克/李梓嘉/专业球员一样！不在于力量，全在于方法！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1NP4y127HW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1T34Y1772E",
+      "title": "反手怎么打？到底有多少种握拍方法？为什么发不上力？",
+      "url": "https://www.bilibili.com/video/BV1T34y1772e",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AG411J7KB",
+      "title": "发力时所谓的“放松-抓紧”是必须做到的，但怎么做和什么时候做呢？为什么很多人做的时候做的动作很僵，发不了力呢【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1ag411j7kb",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MY4Y197AV",
+      "title": "各种技术怎么打出快速球/加速球？所谓的贴拍发力 和 短发力是怎么做？用处是什么？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1MY4y197aV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JR4Y1C7KT",
+      "title": "吊球网课终于要上架啦！！看看目录，11月8日，不见不散！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Jr4y1C7Kt",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NJTUEYEMP",
+      "title": "后场尤其是头顶总来不及，转身慢，被动如何解决？即便学过步伐就是来不及！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1nJtUeYEmP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZI4Y1G7LP",
+      "title": "后场步伐怎么样才是最轻松最合理的？平时怎么练习步伐更加有效？看了这个视频你就懂了！",
+      "url": "https://www.bilibili.com/video/BV1zi4y1g7Lp",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RY4Y1S7ZV",
+      "title": "后场球为什么会切球，打个减速球！今天给你们透露一丢丢！今天视频稍微不一样，不要骂我哦～",
+      "url": "https://www.bilibili.com/video/BV1Ry4y1S7Zv",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UMPNZNE3J",
+      "title": "后场预判不了球的落点，从而找不到击球点，总感觉总来不及打后场球！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1UmpNzNE3J",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DV411U7FZ",
+      "title": "启动 步伐 学了还是用不出来？过来看看你是不是犯了这些错误（先看上期的步伐教学视频再看此视频会更有效果噢）",
+      "url": "https://www.bilibili.com/video/BV1dV411U7FZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1A8IYYZEK6",
+      "title": "启动是需要带着方向启动（方向性启动）否者动不了？启动怎么帮助移动？为什么时机会不对【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1A8iyYZEK6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DH411D7XQ",
+      "title": "和自己的高水平打单打，退役了，就不打了腿动不了了，加不了速，也就只能这样打了",
+      "url": "https://www.bilibili.com/video/BV1Dh411d7xq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12W411R7ND",
+      "title": "咱们的衣服已经可以拿下啦！！！！【李宇轩】",
+      "url": "https://www.bilibili.com/video/BV12w411r7nd",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YT4Y1Q7ZW",
+      "title": "回答你们在杀球教学所问的问题！ 还没看的，记得先看前阵子发的杀球教学视频，然后再看这一个讲解和解答",
+      "url": "https://www.bilibili.com/video/BV1yt4y1q7ZW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NP4Y1M7KF",
+      "title": "国际羽球员为什么总打中间？这是什么奇怪套路？不是应该打边线让对方跑吗？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1NP4y1M7Kf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KA411Q763",
+      "title": "在泰国看总决赛现场解说，明白他们在用什么套路和战术，告诉你们为什么他们选择某某套路",
+      "url": "https://www.bilibili.com/video/BV1kA411Q763",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12P4Y1Y7HS",
+      "title": "在还没开始发双打混双的教学视频前，先来回答最多人问的双腿/单腿起跳杀球问题！",
+      "url": "https://www.bilibili.com/video/BV12p4y1Y7HS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-jump-smash",
+          "name": "跳杀与腾空进攻"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UT4Y1U7X9",
+      "title": "场地太大接不了球，对的步伐很关键！你知道什么时候用并步，什么时候用交叉步吗？",
+      "url": "https://www.bilibili.com/video/BV1Ut4y1U7x9",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Q34Y1D7MD",
+      "title": "头顶区怎么就吊不出有隐蔽有威胁力的斜线球？滑板是什么？为什么就切不着球？专业球员怎么做的？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Q34y1d7md",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QND7YMEZV",
+      "title": "如何准确瞄边线打球，让球一直压边线，准确控制好球的方向？一招搞定！【李宇轩教练】～购买网课以及衣服看平论置顶",
+      "url": "https://www.bilibili.com/video/BV1Qnd7YmEZV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AHWEECEVB",
+      "title": "如何轻松杀得尖？几乎所有人对杀的尖技巧都搞错了！难怪越杀越没劲！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1aHweeCEVB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-point-heavy-smash",
+          "name": "点杀、重杀与杀球加速"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1794Y177DP",
+      "title": "学习安洗莹的漂亮步伐！她怎么动的如此轻盈？桃田，李宗伟步伐又有什么区别呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1794y177Dp",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13N411G7SS",
+      "title": "完整正反手过渡直线，斜线教学！怎么打得像李梓佳，安赛龙，林丹等！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV13N411g7sS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17N411G7BH",
+      "title": "害人的拳式握法，不要再用了！只会越打越没速度！来看看为什么发不上力【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV17N411G7bh",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-racket-preparation",
+          "name": "握拍、架拍与引拍"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TW411W7WD",
+      "title": "对付大高个 和 矮个子的战术！教你们怎么得分同时限制对方回球路线 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Tw411w7wD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZW421X75R",
+      "title": "封网再也不漏球的秘诀！让你每一个球都可以封着！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1ZW421X75r",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UX4Y1C7UP",
+      "title": "弓箭步用前脚掌落地会更快？！不是说必须用脚后跟要不然会崴脚吗？？为什么顶尖球员弓箭步不一样？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Ux4y1c7uP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-front-lunge",
+          "name": "网前跨步与第一响应"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1KS2YBDEUF",
+      "title": "弹挑，快挑，推挑，一种让对方反应不过来的挑球！单打双打必学技术【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1KS2yBDEuf",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NT4Y1O7WQ",
+      "title": "很多人接杀，封网，打反拍时转换球拍都来不及，到底是为什么呢？什么解决方案呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1nT4y1o7wq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        },
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CK4Y1G7VL",
+      "title": "很多人问我头顶球不会反拍怎么办？！打得很被动！如果要加速的去杀球或进攻怎么办？马来步是什么呢？用处是什么然后怎么做呢？",
+      "url": "https://www.bilibili.com/video/BV1CK4y1g7VL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FY4Y1Z7CK",
+      "title": "很重要很重要的事（网课？）",
+      "url": "https://www.bilibili.com/video/BV1fy4y1z7ck",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1LJR2BTEN5",
+      "title": "志田千阳“轮臂反手式”合理吗？到底对还是错？我们可以学吗？更适合女孩吗？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1LJR2BtEn5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RA4Y1U7PU",
+      "title": "怎么做个像李宗伟，安赛龙，林丹，桃田一样的反手过渡球？又稳又隐蔽！想学完整教学看咱们过渡球网课【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Ra4y1U7pu",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BH411F7YA",
+      "title": "怎么在打混双或双打时防守都可以得分？怎么在来不及的情况打出对手反应不过来的球？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1bh411F7YA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JX4Y1A7WI",
+      "title": "怎么打个有威胁力平高球，为什么你们平高球总被对方拦住？秘诀是什么？羽毛球（李宇轩教练）",
+      "url": "https://www.bilibili.com/video/BV1jX4y1A7wi",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13UZDBOEEY",
+      "title": "总是被对方快速压后场两点怎么办？所有后场都是被动球？一招顶尖球员常用的绝招！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV13uzDBoEeY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV15K411Z7E9",
+      "title": "我们又要送球拍了！这一次24支球拍！不要错过！！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV15K411Z7e9",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1US4Y1E715",
+      "title": "我们来看看你们的假动作，是否隐蔽，是否可以欺骗对手",
+      "url": "https://www.bilibili.com/video/BV1uS4y1e715",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1YT411T78Y",
+      "title": "我发了短球对方总推我底线就特别难受！怎么解决？",
+      "url": "https://www.bilibili.com/video/BV1yT411T78Y",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_receive",
+        "name": "发接发与双打前两拍"
+      },
+      "topics": [
+        {
+          "id": "lyx-serve",
+          "name": "发球稳定性与个人适配"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12R4Y1P7YD",
+      "title": "战术/比赛经验/训练方法【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV12R4y1p7yD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BH411T7TR",
+      "title": "打单打/双打/混双 抽球没力量，球总减速怎么办？抽球是换拍慢怎么办！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Bh411T7TR",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XRVKZYE3X",
+      "title": "打球套路很单一，没有球路，没有打球意识，怎么办？怎么加强意识，怎么加强套路？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1xRvKzYE3x",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XSRTYYEOT",
+      "title": "打球好，就看基本功！轻松搞定基本功！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1XSRtYyEoT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1X24Y1B7V2",
+      "title": "打球时步子越大，越接不了球！！太慢！改了立马快得离谱！！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1X24y1B7v2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FMMP6KEDF",
+      "title": "打球没有【连贯性】到底怎么办，步伐都练熟悉了但打球时就是莫名的连贯不上。今天帮你们解决这难题【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1FmMP6KEDF",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VT4Y1A7KZ",
+      "title": "打羽毛球该怎么样练力量才能帮组杀球、反拍、爆发力等 更好？",
+      "url": "https://www.bilibili.com/video/BV1vt4y1a7Kz",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IQ4Y1Q7JA",
+      "title": "打羽球怎么准备活动？你们一直要求拉伸放松，避开受伤的视频到了！吊球网课上架！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1iQ4y1q7Ja",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-load-safety",
+          "name": "热身、伤痛与训练负荷"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MA41177BE",
+      "title": "拉转拉转，杀球讲解视频最后一期",
+      "url": "https://www.bilibili.com/video/BV1mA41177be",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Z94Y1Q74K",
+      "title": "拉转杀球，霸王杀 和 李梓嘉杀球有区别吗？怎么做？怎么杀的又重又快？为什么小孩都能轻松杀快球？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Z94y1Q74k",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-point-heavy-smash",
+          "name": "点杀、重杀与杀球加速"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PUD1BGE3V",
+      "title": "挑了球被对手往反手区打平高球怎么接？或被对手劈吊“罚站”了怎么办？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Pud1BgE3v",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MIBBZ5E9U",
+      "title": "挑球怎么轻松挑得又高又到位？隐蔽性挑球和假动作挑球，把防守转为进攻！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1MibBz5E9U",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EUR9BYE2P",
+      "title": "挥拍没速度，始终发不上力，打球挥拍总卡，打不准！这是99%无意当中养成的坏习惯导致的【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1eUr9ByE2P",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-elbow-release",
+          "name": "顶肘、摆肘与挥拍释放"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XH4Y1S7VZ",
+      "title": "挥拍舒展不了，肘抬不起来，总是切拍，到问题在哪？为什么学了挥拍还是错呢？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1xh4y1S7Vz",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-elbow-release",
+          "name": "顶肘、摆肘与挥拍释放"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IDUJBFELZ",
+      "title": "接杀【分球反攻】技术！双打混双如何轻松防住重炮且立即反攻转主动！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1idUjBfELZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17YTCZNEFQ",
+      "title": "收吊球：特别省力且威胁力大的得分技术！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV17YTczNEfq",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GY4Y127MB",
+      "title": "教你们一个套路让你们在网前打得和苏卡，亨德拉等一样快，你们一直认为是纯能力和经验，其实都是你们能学会的套路",
+      "url": "https://www.bilibili.com/video/BV1Gy4y127mB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1TI4Y1N7WA",
+      "title": "教你们打个快速球，每个球都能让对方特难受，特被动！不是力量！不是力量！不是力量！全是方法！！赶紧学起来吧",
+      "url": "https://www.bilibili.com/video/BV1ti4y1N7wA",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FF4Y1Q7TD",
+      "title": "教你们最好发力可以杀的最快的方法，国际专业球员的秘诀。先学会了第一个视频教的再看这一个",
+      "url": "https://www.bilibili.com/video/BV1ff4y1Q7TD",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BG41177EF",
+      "title": "教你如何搓个又转又贴网的球（龙卷风搓球）【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1bg41177ef",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JS4Y157V1",
+      "title": "春节期间在家怎么训练/减肥/保持水平？球馆不营业，不慌！",
+      "url": "https://www.bilibili.com/video/BV1JS4y157v1",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "equipment_safety",
+        "name": "装备成熟度与负荷安全"
+      },
+      "topics": [
+        {
+          "id": "lyx-load-safety",
+          "name": "热身、伤痛与训练负荷"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1FH4Y1L7AT",
+      "title": "暴力杀球，鞭打/闪动发力是如何正确的做？教你如何打出有速度，隐蔽与突然的球！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1fH4y1L7aT",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV155411H7RY",
+      "title": "有没有发觉平时练步伐跑的挺好，但一打球就废吗？学会了前场，中场和后场步伐，现在就学全场步伐。",
+      "url": "https://www.bilibili.com/video/BV155411h7ry",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1754Y1U7F6",
+      "title": "有问过为什么有些人站着就能杀的那么快那么重吗？“透露一下，和力量没太大关系，都是方法，不要告诉别人，嘘～”",
+      "url": "https://www.bilibili.com/video/BV1754y1U7F6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1ZTPAZVEM2",
+      "title": "杀了球下一拍衔接不上，连贯不了导致对分该怎么办？杀上网最好的步伐是哪种？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1ztPAzvEm2",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XIBYZQE1H",
+      "title": "杀对角总被对方接回来陷入被动？那就学滑板杀球！隐蔽又有威胁力的假动作杀球！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1XibyzqE1h",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NA41147KZ",
+      "title": "杀球网课上架！最最最重要的是挥拍，但竟然没人做对！！挥拍不对，那转身和发力都没法完完全全做对！",
+      "url": "https://www.bilibili.com/video/BV1nA41147kZ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PK411N7PS",
+      "title": "杀球讲解视频（4） 蹬转？拉转，拉转，拉转才对！ 加油各位",
+      "url": "https://www.bilibili.com/video/BV1pK411N7PS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XVMNZTEE3",
+      "title": "李宗伟必杀技-正手不转身突击杀球（斜线），隐蔽且有爆发力【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1xVMNztEE3",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV14N4Y1N7RW",
+      "title": "李梓嘉反手杀球！怎么做？同时为什么总转一圈再杀？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV14N4y1n7Rw",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HG9HYYEAS",
+      "title": "林丹【劈杀对角】必杀技！轻松学会！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1hG9hYyEAS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-slice-smash",
+          "name": "劈杀与角度进攻"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1JHVMZYE2C",
+      "title": "林丹太极步伐和太极大法！到底怎么跑的如此轻松？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1jhVmzyE2C",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1QK4Y157P6",
+      "title": "正手不转身突击杀球，怎么发力？怎么杀？（李宗伟绝招）",
+      "url": "https://www.bilibili.com/video/BV1qK4y157p6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV128FWYTEGO",
+      "title": "正手底线被动抽球是最困扰球员的技术，很难发力同时回位也难！几分钟解决这难题【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV128fwYTEGo",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RT421V7MS",
+      "title": "正手转换重心很难，到底该怎么做？为什么不转身更好？到底怎么发力？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Rt421V7MS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RROWYHE65",
+      "title": "正确内旋动作/发力动作！内旋不对就没有鞭打发力，不仅切球还减速，打球不响【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1rroWYHE65",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DW421R7AE",
+      "title": "每周三周日10点晚上直播！不见不散 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1dW421R7AE",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1RZ9YBCELY",
+      "title": "没球鞋穿？口粮羽球鞋开箱测评来了",
+      "url": "https://www.bilibili.com/video/BV1rZ9YBcELY",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "equipment_safety",
+        "name": "装备成熟度与负荷安全"
+      },
+      "topics": [
+        {
+          "id": "lyx-equipment",
+          "name": "球拍选择与装备适配"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CA411J7BJ",
+      "title": "混双，双打单打怎么扑个贴网球？怎么扑的又轻松又简单，而且再也不会拍子打网了！尤其是女孩打打混双总不敢扑球",
+      "url": "https://www.bilibili.com/video/BV1cA411j7BJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CR421G7M6",
+      "title": "滑板吊球！如何做的有隐蔽性又丝滑的滑板？为什么你们却吊的又远又高？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1cr421g7m6",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BY4Y1979N",
+      "title": "现场教各种战术，技术和不同顶尖球员选择的球路！又要送球拍了！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1by4y1979n",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1BV4Y1D7JQ",
+      "title": "球太靠边怎么接？为什么我防守总差半步，就是接不到？而且防守姿势还丑！！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1BV4y1d7jQ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SL4Y1J77Z",
+      "title": "球拍磅数怎么选？高磅数打不远，磅数低发不上力？怎么办呢！今天教你们怎么选 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1SL4y1J77Z",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "equipment_safety",
+        "name": "装备成熟度与负荷安全"
+      },
+      "topics": [
+        {
+          "id": "lyx-equipment",
+          "name": "球拍选择与装备适配"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GX4Y187CR",
+      "title": "秘诀来了！学了步伐但总是接不了吊球，移动特僵硬，不协调，到底怎么解决？赶紧学起来！！！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1gx4y187cr",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV11Q4Y1X7PJ",
+      "title": "第二集 如何反拍搓个又转又贴网的球，把漏的补上 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV11q4y1X7PJ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1WG411K79D",
+      "title": "答应你们的吊球网课目录，晚上8点见【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Wg411K79D",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1NA4Y1Z7GA",
+      "title": "简单又有效的‘假动作’，怎么很容易的改变出球时机与节奏，让对手被动甚至接不了！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1na4y1z7Ga",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1AB9VBQEIY",
+      "title": "网前技术完整版来啦！搓、勾、推、挑、扑！细节教学看评论【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1aB9vBQEiy",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1MS4Y187PC",
+      "title": "网前技术，搓球，勾球，推球，挑球，扑球！怎么做的隐蔽，稳和有威胁力！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1mS4y187pc",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DQ4Y1E7KR",
+      "title": "羽毛球假动作技术，把对方骗的满地找球！秘诀是什么 【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Dq4y1e7KR",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SH411X7AF",
+      "title": "羽毛球双打发球教学 看了这视频让你的双打发球更隐蔽更具有威胁力！从发球就开始建立优势！",
+      "url": "https://www.bilibili.com/video/BV1sh411X7Af",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "serve_receive",
+        "name": "发接发与双打前两拍"
+      },
+      "topics": [
+        {
+          "id": "lyx-serve",
+          "name": "发球稳定性与个人适配"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VZ4Y1K7D5",
+      "title": "羽毛球搓球教学之-噢，不。这不是教学，我只是把“幸运”天赋点满了！（如果我能忍住不笑，应该能搓的更多）",
+      "url": "https://www.bilibili.com/video/BV1VZ4y1K7d5",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1CZ4Y1M7HO",
+      "title": "羽毛球搓球教学之-教你如何搓出“龙卷风”      什么？！这个人居然搓出了龙卷风？！",
+      "url": "https://www.bilibili.com/video/BV1CZ4y1M7ho",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-net-control",
+          "name": "网前控球与处理"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV12T4Y1E7L4",
+      "title": "羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？",
+      "url": "https://www.bilibili.com/video/BV12t4y1e7L4",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "release",
+        "name": "准备、肘部与释放链"
+      },
+      "topics": [
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1M5411W7DS",
+      "title": "羽毛球步伐网课上架啦！步伐步伐步伐步伐！步法步法 （李宇轩教练）",
+      "url": "https://www.bilibili.com/video/BV1M5411w7DS",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IP4Y1S7FY",
+      "title": "羽毛球界里最常见，最致命的20个世纪大难题和解决方案！统统帮你们解决，让你们更上一个档次！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1iP4y1S7fy",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "learner_fit",
+        "name": "学习路径与综合答疑"
+      },
+      "topics": [
+        {
+          "id": "lyx-live-qa",
+          "name": "学习路径与技术答疑"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV13C4Y1T7SN",
+      "title": "羽毛球高远球教学之-五分钟教会你羽毛球高远球到底该怎么打！高远球打不到后场？看了视频后这个问题将不再存在！",
+      "url": "https://www.bilibili.com/video/BV13C4y1t7Sn",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear-distance",
+          "name": "高远球距离与后场到位"
+        },
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HZ4Y1M7WB",
+      "title": "羽毛球高远球教学之-教你如何转身挥拍！   什么？！上一个视频你已经看完了？那来学学怎么转身打高远球吧！（没看上一个视频的一定要回去先看高远球教学视频噢）",
+      "url": "https://www.bilibili.com/video/BV1hZ4y1M7wB",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        },
+        {
+          "id": "lyx-elbow-release",
+          "name": "顶肘、摆肘与挥拍释放"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV17A4Y1J7KV",
+      "title": "虽然学会了步伐，启动，跨步，弓箭步什么蹬步，为什么一直接不了吊球，会觉得很困难呢？",
+      "url": "https://www.bilibili.com/video/BV17a4y1j7KV",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "footwork",
+        "name": "启动、到位、落地与回收"
+      },
+      "topics": [
+        {
+          "id": "lyx-rear-start",
+          "name": "后场启动与第一步"
+        },
+        {
+          "id": "lyx-front-lunge",
+          "name": "网前跨步与第一响应"
+        },
+        {
+          "id": "lyx-recovery",
+          "name": "落地、回位与移动衔接"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1HV41117WQ",
+      "title": "说真的，杀球杀的好，是方法，不是力量！先教你们一些基础的再进入正题！",
+      "url": "https://www.bilibili.com/video/BV1Hv41117wQ",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1XQFWBAEZL",
+      "title": "超级丹【断腕杀】正确发力和使用方法！再也不用怕别人打你平高球，或担心杀球得不了分！",
+      "url": "https://www.bilibili.com/video/BV1xQfwBaEZL",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-hip-release",
+          "name": "转髋、内旋与身体带动"
+        },
+        {
+          "id": "lyx-drive",
+          "name": "平抽挡与快速交换"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1VV411578J",
+      "title": "这几天来到了上海旅游，放松一下，然后～ 谢谢你们的爱上海☺️☺️ 李宇轩羽毛球世界",
+      "url": "https://www.bilibili.com/video/BV1vv411578J",
+      "classification_status": "title_outside_system",
+      "system": {
+        "id": "outside_teaching_system",
+        "name": "体系外：公告／生活／产品信息"
+      },
+      "topics": [
+        {
+          "id": "outside-teaching-system",
+          "name": "体系外：公告、生活或产品信息"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1DVG766ETN",
+      "title": "遇到暴力进攻选手应该怎么办？怎么才可以轻松接住他的各种进攻球【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1dVG766EtN",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV111421O7KK",
+      "title": "遇到爱打假动作球员怎么办？一招解决这问题！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV111421o7kk",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1GRINB4EDG",
+      "title": "遇到爱打平高和劈吊的球员怎么接怎么反击呢？一招解决！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1GriNB4EDG",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "drop_drive",
+        "name": "吊球、平抽挡与快速交换"
+      },
+      "topics": [
+        {
+          "id": "lyx-drop-variation",
+          "name": "吊球与头顶变化"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV18GWPZMER4",
+      "title": "遇到速度快的球员如何限制？单打双打混双都一样！3招解决！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV18GwPzmER4",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        },
+        {
+          "id": "lyx-rally-transfer",
+          "name": "实战对抗与球路迁移"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1SWCWZAEXP",
+      "title": "遇到防守好球员应该怎么进攻得分？杀球轻又怎么杀才能得分？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1SwcWzAExP",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1PGO3Y9ERG",
+      "title": "重杀和快杀有区别吗？到底怎么做和用处是什么？【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1PGo3Y9ERg",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-point-heavy-smash",
+          "name": "点杀、重杀与杀球加速"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1EG3MZ3EYD",
+      "title": "陶菲克/李梓嘉反手反抽斜线！反攻技术【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1Eg3mz3EYd",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "backhand_time_budget",
+        "name": "反手与时间预算"
+      },
+      "topics": [
+        {
+          "id": "lyx-backhand",
+          "name": "反手早选择与紧凑回复"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1IN4Y1Q7NW",
+      "title": "霸王杀！杀球杀的尖，快，狠！对手满地找球！【李宇轩教练】",
+      "url": "https://www.bilibili.com/video/BV1in4y1Q7nW",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-point-heavy-smash",
+          "name": "点杀、重杀与杀球加速"
+        },
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1Z64Y1F7YS",
+      "title": "高远球打不到位？转身挥拍老发不上力？来看看你是不是跟他们一样有同样的问题。",
+      "url": "https://www.bilibili.com/video/BV1Z64y1F7Ys",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "high_clear",
+        "name": "高远球与头顶击球"
+      },
+      "topics": [
+        {
+          "id": "lyx-high-clear-distance",
+          "name": "高远球距离与后场到位"
+        },
+        {
+          "id": "lyx-high-clear",
+          "name": "高远球与头顶击球"
+        },
+        {
+          "id": "lyx-rear-turn",
+          "name": "后场转身与确认步"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1A64Y1Q72N",
+      "title": "（下）防守怎么打底线的最大秘诀之一！赶紧学起来！！现在就知道为什么连小孩可以顶底线了！虽然是简单版，但希望你们都学到东子！记得先看（上）哦",
+      "url": "https://www.bilibili.com/video/BV1A64y1Q72n",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1T54Y187OR",
+      "title": "（第一期）双打防守顶后场。为什么大部分学不对，防不了，而小孩却做得了，秘诀是什么呢？不能力，是方法",
+      "url": "https://www.bilibili.com/video/BV1t54y187or",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "match_transfer",
+        "name": "练习到实战的迁移"
+      },
+      "topics": [
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        },
+        {
+          "id": "lyx-doubles-roles",
+          "name": "双打轮转与前两拍分工"
+        }
+      ]
+    },
+    {
+      "source_id": "LYX_BILI_BV1UH411O75P",
+      "title": "（第二集）为什么别人杀球你防得很困难？你的防守对吗？防守技巧最后一段，看完它！",
+      "url": "https://www.bilibili.com/video/BV1uh411o75P",
+      "classification_status": "title_topic_route",
+      "system": {
+        "id": "smash",
+        "name": "杀球与跳杀进阶"
+      },
+      "topics": [
+        {
+          "id": "lyx-basic-smash",
+          "name": "杀球基础与进攻动作"
+        },
+        {
+          "id": "lyx-defense-transition",
+          "name": "防守、接杀与被动过渡"
+        }
+      ]
+    }
+  ]
+}

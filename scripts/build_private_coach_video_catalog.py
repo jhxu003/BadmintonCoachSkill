@@ -119,6 +119,23 @@ class CoachSystemRoute:
     priority: int
 
 
+@dataclass(frozen=True)
+class CoachTopicRoute:
+    """A narrow, title-supported topic inside one coach's teaching system.
+
+    Topic routing deliberately stays below the curriculum-course boundary: a
+    public title can tell us what a source is about, but it cannot certify a
+    clip, a frame sequence, or a new coaching rule.  The topic index is for
+    source retrieval and coverage accounting only.
+    """
+
+    topic_id: str
+    topic_name: str
+    system_id: str
+    pattern: str
+    priority: int
+
+
 COACH_SYSTEM_ROUTES: dict[str, tuple[CoachSystemRoute, ...]] = {
     "liu-hui": (
         # Only title evidence is used here.  A specific named stroke wins over
@@ -169,6 +186,95 @@ COACH_SYSTEM_ROUTES: dict[str, tuple[CoachSystemRoute, ...]] = {
 }
 
 
+# These are intentionally title-only routes.  They turn the old one-label
+# directory into a source-linked topic map without treating a source title as
+# proof that its whole duration teaches that topic.  A video can retain up to
+# three directly named topics, while the parent system remains the stable
+# first-level filter used by the course page and the Skill router.
+COACH_TOPIC_ROUTES: dict[str, tuple[CoachTopicRoute, ...]] = {
+    "liu-hui": (
+        CoachTopicRoute("liu-learning-order", "学习顺序与训练路径", "student_fit_and_diagnosis", r"学习顺序|学习.*顺序|怎么练|新手|初学|入门|网课|训练计划|直播.*(?:问答|答疑)|动作太丑|涨球", 400),
+        CoachTopicRoute("liu-equipment-selection", "球拍参数与装备适配", "safety_equipment_and_load_selection", r"球拍.*(?:评测|测评|真假|对比|怎么选|选择|重量|平衡点|挥重|拉线|磅数|中杆|球线|型号|差价|品牌|打感|抗扭)|平衡点|拉线|磅数|中杆|球线|(?:3u|4u|5u)|轻拍|重拍", 390),
+        CoachTopicRoute("liu-load-and-pain", "伤痛、负荷与安全", "safety_equipment_and_load_selection", r"护具|伤痛|伤病|疼痛|受伤|肩(?:部|疼)|肘(?:部|疼)|膝(?:盖|疼)|腰(?:疼|伤)", 385),
+        CoachTopicRoute("liu-bawang-smash", "刘氏霸王杀", "smash_variant_system", r"霸王杀", 380),
+        CoachTopicRoute("liu-jump-smash", "跳杀与起跳落地", "smash_variant_system", r"跳杀|起跳杀|腾空杀|双脚跳|起跳.*杀", 375),
+        CoachTopicRoute("liu-heavy-smash", "重杀与下压", "smash_variant_system", r"重杀|遁地炮|杀球.*(?:重|压)|压不下", 370),
+        CoachTopicRoute("liu-point-fast-smash", "点杀、快杀与挥速", "smash_variant_system", r"点杀|快杀|挥速|球速", 365),
+        CoachTopicRoute("liu-slice-smash", "劈杀与切杀", "smash_variant_system", r"劈杀|切杀|slice smash", 360),
+        CoachTopicRoute("liu-basic-smash", "基础杀球动作链", "smash_variant_system", r"杀球|扣杀|突击|smash", 300),
+        CoachTopicRoute("liu-slide-drop", "滑板吊球", "drop_slice_slide_variation", r"滑板", 355),
+        CoachTopicRoute("liu-heavy-slice-drop", "重劈、重切与劈吊", "drop_slice_slide_variation", r"重劈|重切|劈吊|切吊", 350),
+        CoachTopicRoute("liu-light-drop", "轻吊与头顶吊球", "drop_slice_slide_variation", r"轻吊|轻放|吊球|放网", 340),
+        CoachTopicRoute("liu-contact-window", "击球点与甜区", "rear_court_base_and_high_clear", r"击球点|甜区|触球点", 335),
+        CoachTopicRoute("liu-high-clear-height", "高远球高度与到底线", "rear_court_base_and_high_clear", r"高远球.*(?:高度|高|不到位|到底线)|拉高远|后场高球", 330),
+        CoachTopicRoute("liu-high-clear-base", "高远球基础动作", "rear_court_base_and_high_clear", r"高远球|高球|头顶球", 310),
+        CoachTopicRoute("liu-racket-preparation", "架拍、引拍与高位结构", "overhead_power_chain", r"架拍|引拍|框架|立腕|拍面", 325),
+        CoachTopicRoute("liu-top-elbow", "顶肘与肘部路线", "overhead_power_chain", r"顶肘|掉肘|肘部|大臂停住", 320),
+        CoachTopicRoute("liu-hip-trunk", "转髋与躯干带动", "overhead_power_chain", r"转髋|顶髋|髋.*(?:带动|发力)|核心.*发力", 315),
+        CoachTopicRoute("liu-internal-rotation", "内旋与手臂释放", "overhead_power_chain", r"内旋", 310),
+        CoachTopicRoute("liu-grip-finger", "握拍与手指控制", "overhead_power_chain", r"握拍|手指", 305),
+        CoachTopicRoute("liu-wrist-whip", "手腕、鞭打与放松", "overhead_power_chain", r"手腕|鞭打|鞭甩|放松|卸力|僵硬|苍蝇拍", 300),
+        CoachTopicRoute("liu-rear-footwork", "后场步法、启动与中国跳", "footwork_arrival_recovery", r"后场.*(?:步法|步伐|移动|到位)|中国跳|后退步|启动步|交叉步|并步", 295),
+        CoachTopicRoute("liu-recovery", "回位、恢复与腿部弹性", "footwork_arrival_recovery", r"回位|回收|恢复|懒腿|腿懒|弹性.*步", 290),
+        CoachTopicRoute("liu-front-footwork", "上网步法与前场进入", "footwork_arrival_recovery", r"上网步|前场步|蹬跨|网前.*步", 285),
+        CoachTopicRoute("liu-backhand", "反手与后场角落处理", "backhand_and_rear_corner_choice", r"反手|反拍", 280),
+        CoachTopicRoute("liu-drive-exchange", "平抽挡与快速交换", "drive_receive_and_front_exchange", r"平抽|抽挡|抽球|推球|挡球|正手过渡", 275),
+        CoachTopicRoute("liu-receive-defense", "接杀与防守过渡", "drive_receive_and_front_exchange", r"接杀|防守|被动过渡", 270),
+        CoachTopicRoute("liu-serve-receive", "发球、接发与开局", "drive_receive_and_front_exchange", r"接发|接发球|发球|发小球|发高远球", 265),
+        CoachTopicRoute("liu-doubles-continuity", "双打轮转与连续覆盖", "doubles_singles_tactics_and_match_transfer", r"双打|轮转|补位", 260),
+        CoachTopicRoute("liu-match-transfer", "实战迁移与回合连贯", "doubles_singles_tactics_and_match_transfer", r"单打|实战|比赛|连贯|球路|上场|迁移", 255),
+    ),
+    "li-yuxuan": (
+        CoachTopicRoute("lyx-live-qa", "学习路径与技术答疑", "learner_fit", r"直播|问答|q&a|网课|课程|新手|初学|入门|训练计划|基本功|一致性|世纪大难题", 400),
+        CoachTopicRoute("lyx-equipment", "球拍选择与装备适配", "equipment_safety", r"(?:球拍|拍子).*(?:评测|测评|怎么选|选择|磅数|平衡点|挥重|拉线|中杆|型号|碳素|旗舰)|(?:球拍磅数|平衡点|挥重|拉线|中杆|球线|球鞋|开箱测评)", 390),
+        CoachTopicRoute("lyx-load-safety", "热身、伤痛与训练负荷", "equipment_safety", r"准备活动|拉伸|受伤|伤痛|疼痛|减肥|保持水平|热身|康复", 385),
+        CoachTopicRoute("lyx-jump-smash", "跳杀与腾空进攻", "smash", r"跳杀|起跳杀球|腾空杀球", 380),
+        CoachTopicRoute("lyx-slice-smash", "劈杀与角度进攻", "smash", r"劈杀|劈杀对角", 375),
+        CoachTopicRoute("lyx-point-heavy-smash", "点杀、重杀与杀球加速", "smash", r"点杀|重杀|霸王杀|杀得.*尖|杀的.*尖", 370),
+        CoachTopicRoute("lyx-basic-smash", "杀球基础与进攻动作", "smash", r"杀球|扣杀", 360),
+        CoachTopicRoute("lyx-high-clear-distance", "高远球距离与后场到位", "high_clear", r"高远球.*(?:不到位|发不上力|后场)|后场高球|高远发力", 350),
+        CoachTopicRoute("lyx-high-clear", "高远球与头顶击球", "high_clear", r"高远球|头顶.*(?:球|击球)|high[ -]?clear", 340),
+        CoachTopicRoute("lyx-rear-start", "后场启动与第一步", "footwork", r"启动.*(?:后场|步|慢)|后场.*(?:启动|来不及|接不了)|场地太大|接不了球", 335),
+        CoachTopicRoute("lyx-rear-turn", "后场转身与确认步", "footwork", r"转身|确认步|后退步|后场两点", 330),
+        CoachTopicRoute("lyx-front-lunge", "网前跨步与第一响应", "footwork", r"弓箭步|蹬跨|上网步|前场步|网前.*(?:步|启动)", 325),
+        CoachTopicRoute("lyx-recovery", "落地、回位与移动衔接", "footwork", r"落地|回位|到位|半步|步法|步伐|移动", 320),
+        CoachTopicRoute("lyx-racket-preparation", "握拍、架拍与引拍", "release", r"握法|握拍|架拍|引拍|非持拍手", 315),
+        CoachTopicRoute("lyx-elbow-release", "顶肘、摆肘与挥拍释放", "release", r"掉肘|顶肘|摆肘|挥拍", 310),
+        CoachTopicRoute("lyx-finger-wrist", "手指、手腕与发力时机", "release", r"手指|手腕", 305),
+        CoachTopicRoute("lyx-hip-release", "转髋、内旋与身体带动", "release", r"内旋|转髋|发力|力量|爆发|鞭打", 300),
+        CoachTopicRoute("lyx-backhand", "反手早选择与紧凑回复", "backhand_time_budget", r"反手|反拍", 295),
+        CoachTopicRoute("lyx-serve", "发球稳定性与个人适配", "serve_receive", r"发球|短球", 290),
+        CoachTopicRoute("lyx-receive", "接发与前两拍衔接", "serve_receive", r"接发|接发球|前三拍", 285),
+        CoachTopicRoute("lyx-net-control", "网前控球与处理", "drop_drive", r"网前技术|网前|搓球|勾球|放网|挑球|封网|扑球", 280),
+        CoachTopicRoute("lyx-drop-variation", "吊球与头顶变化", "drop_drive", r"吊球|劈吊|滑板|切吊|切球|假动作", 275),
+        CoachTopicRoute("lyx-drive", "平抽挡与快速交换", "drop_drive", r"平抽|平高球|抽球|抽挡|挡球|推球|快球|切推", 270),
+        CoachTopicRoute("lyx-defense-transition", "防守、接杀与被动过渡", "match_transfer", r"防守|接杀|被动过渡|接住.*进攻|杀球.*防守", 265),
+        CoachTopicRoute("lyx-doubles-roles", "双打轮转与前两拍分工", "match_transfer", r"双打|混双|轮转|补位|站位", 260),
+        CoachTopicRoute("lyx-rally-transfer", "实战对抗与球路迁移", "match_transfer", r"单打|实战|比赛|对抗|套路|球路|意识|重复球|压底线|反方向", 255),
+    ),
+    "zheng-siwei": (
+        CoachTopicRoute("zsw-warmup-load", "热身、康复与训练负荷", "reset_match_transfer", r"体能|康复|热身|腰疼|膝盖|肩部|拉伸|训练日常", 400),
+        CoachTopicRoute("zsw-match-review", "比赛球路与复盘", "reset_match_transfer", r"球路讲解|比赛|点评|评价|预测|q&a", 390),
+        CoachTopicRoute("zsw-serve-opening", "发球与第三拍计划", "serve_opening", r"(?<!接)发球", 380),
+        CoachTopicRoute("zsw-cut-waist-receive", "接发切腰与下一拍", "receive_opening_exchange", r"接发.*(?:切腰|腰)|切腰.*接发", 375),
+        CoachTopicRoute("zsw-left-receive", "左半场接发路线", "receive_opening_exchange", r"左半场.*接发|左.*接发", 370),
+        CoachTopicRoute("zsw-receive-opening", "接发与前两拍衔接", "receive_opening_exchange", r"接发|发接发|接发球", 385),
+        CoachTopicRoute("zsw-midcourt-drive", "中半场平抽与快推", "receive_opening_exchange", r"正手.*中半场.*(?:抽|发力)|平抽|平快|抽挡|抽球|快推", 360),
+        CoachTopicRoute("zsw-backhand-net", "反手网前搓、抹与处理", "frontcourt_pressure", r"反手.*(?:搓|抹|网前)|反手抹球", 355),
+        CoachTopicRoute("zsw-hook-diagonal", "正手中半场勾对角", "defense_transition", r"正手.*中半场.*勾对角|勾对角", 350),
+        CoachTopicRoute("zsw-net-pressure", "网前扑、抹、封与贴网", "frontcourt_pressure", r"网前|搓球|扑抹|扑球|挡网|放网|封网|贴网", 345),
+        CoachTopicRoute("zsw-unload-counter", "卸力挡网与防守反击", "defense_transition", r"卸力.*挡网|挡卸力|卸力反击", 340),
+        CoachTopicRoute("zsw-flat-defense", "平快球泄力与防守过渡", "defense_transition", r"泄力.*平快|防守|接杀|被动球|反击|平高球|摆脱线路|被推压", 335),
+        CoachTopicRoute("zsw-backhand-low-transition", "反手底线低手位过渡", "defense_transition", r"反手底线|反手.*过渡|低手位", 330),
+        CoachTopicRoute("zsw-midcourt-transition", "正手中半场过渡与借力", "defense_transition", r"正手.*(?:中半场|下手位|后半场)|借力.*对角", 325),
+        CoachTopicRoute("zsw-two-lanes", "双打两条覆盖线路", "pair_rotation_two_lanes", r"两条.*(?:线路|通道)|同一条线|互补覆盖", 320),
+        CoachTopicRoute("zsw-front-back-rotation", "后杀前封与前后轮转", "pair_rotation_two_lanes", r"后杀前封|放网后.*站位|混双|双打|轮转|男生.*女生|女生.*男生|下一拍", 315),
+        CoachTopicRoute("zsw-rear-attack-footwork", "后场突击步法与退出", "rear_attack_continuity", r"后场突击步伐|后场步法|后场来不及退|防偷后场|启动步|步伐|移动", 310),
+        CoachTopicRoute("zsw-rear-attack", "后场进攻与杀球连续性", "rear_attack_continuity", r"杀球|高远球|头顶|后场进攻|后场攻击|进攻方式", 305),
+    ),
+}
+
+
 COACH_SYSTEM_FALLBACKS: dict[str, CoachSystemRoute] = {
     "liu-hui": CoachSystemRoute("unresolved_title", "体系内待人工细分", "标题未能可靠指向一个刘辉体系模块", "", 0),
     "li-yuxuan": CoachSystemRoute("unresolved_title", "体系内待人工细分", "标题未能可靠指向一个李宇轩体系模块", "", 0),
@@ -215,6 +321,58 @@ def route_coach_system(coach_id: str, title: str) -> tuple[CoachSystemRoute, str
         if re.search(route.pattern, normalized, flags=re.IGNORECASE):
             return route, "title_system_route"
     return COACH_SYSTEM_FALLBACKS[coach_id], "title_system_fallback"
+
+
+def route_coach_topics(
+    coach_id: str,
+    title: str,
+    *,
+    limit: int = 3,
+) -> tuple[tuple[CoachTopicRoute, ...], str]:
+    """Route explicit public-title topics without promoting media evidence.
+
+    The first matching topic also defines the source's parent coach system.
+    This lets a specific title correct a broad keyword collision (for example,
+    a Liu Hui learning-order title which happens to mention footwork).  A
+    title may name more than one topic, but the bounded list prevents a long
+    title from becoming an implausible list of lessons.
+    """
+    if coach_id not in COACH_SYSTEM_ROUTES:
+        raise ValueError(f"unknown coach system: {coach_id}")
+    if limit < 1:
+        raise ValueError("topic limit must be positive")
+
+    normalized = title.lower()
+    system, system_status = route_coach_system(coach_id, title)
+    if system_status == "title_outside_system":
+        return (
+            CoachTopicRoute(
+                "outside-teaching-system",
+                "体系外：公告、生活或产品信息",
+                system.system_id,
+                "",
+                0,
+            ),
+        ), "title_outside_system"
+
+    matched: list[CoachTopicRoute] = []
+    for route in sorted(COACH_TOPIC_ROUTES[coach_id], key=lambda item: -item.priority):
+        if re.search(route.pattern, normalized, flags=re.IGNORECASE):
+            matched.append(route)
+            if len(matched) == limit:
+                break
+    if matched:
+        return tuple(matched), "title_topic_route"
+
+    return (
+        CoachTopicRoute(
+            f"{system.system_id}-title-fallback",
+            f"{system.system_name}（标题未细化）",
+            system.system_id,
+            "",
+            0,
+        ),
+    ), "title_topic_fallback"
 
 
 def _as_strings(value: Any) -> list[str]:
@@ -412,12 +570,14 @@ def load_public_title_registry(path: Path) -> dict[str, str]:
 
 
 def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[str, str] | None = None) -> dict[str, Any]:
-    """Return title-routed coach-system metadata suitable for a static public index.
+    """Return a safe, source-linked coach-system and topic index.
 
-    Candidate ASR/VLM semantic windows are deliberately excluded from public
-    category selection: they can locate a review interval, but they are not a
-    reliable video-level syllabus label.  Each source therefore has one primary
-    coach-system route based on its public title, or a transparent fallback.
+    Candidate ASR/VLM semantic windows are deliberately excluded: they can
+    locate a review interval, but they are not a reliable public video-level
+    syllabus label.  The parent system and the one-to-three topic labels are
+    therefore derived only from the original public title.  They improve
+    source retrieval and coverage accounting; they never certify a lesson
+    package or add a deterministic coaching rule.
     """
     coaches: list[dict[str, Any]] = []
     official_titles = title_overrides or {}
@@ -433,7 +593,21 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
                 raise ValueError(f"public catalogue video has no public URL: {video.get('source_id')}")
             source_id = str(video.get("source_id", ""))
             title = official_titles.get(source_id, str(video.get("title", "")))
-            route, classification_status = route_coach_system(str(coach.get("coach_id", "")), title)
+            coach_id = str(coach.get("coach_id", ""))
+            topics, classification_status = route_coach_topics(coach_id, title)
+            primary_system_id = topics[0].system_id
+            system_routes = [
+                route
+                for route in COACH_SYSTEM_ROUTES[coach_id]
+                if route.system_id == primary_system_id
+            ]
+            if not system_routes:
+                system_routes = [
+                    COACH_SYSTEM_OUTSIDE_SCOPE[coach_id]
+                    if primary_system_id == "outside_teaching_system"
+                    else COACH_SYSTEM_FALLBACKS[coach_id]
+                ]
+            primary_system = system_routes[0]
             videos.append(
                 {
                     "source_id": source_id,
@@ -441,8 +615,11 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
                     "url": url,
                     "duration_seconds": video.get("duration_seconds"),
                     "classification_status": classification_status,
-                    "categories": [{"id": route.system_id, "name": route.system_name}],
-                    "techniques": [{"action": route.system_id, "label_zh": route.topic_label}],
+                    "categories": [{"id": primary_system.system_id, "name": primary_system.system_name}],
+                    "techniques": [
+                        {"action": topic.topic_id, "label_zh": topic.topic_name}
+                        for topic in topics
+                    ],
                 }
             )
         category_names = {
@@ -450,6 +627,16 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
             for item in videos
         }
         category_counts = Counter(item["categories"][0]["id"] for item in videos)
+        topic_names = {
+            topic["action"]: topic["label_zh"]
+            for item in videos
+            for topic in item["techniques"]
+        }
+        topic_counts = Counter(
+            topic["action"]
+            for item in videos
+            for topic in item["techniques"]
+        )
         coaches.append(
             {
                 "coach_id": str(coach.get("coach_id", "")),
@@ -459,6 +646,14 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
                     {"id": category_id, "name": category_names[category_id], "video_count": count}
                     for category_id, count in sorted(
                         category_counts.items(),
+                        key=lambda item: (-item[1], item[0]),
+                    )
+                ],
+                "topic_count": len(topic_counts),
+                "topic_counts": [
+                    {"id": topic_id, "name": topic_names[topic_id], "video_count": count}
+                    for topic_id, count in sorted(
+                        topic_counts.items(),
                         key=lambda item: (-item[1], item[0]),
                     )
                 ],
@@ -475,6 +670,81 @@ def public_metadata_catalog(catalog: dict[str, Any], *, title_overrides: dict[st
     if public_catalog["total_video_count"] != catalog.get("total_video_count"):
         raise ValueError("public catalogue count differs from private catalogue")
     return public_catalog
+
+
+SKILL_SOURCE_TOPIC_INDEX_PATHS = {
+    "liu-hui": Path("skills/liu-hui-badminton-coach/references/source-topic-index.json"),
+    "li-yuxuan": Path("skills/li-yuxuan-badminton-coach/references/source-topic-index.json"),
+    "zheng-siwei": Path("skills/zheng-siwei-badminton-coach/references/source-topic-index.json"),
+}
+
+
+def build_skill_source_topic_indexes(public_catalog: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Project the public source index into each coach Skill's retrieval map.
+
+    Keep this projection deliberately smaller than the Pages catalogue.  It
+    contains no duration, media, ASR, semantic-window, private-path, or model
+    fields, so it is safe to commit alongside the Skill references.
+    """
+    indexes: dict[str, dict[str, Any]] = {}
+    for coach in public_catalog.get("coaches", []):
+        if not isinstance(coach, dict):
+            raise ValueError("invalid public catalogue coach")
+        coach_id = str(coach.get("coach_id", ""))
+        if coach_id not in SKILL_SOURCE_TOPIC_INDEX_PATHS:
+            raise ValueError(f"unsupported Skill source index coach: {coach_id}")
+        sources = []
+        for video in coach.get("videos", []):
+            if not isinstance(video, dict):
+                raise ValueError("invalid public catalogue video")
+            categories = video.get("categories", [])
+            topics = video.get("techniques", [])
+            if not isinstance(categories, list) or len(categories) != 1 or not isinstance(topics, list):
+                raise ValueError(f"invalid public source route: {video.get('source_id')}")
+            system = categories[0]
+            if not isinstance(system, dict):
+                raise ValueError(f"invalid public source system: {video.get('source_id')}")
+            sources.append(
+                {
+                    "source_id": str(video.get("source_id", "")),
+                    "title": str(video.get("title", "")),
+                    "url": str(video.get("url", "")),
+                    "classification_status": str(video.get("classification_status", "")),
+                    "system": {"id": str(system.get("id", "")), "name": str(system.get("name", ""))},
+                    "topics": [
+                        {"id": str(topic.get("action", "")), "name": str(topic.get("label_zh", ""))}
+                        for topic in topics
+                        if isinstance(topic, dict)
+                    ],
+                }
+            )
+        if any(not item["source_id"] or not item["title"] or not item["url"] or not item["topics"] for item in sources):
+            raise ValueError(f"invalid Skill source index for {coach_id}")
+        indexes[coach_id] = {
+            "schema_version": "coach-skill-source-topic-index/v1",
+            "coach_id": coach_id,
+            "coach_name": str(coach.get("coach_name", "")),
+            "source_count": len(sources),
+            "publication_boundary": "public source titles and title-routed retrieval topics only; not clip, frame, ASR, biomechanical, or rule evidence",
+            "usage_boundary": "resolve a matching source topic before choosing a curriculum route; a title route cannot promote a source to teaching_ready or substitute unrelated course media",
+            "sources": sources,
+        }
+    return indexes
+
+
+def write_skill_source_topic_indexes(public_catalog: dict[str, Any], project_root: Path) -> list[Path]:
+    """Write the three source retrieval maps into their committed Skill refs."""
+    indexes = build_skill_source_topic_indexes(public_catalog)
+    written: list[Path] = []
+    for coach_id, relative_path in SKILL_SOURCE_TOPIC_INDEX_PATHS.items():
+        output = project_root / relative_path
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(
+            json.dumps(indexes[coach_id], ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        written.append(output)
+    return written
 
 
 def _render_html(catalog: dict[str, Any]) -> str:
@@ -533,6 +803,11 @@ def parser() -> argparse.ArgumentParser:
         default=DEFAULT_PUBLIC_TITLE_REGISTRY,
         help="public Bilibili title registry used only for the public metadata output",
     )
+    result.add_argument(
+        "--skill-source-topic-indexes",
+        action="store_true",
+        help="write title-only source retrieval indexes into the three Skill reference folders",
+    )
     return result
 
 
@@ -542,15 +817,29 @@ def main() -> None:
     output = args.output if args.output.is_absolute() else root / args.output
     catalog = build_catalog(root)
     write_catalog(catalog, output)
+    public_catalog: dict[str, Any] | None = None
+    if args.public_metadata_output or args.skill_source_topic_indexes:
+        registry = args.public_title_registry
+        if not registry.is_absolute():
+            registry = root / registry
+        public_catalog = public_metadata_catalog(
+            catalog,
+            title_overrides=load_public_title_registry(registry),
+        )
     if args.public_metadata_output:
         public_output = args.public_metadata_output
         if not public_output.is_absolute():
             public_output = root / public_output
-        registry = args.public_title_registry
-        if not registry.is_absolute():
-            registry = root / registry
-        write_public_metadata_catalog(catalog, public_output, title_overrides=load_public_title_registry(registry))
+        public_output.write_text(
+            json.dumps(public_catalog, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
         print(f"built public metadata catalogue -> {public_output}")
+    if args.skill_source_topic_indexes:
+        if public_catalog is None:
+            raise RuntimeError("public catalogue was not built")
+        for path in write_skill_source_topic_indexes(public_catalog, root):
+            print(f"built Skill source topic index -> {path}")
     print(f"built private catalogue: {catalog['total_video_count']} videos -> {output}")
     for coach in catalog["coaches"]:
         print(f"{coach['coach_name']}: {coach['video_count']} videos; {len(coach['category_counts'])} categories")

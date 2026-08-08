@@ -18,6 +18,8 @@ Always read `references/technique-courses.yaml` and `references/video-lesson-con
 
 Resolve the `techniques` curriculum map before choosing a teaching route. Follow its prerequisites and next nodes at the learner's level. A `knowledge_only` node may supply its linked system, principles, rules, drills, and retest, but must never borrow an unrelated clip or frame. Only a `teaching_ready` node may show the course IDs bound to its own reviewed continuous media.
 
+When a user names a source topic, asks for expanded corpus coverage, or needs a source to support a route, read `references/source-topic-index.json`. It is a public-title retrieval map for the full indexed corpus: use it to resolve the coach system and one or more named subtopics before loading the relevant rubric/framework. A title route is not clip, frame, biomechanical, or deterministic-rule evidence; it cannot promote a source to `teaching_ready` or authorize unrelated media.
+
 ## Required Inputs
 
 For teaching demonstration, require:

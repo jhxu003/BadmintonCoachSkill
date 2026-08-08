@@ -18,6 +18,8 @@ Always read `references/technique-courses.yaml` and `references/video-lesson-con
 
 Resolve the `techniques` curriculum map before selecting a lesson. Follow its prerequisites and next nodes for the requested level. A `knowledge_only` node may teach its linked system, framework, rule, drill, and retest, but cannot display a clip or frame from a different technique. Only `teaching_ready` nodes may expose their own bound course media.
 
+When a user names a source topic, asks for expanded corpus coverage, or needs a source to support a route, read `references/source-topic-index.json`. It is a public-title retrieval map for the full indexed corpus: use it to resolve the coach system and one or more named subtopics before loading the relevant rubric/framework. A title route is not clip, frame, biomechanical, or deterministic-rule evidence; it cannot promote a source to `teaching_ready` or authorize unrelated media.
+
 ## Required Inputs
 
 For teaching demonstration, require `action`. Accept `level`, `training_goal`, or `framework_id` when supplied. Require `phase` only for a targeted same-phase lookup. Do not request learner video solely to show or explain the coach's action.

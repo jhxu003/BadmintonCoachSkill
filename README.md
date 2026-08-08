@@ -29,7 +29,7 @@
   <tr>
     <td align="center"><strong>03</strong><br /><sub>coaching systems</sub></td>
     <td align="center"><strong>873</strong><br /><sub>sources processed</sub></td>
-    <td align="center"><strong>31</strong><br /><sub>curriculum nodes</sub></td>
+    <td align="center"><strong>82</strong><br /><sub>source-linked topics</sub></td>
     <td align="center"><strong>16</strong><br /><sub>public showcase lessons</sub></td>
   </tr>
 </table>
@@ -38,7 +38,7 @@
 
 BadmintonCoachSkill turns public coaching material from three coaches into lessons that are easy to browse and practice. Each published lesson keeps one continuous demonstration together with seven ordered phases, technique cues, drills, and a measurable retest goal.
 
-All 873 source videos have completed batch processing. GitHub Pages currently showcases 16 curated public lessons; those lessons are the public entry point, not the full processing output.
+All 873 source videos have completed batch processing and title-only source routing into 82 coach-specific topics. GitHub Pages currently showcases 16 curated public lessons; those lessons are the public entry point, not the full processing output.
 
 ## One high clear, from preparation to recovery
 
@@ -163,7 +163,7 @@ The public course page currently contains 16 curated lessons. Every lesson inclu
 
 ## Know what to practice next
 
-The three coaching systems currently contain 31 connected curriculum nodes. Each node defines prerequisites, movement principles, drills, retest targets, and the next route.
+The three coaching systems currently contain 31 connected curriculum nodes. Each node defines prerequisites, movement principles, drills, retest targets, and the next route. The wider source library is additionally indexed into 82 title-routed topics (33 Liu Hui, 31 Li Yuxuan, and 18 Zheng Siwei) so a named variation, situation, or question can lead back to the right coaching system without pretending it is already a reviewed media lesson.
 
 | Current content | How to use it |
 |---|---|
@@ -172,7 +172,7 @@ The three coaching systems currently contain 31 connected curriculum nodes. Each
 
 ## Explore the full source library
 
-All 873 source videos have completed batch processing and system-level classification: 408 from Liu Hui, 382 from Li Yuxuan, and 83 from Zheng Siwei. The course page preserves their original titles and platform links so you can continue into longer explanations, Q&A, and training material.
+All 873 source videos have completed batch processing and source-linked topic routing: 408 from Liu Hui across 33 topics, 382 from Li Yuxuan across 31 topics, and 83 from Zheng Siwei across 18 topics. The course page preserves their original titles and platform links so you can continue into longer explanations, Q&A, and training material.
 
 Use the two entry points differently: the **16 public showcase lessons** are ready for direct study, while the **873-source library** helps you explore more material by coach and technique.
 
@@ -222,6 +222,7 @@ By default, the command returns a learning route, teaching principles, and times
 
 - [Public technique-course data](web/src/data/technique-courses.public.json)
 - [Public source catalog](web/public/pages-demo/catalog.json)
+- [Coach Skill source-topic indexes](skills/liu-hui-badminton-coach/references/source-topic-index.json)
 - [Video web application deployment](docs/video-evidence-web-app.md)
 - [Video Agent contract](docs/video-agent-contract.md)
 - [GitHub Pages and public media scope](docs/github-pages-demo.md)
