@@ -298,8 +298,16 @@ class QwenLocalActionRouter:
         try:
             from PIL import Image, ImageDraw
 
-            columns = 3
-            tile_width, tile_height, caption_height, gutter = 224, 126, 20, 4
+            # A badminton stroke can happen in well under two seconds.  For a
+            # short learner upload, squeezing seven or twelve samples into a
+            # small 3-column sheet made the full body and racket too small for
+            # the routing tier to reliably distinguish a real stroke from an
+            # explanation.  Two columns retain a complete timeline while
+            # giving the model materially more pixels per athlete.  The model
+            # adapter still bounds the resulting sheet to its visual-token
+            # budget before inference.
+            columns = 2
+            tile_width, tile_height, caption_height, gutter = 448, 252, 24, 6
             rows = (len(image_paths) + columns - 1) // columns
             canvas = Image.new(
                 "RGB",
@@ -338,7 +346,16 @@ class QwenLocalActionRouter:
         metadata = probe_video(video_path)
         if metadata.duration_ms < self.minimum_duration_ms:
             return ()
-        sample_count = min(self.maximum_samples, max(4, metadata.duration_ms // 1000 + 1))
+        # A one-second cadence over-samples a 5–10 second badminton stroke:
+        # the contact sheet then makes an already small moving athlete
+        # illegibly tiny.  Retain four temporal checkpoints at minimum, and
+        # add detail only every 2.5 seconds for longer uploads.  This is a
+        # routing view, not the action package: the next tier still extracts
+        # seven ordered phase anchors at the original video rate.
+        sample_count = min(
+            self.maximum_samples,
+            max(4, (metadata.duration_ms + 2_499) // 2_500),
+        )
         route_dir = output_dir / "private" / "agent-routing"
         image_paths: list[Path] = []
         image_timestamps: list[int] = []
@@ -402,7 +419,16 @@ class QwenLocalActionRouter:
         if not isinstance(raw_units, list):
             return ()
         for raw in raw_units:
-            if not isinstance(raw, dict) or raw.get("decision") != "candidate":
+            if not isinstance(raw, dict):
+                continue
+            # The public router schema intentionally has no ``decision``
+            # field: a complete object with one allowed action, an ordered
+            # sample range, and bounded confidence is itself a candidate.
+            # Qwen sometimes wraps that exact schema in ``units`` rather than
+            # returning the compact one-item shape.  Treat the omitted field
+            # as candidate in both forms; explicit ``not_action`` or
+            # ``unclear`` remains rejected below.
+            if str(raw.get("decision", "candidate")) != "candidate":
                 continue
             action = str(raw.get("action", ""))
             if action not in ROUTABLE_ACTIONS:
@@ -417,11 +443,36 @@ class QwenLocalActionRouter:
             except (KeyError, TypeError, ValueError):
                 start_sample = 0
                 end_sample = 0
+            # The contact-sheet captions include both a 1-based ordinal and
+            # a millisecond timestamp.  Qwen can faithfully select the
+            # latter while placing it in the ``*_sample`` fields.  Normalize
+            # only an *exact* known timestamp back to its corresponding
+            # ordinal; a free-form number is never treated as timing.
+            sample_index_by_timestamp = {
+                timestamp_ms: index + 1
+                for index, timestamp_ms in enumerate(image_timestamps)
+            }
+            if (
+                start_sample not in range(1, len(image_timestamps) + 1)
+                and start_sample in sample_index_by_timestamp
+                and end_sample in sample_index_by_timestamp
+            ):
+                start_sample = sample_index_by_timestamp[start_sample]
+                end_sample = sample_index_by_timestamp[end_sample]
             if 1 <= start_sample + 2 <= end_sample <= len(image_timestamps):
-                start_ms = image_timestamps[start_sample - 1]
                 sample_spacing = max(
                     500,
                     image_timestamps[end_sample - 1] - image_timestamps[end_sample - 2],
+                )
+                # A router selects the visible *core* of an action.  Preserve
+                # the immediately preceding sampled context so downstream
+                # seven-stage extraction can inspect preparation rather than
+                # beginning halfway through a swing.  This only widens a
+                # confirmed candidate window inside the uploaded video; it
+                # does not assert that the action began at the wider boundary.
+                start_ms = max(
+                    0,
+                    image_timestamps[start_sample - 1] - sample_spacing,
                 )
                 end_ms = min(
                     metadata.duration_ms,
@@ -467,27 +518,50 @@ class QwenLocalSegmentObserver:
     def __init__(self, model_path: str, *, max_new_tokens: int = 480) -> None:
         self._model = _QwenLocalJsonModel(model_path, max_new_tokens)
 
-    def observe(
-        self,
-        *,
-        action: str,
-        image_paths: tuple[Path, ...],
-        base_observation: dict[str, object],
+    @staticmethod
+    def _priority_paths(action: str, allowed_values: dict[str, tuple[str, ...]]) -> tuple[str, ...]:
+        """Order a small number of independently verifiable 2D proxies.
+
+        Asking a compact local VLM to choose one observation from a long mix
+        of upper-body, lower-body and time-series rubrics consistently caused
+        it to return ``low`` even for an otherwise unmistakable proxy.  A
+        short, action-specific sequence of *single-field* checks makes the
+        evidence question precise without broadening what the model may say.
+        The first high answer stops the pass; all other fields stay unknown.
+        """
+        overhead = (
+            "phase_observations.arm_path",
+            "elbow_height_before_hit",
+            "racket_side_structure",
+            "follow_through",
+            "phase_observations.elbow_track",
+            "phase_observations.swing_path",
+        )
+        movement = (
+            "footwork_observations.landing",
+            "footwork_observations.recovery",
+            "footwork_observations.arrival",
+            "footwork_observations.confirmation_step",
+            "footwork_observations.rear_turn",
+            "footwork_observations.first_step",
+        )
+        if action in {"high_clear", "smash", "drop"}:
+            preferred = (*overhead[:3], *movement[:3], *overhead[3:], *movement[3:])
+        elif action in {"rear_footwork", "front_footwork", "net"}:
+            preferred = (*movement[:3], *overhead[:3], *movement[3:], *overhead[3:])
+        else:
+            preferred = (*overhead, *movement)
+        remaining = tuple(path for path in sorted(allowed_values) if path not in preferred)
+        # A complete user run must remain bounded even for a broad merged
+        # three-coach vocabulary.  The first six cover the visible proxy
+        # families that are meaningful for this supported single-player path.
+        return tuple(path for path in (*preferred, *remaining) if path in allowed_values)[:6]
+
+    @staticmethod
+    def _project_response(
+        payload: dict[str, object] | None,
         allowed_values: dict[str, tuple[str, ...]],
     ) -> dict[str, object]:
-        vocabulary = {path: ["unknown", *values] for path, values in allowed_values.items()}
-        prompt = (
-            "Return ONLY one JSON object, with no prose or markdown. The seven ordered images show a "
-            f"continuous learner badminton {action} from preparation through recovery. Return exactly "
-            "these top-level keys: confidence, camera_view, observations. confidence is low, medium, or high; "
-            "camera_view is front, side, rear_side, or unknown. observations is a flat object whose keys and "
-            f"values must come only from this vocabulary: {json.dumps(vocabulary, ensure_ascii=False)}. "
-            "Choose at most one observation: the single clearest listed proxy across the complete sequence. "
-            "Return high only for that clear proxy; otherwise return low with an empty observations object. "
-            "Do not use medium. Omit every unclear or unlisted field rather than guessing. Do not diagnose or infer contact, racket "
-            "face, grip, force, internal rotation, 3D mechanics, opponent intent, tactics, equipment, or pain."
-        )
-        payload = self._model.generate_json(image_paths, prompt)
         if not isinstance(payload, dict):
             return {"confidence": "low"}
         confidence = str(payload.get("confidence", "low"))
@@ -512,6 +586,51 @@ class QwenLocalSegmentObserver:
                 current = nested
             current[parts[-1]] = candidate
         return result
+
+    @staticmethod
+    def _projected_value(payload: dict[str, object], path: str) -> object:
+        current: object = payload
+        for part in path.split("."):
+            if not isinstance(current, dict):
+                return None
+            current = current.get(part)
+        return current
+
+    def observe(
+        self,
+        *,
+        action: str,
+        image_paths: tuple[Path, ...],
+        base_observation: dict[str, object],
+        allowed_values: dict[str, tuple[str, ...]],
+    ) -> dict[str, object]:
+        fallback: dict[str, object] = {"confidence": "low", "camera_view": "unknown"}
+        for path in self._priority_paths(action, allowed_values):
+            values = allowed_values[path]
+            vocabulary = {path: ["unknown", *values]}
+            prompt = (
+                "Return ONLY one JSON object, with no prose or markdown. The seven ordered images show a "
+                f"continuous learner badminton {action} from preparation through recovery. Return exactly "
+                "these top-level keys: confidence, camera_view, observations. confidence is low, medium, or high; "
+                "camera_view is front, side, rear_side, or unknown. observations is a flat object whose keys and "
+                f"values must come only from this vocabulary: {json.dumps(vocabulary, ensure_ascii=False)}. "
+                "Choose at most one observation: the single clearest listed proxy across the complete sequence. "
+                "Return high only for that clear proxy; otherwise return low with an empty observations object. "
+                "Do not use medium. Omit every unclear or unlisted field rather than guessing. Do not diagnose or "
+                "infer contact, racket face, grip, force, internal rotation, 3D mechanics, opponent intent, "
+                "tactics, equipment, or pain."
+            )
+            result = self._project_response(
+                self._model.generate_json(image_paths, prompt), {path: values}
+            )
+            if result.get("camera_view") != "unknown":
+                fallback["camera_view"] = result["camera_view"]
+            if (
+                result.get("confidence") == "high"
+                and self._projected_value(result, path) in values
+            ):
+                return result
+        return fallback
 
     def close(self) -> None:
         self._model.close()

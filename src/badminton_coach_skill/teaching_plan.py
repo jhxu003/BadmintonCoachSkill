@@ -90,10 +90,14 @@ def _select_topic_unit(
 ) -> dict[str, Any] | None:
     """Select one defensible topic unit; title routes cannot fabricate media.
 
-    A source-topic index first disambiguates a matching source. The unit must
-    still be related to the same rule, source or framework, and non-fallback
-    units win over broad title fallbacks. The stable topic id tie-break makes
-    this reproducible rather than dependent on JSON file order.
+    An exact rule binding is stronger than a source-topic index.  Source IDs
+    are often reused across a long coach episode (including match-context
+    labels), so allowing an indexed source hit to outrank the diagnosed rule
+    can route a visible swing fault to an unrelated tactics topic.  The unit
+    must still be related to the same rule, source or framework, and
+    non-fallback units win over broad title fallbacks. The stable topic id
+    tie-break makes this reproducible rather than dependent on JSON file
+    order.
     """
     candidates = _topic_candidates(issue=issue, framework_id=framework_id, knowledge=knowledge)
     if not candidates:
@@ -108,10 +112,10 @@ def _select_topic_unit(
         unit_rules = {str(item) for item in unit.get("rule_ids", []) if item}
         unit_frameworks = {str(item) for item in unit.get("framework_ids", []) if item}
         return (
+            1 if issue_id in unit_rules else 0,
             1 if topic_id in indexed else 0,
             1 if not topic_id.endswith("-title-fallback") else 0,
             len(issue_sources & unit_sources),
-            1 if issue_id in unit_rules else 0,
             1 if framework_id in unit_frameworks else 0,
         )
 

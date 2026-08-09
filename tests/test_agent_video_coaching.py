@@ -218,13 +218,18 @@ def test_local_router_samples_interior_time_buckets_and_skips_one_bad_seek(
     def generated(image_paths: tuple[Path, ...], _prompt: str) -> dict[str, object]:
         seen_paths.extend(image_paths)
         return {
-            # Qwen's compact valid shape for one candidate omits the outer
-            # ``units`` array; the router must normalize its bounded sample
-            # range without asking the model to invent millisecond timing.
-            "action": "smash",
-            "start_sample": 2,
-            "end_sample": 4,
-            "confidence": 0.95,
+            # The requested schema omits ``decision``.  Qwen may still wrap
+            # its one valid candidate in ``units``; it must not be discarded
+            # merely because that optional internal field is absent.
+            "units": [{
+                "action": "smash",
+                # The visible sheet captions include timestamps.  A valid
+                # model can copy those exact labels into the sample fields;
+                # they are normalized only through this known sample map.
+                "start_sample": 9_000,
+                "end_sample": 21_000,
+                "confidence": 0.95,
+            }],
         }
 
     monkeypatch.setattr(router._model, "generate_json", generated)
@@ -234,7 +239,7 @@ def test_local_router_samples_interior_time_buckets_and_skips_one_bad_seek(
     assert 29_999 not in samples
     assert len(seen_paths) == 4
     assert [(route.action, route.start_ms, route.end_ms) for route in routes] == [
-        ("smash", 9_000, 24_000)
+        ("smash", 3_000, 24_000)
     ]
 
 
@@ -269,8 +274,44 @@ def test_local_observer_projects_flat_safe_vocabulary_only(
         "confidence": "high",
         "camera_view": "side",
         "elbow_height_before_hit": "below_shoulder",
-        "footwork_observations": {"arrival": "late"},
     }
+
+
+def test_local_observer_checks_a_small_safe_proxy_sequence_until_one_is_clear(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observer = QwenLocalSegmentObserver("not-loaded-in-this-test")
+    calls: list[str] = []
+
+    def generated(_images: tuple[Path, ...], prompt: str) -> dict[str, object]:
+        calls.append(prompt)
+        if "phase_observations.arm_path" in prompt:
+            return {"confidence": "low", "camera_view": "side", "observations": {}}
+        return {
+            "confidence": "high",
+            "camera_view": "side",
+            "observations": {"elbow_height_before_hit": "below_shoulder"},
+        }
+
+    monkeypatch.setattr(observer._model, "generate_json", generated)
+    result = observer.observe(
+        action="smash",
+        image_paths=(Path("private-frame.jpg"),),
+        base_observation={},
+        allowed_values={
+            "phase_observations.arm_path": ("big_arm_pull",),
+            "elbow_height_before_hit": ("below_shoulder",),
+        },
+    )
+
+    assert len(calls) == 2
+    assert result == {
+        "confidence": "high",
+        "camera_view": "side",
+        "elbow_height_before_hit": "below_shoulder",
+    }
+
+
 def test_agent_validation_whitelists_only_safe_rule_fields() -> None:
     knowledge_sets = [{
         "rules": [{

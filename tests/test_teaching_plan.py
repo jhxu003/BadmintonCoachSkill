@@ -50,6 +50,31 @@ def test_liu_hui_plan_focuses_diagnosis_and_does_not_borrow_wrong_topic_lesson()
     assert not serialized["video_lessons"]
 
 
+def test_liu_hui_big_arm_issue_prefers_exact_overhead_path_topic() -> None:
+    plan = generate_coaching_plan(
+        coach_id="liu-hui",
+        player_profile={
+            "level": "intermediate",
+            "dominant_hand": "right",
+            "training_goal": "technique_diagnosis",
+        },
+        video_observation={
+            "action": "smash",
+            "camera_view": "side",
+            "fps_quality": "high",
+            "phase_observations": {"arm_path": "big_arm_pull"},
+        },
+        root=ROOT,
+    )
+    assert plan["diagnosis"]["issues"][0]["issue_id"] == "big-arm-dominant-swing"  # type: ignore[index]
+    topic = plan["lesson_focus"]["now"]["topic_unit"]  # type: ignore[index]
+    assert topic["topic_id"] == "liu-overhead-arm-path-release"  # type: ignore[index]
+    # The public checkout has no private staged package; fail closed rather
+    # than borrowing the unrelated match-transfer source topic.
+    assert topic["media_status"] == "reviewed_media_unavailable"  # type: ignore[index]
+    assert not plan["_video_lessons"]
+
+
 def test_zheng_siwei_plan_keeps_video_course_gap_explicit() -> None:
     payload = _payload("zheng_siwei_front_player_watching.json")
     plan = generate_coaching_plan(

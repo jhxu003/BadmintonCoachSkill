@@ -1,7 +1,7 @@
 {
   "schema_version": "coach-topic-teaching-unit/v1",
   "coach_id": "liu-hui",
-  "unit_count": 33,
+  "unit_count": 34,
   "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
   "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
   "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
@@ -220,6 +220,47 @@
         "rear_court_base_and_high_clear-title-fallback"
       ],
       "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-overhead-arm-path-release",
+      "topic_name_zh": "头顶挥拍路径：架拍、肘部先行与随挥",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1P34Y1V7QA",
+        "LH_BILI_SEASON_BV1VPDNYJEPU",
+        "LH_BILI_SEASON_BV1P4DGYRE8B",
+        "LH_BILI_SEASON_BV1CJDQYUEGC",
+        "LH_BILI_SEASON_BV1CADQYGEIS"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "teaching_ready",
+      "reviewed_course_ids": [
+        "corpus-107-lh_bili_season_bv1p34y1v7qa-smash-candidate-008-dense-review-v3"
+      ],
+      "learning_goal_zh": "先把头顶动作从准备、架拍、释放到恢复连成一条可见路线，再讨论速度或变化；这条课程绑定的是刘辉本人杀球连续示范，不把画面解释为精确触球、拍面、力量或真实内旋证据。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "heavy-smash-frame"
+      ],
+      "rule_ids": [
+        "big-arm-dominant-swing"
+      ],
+      "drill_ids": [
+        "arm-path-reset"
+      ],
+      "retest_metrics": [
+        "phase_observations.arm_path should become frame_to_release",
+        "wrist_elbow_sequence should remain elbow_before_wrist"
+      ],
+      "prerequisite_topic_ids": [
+        "liu-high-clear-base",
+        "liu-basic-smash"
+      ],
+      "next_topic_ids": [
+        "liu-basic-smash",
+        "liu-heavy-smash"
+      ]
     },
     {
       "topic_id": "liu-bawang-smash",
