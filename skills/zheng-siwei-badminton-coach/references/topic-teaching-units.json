@@ -3,7 +3,7 @@
   "coach_id": "zheng-siwei",
   "unit_count": 18,
   "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
-  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "usage_boundary": "topic units are knowledge-only until an explicit same-source, same-topic private evidence audit binds an approved continuous coach demonstration; a curriculum course ID alone never authorizes media",
   "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
   "systems": [],
   "units": [
@@ -19,7 +19,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "net-drop",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“网前压迫与封网（标题未细化）”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
       "framework_ids": [
         "zsw-frontcourt-pressure"
@@ -52,10 +53,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "backhand-low-transition",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "zheng-siwei-backhand-low-transition"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“反手底线低手位过渡”学习：以移动、低手位处理和恢复连接反手受压过渡，不将片段外推为精确触球或固定战术意图。",
       "framework_ids": [
         "zsw-defense-transition",
@@ -93,7 +95,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "net-drop",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“反手网前搓、抹与处理”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
       "framework_ids": [
         "zsw-frontcourt-pressure"
@@ -125,7 +128,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "receive-cut-waist",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“接发切腰与下一拍”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
       "framework_ids": [
         "zsw-receive-opening-exchange"
@@ -170,7 +174,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-pressure-retreat",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“平快球泄力与防守过渡”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
       "framework_ids": [
         "zsw-defense-transition"
@@ -211,7 +216,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "pair-rotation-two-lanes",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后杀前封与前后轮转”学习：用来球与下一拍线路组织轮转，不按性别或固定前后身份硬编码分工。",
       "framework_ids": [
         "zsw-pair-rotation-two-lanes"
@@ -243,7 +249,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-pressure-retreat",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“正手中半场勾对角”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
       "framework_ids": [
         "zsw-defense-transition"
@@ -273,10 +280,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "left-receive-route",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "zheng-siwei-left-receive-route"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“左半场接发路线”学习：以一次完整接发移动、处理和回收理解左半场路线，同时在训练中明确下一球覆盖。",
       "framework_ids": [
         "zsw-receive-opening-exchange",
@@ -319,7 +327,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "reset-match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“比赛球路与复盘”学习：在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。",
       "framework_ids": [
         "zsw-reset-match-transfer",
@@ -366,7 +375,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "receive-cut-waist",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“中半场平抽与快推”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
       "framework_ids": [
         "zsw-receive-opening-exchange"
@@ -402,7 +412,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-pressure-retreat",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“正手中半场过渡与借力”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
       "framework_ids": [
         "zsw-defense-transition"
@@ -442,10 +453,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "net-drop",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "zheng-siwei-net-drop"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“网前扑、抹、封与贴网”学习：将同一次准备、挥拍、近似处理窗口和回收连接到前场下一球准备，而不把手法片段扩大成固定战术。",
       "framework_ids": [
         "zsw-frontcourt-pressure"
@@ -483,7 +495,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-attack-footwork",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场进攻与杀球连续性”学习：将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。",
       "framework_ids": [
         "zsw-rear-attack-continuity"
@@ -518,10 +531,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-attack-footwork",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "zheng-siwei-rear-attack-footwork"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场突击步法与退出”学习：将后移、加载、突击、落地和退出当作一个动作包，进攻后仍保留下一次可用线路。",
       "framework_ids": [
         "zsw-rear-attack-continuity"
@@ -564,10 +578,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "receive-cut-waist",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "zheng-siwei-receive-cut-waist"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“接发与前两拍衔接”学习：在课程设定的偏高发球条件下进入侧向处理路线，并在动作后保持下一次交换可用。",
       "framework_ids": [
         "zsw-receive-opening-exchange"
@@ -598,7 +613,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "serve-third-shot-plan",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“发球与第三拍计划”学习：在发球前先命名可能回球线路和第三拍覆盖人，让开局不靠事后追球补救。",
       "framework_ids": [
         "zsw-serve-opening-plan",
@@ -634,7 +650,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-pressure-retreat",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“卸力挡网与防守反击”学习：从看球、启动和压低身体开始组织完整后退路线，在挥拍后重新回到可衔接状态。",
       "framework_ids": [
         "zsw-defense-transition"
@@ -671,7 +688,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "reset-match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“热身、康复与训练负荷”学习：在开局、前场、后场或防守得到时间后，用角色口令和可用站位重置，再逐级进入真实回合。",
       "framework_ids": [
         "zsw-reset-match-transfer",

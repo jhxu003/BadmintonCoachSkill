@@ -3,7 +3,7 @@
   "coach_id": "liu-hui",
   "unit_count": 34,
   "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
-  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "usage_boundary": "topic units are knowledge-only until an explicit same-source, same-topic private evidence audit binds an approved continuous coach demonstration; a curriculum course ID alone never authorizes media",
   "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
   "systems": [],
   "units": [
@@ -20,7 +20,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-footwork",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“步法、到位与回收（标题未细化）”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
       "framework_ids": [
         "timestamp-china-jump-recovery",
@@ -58,10 +59,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "passive-backhand",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-backhand"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“反手与后场角落处理”学习：用转身、进入、伸展处理和恢复争取可用过渡，不把动作缩成手腕发力。",
       "framework_ids": [
         "backhand-passive-frame",
@@ -193,10 +195,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-smash"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“基础杀球动作链”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -222,47 +225,6 @@
       "next_topic_ids": []
     },
     {
-      "topic_id": "liu-overhead-arm-path-release",
-      "topic_name_zh": "头顶挥拍路径：架拍、肘部先行与随挥",
-      "coach_system_id": "overhead_power_chain",
-      "source_ids": [
-        "LH_BILI_SEASON_BV1P34Y1V7QA",
-        "LH_BILI_SEASON_BV1VPDNYJEPU",
-        "LH_BILI_SEASON_BV1P4DGYRE8B",
-        "LH_BILI_SEASON_BV1CJDQYUEGC",
-        "LH_BILI_SEASON_BV1CADQYGEIS"
-      ],
-      "knowledge_status": "parent_curriculum_bound",
-      "parent_technique_id": "overhead-base-chain",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
-        "corpus-107-lh_bili_season_bv1p34y1v7qa-smash-candidate-008-dense-review-v3"
-      ],
-      "learning_goal_zh": "先把头顶动作从准备、架拍、释放到恢复连成一条可见路线，再讨论速度或变化；这条课程绑定的是刘辉本人杀球连续示范，不把画面解释为精确触球、拍面、力量或真实内旋证据。",
-      "framework_ids": [
-        "stable-overhead-frame",
-        "heavy-smash-frame"
-      ],
-      "rule_ids": [
-        "big-arm-dominant-swing"
-      ],
-      "drill_ids": [
-        "arm-path-reset"
-      ],
-      "retest_metrics": [
-        "phase_observations.arm_path should become frame_to_release",
-        "wrist_elbow_sequence should remain elbow_before_wrist"
-      ],
-      "prerequisite_topic_ids": [
-        "liu-high-clear-base",
-        "liu-basic-smash"
-      ],
-      "next_topic_ids": [
-        "liu-basic-smash",
-        "liu-heavy-smash"
-      ]
-    },
-    {
       "topic_id": "liu-bawang-smash",
       "topic_name_zh": "刘氏霸王杀",
       "coach_system_id": "smash_variant_system",
@@ -281,7 +243,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“刘氏霸王杀”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -326,7 +289,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“击球点与甜区”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -347,6 +311,7 @@
         "liu-grip-finger",
         "liu-hip-trunk",
         "liu-internal-rotation",
+        "liu-overhead-arm-path-release",
         "liu-racket-preparation",
         "liu-top-elbow",
         "liu-wrist-whip",
@@ -374,7 +339,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "doubles-continuity",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“双打轮转与连续覆盖”学习：把平抽挡或发球后的球拍准备、搭档覆盖和下一次交换放回同一条训练路线。",
       "framework_ids": [
         "doubles-rear-continuity-frame",
@@ -422,7 +388,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "drive",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“平抽挡与快速交换”学习：以紧凑准备、短出拍和及时回弹维持快速交换，不让大幅后摆占用来球窗口。",
       "framework_ids": [
         "push-drive-power-frame",
@@ -468,7 +435,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“球拍参数与装备适配”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
       "framework_ids": [
         "match-transfer-frame",
@@ -517,7 +485,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“握拍与手指控制”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -564,7 +533,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "drop-variation-route",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“重劈、重切与劈吊”学习：将轻吊、重切和欺骗变化放在高位基础与结果观察之后逐一练习，不把变化当成基础的替代品。",
       "framework_ids": [
         "light-drop-frame",
@@ -636,10 +606,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-smash"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“重杀与下压”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -733,8 +704,11 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "curriculum_course_ids": [
         "liu-hui-high-clear"
+      ],
+      "reviewed_lesson_ids": [
+        "lh-bv1ed4y1s7vj-high-clear-coach-demo-120000"
       ],
       "learning_goal_zh": "围绕“高远球基础动作”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
       "framework_ids": [
@@ -756,6 +730,7 @@
         "liu-grip-finger",
         "liu-hip-trunk",
         "liu-internal-rotation",
+        "liu-overhead-arm-path-release",
         "liu-racket-preparation",
         "liu-top-elbow",
         "liu-wrist-whip",
@@ -799,7 +774,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“高远球高度与到底线”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -820,6 +796,7 @@
         "liu-grip-finger",
         "liu-hip-trunk",
         "liu-internal-rotation",
+        "liu-overhead-arm-path-release",
         "liu-racket-preparation",
         "liu-top-elbow",
         "liu-wrist-whip",
@@ -848,7 +825,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“转髋与躯干带动”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -895,7 +873,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“内旋与手臂释放”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -969,7 +948,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“跳杀与起跳落地”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -1026,7 +1006,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“学习顺序与训练路径”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
       "framework_ids": [
         "match-transfer-frame",
@@ -1081,10 +1062,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "slice-drop",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-slice-drop"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“轻吊与头顶吊球”学习：在基础头顶准备可用后，用连续动作理解节奏和线路变化，而不是照搬一张拍面定格。",
       "framework_ids": [
         "slice-drop-slide-frame",
@@ -1123,7 +1105,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“伤痛、负荷与安全”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
       "framework_ids": [
         "match-transfer-frame",
@@ -1174,7 +1157,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "doubles-continuity",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“实战迁移与回合连贯”学习：把平抽挡或发球后的球拍准备、搭档覆盖和下一次交换放回同一条训练路线。",
       "framework_ids": [
         "doubles-rear-continuity-frame",
@@ -1240,7 +1224,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“点杀、快杀与挥速”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -1316,7 +1301,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“架拍、引拍与高位结构”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -1354,10 +1340,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-footwork",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-backcourt-footwork"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场步法、启动与中国跳”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
       "framework_ids": [
         "timestamp-china-jump-recovery",
@@ -1391,7 +1378,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "drive",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“接杀与防守过渡”学习：以紧凑准备、短出拍和及时回弹维持快速交换，不让大幅后摆占用来球窗口。",
       "framework_ids": [
         "push-drive-power-frame",
@@ -1424,7 +1412,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-footwork",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“回位、恢复与腿部弹性”学习：从中间准备进入后场，在动作窗口后落地、退出并重新组织下一拍，而非只复制腾空姿势。",
       "framework_ids": [
         "timestamp-china-jump-recovery",
@@ -1461,10 +1450,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-serve",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-serve-receive"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“发球、接发与开局”学习：用转拍、手臂路线和完整释放组织正手高远球发球；徒手示范只作为动作路线参考。",
       "framework_ids": [
         "serve-high-clear-frame",
@@ -1505,7 +1495,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“劈杀与切杀”学习：在高位基础可重复后，再把加载、起跳或落地和恢复保持为同一动作包。",
       "framework_ids": [
         "heavy-smash-frame",
@@ -1551,10 +1542,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "slice-drop",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "liu-hui-slice-drop"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“滑板吊球”学习：在基础头顶准备可用后，用连续动作理解节奏和线路变化，而不是照搬一张拍面定格。",
       "framework_ids": [
         "slice-drop-slide-frame",
@@ -1594,7 +1586,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“顶肘与肘部路线”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -1670,7 +1663,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“手腕、鞭打与放松”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -1737,7 +1731,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-base-chain",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“头顶发力链与拍侧结构（标题未细化）”学习：先把到位、高位结构、可见通过和恢复连成完整路线，再选择高远球或进攻变化。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -1777,7 +1772,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场基础与高远球（标题未细化）”学习：用到位和完整释放建立稳定的高远球基础，不用更大手臂动作弥补时间不足。",
       "framework_ids": [
         "stable-overhead-frame",
@@ -1798,6 +1794,7 @@
         "liu-grip-finger",
         "liu-hip-trunk",
         "liu-internal-rotation",
+        "liu-overhead-arm-path-release",
         "liu-racket-preparation",
         "liu-top-elbow",
         "liu-wrist-whip",
@@ -1830,7 +1827,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "match-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“学员匹配、诊断与训练路径（标题未细化）”学习：用有来球、线路和恢复要求的阶梯复测验证动作能否进入对抗，不把练习成功直接当作比赛能力。",
       "framework_ids": [
         "match-transfer-frame",
@@ -1852,6 +1850,47 @@
         "liu-match-transfer"
       ],
       "next_topic_ids": []
+    },
+    {
+      "topic_id": "liu-overhead-arm-path-release",
+      "topic_name_zh": "头顶挥拍路径：架拍、肘部先行与随挥",
+      "coach_system_id": "overhead_power_chain",
+      "source_ids": [
+        "LH_BILI_SEASON_BV1CADQYGEIS",
+        "LH_BILI_SEASON_BV1CJDQYUEGC",
+        "LH_BILI_SEASON_BV1P34Y1V7QA",
+        "LH_BILI_SEASON_BV1P4DGYRE8B",
+        "LH_BILI_SEASON_BV1VPDNYJEPU"
+      ],
+      "knowledge_status": "parent_curriculum_bound",
+      "parent_technique_id": "overhead-base-chain",
+      "media_status": "teaching_ready",
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [
+        "corpus-107-lh_bili_season_bv1p34y1v7qa-smash-candidate-008-dense-review-v3"
+      ],
+      "learning_goal_zh": "先把头顶动作从准备、架拍、释放到恢复连成一条可见路线，再讨论速度或变化； 不把画面解释为精确触球、拍面、力量或真实内旋证据。",
+      "framework_ids": [
+        "stable-overhead-frame",
+        "heavy-smash-frame"
+      ],
+      "rule_ids": [
+        "big-arm-dominant-swing"
+      ],
+      "drill_ids": [
+        "arm-path-reset"
+      ],
+      "retest_metrics": [
+        "phase_observations.arm_path should become frame_to_release",
+        "wrist_elbow_sequence should remain elbow_before_wrist"
+      ],
+      "prerequisite_topic_ids": [],
+      "next_topic_ids": [
+        "liu-contact-window",
+        "liu-high-clear-base",
+        "liu-high-clear-height",
+        "rear_court_base_and_high_clear-title-fallback"
+      ]
     }
   ]
 }

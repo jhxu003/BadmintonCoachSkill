@@ -83,12 +83,92 @@ PARENT_TECHNIQUE_BY_TOPIC = {
     },
 }
 
+# Curriculum cards use Chinese learner-facing labels while private lesson
+# packages use stable machine action keys.  Bindings must match one of these
+# explicit equivalents; fuzzy title matching is deliberately not allowed.
+PACKAGE_ACTION_TO_CURRICULUM_ACTION = {
+    "high_clear": "高远球",
+    "smash": "杀球",
+    "drop": "吊球",
+    "drive": "平抽挡",
+    "front_footwork": "网前跨步",
+    "backhand": "反手",
+    "serve_receive": "发接发",
+    "doubles": "双打",
+}
+
 
 def load_yaml(path: Path) -> dict[str, Any]:
     payload = yaml.safe_load(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"invalid YAML mapping: {path}")
     return payload
+
+
+def reviewed_lesson_bindings(reference_dir: Path) -> dict[str, list[dict[str, Any]]]:
+    """Load only explicit topic-to-private-lesson approvals.
+
+    A public curriculum course is useful knowledge, but it is not a media
+    authorization.  The compact registry intentionally carries only source
+    IDs and opaque lesson IDs; private media and review artefacts never enter
+    this checkout.
+    """
+    path = reference_dir / "reviewed-video-lesson-bindings.yaml"
+    payload = load_yaml(path)
+    rows = payload.get("bindings", [])
+    if not isinstance(rows, list):
+        raise ValueError(f"bindings must be a list: {path}")
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError(f"binding must be an object: {path}")
+        topic_id = str(row.get("topic_id", "")).strip()
+        source_id = str(row.get("source_id", "")).strip()
+        action = str(row.get("action", "")).strip()
+        lesson_ids = sorted({str(item).strip() for item in row.get("lesson_ids", []) if item})
+        if not topic_id or not source_id or not action or not lesson_ids:
+            raise ValueError(f"binding requires topic_id, source_id, action, and lesson_ids: {path}")
+        grouped[topic_id].append(
+            {"source_id": source_id, "action": action, "lesson_ids": lesson_ids}
+        )
+    return grouped
+
+
+def supplemental_units(reference_dir: Path) -> list[dict[str, Any]]:
+    """Load narrow rule-level routes that cannot be inferred from a title."""
+    path = reference_dir / "topic-teaching-unit-supplements.yaml"
+    if not path.is_file():
+        return []
+    payload = load_yaml(path)
+    rows = payload.get("supplemental_units", [])
+    if not isinstance(rows, list):
+        raise ValueError(f"supplemental_units must be a list: {path}")
+    return [dict(row) for row in rows if isinstance(row, dict)]
+
+
+def _bound_lesson_ids(
+    *,
+    coach_id: str,
+    topic_id: str,
+    source_ids: set[str],
+    parent: dict[str, Any],
+    bindings: dict[str, list[dict[str, Any]]],
+) -> set[str]:
+    reviewed_lesson_ids: set[str] = set()
+    for binding in bindings.get(topic_id, []):
+        source_id = str(binding["source_id"])
+        action = str(binding["action"])
+        if source_id not in source_ids:
+            raise ValueError(
+                f"binding source is not attached to topic: {coach_id}:{topic_id}:{source_id}"
+            )
+        curriculum_action = PACKAGE_ACTION_TO_CURRICULUM_ACTION.get(action, action)
+        if curriculum_action not in set(str(item) for item in parent.get("applicable_actions", [])):
+            raise ValueError(
+                f"binding action is not compatible with topic curriculum: {coach_id}:{topic_id}:{action}"
+            )
+        reviewed_lesson_ids.update(str(item) for item in binding["lesson_ids"])
+    return reviewed_lesson_ids
 
 
 def build_units(project: Path, coach_id: str) -> dict[str, Any]:
@@ -104,6 +184,13 @@ def build_units(project: Path, coach_id: str) -> dict[str, Any]:
         str(item["system_id"]): item
         for item in catalog.get("systems", [])
         if isinstance(item, dict) and item.get("system_id")
+    }
+    explicit_bindings = reviewed_lesson_bindings(reference_dir)
+    supplements = supplemental_units(reference_dir)
+    indexed_source_ids = {
+        str(source["source_id"])
+        for source in source_index.get("sources", [])
+        if isinstance(source, dict) and source.get("source_id")
     }
     reviewed_courses_by_source_and_technique: dict[tuple[str, str], list[str]] = defaultdict(list)
     for course in catalog.get("courses", []):
@@ -168,7 +255,7 @@ def build_units(project: Path, coach_id: str) -> dict[str, Any]:
                 }
             )
             continue
-        reviewed_course_ids = sorted(
+        curriculum_course_ids = sorted(
             {
                 course_id
                 for source_id in raw["source_ids"]
@@ -177,18 +264,26 @@ def build_units(project: Path, coach_id: str) -> dict[str, Any]:
                 )
             }
         )
+        reviewed_lesson_ids = _bound_lesson_ids(
+            coach_id=coach_id,
+            topic_id=topic_id,
+            source_ids=set(raw["source_ids"]),
+            parent=parent,
+            bindings=explicit_bindings,
+        )
         units.append(
             {
                 **raw,
                 "source_ids": sorted(set(raw["source_ids"])),
                 "knowledge_status": "parent_curriculum_bound",
                 "parent_technique_id": parent_id,
-                # Exact topic media must be separately reviewed; a parent
-                # technique's public course cannot be borrowed as a topic clip.
+                # Exact topic media must be separately reviewed. A parent
+                # curriculum course never authorizes a clip by itself.
                 "media_status": (
-                    "teaching_ready" if reviewed_course_ids else "no_reliable_topic_bound_media"
+                    "teaching_ready" if reviewed_lesson_ids else "no_reliable_topic_bound_media"
                 ),
-                "reviewed_course_ids": reviewed_course_ids,
+                "curriculum_course_ids": curriculum_course_ids,
+                "reviewed_lesson_ids": sorted(reviewed_lesson_ids),
                 "learning_goal_zh": (
                     f"围绕“{raw['topic_name_zh']}”学习：{parent['summary_zh']}"
                 ),
@@ -198,6 +293,49 @@ def build_units(project: Path, coach_id: str) -> dict[str, Any]:
                 "retest_metrics": list(parent["retest_metrics"]),
                 "prerequisite_topic_ids": [],
                 "next_topic_ids": [],
+            }
+        )
+
+    existing_topic_ids = {str(unit["topic_id"]) for unit in units}
+    for supplement in supplements:
+        topic_id = str(supplement.get("topic_id", "")).strip()
+        parent_id = str(supplement.get("parent_technique_id", "")).strip()
+        source_ids = {str(item).strip() for item in supplement.get("source_ids", []) if item}
+        parent = techniques.get(parent_id)
+        if not topic_id or not parent_id or not source_ids or parent is None:
+            raise ValueError(f"invalid supplemental topic unit: {coach_id}:{topic_id}")
+        if topic_id in existing_topic_ids:
+            raise ValueError(f"supplemental topic duplicates indexed topic: {coach_id}:{topic_id}")
+        unknown_sources = source_ids - indexed_source_ids
+        if unknown_sources:
+            raise ValueError(
+                f"supplemental topic has unknown source IDs: {coach_id}:{topic_id}:{sorted(unknown_sources)}"
+            )
+        reviewed_lesson_ids = _bound_lesson_ids(
+            coach_id=coach_id,
+            topic_id=topic_id,
+            source_ids=source_ids,
+            parent=parent,
+            bindings=explicit_bindings,
+        )
+        units.append(
+            {
+                "topic_id": topic_id,
+                "topic_name_zh": str(supplement.get("topic_name_zh", "")),
+                "coach_system_id": str(supplement.get("coach_system_id", "")),
+                "source_ids": sorted(source_ids),
+                "knowledge_status": str(supplement.get("knowledge_status", "parent_curriculum_bound")),
+                "parent_technique_id": parent_id,
+                "media_status": "teaching_ready" if reviewed_lesson_ids else "no_reliable_topic_bound_media",
+                "curriculum_course_ids": [],
+                "reviewed_lesson_ids": sorted(reviewed_lesson_ids),
+                "learning_goal_zh": str(supplement.get("learning_goal_zh", "")),
+                "framework_ids": list(supplement.get("framework_ids", [])),
+                "rule_ids": list(supplement.get("rule_ids", [])),
+                "drill_ids": list(supplement.get("drill_ids", [])),
+                "retest_metrics": list(supplement.get("retest_metrics", [])),
+                "prerequisite_topic_ids": list(supplement.get("prerequisite_topic_ids", [])),
+                "next_topic_ids": list(supplement.get("next_topic_ids", [])),
             }
         )
 
@@ -227,7 +365,7 @@ def build_units(project: Path, coach_id: str) -> dict[str, Any]:
         "coach_id": coach_id,
         "unit_count": len(units),
         "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
-        "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+        "usage_boundary": "topic units are knowledge-only until an explicit same-source, same-topic private evidence audit binds an approved continuous coach demonstration; a curriculum course ID alone never authorizes media",
         "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
         "systems": sorted(
             {

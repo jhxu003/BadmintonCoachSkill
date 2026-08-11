@@ -239,7 +239,35 @@ def test_local_router_samples_interior_time_buckets_and_skips_one_bad_seek(
     assert 29_999 not in samples
     assert len(seen_paths) == 4
     assert [(route.action, route.start_ms, route.end_ms) for route in routes] == [
-        ("smash", 3_000, 24_000)
+        ("smash", 0, 24_000)
+    ]
+
+
+def test_local_router_scalar_timestamps_keep_preparation_and_recovery_context(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        "badminton_coach_skill.video_evidence.ffmpeg.probe_video",
+        lambda _path: VideoMetadata(duration_ms=12_000, width=1280, height=720, fps=30.0),
+    )
+    monkeypatch.setattr(
+        "badminton_coach_skill.video_evidence.ffmpeg.extract_frame",
+        lambda _video, _timestamp, output: output.parent.mkdir(parents=True, exist_ok=True) or output.write_bytes(b"frame"),
+    )
+    router = QwenLocalActionRouter("not-loaded-in-this-test", maximum_samples=4)
+    monkeypatch.setattr(
+        router._model,
+        "generate_json",
+        lambda _images, _prompt: {
+            "action": "smash",
+            "start_ms": 3_000,
+            "end_ms": 7_000,
+            "confidence": 0.95,
+        },
+    )
+    routes = router.route(tmp_path / "learner.mp4", tmp_path / "work")
+    assert [(route.action, route.start_ms, route.end_ms) for route in routes] == [
+        ("smash", 500, 8_200)
     ]
 
 

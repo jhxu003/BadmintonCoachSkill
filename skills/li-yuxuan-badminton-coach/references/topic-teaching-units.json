@@ -3,7 +3,7 @@
   "coach_id": "li-yuxuan",
   "unit_count": 31,
   "publication_boundary": "public source IDs and existing Skill references only; no media, frames, clips, ASR, private paths, runtime decisions, or model output",
-  "usage_boundary": "topic units are knowledge-only until a same-source, same-topic private evidence audit binds an approved continuous coach demonstration",
+  "usage_boundary": "topic units are knowledge-only until an explicit same-source, same-topic private evidence audit binds an approved continuous coach demonstration; a curriculum course ID alone never authorizes media",
   "evidence_boundary": "ordinary monocular video cannot prove exact contact, racket-face angle, true internal rotation, grip pressure, force, calibrated 3D kinematics, or opponent intent",
   "systems": [],
   "units": [
@@ -17,7 +17,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“装备成熟度与负荷安全（标题未细化）”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -50,7 +51,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-time-budget",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“启动、到位、落地与回收（标题未细化）”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
       "framework_ids": [
         "lyx-start-on-opponent-contact",
@@ -87,7 +89,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“学习路径与综合答疑（标题未细化）”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -133,7 +136,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "backhand-early-choice",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“反手早选择与紧凑回复”学习：尽早识别反手来球并选择可用处理空间，避免被动时用更大动作或紧张补偿。",
       "framework_ids": [
         "lyx-backhand-time-budget",
@@ -186,7 +190,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash-progression",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“杀球基础与进攻动作”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
       "framework_ids": [
         "lyx-smash-sequence-before-speed",
@@ -236,7 +241,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“防守、接杀与被动过渡”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -292,7 +298,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“双打轮转与前两拍分工”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -334,8 +341,11 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "drive",
       "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "curriculum_course_ids": [
         "li-yuxuan-drive"
+      ],
+      "reviewed_lesson_ids": [
+        "lyx-public-demo-drive-721340"
       ],
       "learning_goal_zh": "围绕“平抽挡与快速交换”学习：让球拍、身体和支撑保持可响应，以短准备和及时回收维持快速平抽挡。",
       "framework_ids": [
@@ -391,7 +401,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-variation",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“吊球与头顶变化”学习：在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。",
       "framework_ids": [
         "lyx-overhead-variation-control",
@@ -431,7 +442,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“顶肘、摆肘与挥拍释放”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
         "lyx-contact-distance-clear",
@@ -474,7 +486,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“球拍选择与装备适配”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -508,7 +521,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“手指、手腕与发力时机”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
         "lyx-contact-distance-clear",
@@ -552,7 +566,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-time-budget",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“网前跨步与第一响应”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
       "framework_ids": [
         "lyx-start-on-opponent-contact",
@@ -596,8 +611,11 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "curriculum_course_ids": [
         "li-yuxuan-high-clear"
+      ],
+      "reviewed_lesson_ids": [
+        "lyx-public-demo-high-clear-154875"
       ],
       "learning_goal_zh": "围绕“高远球与头顶击球”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
@@ -640,10 +658,11 @@
       ],
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
-      "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "media_status": "no_reliable_topic_bound_media",
+      "curriculum_course_ids": [
         "li-yuxuan-high-clear"
       ],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“高远球距离与后场到位”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
         "lyx-contact-distance-clear",
@@ -708,7 +727,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“转髋、内旋与身体带动”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
         "lyx-contact-distance-clear",
@@ -753,7 +773,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash-progression",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“跳杀与腾空进攻”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
       "framework_ids": [
         "lyx-smash-sequence-before-speed",
@@ -1010,7 +1031,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“学习路径与技术答疑”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -1044,7 +1066,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“热身、伤痛与训练负荷”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -1099,7 +1122,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "overhead-variation",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“网前控球与处理”学习：在高远球基础可重复后，以高度、手感和单一变量进阶练习头顶变化。",
       "framework_ids": [
         "lyx-overhead-variation-control",
@@ -1139,7 +1163,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash-progression",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“点杀、重杀与杀球加速”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
       "framework_ids": [
         "lyx-smash-sequence-before-speed",
@@ -1181,7 +1206,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "high-clear",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“握拍、架拍与引拍”学习：先创造可用时间和挥拍距离，再将转入、挥拍、释放与恢复连为一条路线。",
       "framework_ids": [
         "lyx-contact-distance-clear",
@@ -1246,7 +1272,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rally-transfer",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“实战对抗与球路迁移”学习：将已稳定的技术置入目标、速度和随机性逐级增加的回合中，验证是否仍可用。",
       "framework_ids": [
         "lyx-match-transfer-constraint",
@@ -1286,7 +1313,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-time-budget",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场启动与第一步”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
       "framework_ids": [
         "lyx-start-on-opponent-contact",
@@ -1332,7 +1360,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "rear-court-time-budget",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“后场转身与确认步”学习：从对方触球提示开始组织启动、转身和确认步，为头顶处理保留时间与挥拍空间。",
       "framework_ids": [
         "lyx-start-on-opponent-contact",
@@ -1371,7 +1400,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "doubles-first-two-shots",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“接发与前两拍衔接”学习：将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。",
       "framework_ids": [
         "lyx-doubles-first-two-shot",
@@ -1434,8 +1464,11 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "net-lunge",
       "media_status": "teaching_ready",
-      "reviewed_course_ids": [
+      "curriculum_course_ids": [
         "li-yuxuan-net-lunge"
+      ],
+      "reviewed_lesson_ids": [
+        "lyx-public-demo-net-lunge-477060"
       ],
       "learning_goal_zh": "围绕“落地、回位与移动衔接”学习：从来球提示启动，进入跨步和可见处理区域，再以稳定退出连接下一拍。",
       "framework_ids": [
@@ -1470,7 +1503,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "doubles-first-two-shots",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“发球稳定性与个人适配”学习：将发接发后的下一拍责任和可用站位一起训练，避免两人同时迟疑或重复覆盖。",
       "framework_ids": [
         "lyx-doubles-first-two-shot",
@@ -1512,7 +1546,8 @@
       "knowledge_status": "parent_curriculum_bound",
       "parent_technique_id": "smash-progression",
       "media_status": "no_reliable_topic_bound_media",
-      "reviewed_course_ids": [],
+      "curriculum_course_ids": [],
+      "reviewed_lesson_ids": [],
       "learning_goal_zh": "围绕“劈杀与角度进攻”学习：以完整动作顺序、稳定落地和恢复作为增加球速或起跳要求的前提。",
       "framework_ids": [
         "lyx-smash-sequence-before-speed",

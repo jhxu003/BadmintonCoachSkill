@@ -23,6 +23,23 @@ type CoachId = "liu-hui" | "li-yuxuan" | "zheng-siwei";
 type LessonStatus = "complete" | "route" | "context";
 type CurriculumScope = "ready" | "all";
 
+const publicApplicationCase = {
+  coachId: "liu-hui" as const,
+  lessonId: "high-clear",
+  actionLabel: "后场高远球",
+  lessonTitle: "后场高远球：从到位到完整释放",
+  observation: {
+    camera: "单人、侧后方、全身可见；从准备到出球后恢复保持连续。",
+    confirmed: ["后场到位偏晚", "恢复阶段没有保留足够的下一拍准备"],
+    unknown: ["精确触球点", "拍面角度", "握拍压力", "力量大小", "真实内旋与三维关节角度"],
+  },
+  practice: {
+    now: "先练后场到位：先在低速中完整到位，再把持拍侧带入高位结构。",
+    drill: "后场到位影子步：保留准备、到位、挥拍路线和恢复，不为了赶速度跳过前半段。",
+    retest: "用同一侧后方机位复拍；确认到位更及时，并且动作后仍能回到可移动状态。",
+  },
+};
+
 interface Stage {
   name: string;
   time: string;
@@ -1050,6 +1067,25 @@ export function PagesDemo() {
     });
   }
 
+  function openPublicApplicationLesson(): void {
+    const caseCoach = coaches.find((item) => item.id === publicApplicationCase.coachId)!;
+    const nextLessonIndex = caseCoach.lessons.findIndex((item) => item.id === publicApplicationCase.lessonId);
+    if (nextLessonIndex < 0) return;
+    setCoachId(publicApplicationCase.coachId);
+    setLessonIndex(nextLessonIndex);
+    setStageIndex(3);
+    setCatalogCategory("all");
+    setCatalogQuery("");
+    setCatalogPage(0);
+    setCurriculumScope("ready");
+    window.requestAnimationFrame(() => {
+      document.getElementById("lesson-viewer")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  }
+
   function updateCatalogCategory(nextCategory: string): void {
     setCatalogCategory(nextCategory);
     setCatalogPage(0);
@@ -1062,6 +1098,7 @@ export function PagesDemo() {
         <header className="pages-nav">
           <a className="pages-brand" href="#top" aria-label="BadmintonCoachSkill · 羽毛球动作课"><span aria-hidden="true" />BadmintonCoachSkill</a>
           <nav aria-label="页面导航 / Site navigation">
+            <a href="#application-case">案例 <span>Case</span></a>
             <a href="#lessons">动作课 <span>Lessons</span></a>
             <a href="#coaches">教练 <span>Coaches</span></a>
             <a href="#roadmap">路线 <span>Roadmap</span></a>
@@ -1078,8 +1115,8 @@ export function PagesDemo() {
             <p className="pages-lede">每一节课都从同一次教练示范开始：准备、挥拍、落地和恢复都留在同一条时间线上。</p>
             <p className="pages-lede-en">One complete move first. Then use the stages, drills, and retest to make it yours.</p>
             <div className="pages-hero-actions">
-              <a className="pages-button primary" href="#lessons">看第一节动作课 <span>Start with a full move</span><ArrowRight size={17} /></a>
-              <a className="pages-button secondary" href="#coaches">选择教练体系 <span>Choose a lens</span></a>
+              <a className="pages-button primary" href="#application-case">看一个应用案例 <span>See a coaching case</span><ArrowRight size={17} /></a>
+              <a className="pages-button secondary" href="#lessons">直接看动作课 <span>Watch a full move</span></a>
             </div>
           </div>
           <figure className="pages-featured-sequence" aria-labelledby="featured-sequence-caption">
@@ -1106,9 +1143,68 @@ export function PagesDemo() {
           <span><b>3</b> 位教练 <i>Coaches</i></span><span><b>16</b> 节审核动作课 <i>Reviewed lessons</i></span><span><b>873</b> 条来源视频 <i>Source videos</i></span>
         </div>
 
+        <section id="application-case" className="pages-section pages-application-case" aria-labelledby="application-case-heading">
+          <div className="pages-section-heading">
+            <p className="pages-kicker">01 / APPLICATION CASE</p>
+            <h2 id="application-case-heading">一个视频，怎样变成一份能练的方案？</h2>
+            <p className="pages-heading-en">A bounded observation becomes one focused coaching route — never a confident guess.</p>
+          </div>
+
+          <div className="pages-case-disclaimer" role="note">
+            <ShieldCheck size={18} />
+            <p><b>公开结构化样例。</b>这里没有学员视频、真人报告或模型原始输出。它只展示产品在输入条件充分、技术目标已明确时，如何把可见观察转成一份可复拍的教学方案。</p>
+          </div>
+
+          <div className="pages-application-grid">
+            <article className="pages-case-input" aria-labelledby="case-input-heading">
+              <div className="pages-case-card-heading"><span>INPUT</span><Film size={18} /></div>
+              <h3 id="case-input-heading">目标已明确：{publicApplicationCase.actionLabel}</h3>
+              <p>这个案例不是让模型凭一段画面替你猜技术类别；练习者先明确想练的是高远球，系统才进入对应的观察和教学路线。</p>
+              <dl>
+                <div><dt>拍摄条件</dt><dd>{publicApplicationCase.observation.camera}</dd></div>
+                <div><dt>训练目标</dt><dd>先把后场到位与完整动作链稳定下来，再增加速度与距离。</dd></div>
+              </dl>
+              <div className="pages-case-input-strip" aria-label="样例视频观察范围">
+                <span>准备</span><i aria-hidden="true" /><span>到位</span><i aria-hidden="true" /><span>挥拍</span><i aria-hidden="true" /><span>恢复</span>
+              </div>
+            </article>
+
+            <article className="pages-case-observation" aria-labelledby="case-observation-heading">
+              <div className="pages-case-card-heading"><span>BOUNDED OBSERVATION</span><Gauge size={18} /></div>
+              <h3 id="case-observation-heading">先记录看得见的。</h3>
+              <p>VLM 只输出经过结构化约束的二维可见代理；这里的两项是这个样例中假定已经由完整画面确认的观察。</p>
+              <ul className="pages-case-confirmed-list">
+                {publicApplicationCase.observation.confirmed.map((item) => <li key={item}><CheckCircle2 size={16} /><span>{item}</span></li>)}
+              </ul>
+              <div className="pages-case-unknown"><b>不会当作结论的内容</b><p>{publicApplicationCase.observation.unknown.join("、")}。</p></div>
+            </article>
+
+            <article className="pages-case-route" aria-labelledby="case-route-heading">
+              <div className="pages-case-card-heading"><span>MATCHED COACH SKILL</span><BookOpenCheck size={18} /></div>
+              <h3 id="case-route-heading">匹配到刘辉的后场高远球课。</h3>
+              <p>目标动作和可见瓶颈都落在同一技术路线中，才会引用这节课。这里绑定的是审核过的同主题连续教练示范，不拿相近动作的片段凑数。</p>
+              <div className="pages-case-course-ref">
+                <img src={publicAsset("pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg")} alt="刘辉教练高远球示范中的高位结构阶段" loading="lazy" />
+                <div><span>LIU HUI · REVIEWED LESSON</span><b>{publicApplicationCase.lessonTitle}</b><small>6.5 秒连续示范 · 7 个动作阶段</small></div>
+              </div>
+              <button type="button" className="pages-case-open-lesson" onClick={openPublicApplicationLesson}>打开匹配的完整示范 <ArrowRight size={15} /></button>
+            </article>
+          </div>
+
+          <article className="pages-case-plan" aria-labelledby="case-plan-heading">
+            <header><div><p className="pages-kicker">COACHING OUTPUT</p><h3 id="case-plan-heading">这一次先练什么，怎么确认变好了？</h3></div><span>ONE FOCUS · ONE RETEST</span></header>
+            <div className="pages-case-plan-grid">
+              <section><span>NOW</span><h4>把“到位”放回动作开头。</h4><p>{publicApplicationCase.practice.now}</p></section>
+              <section><span>DRILL</span><h4>低速建立连续路线。</h4><p>{publicApplicationCase.practice.drill}</p></section>
+              <section><span>RETEST</span><h4>同机位，看完整过程。</h4><p>{publicApplicationCase.practice.retest}</p></section>
+            </div>
+            <footer><ShieldCheck size={16} /><p>如果准备、到位、挥拍或恢复任一段看不清，结果应改为“请补拍”，而不是补出一个看似专业的诊断。</p></footer>
+          </article>
+        </section>
+
         <section id="coaches" className="pages-section pages-coach-section" aria-labelledby="coaches-heading">
           <div className="pages-section-heading">
-            <p className="pages-kicker">01 / COACHES</p>
+            <p className="pages-kicker">02 / COACHES</p>
             <h2 id="coaches-heading">先选你想跟着练的体系。</h2>
             <p className="pages-heading-en">Each coach gives the same court a different, useful lens.</p>
           </div>
@@ -1129,7 +1225,7 @@ export function PagesDemo() {
 
         <section id="lessons" className="pages-section pages-lessons" aria-labelledby="lessons-heading">
           <div className="pages-section-heading pages-lessons-heading">
-            <p className="pages-kicker">02 / LESSONS</p>
+            <p className="pages-kicker">03 / LESSONS</p>
             <h2 id="lessons-heading">{coach.name}的动作课</h2>
             <p className="pages-heading-en">{coachEnglish[coach.id].name}'s technique lessons</p>
           </div>
@@ -1227,7 +1323,7 @@ export function PagesDemo() {
 
         <section id="catalog" className="pages-section pages-catalog" aria-labelledby="catalog-heading">
           <div className="pages-section-heading">
-            <p className="pages-kicker">03 / VIDEO LIBRARY</p>
+            <p className="pages-kicker">04 / VIDEO LIBRARY</p>
             <h2 id="catalog-heading">从教练体系里继续找。</h2>
             <p className="pages-heading-en">Browse the original public videos behind each coaching system.</p>
           </div>

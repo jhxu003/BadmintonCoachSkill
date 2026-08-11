@@ -1,0 +1,21 @@
+version: 1
+publication_boundary: >-
+  This registry contains opaque lesson identifiers and source IDs only. Media,
+  frames, clips, local paths, review screenshots, and model output stay in the
+  private deployment runtime.
+bindings:
+  - topic_id: lyx-drive
+    source_id: LYX_BILI_BV1BH411T7TR
+    action: drive
+    lesson_ids:
+      - lyx-public-demo-drive-721340
+  - topic_id: lyx-high-clear
+    source_id: LYX_BILI_BV1Z64Y1F7YS
+    action: high_clear
+    lesson_ids:
+      - lyx-public-demo-high-clear-154875
+  - topic_id: lyx-recovery
+    source_id: LYX_BILI_BV1MIBBZ5E9U
+    action: front_footwork
+    lesson_ids:
+      - lyx-public-demo-net-lunge-477060

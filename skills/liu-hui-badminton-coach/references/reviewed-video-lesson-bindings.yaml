@@ -1,0 +1,16 @@
+version: 1
+publication_boundary: >-
+  This registry contains opaque lesson identifiers and source IDs only. Media,
+  frames, clips, local paths, review screenshots, and model output stay in the
+  private deployment runtime.
+bindings:
+  - topic_id: liu-high-clear-base
+    source_id: LH_BILI_SEASON_BV1ED4Y1S7VJ
+    action: high_clear
+    lesson_ids:
+      - lh-bv1ed4y1s7vj-high-clear-coach-demo-120000
+  - topic_id: liu-overhead-arm-path-release
+    source_id: LH_BILI_SEASON_BV1P34Y1V7QA
+    action: smash
+    lesson_ids:
+      - corpus-107-lh_bili_season_bv1p34y1v7qa-smash-candidate-008-dense-review-v3

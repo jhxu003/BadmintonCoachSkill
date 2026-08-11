@@ -41,7 +41,7 @@ def test_liu_hui_plan_focuses_diagnosis_and_does_not_borrow_wrong_topic_lesson()
     assert plan["teaching_sequence"]
     assert plan["lesson_focus"]["now"]["issue_id"] == "late-arrival"  # type: ignore[index]
     assert plan["lesson_focus"]["now"]["topic_unit"]["topic_id"] == "liu-rear-footwork"  # type: ignore[index]
-    assert plan["lesson_focus"]["now"]["topic_unit"]["media_status"] == "reviewed_media_unavailable"  # type: ignore[index]
+    assert plan["lesson_focus"]["now"]["topic_unit"]["media_status"] == "knowledge_only_no_reviewed_media"  # type: ignore[index]
     # The installed high-clear package is not the audited rear-footwork
     # package, so it must not be borrowed just because the action matches.
     assert plan["video_lesson_status"] == "no_reliable_video_lesson_package"
@@ -164,7 +164,7 @@ def test_topic_bound_media_accepts_only_the_audited_course(monkeypatch: pytest.M
         root=ROOT,
         unit={
             "media_status": "teaching_ready",
-            "reviewed_course_ids": ["liu-hui-backcourt-footwork"],
+            "reviewed_lesson_ids": ["liu-hui-backcourt-footwork"],
         },
         limit=2,
     )

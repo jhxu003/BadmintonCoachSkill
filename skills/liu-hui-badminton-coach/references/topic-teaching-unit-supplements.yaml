@@ -1,0 +1,27 @@
+version: 1
+# Narrow, rule-level routes that are more specific than a source title. They
+# may use only existing source IDs and existing curriculum rules; media still
+# requires a separate entry in reviewed-video-lesson-bindings.yaml.
+supplemental_units:
+  - topic_id: liu-overhead-arm-path-release
+    topic_name_zh: 头顶挥拍路径：架拍、肘部先行与随挥
+    coach_system_id: overhead_power_chain
+    source_ids:
+      - LH_BILI_SEASON_BV1P34Y1V7QA
+      - LH_BILI_SEASON_BV1VPDNYJEPU
+      - LH_BILI_SEASON_BV1P4DGYRE8B
+      - LH_BILI_SEASON_BV1CJDQYUEGC
+      - LH_BILI_SEASON_BV1CADQYGEIS
+    knowledge_status: parent_curriculum_bound
+    parent_technique_id: overhead-base-chain
+    learning_goal_zh: >-
+      先把头顶动作从准备、架拍、释放到恢复连成一条可见路线，再讨论速度或变化；
+      不把画面解释为精确触球、拍面、力量或真实内旋证据。
+    framework_ids: [stable-overhead-frame, heavy-smash-frame]
+    rule_ids: [big-arm-dominant-swing]
+    drill_ids: [arm-path-reset]
+    retest_metrics:
+      - phase_observations.arm_path should become frame_to_release
+      - wrist_elbow_sequence should remain elbow_before_wrist
+    prerequisite_topic_ids: [liu-high-clear-base, liu-basic-smash]
+    next_topic_ids: [liu-basic-smash, liu-heavy-smash]

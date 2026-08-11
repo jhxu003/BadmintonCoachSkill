@@ -141,7 +141,9 @@ def _select_topic_lessons(
 ) -> tuple[VideoLessonPackage, ...]:
     if not unit or str(unit.get("media_status", "")) != "teaching_ready":
         return ()
-    reviewed_ids = {str(item) for item in unit.get("reviewed_course_ids", []) if item}
+    # Course IDs describe knowledge coverage; only this explicit private
+    # lesson allow-list can authorize learner-facing media.
+    reviewed_ids = {str(item) for item in unit.get("reviewed_lesson_ids", []) if item}
     if not reviewed_ids:
         return ()
     lessons = [

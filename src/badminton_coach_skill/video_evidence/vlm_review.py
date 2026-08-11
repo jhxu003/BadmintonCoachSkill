@@ -270,6 +270,15 @@ class _QwenLocalJsonModel:
 class QwenLocalActionRouter:
     """3B local VLM action-router for conservative multi-action proposals."""
 
+    # The scalar-timestamp adapter is retained for small local VLM responses
+    # that omit the requested sample ordinals.  Those timestamps usually name
+    # the visible swing core, not the start of preparation.  Give the same
+    # bounded lead-in/exit context as the normal sample-index path so the
+    # seven-stage extractor can fail on real missing evidence rather than on
+    # context we discarded before pose analysis began.
+    _SCALAR_ROUTE_LEAD_MS = 2_500
+    _SCALAR_ROUTE_TAIL_MS = 1_200
+
     def __init__(
         self,
         model_path: str,
@@ -464,15 +473,17 @@ class QwenLocalActionRouter:
                     500,
                     image_timestamps[end_sample - 1] - image_timestamps[end_sample - 2],
                 )
-                # A router selects the visible *core* of an action.  Preserve
-                # the immediately preceding sampled context so downstream
-                # seven-stage extraction can inspect preparation rather than
-                # beginning halfway through a swing.  This only widens a
-                # confirmed candidate window inside the uploaded video; it
-                # does not assert that the action began at the wider boundary.
+                # A router selects the visible *core* of an action. Preserve
+                # two preceding sampled contexts so downstream seven-stage
+                # extraction can inspect preparation rather than beginning
+                # halfway through a swing. A one-sample lead can be shorter
+                # than the 2.2-second preparation offset on a 15–20 second
+                # upload. This only widens a confirmed candidate window
+                # inside the uploaded video; it does not assert that the
+                # action began at the wider boundary.
                 start_ms = max(
                     0,
-                    image_timestamps[start_sample - 1] - sample_spacing,
+                    image_timestamps[start_sample - 1] - (2 * sample_spacing),
                 )
                 end_ms = min(
                     metadata.duration_ms,
@@ -483,8 +494,14 @@ class QwenLocalActionRouter:
                 # provides scalar timestamps, but never coerce a model's
                 # arrays, bounding boxes, or partial coordinates into time.
                 try:
-                    start_ms = max(0, int(raw.get("start_ms", 0)))
-                    end_ms = min(metadata.duration_ms, int(raw.get("end_ms", 0)))
+                    start_ms = max(
+                        0,
+                        int(raw.get("start_ms", 0)) - self._SCALAR_ROUTE_LEAD_MS,
+                    )
+                    end_ms = min(
+                        metadata.duration_ms,
+                        int(raw.get("end_ms", 0)) + self._SCALAR_ROUTE_TAIL_MS,
+                    )
                 except (TypeError, ValueError):
                     continue
             if end_ms - start_ms < self.minimum_duration_ms or not 0.0 <= confidence <= 1.0:

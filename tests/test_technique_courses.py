@@ -98,3 +98,21 @@ def test_pages_demo_consumes_the_generated_course_artifact() -> None:
     assert "visibleCurriculumTechniques" in pages_source
     assert "pages-study-journey" in pages_source
     assert "knowledge_only" in pages_source
+
+
+def test_public_application_case_is_bounded_and_uses_an_approved_coach_lesson() -> None:
+    pages_source = (ROOT / "web/src/features/pages/PagesDemo.tsx").read_text(
+        encoding="utf-8"
+    )
+    pages_docs = (ROOT / "docs/github-pages-demo.md").read_text(encoding="utf-8")
+
+    assert "publicApplicationCase" in pages_source
+    assert 'coachId: "liu-hui"' in pages_source
+    assert 'lessonId: "high-clear"' in pages_source
+    assert "pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg" in pages_source
+    assert "公开结构化样例" in pages_source
+    assert "请补拍" in pages_source
+    assert "真实 API 报告" in pages_docs
+    assert "不使用任何学员视频" in pages_docs
+    assert ".runtime/" not in pages_source
+    assert "data/raw-private/" not in pages_source

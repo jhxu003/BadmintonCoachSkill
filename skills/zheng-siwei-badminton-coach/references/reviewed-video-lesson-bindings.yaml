@@ -1,0 +1,6 @@
+version: 1
+publication_boundary: >-
+  This registry contains opaque lesson identifiers and source IDs only. Media,
+  frames, clips, local paths, review screenshots, and model output stay in the
+  private deployment runtime.
+bindings: []

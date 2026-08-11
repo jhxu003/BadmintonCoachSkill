@@ -216,7 +216,7 @@ def present_topic_unit(unit: dict[str, Any] | None) -> dict[str, Any] | None:
     if not unit:
         return None
     media_ready = str(unit.get("media_status", "")) == "teaching_ready" and bool(
-        unit.get("reviewed_course_ids", [])
+        unit.get("reviewed_lesson_ids", [])
     )
     # A topic title can legitimately contain a source-curriculum shorthand
     # such as “内旋”.  In a learner diagnosis it would read like an observed
