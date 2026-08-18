@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>体验公开课程</strong></a>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>🌐 GitHub Pages · 在线演示</strong></a>
   &nbsp;·&nbsp;
   <a href="#课程"><strong>查看 16 节动作课</strong></a>
   &nbsp;·&nbsp;

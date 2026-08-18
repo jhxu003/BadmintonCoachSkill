@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>Try the public lessons</strong></a>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>🌐 GitHub Pages · Live Demo</strong></a>
   &nbsp;·&nbsp;
   <a href="#lessons"><strong>Browse 16 showcase lessons</strong></a>
   &nbsp;·&nbsp;
