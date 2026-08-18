@@ -1,10 +1,22 @@
 <p align="center">
   <a href="https://jhxu003.github.io/BadmintonCoachSkill/">
-    <img src="docs/assets/readme-hero.svg" alt="BadmintonCoachSkill：三位教练、七阶段动作过程和技术路线图" width="100%" />
+    <img src="docs/assets/readme-hero.svg" alt="BadmintonCoachSkill 把一次完整羽毛球动作整理成有证据边界的学习路线" width="100%" />
   </a>
 </p>
 
 <h1 align="center">BadmintonCoachSkill</h1>
+
+<p align="center">
+  <strong>面向完整动作、基于可见证据的羽毛球教练 Skills，而不是只看一张定格。</strong><br />
+  把学习目标或结构化视频观察，转换为教练专属路线、可见证据、一个练习和可复测目标。
+</p>
+
+<p align="center">
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><img src="https://img.shields.io/badge/GitHub%20Pages-在线演示-0F766E?style=flat-square&logo=github&logoColor=white" alt="GitHub Pages 在线演示" /></a>
+  <a href="https://github.com/jhxu003/BadmintonCoachSkill/actions/workflows/deploy-pages.yml"><img src="https://github.com/jhxu003/BadmintonCoachSkill/actions/workflows/deploy-pages.yml/badge.svg" alt="GitHub Pages 部署状态" /></a>
+  <a href="pyproject.toml"><img src="https://img.shields.io/badge/Python-3.10%2B-2563EB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10 或更高版本" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-D4A72C?style=flat-square" alt="MIT License" /></a>
+</p>
 
 <p align="center">
   <strong>简体中文</strong>
@@ -13,205 +25,93 @@
 </p>
 
 <p align="center">
-  <strong>把完整动作过程，整理成可以跟着练的课程。</strong><br />
-  三位教练的技术体系、连续示范、阶段讲解与下一步练习，放在同一条学习路线里。
-</p>
-
-<p align="center">
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>🌐 GitHub Pages · 在线演示</strong></a>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开在线演示</strong></a>
   &nbsp;·&nbsp;
-  <a href="#课程"><strong>查看 16 节动作课</strong></a>
+  <a href="#快速开始"><strong>快速开始</strong></a>
   &nbsp;·&nbsp;
-  <a href="#体系"><strong>浏览三个体系</strong></a>
+  <a href="#三个教练-skill"><strong>教练 Skills</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#agent-如何工作"><strong>Agent 流程</strong></a>
 </p>
-
-<table align="center">
-  <tr>
-    <td align="center"><strong>03</strong><br /><sub>教练体系</sub></td>
-    <td align="center"><strong>873</strong><br /><sub>已完成来源解析</sub></td>
-    <td align="center"><strong>82</strong><br /><sub>来源绑定细分主题</sub></td>
-    <td align="center"><strong>16</strong><br /><sub>公开精选课程</sub></td>
-  </tr>
-</table>
 
 ---
 
-BadmintonCoachSkill 把三位教练的公开教学内容整理成可以直接浏览和练习的动作课程。每节课都把同一次示范的连续短片、七个动作阶段、技术要点、练习方法和复测目标放在一起。
+BadmintonCoachSkill 把公开教练内容整理成结构化、受证据边界约束的教学知识，并保持整条学习链路相互连接：
 
-三位教练共 873 条来源视频已经完成批量解析，并按公开原始标题路由到 82 个教练体系内的细分主题。每个主题现在都有受边界约束的知识单元：对应框架、常见误区、练习、复测和精确来源；只有通过同来源、同主题的私有语境审核后，才会绑定动作媒体。当前 Pages 先公开展示其中 16 节精选课程；这 16 节是公开入口，不是全部处理结果。
+```text
+学习目标或学员视频
+        ↓
+受边界约束的视觉观察
+        ↓
+教练专属 Skill 路由
+        ↓
+可见问题 → 纠正原则 → 练习 → 复测
+```
 
-## 一次高远球，完整看完
+项目不会把一张“看起来不错”的画面当作完整技术证明。每节公开动作课先展示一段连续动作，再用七张有序阶段帧定位同一次动作。
 
-下面七张图来自刘辉教练的同一次高远球示范。先顺着动作看一遍，再打开连续短片和阶段讲解。
+## 它解决什么问题
+
+| | 能力 | 得到什么 |
+|---|---|---|
+| **01** | 三个教练专属 Skill | 刘辉、李宇轩、郑思维三套独立教学体系，不混成一个模糊的“综合教练口吻”。 |
+| **02** | 建议与证据相连 | 每次诊断都连接观察、框架、纠正方向、练习和复测目标。 |
+| **03** | 完整动作课程 | 先看连续动作，再看阶段帧；准备、动作、落地和恢复不会被拆散。 |
+| **04** | 媒体选择失败即关闭 | 一个主题不能借用另一个技术的片段；没有证据时保留缺口，不强行下结论。 |
+
+<table align="center">
+  <tr>
+    <td align="center"><strong>3</strong><br /><sub>教练 Skills</sub></td>
+    <td align="center"><strong>873</strong><br /><sub>已索引来源</sub></td>
+    <td align="center"><strong>82</strong><br /><sub>来源绑定主题</sub></td>
+    <td align="center"><strong>31</strong><br /><sub>课程路线节点</sub></td>
+    <td align="center"><strong>16</strong><br /><sub>公开动作课</sub></td>
+  </tr>
+</table>
+
+<a id="公开演示"></a>
+
+## 一次动作，从准备看到恢复
+
+下面七张图来自刘辉教练同一次高远球示范。阶段帧用于定位动作，连续短片用于理解过程。
 
 <table>
   <tr>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg" alt="刘辉高远球准备阶段" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/02-start.jpg" alt="刘辉高远球启动阶段" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/03-arrival.jpg" alt="刘辉高远球到位阶段" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg" alt="刘辉高远球高位结构阶段" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="刘辉高远球动作窗口" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/06-follow-through.jpg" alt="刘辉高远球随挥阶段" /></td>
-    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg" alt="刘辉高远球恢复阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/01-preparation.jpg" alt="高远球准备阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/02-start.jpg" alt="高远球启动阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/03-arrival.jpg" alt="高远球到位阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/04-top-elbow.jpg" alt="高远球高位结构阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="高远球动作窗口" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/06-follow-through.jpg" alt="高远球随挥阶段" /></td>
+    <td width="14%" align="center"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/07-recovery.jpg" alt="高远球恢复阶段" /></td>
   </tr>
   <tr>
-    <td align="center"><sub>01 准备</sub></td>
-    <td align="center"><sub>02 启动</sub></td>
-    <td align="center"><sub>03 到位</sub></td>
-    <td align="center"><sub>04 高位结构</sub></td>
-    <td align="center"><sub>05 动作窗口</sub></td>
-    <td align="center"><sub>06 随挥</sub></td>
-    <td align="center"><sub>07 恢复</sub></td>
+    <td align="center"><sub>准备</sub></td>
+    <td align="center"><sub>启动</sub></td>
+    <td align="center"><sub>到位</sub></td>
+    <td align="center"><sub>高位结构</sub></td>
+    <td align="center"><sub>动作窗口</sub></td>
+    <td align="center"><sub>随挥</sub></td>
+    <td align="center"><sub>恢复</sub></td>
   </tr>
 </table>
 
 <p align="center">
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开这节高远球课</strong></a>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>浏览全部 16 节公开动作课</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/pages-demo/liu-hui-high-clear/action.mp4"><strong>播放连续动作短片</strong></a>
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/pages-demo/liu-hui-high-clear/action.mp4"><strong>播放这段连续动作</strong></a>
 </p>
 
-<a id="体验"></a>
+<a id="快速开始"></a>
 
-## 一节课怎么用
+## 快速开始
 
-<table>
-  <tr>
-    <td width="25%" valign="top"><strong>01 · 选体系</strong><br /><sub>先进入一位教练的学习路线，再选择动作。</sub></td>
-    <td width="25%" valign="top"><strong>02 · 看全程</strong><br /><sub>从准备看到落地和恢复，建立完整动作认识。</sub></td>
-    <td width="25%" valign="top"><strong>03 · 拆阶段</strong><br /><sub>用七张关键帧找到每个阶段的观察重点。</sub></td>
-    <td width="25%" valign="top"><strong>04 · 回场练</strong><br /><sub>按练习方法训练，再用明确目标检查进步。</sub></td>
-  </tr>
-</table>
-
-<a id="体系"></a>
-
-## 三位教练，三条学习路线
-
-<table>
-  <tr>
-    <td width="33%" align="center" valign="top">
-      <a href="skills/liu-hui-badminton-coach/SKILL.md"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="刘辉教练高远球示范" /></a><br />
-      <strong>刘辉 · 7 节动作课</strong><br />
-      <sub>动作框架、后场变化、步法与快速交换</sub>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="skills/li-yuxuan-badminton-coach/SKILL.md"><img src="web/public/pages-demo/li-yuxuan-high-clear/keyframes/05-contact-window.jpg" alt="李宇轩教练高远球示范" /></a><br />
-      <strong>李宇轩 · 3 节动作课</strong><br />
-      <sub>时间与到位、挥拍距离、出拍后的回收</sub>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="skills/zheng-siwei-badminton-coach/SKILL.md"><img src="web/public/pages-demo/zheng-siwei-receive-cut-waist/keyframes/05-contact-window.jpg" alt="郑思维教练接发示范" /></a><br />
-      <strong>郑思维 · 6 节动作课</strong><br />
-      <sub>接发衔接、前后场转换与下一拍准备</sub>
-    </td>
-  </tr>
-</table>
-
-| 教练体系 | 学习重点 | 适合从哪里开始 |
-|---|---|---|
-| [刘辉](skills/liu-hui-badminton-coach/SKILL.md) | 动作框架、发力路线、步法、变化与实战迁移之间如何选择 | 后场高远球、杀球、吊球、步法、平抽挡、反手、发接发 |
-| [李宇轩](skills/li-yuxuan-badminton-coach/SKILL.md) | 从读球、启动、到位到出拍，时间在哪一段不够用 | 高远球、后场移动、平抽挡、网前跨步与回收 |
-| [郑思维](skills/zheng-siwei-badminton-coach/SKILL.md) | 在双打连续交换中，处理这一拍后怎样让下一拍仍可用 | 接发、前场衔接、后场进攻、受压退步和反手过渡 |
-
-<a id="课程"></a>
-
-## 16 节可直接体验的动作课
-
-公开课程页现有 16 节精选动作课。每节都有 1 段连续示范和 7 张有序阶段帧，共 112 张关键帧；你可以先看完整动作，再回到任一阶段阅读要点。
-
-<details open>
-<summary><strong>刘辉 · 7 节</strong>　从后场动作框架到快速交换</summary>
-
-| 课程 | 这节课讲什么 |
-|---|---|
-| 后场高远球 | 从到位到完整释放 |
-| 重杀 | 准备、起跳、落地与下一拍 |
-| 滑板吊球 | 准备相似、节奏变化与回收 |
-| 后场突击步法 | 中国跳、落地与退出 |
-| 平抽挡 | 紧凑准备、短出拍与回弹 |
-| 反手被动球 | 进入、伸展处理与恢复 |
-| 正手发高远球 | 转拍、前摆与完整释放 |
-</details>
-
-<details>
-<summary><strong>李宇轩 · 3 节</strong>　先解决时间与到位，再建立挥拍距离</summary>
-
-| 课程 | 这节课讲什么 |
-|---|---|
-| 高远球 | 先创造时间和挥拍距离 |
-| 平抽挡 | 短准备、早通过、快回收 |
-| 网前跨步 | 第一步、到位与退出 |
-</details>
-
-<details>
-<summary><strong>郑思维 · 6 节</strong>　双打中把这一拍接到下一拍</summary>
-
-| 课程 | 这节课讲什么 |
-|---|---|
-| 接发切腰 | 读球、进入路线、准备下一拍 |
-| 左半场接发 | 处理后继续进入下一拍 |
-| 贴网吊球 | 一次连续动作与前场压力衔接 |
-| 后场突击步法 | 移动、落地和退出都算动作 |
-| 被压后场退步 | 读球、后退处理与恢复 |
-| 反手低手位过渡 | 移动、处理与回收 |
-</details>
-
-<p>
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>打开公开课程库 →</strong></a>
-</p>
-
-## 不只看这一节，也知道下一节练什么
-
-三个体系已经整理出 31 个相互衔接的技术节点。每个节点都会标明先修内容、动作原则、练习方法、复测目标和下一步路线。更大的来源库进一步整理为 82 个来源绑定的教学单元（刘辉 33、李宇轩 31、郑思维 18）：具体打法、场景或问题会落到自己的体系路线、来源、练习和复测。主题单元不能借用其他来源或技术的媒体；只有精确私有审核后才会变成视频就绪内容。
-
-| 当前内容 | 可以怎么用 |
-|---|---|
-| 16 个完整动作课节点 | 观看连续示范和七阶段帧，跟着技术要点、练习与复测目标学习。 |
-| 15 个技术路线节点 | 先学习动作原理、练习和衔接关系；对应的完整示范仍在继续补充。 |
-
-<a id="资料"></a>
-
-## 继续探索更多内容
-
-项目已经完成 873 条来源视频的批量解析与来源绑定主题路由：刘辉 408 条、33 个主题；李宇轩 382 条、31 个主题；郑思维 83 条、18 个主题。课程页保留它们的原始标题与原平台链接，方便继续查找讲解、答疑和训练内容。
-
-页面把内容分成两个入口：**16 节公开精选课**可以直接观看连续示范，**873 条来源视频库**可以按教练和技术继续探索。
-
-<p>
-  <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>按教练和技术浏览全部内容 →</strong></a>
-</p>
-
-<details>
-<summary><strong>查看完整处理规模</strong></summary>
-
-- 873 条来源视频全部完成主批次解析，失败数为 0。
-- 407 条来源找到了连续动作候选或已就绪动作包；466 条没有找到足够可靠的连续动作。
-- 私有运行时保存了 1,281 个去重后的完整动作候选包，共 1,281 段短片和 8,967 张阶段帧，均已通过解码检查。
-- 一个来源视频可能包含多个技术和多段动作，因此 1,281 个动作包不等于 1,281 节已审课程。
-- GitHub Pages 目前只公开 16 节完成内容审核和公开范围确认的精选课程，其余结果仍保留在私有审核流程中。
-
-</details>
-
-<a id="边界"></a>
-
-<details>
-<summary><strong>关于视频判断与教学边界</strong></summary>
-
-普通单目视频不能可靠给出精确触球、拍面角度、真实内旋、握拍压力、力量大小、三维运动学或对手意图。画面不足时，系统会保留不确定性或建议补拍。
-
-三位教练的知识体系来自公开教学资料的独立整理，不代表教练本人逐条审阅、认可或授权个体诊断。
-
-</details>
-
-<a id="本地使用"></a>
-
-## 开发者使用
+安装 Python 包并查询一个教练教学路线：
 
 ```bash
 git clone https://github.com/jhxu003/BadmintonCoachSkill.git
 cd BadmintonCoachSkill
-python3 -m pip install -e .
+python3 -m pip install -e ".[test]"
 
 python3 examples/run_coach_demonstration.py \
   --coach liu-hui \
@@ -221,20 +121,130 @@ python3 examples/run_coach_demonstration.py \
   --training-goal racket_frame
 ```
 
-默认输出技术路线、教学原则和带原平台时间点的参考信息，不下载媒体。
+运行一个结构化学员案例：
+
+```bash
+python3 examples/run_usage_case.py \
+  --coach liu-hui \
+  --observation examples/observations/high_clear_late_arrival.json
+```
+
+结果会排序最值得先处理的可见问题，并返回证据、选中的框架、纠正方向、练习和复测。除非进入经过明确批准的运行时流程，否则不会下载来源媒体。
+
+在本地运行公开网页：
+
+```bash
+npm --prefix web ci
+npm --prefix web run dev
+```
+
+<a id="三个教练-skill"></a>
+
+## 三个教练 Skill，回答三类不同问题
+
+<table>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/liu-hui-badminton-coach/SKILL.md"><img src="web/public/pages-demo/liu-hui-high-clear/keyframes/05-contact-window.jpg" alt="刘辉教练高远球示范" /></a><br />
+      <strong>刘辉</strong><br />
+      <sub>动作框架、发力路线、变化、步法与实战迁移</sub>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/li-yuxuan-badminton-coach/SKILL.md"><img src="web/public/pages-demo/li-yuxuan-high-clear/keyframes/05-contact-window.jpg" alt="李宇轩教练高远球示范" /></a><br />
+      <strong>李宇轩</strong><br />
+      <sub>读球时间、启动、到位、可用挥拍距离与回收</sub>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="skills/zheng-siwei-badminton-coach/SKILL.md"><img src="web/public/pages-demo/zheng-siwei-receive-cut-waist/keyframes/05-contact-window.jpg" alt="郑思维教练接发示范" /></a><br />
+      <strong>郑思维</strong><br />
+      <sub>接发、双打站位、转换、压迫与下一拍准备</sub>
+    </td>
+  </tr>
+</table>
+
+| Skill | 最适合从什么问题开始 | 覆盖范围 |
+|---|---|---|
+| [刘辉羽毛球教练](skills/liu-hui-badminton-coach/SKILL.md) | 动作框架、发力、步法和变化应当怎样组合？ | 高远球、杀球、吊球、平抽挡、步法、反手、发接发、双打、装备与实战迁移 |
+| [李宇轩羽毛球教练](skills/li-yuxuan-badminton-coach/SKILL.md) | 从出发到击球后回收，时间在哪一段不够用？ | 头顶动作、前后场移动、平抽挡、接发、反手、装备和负荷控制 |
+| [郑思维混双教练](skills/zheng-siwei-badminton-coach/SKILL.md) | 处理这一拍后，两个人是否仍能衔接下一拍？ | 开局、前场压迫、后场进攻、轮转、防守转换、重置和搭档协作 |
+
+每个 Skill 都能在没有学员视频时讲解已审核动作，也能诊断由人工标注者或视频分析 Agent 提供的结构化观察。
+
+<a id="agent-如何工作"></a>
+
+## Agent 如何工作
+
+```mermaid
+flowchart LR
+    A[学习目标或学员视频] --> B[受边界约束的视频观察]
+    B --> C{教练 Skill 路由}
+    C --> D[刘辉]
+    C --> E[李宇轩]
+    C --> F[郑思维]
+    D --> G[优先问题 + 证据]
+    E --> G
+    F --> G
+    G --> H[纠正 + 练习 + 复测]
+```
+
+1. **观察：** 只提取画面中可见、带时间戳的事实，同时记录缺失机位和阶段。
+2. **路由：** 选择教练 Skill、适合学员的框架、动作类别和课程节点。
+3. **匹配：** 把最优先的可见问题连接到有来源支持的原则与规则。
+4. **指导：** 先返回一个纠正方向、一个练习和一个可测复测，再增加复杂度。
+5. **保持边界：** 普通单目视频不能支持的结论必须保留不确定性。
+
+[Video Agent 协议](docs/video-agent-contract.md)定义视频分析与教练诊断之间的交接；[Web 应用说明](docs/video-evidence-web-app.md)描述私有学员视频工作流。
+
+## 公开课程与私有审核
+
+公开网站包含 **16 节精选课程**，每节都有一段连续动作和七张有序阶段帧。更大的来源索引包含 **873 条公开来源记录**，路由到 **82 个教练专属主题**。
+
+这些数字代表不同阶段：
+
+| 层级 | 状态 | 含义 |
+|---|---|---|
+| 873 条来源记录 | 已索引 | 公开标题与来源链接可用于路由教学问题。 |
+| 82 个主题单元 | 知识就绪 | 每个主题都有框架、规则、练习、复测和精确来源 ID。 |
+| 31 个课程节点 | 已结构化 | 前置技术和下一步学习路线已经连接。 |
+| 16 节公开课程 | 教学就绪 | 同来源审核通过连续动作及其七张阶段帧的公开发布。 |
+
+只有标题路由并不能证明画面动作，也不能授权借用其他技术的片段。原始视频、学员上传、私有缓存、模型权重、数据库、日志、令牌和原始模型输出都不会进入 Git。
 
 <details>
-<summary><strong>项目数据、部署与发布说明</strong></summary>
+<summary><strong>查看 16 节已发布课程</strong></summary>
 
-- [技术课程结构数据](web/src/data/technique-courses.public.json)
-- [公开视频目录数据](web/public/pages-demo/catalog.json)
-- [教练 Skill 来源主题索引](skills/liu-hui-badminton-coach/references/source-topic-index.json)
-- [教练 Skill 主题教学单元](skills/liu-hui-badminton-coach/references/topic-teaching-units.json)
-- [视频网页部署文档](docs/video-evidence-web-app.md)
-- [Video Agent 接入契约](docs/video-agent-contract.md)
-- [公开 Demo 与媒体范围](docs/github-pages-demo.md)
-- [法律与数据边界](docs/legal-boundaries.md)
-
-原始视频、学员上传、私有运行时缓存、模型权重、数据库、日志、令牌与模型原始输出均不进入仓库。
+- **刘辉：** 后场高远球、重杀、劈吊、后场进攻步法、平抽挡、被动反手、正手高球发球。
+- **李宇轩：** 高远球、平抽挡、网前跨步。
+- **郑思维：** 接发切腰、左区接发、紧贴网前放网、后场进攻步法、后场受压退步、低位反手过渡。
 
 </details>
+
+## 证据边界
+
+> [!IMPORTANT]
+> 普通单目视频不能可靠确定精确触球、拍面角度、真实内旋、握拍压力、力量大小、标定后的三维运动学或对手意图。证据不足时，系统应返回不确定性或重拍建议，而不是制造精确结论。
+
+这是一个非官方的公开来源研究项目，不声称刘辉、李宇轩或郑思维本人审核、认可或授权了任何针对个人的诊断。
+
+## 文档
+
+- [公开 Demo 与媒体范围](docs/github-pages-demo.md)
+- [Video Agent 协议](docs/video-agent-contract.md)
+- [视频证据 Web 应用](docs/video-evidence-web-app.md)
+- [标注指南](docs/annotation-guide.md)
+- [法律与数据边界](docs/legal-boundaries.md)
+- [公开技术课程数据](web/src/data/technique-courses.public.json)
+- [公开来源目录](web/public/pages-demo/catalog.json)
+
+## 验证
+
+```bash
+python3 -m pytest -q
+npm --prefix web run build
+```
+
+当前基线：**90 项 Python 测试**，前端生产构建覆盖 **1,600 个模块**。
+
+## 许可证
+
+项目使用 [MIT License](LICENSE)。公开来源署名与媒体发布边界另见[法律与数据边界](docs/legal-boundaries.md)。

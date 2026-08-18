@@ -44,13 +44,13 @@
     <g transform="translate(110 352)">
       <rect width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
       <text x="20" y="31" fill="#d9ef7a" font-size="14" font-weight="700" letter-spacing="1.8">03 SYSTEMS</text>
-      <text x="20" y="56" fill="#0c3341" font-size="20" font-weight="650">3 coaches</text>
+      <text x="20" y="56" fill="#ffffff" font-size="20" font-weight="650">3 coaches</text>
       <rect x="168" width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
       <text x="188" y="31" fill="#6be7dc" font-size="14" font-weight="700" letter-spacing="1.8">16 LESSONS</text>
-      <text x="188" y="56" fill="#0c3341" font-size="20" font-weight="650">full lessons</text>
+      <text x="188" y="56" fill="#ffffff" font-size="20" font-weight="650">full lessons</text>
       <rect x="336" width="152" height="72" rx="16" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
       <text x="356" y="31" fill="#f0c86a" font-size="14" font-weight="700" letter-spacing="1.8">31 ROUTES</text>
-      <text x="356" y="56" fill="#0c3341" font-size="18" font-weight="650">learning routes</text>
+      <text x="356" y="56" fill="#ffffff" font-size="18" font-weight="650">learning routes</text>
     </g>
 
     <g transform="translate(900 136)">
@@ -74,7 +74,7 @@
       <g transform="translate(0 330)">
         <rect width="650" height="124" rx="20" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.16"/>
         <path d="M32 61H114M168 61H250M304 61H386M440 61H522" stroke="#6be7dc" stroke-width="2" stroke-opacity="0.55"/>
-        <g fill="#0c3341" font-size="16" font-weight="650">
+        <g fill="#ffffff" font-size="16" font-weight="650">
           <text x="28" y="33">Choose route</text><text x="164" y="33">Watch whole</text><text x="300" y="33">Read stages</text><text x="436" y="33">Practice again</text>
         </g>
         <g fill="#bcd6dc" font-size="14">
