@@ -1,0 +1,33 @@
+dataset:
+  name: BADS_CLL
+  repository: https://github.com/taizhouchen/BadminSense_Dataset
+  archive_url: https://drive.google.com/uc?id=10Jp0-fqgbI4Gg4-hmDnopFc3JdQNQOnc
+  archive_name: BADS_CLL_OPENACCESS_V1.zip
+  license: CC BY-NC-ND 4.0
+selection:
+  actions: [BackhandTransition, ForehandHigh, ForehandLob, ForehandKill]
+  samples_per_cell: 5
+  seed: 42
+inference:
+  sampling_fps: 8
+  max_frames: 48
+  max_new_tokens: 2048
+  retry_count: 1
+  models:
+    qwen3-vl-2b:
+      model_id: Qwen/Qwen3-VL-2B-Instruct
+      local_dir: models/Qwen3-VL-2B-Instruct
+      result_dir: qwen3_vl_2b
+    qwen25-vl-3b:
+      model_id: Qwen/Qwen2.5-VL-3B-Instruct
+      local_dir: models/Qwen2.5-VL-3B-Instruct
+      result_dir: qwen25_vl_3b
+skill:
+  coach_id: liu-hui
+  player_profile:
+    level: intermediate
+    training_goal: technique_consistency
+smoke:
+  samples_per_cell: 1
+  pass_threshold: 10
+  total: 12

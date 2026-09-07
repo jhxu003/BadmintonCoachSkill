@@ -27,6 +27,8 @@
 <p align="center">
   <a href="https://jhxu003.github.io/BadmintonCoachSkill/"><strong>Open the live demo</strong></a>
   &nbsp;·&nbsp;
+  <a href="https://jhxu003.github.io/BadmintonCoachSkill/benchmark/"><strong>Public video benchmark</strong></a>
+  &nbsp;·&nbsp;
   <a href="#quick-start"><strong>Quick start</strong></a>
   &nbsp;·&nbsp;
   <a href="#coach-skills"><strong>Coach Skills</strong></a>
@@ -49,6 +51,9 @@ visible issue → correction principle → drill → retest
 ```
 
 The project does not treat one attractive frame as proof of a complete technique. A published lesson starts with one continuous action, then uses seven ordered frames only to navigate that same movement.
+
+> [!NOTE]
+> **New research track:** the [Public Video Benchmark](experiments/public_video_benchmark/README.md) tests whether Qwen3-VL-2B and Qwen2.5-VL-3B can turn unmodified BADS_CLL stroke GIFs into schema-valid observations that drive the existing Skill. The live result browser is published at **[jhxu003.github.io/BadmintonCoachSkill/benchmark/](https://jhxu003.github.io/BadmintonCoachSkill/benchmark/)**.
 
 ## What makes it useful
 
@@ -229,6 +234,8 @@ This is a non-official public-source research project. It does not claim that Li
 ## Documentation
 
 - [Public demo and media scope](docs/github-pages-demo.md)
+- [Public Video Benchmark](experiments/public_video_benchmark/README.md)
+- [Comparison with the supplied Rally Lab project](docs/external-project-comparison.md)
 - [Video Agent contract](docs/video-agent-contract.md)
 - [Video evidence web application](docs/video-evidence-web-app.md)
 - [Annotation guide](docs/annotation-guide.md)
@@ -243,7 +250,7 @@ python3 -m pytest -q
 npm --prefix web run build
 ```
 
-Current baseline: **90 Python tests** and a production Vite build covering **1,600 modules**.
+Current baseline: **94 Python tests** and a production Vite build covering **1,600 modules**.
 
 ## License
 

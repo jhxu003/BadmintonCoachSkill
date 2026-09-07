@@ -1,0 +1,16 @@
+BackhandTransition:
+  skill_action: backhand
+  status: mapped
+  basis: Dataset name explicitly identifies a backhand transition; the current Skill exposes the broad backhand action.
+ForehandHigh:
+  skill_action: high_clear
+  status: mapped
+  basis: BadminSense maps this class to FOC (forehand overhead clear).
+ForehandLob:
+  skill_action: drop
+  status: mapped
+  basis: BadminSense maps this class to FOD (forehand overhead drop), despite the dataset-facing Lob name.
+ForehandKill:
+  skill_action: smash
+  status: mapped
+  basis: BadminSense maps this class to FOS (forehand overhead smash).

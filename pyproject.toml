@@ -20,6 +20,14 @@ badminton-coach-plan = "badminton_coach_skill.teaching_plan:main"
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
+benchmark = [
+  "Pillow>=10,<13",
+  "accelerate>=1,<2",
+  "gdown>=5,<6",
+  "huggingface-hub>=0.34,<2",
+  "qwen-vl-utils>=0.0.14,<1",
+  "transformers>=4.57,<5",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

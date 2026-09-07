@@ -47,6 +47,13 @@ build/
 /cache/
 /caches/
 /results/
+/external/
+/models/
+/experiments/public_video_benchmark/data/raw/
+/experiments/public_video_benchmark/data/selected/
+/experiments/public_video_benchmark/results/*/
+!/experiments/public_video_benchmark/results/summary/
+/experiments/public_video_benchmark/.cache/
 /screenshots/
 /plans/
 /docs/superpowers/
@@ -93,3 +100,7 @@ web/vite.config.d.ts
 !web/public/pages-demo/zheng-siwei-rear-pressure-retreat/**
 !web/public/pages-demo/zheng-siwei-backhand-low-transition/
 !web/public/pages-demo/zheng-siwei-backhand-low-transition/**
+
+# Owner-approved, unmodified BADS_CLL benchmark samples for the non-commercial Pages study.
+!web/public/benchmark/
+!web/public/benchmark/**

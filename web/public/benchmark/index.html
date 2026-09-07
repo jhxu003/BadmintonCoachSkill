@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A public-video viability benchmark for BadmintonCoachSkill and open-source Video VLMs." />
+    <title>BadmintonCoachSkill · Public Video Benchmark</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#cases">Skip to cases</a>
+    <header class="masthead">
+      <a class="brand" href="../" aria-label="Back to BadmintonCoachSkill">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>BadmintonCoachSkill</span>
+      </a>
+      <span class="edition">Public benchmark · Round 01</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Open-source video model benchmark</p>
+          <h1 id="page-title">Can a small model read the rally<br /><em>before the coach responds?</em></h1>
+          <p class="lede">Original BADS_CLL strokes move through a strict observation contract, then into the existing BadmintonCoachSkill. No fine-tuning. No invented ground truth.</p>
+        </div>
+        <div class="pipeline" aria-label="Benchmark pipeline">
+          <span>Stroke</span><i></i><span>Observer</span><i></i><span>Skill</span><i></i><span>Retest</span>
+        </div>
+      </section>
+
+      <section class="scoreboard" id="scoreboard" aria-label="Benchmark summary"></section>
+
+      <section class="boundary" aria-labelledby="boundary-title">
+        <div><span class="flag">Read this first</span><h2 id="boundary-title">A viability test, not diagnosis accuracy.</h2></div>
+        <p>BADS_CLL labels stroke type and quality rating. It does not label “late arrival” or “low elbow.” Technical issues below are model-generated hypotheses, kept visibly separate from dataset labels.</p>
+      </section>
+
+      <section class="comparison" aria-labelledby="comparison-title">
+        <div class="section-heading"><p class="eyebrow">Model comparison</p><h2 id="comparison-title">Two small observers, one fixed contract</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Model</th><th>Schema</th><th>Pipeline</th><th>Stroke</th><th>Issues · L / M / H</th><th>Runtime</th></tr></thead><tbody id="model-table"></tbody></table></div>
+      </section>
+
+      <section class="gallery" id="cases" aria-labelledby="cases-title">
+        <div class="section-heading gallery-heading"><div><p class="eyebrow">Case evidence</p><h2 id="cases-title">Follow the observation into the coaching result</h2></div><p id="case-count" class="case-count" aria-live="polite"></p></div>
+        <form class="controls" id="filters">
+          <label>Stroke<select name="stroke"><option value="all">All strokes</option></select></label>
+          <label>Quality<select name="quality"><option value="all">All tiers</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></label>
+          <label>Model<select name="model"></select></label>
+          <label>Status<select name="status"><option value="all">All runs</option><option value="success">Pipeline success</option><option value="failed">Not complete</option></select></label>
+          <label>Sort<select name="sort"><option value="quality-desc">Quality high → low</option><option value="quality-asc">Quality low → high</option><option value="issues-desc">Most issues</option><option value="issues-asc">Fewest issues</option></select></label>
+        </form>
+        <div id="case-grid" class="case-grid"></div>
+        <div id="empty" class="empty" hidden>No cases match these filters.</div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>BadmintonCoachSkill Public Video Benchmark</strong>
+      <p>Dataset samples from <a href="https://github.com/taizhouchen/BadminSense_Dataset">BadminSense / BADS_CLL</a>, distributed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Non-commercial research and evaluation only. Original selected GIFs are displayed without modification.</p>
+      <p>Model observations are automatically generated and are not ground-truth coaching annotations. Qwen model names belong to their respective authors. ExpertAF and FineDiving were reviewed for method feasibility only.</p>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>
